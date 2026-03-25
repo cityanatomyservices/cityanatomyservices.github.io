@@ -3,98 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grassless Chaps (Demo only)</title>
-  <meta name="description" content="Grassless Chaps (Demo only) - modern landscaping and outdoor services website demo." />
+  <title>Austin Lists</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --green-dark: #1f4d2e;
-      --green: #2f7d44;
-      --green-light: #46a35f;
-      --sage: #eaf3ec;
-      --cream: #f8f6f1;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --white: #ffffff;
-      --shadow: 0 10px 30px rgba(0,0,0,0.08);
-      --radius: 18px;
-      --max: 1120px;
+      --bg: #0b1220;
+      --bg-soft: #121b2d;
+      --card: rgba(255,255,255,0.08);
+      --line: rgba(255,255,255,0.14);
+      --text: #e8edf6;
+      --muted: #b9c4d8;
+      --accent: #7dd3fc;
+      --accent-2: #86efac;
+      --gold: #fde68a;
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --radius: 22px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(134, 239, 172, 0.12), transparent 24%),
+        linear-gradient(180deg, #0b1220 0%, #10192a 100%);
       color: var(--text);
-      background: linear-gradient(to bottom, #f7fbf8 0%, #f4f6f2 100%);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+      line-height: 1.55;
     }
 
     .container {
-      width: min(92%, var(--max));
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.88);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 18, 32, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       padding: 16px 0;
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
       font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--green-dark);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      font-size: 1.05rem;
     }
 
-    .brand span {
-      color: var(--green-light);
-      font-weight: 700;
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #062033;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: var(--shadow);
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 20px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-weight: 500;
+      text-decoration: none;
+      font-weight: 600;
       font-size: 0.95rem;
     }
 
-    .nav-cta {
-      background: var(--green);
-      color: white !important;
-      padding: 10px 16px;
+    .nav-links a:hover { color: var(--text); }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
       border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .cta:hover { transform: translateY(-1px); }
+    .cta-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #062033;
       box-shadow: var(--shadow);
+    }
+    .cta-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
     }
 
     .hero {
@@ -104,451 +126,340 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      gap: 30px;
       align-items: center;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--sage);
-      color: var(--green-dark);
+      gap: 10px;
       padding: 8px 14px;
       border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.88rem;
       margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(2.3rem, 5vw, 4.5rem);
-      line-height: 1.02;
-      margin: 0 0 18px;
-      letter-spacing: -0.04em;
-      color: #173822;
+      margin: 0 0 16px;
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
     }
 
     .hero p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 640px;
       margin: 0 0 26px;
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 62ch;
     }
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 26px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
-      border-radius: 14px;
-      font-weight: 700;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--green-dark);
-      border: 1px solid rgba(31,77,46,0.12);
-    }
-
-    .hero-points {
-      display: flex;
       flex-wrap: wrap;
-      gap: 16px 22px;
-      color: var(--green-dark);
-      font-weight: 600;
-      font-size: 0.95rem;
+      margin-bottom: 28px;
     }
 
-    .hero-points span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.93rem;
     }
 
     .hero-card {
-      background: white;
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,0.05);
       position: relative;
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
 
     .hero-card::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top right, rgba(70,163,95,0.18), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(31,77,46,0.12), transparent 30%);
+      inset: auto -20% -30% auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125, 211, 252, 0.23), transparent 65%);
       pointer-events: none;
     }
 
-    .yard-visual {
-      position: relative;
-      min-height: 320px;
-      border-radius: 18px;
-      background:
-        linear-gradient(180deg, #dff3ff 0%, #f3fbff 32%, #dff1dc 32%, #b9dfac 100%);
+    .mini-window {
+      border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: #0f1728;
     }
 
-    .sun {
-      width: 72px;
-      height: 72px;
-      background: #ffd86b;
+    .mini-top {
+      display: flex;
+      gap: 8px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      position: absolute;
-      top: 22px;
-      right: 24px;
-      box-shadow: 0 0 40px rgba(255,216,107,0.65);
+      background: rgba(255,255,255,0.24);
     }
 
-    .hill {
-      position: absolute;
-      bottom: -20px;
-      left: -10%;
-      width: 130%;
-      height: 120px;
-      background: #74b55e;
-      border-radius: 50%;
-    }
-
-    .hill.back {
-      bottom: 54px;
-      left: 12%;
-      width: 88%;
-      height: 90px;
-      background: #95ca7d;
-    }
-
-    .path {
-      position: absolute;
-      bottom: -5px;
-      left: 45%;
-      transform: translateX(-50%);
-      width: 130px;
-      height: 220px;
-      background: #d8c3a7;
-      border-radius: 50% 50% 0 0;
-    }
-
-    .house {
-      position: absolute;
-      left: 56px;
-      bottom: 84px;
-      width: 170px;
-      height: 110px;
-      background: #f7f2ea;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-    }
-
-    .roof {
-      position: absolute;
-      top: -42px;
-      left: -10px;
-      width: 0;
-      height: 0;
-      border-left: 95px solid transparent;
-      border-right: 95px solid transparent;
-      border-bottom: 54px solid #945b3a;
-    }
-
-    .door {
-      position: absolute;
-      bottom: 0;
-      left: 70px;
-      width: 28px;
-      height: 52px;
-      background: #8a6145;
-      border-radius: 6px 6px 0 0;
-    }
-
-    .window {
-      position: absolute;
-      top: 28px;
-      width: 28px;
-      height: 28px;
-      background: #d9f0ff;
-      border-radius: 6px;
-      border: 2px solid #c8dfe8;
-    }
-
-    .window.w1 { left: 24px; }
-    .window.w2 { right: 24px; }
-
-    .tree {
-      position: absolute;
-      bottom: 95px;
-      right: 60px;
-      width: 32px;
-      height: 72px;
-      background: #78543c;
-      border-radius: 8px;
-    }
-
-    .tree::before,
-    .tree::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: #3d9253;
-    }
-
-    .tree::before {
-      width: 82px;
-      height: 82px;
-      left: -25px;
-      top: -54px;
-    }
-
-    .tree::after {
-      width: 64px;
-      height: 64px;
-      left: -16px;
-      top: -76px;
-      background: #4daa65;
-    }
-
-    .badge-card {
-      margin-top: 18px;
+    .mini-body {
+      padding: 16px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      gap: 12px;
     }
 
-    .mini-stat {
-      background: #f8fbf8;
-      border: 1px solid rgba(31,77,46,0.08);
-      border-radius: 14px;
+    .list-card {
+      display: grid;
+      gap: 8px;
       padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .mini-stat strong {
-      display: block;
-      color: var(--green-dark);
+    .list-card strong {
       font-size: 1rem;
-      margin-bottom: 4px;
     }
 
-    .mini-stat span {
-      font-size: 0.9rem;
-      color: var(--muted);
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.12);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
     }
 
     section {
-      padding: 30px 0 70px;
+      padding: 26px 0;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 14px;
-      color: var(--green-dark);
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      letter-spacing: -0.03em;
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 24px;
     }
 
-    .section-subtitle {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 34px;
+    .section-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      margin: 0;
       color: var(--muted);
-      font-size: 1.02rem;
+      font-size: 1.04rem;
     }
 
-    .services-grid {
+    .grid-3 {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .card {
-      background: white;
-      border-radius: var(--radius);
       padding: 24px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,0.05);
     }
 
     .icon {
-      width: 56px;
-      height: 56px;
+      width: 50px;
+      height: 50px;
       border-radius: 16px;
-      background: var(--sage);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--green-dark);
-      margin-bottom: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.18), rgba(134, 239, 172, 0.18));
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .card h3 {
       margin: 0 0 10px;
-      font-size: 1.1rem;
-      color: var(--green-dark);
+      font-size: 1.15rem;
     }
 
-    .card p {
-      margin: 0;
+    .card p, .card li {
       color: var(--muted);
-      font-size: 0.96rem;
     }
 
-    .feature-band {
-      padding: 18px 0 70px;
-    }
-
-    .feature-wrap {
-      background: linear-gradient(135deg, #1f4d2e 0%, #2f7d44 100%);
-      color: white;
-      border-radius: 28px;
-      padding: 34px;
+    .split {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 22px;
-      box-shadow: var(--shadow);
+      align-items: stretch;
     }
 
-    .feature-item h3 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-    }
-
-    .feature-item p {
-      margin: 0;
-      color: rgba(255,255,255,0.84);
-    }
-
-    .cta-section {
-      padding-bottom: 84px;
-    }
-
-    .cta-box {
-      background: white;
-      border-radius: 28px;
-      padding: 40px 32px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,0.05);
-      text-align: center;
-    }
-
-    .cta-box h2 {
-      margin: 0 0 12px;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      color: var(--green-dark);
-      letter-spacing: -0.03em;
-    }
-
-    .cta-box p {
-      margin: 0 auto 24px;
-      color: var(--muted);
-      max-width: 700px;
-    }
-
-    .contact-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+    .steps {
+      display: grid;
       gap: 14px;
-      margin-top: 18px;
     }
 
-    .contact-chip {
-      background: var(--cream);
-      border: 1px solid rgba(0,0,0,0.06);
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #062033;
+      font-weight: 800;
+    }
+
+    .quote {
+      font-size: 1.08rem;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .quote strong { color: var(--gold); }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .price-card {
+      position: relative;
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+    }
+
+    .price-tag {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 8px 0 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 11px;
       border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: 600;
-      color: var(--green-dark);
+      background: rgba(134, 239, 172, 0.14);
+      color: var(--accent-2);
+      font-weight: 700;
+      font-size: 0.83rem;
     }
 
-    footer {
-      padding: 28px 0 42px;
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    ul.clean li::before {
+      content: "✓";
+      color: var(--accent-2);
+      font-weight: 800;
+      margin-right: 10px;
+    }
+
+    .footer-cta {
+      margin: 30px 0 56px;
+      padding: 30px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.16), rgba(134, 239, 172, 0.10));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-note {
       color: var(--muted);
-      text-align: center;
-      font-size: 0.95rem;
-    }
-
-    .demo-note {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #8b5e3c;
+      font-size: 0.93rem;
+      padding-bottom: 28px;
     }
 
     @media (max-width: 980px) {
       .hero-grid,
-      .services-grid,
-      .feature-wrap {
-        grid-template-columns: 1fr 1fr;
+      .split,
+      .grid-3,
+      .pricing {
+        grid-template-columns: 1fr;
       }
 
-      .hero-grid {
-        align-items: start;
+      .hero-stats {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 720px) {
-      .nav-links a:not(.nav-cta) {
-        display: none;
-      }
-
-      .hero-grid,
-      .services-grid,
-      .feature-wrap,
-      .badge-card {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 42px;
-      }
-
-      .hero-actions,
-      .contact-row,
-      .hero-points {
+      .nav {
+        gap: 16px;
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
       }
 
-      .btn,
-      .contact-chip {
-        width: 100%;
+      .nav-links {
+        gap: 14px;
       }
 
-      .yard-visual {
-        min-height: 280px;
+      h1 {
+        line-height: 1.02;
       }
 
-      .house {
-        left: 30px;
-        width: 150px;
-      }
-
-      .tree {
-        right: 36px;
+      .footer-cta {
+        padding: 24px;
       }
     }
   </style>
@@ -556,183 +467,264 @@
 <body>
   <div class="topbar">
     <div class="container nav">
-      <div class="brand">Grassless Chaps <span>(Demo only)</span></div>
+      <a href="#top" class="brand">
+        <div class="brand-mark">AL</div>
+        <span>Austin Lists</span>
+      </a>
       <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#why-us">Why Us</a>
-        <a href="#contact" class="nav-cta">Get a Quote</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#examples">What You Get</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="cta cta-primary">Get Early Access</a>
       </div>
     </div>
   </div>
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">
-          <span>🌿</span>
-          <span>Professional Outdoor Care</span>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Built for Austin businesses, researchers, and local explorers</div>
+          <h1>Better Austin business lists. Smarter local discovery.</h1>
+          <p>
+            Austin Lists turns raw public data into clean, useful, map-ready local intelligence. Instead of digging through scattered sources, you get curated Austin lists for leads, neighborhood research, local discovery, and business targeting—organized so you can actually use them.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="cta cta-primary">Request a Sample List</a>
+            <a href="#examples" class="cta cta-secondary">See What’s Included</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>Curated</strong>
+              <span>Not just raw exports dumped in your lap</span>
+            </div>
+            <div class="stat">
+              <strong>Austin-first</strong>
+              <span>Built around the city, its neighborhoods, and real local use cases</span>
+            </div>
+            <div class="stat">
+              <strong>Map-friendly</strong>
+              <span>Perfect for outreach, planning, route review, and market research</span>
+            </div>
+          </div>
         </div>
-        <h1>Clean, sharp landscaping that makes your property look taken care of.</h1>
-        <p>
-          Grassless Chaps (Demo only) is a modern landscaping website concept for a residential
-          lawn and outdoor services company. It’s built to look trustworthy, local, and easy to contact.
-        </p>
 
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">📞 Get a Free Quote</a>
-          <a href="#services" class="btn btn-secondary">🛠 View Services</a>
-        </div>
-
-        <div class="hero-points">
-          <span>✅ Fast Scheduling</span>
-          <span>✅ Residential Service</span>
-          <span>✅ Curb Appeal Focused</span>
+        <div class="hero-card">
+          <div class="mini-window">
+            <div class="mini-top">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <div class="mini-body">
+              <div class="list-card">
+                <strong>Landscaping Leads</strong>
+                <div class="pill-row">
+                  <span class="pill">Recent permits</span>
+                  <span class="pill">High-intent jobs</span>
+                  <span class="pill">Austin-area</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <strong>Coffee Shops in Austin</strong>
+                <div class="pill-row">
+                  <span class="pill">Names</span>
+                  <span class="pill">Websites</span>
+                  <span class="pill">Mapped</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <strong>Neighborhood Discovery Lists</strong>
+                <div class="pill-row">
+                  <span class="pill">Local gems</span>
+                  <span class="pill">Micro-verticals</span>
+                  <span class="pill">Easy to browse</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero-card">
-        <div class="yard-visual">
-          <div class="sun"></div>
-          <div class="hill back"></div>
-          <div class="house">
-            <div class="roof"></div>
-            <div class="window w1"></div>
-            <div class="window w2"></div>
-            <div class="door"></div>
-          </div>
-          <div class="tree"></div>
-          <div class="path"></div>
-          <div class="hill"></div>
+    <section id="examples">
+      <div class="container">
+        <div class="section-head">
+          <h2>What Austin Lists actually does</h2>
+          <p>
+            This is not another generic nationwide directory. Austin Lists is a focused local product: practical, curated, and designed around how people really search, sell, scout, and explore in Austin.
+          </p>
         </div>
-
-        <div class="badge-card">
-          <div class="mini-stat">
-            <strong>Weekly & One-Time</strong>
-            <span>Recurring maintenance or cleanup visits</span>
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3>Local business discovery</h3>
+            <p>
+              Find coffee shops, specialty stores, restaurants, service businesses, and niche categories across Austin with clean, usable list formats instead of messy search results.
+            </p>
           </div>
-          <div class="mini-stat">
-            <strong>Simple Contact Flow</strong>
-            <span>Built to drive calls and quote requests</span>
+          <div class="card">
+            <div class="icon">🧰</div>
+            <h3>Lead-generation lists</h3>
+            <p>
+              Ideal for service businesses that need likely prospects—especially when paired with permit activity, location filters, and practical local targeting.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🗺️</div>
+            <h3>Map-based value</h3>
+            <p>
+              These lists are built to work with maps and spatial review, so you can quickly understand where opportunities cluster and where the city is changing.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Services Homeowners Actually Need</h2>
-      <p class="section-subtitle">
-        This layout is designed to quickly show the core services, create confidence, and make it easy
-        for a customer to take the next step.
-      </p>
-
-      <div class="services-grid">
+    <section id="how-it-works">
+      <div class="container split">
         <div class="card">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 22c4-4 6-7 6-10a6 6 0 1 0-12 0c0 3 2 6 6 10z"></path>
-              <path d="M12 9v6"></path>
-              <path d="M9 12h6"></path>
-            </svg>
+          <div class="section-head">
+            <h2>From public data to useful local intelligence</h2>
+            <p>
+              Austin Lists is built on a simple idea: most valuable local information already exists, but it is trapped in clunky systems, scattered datasets, or generic directories. We gather, clean, organize, and package it into something worth using.
+            </p>
           </div>
-          <h3>Lawn Maintenance</h3>
-          <p>Mowing, edging, trimming, and routine yard care to keep properties looking neat and consistent.</p>
+          <p class="quote">
+            <strong>Translation:</strong> less time hunting around, more time acting on real Austin opportunities.
+          </p>
+          <a href="#pricing" class="cta cta-secondary">View packages</a>
         </div>
 
-        <div class="card">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 22V8"></path>
-              <path d="M8 12c0-2.5 1.8-4 4-4s4 1.5 4 4"></path>
-              <path d="M5 6c1.2 0 2.3.6 3 1.5"></path>
-              <path d="M19 6c-1.2 0-2.3.6-3 1.5"></path>
-              <path d="M12 2c2.2 1.4 3.5 3.3 4 5"></path>
-            </svg>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <strong>Source the signal</strong>
+              <p>We pull from strong local inputs such as public records, open datasets, and map-based business sources.</p>
+            </div>
           </div>
-          <h3>Landscape Cleanup</h3>
-          <p>Seasonal cleanup, leaf removal, bed refreshes, and overgrowth control for a cleaner appearance.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 20c6-2 10-6 12-12"></path>
-              <path d="M14 4h6v6"></path>
-              <path d="M3 21h18"></path>
-            </svg>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <strong>Clean the noise</strong>
+              <p>We filter out junk, reduce obvious low-value entries, and shape the result into a list that feels intentional rather than accidental.</p>
+            </div>
           </div>
-          <h3>Mulch & Beds</h3>
-          <p>Fresh mulch, cleaner bed lines, and straightforward upgrades that improve curb appeal fast.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 2v20"></path>
-              <path d="M7 7c0-2.5 2-4 5-4"></path>
-              <path d="M17 7c0-2.5-2-4-5-4"></path>
-              <path d="M5 14c2-1 4.5-1.5 7-1.5S17 13 19 14"></path>
-            </svg>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <strong>Package for action</strong>
+              <p>You get something simple and usable: a curated list, a map-oriented view, or a niche Austin guide that helps you move fast.</p>
+            </div>
           </div>
-          <h3>Shrub & Tree Trimming</h3>
-          <p>Light pruning and shaping to keep the front of a home looking cared for and easy to maintain.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="why-us" class="feature-band">
-    <div class="container">
-      <div class="feature-wrap">
-        <div class="feature-item">
-          <h3>Easy to Trust</h3>
-          <p>This style of site looks local, clean, and credible without feeling corporate or overpriced.</p>
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Who this is for</h2>
+          <p>
+            Austin Lists works especially well for people who care about local specificity and hate wasting time on bloated, generic tools.
+          </p>
         </div>
-        <div class="feature-item">
-          <h3>Built to Convert</h3>
-          <p>The page is simple on purpose: clear message, visible services, and strong calls to action.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Expandable Later</h3>
-          <p>This demo can later grow into a full site with reviews, galleries, quote forms, and service-area pages.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="cta-section">
-    <div class="container">
-      <div class="cta-box">
-        <h2>Ready for a clean, professional-looking yard?</h2>
-        <p>
-          This is a demo landing page meant to show the client how a simple landscaping business website
-          can look polished, modern, and ready to generate leads.
-        </p>
-
-        <div class="contact-row">
-          <a class="btn btn-primary" href="tel:+15125551234">📱 Call (512) 555-1234</a>
-          <a class="btn btn-secondary" href="mailto:hello@example.com">✉️ Email for Quote</a>
-        </div>
-
-        <div class="contact-row" style="margin-top:16px;">
-          <div class="contact-chip">Serving Austin Area</div>
-          <div class="contact-chip">Free Estimates</div>
-          <div class="contact-chip">Residential Focus</div>
-        </div>
-
-        <div class="demo-note">
-          Demo only — placeholder branding, phone, and email.
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🌿</div>
+            <h3>Service businesses</h3>
+            <p>
+              Landscapers, contractors, cleaners, and other operators who need focused local lead lists—not broad, expensive nonsense.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🏙️</div>
+            <h3>Local researchers</h3>
+            <p>
+              People studying neighborhoods, market trends, corridors, or business ecosystems inside Austin.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">☕</div>
+            <h3>Curious Austinites</h3>
+            <p>
+              Anyone who wants a smarter way to discover Austin’s businesses, categories, and hidden pockets without doom-scrolling maps all day.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container">
-      <strong>Grassless Chaps (Demo only)</strong><br />
-      Simple one-page landscaping website demo for client presentation.
-    </div>
-  </footer>
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Simple offers, clear value</h2>
+          <p>
+            Start small with low-cost lists, then move into custom Austin data products as needed.
+          </p>
+        </div>
+        <div class="pricing">
+          <div class="price-card">
+            <span class="badge">Easy entry point</span>
+            <h3>Starter Lists</h3>
+            <div class="price-tag">Low-cost</div>
+            <p>
+              Great for curated niche lists, simple local discovery products, or downloadable Austin business collections.
+            </p>
+            <ul class="clean">
+              <li>Curated Austin category list</li>
+              <li>Useful for browsing, outreach, or exploration</li>
+              <li>Fast, lightweight, easy to buy</li>
+            </ul>
+          </div>
+          <div class="price-card">
+            <span class="badge">Higher-value custom work</span>
+            <h3>Custom Local Intelligence</h3>
+            <div class="price-tag">Built to spec</div>
+            <p>
+              For businesses or professionals who want targeted lead lists, filtered permit-based opportunities, or more specialized Austin market research.
+            </p>
+            <ul class="clean">
+              <li>Targeted verticals and neighborhoods</li>
+              <li>Practical filtering and cleanup</li>
+              <li>Better than starting from scratch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card">
+          <div class="section-head">
+            <h2>Why this project feels different</h2>
+            <p>
+              Austin Lists is grounded in a local, on-the-ground understanding of the city. It combines map thinking, business practicality, and curated data work into something more useful than a generic search box.
+            </p>
+          </div>
+          <p style="margin:0; color: var(--muted); font-size:1.02rem;">
+            The goal is straightforward: give people clean, actionable Austin information they can use to make decisions, find prospects, discover places, and move faster.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container footer-cta">
+        <div>
+          <h2 style="margin:0 0 10px; font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing:-0.04em;">Get on the Austin Lists radar</h2>
+          <p style="margin:0; color: var(--muted); max-width: 56ch;">
+            Want a sample list, a custom Austin category, or an early look at the project? Reach out and say what kind of list would actually help you.
+          </p>
+        </div>
+        <a class="cta cta-primary" href="mailto:hello@austinlists.com">Contact Austin Lists</a>
+      </div>
+      <div class="container footer-note">
+        Austin Lists — curated local business lists, neighborhood intelligence, and map-ready Austin data.
+      </div>
+    </section>
+  </main>
 </body>
 </html>
