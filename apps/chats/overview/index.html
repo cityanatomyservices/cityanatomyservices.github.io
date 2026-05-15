@@ -3,30 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChatMaps · City Anatomy</title>
+  <title>ChatMaps Overview · City Anatomy</title>
   <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
   <style>
     html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #0e1117; }
     #map { position: fixed; inset: 0; }
 
-    /* ── Legend — top-right ──────────────────────────────────────── */
     .cm-legend {
       position: fixed;
       top: 14px;
       right: 14px;
-      z-index: 20;
-      background: rgba(22, 27, 35, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid #2a3040;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 10px;
-      padding: 10px 14px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+      padding: 10px 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
       font-size: 0.78rem;
-      color: #f5f7fa;
+      color: #1c1c28;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
     }
     .cm-legend h2 {
       margin: 0 0 2px;
@@ -34,7 +33,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
-      color: #c0c7d1;
+      color: #5a6472;
     }
     .cm-legend-row {
       display: flex;
@@ -45,61 +44,18 @@
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.18);
+      border: 2px solid #1a202c;
       flex-shrink: 0;
     }
     .cm-legend-row a {
-      color: #f5f7fa;
+      color: inherit;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.15s ease;
     }
-    .cm-legend-row a:hover { color: #4cc3ff; }
-
-    /* ── Brand card — bottom-center pill ──────────────────────────── */
-    .cm-brand-card {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 20;
-      background: rgba(22, 27, 35, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid #2a3040;
-      border-radius: 999px;
-      padding: 6px 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      max-width: calc(100vw - 32px);
-      white-space: nowrap;
-    }
-    .cm-brand-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 2px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #c0c7d1;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-    .cm-brand-link:hover { color: #4cc3ff; }
-    .cm-brand-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #f5f7fa;
-      line-height: 1.2;
-    }
+    .cm-legend-row a:hover { text-decoration: underline; }
 
     @media (max-width: 500px) {
       .cm-legend { top: 10px; right: 10px; padding: 8px 10px; font-size: 0.72rem; }
-      .cm-brand-card { bottom: 14px; padding: 5px 12px; }
-      .cm-brand-title { font-size: 0.88rem; }
     }
   </style>
 </head>
@@ -121,11 +77,6 @@
       <a href="/apps/chats/homelesschat/" target="_top">Feedingschat</a>
     </div>
   </aside>
-
-  <div class="cm-brand-card">
-    <a href="/" class="cm-brand-link" target="_top">City Anatomy <span aria-hidden="true">↗</span></a>
-    <span class="cm-brand-title">ChatMaps · Austin</span>
-  </div>
 
   <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
   <script>
@@ -174,6 +125,7 @@
     });
 
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
+    map.addControl(new maplibregl.NavigationControl({ showZoom: false }), 'top-right');
 
     map.on('load', async () => {
       const results = await Promise.all(
@@ -207,9 +159,9 @@
         type: 'line',
         source: 'chatmaps',
         paint: {
-          'line-color': ['get', 'color'],
-          'line-width': 2,
-          'line-opacity': 0.9,
+          'line-color': '#1a202c',
+          'line-width': 3,
+          'line-opacity': 1,
         },
       });
 
@@ -236,27 +188,21 @@
         const f = e.features?.[0];
         if (!f) return;
         const linkMap = {
-          pubchat:      '/apps/chats/pubchat/',
-          librarychat:  '/apps/chats/librarychat/',
+          pubchat: '/apps/chats/pubchat/',
+          librarychat: '/apps/chats/librarychat/',
           feedingschat: '/apps/chats/homelesschat/',
         };
-        const labelMap = {
-          pubchat:      'Pubchat',
-          librarychat:  'LibraryChat',
-          feedingschat: 'Feedingschat',
-        };
-        const href  = linkMap[f.properties.app];
-        const label = labelMap[f.properties.app] || f.properties.app;
+        const href = linkMap[f.properties.app];
         if (!href) return;
         const html = `
-          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 180px; padding: 14px 16px 16px;">
-            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: ${f.properties.color}; font-weight: 700;">${label}</div>
+          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 180px;">
+            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: ${f.properties.color}; font-weight: 700;">${f.properties.app}</div>
             <div style="font-size: 0.95rem; font-weight: 700; margin-top: 2px;">${f.properties.title}</div>
             ${f.properties.subtitle ? `<div style="font-size: 0.78rem; color: #5a6472; margin-top: 2px;">${f.properties.subtitle}</div>` : ''}
-            <a href="${href}" target="_top" style="display: block; margin-top: 10px; text-align: center; background: ${f.properties.color}; color: #fff; border-radius: 8px; padding: 7px 12px; font-size: 0.82rem; font-weight: 700; text-decoration: none;">Open ${label} ↗</a>
+            <a href="${href}" target="_top" style="display: inline-block; margin-top: 8px; font-size: 0.78rem; font-weight: 700; color: ${f.properties.color}; text-decoration: none;">Open ${f.properties.app} ↗</a>
           </div>
         `;
-        new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '260px' })
+        new maplibregl.Popup({ offset: 4, closeButton: true })
           .setLngLat(e.lngLat)
           .setHTML(html)
           .addTo(map);
@@ -270,7 +216,7 @@
         features.forEach(f => {
           f.geometry.coordinates[0].forEach(c => b.extend(c));
         });
-        map.fitBounds(b, { padding: { top: 40, bottom: 80, left: 40, right: 40 }, duration: 0, maxZoom: 12 });
+        map.fitBounds(b, { padding: 40, duration: 0, maxZoom: 12 });
       }
     });
   </script>
