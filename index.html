@@ -110,15 +110,15 @@
     <h2>ChatMaps · Austin</h2>
     <div class="cm-legend-row">
       <span class="cm-legend-dot" style="background: #e11d74"></span>
-      <a href="/apps/chats/pubchat/" target="_top">Pubchat</a>
+      <a href="/pubchat/" target="_top">Pubchat</a>
     </div>
     <div class="cm-legend-row">
       <span class="cm-legend-dot" style="background: #1a73ff"></span>
-      <a href="/apps/chats/librarychat/" target="_top">LibraryChat</a>
+      <a href="/librarychat/" target="_top">LibraryChat</a>
     </div>
     <div class="cm-legend-row">
       <span class="cm-legend-dot" style="background: #f59e0b"></span>
-      <a href="/apps/chats/homelesschat/" target="_top">Feedingschat</a>
+      <a href="/homelesschat/" target="_top">Feedingschat</a>
     </div>
   </aside>
 
@@ -130,9 +130,9 @@
   <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
   <script>
     const APPS = [
-      { id: 'pubchat',       url: '/apps/chats/pubchat/hotspots.json',      color: '#e11d74' },
-      { id: 'librarychat',   url: '/apps/chats/librarychat/hotspots.json',  color: '#1a73ff' },
-      { id: 'feedingschat',  url: '/apps/chats/homelesschat/hotspots.json', color: '#f59e0b' },
+      { id: 'pubchat',       url: '/pubchat/hotspots.json',      color: '#e11d74' },
+      { id: 'librarychat',   url: '/librarychat/hotspots.json',  color: '#1a73ff' },
+      { id: 'feedingschat',  url: '/homelesschat/hotspots.json', color: '#f59e0b' },
     ];
 
     function circlePolygon([lng, lat], radiusMeters, points = 64) {
@@ -236,9 +236,9 @@
         const f = e.features?.[0];
         if (!f) return;
         const linkMap = {
-          pubchat:      '/apps/chats/pubchat/',
-          librarychat:  '/apps/chats/librarychat/',
-          feedingschat: '/apps/chats/homelesschat/',
+          pubchat:      '/pubchat/',
+          librarychat:  '/librarychat/',
+          feedingschat: '/homelesschat/',
         };
         const labelMap = {
           pubchat:      'Pubchat',
