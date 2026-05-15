@@ -1,0 +1,61 @@
+{
+  "cityId": "atx",
+  "title": "LibraryChat · Austin",
+  "initialCamera": { "center": [-97.7264, 30.2793], "zoom": 11 },
+  "hotspots": [
+    {
+      "id": "central-library",
+      "title": "Central Library",
+      "subtitle": "Austin Public Library · Downtown",
+      "geofence": { "center": [-97.75193257776286, 30.265908397101416], "radiusMeters": 200 }
+    },
+    {
+      "id": "terrazas-branch",
+      "title": "Terrazas Branch",
+      "subtitle": "Austin Public Library",
+      "geofence": { "center": [-97.72822040649348, 30.260865548972223], "radiusMeters": 200 }
+    },
+    {
+      "id": "carver-branch",
+      "title": "Carver Branch",
+      "subtitle": "Austin Public Library",
+      "geofence": { "center": [-97.72432297184649, 30.270777138381398], "radiusMeters": 200 }
+    },
+    {
+      "id": "twin-oaks-branch",
+      "title": "Twin Oaks Branch",
+      "subtitle": "Austin Public Library",
+      "geofence": { "center": [-97.76257557135506, 30.24939428439166], "radiusMeters": 200 }
+    },
+    {
+      "id": "cepeda-branch",
+      "title": "Cepeda Branch",
+      "subtitle": "Austin Public Library",
+      "geofence": { "center": [-97.70890864305515, 30.26030372942401], "radiusMeters": 200 }
+    },
+    {
+      "id": "windsor-park-branch",
+      "title": "Windsor Park Branch",
+      "subtitle": "Austin Public Library",
+      "geofence": { "center": [-97.6902865910394, 30.314045139377033], "radiusMeters": 200 }
+    },
+    {
+      "id": "howson-branch",
+      "title": "Howson Branch",
+      "subtitle": "Austin Public Library",
+      "geofence": { "center": [-97.75551779331624, 30.301892792765695], "radiusMeters": 200 }
+    },
+    {
+      "id": "yarborough-branch",
+      "title": "Yarborough Branch",
+      "subtitle": "Austin Public Library",
+      "geofence": { "center": [-97.73354517609226, 30.32575155066204], "radiusMeters": 200 }
+    },
+    {
+      "id": "ruiz-branch",
+      "title": "Ruiz Branch",
+      "subtitle": "Austin Public Library",
+      "geofence": { "center": [-97.70678110349216, 30.232730426549768], "radiusMeters": 200 }
+    }
+  ]
+}
