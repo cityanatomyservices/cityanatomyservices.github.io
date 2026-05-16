@@ -120,6 +120,10 @@
       <span class="cm-legend-dot" style="background: #f59e0b"></span>
       <a href="/homelesschat/" target="_top">Feedingschat</a>
     </div>
+    <div class="cm-legend-row">
+      <span class="cm-legend-dot" style="background: #10b981"></span>
+      <a href="/foodtrucks/" target="_top">FoodtruckChat</a>
+    </div>
   </aside>
 
   <div class="cm-brand-card">
@@ -133,6 +137,7 @@
       { id: 'pubchat',       url: '/pubchat/hotspots.json',      color: '#e11d74' },
       { id: 'librarychat',   url: '/librarychat/hotspots.json',  color: '#1a73ff' },
       { id: 'feedingschat',  url: '/homelesschat/hotspots.json', color: '#f59e0b' },
+      { id: 'foodtrucks',    url: '/foodtrucks/hotspots.json',   color: '#10b981' },
     ];
 
     function circlePolygon([lng, lat], radiusMeters, points = 64) {
@@ -239,11 +244,13 @@
           pubchat:      '/pubchat/',
           librarychat:  '/librarychat/',
           feedingschat: '/homelesschat/',
+          foodtrucks:   '/foodtrucks/',
         };
         const labelMap = {
           pubchat:      'Pubchat',
           librarychat:  'LibraryChat',
           feedingschat: 'Feedingschat',
+          foodtrucks:   'FoodtruckChat',
         };
         const href  = linkMap[f.properties.app];
         const label = labelMap[f.properties.app] || f.properties.app;

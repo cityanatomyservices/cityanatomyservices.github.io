@@ -76,6 +76,10 @@
       <span class="cm-legend-dot" style="background: #f59e0b"></span>
       <a href="/homelesschat/" target="_top">Feedingschat</a>
     </div>
+    <div class="cm-legend-row">
+      <span class="cm-legend-dot" style="background: #10b981"></span>
+      <a href="/foodtrucks/" target="_top">FoodtruckChat</a>
+    </div>
   </aside>
 
   <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
@@ -84,6 +88,7 @@
       { id: 'pubchat',       url: '/pubchat/hotspots.json',      color: '#e11d74' },
       { id: 'librarychat',   url: '/librarychat/hotspots.json',  color: '#1a73ff' },
       { id: 'feedingschat',  url: '/homelesschat/hotspots.json', color: '#f59e0b' },
+      { id: 'foodtrucks',    url: '/foodtrucks/hotspots.json',   color: '#10b981' },
     ];
 
     function circlePolygon([lng, lat], radiusMeters, points = 64) {
@@ -191,6 +196,7 @@
           pubchat: '/pubchat/',
           librarychat: '/librarychat/',
           feedingschat: '/homelesschat/',
+          foodtrucks: '/foodtrucks/',
         };
         const href = linkMap[f.properties.app];
         if (!href) return;
