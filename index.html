@@ -184,11 +184,12 @@
     });
 
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
-    map.addControl(new maplibregl.GeolocateControl({
+    const geolocate = new maplibregl.GeolocateControl({
       positionOptions: { enableHighAccuracy: true },
       trackUserLocation: false,
       showAccuracyCircle: true,
-    }), 'top-left');
+    });
+    map.addControl(geolocate, 'top-left');
 
     map.on('load', async () => {
       const results = await Promise.all(
@@ -284,12 +285,19 @@
       map.on('mouseenter', 'chatmaps-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
       map.on('mouseleave', 'chatmaps-fill', () => { map.getCanvas().style.cursor = ''; });
 
-      if (features.length) {
-        const b = new maplibregl.LngLatBounds();
-        features.forEach(f => {
-          f.geometry.coordinates[0].forEach(c => b.extend(c));
+      // Fly to user's location on load only if permission was already granted (no prompt)
+      if (navigator.permissions) {
+        navigator.permissions.query({ name: 'geolocation' }).then(result => {
+          if (result.state === 'granted') {
+            navigator.geolocation.getCurrentPosition(pos => {
+              map.flyTo({
+                center: [pos.coords.longitude, pos.coords.latitude],
+                zoom: 12,
+                duration: 1200,
+              });
+            });
+          }
         });
-        map.fitBounds(b, { padding: { top: 40, bottom: 80, left: 40, right: 40 }, duration: 0, maxZoom: 12 });
       }
     });
   </script>
