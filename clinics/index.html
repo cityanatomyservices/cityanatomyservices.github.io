@@ -118,7 +118,7 @@
       trackUserLocation: false,
       showAccuracyCircle: true,
     }), 'top-left');
-    map.addControl(new maplibregl.NavigationControl({ showZoom: false }), 'top-right');
+    map.addControl(new maplibregl.NavigationControl({ showZoom: false }), 'top-left');
 
     const engine = new PubchatEngine(map);
 
@@ -189,7 +189,7 @@
           return this._container;
         },
         onRemove() { this._container.parentNode.removeChild(this._container); }
-      }, 'top-left');
+      }, 'top-right');
 
       // Group 2: 3D pitch toggle (separated below)
       map.addControl({

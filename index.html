@@ -228,8 +228,41 @@
       showAccuracyCircle: true,
     });
     map.addControl(geolocate, 'top-left');
+    map.addControl(new maplibregl.NavigationControl({ showZoom: false }), 'top-left');
 
     map.on('load', async () => {
+      // Satellite basemap (off by default — styled map stays as default)
+      map.addSource('satellite', {
+        type: 'raster',
+        tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
+        tileSize: 256,
+        attribution: 'Tiles &copy; Esri',
+      });
+      map.addLayer({
+        id: 'satellite-layer',
+        type: 'raster',
+        source: 'satellite',
+        layout: { visibility: 'none' },
+      }, map.getStyle().layers[1].id);
+
+      map.addControl({
+        onAdd() {
+          this._container = document.createElement('div');
+          this._container.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+          this._satBtn = document.createElement('button');
+          this._satBtn.className = 'satellite-btn';
+          this._satBtn.textContent = 'Satellite';
+          this._satBtn.onclick = () => {
+            const on = map.getLayoutProperty('satellite-layer', 'visibility') === 'visible';
+            map.setLayoutProperty('satellite-layer', 'visibility', on ? 'none' : 'visible');
+            this._satBtn.classList.toggle('active', !on);
+          };
+          this._container.appendChild(this._satBtn);
+          return this._container;
+        },
+        onRemove() { this._container.parentNode.removeChild(this._container); },
+      }, 'top-right');
+
       // 3D buildings (visible at zoom 15+)
       const layers = map.getStyle().layers;
       let labelLayerId;
