@@ -1,187 +1,97 @@
 {
   "cityId": "atx",
-  "title": "Pubchat · Austin",
-  "initialCamera": { "center": [-97.7440, 30.2680], "zoom": 12 },
+  "title": "FoodtruckChat · Austin",
+  "initialCamera": { "center": [-97.7700, 30.2900], "zoom": 10.5 },
   "hotspots": [
     {
-      "id": "white-horse",
-      "title": "The White Horse",
-      "subtitle": "East-side honky-tonk + two-step dance floor",
-      "geofence": { "center": [-97.72244, 30.26288], "radiusMeters": 100 }
+      "id": "the-picnic",
+      "title": "The Picnic",
+      "subtitle": "Barton Springs Rd · 7 trucks, covered seating, dog-friendly",
+      "geofence": { "center": [-97.7629, 30.2635], "radiusMeters": 100 }
     },
     {
-      "id": "broken-spoke",
-      "title": "The Broken Spoke",
-      "subtitle": "Classic Texas dance hall on South Lamar",
-      "geofence": { "center": [-97.78384, 30.23492], "radiusMeters": 100 }
+      "id": "thicket-food-park",
+      "title": "Thicket Food Park",
+      "subtitle": "Deep South Austin · live music, playscape, BYOB",
+      "geofence": { "center": [-97.7921, 30.1852], "radiusMeters": 100 }
     },
     {
-      "id": "little-longhorn",
-      "title": "Little Longhorn Saloon",
-      "subtitle": "Honky-tonk + Chicken Sh*t Bingo, north Austin",
-      "geofence": { "center": [-97.74006, 30.32665], "radiusMeters": 100 }
+      "id": "cosmic-coffee",
+      "title": "Cosmic Coffee + Beer Garden",
+      "subtitle": "S Lamar · multi-truck park in a permaculture garden",
+      "geofence": { "center": [-97.7631, 30.2273], "radiusMeters": 100 }
     },
     {
-      "id": "donns-depot",
-      "title": "Donn's Depot",
-      "subtitle": "Train-car piano bar + dance floor",
-      "geofence": { "center": [-97.76040, 30.27003], "radiusMeters": 100 }
-    },
-    {
-      "id": "sagebrush",
-      "title": "Sagebrush",
-      "subtitle": "South-side honky-tonk + outdoor dance hall",
-      "geofence": { "center": [-97.77530, 30.20193], "radiusMeters": 100 }
-    },
-    {
-      "id": "continental-club",
-      "title": "The Continental Club",
-      "subtitle": "Legendary South Congress live music club",
-      "geofence": { "center": [-97.74926, 30.25196], "radiusMeters": 100 }
-    },
-    {
-      "id": "cboys",
-      "title": "C-Boy's Heart & Soul",
-      "subtitle": "South Congress soul, R&B + dance floor",
-      "geofence": { "center": [-97.75065, 30.24747], "radiusMeters": 100 }
-    },
-    {
-      "id": "mohawk",
-      "title": "Mohawk",
-      "subtitle": "Red River live-music staple",
-      "geofence": { "center": [-97.73604, 30.27006], "radiusMeters": 100 }
-    },
-    {
-      "id": "hotel-vegas",
-      "title": "Hotel Vegas",
-      "subtitle": "East 6th indie live music + dance",
-      "geofence": { "center": [-97.72845, 30.26194], "radiusMeters": 100 }
-    },
-    {
-      "id": "empire-control-room",
-      "title": "Empire Control Room & Garage",
-      "subtitle": "Indoor + outdoor live music / DJs",
-      "geofence": { "center": [-97.73796, 30.26819], "radiusMeters": 100 }
-    },
-    {
-      "id": "antones",
-      "title": "Antone's Nightclub",
-      "subtitle": "Austin's home of the blues, downtown",
-      "geofence": { "center": [-97.74122, 30.26594], "radiusMeters": 100 }
-    },
-    {
-      "id": "stay-gold",
-      "title": "Stay Gold",
-      "subtitle": "East-side live-music dive bar",
-      "geofence": { "center": [-97.72387, 30.25852], "radiusMeters": 100 }
-    },
-    {
-      "id": "elephant-room",
-      "title": "The Elephant Room",
-      "subtitle": "Underground jazz club, downtown",
-      "geofence": { "center": [-97.74339, 30.26630], "radiusMeters": 100 }
-    },
-    {
-      "id": "the-parish",
-      "title": "The Parish",
-      "subtitle": "Upstairs live-music venue on 6th",
-      "geofence": { "center": [-97.74095, 30.26703], "radiusMeters": 100 }
-    },
-    {
-      "id": "emos",
-      "title": "Emo's Austin",
-      "subtitle": "Large national-touring concert venue",
-      "geofence": { "center": [-97.72925, 30.24300], "radiusMeters": 100 }
-    },
-    {
-      "id": "saxon-pub",
-      "title": "The Saxon Pub",
-      "subtitle": "Songwriter live-music room, S Lamar",
-      "geofence": { "center": [-97.76522, 30.25366], "radiusMeters": 100 }
-    },
-    {
-      "id": "skylark-lounge",
-      "title": "Skylark Lounge",
-      "subtitle": "East-side blues + soul lounge",
-      "geofence": { "center": [-97.70805, 30.29248], "radiusMeters": 100 }
-    },
-    {
-      "id": "sahara-lounge",
-      "title": "Sahara Lounge",
-      "subtitle": "Eclectic far-east-side world music venue",
-      "geofence": { "center": [-97.70123, 30.28072], "radiusMeters": 100 }
-    },
-    {
-      "id": "carousel-lounge",
-      "title": "Carousel Lounge",
-      "subtitle": "Circus-themed live music dive bar",
-      "geofence": { "center": [-97.71385, 30.31530], "radiusMeters": 100 }
-    },
-    {
-      "id": "acl-live-moody",
-      "title": "ACL Live at the Moody Theater",
-      "subtitle": "Flagship downtown concert hall",
-      "geofence": { "center": [-97.74763, 30.26483], "radiusMeters": 100 }
+      "id": "the-yard-st-elmo",
+      "title": "The Yard (St. Elmo)",
+      "subtitle": "St. Elmo · anchored by St. Elmo Brewing, rotating trucks",
+      "geofence": { "center": [-97.7612, 30.2174], "radiusMeters": 120 }
     },
     {
       "id": "far-out-lounge",
       "title": "The Far Out Lounge & Stage",
-      "subtitle": "Big outdoor music yard, far south",
-      "geofence": { "center": [-97.79020, 30.17600], "radiusMeters": 100 }
+      "subtitle": "S Congress · alfresco music venue with trucks + two bars",
+      "geofence": { "center": [-97.7857, 30.1727], "radiusMeters": 150 }
     },
     {
-      "id": "maggie-maes",
-      "title": "Maggie Mae's",
-      "subtitle": "Multi-stage 6th Street live music + dance",
-      "geofence": { "center": [-97.73945, 30.26706], "radiusMeters": 100 }
+      "id": "arbor-food-park",
+      "title": "Arbor Food Park",
+      "subtitle": "East 12th · Cuantos Tacos, Dough Boys, Comal ATX",
+      "geofence": { "center": [-97.7283, 30.2727], "radiusMeters": 100 }
     },
     {
-      "id": "kingdom",
-      "title": "Kingdom Nightclub",
-      "subtitle": "Big-room EDM + house dance club",
-      "geofence": { "center": [-97.74704, 30.26926], "radiusMeters": 100 }
+      "id": "buzz-mill",
+      "title": "The Buzz Mill",
+      "subtitle": "Riverside · 24/7 coffee bar with truck-lined patio",
+      "geofence": { "center": [-97.7269, 30.2417], "radiusMeters": 100 }
     },
     {
-      "id": "vulcan-gas-company",
-      "title": "Vulcan Gas Company",
-      "subtitle": "DJs + dance club on 6th Street",
-      "geofence": { "center": [-97.73900, 30.26715], "radiusMeters": 100 }
+      "id": "1311-south-1st",
+      "title": "1311 South 1st (Ira & Bev's)",
+      "subtitle": "Bouldin Creek · Bananarchy, Pig Pen BBQ, Eggman",
+      "geofence": { "center": [-97.7543, 30.2507], "radiusMeters": 100 }
     },
     {
-      "id": "the-highball",
-      "title": "The Highball",
-      "subtitle": "Karaoke, bowling + live music on S Lamar",
-      "geofence": { "center": [-97.76300, 30.25612], "radiusMeters": 100 }
+      "id": "mueller-trailer-eats",
+      "title": "Mueller Trailer Eats",
+      "subtitle": "Mueller · trailer cluster by the historic Browning Hangar",
+      "geofence": { "center": [-97.7077, 30.2966], "radiusMeters": 120 }
     },
     {
-      "id": "summit-rooftop",
-      "title": "Summit Rooftop Lounge",
-      "subtitle": "Rooftop DJs + dancing downtown",
-      "geofence": { "center": [-97.74373, 30.26648], "radiusMeters": 100 }
+      "id": "webberville-food-park",
+      "title": "Webberville Food Truck Park",
+      "subtitle": "East Austin · Veracruz, Desnudo Coffee, The Marylander",
+      "geofence": { "center": [-97.7137, 30.2631], "radiusMeters": 100 }
     },
     {
-      "id": "oilcan-harrys",
-      "title": "Oilcan Harry's",
-      "subtitle": "Iconic Warehouse District LGBTQ+ dance club",
-      "geofence": { "center": [-97.74552, 30.26611], "radiusMeters": 100 }
+      "id": "5000-burnet",
+      "title": "5000 Burnet",
+      "subtitle": "Brentwood · 12 trailers, fenced playscape, BYOB",
+      "geofence": { "center": [-97.7395, 30.3212], "radiusMeters": 100 }
     },
     {
-      "id": "esthers-follies",
-      "title": "Esther's Follies",
-      "subtitle": "6th Street comedy + magic revue",
-      "geofence": { "center": [-97.73815, 30.26723], "radiusMeters": 100 }
+      "id": "south-first-food-court",
+      "title": "South First Food Court",
+      "subtitle": "S 1st & Live Oak · rotating trucks + outdoor seating",
+      "geofence": { "center": [-97.7580, 30.2444], "radiusMeters": 100 }
     },
     {
-      "id": "cap-city-comedy",
-      "title": "Cap City Comedy Club",
-      "subtitle": "Big-name stand-up club near the Domain",
-      "geofence": { "center": [-97.71820, 30.40165], "radiusMeters": 100 }
+      "id": "hungry-yard",
+      "title": "The Hungry Yard",
+      "subtitle": "NW Austin · 10+ trailers along RR 620 near Lake Travis",
+      "geofence": { "center": [-97.8415, 30.4321], "radiusMeters": 150 }
     },
     {
-      "id": "coldtowne-theater",
-      "title": "ColdTowne Theater",
-      "subtitle": "Improv + sketch comedy on Airport Blvd",
-      "geofence": { "center": [-97.71587, 30.30714], "radiusMeters": 100 }
+      "id": "900-springdale",
+      "title": "900 Springdale Food Park",
+      "subtitle": "East Austin · grassy triangle on the Walnut Creek Trail",
+      "geofence": { "center": [-97.6988, 30.2611], "radiusMeters": 100 }
+    },
+    {
+      "id": "pink-flamingo",
+      "title": "Pink Flamingo Food Court",
+      "subtitle": "NW Austin · 2025-opened park with beer/wine garden",
+      "geofence": { "center": [-97.7659, 30.4349], "radiusMeters": 120 }
     }
   ]
 }
