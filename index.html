@@ -61,6 +61,60 @@
     }
     .cm-legend-row a:hover { color: #4cc3ff; }
 
+    /* ── Hamburger + collapsible legend body ─────────────────────── */
+    .cm-legend { gap: 0; }
+    .cm-legend h2 { margin: 0; }
+    .cm-legend-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .cm-hamburger {
+      background: none;
+      border: none;
+      color: #c0c7d1;
+      font-size: 1.15rem;
+      cursor: pointer;
+      padding: 1px 3px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cm-hamburger:hover { color: #4cc3ff; }
+    .cm-legend-body { display: flex; flex-direction: column; gap: 7px; }
+    .cm-legend-body.cm-collapsed { display: none; }
+
+    /* ── "All" checkbox row ──────────────────────────────────────── */
+    .cm-legend-all-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #2a3040;
+      margin-bottom: 1px;
+      user-select: none;
+    }
+    .cm-legend-all-label { font-weight: 700; color: #f5f7fa; font-size: 0.78rem; }
+
+    /* ── Per-category checkbox+dot label ────────────────────────── */
+    .cm-filter-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      line-height: 0;
+      flex-shrink: 0;
+    }
+    .cm-filter-cb, #cm-filter-all {
+      accent-color: #4cc3ff;
+      width: 13px;
+      height: 13px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
     /* ── Social icon bar — bottom-center pill ─────────────────────── */
     .cm-brand-card {
       position: fixed;
@@ -125,70 +179,127 @@
   <div id="map"></div>
 
   <aside class="cm-legend" aria-label="ChatMaps legend">
-    <h2><a href="/" target="_top">Austin Chat</a></h2>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #e11d74"></span>
-      <a href="/pubchat/" target="_top">Pubs &amp; Bars</a>
+    <div class="cm-legend-header">
+      <h2><a href="/" target="_top">Austin Chat</a></h2>
+      <button class="cm-hamburger" id="cm-hamburger" aria-label="Toggle legend">&#9776;</button>
     </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #10b981"></span>
-      <a href="/foodtrucks/" target="_top">Food Trucks</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #1a73ff"></span>
-      <a href="/librarychat/" target="_top">Libraries</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #16a34a"></span>
-      <a href="/parks/" target="_top">Parks</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #a16207"></span>
-      <a href="/museums/" target="_top">Museums</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #1e40af"></span>
-      <a href="/capital/" target="_top">Capitol</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #bf5700"></span>
-      <a href="/campuses/" target="_top">Campuses</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #ef4444"></span>
-      <a href="/clinics/" target="_top">Hospitals</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #38bdf8"></span>
-      <a href="/pools/" target="_top">Pools</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #7c3aed"></span>
-      <a href="/HEBs/" target="_top">H-E-B</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #4f46e5"></span>
-      <a href="/walmart/" target="_top">Walmart</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #c026d3"></span>
-      <a href="/target/" target="_top">Target</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #14b8a6"></span>
-      <a href="/newcomers/" target="_top">Newcomers</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #475569"></span>
-      <a href="/apartments/" target="_top">Apartments</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #0891b2"></span>
-      <a href="/hotels/" target="_top">Hotels</a>
-    </div>
-    <div class="cm-legend-row">
-      <span class="cm-legend-dot" style="background: #facc15"></span>
-      <a href="/sports/" target="_top">Sports Venues</a>
+    <div class="cm-legend-body" id="cm-legend-body">
+      <label class="cm-legend-all-row">
+        <input type="checkbox" id="cm-filter-all" checked>
+        <span class="cm-legend-all-label">All</span>
+      </label>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="pubchat" checked>
+          <span class="cm-legend-dot" style="background: #e11d74"></span>
+        </label>
+        <a href="/pubchat/" target="_top">Pubs &amp; Bars</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="foodtrucks" checked>
+          <span class="cm-legend-dot" style="background: #10b981"></span>
+        </label>
+        <a href="/foodtrucks/" target="_top">Food Trucks</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="librarychat" checked>
+          <span class="cm-legend-dot" style="background: #1a73ff"></span>
+        </label>
+        <a href="/librarychat/" target="_top">Libraries</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="parks" checked>
+          <span class="cm-legend-dot" style="background: #16a34a"></span>
+        </label>
+        <a href="/parks/" target="_top">Parks</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="museums" checked>
+          <span class="cm-legend-dot" style="background: #a16207"></span>
+        </label>
+        <a href="/museums/" target="_top">Museums</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="capital" checked>
+          <span class="cm-legend-dot" style="background: #1e40af"></span>
+        </label>
+        <a href="/capital/" target="_top">Capitol</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="campuses" checked>
+          <span class="cm-legend-dot" style="background: #bf5700"></span>
+        </label>
+        <a href="/campuses/" target="_top">Campuses</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="clinics" checked>
+          <span class="cm-legend-dot" style="background: #ef4444"></span>
+        </label>
+        <a href="/clinics/" target="_top">Hospitals</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="pools" checked>
+          <span class="cm-legend-dot" style="background: #38bdf8"></span>
+        </label>
+        <a href="/pools/" target="_top">Pools</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="hebs" checked>
+          <span class="cm-legend-dot" style="background: #7c3aed"></span>
+        </label>
+        <a href="/HEBs/" target="_top">H-E-B</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="walmart" checked>
+          <span class="cm-legend-dot" style="background: #4f46e5"></span>
+        </label>
+        <a href="/walmart/" target="_top">Walmart</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="target" checked>
+          <span class="cm-legend-dot" style="background: #c026d3"></span>
+        </label>
+        <a href="/target/" target="_top">Target</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="newcomers" checked>
+          <span class="cm-legend-dot" style="background: #14b8a6"></span>
+        </label>
+        <a href="/newcomers/" target="_top">Newcomers</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="apartments" checked>
+          <span class="cm-legend-dot" style="background: #475569"></span>
+        </label>
+        <a href="/apartments/" target="_top">Apartments</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="hotels" checked>
+          <span class="cm-legend-dot" style="background: #0891b2"></span>
+        </label>
+        <a href="/hotels/" target="_top">Hotels</a>
+      </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="sports" checked>
+          <span class="cm-legend-dot" style="background: #facc15"></span>
+        </label>
+        <a href="/sports/" target="_top">Sports Venues</a>
+      </div>
     </div>
   </aside>
 
@@ -439,6 +550,54 @@
             });
           }
         });
+      }
+
+      // ── Legend filter logic ──────────────────────────────────────
+      const FILTER_LAYERS = ['chatmaps-fill', 'chatmaps-outline', 'chatmaps-label'];
+
+      function applyMapFilter() {
+        const checked = [...document.querySelectorAll('.cm-filter-cb:checked')]
+                          .map(cb => cb.dataset.app);
+        const allIds  = APPS.map(a => a.id);
+
+        let filter;
+        if (checked.length === allIds.length) {
+          filter = null;
+        } else if (checked.length === 0) {
+          filter = ['==', ['get', 'app'], '__none__'];
+        } else {
+          filter = ['in', ['get', 'app'], ['literal', checked]];
+        }
+
+        FILTER_LAYERS.forEach(layerId => map.setFilter(layerId, filter));
+
+        const allCb = document.getElementById('cm-filter-all');
+        allCb.indeterminate = checked.length > 0 && checked.length < allIds.length;
+        allCb.checked       = checked.length === allIds.length;
+
+        localStorage.setItem('cm-filters', JSON.stringify(checked));
+      }
+
+      document.getElementById('cm-filter-all').addEventListener('change', e => {
+        document.querySelectorAll('.cm-filter-cb')
+          .forEach(cb => { cb.checked = e.target.checked; });
+        applyMapFilter();
+      });
+
+      document.querySelectorAll('.cm-filter-cb').forEach(cb => {
+        cb.addEventListener('change', applyMapFilter);
+      });
+
+      document.getElementById('cm-hamburger').addEventListener('click', () => {
+        document.getElementById('cm-legend-body').classList.toggle('cm-collapsed');
+      });
+
+      const savedFilters = JSON.parse(localStorage.getItem('cm-filters') || 'null');
+      if (savedFilters) {
+        document.querySelectorAll('.cm-filter-cb').forEach(cb => {
+          cb.checked = savedFilters.includes(cb.dataset.app);
+        });
+        applyMapFilter();
       }
     });
   </script>
