@@ -1,0 +1,151 @@
+{
+  "cityId": "atx",
+  "title": "HEBchat · Austin",
+  "initialCamera": { "center": [-97.7500, 30.3500], "zoom": 10 },
+  "hotspots": [
+    {
+      "id": "heb-mueller",
+      "title": "H-E-B Mueller",
+      "subtitle": "1801 E 51st St, Austin 78723",
+      "geofence": { "center": [-97.7039, 30.3024], "radiusMeters": 150 }
+    },
+    {
+      "id": "heb-hancock",
+      "title": "H-E-B Hancock Center",
+      "subtitle": "1000 E 41st St, Austin 78751",
+      "geofence": { "center": [-97.7180, 30.3022], "radiusMeters": 120 }
+    },
+    {
+      "id": "heb-east-7th",
+      "title": "H-E-B East 7th",
+      "subtitle": "2400 E 7th St, Austin 78702",
+      "geofence": { "center": [-97.7140, 30.2604], "radiusMeters": 120 }
+    },
+    {
+      "id": "heb-south-congress",
+      "title": "H-E-B South Congress",
+      "subtitle": "2400 S Congress Ave, Austin 78704",
+      "geofence": { "center": [-97.7517, 30.2440], "radiusMeters": 120 }
+    },
+    {
+      "id": "heb-riverside",
+      "title": "H-E-B Riverside",
+      "subtitle": "2701 E Riverside Dr, Austin 78741",
+      "geofence": { "center": [-97.7242, 30.2376], "radiusMeters": 120 }
+    },
+    {
+      "id": "heb-westgate",
+      "title": "H-E-B Westgate",
+      "subtitle": "4477 S Lamar Blvd, Austin 78745",
+      "geofence": { "center": [-97.7984, 30.2274], "radiusMeters": 150 }
+    },
+    {
+      "id": "heb-brodie-lane",
+      "title": "H-E-B Brodie Lane",
+      "subtitle": "6900 Brodie Ln, Austin 78745",
+      "geofence": { "center": [-97.8328, 30.2225], "radiusMeters": 150 }
+    },
+    {
+      "id": "heb-slaughter-lane",
+      "title": "H-E-B Slaughter Lane",
+      "subtitle": "5800 W Slaughter Ln, Austin 78749",
+      "geofence": { "center": [-97.8723, 30.1854], "radiusMeters": 150 }
+    },
+    {
+      "id": "heb-oak-hill",
+      "title": "H-E-B Oak Hill",
+      "subtitle": "7301 W Hwy 71, Austin 78735",
+      "geofence": { "center": [-97.8589, 30.2412], "radiusMeters": 150 }
+    },
+    {
+      "id": "heb-allandale",
+      "title": "H-E-B Allandale",
+      "subtitle": "5808 Burnet Rd, Austin 78756",
+      "geofence": { "center": [-97.7373, 30.3380], "radiusMeters": 120 }
+    },
+    {
+      "id": "heb-bee-cave",
+      "title": "H-E-B Bee Cave",
+      "subtitle": "12400 Bee Cave Pkwy, Bee Cave 78738",
+      "geofence": { "center": [-97.9666, 30.3068], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-lakeway",
+      "title": "H-E-B Lakeway",
+      "subtitle": "2300 Lohmans Spur, Lakeway 78734",
+      "geofence": { "center": [-97.9930, 30.3593], "radiusMeters": 150 }
+    },
+    {
+      "id": "heb-cedar-park-lakeline",
+      "title": "H-E-B Cedar Park (Lakeline)",
+      "subtitle": "11521 Pavilion Blvd, Cedar Park 78613",
+      "geofence": { "center": [-97.8167, 30.4675], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-cedar-park-whitestone",
+      "title": "H-E-B Cedar Park (Whitestone)",
+      "subtitle": "1335 E Whitestone Blvd, Cedar Park 78613",
+      "geofence": { "center": [-97.8083, 30.5290], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-leander",
+      "title": "H-E-B Leander",
+      "subtitle": "651 N US 183, Leander 78641",
+      "geofence": { "center": [-97.8537, 30.5734], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-round-rock-university",
+      "title": "H-E-B Round Rock (University Oaks)",
+      "subtitle": "1801 E Old Settlers Blvd, Round Rock 78664",
+      "geofence": { "center": [-97.6555, 30.5380], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-round-rock-620",
+      "title": "H-E-B Round Rock (Hwy 620)",
+      "subtitle": "16900 RM 620, Round Rock 78681",
+      "geofence": { "center": [-97.7770, 30.5180], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-pflugerville",
+      "title": "H-E-B Pflugerville",
+      "subtitle": "1601 E Pecan St, Pflugerville 78660",
+      "geofence": { "center": [-97.6088, 30.4385], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-hutto",
+      "title": "H-E-B Hutto",
+      "subtitle": "140 Ed Schmidt Blvd, Hutto 78634",
+      "geofence": { "center": [-97.5468, 30.5459], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-georgetown-williams",
+      "title": "H-E-B Georgetown (Williams Dr)",
+      "subtitle": "1900 N Austin Ave, Georgetown 78626",
+      "geofence": { "center": [-97.6796, 30.6661], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-buda",
+      "title": "H-E-B Buda",
+      "subtitle": "1100 Main St, Buda 78610",
+      "geofence": { "center": [-97.8420, 30.0822], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-kyle",
+      "title": "H-E-B Kyle",
+      "subtitle": "5401 Marketplace Ave, Kyle 78640",
+      "geofence": { "center": [-97.8765, 30.0048], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-tech-ridge",
+      "title": "H-E-B Tech Ridge",
+      "subtitle": "12434 N IH-35, Austin 78753",
+      "geofence": { "center": [-97.6720, 30.4085], "radiusMeters": 180 }
+    },
+    {
+      "id": "heb-manor",
+      "title": "H-E-B Manor",
+      "subtitle": "12407 N FM 973, Manor 78653",
+      "geofence": { "center": [-97.5573, 30.3460], "radiusMeters": 180 }
+    }
+  ]
+}
