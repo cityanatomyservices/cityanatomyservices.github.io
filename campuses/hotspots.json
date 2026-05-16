@@ -1,127 +1,253 @@
 {
   "cityId": "atx",
-  "title": "Campuschat · Austin",
-  "initialCamera": { "center": [-97.7400, 30.3200], "zoom": 10 },
+  "title": "Campuschat \u00b7 Austin",
+  "initialCamera": {
+    "center": [
+      -97.74,
+      30.32
+    ],
+    "zoom": 10
+  },
   "hotspots": [
     {
       "id": "ut-austin",
       "title": "UT Austin",
-      "subtitle": "University of Texas · Main Campus",
-      "geofence": { "center": [-97.7393, 30.2849], "radiusMeters": 500 }
+      "subtitle": "University of Texas \u00b7 Main Campus",
+      "geofence": {
+        "center": [
+          -97.7393,
+          30.2849
+        ],
+        "radiusMeters": 800
+      }
     },
     {
       "id": "ut-dell-med",
       "title": "Dell Medical School",
-      "subtitle": "UT Health · 1501 Red River St",
-      "geofence": { "center": [-97.7311, 30.2785], "radiusMeters": 200 }
+      "subtitle": "UT Health \u00b7 1501 Red River St",
+      "geofence": {
+        "center": [
+          -97.7311,
+          30.2785
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "ut-pickle",
       "title": "UT Pickle Research Campus",
-      "subtitle": "10100 Burnet Rd · North Austin",
-      "geofence": { "center": [-97.7244, 30.3895], "radiusMeters": 350 }
+      "subtitle": "10100 Burnet Rd \u00b7 North Austin",
+      "geofence": {
+        "center": [
+          -97.7244,
+          30.3895
+        ],
+        "radiusMeters": 500
+      }
     },
     {
       "id": "st-edwards",
       "title": "St. Edward's University",
-      "subtitle": "3001 S Congress Ave · South Austin",
-      "geofence": { "center": [-97.7676, 30.2330], "radiusMeters": 350 }
+      "subtitle": "3001 S Congress Ave \u00b7 South Austin",
+      "geofence": {
+        "center": [
+          -97.7676,
+          30.233
+        ],
+        "radiusMeters": 500
+      }
     },
     {
       "id": "huston-tillotson",
       "title": "Huston-Tillotson University",
-      "subtitle": "900 Chicon St · East Austin",
-      "geofence": { "center": [-97.7166, 30.2683], "radiusMeters": 200 }
+      "subtitle": "900 Chicon St \u00b7 East Austin",
+      "geofence": {
+        "center": [
+          -97.7166,
+          30.2683
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "concordia",
       "title": "Concordia University Texas",
-      "subtitle": "11400 Concordia University Dr · NW Austin",
-      "geofence": { "center": [-97.8222, 30.4329], "radiusMeters": 350 }
+      "subtitle": "11400 Concordia University Dr \u00b7 NW Austin",
+      "geofence": {
+        "center": [
+          -97.8222,
+          30.4329
+        ],
+        "radiusMeters": 500
+      }
     },
     {
       "id": "austin-seminary",
       "title": "Austin Presbyterian Theological Seminary",
-      "subtitle": "100 E 27th St · West Campus",
-      "geofence": { "center": [-97.7382, 30.2891], "radiusMeters": 150 }
+      "subtitle": "100 E 27th St \u00b7 West Campus",
+      "geofence": {
+        "center": [
+          -97.7382,
+          30.2891
+        ],
+        "radiusMeters": 250
+      }
     },
     {
       "id": "seminary-southwest",
       "title": "Seminary of the Southwest",
-      "subtitle": "501 E 32nd St · UT area",
-      "geofence": { "center": [-97.7273, 30.2944], "radiusMeters": 150 }
+      "subtitle": "501 E 32nd St \u00b7 UT area",
+      "geofence": {
+        "center": [
+          -97.7273,
+          30.2944
+        ],
+        "radiusMeters": 250
+      }
     },
     {
       "id": "acc-highland",
       "title": "ACC Highland",
-      "subtitle": "6101 Highland Campus Dr · Central",
-      "geofence": { "center": [-97.7060, 30.3284], "radiusMeters": 250 }
+      "subtitle": "6101 Highland Campus Dr \u00b7 Central",
+      "geofence": {
+        "center": [
+          -97.706,
+          30.3284
+        ],
+        "radiusMeters": 400
+      }
     },
     {
       "id": "acc-rio-grande",
       "title": "ACC Rio Grande",
-      "subtitle": "1212 Rio Grande St · Downtown",
-      "geofence": { "center": [-97.7458, 30.2761], "radiusMeters": 150 }
+      "subtitle": "1212 Rio Grande St \u00b7 Downtown",
+      "geofence": {
+        "center": [
+          -97.7458,
+          30.2761
+        ],
+        "radiusMeters": 250
+      }
     },
     {
       "id": "acc-riverside",
       "title": "ACC Riverside",
-      "subtitle": "1020 Grove Blvd · East Riverside",
-      "geofence": { "center": [-97.7178, 30.2375], "radiusMeters": 200 }
+      "subtitle": "1020 Grove Blvd \u00b7 East Riverside",
+      "geofence": {
+        "center": [
+          -97.7178,
+          30.2375
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "acc-eastview",
       "title": "ACC Eastview",
-      "subtitle": "3401 Webberville Rd · East Austin",
-      "geofence": { "center": [-97.6975, 30.2773], "radiusMeters": 200 }
+      "subtitle": "3401 Webberville Rd \u00b7 East Austin",
+      "geofence": {
+        "center": [
+          -97.6975,
+          30.2773
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "acc-south",
       "title": "ACC South Austin",
-      "subtitle": "1820 W Stassney Ln · South Austin",
-      "geofence": { "center": [-97.7898, 30.2199], "radiusMeters": 200 }
+      "subtitle": "1820 W Stassney Ln \u00b7 South Austin",
+      "geofence": {
+        "center": [
+          -97.7898,
+          30.2199
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "acc-northridge",
       "title": "ACC Northridge",
-      "subtitle": "11928 Stonehollow Dr · North Austin",
-      "geofence": { "center": [-97.7034, 30.4135], "radiusMeters": 200 }
+      "subtitle": "11928 Stonehollow Dr \u00b7 North Austin",
+      "geofence": {
+        "center": [
+          -97.7034,
+          30.4135
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "acc-round-rock",
       "title": "ACC Round Rock",
-      "subtitle": "4400 College Park Dr · Round Rock",
-      "geofence": { "center": [-97.6394, 30.5611], "radiusMeters": 250 }
+      "subtitle": "4400 College Park Dr \u00b7 Round Rock",
+      "geofence": {
+        "center": [
+          -97.6394,
+          30.5611
+        ],
+        "radiusMeters": 500
+      }
     },
     {
       "id": "acc-cypress-creek",
       "title": "ACC Cypress Creek",
-      "subtitle": "1555 Cypress Creek Rd · Cedar Park",
-      "geofence": { "center": [-97.8294, 30.4847], "radiusMeters": 200 }
+      "subtitle": "1555 Cypress Creek Rd \u00b7 Cedar Park",
+      "geofence": {
+        "center": [
+          -97.8294,
+          30.4847
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "acc-hays",
       "title": "ACC Hays",
-      "subtitle": "1200 Kohlers Crossing · Kyle",
-      "geofence": { "center": [-97.8593, 30.0050], "radiusMeters": 200 }
+      "subtitle": "1200 Kohlers Crossing \u00b7 Kyle",
+      "geofence": {
+        "center": [
+          -97.8593,
+          30.005
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "acc-elgin",
       "title": "ACC Elgin",
-      "subtitle": "1501 US-290 · Elgin",
-      "geofence": { "center": [-97.4093, 30.3367], "radiusMeters": 200 }
+      "subtitle": "1501 US-290 \u00b7 Elgin",
+      "geofence": {
+        "center": [
+          -97.4093,
+          30.3367
+        ],
+        "radiusMeters": 350
+      }
     },
     {
       "id": "southwestern",
       "title": "Southwestern University",
-      "subtitle": "1001 E University Ave · Georgetown",
-      "geofence": { "center": [-97.6722, 30.6309], "radiusMeters": 400 }
+      "subtitle": "1001 E University Ave \u00b7 Georgetown",
+      "geofence": {
+        "center": [
+          -97.6722,
+          30.6309
+        ],
+        "radiusMeters": 600
+      }
     },
     {
       "id": "texas-state",
       "title": "Texas State University",
-      "subtitle": "601 University Dr · San Marcos",
-      "geofence": { "center": [-97.9425, 29.8884], "radiusMeters": 500 }
+      "subtitle": "601 University Dr \u00b7 San Marcos",
+      "geofence": {
+        "center": [
+          -97.9425,
+          29.8884
+        ],
+        "radiusMeters": 800
+      }
     }
   ]
 }
