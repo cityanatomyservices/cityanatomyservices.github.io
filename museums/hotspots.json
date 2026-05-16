@@ -1,0 +1,133 @@
+{
+  "cityId": "atx",
+  "title": "Museumschat · Austin",
+  "initialCamera": { "center": [-97.7400, 30.2800], "zoom": 12 },
+  "hotspots": [
+    {
+      "id": "museum-bullock",
+      "title": "Bullock Texas State History Museum",
+      "subtitle": "1800 N Congress Ave · The Story of Texas",
+      "geofence": { "center": [-97.7388, 30.2806], "radiusMeters": 180 }
+    },
+    {
+      "id": "museum-blanton",
+      "title": "Blanton Museum of Art",
+      "subtitle": "200 E MLK Jr Blvd · UT's flagship art museum",
+      "geofence": { "center": [-97.7383, 30.2806], "radiusMeters": 150 }
+    },
+    {
+      "id": "museum-lbj-library",
+      "title": "LBJ Presidential Library",
+      "subtitle": "2313 Red River St · UT campus",
+      "geofence": { "center": [-97.7290, 30.2856], "radiusMeters": 180 }
+    },
+    {
+      "id": "museum-harry-ransom",
+      "title": "Harry Ransom Center",
+      "subtitle": "300 W 21st St · UT humanities archive &amp; galleries",
+      "geofence": { "center": [-97.7416, 30.2842], "radiusMeters": 120 }
+    },
+    {
+      "id": "museum-contemporary-jones",
+      "title": "The Contemporary Austin · Jones Center",
+      "subtitle": "700 Congress Ave · Downtown",
+      "geofence": { "center": [-97.7423, 30.2696], "radiusMeters": 100 }
+    },
+    {
+      "id": "museum-contemporary-laguna",
+      "title": "The Contemporary Austin · Laguna Gloria",
+      "subtitle": "3809 W 35th St · Lake views + sculpture park",
+      "geofence": { "center": [-97.7716, 30.3094], "radiusMeters": 250 }
+    },
+    {
+      "id": "museum-mexic-arte",
+      "title": "Mexic-Arte Museum",
+      "subtitle": "419 Congress Ave · Latino &amp; Mexican-American art",
+      "geofence": { "center": [-97.7430, 30.2683], "radiusMeters": 90 }
+    },
+    {
+      "id": "museum-george-washington-carver",
+      "title": "George Washington Carver Museum &amp; Cultural Center",
+      "subtitle": "1165 Angelina St · African American history",
+      "geofence": { "center": [-97.7321, 30.2734], "radiusMeters": 150 }
+    },
+    {
+      "id": "museum-mexican-american-cultural-center",
+      "title": "Emma S. Barrientos Mexican American Cultural Center",
+      "subtitle": "600 River St · Rainey-area cultural center",
+      "geofence": { "center": [-97.7401, 30.2569], "radiusMeters": 150 }
+    },
+    {
+      "id": "museum-asian-american-resource-center",
+      "title": "Asian American Resource Center",
+      "subtitle": "8401 Cameron Rd · NE Austin",
+      "geofence": { "center": [-97.6855, 30.3573], "radiusMeters": 180 }
+    },
+    {
+      "id": "museum-thinkery",
+      "title": "Thinkery (Children's Museum)",
+      "subtitle": "1830 Simond Ave · Mueller",
+      "geofence": { "center": [-97.7038, 30.2967], "radiusMeters": 150 }
+    },
+    {
+      "id": "museum-elisabet-ney",
+      "title": "Elisabet Ney Museum",
+      "subtitle": "304 E 44th St · Hyde Park sculpture studio",
+      "geofence": { "center": [-97.7244, 30.3057], "radiusMeters": 100 }
+    },
+    {
+      "id": "museum-bob-bullock-imax",
+      "title": "Texas Memorial Museum",
+      "subtitle": "2400 Trinity St · UT natural science",
+      "geofence": { "center": [-97.7363, 30.2862], "radiusMeters": 120 }
+    },
+    {
+      "id": "museum-french-legation",
+      "title": "French Legation Museum",
+      "subtitle": "802 San Marcos St · Historic 1841 home",
+      "geofence": { "center": [-97.7311, 30.2680], "radiusMeters": 120 }
+    },
+    {
+      "id": "museum-oh-henry",
+      "title": "O. Henry House Museum",
+      "subtitle": "409 E 5th St · Author's 1880s home",
+      "geofence": { "center": [-97.7398, 30.2659], "radiusMeters": 80 }
+    },
+    {
+      "id": "museum-neill-cochran",
+      "title": "Neill-Cochran House Museum",
+      "subtitle": "2310 San Gabriel St · West Campus historic home",
+      "geofence": { "center": [-97.7466, 30.2862], "radiusMeters": 100 }
+    },
+    {
+      "id": "museum-austin-history-center",
+      "title": "Austin History Center",
+      "subtitle": "810 Guadalupe St · Local history archive",
+      "geofence": { "center": [-97.7458, 30.2725], "radiusMeters": 80 }
+    },
+    {
+      "id": "museum-state-cemetery",
+      "title": "Texas State Cemetery &amp; Visitor Center",
+      "subtitle": "909 Navasota St · Historic burial grounds &amp; museum",
+      "geofence": { "center": [-97.7272, 30.2728], "radiusMeters": 200 }
+    },
+    {
+      "id": "museum-bullock-imax",
+      "title": "Bob Bullock IMAX Theatre",
+      "subtitle": "Inside Bullock Museum · 1800 N Congress Ave",
+      "geofence": { "center": [-97.7385, 30.2810], "radiusMeters": 80 }
+    },
+    {
+      "id": "museum-pioneer-farms",
+      "title": "Pioneer Farms",
+      "subtitle": "10621 Pioneer Farms Dr · 1800s living history park",
+      "geofence": { "center": [-97.6635, 30.4083], "radiusMeters": 400 }
+    },
+    {
+      "id": "museum-umlauf",
+      "title": "Umlauf Sculpture Garden &amp; Museum",
+      "subtitle": "605 Robert E. Lee Rd · Zilker area",
+      "geofence": { "center": [-97.7726, 30.2615], "radiusMeters": 150 }
+    }
+  ]
+}
