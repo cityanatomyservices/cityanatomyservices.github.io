@@ -29,13 +29,17 @@
       gap: 7px;
     }
     .cm-legend h2 {
-      margin: 0 0 2px;
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #c0c7d1;
+      margin: 0 0 4px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #f5f7fa;
     }
+    .cm-legend h2 a {
+      color: #f5f7fa;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .cm-legend h2 a:hover { color: #4cc3ff; }
     .cm-legend-row {
       display: flex;
       align-items: center;
@@ -56,7 +60,7 @@
     }
     .cm-legend-row a:hover { color: #4cc3ff; }
 
-    /* ── Brand card — bottom-center pill ──────────────────────────── */
+    /* ── Social icon bar — bottom-center pill ─────────────────────── */
     .cm-brand-card {
       position: fixed;
       bottom: 20px;
@@ -68,33 +72,22 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid #2a3040;
       border-radius: 999px;
-      padding: 6px 14px;
+      padding: 8px 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.5);
       display: flex;
-      align-items: baseline;
-      gap: 10px;
-      max-width: calc(100vw - 32px);
-      white-space: nowrap;
-    }
-    .cm-brand-link {
-      display: inline-flex;
       align-items: center;
-      gap: 2px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      gap: 14px;
+      max-width: calc(100vw - 32px);
+    }
+    .cm-brand-card a {
       color: #c0c7d1;
-      text-decoration: none;
+      display: flex;
+      align-items: center;
       transition: color 0.15s ease;
+      line-height: 0;
     }
-    .cm-brand-link:hover { color: #4cc3ff; }
-    .cm-brand-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #f5f7fa;
-      line-height: 1.2;
-    }
+    .cm-brand-card a:hover { color: #f5f7fa; }
+    .cm-brand-card svg { width: 18px; height: 18px; }
 
     /* ── CityAnatomy product badge — bottom-left ─────────────────── */
     .cm-cityanatomy-badge {
@@ -106,9 +99,8 @@
       color: #0e1117;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       padding: 6px 10px;
       border-radius: 4px;
       text-decoration: none;
@@ -122,8 +114,8 @@
 
     @media (max-width: 500px) {
       .cm-legend { top: 10px; right: 10px; padding: 8px 10px; font-size: 0.72rem; }
-      .cm-brand-card { bottom: 14px; padding: 5px 12px; }
-      .cm-brand-title { font-size: 0.88rem; }
+      .cm-brand-card { bottom: 14px; padding: 6px 12px; gap: 10px; }
+      .cm-brand-card svg { width: 16px; height: 16px; }
       .cm-cityanatomy-badge { bottom: 10px; left: 10px; font-size: 0.56rem; padding: 5px 8px; }
     }
   </style>
@@ -132,32 +124,37 @@
   <div id="map"></div>
 
   <aside class="cm-legend" aria-label="ChatMaps legend">
-    <h2>ChatMaps · Austin</h2>
+    <h2><a href="/" target="_top">Austin Chat</a></h2>
     <div class="cm-legend-row">
       <span class="cm-legend-dot" style="background: #e11d74"></span>
-      <a href="/pubchat/" target="_top">Pubchat</a>
+      <a href="/pubchat/" target="_top">Pubs &amp; Bars</a>
     </div>
     <div class="cm-legend-row">
       <span class="cm-legend-dot" style="background: #1a73ff"></span>
-      <a href="/librarychat/" target="_top">LibraryChat</a>
+      <a href="/librarychat/" target="_top">Libraries</a>
     </div>
     <div class="cm-legend-row">
       <span class="cm-legend-dot" style="background: #f59e0b"></span>
-      <a href="/homelesschat/" target="_top">Feedingschat</a>
+      <a href="/homelesschat/" target="_top">Feeding Sites</a>
     </div>
     <div class="cm-legend-row">
       <span class="cm-legend-dot" style="background: #10b981"></span>
-      <a href="/foodtrucks/" target="_top">FoodtruckChat</a>
+      <a href="/foodtrucks/" target="_top">Food Trucks</a>
     </div>
     <div class="cm-legend-row">
       <span class="cm-legend-dot" style="background: #ef4444"></span>
-      <a href="/clinics/" target="_top">ClinicChat</a>
+      <a href="/clinics/" target="_top">Hospitals</a>
     </div>
   </aside>
 
-  <div class="cm-brand-card">
-    <a href="/" class="cm-brand-link" target="_top">Austin Chat <span aria-hidden="true">↗</span></a>
-    <span class="cm-brand-title">ChatMaps · Austin</span>
+  <div class="cm-brand-card" aria-label="Social links">
+    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+    <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2.25h3.5l-7.7 8.8L23 21.75h-7.1l-5.5-7.2-6.3 7.2H.6l8.2-9.4L.4 2.25H7.7l5 6.6 5.5-6.6zm-1.2 17.5h2L7.1 4.3H5L17 19.75z"/></svg></a>
+    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9c-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2-.1-1.3-.1-1.6-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4 1.3-.1 1.6-.1 4.9-.1zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4A6 6 0 0 0 .6 4.1C.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.2.6 2.9.3.8.7 1.5 1.4 2.2.7.7 1.3 1.1 2.2 1.4.8.3 1.6.5 2.9.6 1.2.1 1.6.1 4.8.1s3.7 0 4.9-.1c1.3-.1 2.2-.2 2.9-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.3 1.4-2.2.3-.8.5-1.6.6-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.2-.6-2.9-.3-.8-.7-1.5-1.4-2.2A6 6 0 0 0 19.9.6C19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.9a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg></a>
+    <a href="#" aria-label="Reddit"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.1 13.8c0 .2.1.3.1.5 0 2.6-3 4.7-6.7 4.7-3.7 0-6.7-2.1-6.7-4.7 0-.2 0-.3.1-.5a1.6 1.6 0 0 1-.6-1.3 1.6 1.6 0 0 1 2.7-1.2 8.2 8.2 0 0 1 4.3-1.4l.8-3.8a.3.3 0 0 1 .4-.3l2.7.6a1.1 1.1 0 1 1-.1.6l-2.5-.5-.7 3.4a8.1 8.1 0 0 1 4.2 1.4 1.6 1.6 0 0 1 2.7 1.2c0 .5-.2 1-.7 1.3zM9.3 13a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm5.4 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm-5.1 4.5c-.1-.1 0-.3.1-.3a6.4 6.4 0 0 0 4.6 0c.2-.1.3 0 .3.2s-.1.2-.2.3a6.7 6.7 0 0 1-4.6 0c-.1 0-.2-.1-.2-.2z"/></svg></a>
+    <a href="#" aria-label="Patreon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.4.5a8.1 8.1 0 1 0 0 16.2 8.1 8.1 0 0 0 0-16.2zM.5.5h3.8v23H.5z"/></svg></a>
+    <a href="#" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A18.5 18.5 0 0 0 15.7 3a13 13 0 0 0-.6 1.2 17.2 17.2 0 0 0-5.1 0A12 12 0 0 0 9.4 3a18.5 18.5 0 0 0-4.6 1.4A19.5 19.5 0 0 0 1.5 19a18.7 18.7 0 0 0 5.7 2.9 14 14 0 0 0 1.2-2 12 12 0 0 1-1.9-.9l.5-.4a13.3 13.3 0 0 0 11.4 0l.5.4a12 12 0 0 1-1.9.9 14 14 0 0 0 1.2 2 18.6 18.6 0 0 0 5.7-2.9A19.4 19.4 0 0 0 20.3 4.4zM8.3 16c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3zm7.4 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3z"/></svg></a>
   </div>
 
   <a href="https://anatomy.city" target="_blank" rel="noopener" class="cm-cityanatomy-badge">A CityAnatomy Product</a>
@@ -313,11 +310,11 @@
           clinics:      '/clinics/',
         };
         const labelMap = {
-          pubchat:      'Pubchat',
-          librarychat:  'LibraryChat',
-          feedingschat: 'Feedingschat',
-          foodtrucks:   'FoodtruckChat',
-          clinics:      'ClinicChat',
+          pubchat:      'Pubs & Bars',
+          librarychat:  'Libraries',
+          feedingschat: 'Feeding Sites',
+          foodtrucks:   'Food Trucks',
+          clinics:      'Hospitals',
         };
         const href  = linkMap[f.properties.app];
         const label = labelMap[f.properties.app] || f.properties.app;
