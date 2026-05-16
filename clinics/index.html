@@ -12,12 +12,6 @@
 
   <div id="map"></div>
 
-  <!-- Brand card — top-right -->
-  <div class="pc-brand-card">
-    <a href="/" class="pc-brand-link" target="_top">City Anatomy <span aria-hidden="true">↗</span></a>
-    <p class="pc-brand-title">ClinicChat</p>
-    <p class="pc-brand-subtitle">Waiting room? Drop in. Swap notes.</p>
-  </div>
 
   <!-- Identity badge — top-center -->
   <div id="pc-identity" class="pc-identity-badge" hidden>
@@ -118,6 +112,11 @@
     });
 
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
+    map.addControl(new maplibregl.GeolocateControl({
+      positionOptions: { enableHighAccuracy: true },
+      trackUserLocation: false,
+      showAccuracyCircle: true,
+    }), 'top-left');
     map.addControl(new maplibregl.NavigationControl({ showZoom: false }), 'top-right');
 
     const engine = new PubchatEngine(map);

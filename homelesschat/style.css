@@ -348,8 +348,8 @@ body:has(#pc-sheet:not([hidden])) .pc-brand-card { display: none; }
 .maplibregl-ctrl-group button.view-toggle-btn:hover { background: #f0f0f0; }
 .maplibregl-ctrl-group button.satellite-btn.active,
 .maplibregl-ctrl-group button.view-toggle-btn.active {
-  background: #fcd4e6;
-  color: #7a0e45;
+  background: #fff;
+  color: #e11d74;
 }
 
 /* ── Bottom chat sheet ───────────────────────────────────────── */
@@ -607,15 +607,26 @@ body:has(#pc-sheet:not([hidden])) .pc-social-footer { display: none; }
 
 .maplibregl-ctrl-group button.satellite-btn,
 .maplibregl-ctrl-group button.view-toggle-btn {
-  background: #1e2530;
-  color: #e8edf2;
+  background: #fff;
+  color: #1c1c28;
 }
 .maplibregl-ctrl-group button.satellite-btn:hover,
-.maplibregl-ctrl-group button.view-toggle-btn:hover { background: #2a3040; }
+.maplibregl-ctrl-group button.view-toggle-btn:hover { background: #f0f0f0; color: #1c1c28; }
 .maplibregl-ctrl-group button.satellite-btn.active,
 .maplibregl-ctrl-group button.view-toggle-btn.active {
-  background: #0e2a4a;
+  background: #fff;
   color: #4cc3ff;
+}
+
+/* Force zoom + geolocate buttons white in the always-dark UI */
+.maplibregl-ctrl-group button {
+  background-color: #fff !important;
+}
+.maplibregl-ctrl-group button:hover {
+  background-color: #f0f0f0 !important;
+}
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: none;
 }
 
 .pc-social-footer {
