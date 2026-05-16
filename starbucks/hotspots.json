@@ -1,0 +1,145 @@
+{
+  "cityId": "atx",
+  "title": "Starbuckschat · Austin",
+  "initialCamera": { "center": [-97.7400, 30.3200], "zoom": 10 },
+  "hotspots": [
+    {
+      "id": "sbux-congress-6th",
+      "title": "Starbucks · Congress & 6th",
+      "subtitle": "Downtown · 600 Congress Ave",
+      "geofence": { "center": [-97.7430, 30.2680], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-2nd-street",
+      "title": "Starbucks · 2nd Street District",
+      "subtitle": "200 W 2nd St · Downtown",
+      "geofence": { "center": [-97.7460, 30.2660], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-whole-foods-lamar",
+      "title": "Starbucks · Whole Foods Lamar",
+      "subtitle": "Inside Whole Foods · 525 N Lamar",
+      "geofence": { "center": [-97.7530, 30.2710], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-mlk-lamar",
+      "title": "Starbucks · MLK & Lamar",
+      "subtitle": "1100 N Lamar Blvd",
+      "geofence": { "center": [-97.7510, 30.2790], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-guadalupe-drag",
+      "title": "Starbucks · The Drag (UT)",
+      "subtitle": "2406 Guadalupe St · UT West Campus",
+      "geofence": { "center": [-97.7416, 30.2895], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-east-7th",
+      "title": "Starbucks · East 7th",
+      "subtitle": "1807 E 7th St · East Austin",
+      "geofence": { "center": [-97.7185, 30.2630], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-riverside",
+      "title": "Starbucks · Riverside",
+      "subtitle": "1701 E Riverside Dr",
+      "geofence": { "center": [-97.7350, 30.2440], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-south-lamar",
+      "title": "Starbucks · South Lamar",
+      "subtitle": "2400 S Lamar Blvd · Bluebonnet",
+      "geofence": { "center": [-97.7720, 30.2510], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-south-congress",
+      "title": "Starbucks · South Congress",
+      "subtitle": "1600 S Congress Ave · SoCo",
+      "geofence": { "center": [-97.7510, 30.2480], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-brodie-sunset-valley",
+      "title": "Starbucks · Brodie Lane",
+      "subtitle": "5601 Brodie Ln · Sunset Valley",
+      "geofence": { "center": [-97.8230, 30.2380], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-slaughter",
+      "title": "Starbucks · Slaughter Lane",
+      "subtitle": "9600 S I-35 · South Park Meadows",
+      "geofence": { "center": [-97.7905, 30.1880], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-northcross",
+      "title": "Starbucks · Anderson Lane",
+      "subtitle": "2525 W Anderson Ln · Northcross",
+      "geofence": { "center": [-97.7395, 30.3540], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-burnet-2222",
+      "title": "Starbucks · Burnet & 2222",
+      "subtitle": "5601 Burnet Rd · Allandale",
+      "geofence": { "center": [-97.7400, 30.3380], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-mueller",
+      "title": "Starbucks · Mueller",
+      "subtitle": "1800 Aldrich St · Mueller",
+      "geofence": { "center": [-97.7045, 30.3000], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-domain",
+      "title": "Starbucks · The Domain",
+      "subtitle": "11410 Century Oaks Terrace · North Austin",
+      "geofence": { "center": [-97.7250, 30.4005], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-research-183",
+      "title": "Starbucks · Research @ 183",
+      "subtitle": "10515 N MoPac · NW Austin",
+      "geofence": { "center": [-97.7340, 30.3915], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-arboretum",
+      "title": "Starbucks · Arboretum",
+      "subtitle": "10000 Research Blvd · Arboretum",
+      "geofence": { "center": [-97.7585, 30.4035], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-westlake",
+      "title": "Starbucks · Westlake",
+      "subtitle": "3300 Bee Cave Rd · Westlake Hills",
+      "geofence": { "center": [-97.8205, 30.2860], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-hill-country-galleria",
+      "title": "Starbucks · Hill Country Galleria",
+      "subtitle": "12700 Hill Country Blvd · Bee Cave",
+      "geofence": { "center": [-97.9415, 30.3080], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-la-frontera",
+      "title": "Starbucks · La Frontera",
+      "subtitle": "2700 La Frontera Blvd · Round Rock",
+      "geofence": { "center": [-97.6800, 30.5240], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-1890-ranch",
+      "title": "Starbucks · 1890 Ranch",
+      "subtitle": "1335 E Whitestone Blvd · Cedar Park",
+      "geofence": { "center": [-97.8400, 30.5180], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-stone-hill",
+      "title": "Starbucks · Stone Hill",
+      "subtitle": "18820 Limestone Commercial Dr · Pflugerville",
+      "geofence": { "center": [-97.6395, 30.4480], "radiusMeters": 60 }
+    },
+    {
+      "id": "sbux-lakeway",
+      "title": "Starbucks · Lakeway",
+      "subtitle": "2300 Lohmans Spur Rd · Lakeway",
+      "geofence": { "center": [-97.9760, 30.3580], "radiusMeters": 60 }
+    }
+  ]
+}
