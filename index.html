@@ -338,6 +338,7 @@
   <a href="https://anatomy.city" target="_blank" rel="noopener" class="cm-cityanatomy-badge">City Anatomy</a>
 
   <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
+  <script src="/pubchat/schedule.js"></script>
   <script>
     const APPS = [
       { id: 'pubchat',    url: '/pubchat/hotspots.json',      color: '#e11d74' },
@@ -375,9 +376,12 @@
       return { type: 'Polygon', coordinates: [coords] };
     }
 
-    function toFeatures(hotspots, app) {
+    function toFeatures(hotspots, app, now) {
+      now = now || new Date();
+      const sched = window.PubchatSchedule;
       return (hotspots || [])
         .filter(h => h.geofence?.center && h.geofence?.radiusMeters)
+        .filter(h => !sched || sched.isActive(h.schedule, now))
         .map(h => ({
           type: 'Feature',
           properties: {
@@ -623,6 +627,34 @@
         });
         applyMapFilter();
       }
+
+      // ── Schedule-driven re-evaluation ───────────────────────────
+      // Rebuild the features list when any hotspot's schedule flips,
+      // then arm the next timer at the soonest upcoming change.
+      let reevalTimer = null;
+      function rebuildFeatures() {
+        const fresh = results.flatMap(({ app, hotspots }) => toFeatures(hotspots, app));
+        map.getSource('chatmaps')?.setData({ type: 'FeatureCollection', features: fresh });
+        scheduleNextRebuild();
+      }
+      function scheduleNextRebuild() {
+        clearTimeout(reevalTimer);
+        const sched = window.PubchatSchedule;
+        if (!sched) return;
+        const now = new Date();
+        let earliest = Infinity;
+        for (const { hotspots } of results) {
+          for (const h of hotspots) {
+            if (!h.schedule) continue;
+            const next = sched.nextChange(h.schedule, now);
+            if (next && next.getTime() < earliest) earliest = next.getTime();
+          }
+        }
+        if (earliest === Infinity) return;
+        const ms = Math.max(1000, earliest - now.getTime() + 250);
+        reevalTimer = setTimeout(rebuildFeatures, ms);
+      }
+      scheduleNextRebuild();
     });
   </script>
 </body>

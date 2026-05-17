@@ -398,6 +398,30 @@ body:has(#pc-sheet:not([hidden])) .pc-brand-card { display: none; }
   font-weight: 700;
   color: var(--muted);
 }
+.pc-sheet-info {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  background: rgba(0,0,0,0.04);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+.pc-sheet-info .pc-info-desc {
+  margin: 0 0 6px;
+  white-space: normal;
+}
+.pc-sheet-info .pc-info-line {
+  margin: 2px 0;
+  white-space: normal;
+}
+.pc-sheet-info .pc-info-line a { color: var(--accent); text-decoration: none; }
+.pc-sheet-info .pc-info-line a:hover { text-decoration: underline; }
+.pc-sheet-info .pc-info-menu {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+.pc-sheet-info .pc-info-menu li { margin: 2px 0; }
 .pc-presence-chip::before {
   content: '';
   width: 8px; height: 8px;

@@ -16,6 +16,16 @@ class PubchatEngine {
     this._hereMarker = null;
     this._simulate = false;
     this._simMarker = null;
+    this._reevalTimer = null;
+  }
+
+  // ── Schedule helpers ────────────────────────────────────────────
+  // Returns the hotspots that are currently active per their schedule.
+  // A hotspot without a schedule is always active.
+  _activeHotspots(now) {
+    now = now || new Date();
+    const s = window.PubchatSchedule;
+    return this.hotspots.filter(h => !s || s.isActive(h.schedule, now));
   }
 
   // ── Public API ──────────────────────────────────────────────────
@@ -37,6 +47,7 @@ class PubchatEngine {
 
     this._initHotspotsSource();
     this._initHotspotsLayer();
+    this._scheduleNextReevaluation();
     this._emit('loaded', { config: this.config });
   }
 
@@ -147,9 +158,11 @@ class PubchatEngine {
   }
 
   _checkHotspots(lng, lat, source) {
-    // Pick the closest hotspot whose geofence we're inside, if any.
+    // Pick the closest hotspot whose geofence we're inside, AND that is
+    // currently active per its schedule.
     let best = null;
-    for (const h of this.hotspots) {
+    const active = this._activeHotspots();
+    for (const h of active) {
       if (!h.geofence?.center) continue;
       const [hLng, hLat] = h.geofence.center;
       const d = haversineMeters(lng, lat, hLng, hLat);
@@ -175,7 +188,18 @@ class PubchatEngine {
   // ── Layers ──────────────────────────────────────────────────────
 
   _initHotspotsSource() {
-    const features = this.hotspots
+    const data = this._buildSourceData();
+    if (!this.map.getSource('hotspots')) {
+      this.map.addSource('hotspots', {
+        type: 'geojson',
+        data,
+        promoteId: 'id',
+      });
+    }
+  }
+
+  _buildSourceData() {
+    const features = this._activeHotspots()
       .filter(h => h.geofence?.center)
       .map(h => ({
         type: 'Feature',
@@ -188,14 +212,37 @@ class PubchatEngine {
         },
         geometry: { type: 'Point', coordinates: h.geofence.center },
       }));
+    return { type: 'FeatureCollection', features };
+  }
 
-    if (!this.map.getSource('hotspots')) {
-      this.map.addSource('hotspots', {
-        type: 'geojson',
-        data: { type: 'FeatureCollection', features },
-        promoteId: 'id',
-      });
+  // Recomputes which hotspots are active right now, refreshes the map
+  // source, re-checks the user's position (so chat opens/closes on a
+  // schedule flip), and arms the next re-evaluation timer.
+  _reevaluateActive() {
+    const src = this.map.getSource('hotspots');
+    if (src) src.setData(this._buildSourceData());
+    if (this._lastCheck) {
+      this._checkHotspots(this._lastCheck.lng, this._lastCheck.lat, 'schedule');
     }
+    this._scheduleNextReevaluation();
+  }
+
+  // Walks every hotspot's schedule, finds the earliest upcoming change,
+  // and sets a single timer for that moment.
+  _scheduleNextReevaluation() {
+    clearTimeout(this._reevalTimer);
+    const s = window.PubchatSchedule;
+    if (!s) return;
+    const now = new Date();
+    let earliest = Infinity;
+    for (const h of this.hotspots) {
+      if (!h.schedule) continue;
+      const next = s.nextChange(h.schedule, now);
+      if (next && next.getTime() < earliest) earliest = next.getTime();
+    }
+    if (earliest === Infinity) return;
+    const ms = Math.max(1000, earliest - now.getTime() + 250); // small buffer
+    this._reevalTimer = setTimeout(() => this._reevaluateActive(), ms);
   }
 
   _initHotspotsLayer() {

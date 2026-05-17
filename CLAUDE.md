@@ -23,22 +23,23 @@ apps/chats/
 └── homelesschat/        ← free-meal / feeding sites (a.k.a. Feedingschat)
 ```
 
-Each chat-map subfolder has the same eight files:
+Each chat-map subfolder has the same nine files:
 
 | File                 | Purpose                                                          |
 |----------------------|------------------------------------------------------------------|
 | `index.html`         | HTML shell + MapLibre setup + permission/intro modal             |
 | `style.css`          | Shared styles (dark UI chrome, sheet, modal, social footer)      |
 | `pubchat-engine.js`  | Geofence/position engine — loads hotspots, fires enter/leave     |
+| `schedule.js`        | Pure helpers `isActive(schedule, now)` + `nextChange(...)` for temporal geofences |
 | `chat.js`            | Supabase Realtime channel wiring (broadcast + presence)          |
-| `ui.js`              | Bottom-sheet, message rendering, recenter, banner                |
+| `ui.js`              | Bottom-sheet, message rendering, info pane, recenter, banner     |
 | `identity.js`        | Random anonymous handle + emoji generator                        |
 | `config.js`          | Public Supabase URL + anon key (Realtime only — no DB writes)    |
 | `hotspots.json`      | The list of geofenced locations for this map                     |
 
 The JS / CSS files are **identical across every chat map**. When fixing or
-extending shared code, mirror the change to all three (and any future ones)
-with `cp` after editing one.
+extending shared code (`pubchat-engine.js`, `schedule.js`, `ui.js`, `style.css`),
+mirror the change to every chat folder with `cp` after editing one.
 
 ---
 
@@ -70,7 +71,23 @@ with `cp` after editing one.
       "id": "kebab-case-unique-id",
       "title": "Display Name",
       "subtitle": "Short one-line description",
-      "geofence": { "center": [<lng>, <lat>], "radiusMeters": 100 }
+      "geofence": { "center": [<lng>, <lat>], "radiusMeters": 100 },
+
+      "schedule": {                                     // OPTIONAL — temporal geofence
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon","tue","wed","thu","fri"], "from": "07:00", "to": "19:00" },
+          { "days": ["sat","sun"], "from": "09:00", "to": "17:00" }
+        ]
+      },
+
+      "info": {                                         // OPTIONAL — static linked data
+        "description": "Specialty coffee + breakfast tacos. Dog-friendly patio.",
+        "hours":       "Mon–Fri 7am–7pm · Sat–Sun 9am–5pm",
+        "phone":       "512-555-0123",
+        "website":     "https://example.com",
+        "menu":        ["Drip coffee — $3", "Breakfast taco — $4"]
+      }
     }
   ]
 }
@@ -84,6 +101,14 @@ with `cp` after editing one.
   - 60–80 m for compact venues (bars, single-building clubs)
   - 100 m for venues with patios/outdoor space (current default)
   - 200 m for spread-out facilities (library campuses, large feeding sites)
+- `schedule` is **optional**. Without it, the hotspot is always active.
+  - `timezone` defaults to `America/Chicago` if omitted.
+  - `windows[]` is OR-composed — active if any window matches.
+  - Overnight wrap supported (e.g. `from: "20:00", to: "02:00"`).
+  - Engine re-evaluates exactly at the next window edge (`schedule.js`).
+- `info` is **optional**. The bottom-sheet renders any subset of
+  `description`, `hours`, `phone`, `website`, `menu[]`. Engine doesn't read
+  it — just `ui.js` does, so adding new keys is safe.
 
 ### Map UI conventions
 

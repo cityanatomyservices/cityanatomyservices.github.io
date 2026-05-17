@@ -80,6 +80,7 @@ function initPubchatUI(engine) {
 
   async function openHotspot(hotspot) {
     sheetTitle.textContent = hotspot.title ?? hotspot.id;
+    renderHotspotInfo(hotspot);
     messagesEl.innerHTML = '';
     presenceRow.innerHTML = '';
     presenceChip.textContent = '1 here';
@@ -155,6 +156,59 @@ function initPubchatUI(engine) {
     li.className = 'pc-bubble is-system';
     li.textContent = text;
     messagesEl.appendChild(li);
+  }
+
+  // Render the optional `info` block (hours, description, menu, phone, website)
+  // beneath the sheet title. Removes any prior info node first.
+  function renderHotspotInfo(hotspot) {
+    const headText = document.querySelector('.pc-sheet-head-text');
+    const prev = document.getElementById('pc-sheet-info');
+    if (prev) prev.remove();
+    const info = hotspot.info;
+    if (!info || !headText) return;
+    const wrap = document.createElement('div');
+    wrap.id = 'pc-sheet-info';
+    wrap.className = 'pc-sheet-info';
+    if (info.description) {
+      const p = document.createElement('p');
+      p.className = 'pc-info-desc';
+      p.textContent = info.description;
+      wrap.appendChild(p);
+    }
+    if (info.hours) wrap.appendChild(infoLine('Hours', info.hours));
+    if (info.phone) wrap.appendChild(infoLine('Phone', info.phone));
+    if (info.website) {
+      const p = document.createElement('p');
+      p.className = 'pc-info-line';
+      const a = document.createElement('a');
+      a.href = info.website;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = 'Website ↗';
+      p.appendChild(a);
+      wrap.appendChild(p);
+    }
+    if (Array.isArray(info.menu) && info.menu.length) {
+      const ul = document.createElement('ul');
+      ul.className = 'pc-info-menu';
+      for (const item of info.menu) {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ul.appendChild(li);
+      }
+      wrap.appendChild(ul);
+    }
+    if (wrap.childNodes.length) headText.appendChild(wrap);
+  }
+
+  function infoLine(label, value) {
+    const p = document.createElement('p');
+    p.className = 'pc-info-line';
+    const strong = document.createElement('strong');
+    strong.textContent = label + ': ';
+    p.appendChild(strong);
+    p.appendChild(document.createTextNode(value));
+    return p;
   }
 
   sheetClose.addEventListener('click', () => {
