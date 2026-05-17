@@ -756,7 +756,7 @@
       }
 
       const OVERLAYS = {
-        zipcodes:   { url: '/staging/ZipCode.geojson',   colorKey: 'zipcode' },
+        zipcodes:   { url: '/staging/ZipCode.geojson',   colorKey: 'zipcode', labelKey: 'zipcode' },
         floodzones: { url: '/staging/FloodZone.geojson', colorKey: 'flood_zone' },
       };
       const loadedOverlays = new Set();
@@ -787,6 +787,23 @@
             id: id + '-line', type: 'line', source: id,
             paint: { 'line-color': ['get', '_color'], 'line-width': 1.5 },
           }, 'chatmaps-fill');
+          // Optional centroid label (e.g. the 5-digit zipcode on each polygon).
+          if (spec.labelKey) {
+            map.addLayer({
+              id: id + '-label', type: 'symbol', source: id,
+              layout: {
+                'text-field': ['to-string', ['get', spec.labelKey]],
+                'text-size': 12,
+                'text-font': ['Noto Sans Regular'],
+                'text-allow-overlap': false,
+              },
+              paint: {
+                'text-color': '#1c1c28',
+                'text-halo-color': '#ffffff',
+                'text-halo-width': 1.4,
+              },
+            }, 'chatmaps-fill');
+          }
           loadedOverlays.add(id);
           return true;
         } catch (err) {
@@ -801,6 +818,9 @@
         const v = visible ? 'visible' : 'none';
         map.setLayoutProperty(id + '-fill', 'visibility', v);
         map.setLayoutProperty(id + '-line', 'visibility', v);
+        if (map.getLayer(id + '-label')) {
+          map.setLayoutProperty(id + '-label', 'visibility', v);
+        }
       }
 
       // Toggle every map layer whose source-layer is "building" — covers
