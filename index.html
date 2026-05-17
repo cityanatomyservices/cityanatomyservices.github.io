@@ -738,14 +738,26 @@
       // ── Layers control (top-left "☰" dropdown) ───────────────────
       // Pattern borrowed from anatomy.city's austin-bike-shops report.
       // Three toggles:
-      //   - Buildings (3D extrusion, on by default)
+      //   - Buildings (3D extrusion + basemap building layers, on by default)
       //   - Zip Codes (small geojson, off — lazy-loaded on first toggle)
       //   - Flood Zones (12 MB geojson, off — lazy-loaded on first toggle)
-      // Lazy loading keeps the homepage fast; nothing is fetched until the
-      // user actually opts in.
+      // Overlay styling matches loraatx: per-feature color from an 8-color
+      // palette (hashed off a key property), fill-opacity 0.2, line-width 1.5.
+
+      const OVERLAY_PALETTE = [
+        '#4285f4', '#ea4335', '#fbbc04', '#34a853',
+        '#ff6d00', '#46bdc6', '#7b1fa2', '#f06292',
+      ];
+      function hashColor(key) {
+        const s = String(key == null ? '' : key);
+        let h = 0;
+        for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+        return OVERLAY_PALETTE[Math.abs(h) % OVERLAY_PALETTE.length];
+      }
+
       const OVERLAYS = {
-        zipcodes:   { url: '/staging/ZipCode.geojson',  fill: '#14b8a6', fillOpacity: 0.07, line: '#14b8a6', lineWidth: 1 },
-        floodzones: { url: '/staging/FloodZone.geojson', fill: '#38bdf8', fillOpacity: 0.25, line: '#0369a1', lineWidth: 1 },
+        zipcodes:   { url: '/staging/ZipCode.geojson',   colorKey: 'zipcode' },
+        floodzones: { url: '/staging/FloodZone.geojson', colorKey: 'flood_zone' },
       };
       const loadedOverlays = new Set();
       async function ensureOverlay(id, checkbox) {
@@ -756,14 +768,24 @@
           const res = await fetch(spec.url);
           if (!res.ok) throw new Error('HTTP ' + res.status);
           const data = await res.json();
+          // Stamp a deterministic _color onto every feature so the paint
+          // expression can just do ['get', '_color'] — same approach as the
+          // loraatx report. Falls back to objectid if the chosen key is empty.
+          for (const f of (data.features || [])) {
+            const p = (f.properties = f.properties || {});
+            const key = p[spec.colorKey] != null && p[spec.colorKey] !== ''
+              ? p[spec.colorKey]
+              : (p.objectid != null ? p.objectid : '');
+            p._color = hashColor(key);
+          }
           map.addSource(id, { type: 'geojson', data });
           map.addLayer({
             id: id + '-fill', type: 'fill', source: id,
-            paint: { 'fill-color': spec.fill, 'fill-opacity': spec.fillOpacity },
+            paint: { 'fill-color': ['get', '_color'], 'fill-opacity': 0.2 },
           }, 'chatmaps-fill'); // beneath the geofence circles
           map.addLayer({
             id: id + '-line', type: 'line', source: id,
-            paint: { 'line-color': spec.line, 'line-width': spec.lineWidth, 'line-opacity': 0.7 },
+            paint: { 'line-color': ['get', '_color'], 'line-width': 1.5 },
           }, 'chatmaps-fill');
           loadedOverlays.add(id);
           return true;
@@ -779,6 +801,19 @@
         const v = visible ? 'visible' : 'none';
         map.setLayoutProperty(id + '-fill', 'visibility', v);
         map.setLayoutProperty(id + '-line', 'visibility', v);
+      }
+
+      // Toggle every map layer whose source-layer is "building" — covers
+      // both our custom 3d-buildings extrusion AND the basemap's flat
+      // building fill. Without this, unchecking only hides the extrusion
+      // and the flat footprints remain visible (no apparent change).
+      function setBuildingsVisible(on) {
+        const v = on ? 'visible' : 'none';
+        for (const lyr of map.getStyle().layers) {
+          if (lyr['source-layer'] === 'building') {
+            map.setLayoutProperty(lyr.id, 'visibility', v);
+          }
+        }
       }
 
       let layersPanel;
@@ -810,11 +845,10 @@
             return lbl;
           };
 
-          // Buildings (already added above, just toggle visibility)
+          // Buildings — toggles every layer whose source-layer is "building"
+          // (our 3d-buildings extrusion AND the Liberty basemap's flat fill).
           layersPanel.appendChild(makeRow('Buildings', true, (on) => {
-            if (map.getLayer('3d-buildings')) {
-              map.setLayoutProperty('3d-buildings', 'visibility', on ? 'visible' : 'none');
-            }
+            setBuildingsVisible(on);
           }));
           // Zip Codes
           layersPanel.appendChild(makeRow('Zip Codes', false, async (on, cb) => {
