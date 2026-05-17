@@ -333,7 +333,6 @@ body:has(#pc-sheet:not([hidden])) .pc-brand-card { display: none; }
 }
 
 /* ── Basemap toggle buttons ──────────────────────────────────── */
-.maplibregl-ctrl-group button.satellite-btn,
 .maplibregl-ctrl-group button.view-toggle-btn {
   width: auto;
   padding: 0 10px;
@@ -344,9 +343,7 @@ body:has(#pc-sheet:not([hidden])) .pc-brand-card { display: none; }
   color: #333;
   white-space: nowrap;
 }
-.maplibregl-ctrl-group button.satellite-btn:hover,
 .maplibregl-ctrl-group button.view-toggle-btn:hover { background: #f0f0f0; }
-.maplibregl-ctrl-group button.satellite-btn.active,
 .maplibregl-ctrl-group button.view-toggle-btn.active {
   background: #fff;
   color: #e11d74;
@@ -650,14 +647,11 @@ body:has(#pc-sheet:not([hidden])) .pc-social-footer { display: none; }
 }
 .pc-icon-btn:hover { border-color: #4cc3ff; }
 
-.maplibregl-ctrl-group button.satellite-btn,
 .maplibregl-ctrl-group button.view-toggle-btn {
   background: #fff;
   color: #1c1c28;
 }
-.maplibregl-ctrl-group button.satellite-btn:hover,
 .maplibregl-ctrl-group button.view-toggle-btn:hover { background: #f0f0f0; color: #1c1c28; }
-.maplibregl-ctrl-group button.satellite-btn.active,
 .maplibregl-ctrl-group button.view-toggle-btn.active {
   background: #fff;
   color: #4cc3ff;

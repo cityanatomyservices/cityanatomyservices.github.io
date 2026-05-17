@@ -47,19 +47,41 @@ function initPubchatUI(engine) {
   });
 
   // ── Permission modal / simulate ─────────────────────────────────
+  // Supabase is loaded on demand so the cold page paint doesn't block on a
+  // ~30 KB ESM import. chat.js already waits for the 'pubchat:supabase-ready'
+  // event before creating its client, so this is a pure deferral.
+  let supabaseLoading = null;
+  function ensureSupabaseLoaded() {
+    if (window.__supabaseCreateClient) return Promise.resolve();
+    if (supabaseLoading) return supabaseLoading;
+    supabaseLoading = import('https://esm.sh/@supabase/supabase-js@2')
+      .then(mod => {
+        window.__supabaseCreateClient = mod.createClient;
+        window.dispatchEvent(new CustomEvent('pubchat:supabase-ready'));
+      })
+      .catch(err => {
+        console.warn('Supabase load failed; chat will be local-only.', err);
+        supabaseLoading = null;
+      });
+    return supabaseLoading;
+  }
+
   const urlSimulate = new URLSearchParams(window.location.search).get('simulate') === '1';
   if (urlSimulate) {
     permModal.hidden = true;
+    ensureSupabaseLoaded();
     engine.enableSimulateMode();
     showBanner('Simulate mode — drag the SIM marker into a hotspot circle to drop into its chat.');
   }
 
   allowBtn?.addEventListener('click', () => {
     permModal.hidden = true;
+    ensureSupabaseLoaded();
     engine.requestGeolocation();
   });
   previewBtn?.addEventListener('click', () => {
     permModal.hidden = true;
+    ensureSupabaseLoaded();
     engine.enableSimulateMode();
     showBanner('Preview mode — drag the SIM marker onto a hotspot to try out the chat.');
   });
