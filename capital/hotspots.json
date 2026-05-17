@@ -1,13 +1,55 @@
 {
   "cityId": "atx",
   "title": "Capitalchat · Austin",
-  "initialCamera": { "center": [-97.7404, 30.2747], "zoom": 15 },
+  "initialCamera": {
+    "center": [
+      -97.7404,
+      30.2747
+    ],
+    "zoom": 15
+  },
   "hotspots": [
     {
       "id": "texas-capitol-complex",
       "title": "Texas Capitol Complex",
       "subtitle": "State Capitol, grounds, extension &amp; surrounding state office buildings",
-      "geofence": { "center": [-97.7404, 30.2766], "radiusMeters": 500 }
+      "geofence": {
+        "center": [
+          -97.7404,
+          30.2766
+        ],
+        "radiusMeters": 500
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "07:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "09:00",
+            "to": "20:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "12:00",
+            "to": "20:00"
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,115 +1,769 @@
 {
   "cityId": "atx",
   "title": "Transitchat · Austin",
-  "initialCamera": { "center": [-97.7400, 30.3500], "zoom": 10 },
+  "initialCamera": {
+    "center": [
+      -97.74,
+      30.35
+    ],
+    "zoom": 10
+  },
   "hotspots": [
     {
       "id": "transit-downtown-station",
       "title": "Downtown Station",
       "subtitle": "401 E 4th St · CapMetro Red Line, MetroRapid &amp; local buses",
-      "geofence": { "center": [-97.7395, 30.2676], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.7395,
+          30.2676
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-plaza-saltillo",
       "title": "Plaza Saltillo Station",
       "subtitle": "412 Comal St · Red Line + East Austin bus transfers",
-      "geofence": { "center": [-97.7295, 30.2630], "radiusMeters": 130 }
+      "geofence": {
+        "center": [
+          -97.7295,
+          30.263
+        ],
+        "radiusMeters": 130
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-mlk-jr",
       "title": "MLK Jr Station",
       "subtitle": "1719 Alexander Ave · Red Line · UT area",
-      "geofence": { "center": [-97.7220, 30.2810], "radiusMeters": 130 }
+      "geofence": {
+        "center": [
+          -97.722,
+          30.281
+        ],
+        "radiusMeters": 130
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-highland",
       "title": "Highland Station",
       "subtitle": "6406 Airport Blvd · Red Line · ACC Highland",
-      "geofence": { "center": [-97.7088, 30.3245], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.7088,
+          30.3245
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-crestview",
       "title": "Crestview Station",
       "subtitle": "6920 N Lamar Blvd · Red Line + MetroRapid 803",
-      "geofence": { "center": [-97.7257, 30.3370], "radiusMeters": 130 }
+      "geofence": {
+        "center": [
+          -97.7257,
+          30.337
+        ],
+        "radiusMeters": 130
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-kramer",
       "title": "Kramer Station",
       "subtitle": "2427 Kramer Ln · Red Line · N Austin",
-      "geofence": { "center": [-97.7090, 30.3780], "radiusMeters": 130 }
+      "geofence": {
+        "center": [
+          -97.709,
+          30.378
+        ],
+        "radiusMeters": 130
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-howard",
       "title": "Howard Station",
       "subtitle": "12010 N Mopac Expy · Red Line + Park &amp; Ride",
-      "geofence": { "center": [-97.7185, 30.4145], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.7185,
+          30.4145
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-lakeline-station",
       "title": "Lakeline Station",
       "subtitle": "13701 Lyndhurst St · Red Line + large Park &amp; Ride",
-      "geofence": { "center": [-97.8005, 30.4575], "radiusMeters": 200 }
+      "geofence": {
+        "center": [
+          -97.8005,
+          30.4575
+        ],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-leander-station",
       "title": "Leander Station",
       "subtitle": "800 N US 183 · Red Line terminus + Park &amp; Ride",
-      "geofence": { "center": [-97.8485, 30.5485], "radiusMeters": 200 }
+      "geofence": {
+        "center": [
+          -97.8485,
+          30.5485
+        ],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-north-lamar-tc",
       "title": "North Lamar Transit Center",
       "subtitle": "8001 N Lamar Blvd · Major N Austin bus hub",
-      "geofence": { "center": [-97.7100, 30.3625], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.71,
+          30.3625
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-south-congress-tc",
       "title": "South Congress Transit Center",
       "subtitle": "Ben White &amp; S Congress · S Austin bus hub",
-      "geofence": { "center": [-97.7680, 30.2210], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.768,
+          30.221
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-westgate-tc",
       "title": "Westgate Transit Center",
       "subtitle": "4477 S Lamar Blvd · SW Austin bus hub",
-      "geofence": { "center": [-97.8050, 30.2255], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.805,
+          30.2255
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-pleasant-valley-tc",
       "title": "Pleasant Valley Transit Center",
       "subtitle": "5601 Pleasant Valley Rd · SE Austin bus hub",
-      "geofence": { "center": [-97.6925, 30.2360], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.6925,
+          30.236
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-eastside-bus-plaza",
       "title": "Eastside Bus Plaza",
       "subtitle": "2427 Webberville Rd · East Austin bus transfers",
-      "geofence": { "center": [-97.6975, 30.2935], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.6975,
+          30.2935
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-tech-ridge-pr",
       "title": "Tech Ridge Park &amp; Ride",
       "subtitle": "12451 N IH-35 Service Rd · Far N Austin",
-      "geofence": { "center": [-97.6700, 30.4115], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.67,
+          30.4115
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-pavilion-pr",
       "title": "Pavilion Park &amp; Ride",
       "subtitle": "10001 Pavilion Blvd · NW Austin (FM 620 / 2222)",
-      "geofence": { "center": [-97.7830, 30.4205], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.783,
+          30.4205
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-round-rock-tc",
       "title": "Round Rock Transit Center",
       "subtitle": "2120 N Mays St · Round Rock Transit hub",
-      "geofence": { "center": [-97.6745, 30.5120], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.6745,
+          30.512
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     },
     {
       "id": "transit-manor-pr",
       "title": "Manor Park &amp; Ride",
       "subtitle": "Manor · CapMetro Express Park &amp; Ride",
-      "geofence": { "center": [-97.5570, 30.3410], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.557,
+          30.341
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "05:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "21:00"
+          }
+        ]
+      }
     }
   ]
 }

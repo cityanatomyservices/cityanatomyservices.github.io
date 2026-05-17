@@ -1,85 +1,403 @@
 {
   "cityId": "atx",
   "title": "Targetchat · Austin",
-  "initialCamera": { "center": [-97.7500, 30.3500], "zoom": 10 },
+  "initialCamera": {
+    "center": [
+      -97.75,
+      30.35
+    ],
+    "zoom": 10
+  },
   "hotspots": [
     {
       "id": "target-south-lamar",
       "title": "Target South Lamar",
       "subtitle": "2300 S Lamar Blvd, Austin 78704",
-      "geofence": { "center": [-97.7818, 30.2459], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.7818,
+          30.2459
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-anderson-lane",
       "title": "Target Anderson Lane (Northcross)",
       "subtitle": "2300 W Anderson Ln, Austin 78757",
-      "geofence": { "center": [-97.7305, 30.3568], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.7305,
+          30.3568
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-hancock",
       "title": "Target Hancock",
       "subtitle": "1106 W 41st St, Austin 78756",
-      "geofence": { "center": [-97.7375, 30.3015], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.7375,
+          30.3015
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-sunset-valley",
       "title": "Target Sunset Valley",
       "subtitle": "5400 Brodie Ln, Sunset Valley 78745",
-      "geofence": { "center": [-97.8226, 30.2390], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.8226,
+          30.239
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-southpark-meadows",
       "title": "Target Southpark Meadows",
       "subtitle": "9500 S IH-35, Austin 78748",
-      "geofence": { "center": [-97.7888, 30.1700], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.7888,
+          30.17
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-domain",
       "title": "Target Austin (Domain / CityTarget)",
       "subtitle": "11506 Century Oaks Terrace, Austin 78758",
-      "geofence": { "center": [-97.7220, 30.4025], "radiusMeters": 150 }
+      "geofence": {
+        "center": [
+          -97.722,
+          30.4025
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-tech-ridge",
       "title": "Target Tech Ridge",
       "subtitle": "12407 N IH-35, Austin 78753",
-      "geofence": { "center": [-97.6720, 30.4080], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.672,
+          30.408
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-round-rock",
       "title": "Target Round Rock (University Oaks)",
       "subtitle": "251 University Oaks Blvd, Round Rock 78665",
-      "geofence": { "center": [-97.6571, 30.5395], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.6571,
+          30.5395
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-cedar-park",
       "title": "Target Cedar Park (Lakeline)",
       "subtitle": "11066 Lakeline Mall Dr, Cedar Park 78613",
-      "geofence": { "center": [-97.8167, 30.4690], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.8167,
+          30.469
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-bee-cave",
       "title": "Target Bee Cave (Hill Country Galleria)",
       "subtitle": "12509 Shops Pkwy, Bee Cave 78738",
-      "geofence": { "center": [-97.9670, 30.3050], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.967,
+          30.305
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-pflugerville",
       "title": "Target Pflugerville",
       "subtitle": "1500 Town Center Dr, Pflugerville 78660",
-      "geofence": { "center": [-97.6188, 30.4344], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.6188,
+          30.4344
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-kyle",
       "title": "Target Kyle",
       "subtitle": "5401 Marketplace Ave, Kyle 78640",
-      "geofence": { "center": [-97.8770, 30.0050], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.877,
+          30.005
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     },
     {
       "id": "target-georgetown",
       "title": "Target Georgetown",
       "subtitle": "1015 W University Ave, Georgetown 78628",
-      "geofence": { "center": [-97.6960, 30.6385], "radiusMeters": 180 }
+      "geofence": {
+        "center": [
+          -97.696,
+          30.6385
+        ],
+        "radiusMeters": 180
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      }
     }
   ]
 }
