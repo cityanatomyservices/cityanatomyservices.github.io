@@ -25,17 +25,27 @@
   }
 
   // Returns the next Date when isActive() will flip, or null if no schedule.
-  // Walks minute-by-minute up to 7 days ahead — bounded and fast (<1ms).
+  // Walks minute-by-minute up to 7 days ahead. Results are memoised per
+  // (schedule, minute) so 300 hotspots sharing a category schedule cost
+  // one walk, not 300.
+  const _nextCache = new Map();
   function nextChange(schedule, now) {
     now = now || new Date();
     if (!schedule || !schedule.windows || !schedule.windows.length) return null;
+    const minuteKey = Math.floor(now.getTime() / 60000);
+    const key = minuteKey + '|' + JSON.stringify(schedule);
+    if (_nextCache.has(key)) return _nextCache.get(key);
+    if (_nextCache.size > 256) _nextCache.clear(); // bound growth
+
     const current = isActive(schedule, now);
     const MAX_MIN = 7 * 24 * 60;
+    let result = null;
     for (let i = 1; i <= MAX_MIN; i++) {
       const t = new Date(now.getTime() + i * 60000);
-      if (isActive(schedule, t) !== current) return t;
+      if (isActive(schedule, t) !== current) { result = t; break; }
     }
-    return null;
+    _nextCache.set(key, result);
+    return result;
   }
 
   function windowIncludes(win, dayName, minutes) {
@@ -111,15 +121,25 @@
   }
 
   // Returns { day: 'mon'|..|'sun', minutes: 0..1439 } in the given timezone.
+  // Intl.DateTimeFormat construction is expensive; cache one per tz so a
+  // 10,000-iteration nextChange loop builds it once, not 10,000 times.
+  const _fmtCache = new Map();
+  function getFmt(tz) {
+    let fmt = _fmtCache.get(tz);
+    if (!fmt) {
+      fmt = new Intl.DateTimeFormat('en-US', {
+        timeZone: tz,
+        weekday: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      });
+      _fmtCache.set(tz, fmt);
+    }
+    return fmt;
+  }
   function localTimeIn(tz, date) {
-    const fmt = new Intl.DateTimeFormat('en-US', {
-      timeZone: tz,
-      weekday: 'short',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    });
-    const parts = fmt.formatToParts(date);
+    const parts = getFmt(tz).formatToParts(date);
     let weekday = 'mon', hour = 0, minute = 0;
     for (const p of parts) {
       if (p.type === 'weekday') weekday = p.value.toLowerCase();
