@@ -326,6 +326,9 @@ class PubchatEngine {
     const hours = window.PubchatSchedule
       ? window.PubchatSchedule.formatSchedule(h.schedule)
       : '';
+    const social = window.PubchatSocial
+      ? window.PubchatSocial.buttonsHTML(h.gid, h.title)
+      : '';
     // Titles/subtitles may contain "&amp;" entities (data convention),
     // so we insert them as HTML rather than text — matches the homepage popup.
     return [
@@ -334,6 +337,7 @@ class PubchatEngine {
         `<div style="font-size:0.98rem;font-weight:700;margin-top:2px;color:#1c1c28;">${h.title || h.id}</div>`,
         h.subtitle ? `<div style="font-size:0.78rem;color:#5a6472;margin-top:2px;">${h.subtitle}</div>` : '',
         hours ? `<div style="font-size:0.78rem;color:#1c1c28;margin-top:10px;"><span style="font-weight:700;">Hours:</span> ${hours}</div>` : '',
+        social,
       '</div>',
     ].join('');
   }

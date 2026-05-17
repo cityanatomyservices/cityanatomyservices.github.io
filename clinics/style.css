@@ -422,6 +422,27 @@ body:has(#pc-sheet:not([hidden])) .pc-brand-card { display: none; }
   padding-left: 18px;
 }
 .pc-sheet-info .pc-info-menu li { margin: 2px 0; }
+
+/* Map popup: 3-icon social row (Instagram / X / Reddit). */
+.pc-popup-social { display: flex; gap: 8px; margin-top: 12px; }
+.pc-popup-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #5a6472;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.pc-popup-social-btn:hover { color: #fff; }
+.pc-popup-social-btn.is-instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.pc-popup-social-btn.is-x:hover      { background: #000; }
+.pc-popup-social-btn.is-reddit:hover { background: #ff4500; }
+.pc-popup-social-btn svg { width: 16px; height: 16px; }
 .pc-presence-chip::before {
   content: '';
   width: 8px; height: 8px;
