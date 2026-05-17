@@ -816,6 +816,31 @@
         }
       }
 
+      // Satellite raster basemap — lazy-loaded on first toggle so cold page
+      // load never fetches Esri tiles. Layer is inserted beneath the
+      // 3d-buildings extrusion so buildings + geofences stay on top.
+      let satelliteLoaded = false;
+      function ensureSatellite() {
+        if (satelliteLoaded) return;
+        map.addSource('satellite', {
+          type: 'raster',
+          tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
+          tileSize: 256,
+          attribution: 'Imagery © Esri',
+        });
+        map.addLayer({
+          id: 'satellite-layer',
+          type: 'raster',
+          source: 'satellite',
+          paint: { 'raster-opacity': 1 },
+        }, '3d-buildings');
+        satelliteLoaded = true;
+      }
+      function setSatelliteVisible(on) {
+        if (!satelliteLoaded) return;
+        map.setLayoutProperty('satellite-layer', 'visibility', on ? 'visible' : 'none');
+      }
+
       // Toggle every map layer whose source-layer is "building" — covers
       // both our custom 3d-buildings extrusion AND the basemap's flat
       // building fill. Without this, unchecking only hides the extrusion
@@ -872,6 +897,11 @@
           layersPanel.appendChild(makeRow('Flood Zones', false, async (on, cb) => {
             if (on) { const ok = await ensureOverlay('floodzones', cb); if (!ok) { cb.checked = false; return; } }
             setOverlayVisible('floodzones', on);
+          }));
+          // Satellite — lazy-loaded raster basemap (Esri World Imagery).
+          layersPanel.appendChild(makeRow('Satellite', false, (on) => {
+            if (on) ensureSatellite();
+            setSatelliteVisible(on);
           }));
 
           btn.addEventListener('click', (e) => {
