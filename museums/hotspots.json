@@ -4,10 +4,7 @@
   "category": "Museums",
   "color": "#a16207",
   "initialCamera": {
-    "center": [
-      -97.74,
-      30.28
-    ],
+    "center": [-97.74, 30.28],
     "zoom": 12
   },
   "hotspots": [
@@ -17,30 +14,19 @@
       "title": "Bullock Texas State History Museum",
       "subtitle": "1800 N Congress Ave · The Story of Texas",
       "geofence": {
-        "center": [
-          -97.7388,
-          30.2806
-        ],
+        "center": [-97.7388, 30.2806],
         "radiusMeters": 180
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -53,30 +39,19 @@
       "title": "Blanton Museum of Art",
       "subtitle": "200 E MLK Jr Blvd · UT's flagship art museum",
       "geofence": {
-        "center": [
-          -97.7383,
-          30.2806
-        ],
+        "center": [-97.7383, 30.2806],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -89,30 +64,19 @@
       "title": "LBJ Presidential Library",
       "subtitle": "2313 Red River St · UT campus",
       "geofence": {
-        "center": [
-          -97.729,
-          30.2856
-        ],
+        "center": [-97.729, 30.2856],
         "radiusMeters": 180
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -125,30 +89,19 @@
       "title": "Harry Ransom Center",
       "subtitle": "300 W 21st St · UT humanities archive &amp; galleries",
       "geofence": {
-        "center": [
-          -97.7416,
-          30.2842
-        ],
+        "center": [-97.7416, 30.2842],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -161,30 +114,19 @@
       "title": "The Contemporary Austin · Jones Center",
       "subtitle": "700 Congress Ave · Downtown",
       "geofence": {
-        "center": [
-          -97.7423,
-          30.2696
-        ],
+        "center": [-97.7423, 30.2696],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -197,30 +139,19 @@
       "title": "The Contemporary Austin · Laguna Gloria",
       "subtitle": "3809 W 35th St · Lake views + sculpture park",
       "geofence": {
-        "center": [
-          -97.7716,
-          30.3094
-        ],
+        "center": [-97.7716, 30.3094],
         "radiusMeters": 250
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -233,30 +164,19 @@
       "title": "Mexic-Arte Museum",
       "subtitle": "419 Congress Ave · Latino &amp; Mexican-American art",
       "geofence": {
-        "center": [
-          -97.743,
-          30.2683
-        ],
+        "center": [-97.743, 30.2683],
         "radiusMeters": 90
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -269,30 +189,19 @@
       "title": "George Washington Carver Museum &amp; Cultural Center",
       "subtitle": "1165 Angelina St · African American history",
       "geofence": {
-        "center": [
-          -97.7321,
-          30.2734
-        ],
+        "center": [-97.7321, 30.2734],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -305,30 +214,19 @@
       "title": "Emma S. Barrientos Mexican American Cultural Center",
       "subtitle": "600 River St · Rainey-area cultural center",
       "geofence": {
-        "center": [
-          -97.7401,
-          30.2569
-        ],
+        "center": [-97.7401, 30.2569],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -341,30 +239,19 @@
       "title": "Asian American Resource Center",
       "subtitle": "8401 Cameron Rd · NE Austin",
       "geofence": {
-        "center": [
-          -97.6855,
-          30.3573
-        ],
+        "center": [-97.6855, 30.3573],
         "radiusMeters": 180
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -377,30 +264,19 @@
       "title": "Thinkery (Children's Museum)",
       "subtitle": "1830 Simond Ave · Mueller",
       "geofence": {
-        "center": [
-          -97.7038,
-          30.2967
-        ],
+        "center": [-97.7038, 30.2967],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -413,30 +289,19 @@
       "title": "Elisabet Ney Museum",
       "subtitle": "304 E 44th St · Hyde Park sculpture studio",
       "geofence": {
-        "center": [
-          -97.7244,
-          30.3057
-        ],
+        "center": [-97.7244, 30.3057],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -449,30 +314,19 @@
       "title": "Texas Memorial Museum",
       "subtitle": "2400 Trinity St · UT natural science",
       "geofence": {
-        "center": [
-          -97.7363,
-          30.2862
-        ],
+        "center": [-97.7363, 30.2862],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -485,30 +339,19 @@
       "title": "French Legation Museum",
       "subtitle": "802 San Marcos St · Historic 1841 home",
       "geofence": {
-        "center": [
-          -97.7311,
-          30.268
-        ],
+        "center": [-97.7311, 30.268],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -521,30 +364,19 @@
       "title": "O. Henry House Museum",
       "subtitle": "409 E 5th St · Author's 1880s home",
       "geofence": {
-        "center": [
-          -97.7398,
-          30.2659
-        ],
+        "center": [-97.7398, 30.2659],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -557,30 +389,19 @@
       "title": "Neill-Cochran House Museum",
       "subtitle": "2310 San Gabriel St · West Campus historic home",
       "geofence": {
-        "center": [
-          -97.7466,
-          30.2862
-        ],
+        "center": [-97.7466, 30.2862],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -593,30 +414,19 @@
       "title": "Austin History Center",
       "subtitle": "810 Guadalupe St · Local history archive",
       "geofence": {
-        "center": [
-          -97.7458,
-          30.2725
-        ],
+        "center": [-97.7458, 30.2725],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -629,30 +439,19 @@
       "title": "Texas State Cemetery &amp; Visitor Center",
       "subtitle": "909 Navasota St · Historic burial grounds &amp; museum",
       "geofence": {
-        "center": [
-          -97.7272,
-          30.2728
-        ],
+        "center": [-97.7272, 30.2728],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -665,30 +464,19 @@
       "title": "Bob Bullock IMAX Theatre",
       "subtitle": "Inside Bullock Museum · 1800 N Congress Ave",
       "geofence": {
-        "center": [
-          -97.7385,
-          30.281
-        ],
+        "center": [-97.7385, 30.281],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -701,30 +489,19 @@
       "title": "Pioneer Farms",
       "subtitle": "10621 Pioneer Farms Dr · 1800s living history park",
       "geofence": {
-        "center": [
-          -97.6635,
-          30.4083
-        ],
+        "center": [-97.6635, 30.4083],
         "radiusMeters": 400
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }
@@ -737,30 +514,19 @@
       "title": "Umlauf Sculpture Garden &amp; Museum",
       "subtitle": "605 Robert E. Lee Rd · Zilker area",
       "geofence": {
-        "center": [
-          -97.7726,
-          30.2615
-        ],
+        "center": [-97.7726, 30.2615],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat"
-            ],
+            "days": ["tue", "wed", "thu", "fri", "sat"],
             "from": "10:00",
             "to": "17:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "17:00"
           }

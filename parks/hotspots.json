@@ -4,10 +4,7 @@
   "category": "Parks",
   "color": "#16a34a",
   "initialCamera": {
-    "center": [
-      -97.74,
-      30.3
-    ],
+    "center": [-97.74, 30.3],
     "zoom": 10
   },
   "hotspots": [
@@ -17,25 +14,14 @@
       "title": "Walter E. Long Metro Park",
       "subtitle": "6620 Blue Bluff Rd., Austin, Texas 78724 · Metropolitan · 1905 acres",
       "geofence": {
-        "center": [
-          -97.615317,
-          30.300458
-        ],
+        "center": [-97.615317, 30.300458],
         "radiusMeters": 700
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -48,25 +34,14 @@
       "title": "Emma Long Metro Park",
       "subtitle": "1600 City Park Rd., Austin, Texas 78730 · Metropolitan · 1148 acres",
       "geofence": {
-        "center": [
-          -97.831647,
-          30.344525
-        ],
+        "center": [-97.831647, 30.344525],
         "radiusMeters": 700
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -79,25 +54,14 @@
       "title": "Barton Creek Wilderness Park",
       "subtitle": "3918 S Mopac Expy Svrd SB, Austin, Texas 78746 · Nature Preserve · 1125 acres",
       "geofence": {
-        "center": [
-          -97.825919,
-          30.261803
-        ],
+        "center": [-97.825919, 30.261803],
         "radiusMeters": 700
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -110,25 +74,14 @@
       "title": "Barton Creek Greenbelt",
       "subtitle": "3753 SB Capital of Texas Hwy., Austin, Texas 78746 · Greenbelt · 797 acres",
       "geofence": {
-        "center": [
-          -97.829493,
-          30.278276
-        ],
+        "center": [-97.829493, 30.278276],
         "radiusMeters": 608
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -141,25 +94,14 @@
       "title": "Southern Walnut Creek Greenbelt",
       "subtitle": "6013 Loyola Ln, Austin, Texas 78724 · Greenbelt · 703 acres",
       "geofence": {
-        "center": [
-          -97.654429,
-          30.297875
-        ],
+        "center": [-97.654429, 30.297875],
         "radiusMeters": 570
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -172,25 +114,14 @@
       "title": "Onion Creek Metro Park",
       "subtitle": "8652 Nuckols Crossing Rd., Austin, Texas 78744 · Metropolitan · 624 acres",
       "geofence": {
-        "center": [
-          -97.746926,
-          30.168686
-        ],
+        "center": [-97.746926, 30.168686],
         "radiusMeters": 537
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -203,25 +134,14 @@
       "title": "Circle C Ranch on Slaughter Creek",
       "subtitle": "6301 W Slaughter Ln., Austin, Texas 78739 · Metropolitan · 592 acres",
       "geofence": {
-        "center": [
-          -97.875521,
-          30.194454
-        ],
+        "center": [-97.875521, 30.194454],
         "radiusMeters": 524
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -234,25 +154,14 @@
       "title": "Northern Walnut Creek Greenbelt",
       "subtitle": "2611 Park Bend Dr., Austin, Texas 78758 · Greenbelt · 420 acres",
       "geofence": {
-        "center": [
-          -97.68005,
-          30.383765
-        ],
+        "center": [-97.68005, 30.383765],
         "radiusMeters": 441
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -265,25 +174,14 @@
       "title": "Roy G. Guerrero Colorado River Metro Park",
       "subtitle": "400 Grove Blvd., Austin, Texas 78741 · Metropolitan · 395 acres",
       "geofence": {
-        "center": [
-          -97.702345,
-          30.241417
-        ],
+        "center": [-97.702345, 30.241417],
         "radiusMeters": 427
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -296,25 +194,14 @@
       "title": "Decker Tallgrass Prairie Preserve",
       "subtitle": "8001 Decker Ln., Austin, Texas 78724 · Nature Preserve · 348 acres",
       "geofence": {
-        "center": [
-          -97.604304,
-          30.296131
-        ],
+        "center": [-97.604304, 30.296131],
         "radiusMeters": 401
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -327,25 +214,14 @@
       "title": "Mary Moore Searight Metro Park",
       "subtitle": "907 W Slaughter Ln., Austin, Texas 78748 · Metropolitan · 342 acres",
       "geofence": {
-        "center": [
-          -97.808237,
-          30.161332
-        ],
+        "center": [-97.808237, 30.161332],
         "radiusMeters": 398
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -358,25 +234,14 @@
       "title": "John Trevino Jr. Metro Park at Morrison Ranch",
       "subtitle": "9501 FM 969 Rd., Austin, Texas 78725 · Metropolitan · 330 acres",
       "geofence": {
-        "center": [
-          -97.630875,
-          30.266947
-        ],
+        "center": [-97.630875, 30.266947],
         "radiusMeters": 391
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -389,25 +254,14 @@
       "title": "Onion Creek Greenbelt",
       "subtitle": "7004 Onion Creek Dr., Austin, Texas 78744 · Greenbelt · 315 acres",
       "geofence": {
-        "center": [
-          -97.782035,
-          30.147318
-        ],
+        "center": [-97.782035, 30.147318],
         "radiusMeters": 382
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -420,25 +274,14 @@
       "title": "Bauerle Ranch at Slaughter Creek Greenbelt",
       "subtitle": "2700 Lynnbrook Dr., Austin, Texas 78748 · Greenbelt · 314 acres",
       "geofence": {
-        "center": [
-          -97.843865,
-          30.166942
-        ],
+        "center": [-97.843865, 30.166942],
         "radiusMeters": 381
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -451,25 +294,14 @@
       "title": "Walnut Creek Metro Park",
       "subtitle": "12138 N Lamar Blvd, Austin, Texas 78758 · Metropolitan · 295 acres",
       "geofence": {
-        "center": [
-          -97.685373,
-          30.400891
-        ],
+        "center": [-97.685373, 30.400891],
         "radiusMeters": 369
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -482,25 +314,14 @@
       "title": "Louis René Barrera Indiangrass Wildlife Sanctuary",
       "subtitle": "9138 Blue Bluff Rd., Austin, Texas 78724 · Nature Preserve · 291 acres",
       "geofence": {
-        "center": [
-          -97.596666,
-          30.315072
-        ],
+        "center": [-97.596666, 30.315072],
         "radiusMeters": 367
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -513,25 +334,14 @@
       "title": "Zilker Metro Park",
       "subtitle": "2100 Barton Springs Rd., Austin, Texas 78746 · Metropolitan · 275 acres",
       "geofence": {
-        "center": [
-          -97.76804,
-          30.266623
-        ],
+        "center": [-97.76804, 30.266623],
         "radiusMeters": 356
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -544,25 +354,14 @@
       "title": "Walnut Creek Sports Park",
       "subtitle": "7800 Johnny Morris Rd., Austin, Texas 78724 · Special · 217 acres",
       "geofence": {
-        "center": [
-          -97.637617,
-          30.316421
-        ],
+        "center": [-97.637617, 30.316421],
         "radiusMeters": 317
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -575,25 +374,14 @@
       "title": "Commons Ford Ranch Metro Park",
       "subtitle": "614 N Commons Ford Rd., Austin, Texas 78733 · Metropolitan · 215 acres",
       "geofence": {
-        "center": [
-          -97.890338,
-          30.336162
-        ],
+        "center": [-97.890338, 30.336162],
         "radiusMeters": 315
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -606,25 +394,14 @@
       "title": "Little Walnut Creek Greenbelt",
       "subtitle": "6201 Springdale Rd., Austin, Texas 78723 · Greenbelt · 212 acres",
       "geofence": {
-        "center": [
-          -97.666679,
-          30.29988
-        ],
+        "center": [-97.666679, 30.29988],
         "radiusMeters": 313
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -637,25 +414,14 @@
       "title": "William H. Russell Karst Preserve",
       "subtitle": "3705 Deer Ln., Austin, Texas, 78749 · Nature Preserve · 191 acres",
       "geofence": {
-        "center": [
-          -97.849972,
-          30.192856
-        ],
+        "center": [-97.849972, 30.192856],
         "radiusMeters": 297
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -668,25 +434,14 @@
       "title": "Onion Creek Wildlife Sanctuary",
       "subtitle": "4435 E SH 71, Austin, Texas 78617 · Nature Preserve · 180 acres",
       "geofence": {
-        "center": [
-          -97.614723,
-          30.200766
-        ],
+        "center": [-97.614723, 30.200766],
         "radiusMeters": 288
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -699,25 +454,14 @@
       "title": "Gilleland Creek Greenbelt",
       "subtitle": "11214 N FM 973 Road, Austin, Texas 78653 · Greenbelt · 171 acres",
       "geofence": {
-        "center": [
-          -97.565572,
-          30.323671
-        ],
+        "center": [-97.565572, 30.323671],
         "radiusMeters": 281
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -730,25 +474,14 @@
       "title": "Upper Bull Creek Greenbelt",
       "subtitle": "7800 Spicewood Springs Rd., Austin, Texas 78759 · Greenbelt · 169 acres",
       "geofence": {
-        "center": [
-          -97.787752,
-          30.413807
-        ],
+        "center": [-97.787752, 30.413807],
         "radiusMeters": 279
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -761,25 +494,14 @@
       "title": "Stephenson Nature Preserve & Outdoor Education Center",
       "subtitle": "7501 Longview Rd., Austin, Texas 78745 · Nature Preserve · 147 acres",
       "geofence": {
-        "center": [
-          -97.823834,
-          30.206891
-        ],
+        "center": [-97.823834, 30.206891],
         "radiusMeters": 261
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -792,25 +514,14 @@
       "title": "Dick Nichols District Park",
       "subtitle": "8011 Beckett Rd., Austin, Texas 78749 · District · 140 acres",
       "geofence": {
-        "center": [
-          -97.858733,
-          30.210622
-        ],
+        "center": [-97.858733, 30.210622],
         "radiusMeters": 254
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -823,25 +534,14 @@
       "title": "Rinard Creek Greenbelt",
       "subtitle": "10625 1/2 Bradshaw Rd., Austin, Texas 78747 · Greenbelt · 133 acres",
       "geofence": {
-        "center": [
-          -97.771571,
-          30.137242
-        ],
+        "center": [-97.771571, 30.137242],
         "radiusMeters": 248
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -854,25 +554,14 @@
       "title": "Onion Creek Soccer Complex",
       "subtitle": "5600 E William Cannon Dr., Austin, Texas 78744 · Special · 121 acres",
       "geofence": {
-        "center": [
-          -97.739525,
-          30.173376
-        ],
+        "center": [-97.739525, 30.173376],
         "radiusMeters": 237
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -885,25 +574,14 @@
       "title": "Latta Branch Greenbelt",
       "subtitle": "7910 Beckett Rd., Austin, Texas 78749 · Greenbelt · 121 acres",
       "geofence": {
-        "center": [
-          -97.858791,
-          30.214607
-        ],
+        "center": [-97.858791, 30.214607],
         "radiusMeters": 236
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -916,25 +594,14 @@
       "title": "Marble Creek Greenbelt",
       "subtitle": "6605 E William Cannon Dr., Austin, Texas 78744 · Greenbelt · 119 acres",
       "geofence": {
-        "center": [
-          -97.73547,
-          30.165132
-        ],
+        "center": [-97.73547, 30.165132],
         "radiusMeters": 235
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -947,25 +614,14 @@
       "title": "Lower Bull Creek Greenbelt",
       "subtitle": "7806 N Capital of Texas Hwy., Austin, Texas 78731 · Greenbelt · 115 acres",
       "geofence": {
-        "center": [
-          -97.77467,
-          30.378568
-        ],
+        "center": [-97.77467, 30.378568],
         "radiusMeters": 231
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -978,25 +634,14 @@
       "title": "Colony Park District Park",
       "subtitle": "7201 Colony Loop Dr., Austin, Texas 78724 · District · 109 acres",
       "geofence": {
-        "center": [
-          -97.632404,
-          30.303831
-        ],
+        "center": [-97.632404, 30.303831],
         "radiusMeters": 224
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1009,25 +654,14 @@
       "title": "Colorado/Walnut Greenbelt",
       "subtitle": "8001 Delwau Ln., Austin, Texas 78725 · Greenbelt · 100 acres",
       "geofence": {
-        "center": [
-          -97.651181,
-          30.264561
-        ],
+        "center": [-97.651181, 30.264561],
         "radiusMeters": 214
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1040,25 +674,14 @@
       "title": "Slaughter Creek Greenbelt",
       "subtitle": "10003 S 1st St., Austin, Texas 78748 · Greenbelt · 94 acres",
       "geofence": {
-        "center": [
-          -97.802161,
-          30.157623
-        ],
+        "center": [-97.802161, 30.157623],
         "radiusMeters": 209
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1071,25 +694,14 @@
       "title": "Gaines Greenbelt",
       "subtitle": "4800 S Mopac Expy., Austin, Texas 78735 · Greenbelt · 94 acres",
       "geofence": {
-        "center": [
-          -97.819131,
-          30.239188
-        ],
+        "center": [-97.819131, 30.239188],
         "radiusMeters": 208
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1102,25 +714,14 @@
       "title": "Williamson Creek East Greenbelt",
       "subtitle": "4911 Creek Bend Dr, Austin, Texas 78744 · Greenbelt · 94 acres",
       "geofence": {
-        "center": [
-          -97.75349,
-          30.188863
-        ],
+        "center": [-97.75349, 30.188863],
         "radiusMeters": 208
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1133,25 +734,14 @@
       "title": "Williamson Creek Central Greenbelt",
       "subtitle": "5120 S 1st St., Austin, Texas 78745 · Greenbelt · 93 acres",
       "geofence": {
-        "center": [
-          -97.779396,
-          30.21418
-        ],
+        "center": [-97.779396, 30.21418],
         "radiusMeters": 207
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1164,25 +754,14 @@
       "title": "Shoal Creek Greenbelt",
       "subtitle": "2600 N Lamar Blvd., Austin, Texas 78705 · Greenbelt · 88 acres",
       "geofence": {
-        "center": [
-          -97.749134,
-          30.295843
-        ],
+        "center": [-97.749134, 30.295843],
         "radiusMeters": 201
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1195,25 +774,14 @@
       "title": "Austin Memorial Park Cemetery",
       "subtitle": "2800 Hancock Dr., Austin, Texas 78731 · Cemetery · 84 acres",
       "geofence": {
-        "center": [
-          -97.751242,
-          30.33079
-        ],
+        "center": [-97.751242, 30.33079],
         "radiusMeters": 197
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1226,25 +794,14 @@
       "title": "Williamson Creek West Greenbelt",
       "subtitle": "6310 Brush Country Rd., Austin, Texas 78749 · Greenbelt · 83 acres",
       "geofence": {
-        "center": [
-          -97.843791,
-          30.227516
-        ],
+        "center": [-97.843791, 30.227516],
         "radiusMeters": 196
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1257,25 +814,14 @@
       "title": "St. Edwards Greenbelt",
       "subtitle": "7301 Spicewood Springs Rd., Austin, Texas 78750 · Greenbelt · 80 acres",
       "geofence": {
-        "center": [
-          -97.790425,
-          30.405672
-        ],
+        "center": [-97.790425, 30.405672],
         "radiusMeters": 192
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1288,25 +834,14 @@
       "title": "Great Hills Neighborhood Park",
       "subtitle": "10801 Sierra Oaks, Austin, Texas 78759 · Neighborhood · 78 acres",
       "geofence": {
-        "center": [
-          -97.755119,
-          30.410837
-        ],
+        "center": [-97.755119, 30.410837],
         "radiusMeters": 189
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1319,25 +854,14 @@
       "title": "Zilker Nature Preserve",
       "subtitle": "301 Nature Center Dr., Austin, Texas 78746 · Nature Preserve · 77 acres",
       "geofence": {
-        "center": [
-          -97.776317,
-          30.272571
-        ],
+        "center": [-97.776317, 30.272571],
         "radiusMeters": 189
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1350,25 +874,14 @@
       "title": "East Boggy Creek Greenbelt",
       "subtitle": "5609 Stuart Cir., Austin, Texas 78721 · Greenbelt · 75 acres",
       "geofence": {
-        "center": [
-          -97.683163,
-          30.262568
-        ],
+        "center": [-97.683163, 30.262568],
         "radiusMeters": 186
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1381,25 +894,14 @@
       "title": "Edward Rendon Sr. Metro Park at Festival Beach",
       "subtitle": "2101 Jesse E Segovia St., Austin, Texas 78702 · Metropolitan · 75 acres",
       "geofence": {
-        "center": [
-          -97.728592,
-          30.250786
-        ],
+        "center": [-97.728592, 30.250786],
         "radiusMeters": 186
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1412,25 +914,14 @@
       "title": "Hielscher Tract Greenbelt",
       "subtitle": "6801 La Crosse Ave., Austin, Texas 78739 · Greenbelt · 67 acres",
       "geofence": {
-        "center": [
-          -97.897987,
-          30.1951
-        ],
+        "center": [-97.897987, 30.1951],
         "radiusMeters": 175
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1443,25 +934,14 @@
       "title": "Bolm District Park",
       "subtitle": "6700 Bolm Rd., Austin, Texas 78725 · District · 67 acres",
       "geofence": {
-        "center": [
-          -97.674199,
-          30.254398
-        ],
+        "center": [-97.674199, 30.254398],
         "radiusMeters": 175
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1474,25 +954,14 @@
       "title": "Volma Overton, Sr. Beach at Town Lake Metro Park",
       "subtitle": "1200 W Cesar Chavez St., Austin, Texas 78703 · Metropolitan · 65 acres",
       "geofence": {
-        "center": [
-          -97.76142,
-          30.270071
-        ],
+        "center": [-97.76142, 30.270071],
         "radiusMeters": 174
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1505,25 +974,14 @@
       "title": "Davis Spring Greenbelt",
       "subtitle": "9700 Parmer Ln, Austin, Texas 78717 · Greenbelt · 61 acres",
       "geofence": {
-        "center": [
-          -97.767506,
-          30.484621
-        ],
+        "center": [-97.767506, 30.484621],
         "radiusMeters": 168
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }
@@ -1536,25 +994,14 @@
       "title": "Dove Springs District Park",
       "subtitle": "5801 Ainez Dr., Austin, Texas 78744 · District · 59 acres",
       "geofence": {
-        "center": [
-          -97.737153,
-          30.187047
-        ],
+        "center": [-97.737153, 30.187047],
         "radiusMeters": 165
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "05:00",
             "to": "22:00"
           }

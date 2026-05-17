@@ -4,10 +4,7 @@
   "category": "Feeding Sites",
   "color": "#f59e0b",
   "initialCamera": {
-    "center": [
-      -97.742,
-      30.3
-    ],
+    "center": [-97.742, 30.3],
     "zoom": 10.5
   },
   "hotspots": [
@@ -17,25 +14,14 @@
       "title": "Angel House Soup Kitchen",
       "subtitle": "Austin Baptist Chapel · Daily breakfast + lunch",
       "geofence": {
-        "center": [
-          -97.7348168,
-          30.26086
-        ],
+        "center": [-97.7348168, 30.26086],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -48,25 +34,14 @@
       "title": "Caritas Community Kitchen",
       "subtitle": "Caritas of Austin · Weekday lunch",
       "geofence": {
-        "center": [
-          -97.7377199,
-          30.2674898
-        ],
+        "center": [-97.7377199, 30.2674898],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -79,25 +54,14 @@
       "title": "Trinity Center Meals",
       "subtitle": "Weekday breakfast + Sunday lunch",
       "geofence": {
-        "center": [
-          -97.7391457,
-          30.2682212
-        ],
+        "center": [-97.7391457, 30.2682212],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -110,25 +74,14 @@
       "title": "Community of Christ Breakfast",
       "subtitle": "Sunday breakfast · South Austin",
       "geofence": {
-        "center": [
-          -97.7759789,
-          30.2494445
-        ],
+        "center": [-97.7759789, 30.2494445],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -141,25 +94,14 @@
       "title": "Feed My People at First UMC",
       "subtitle": "Foundation for the Homeless · Tue & Thu breakfast",
       "geofence": {
-        "center": [
-          -97.7427909,
-          30.2760416
-        ],
+        "center": [-97.7427909, 30.2760416],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -172,25 +114,14 @@
       "title": "Micah 6 Youth Drop-in Meal",
       "subtitle": "University Baptist Church · Saturday afternoons",
       "geofence": {
-        "center": [
-          -97.7429054,
-          30.2840791
-        ],
+        "center": [-97.7429054, 30.2840791],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -203,25 +134,14 @@
       "title": "St. Andrew's Presbyterian Meal",
       "subtitle": "Thursday dinner · Wells Branch",
       "geofence": {
-        "center": [
-          -97.6748591,
-          30.4368264
-        ],
+        "center": [-97.6748591, 30.4368264],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -234,25 +154,14 @@
       "title": "UBC God's Family Dinner",
       "subtitle": "University Baptist Church · Thursday dinner",
       "geofence": {
-        "center": [
-          -97.742223,
-          30.2847963
-        ],
+        "center": [-97.742223, 30.2847963],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -265,25 +174,14 @@
       "title": "UUMC Open Door Meal",
       "subtitle": "University United Methodist · Saturday brunch",
       "geofence": {
-        "center": [
-          -97.7412197,
-          30.2879165
-        ],
+        "center": [-97.7412197, 30.2879165],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -296,25 +194,14 @@
       "title": "Central Presbyterian Meals",
       "subtitle": "Weekly breakfast + women's lunch",
       "geofence": {
-        "center": [
-          -97.7401368,
-          30.2697913
-        ],
+        "center": [-97.7401368, 30.2697913],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -327,25 +214,14 @@
       "title": "All Saints' Episcopal Meals",
       "subtitle": "Tuesday breakfast + Friday Home Cooked dinner",
       "geofence": {
-        "center": [
-          -97.7393352,
-          30.2914625
-        ],
+        "center": [-97.7393352, 30.2914625],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -358,25 +234,14 @@
       "title": "Olivet Baptist Helping Hands",
       "subtitle": "Food giveaway · 2nd & 4th Saturday",
       "geofence": {
-        "center": [
-          -97.725419,
-          30.269649
-        ],
+        "center": [-97.725419, 30.269649],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }
@@ -389,25 +254,14 @@
       "title": "Sunrise Navigation Center Meals",
       "subtitle": "Day center · Mon-Fri meals",
       "geofence": {
-        "center": [
-          -97.7894867,
-          30.22878
-        ],
+        "center": [-97.7894867, 30.22878],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri",
-              "sat",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
             "from": "06:00",
             "to": "19:00"
           }

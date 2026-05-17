@@ -4,10 +4,7 @@
   "category": "Pools",
   "color": "#38bdf8",
   "initialCamera": {
-    "center": [
-      -97.75,
-      30.3
-    ],
+    "center": [-97.75, 30.3],
     "zoom": 11
   },
   "hotspots": [
@@ -17,31 +14,19 @@
       "title": "Bartholomew Pool",
       "subtitle": "1800 E 51st St · Regional · Open",
       "geofence": {
-        "center": [
-          -97.697398,
-          30.302396
-        ],
+        "center": [-97.697398, 30.302396],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -54,31 +39,19 @@
       "title": "Reed Pool",
       "subtitle": "2614 Pecos St · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.770873,
-          30.30309
-        ],
+        "center": [-97.770873, 30.30309],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -91,31 +64,19 @@
       "title": "Barton Springs Pool",
       "subtitle": "2131 William Barton Dr · Regional · Open",
       "geofence": {
-        "center": [
-          -97.768626,
-          30.265983
-        ],
+        "center": [-97.768626, 30.265983],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -128,31 +89,19 @@
       "title": "Ramsey Pool",
       "subtitle": "4201 Burnet Rd · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.743798,
-          30.311879
-        ],
+        "center": [-97.743798, 30.311879],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -165,31 +114,19 @@
       "title": "Dove Springs Pool",
       "subtitle": "5801 Ainez Dr · Community · Closed",
       "geofence": {
-        "center": [
-          -97.739205,
-          30.188124
-        ],
+        "center": [-97.739205, 30.188124],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -202,31 +139,19 @@
       "title": "Kennemer Pool",
       "subtitle": "200 Dawson Rd · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.706498,
-          30.360755
-        ],
+        "center": [-97.706498, 30.360755],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -239,31 +164,19 @@
       "title": "West Austin Pool",
       "subtitle": "1317 W 10th St · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.757053,
-          30.277396
-        ],
+        "center": [-97.757053, 30.277396],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -276,31 +189,19 @@
       "title": "Dick Nichols Pool",
       "subtitle": "8011 Beckett Rd · Community · Closed",
       "geofence": {
-        "center": [
-          -97.863315,
-          30.214865
-        ],
+        "center": [-97.863315, 30.214865],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -313,31 +214,19 @@
       "title": "Westenfield Pool",
       "subtitle": "2000 Enfield Rd · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.764969,
-          30.286483
-        ],
+        "center": [-97.764969, 30.286483],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -350,31 +239,19 @@
       "title": "Gillis Pool",
       "subtitle": "2410 Durwood Ave · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.758785,
-          30.239796
-        ],
+        "center": [-97.758785, 30.239796],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -387,31 +264,19 @@
       "title": "Springwoods Pool",
       "subtitle": "13320 Lyndhurst St · Regional · Open",
       "geofence": {
-        "center": [
-          -97.782815,
-          30.466695
-        ],
+        "center": [-97.782815, 30.466695],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -424,31 +289,19 @@
       "title": "Givens Pool",
       "subtitle": "3811 E 12th St · Community · Closed",
       "geofence": {
-        "center": [
-          -97.690726,
-          30.278321
-        ],
+        "center": [-97.690726, 30.278321],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -461,31 +314,19 @@
       "title": "Garrison Pool",
       "subtitle": "6001 Menchaca Rd · Regional · Open",
       "geofence": {
-        "center": [
-          -97.801849,
-          30.21293
-        ],
+        "center": [-97.801849, 30.21293],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -498,31 +339,19 @@
       "title": "Govalle Pool",
       "subtitle": "5200 Bolm Rd · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.691568,
-          30.258836
-        ],
+        "center": [-97.691568, 30.258836],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -535,31 +364,19 @@
       "title": "Canyon Vista Pool",
       "subtitle": "8455 Spicewood Springs · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.78469,
-          30.427132
-        ],
+        "center": [-97.78469, 30.427132],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -572,31 +389,19 @@
       "title": "Ricky Guerrero Splashpad",
       "subtitle": "1100 Brodie Street · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.763671,
-          30.246924
-        ],
+        "center": [-97.763671, 30.246924],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -609,31 +414,19 @@
       "title": "Murchison Pool",
       "subtitle": "7022 Hart Ln · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.758708,
-          30.353366
-        ],
+        "center": [-97.758708, 30.353366],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -646,31 +439,19 @@
       "title": "Civitan Pool",
       "subtitle": "513 Vargas Rd · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.691427,
-          30.237022
-        ],
+        "center": [-97.691427, 30.237022],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -683,31 +464,19 @@
       "title": "Patterson Pool",
       "subtitle": "4200 Brookview Dr · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.714002,
-          30.296593
-        ],
+        "center": [-97.714002, 30.296593],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -720,31 +489,19 @@
       "title": "Bartholomew Splashpad",
       "subtitle": "5201 Berkman Dr · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.697839,
-          30.30563
-        ],
+        "center": [-97.697839, 30.30563],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -757,31 +514,19 @@
       "title": "Mabel Davis Pool",
       "subtitle": "3427 Parker Lane · Regional · Closed",
       "geofence": {
-        "center": [
-          -97.742711,
-          30.220259
-        ],
+        "center": [-97.742711, 30.220259],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -794,31 +539,19 @@
       "title": "Shipe Pool",
       "subtitle": "4400 Ave · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.727116,
-          30.306848
-        ],
+        "center": [-97.727116, 30.306848],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -831,31 +564,19 @@
       "title": "Metz Splashpad",
       "subtitle": "2407 Canterbury St · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.71813,
-          30.252684
-        ],
+        "center": [-97.71813, 30.252684],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -868,31 +589,19 @@
       "title": "Eastwoods Splashpad",
       "subtitle": "3001 Harris Park Blvd · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.732126,
-          30.291144
-        ],
+        "center": [-97.732126, 30.291144],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -905,31 +614,19 @@
       "title": "Pease Splashpad",
       "subtitle": "1100 Kingsbury St · Splash Pad · Operated by Pease Park Conservancy",
       "geofence": {
-        "center": [
-          -97.754378,
-          30.282912
-        ],
+        "center": [-97.754378, 30.282912],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -942,31 +639,19 @@
       "title": "Liz Carpenter Splashpad",
       "subtitle": "200 Dawson Rd · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.755231,
-          30.260197
-        ],
+        "center": [-97.755231, 30.260197],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -979,31 +664,19 @@
       "title": "Clarksville Splashpad",
       "subtitle": "1811 W 11th St · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.764103,
-          30.282105
-        ],
+        "center": [-97.764103, 30.282105],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1016,31 +689,19 @@
       "title": "Montopolis Pool",
       "subtitle": "1200 Montopolis Dr · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.699057,
-          30.231947
-        ],
+        "center": [-97.699057, 30.231947],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1053,31 +714,19 @@
       "title": "Lott Splashpad",
       "subtitle": "1180 Curves · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.730171,
-          30.269695
-        ],
+        "center": [-97.730171, 30.269695],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1090,31 +739,19 @@
       "title": "Rosewood Pool",
       "subtitle": "2300 Rosewood Ave · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.713836,
-          30.271339
-        ],
+        "center": [-97.713836, 30.271339],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1127,31 +764,19 @@
       "title": "Parque Zaragoza Pool",
       "subtitle": "2611 Webberville Rd · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.713077,
-          30.262201
-        ],
+        "center": [-97.713077, 30.262201],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1164,31 +789,19 @@
       "title": "Chestnut Splashpad",
       "subtitle": "2205 E 16th St · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.737956,
-          30.277508
-        ],
+        "center": [-97.737956, 30.277508],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1201,31 +814,19 @@
       "title": "Metz Pool",
       "subtitle": "2309 Canterbury St · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.71813,
-          30.252684
-        ],
+        "center": [-97.71813, 30.252684],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1238,31 +839,19 @@
       "title": "Baily Splashpad",
       "subtitle": "1201 W 33rd St · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.746894,
-          30.302605
-        ],
+        "center": [-97.746894, 30.302605],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1275,31 +864,19 @@
       "title": "Dittmar Pool",
       "subtitle": "1009 W Dittmar Dr · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.801061,
-          30.185743
-        ],
+        "center": [-97.801061, 30.185743],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1312,31 +889,19 @@
       "title": "Stacy Pool",
       "subtitle": "700 E Live Oak St · Neighborhood · Open",
       "geofence": {
-        "center": [
-          -97.747308,
-          30.239596
-        ],
+        "center": [-97.747308, 30.239596],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1349,31 +914,19 @@
       "title": "Walnut Creek Pool",
       "subtitle": "12138 N Lamar Blvd · Regional · Closed",
       "geofence": {
-        "center": [
-          -97.679502,
-          30.398444
-        ],
+        "center": [-97.679502, 30.398444],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1386,31 +939,19 @@
       "title": "Northwest Pool",
       "subtitle": "7000 Ardath St · Regional · Open",
       "geofence": {
-        "center": [
-          -97.739854,
-          30.348729
-        ],
+        "center": [-97.739854, 30.348729],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1423,31 +964,19 @@
       "title": "Martin Pool",
       "subtitle": "1626 Nash Hernandez Sr Dr · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.731102,
-          30.250938
-        ],
+        "center": [-97.731102, 30.250938],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1460,31 +989,19 @@
       "title": "Rosewood Splashpad",
       "subtitle": "2300 Rosewood Ave · Splash Pad · Open",
       "geofence": {
-        "center": [
-          -97.713836,
-          30.271339
-        ],
+        "center": [-97.713836, 30.271339],
         "radiusMeters": 80
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1497,31 +1014,19 @@
       "title": "Balcones Pool",
       "subtitle": "12017 Amherst Dr · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.720855,
-          30.413404
-        ],
+        "center": [-97.720855, 30.413404],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1534,31 +1039,19 @@
       "title": "Stacy Wading Pool",
       "subtitle": "1401 Sunset Lane · Wading · Closed",
       "geofence": {
-        "center": [
-          -97.745574,
-          30.241312
-        ],
+        "center": [-97.745574, 30.241312],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1571,31 +1064,19 @@
       "title": "Deep Eddy Pool",
       "subtitle": "401 Deep Eddy Ave · Regional · Open",
       "geofence": {
-        "center": [
-          -97.772889,
-          30.27759
-        ],
+        "center": [-97.772889, 30.27759],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1608,31 +1089,19 @@
       "title": "Colony Park Pool",
       "subtitle": "7400 Loyola Ln · Community · Open",
       "geofence": {
-        "center": [
-          -97.640103,
-          30.299305
-        ],
+        "center": [-97.640103, 30.299305],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1645,31 +1114,19 @@
       "title": "Dottie Jordan Pool",
       "subtitle": "2803 Loyola Ln · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.673411,
-          30.314319
-        ],
+        "center": [-97.673411, 30.314319],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }
@@ -1682,31 +1139,19 @@
       "title": "Brentwood Pool",
       "subtitle": "6710 Arroyo · Neighborhood · Closed",
       "geofence": {
-        "center": [
-          -97.730371,
-          30.340442
-        ],
+        "center": [-97.730371, 30.340442],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "12:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "10:00",
             "to": "20:00"
           }

@@ -4,10 +4,7 @@
   "category": "Apartments",
   "color": "#475569",
   "initialCamera": {
-    "center": [
-      -97.75,
-      30.35
-    ],
+    "center": [-97.75, 30.35],
     "zoom": 10
   },
   "hotspots": [
@@ -17,10 +14,7 @@
       "title": "Camden La Frontera",
       "subtitle": "2520 La Frontera Blvd, Round Rock · ~640 units",
       "geofence": {
-        "center": [
-          -97.68,
-          30.5252
-        ],
+        "center": [-97.68, 30.5252],
         "radiusMeters": 250
       }
     },
@@ -30,10 +24,7 @@
       "title": "The Park at Walnut Creek",
       "subtitle": "12219 N Lamar Blvd, Austin 78753 · large garden community",
       "geofence": {
-        "center": [
-          -97.6985,
-          30.395
-        ],
+        "center": [-97.6985, 30.395],
         "radiusMeters": 250
       }
     },
@@ -43,10 +34,7 @@
       "title": "Trails of Walnut Creek",
       "subtitle": "12013 Metric Blvd, Austin 78758 · large North Austin community",
       "geofence": {
-        "center": [
-          -97.709,
-          30.395
-        ],
+        "center": [-97.709, 30.395],
         "radiusMeters": 250
       }
     },
@@ -56,10 +44,7 @@
       "title": "Bridge at Northwest Hills",
       "subtitle": "6810 Lakewood Dr, Austin 78731 · NW Hills",
       "geofence": {
-        "center": [
-          -97.772,
-          30.358
-        ],
+        "center": [-97.772, 30.358],
         "radiusMeters": 220
       }
     },
@@ -69,10 +54,7 @@
       "title": "AMLI 5350",
       "subtitle": "5350 Burnet Rd, Austin 78756 · Brentwood / Allandale",
       "geofence": {
-        "center": [
-          -97.74,
-          30.326
-        ],
+        "center": [-97.74, 30.326],
         "radiusMeters": 180
       }
     },
@@ -82,10 +64,7 @@
       "title": "Camden Stoneleigh",
       "subtitle": "14333 Avery Ranch Blvd, Austin 78717 · Avery Ranch",
       "geofence": {
-        "center": [
-          -97.78,
-          30.505
-        ],
+        "center": [-97.78, 30.505],
         "radiusMeters": 220
       }
     },
@@ -95,10 +74,7 @@
       "title": "Camden Brushy Creek",
       "subtitle": "8401 Lakewood Glen Dr, Cedar Park 78613",
       "geofence": {
-        "center": [
-          -97.817,
-          30.488
-        ],
+        "center": [-97.817, 30.488],
         "radiusMeters": 220
       }
     },
@@ -108,10 +84,7 @@
       "title": "The Marq at Crystal Falls",
       "subtitle": "4500 Crystal Falls Pkwy, Leander 78641",
       "geofence": {
-        "center": [
-          -97.88,
-          30.58
-        ],
+        "center": [-97.88, 30.58],
         "radiusMeters": 220
       }
     },
@@ -121,10 +94,7 @@
       "title": "Cortland Anderson Mill",
       "subtitle": "13190 N FM 620, Austin 78717 · Anderson Mill",
       "geofence": {
-        "center": [
-          -97.803,
-          30.458
-        ],
+        "center": [-97.803, 30.458],
         "radiusMeters": 220
       }
     },
@@ -134,10 +104,7 @@
       "title": "Cottages of Lake Travis",
       "subtitle": "Lakeway area · large Hill Country complex",
       "geofence": {
-        "center": [
-          -97.98,
-          30.37
-        ],
+        "center": [-97.98, 30.37],
         "radiusMeters": 220
       }
     }

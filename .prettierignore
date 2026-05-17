@@ -1,0 +1,4 @@
+# Keep hotspots.json files in their compact-but-readable form so the
+# homepage payload stays small. Each file is hand-tuned by tools/compact_json.py
+# (arrays of primitives on one line, nested objects indented).
+**/hotspots.json

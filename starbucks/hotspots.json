@@ -4,10 +4,7 @@
   "category": "Starbucks",
   "color": "#006241",
   "initialCamera": {
-    "center": [
-      -97.74,
-      30.32
-    ],
+    "center": [-97.74, 30.32],
     "zoom": 10
   },
   "hotspots": [
@@ -17,31 +14,19 @@
       "title": "Starbucks · Congress & 6th",
       "subtitle": "Downtown · 600 Congress Ave",
       "geofence": {
-        "center": [
-          -97.743,
-          30.268
-        ],
+        "center": [-97.743, 30.268],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -54,31 +39,19 @@
       "title": "Starbucks · 2nd Street District",
       "subtitle": "200 W 2nd St · Downtown",
       "geofence": {
-        "center": [
-          -97.746,
-          30.266
-        ],
+        "center": [-97.746, 30.266],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -91,31 +64,19 @@
       "title": "Starbucks · Whole Foods Lamar",
       "subtitle": "Inside Whole Foods · 525 N Lamar",
       "geofence": {
-        "center": [
-          -97.753,
-          30.271
-        ],
+        "center": [-97.753, 30.271],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -128,31 +89,19 @@
       "title": "Starbucks · MLK & Lamar",
       "subtitle": "1100 N Lamar Blvd",
       "geofence": {
-        "center": [
-          -97.751,
-          30.279
-        ],
+        "center": [-97.751, 30.279],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -165,31 +114,19 @@
       "title": "Starbucks · The Drag (UT)",
       "subtitle": "2406 Guadalupe St · UT West Campus",
       "geofence": {
-        "center": [
-          -97.7416,
-          30.2895
-        ],
+        "center": [-97.7416, 30.2895],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -202,31 +139,19 @@
       "title": "Starbucks · East 7th",
       "subtitle": "1807 E 7th St · East Austin",
       "geofence": {
-        "center": [
-          -97.7185,
-          30.263
-        ],
+        "center": [-97.7185, 30.263],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -239,31 +164,19 @@
       "title": "Starbucks · Riverside",
       "subtitle": "1701 E Riverside Dr",
       "geofence": {
-        "center": [
-          -97.735,
-          30.244
-        ],
+        "center": [-97.735, 30.244],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -276,31 +189,19 @@
       "title": "Starbucks · South Lamar",
       "subtitle": "2400 S Lamar Blvd · Bluebonnet",
       "geofence": {
-        "center": [
-          -97.772,
-          30.251
-        ],
+        "center": [-97.772, 30.251],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -313,31 +214,19 @@
       "title": "Starbucks · South Congress",
       "subtitle": "1600 S Congress Ave · SoCo",
       "geofence": {
-        "center": [
-          -97.751,
-          30.248
-        ],
+        "center": [-97.751, 30.248],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -350,31 +239,19 @@
       "title": "Starbucks · Brodie Lane",
       "subtitle": "5601 Brodie Ln · Sunset Valley",
       "geofence": {
-        "center": [
-          -97.823,
-          30.238
-        ],
+        "center": [-97.823, 30.238],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -387,31 +264,19 @@
       "title": "Starbucks · Slaughter Lane",
       "subtitle": "9600 S I-35 · South Park Meadows",
       "geofence": {
-        "center": [
-          -97.7905,
-          30.188
-        ],
+        "center": [-97.7905, 30.188],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -424,31 +289,19 @@
       "title": "Starbucks · Anderson Lane",
       "subtitle": "2525 W Anderson Ln · Northcross",
       "geofence": {
-        "center": [
-          -97.7395,
-          30.354
-        ],
+        "center": [-97.7395, 30.354],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -461,31 +314,19 @@
       "title": "Starbucks · Burnet & 2222",
       "subtitle": "5601 Burnet Rd · Allandale",
       "geofence": {
-        "center": [
-          -97.74,
-          30.338
-        ],
+        "center": [-97.74, 30.338],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -498,31 +339,19 @@
       "title": "Starbucks · Mueller",
       "subtitle": "1800 Aldrich St · Mueller",
       "geofence": {
-        "center": [
-          -97.7045,
-          30.3
-        ],
+        "center": [-97.7045, 30.3],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -535,31 +364,19 @@
       "title": "Starbucks · The Domain",
       "subtitle": "11410 Century Oaks Terrace · North Austin",
       "geofence": {
-        "center": [
-          -97.725,
-          30.4005
-        ],
+        "center": [-97.725, 30.4005],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -572,31 +389,19 @@
       "title": "Starbucks · Research @ 183",
       "subtitle": "10515 N MoPac · NW Austin",
       "geofence": {
-        "center": [
-          -97.734,
-          30.3915
-        ],
+        "center": [-97.734, 30.3915],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -609,31 +414,19 @@
       "title": "Starbucks · Arboretum",
       "subtitle": "10000 Research Blvd · Arboretum",
       "geofence": {
-        "center": [
-          -97.7585,
-          30.4035
-        ],
+        "center": [-97.7585, 30.4035],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -646,31 +439,19 @@
       "title": "Starbucks · Westlake",
       "subtitle": "3300 Bee Cave Rd · Westlake Hills",
       "geofence": {
-        "center": [
-          -97.8205,
-          30.286
-        ],
+        "center": [-97.8205, 30.286],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -683,31 +464,19 @@
       "title": "Starbucks · Hill Country Galleria",
       "subtitle": "12700 Hill Country Blvd · Bee Cave",
       "geofence": {
-        "center": [
-          -97.9415,
-          30.308
-        ],
+        "center": [-97.9415, 30.308],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -720,31 +489,19 @@
       "title": "Starbucks · La Frontera",
       "subtitle": "2700 La Frontera Blvd · Round Rock",
       "geofence": {
-        "center": [
-          -97.68,
-          30.524
-        ],
+        "center": [-97.68, 30.524],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -757,31 +514,19 @@
       "title": "Starbucks · 1890 Ranch",
       "subtitle": "1335 E Whitestone Blvd · Cedar Park",
       "geofence": {
-        "center": [
-          -97.84,
-          30.518
-        ],
+        "center": [-97.84, 30.518],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -794,31 +539,19 @@
       "title": "Starbucks · Stone Hill",
       "subtitle": "18820 Limestone Commercial Dr · Pflugerville",
       "geofence": {
-        "center": [
-          -97.6395,
-          30.448
-        ],
+        "center": [-97.6395, 30.448],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }
@@ -831,31 +564,19 @@
       "title": "Starbucks · Lakeway",
       "subtitle": "2300 Lohmans Spur Rd · Lakeway",
       "geofence": {
-        "center": [
-          -97.976,
-          30.358
-        ],
+        "center": [-97.976, 30.358],
         "radiusMeters": 60
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "05:00",
             "to": "21:00"
           },
           {
-            "days": [
-              "sat",
-              "sun"
-            ],
+            "days": ["sat", "sun"],
             "from": "06:00",
             "to": "21:00"
           }

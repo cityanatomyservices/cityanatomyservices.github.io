@@ -4,10 +4,7 @@
   "category": "Pubs & Bars",
   "color": "#e11d74",
   "initialCamera": {
-    "center": [
-      -97.744,
-      30.268
-    ],
+    "center": [-97.744, 30.268],
     "zoom": 12
   },
   "hotspots": [
@@ -17,37 +14,24 @@
       "title": "The White Horse",
       "subtitle": "East-side honky-tonk + two-step dance floor",
       "geofence": {
-        "center": [
-          -97.72244,
-          30.26288
-        ],
+        "center": [-97.72244, 30.26288],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -60,37 +44,24 @@
       "title": "The Broken Spoke",
       "subtitle": "Classic Texas dance hall on South Lamar",
       "geofence": {
-        "center": [
-          -97.78384,
-          30.23492
-        ],
+        "center": [-97.78384, 30.23492],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -103,37 +74,24 @@
       "title": "Little Longhorn Saloon",
       "subtitle": "Honky-tonk + Chicken Sh*t Bingo, north Austin",
       "geofence": {
-        "center": [
-          -97.74006,
-          30.32665
-        ],
+        "center": [-97.74006, 30.32665],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -146,37 +104,24 @@
       "title": "Donn's Depot",
       "subtitle": "Train-car piano bar + dance floor",
       "geofence": {
-        "center": [
-          -97.7604,
-          30.27003
-        ],
+        "center": [-97.7604, 30.27003],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -189,37 +134,24 @@
       "title": "Sagebrush",
       "subtitle": "South-side honky-tonk + outdoor dance hall",
       "geofence": {
-        "center": [
-          -97.7753,
-          30.20193
-        ],
+        "center": [-97.7753, 30.20193],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -232,37 +164,24 @@
       "title": "The Continental Club",
       "subtitle": "Legendary South Congress live music club",
       "geofence": {
-        "center": [
-          -97.74926,
-          30.25196
-        ],
+        "center": [-97.74926, 30.25196],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -275,37 +194,24 @@
       "title": "C-Boy's Heart & Soul",
       "subtitle": "South Congress soul, R&B + dance floor",
       "geofence": {
-        "center": [
-          -97.75065,
-          30.24747
-        ],
+        "center": [-97.75065, 30.24747],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -318,37 +224,24 @@
       "title": "Mohawk",
       "subtitle": "Red River live-music staple",
       "geofence": {
-        "center": [
-          -97.73604,
-          30.27006
-        ],
+        "center": [-97.73604, 30.27006],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -361,37 +254,24 @@
       "title": "Hotel Vegas",
       "subtitle": "East 6th indie live music + dance",
       "geofence": {
-        "center": [
-          -97.72845,
-          30.26194
-        ],
+        "center": [-97.72845, 30.26194],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -404,37 +284,24 @@
       "title": "Empire Control Room & Garage",
       "subtitle": "Indoor + outdoor live music / DJs",
       "geofence": {
-        "center": [
-          -97.73796,
-          30.26819
-        ],
+        "center": [-97.73796, 30.26819],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -447,37 +314,24 @@
       "title": "Antone's Nightclub",
       "subtitle": "Austin's home of the blues, downtown",
       "geofence": {
-        "center": [
-          -97.74122,
-          30.26594
-        ],
+        "center": [-97.74122, 30.26594],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -490,37 +344,24 @@
       "title": "Stay Gold",
       "subtitle": "East-side live-music dive bar",
       "geofence": {
-        "center": [
-          -97.72387,
-          30.25852
-        ],
+        "center": [-97.72387, 30.25852],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -533,37 +374,24 @@
       "title": "The Elephant Room",
       "subtitle": "Underground jazz club, downtown",
       "geofence": {
-        "center": [
-          -97.74339,
-          30.2663
-        ],
+        "center": [-97.74339, 30.2663],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -576,37 +404,24 @@
       "title": "The Parish",
       "subtitle": "Upstairs live-music venue on 6th",
       "geofence": {
-        "center": [
-          -97.74095,
-          30.26703
-        ],
+        "center": [-97.74095, 30.26703],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -619,37 +434,24 @@
       "title": "Emo's Austin",
       "subtitle": "Large national-touring concert venue",
       "geofence": {
-        "center": [
-          -97.72925,
-          30.243
-        ],
+        "center": [-97.72925, 30.243],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -662,37 +464,24 @@
       "title": "The Saxon Pub",
       "subtitle": "Songwriter live-music room, S Lamar",
       "geofence": {
-        "center": [
-          -97.76522,
-          30.25366
-        ],
+        "center": [-97.76522, 30.25366],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -705,37 +494,24 @@
       "title": "Skylark Lounge",
       "subtitle": "East-side blues + soul lounge",
       "geofence": {
-        "center": [
-          -97.70805,
-          30.29248
-        ],
+        "center": [-97.70805, 30.29248],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -748,37 +524,24 @@
       "title": "Sahara Lounge",
       "subtitle": "Eclectic far-east-side world music venue",
       "geofence": {
-        "center": [
-          -97.70123,
-          30.28072
-        ],
+        "center": [-97.70123, 30.28072],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -791,37 +554,24 @@
       "title": "Carousel Lounge",
       "subtitle": "Circus-themed live music dive bar",
       "geofence": {
-        "center": [
-          -97.71385,
-          30.3153
-        ],
+        "center": [-97.71385, 30.3153],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -834,37 +584,24 @@
       "title": "ACL Live at the Moody Theater",
       "subtitle": "Flagship downtown concert hall",
       "geofence": {
-        "center": [
-          -97.74763,
-          30.26483
-        ],
+        "center": [-97.74763, 30.26483],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -877,37 +614,24 @@
       "title": "The Far Out Lounge & Stage",
       "subtitle": "Big outdoor music yard, far south",
       "geofence": {
-        "center": [
-          -97.7902,
-          30.176
-        ],
+        "center": [-97.7902, 30.176],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -920,37 +644,24 @@
       "title": "Maggie Mae's",
       "subtitle": "Multi-stage 6th Street live music + dance",
       "geofence": {
-        "center": [
-          -97.73945,
-          30.26706
-        ],
+        "center": [-97.73945, 30.26706],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -963,37 +674,24 @@
       "title": "Kingdom Nightclub",
       "subtitle": "Big-room EDM + house dance club",
       "geofence": {
-        "center": [
-          -97.74704,
-          30.26926
-        ],
+        "center": [-97.74704, 30.26926],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -1006,37 +704,24 @@
       "title": "Vulcan Gas Company",
       "subtitle": "DJs + dance club on 6th Street",
       "geofence": {
-        "center": [
-          -97.739,
-          30.26715
-        ],
+        "center": [-97.739, 30.26715],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -1049,37 +734,24 @@
       "title": "The Highball",
       "subtitle": "Karaoke, bowling + live music on S Lamar",
       "geofence": {
-        "center": [
-          -97.763,
-          30.25612
-        ],
+        "center": [-97.763, 30.25612],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -1092,37 +764,24 @@
       "title": "Summit Rooftop Lounge",
       "subtitle": "Rooftop DJs + dancing downtown",
       "geofence": {
-        "center": [
-          -97.74373,
-          30.26648
-        ],
+        "center": [-97.74373, 30.26648],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -1135,37 +794,24 @@
       "title": "Oilcan Harry's",
       "subtitle": "Iconic Warehouse District LGBTQ+ dance club",
       "geofence": {
-        "center": [
-          -97.74552,
-          30.26611
-        ],
+        "center": [-97.74552, 30.26611],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -1178,37 +824,24 @@
       "title": "Esther's Follies",
       "subtitle": "6th Street comedy + magic revue",
       "geofence": {
-        "center": [
-          -97.73815,
-          30.26723
-        ],
+        "center": [-97.73815, 30.26723],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -1221,37 +854,24 @@
       "title": "Cap City Comedy Club",
       "subtitle": "Big-name stand-up club near the Domain",
       "geofence": {
-        "center": [
-          -97.7182,
-          30.40165
-        ],
+        "center": [-97.7182, 30.40165],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }
@@ -1264,37 +884,24 @@
       "title": "ColdTowne Theater",
       "subtitle": "Improv + sketch comedy on Airport Blvd",
       "geofence": {
-        "center": [
-          -97.71587,
-          30.30714
-        ],
+        "center": [-97.71587, 30.30714],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu"
-            ],
+            "days": ["mon", "tue", "wed", "thu"],
             "from": "16:00",
             "to": "00:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "14:00",
             "to": "02:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "00:00"
           }

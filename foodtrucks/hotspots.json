@@ -4,10 +4,7 @@
   "category": "Food Trucks",
   "color": "#10b981",
   "initialCamera": {
-    "center": [
-      -97.77,
-      30.29
-    ],
+    "center": [-97.77, 30.29],
     "zoom": 10.5
   },
   "hotspots": [
@@ -17,31 +14,19 @@
       "title": "The Picnic",
       "subtitle": "Barton Springs Rd · 7 trucks, covered seating, dog-friendly",
       "geofence": {
-        "center": [
-          -97.7629,
-          30.2635
-        ],
+        "center": [-97.7629, 30.2635],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -54,31 +39,19 @@
       "title": "Thicket Food Park",
       "subtitle": "Deep South Austin · live music, playscape, BYOB",
       "geofence": {
-        "center": [
-          -97.7921,
-          30.1852
-        ],
+        "center": [-97.7921, 30.1852],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -91,31 +64,19 @@
       "title": "Cosmic Coffee + Beer Garden",
       "subtitle": "S Lamar · multi-truck park in a permaculture garden",
       "geofence": {
-        "center": [
-          -97.7631,
-          30.2273
-        ],
+        "center": [-97.7631, 30.2273],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -128,31 +89,19 @@
       "title": "The Yard (St. Elmo)",
       "subtitle": "St. Elmo · anchored by St. Elmo Brewing, rotating trucks",
       "geofence": {
-        "center": [
-          -97.7612,
-          30.2174
-        ],
+        "center": [-97.7612, 30.2174],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -165,31 +114,19 @@
       "title": "The Far Out Lounge & Stage",
       "subtitle": "S Congress · alfresco music venue with trucks + two bars",
       "geofence": {
-        "center": [
-          -97.7857,
-          30.1727
-        ],
+        "center": [-97.7857, 30.1727],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -202,31 +139,19 @@
       "title": "Arbor Food Park",
       "subtitle": "East 12th · Cuantos Tacos, Dough Boys, Comal ATX",
       "geofence": {
-        "center": [
-          -97.7283,
-          30.2727
-        ],
+        "center": [-97.7283, 30.2727],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -239,31 +164,19 @@
       "title": "The Buzz Mill",
       "subtitle": "Riverside · 24/7 coffee bar with truck-lined patio",
       "geofence": {
-        "center": [
-          -97.7269,
-          30.2417
-        ],
+        "center": [-97.7269, 30.2417],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -276,31 +189,19 @@
       "title": "1311 South 1st (Ira & Bev's)",
       "subtitle": "Bouldin Creek · Bananarchy, Pig Pen BBQ, Eggman",
       "geofence": {
-        "center": [
-          -97.7543,
-          30.2507
-        ],
+        "center": [-97.7543, 30.2507],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -313,31 +214,19 @@
       "title": "Mueller Trailer Eats",
       "subtitle": "Mueller · trailer cluster by the historic Browning Hangar",
       "geofence": {
-        "center": [
-          -97.7077,
-          30.2966
-        ],
+        "center": [-97.7077, 30.2966],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -350,31 +239,19 @@
       "title": "Webberville Food Truck Park",
       "subtitle": "East Austin · Veracruz, Desnudo Coffee, The Marylander",
       "geofence": {
-        "center": [
-          -97.7137,
-          30.2631
-        ],
+        "center": [-97.7137, 30.2631],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -387,31 +264,19 @@
       "title": "5000 Burnet",
       "subtitle": "Brentwood · 12 trailers, fenced playscape, BYOB",
       "geofence": {
-        "center": [
-          -97.7395,
-          30.3212
-        ],
+        "center": [-97.7395, 30.3212],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -424,31 +289,19 @@
       "title": "South First Food Court",
       "subtitle": "S 1st & Live Oak · rotating trucks + outdoor seating",
       "geofence": {
-        "center": [
-          -97.758,
-          30.2444
-        ],
+        "center": [-97.758, 30.2444],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -461,31 +314,19 @@
       "title": "The Hungry Yard",
       "subtitle": "NW Austin · 10+ trailers along RR 620 near Lake Travis",
       "geofence": {
-        "center": [
-          -97.8415,
-          30.4321
-        ],
+        "center": [-97.8415, 30.4321],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -498,31 +339,19 @@
       "title": "900 Springdale Food Park",
       "subtitle": "East Austin · grassy triangle on the Walnut Creek Trail",
       "geofence": {
-        "center": [
-          -97.6988,
-          30.2611
-        ],
+        "center": [-97.6988, 30.2611],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }
@@ -535,31 +364,19 @@
       "title": "Pink Flamingo Food Court",
       "subtitle": "NW Austin · 2025-opened park with beer/wine garden",
       "geofence": {
-        "center": [
-          -97.7659,
-          30.4349
-        ],
+        "center": [-97.7659, 30.4349],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "sun"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "sun"],
             "from": "11:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "fri",
-              "sat"
-            ],
+            "days": ["fri", "sat"],
             "from": "11:00",
             "to": "00:00"
           }

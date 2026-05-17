@@ -4,10 +4,7 @@
   "category": "Capitol",
   "color": "#1e40af",
   "initialCamera": {
-    "center": [
-      -97.7404,
-      30.2747
-    ],
+    "center": [-97.7404, 30.2747],
     "zoom": 15
   },
   "hotspots": [
@@ -17,37 +14,24 @@
       "title": "Texas Capitol Complex",
       "subtitle": "State Capitol, grounds, extension &amp; surrounding state office buildings",
       "geofence": {
-        "center": [
-          -97.7404,
-          30.2766
-        ],
+        "center": [-97.7404, 30.2766],
         "radiusMeters": 500
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": [
-              "mon",
-              "tue",
-              "wed",
-              "thu",
-              "fri"
-            ],
+            "days": ["mon", "tue", "wed", "thu", "fri"],
             "from": "07:00",
             "to": "22:00"
           },
           {
-            "days": [
-              "sat"
-            ],
+            "days": ["sat"],
             "from": "09:00",
             "to": "20:00"
           },
           {
-            "days": [
-              "sun"
-            ],
+            "days": ["sun"],
             "from": "12:00",
             "to": "20:00"
           }

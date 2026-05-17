@@ -4,10 +4,7 @@
   "category": "Airport",
   "color": "#fb923c",
   "initialCamera": {
-    "center": [
-      -97.6699,
-      30.1975
-    ],
+    "center": [-97.6699, 30.1975],
     "zoom": 14
   },
   "hotspots": [
@@ -17,10 +14,7 @@
       "title": "Austin-Bergstrom International Airport",
       "subtitle": "ABIA · Barbara Jordan Terminal, concourses &amp; gates",
       "geofence": {
-        "center": [
-          -97.6699,
-          30.1975
-        ],
+        "center": [-97.6699, 30.1975],
         "radiusMeters": 1500
       }
     }
