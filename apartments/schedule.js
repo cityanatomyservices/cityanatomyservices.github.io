@@ -66,6 +66,50 @@
     return (h || 0) * 60 + (m || 0);
   }
 
+  // Human-readable summary of a schedule for popups, e.g.
+  //   "Mon-Fri 5am-9pm · Sat-Sun 6am-9pm"
+  //   "Daily 6am-11pm"
+  //   "Always open"  (no schedule)
+  function formatSchedule(schedule) {
+    if (!schedule || !schedule.windows || !schedule.windows.length) {
+      return 'Always open';
+    }
+    return schedule.windows.map(w => {
+      const days = formatDays(w.days || []);
+      const time = formatTime(w.from) + '-' + formatTime(w.to);
+      return days ? `${days} ${time}` : time;
+    }).join(' · ');
+  }
+
+  const WEEK = ['mon','tue','wed','thu','fri','sat','sun'];
+  const DAY_LABELS = { mon:'Mon', tue:'Tue', wed:'Wed', thu:'Thu', fri:'Fri', sat:'Sat', sun:'Sun' };
+  function formatDays(days) {
+    if (!days.length) return '';
+    const sorted = WEEK.filter(d => days.includes(d));
+    if (sorted.length === 7) return 'Daily';
+    // Group into consecutive runs (Mon-Fri vs Mon, Wed, Fri).
+    const runs = [];
+    let start = sorted[0], end = sorted[0];
+    for (let i = 1; i < sorted.length; i++) {
+      if (WEEK.indexOf(sorted[i]) === WEEK.indexOf(end) + 1) {
+        end = sorted[i];
+      } else {
+        runs.push([start, end]);
+        start = end = sorted[i];
+      }
+    }
+    runs.push([start, end]);
+    return runs.map(([a, b]) => a === b ? DAY_LABELS[a] : `${DAY_LABELS[a]}-${DAY_LABELS[b]}`).join(', ');
+  }
+  function formatTime(hhmm) {
+    const [h, m] = String(hhmm).split(':').map(n => parseInt(n, 10) || 0);
+    if (h === 0 && m === 0) return '12am';
+    if (h === 12 && m === 0) return '12pm';
+    const period = h < 12 ? 'am' : 'pm';
+    const h12 = h % 12 || 12;
+    return m === 0 ? `${h12}${period}` : `${h12}:${String(m).padStart(2,'0')}${period}`;
+  }
+
   // Returns { day: 'mon'|..|'sun', minutes: 0..1439 } in the given timezone.
   function localTimeIn(tz, date) {
     const fmt = new Intl.DateTimeFormat('en-US', {
@@ -86,5 +130,5 @@
     return { day: weekday, minutes: hour * 60 + minute };
   }
 
-  window.PubchatSchedule = { isActive, nextChange };
+  window.PubchatSchedule = { isActive, nextChange, formatSchedule };
 })();

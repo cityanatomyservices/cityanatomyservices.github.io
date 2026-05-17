@@ -483,6 +483,15 @@
 
       const features = results.flatMap(({ app, hotspots }) => toFeatures(hotspots, app));
 
+      // Build a lookup so the click-popup can find the original hotspot
+      // (including its schedule) by the synthetic feature id "<app>-<id>".
+      const hotspotByFeatureId = new Map();
+      for (const { app, hotspots } of results) {
+        for (const h of hotspots) {
+          hotspotByFeatureId.set(`${app.id}-${h.id}`, h);
+        }
+      }
+
       map.addSource('chatmaps', {
         type: 'geojson',
         data: { type: 'FeatureCollection', features },
@@ -528,35 +537,48 @@
         },
       });
 
+      // app id → display label + URL slug. Keep in sync with the legend +
+      // the APPS array above. Only listed apps are clickable in popups.
+      const APP_META = {
+        pubchat:     { label: 'Pubs & Bars',     href: '/pubchat/' },
+        foodtrucks:  { label: 'Food Trucks',     href: '/foodtrucks/' },
+        librarychat: { label: 'Libraries',       href: '/librarychat/' },
+        parks:       { label: 'Parks',           href: '/parks/' },
+        museums:     { label: 'Museums',         href: '/museums/' },
+        capital:     { label: 'Capitol',         href: '/capital/' },
+        airport:     { label: 'Airport',         href: '/airport/' },
+        transit:     { label: 'Transit Centers', href: '/transit/' },
+        campuses:    { label: 'Campuses',        href: '/campuses/' },
+        clinics:     { label: 'Hospitals',       href: '/clinics/' },
+        pools:       { label: 'Pools',           href: '/pools/' },
+        hebs:        { label: 'H-E-B',           href: '/HEBs/' },
+        walmart:     { label: 'Walmart',         href: '/walmart/' },
+        starbucks:   { label: 'Starbucks',       href: '/starbucks/' },
+        target:      { label: 'Target',          href: '/target/' },
+        newcomers:   { label: 'Newcomers',       href: '/newcomers/' },
+        apartments:  { label: 'Apartments',      href: '/apartments/' },
+        hotels:      { label: 'Hotels',          href: '/hotels/' },
+        sports:      { label: 'Sports Venues',   href: '/sports/' },
+      };
+
       map.on('click', 'chatmaps-fill', (e) => {
         const f = e.features?.[0];
         if (!f) return;
-        const linkMap = {
-          pubchat:      '/pubchat/',
-          librarychat:  '/librarychat/',
-          feedingschat: '/homelesschat/',
-          foodtrucks:   '/foodtrucks/',
-          clinics:      '/clinics/',
-        };
-        const labelMap = {
-          pubchat:      'Pubs & Bars',
-          librarychat:  'Libraries',
-          feedingschat: 'Feeding Sites',
-          foodtrucks:   'Food Trucks',
-          clinics:      'Hospitals',
-        };
-        const href  = linkMap[f.properties.app];
-        const label = labelMap[f.properties.app] || f.properties.app;
-        if (!href) return;
+        const meta  = APP_META[f.properties.app] || { label: f.properties.app, href: null };
+        const hot   = hotspotByFeatureId.get(f.properties.id);
+        const hours = (hot && window.PubchatSchedule)
+          ? window.PubchatSchedule.formatSchedule(hot.schedule)
+          : '';
         const html = `
-          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 180px; padding: 14px 16px 16px;">
-            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: ${f.properties.color}; font-weight: 700;">${label}</div>
+          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 200px; padding: 14px 16px 16px;">
+            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: ${f.properties.color}; font-weight: 700;">${meta.label}</div>
             <div style="font-size: 0.95rem; font-weight: 700; margin-top: 2px;">${f.properties.title}</div>
             ${f.properties.subtitle ? `<div style="font-size: 0.78rem; color: #5a6472; margin-top: 2px;">${f.properties.subtitle}</div>` : ''}
-            <a href="${href}" target="_top" style="display: block; margin-top: 10px; text-align: center; background: ${f.properties.color}; color: #fff; border-radius: 8px; padding: 7px 12px; font-size: 0.82rem; font-weight: 700; text-decoration: none;">Open ${label} ↗</a>
+            ${hours ? `<div style="font-size: 0.78rem; color: #1c1c28; margin-top: 10px;"><span style="font-weight:700;">Hours:</span> ${hours}</div>` : ''}
+            ${meta.href ? `<a href="${meta.href}" target="_top" style="display: block; margin-top: 10px; text-align: center; background: ${f.properties.color}; color: #fff; border-radius: 8px; padding: 7px 12px; font-size: 0.82rem; font-weight: 700; text-decoration: none;">Open ${meta.label} ↗</a>` : ''}
           </div>
         `;
-        new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '260px' })
+        new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '280px' })
           .setLngLat(e.lngLat)
           .setHTML(html)
           .addTo(map);

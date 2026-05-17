@@ -303,15 +303,39 @@ class PubchatEngine {
       },
     });
 
-    // Clicking a hotspot zooms to it (helpful for preview mode).
+    // Clicking a hotspot opens an info popup (category, name, hours).
+    // Distinct from "walking into" the hotspot — that's GPS-driven and opens
+    // the chat sheet. Click is browse-only.
     this.map.on('click', 'hotspots-fill', (e) => {
       const f = e.features?.[0];
       if (!f) return;
-      const [lng, lat] = f.geometry.coordinates;
-      this.map.easeTo({ center: [lng, lat], zoom: Math.max(this.map.getZoom(), 16), duration: 600 });
+      const h = this.getHotspotById(f.properties.id);
+      if (!h) return;
+      new maplibregl.Popup({ offset: 10, closeButton: true, maxWidth: '280px' })
+        .setLngLat(h.geofence.center)
+        .setHTML(this._buildPopupHTML(h))
+        .addTo(this.map);
     });
     this.map.on('mouseenter', 'hotspots-fill', () => { this.map.getCanvas().style.cursor = 'pointer'; });
     this.map.on('mouseleave', 'hotspots-fill', () => { this.map.getCanvas().style.cursor = ''; });
+  }
+
+  _buildPopupHTML(h) {
+    const cat   = this.config.category || '';
+    const color = this.config.color || '#1c1c28';
+    const hours = window.PubchatSchedule
+      ? window.PubchatSchedule.formatSchedule(h.schedule)
+      : '';
+    // Titles/subtitles may contain "&amp;" entities (data convention),
+    // so we insert them as HTML rather than text — matches the homepage popup.
+    return [
+      '<div style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;min-width:200px;padding:14px 16px 14px;">',
+        cat ? `<div style="font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:${color};font-weight:700;">${cat}</div>` : '',
+        `<div style="font-size:0.98rem;font-weight:700;margin-top:2px;color:#1c1c28;">${h.title || h.id}</div>`,
+        h.subtitle ? `<div style="font-size:0.78rem;color:#5a6472;margin-top:2px;">${h.subtitle}</div>` : '',
+        hours ? `<div style="font-size:0.78rem;color:#1c1c28;margin-top:10px;"><span style="font-weight:700;">Hours:</span> ${hours}</div>` : '',
+      '</div>',
+    ].join('');
   }
 
   // ── Helpers ─────────────────────────────────────────────────────
