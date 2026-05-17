@@ -230,10 +230,8 @@
       transition: background 0.15s, color 0.15s;
     }
     .pc-popup-social-btn:hover { color: #fff; }
-    .pc-popup-social-btn.is-instagram:hover {
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    }
-    .pc-popup-social-btn.is-x:hover      { background: #000; }
+    .pc-popup-social-btn.is-gmaps:hover  { background: #4285f4; }
+    .pc-popup-social-btn.is-waze:hover   { background: #33ccff; }
     .pc-popup-social-btn.is-reddit:hover { background: #ff4500; }
     .pc-popup-social-btn svg { width: 16px; height: 16px; }
 
@@ -616,8 +614,9 @@
         const hours = (hot && window.PubchatSchedule)
           ? window.PubchatSchedule.formatSchedule(hot.schedule)
           : '';
-        const social = (hot && window.PubchatSocial)
-          ? window.PubchatSocial.buttonsHTML(hot.gid, hot.title || f.properties.title)
+        const center = hot?.geofence?.center;
+        const social = (center && window.PubchatSocial)
+          ? window.PubchatSocial.buttonsHTML(center[1], center[0], hot.title || f.properties.title)
           : '';
         const html = `
           <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 200px; padding: 14px 16px 16px;">
