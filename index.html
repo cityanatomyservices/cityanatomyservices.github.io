@@ -442,30 +442,30 @@
   <a href="https://anatomy.city" target="_blank" rel="noopener" class="cm-cityanatomy-badge">A City Anatomy<br>Product</a>
 
   <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
-  <script src="/archive/pubchat/schedule.js"></script>
-  <script src="/archive/pubchat/social.js"></script>
+  <script src="/templates/pubchat/schedule.js"></script>
+  <script src="/templates/pubchat/social.js"></script>
   <script>
     const APPS = [
-      { id: 'pubchat',    url: '/archive/pubchat/hotspots.json',      color: '#e11d74' },
-      { id: 'foodtrucks', url: '/archive/foodtrucks/hotspots.json',   color: '#10b981' },
-      { id: 'librarychat',url: '/archive/librarychat/hotspots.json',  color: '#1a73ff' },
-      { id: 'parks',      url: '/archive/parks/hotspots.json',        color: '#16a34a' },
-      { id: 'museums',    url: '/archive/museums/hotspots.json',      color: '#a16207' },
-      { id: 'capital',    url: '/archive/capital/hotspots.json',      color: '#1e40af' },
-      { id: 'airport',    url: '/archive/airport/hotspots.json',      color: '#fb923c' },
-      { id: 'transit',    url: '/archive/transit/hotspots.json',      color: '#be123c' },
-      { id: 'campuses',   url: '/archive/campuses/hotspots.json',     color: '#bf5700' },
-      { id: 'clinics',    url: '/archive/clinics/hotspots.json',      color: '#ef4444' },
-      { id: 'pools',      url: '/archive/pools/hotspots.json',        color: '#38bdf8' },
-      { id: 'hebs',       url: '/archive/HEBs/hotspots.json',        color: '#7c3aed' },
-      { id: 'walmart',    url: '/archive/walmart/hotspots.json',      color: '#4f46e5' },
-      { id: 'starbucks',  url: '/archive/starbucks/hotspots.json',    color: '#006241' },
-      { id: 'target',     url: '/archive/target/hotspots.json',       color: '#c026d3' },
-      { id: 'malls',      url: '/archive/malls/hotspots.json',        color: '#65a30d' },
-      { id: 'newcomers',  url: '/archive/newcomers/hotspots.json',    color: '#14b8a6' },
-      { id: 'apartments', url: '/archive/apartments/hotspots.json',   color: '#475569' },
-      { id: 'hotels',     url: '/archive/hotels/hotspots.json',       color: '#0891b2' },
-      { id: 'sports',     url: '/archive/sports/hotspots.json',       color: '#facc15' },
+      { id: 'pubchat',    url: '/data/pubchat/hotspots.json',      color: '#e11d74' },
+      { id: 'foodtrucks', url: '/data/foodtrucks/hotspots.json',   color: '#10b981' },
+      { id: 'librarychat',url: '/data/librarychat/hotspots.json',  color: '#1a73ff' },
+      { id: 'parks',      url: '/data/parks/hotspots.json',        color: '#16a34a' },
+      { id: 'museums',    url: '/data/museums/hotspots.json',      color: '#a16207' },
+      { id: 'capital',    url: '/data/capital/hotspots.json',      color: '#1e40af' },
+      { id: 'airport',    url: '/data/airport/hotspots.json',      color: '#fb923c' },
+      { id: 'transit',    url: '/data/transit/hotspots.json',      color: '#be123c' },
+      { id: 'campuses',   url: '/data/campuses/hotspots.json',     color: '#bf5700' },
+      { id: 'clinics',    url: '/data/clinics/hotspots.json',      color: '#ef4444' },
+      { id: 'pools',      url: '/data/pools/hotspots.json',        color: '#38bdf8' },
+      { id: 'hebs',       url: '/data/HEBs/hotspots.json',         color: '#7c3aed' },
+      { id: 'walmart',    url: '/data/walmart/hotspots.json',      color: '#4f46e5' },
+      { id: 'starbucks',  url: '/data/starbucks/hotspots.json',    color: '#006241' },
+      { id: 'target',     url: '/data/target/hotspots.json',       color: '#c026d3' },
+      { id: 'malls',      url: '/data/malls/hotspots.json',        color: '#65a30d' },
+      { id: 'newcomers',  url: '/data/newcomers/hotspots.json',    color: '#14b8a6' },
+      { id: 'apartments', url: '/data/apartments/hotspots.json',   color: '#475569' },
+      { id: 'hotels',     url: '/data/hotels/hotspots.json',       color: '#0891b2' },
+      { id: 'sports',     url: '/data/sports/hotspots.json',       color: '#facc15' },
     ];
 
     function circlePolygon([lng, lat], radiusMeters, points = 16) {
