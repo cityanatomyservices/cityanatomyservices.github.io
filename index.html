@@ -413,6 +413,46 @@
     .pc-mini-pane-empty {
       margin: 22px 14px; text-align: center; color: #8a93a0; font-size: 0.82rem;
     }
+    /* "You're here" badge — only on the interactive (auto-opened) popup,
+       not the silent neighbor-view popups. */
+    .pc-mini-here-badge {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 2px 8px;
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0e1117;
+      background: #4cc3ff;
+      border-radius: 999px;
+    }
+    /* Compose form — only on the interactive popup. */
+    .pc-mini-compose {
+      display: flex; gap: 6px;
+      padding: 8px 12px 12px;
+      border-top: 1px solid #2a3040;
+    }
+    .pc-mini-input {
+      flex: 1; min-width: 0;
+      background: #0e1117;
+      color: #f5f7fa;
+      border: 1px solid #2a3040;
+      border-radius: 6px;
+      padding: 7px 10px;
+      font: inherit; font-size: 0.82rem;
+      outline: none;
+    }
+    .pc-mini-input:focus { border-color: #4cc3ff; }
+    .pc-mini-send {
+      flex-shrink: 0;
+      width: 34px; height: 34px;
+      background: #4cc3ff; color: #0e1117;
+      border: none; border-radius: 6px;
+      font-size: 1.2rem; font-weight: 800; line-height: 1;
+      cursor: pointer;
+      transition: filter 0.12s ease;
+    }
+    .pc-mini-send:hover { filter: brightness(1.1); }
+    .pc-mini-send:active { transform: translateY(1px); }
 
     @media (max-width: 500px) {
       .cm-legend { top: 10px; right: 10px; padding: 8px 10px; font-size: 0.72rem; }
@@ -601,6 +641,7 @@
   <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
   <script src="/templates/pubchat/schedule.js"></script>
   <script src="/templates/pubchat/social.js"></script>
+  <script src="/templates/pubchat/identity.js"></script>
   <script src="/templates/pubchat/chat.js"></script>
   <script>
     const APPS = [
@@ -899,7 +940,8 @@
           syntheticFeature,
           { lng: center[0], lat: center[1] },
           meta,
-          hot
+          hot,
+          { interactive: true }
         );
         currentMiniHotspotId = enteredFeatureId;
       }
@@ -992,16 +1034,28 @@
 
       function escapeText(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
 
-      function openMiniChat(feature, lngLat, meta, hot) {
+      function openMiniChat(feature, lngLat, meta, hot, opts) {
+        const interactive = !!(opts && opts.interactive);
         const color = feature.properties.color;
         const title = feature.properties.title;
+        const hereBadge = interactive
+          ? '<span class="pc-mini-here-badge">You’re here</span>'
+          : '';
+        const chatPaneInner = interactive
+          ? `<ol class="pc-mini-messages" aria-live="polite"></ol>
+             <form class="pc-mini-compose">
+               <input class="pc-mini-input" type="text" maxlength="240" placeholder="say something…" autocomplete="off" />
+               <button type="submit" class="pc-mini-send" aria-label="Send">→</button>
+             </form>`
+          : `<ol class="pc-mini-messages" aria-live="polite"></ol>`;
         const el = document.createElement('div');
         el.innerHTML = `
           <div class="pc-mini-head">
             <div class="pc-mini-head-text">
               <div class="pc-mini-cat" style="color: ${color};">${escapeText(meta.label)}</div>
               <h2 class="pc-mini-title">${escapeText(title)}</h2>
-              <p class="pc-mini-presence">connecting…</p>
+              <p class="pc-mini-presence">${interactive ? 'connecting…' : 'live view'}</p>
+              ${hereBadge}
             </div>
           </div>
           <nav class="pc-mini-tabs" role="tablist">
@@ -1011,7 +1065,7 @@
           </nav>
           <div class="pc-mini-panes">
             <div class="pc-mini-pane" data-pane="chat" role="tabpanel">
-              <ol class="pc-mini-messages" aria-live="polite"></ol>
+              ${chatPaneInner}
             </div>
             <div class="pc-mini-pane" data-pane="info" role="tabpanel" hidden>
               <p class="pc-mini-pane-empty">Info coming soon.</p>
@@ -1067,26 +1121,46 @@
           messagesEl.scrollTop = messagesEl.scrollHeight;
         };
 
-        sysBubble('Live view · listening for messages…');
+        sysBubble(interactive
+          ? 'You’re in this hotspot · say hi 👋'
+          : 'Live view · listening for messages…');
 
-        // Lazy-load + subscribe (silent: no identity, no presence tracking)
+        // Wire compose form (interactive only)
+        if (interactive) {
+          const form = el.querySelector('.pc-mini-compose');
+          const input = el.querySelector('.pc-mini-input');
+          form.addEventListener('submit', async (ev) => {
+            ev.preventDefault();
+            const ok = await window.PubchatChat?.sendMessage(input.value, null);
+            if (ok) input.value = '';
+          });
+        }
+
         const hotspotId = hot?.id;
-        if (!hotspotId) return;
+        if (!hotspotId) return popup;
+
+        // Interactive (home) = singleton join with identity (compose + presence).
+        // Silent (clicked neighbor) = parallel subscribeHotspot (no presence track).
+        let silentSub = null;
         (async () => {
           try {
             await ensureConfigLoaded();
             await ensureSupabaseLoaded();
             if (!window.PubchatChat) { sysBubble('Chat unavailable.'); return; }
-            window.PubchatChat.setAppNamespace(feature.properties.app);
-            await window.PubchatChat.joinHotspot(
-              hotspotId,
-              null, // silent viewer — no presence track
-              (payload) => { if (payload) msgBubble(payload); },
-              (list) => {
-                const n = (list || []).length;
-                presenceEl.textContent = n === 1 ? '1 here' : `${n} here`;
-              }
-            );
+            const onMsg = (payload) => { if (payload) msgBubble(payload); };
+            const onPresence = (list) => {
+              const n = (list || []).length;
+              presenceEl.textContent = n === 1 ? '1 here' : `${n} here`;
+            };
+            if (interactive) {
+              const identity = window.PubchatIdentity?.getIdentity?.() || null;
+              window.PubchatChat.setAppNamespace(feature.properties.app);
+              await window.PubchatChat.joinHotspot(hotspotId, identity, onMsg, onPresence);
+            } else {
+              silentSub = await window.PubchatChat.subscribeHotspot(
+                hotspotId, feature.properties.app, { onMessage: onMsg, onPresence }
+              );
+            }
           } catch (err) {
             console.warn('mini chat connect failed', err);
             sysBubble('Could not connect to live chat.');
@@ -1094,7 +1168,11 @@
         })();
 
         popup.on('close', () => {
-          try { window.PubchatChat?.leaveHotspot(); } catch (_) {}
+          if (interactive) {
+            try { window.PubchatChat?.leaveHotspot(); } catch (_) {}
+          } else if (silentSub) {
+            try { silentSub.leave(); } catch (_) {}
+          }
           if (currentMiniPopup === popup) {
             currentMiniPopup = null;
             currentMiniHotspotId = null;

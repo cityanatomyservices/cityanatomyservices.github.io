@@ -180,10 +180,58 @@
   function isConfigured() { return configured(); }
   function currentHotspotId() { return activeHotspotId; }
 
+  // Parallel, view-only subscription to a different hotspot's channel.
+  // Does NOT touch the singleton activeChannel — callers can keep their
+  // interactive `joinHotspot` chat alive while also peeking at a neighbor.
+  // Returns { leave } that tears down only this subscription.
+  async function subscribeHotspot(hotspotId, appId, callbacks) {
+    const { onMessage, onPresence } = callbacks || {};
+    const c = await ensureClient();
+    if (!c) {
+      if (onPresence) onPresence([]);
+      return { leave: () => {} };
+    }
+    const prevNs = appNamespaceOverride;
+    if (appId) appNamespaceOverride = appId;
+    const name = channelName(hotspotId);
+    appNamespaceOverride = prevNs;
+
+    const channel = c.channel(name, {
+      config: { broadcast: { self: false, ack: false } },
+    });
+    channel.on('broadcast', { event: 'msg' }, (payload) => {
+      if (onMessage) onMessage(payload?.payload ?? null);
+    });
+    channel.on('presence', { event: 'sync' }, () => {
+      if (!onPresence) return;
+      const state = channel.presenceState();
+      const list = [];
+      for (const key of Object.keys(state)) {
+        const entries = state[key];
+        if (!entries?.length) continue;
+        const first = entries[0];
+        list.push({
+          handle: first.handle ?? key,
+          emoji: first.emoji ?? '🙂',
+          vibe: first.vibe ?? null,
+          self: false,
+        });
+      }
+      onPresence(list);
+    });
+    await channel.subscribe();
+    return {
+      leave: async () => {
+        try { await c.removeChannel(channel); } catch (e) { /* ignore */ }
+      },
+    };
+  }
+
   window.PubchatChat = {
     joinHotspot,
     leaveHotspot,
     sendMessage,
+    subscribeHotspot,
     isConfigured,
     currentHotspotId,
     setAppNamespace,
