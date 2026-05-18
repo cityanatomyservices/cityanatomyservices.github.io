@@ -413,18 +413,33 @@
     .pc-mini-pane-empty {
       margin: 22px 14px; text-align: center; color: #8a93a0; font-size: 0.82rem;
     }
-    /* "You're here" badge — only on the interactive (auto-opened) popup,
-       not the silent neighbor-view popups. */
-    .pc-mini-here-badge {
+    /* Header badge — cyan when you're physically inside this hotspot,
+       muted when you're peeking at a neighbor from your home geofence. */
+    .pc-mini-here-badge,
+    .pc-mini-visiting-badge {
       display: inline-block;
       margin-top: 4px;
       padding: 2px 8px;
       font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #0e1117;
-      background: #4cc3ff;
       border-radius: 999px;
     }
+    .pc-mini-here-badge     { color: #0e1117; background: #4cc3ff; }
+    .pc-mini-visiting-badge { color: #c0c7d1; background: #2a3040; border: 1px solid #3a4252; }
+    /* Per-bubble here/remote markers. The vertical accent bar on the
+       left makes the location visible at a glance even without reading
+       the meta line. */
+    .pc-mini-bubble.is-here-sender   { border-left: 3px solid #4cc3ff; padding-left: 8px; }
+    .pc-mini-bubble.is-remote-sender { border-left: 3px solid #6f7780; padding-left: 8px; background: #1c2128; }
+    .pc-mini-bubble.is-self          { align-self: flex-end; background: #1a4d6e; }
+    .pc-mini-bubble.is-self.is-remote-sender { background: #2d3b46; }
+    .pc-mini-bubble-tag {
+      margin-left: 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+    .pc-mini-bubble-tag.is-here-tag { color: #4cc3ff; text-transform: uppercase; letter-spacing: 0.04em; }
+    .pc-mini-bubble-tag.is-from-tag { color: #c0c7d1; font-weight: 600; font-style: italic; }
     /* Compose form — only on the interactive popup. */
     .pc-mini-compose {
       display: flex; gap: 6px;
@@ -905,17 +920,52 @@
         if (bestApp !== enteredApp || bestFid !== enteredFeatureId) {
           enteredApp = bestApp;
           enteredFeatureId = bestFid;
+          refreshIdentityHome();
           applyEnteredState();
           autoOpenMiniForEntered();
         }
       }
 
-      // Auto-open the mini chat-viewer popup the moment GPS enters a
-      // hotspot, and auto-switch / auto-close as the user moves between
-      // (or out of) geofences. Clicking still works the same way.
+      // Identity is stable per session (random handle + emoji from
+      // PubchatIdentity, persisted in localStorage). The `home` field
+      // mutates as the user crosses geofence boundaries and is broadcast
+      // with every message + presence track so other people in the room
+      // can tell who is physically present vs. chatting in from another
+      // same-category geofence.
+      let identity = null;
+      function getIdentity() {
+        if (!identity) {
+          const base = window.PubchatIdentity?.getIdentity?.()
+                    || { handle: 'someone', emoji: '🙂' };
+          identity = { handle: base.handle, emoji: base.emoji, home: null };
+        }
+        return identity;
+      }
+      function refreshIdentityHome() {
+        const id = getIdentity();
+        if (!enteredFeatureId) { id.home = null; return; }
+        const hot = hotspotByFeatureId.get(enteredFeatureId);
+        if (!hot) { id.home = null; return; }
+        id.home = {
+          hotspotId: hot.id,
+          hotspotTitle: hot.title || hot.id,
+          app: enteredApp,
+        };
+      }
+
+      // Auto-open the mini chat popup the moment GPS enters a hotspot,
+      // and auto-switch / auto-close as the user moves between (or out
+      // of) geofences. Any open neighbor popup is closed on a geofence
+      // change since the user's home context just shifted.
       let currentMiniPopup = null;
       let currentMiniHotspotId = null;
+      let currentNeighborPopup = null;
+      let currentNeighborHotspotId = null;
+      function closeNeighborPopup() {
+        if (currentNeighborPopup) currentNeighborPopup.remove();
+      }
       function autoOpenMiniForEntered() {
+        closeNeighborPopup();
         if (!enteredFeatureId) {
           if (currentMiniPopup) currentMiniPopup.remove();
           return;
@@ -941,7 +991,7 @@
           { lng: center[0], lat: center[1] },
           meta,
           hot,
-          { interactive: true }
+          { role: 'home' }
         );
         currentMiniHotspotId = enteredFeatureId;
       }
@@ -970,7 +1020,17 @@
         const hot  = hotspotByFeatureId.get(f.properties.id);
 
         if (enteredApp && f.properties.app === enteredApp) {
-          openMiniChat(f, e.lngLat, meta, hot);
+          // Clicked your own home geofence — reopen the home popup if
+          // the user previously dismissed it; otherwise no-op.
+          if (f.properties.id === enteredFeatureId) {
+            if (!currentMiniPopup) autoOpenMiniForEntered();
+            return;
+          }
+          // Same-category neighbor — open a send-capable popup. Only one
+          // neighbor popup at a time.
+          if (currentNeighborPopup) currentNeighborPopup.remove();
+          currentNeighborPopup = openMiniChat(f, e.lngLat, meta, hot, { role: 'neighbor' });
+          currentNeighborHotspotId = f.properties.id;
           return;
         }
 
@@ -1035,26 +1095,21 @@
       function escapeText(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
 
       function openMiniChat(feature, lngLat, meta, hot, opts) {
-        const interactive = !!(opts && opts.interactive);
+        const role = (opts && opts.role) || 'neighbor'; // 'home' | 'neighbor'
+        const isHome = role === 'home';
         const color = feature.properties.color;
         const title = feature.properties.title;
-        const hereBadge = interactive
+        const hotspotId = hot?.id;
+        const hereBadge = isHome
           ? '<span class="pc-mini-here-badge">You’re here</span>'
-          : '';
-        const chatPaneInner = interactive
-          ? `<ol class="pc-mini-messages" aria-live="polite"></ol>
-             <form class="pc-mini-compose">
-               <input class="pc-mini-input" type="text" maxlength="240" placeholder="say something…" autocomplete="off" />
-               <button type="submit" class="pc-mini-send" aria-label="Send">→</button>
-             </form>`
-          : `<ol class="pc-mini-messages" aria-live="polite"></ol>`;
+          : '<span class="pc-mini-visiting-badge">Visiting from your spot</span>';
         const el = document.createElement('div');
         el.innerHTML = `
           <div class="pc-mini-head">
             <div class="pc-mini-head-text">
               <div class="pc-mini-cat" style="color: ${color};">${escapeText(meta.label)}</div>
               <h2 class="pc-mini-title">${escapeText(title)}</h2>
-              <p class="pc-mini-presence">${interactive ? 'connecting…' : 'live view'}</p>
+              <p class="pc-mini-presence">connecting…</p>
               ${hereBadge}
             </div>
           </div>
@@ -1065,7 +1120,11 @@
           </nav>
           <div class="pc-mini-panes">
             <div class="pc-mini-pane" data-pane="chat" role="tabpanel">
-              ${chatPaneInner}
+              <ol class="pc-mini-messages" aria-live="polite"></ol>
+              <form class="pc-mini-compose">
+                <input class="pc-mini-input" type="text" maxlength="240" placeholder="${isHome ? 'say something to people here…' : 'chime in from your spot…'}" autocomplete="off" />
+                <button type="submit" class="pc-mini-send" aria-label="Send">→</button>
+              </form>
             </div>
             <div class="pc-mini-pane" data-pane="info" role="tabpanel" hidden>
               <p class="pc-mini-pane-empty">Info coming soon.</p>
@@ -1076,7 +1135,6 @@
           </div>
         `;
 
-        // Tab switching
         el.querySelector('.pc-mini-tabs').addEventListener('click', (ev) => {
           const btn = ev.target.closest('.pc-mini-tab');
           if (!btn) return;
@@ -1109,39 +1167,59 @@
           li.textContent = text;
           messagesEl.appendChild(li);
         };
+        // Bubble with here/remote markers. A sender is "here" when their
+        // payload.home.hotspotId matches this room's hotspot id; "from X"
+        // when it doesn't (they're chatting in from another same-category
+        // geofence); no marker when they have no home (rare/fallback).
         const msgBubble = (payload) => {
           const li = document.createElement('li');
           li.className = 'pc-mini-bubble';
-          const meta = document.createElement('span');
-          meta.className = 'pc-mini-bubble-meta';
-          meta.textContent = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
-          li.appendChild(meta);
+          const senderHomeId = payload.home?.hotspotId || null;
+          const isSelf = payload.__self === true;
+          if (isSelf) li.classList.add('is-self');
+          if (senderHomeId && senderHomeId === hotspotId) li.classList.add('is-here-sender');
+          else if (senderHomeId) li.classList.add('is-remote-sender');
+
+          const metaLine = document.createElement('span');
+          metaLine.className = 'pc-mini-bubble-meta';
+          metaLine.textContent = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
+          if (senderHomeId === hotspotId) {
+            const t = document.createElement('span');
+            t.className = 'pc-mini-bubble-tag is-here-tag';
+            t.textContent = '· here';
+            metaLine.appendChild(t);
+          } else if (senderHomeId && payload.home?.hotspotTitle) {
+            const t = document.createElement('span');
+            t.className = 'pc-mini-bubble-tag is-from-tag';
+            t.textContent = `· from ${payload.home.hotspotTitle}`;
+            metaLine.appendChild(t);
+          }
+          li.appendChild(metaLine);
           li.appendChild(document.createTextNode(payload.text ?? ''));
           messagesEl.appendChild(li);
           messagesEl.scrollTop = messagesEl.scrollHeight;
         };
 
-        sysBubble(interactive
+        sysBubble(isHome
           ? 'You’re in this hotspot · say hi 👋'
-          : 'Live view · listening for messages…');
+          : 'Visiting from your home spot · what you type appears as “from {your spot}”');
 
-        // Wire compose form (interactive only)
-        if (interactive) {
-          const form = el.querySelector('.pc-mini-compose');
-          const input = el.querySelector('.pc-mini-input');
-          form.addEventListener('submit', async (ev) => {
-            ev.preventDefault();
-            const ok = await window.PubchatChat?.sendMessage(input.value, null);
-            if (ok) input.value = '';
-          });
-        }
-
-        const hotspotId = hot?.id;
         if (!hotspotId) return popup;
 
-        // Interactive (home) = singleton join with identity (compose + presence).
-        // Silent (clicked neighbor) = parallel subscribeHotspot (no presence track).
-        let silentSub = null;
+        // Every popup now joins with the user's identity (which carries
+        // their current home hotspot) so messages from this client appear
+        // as "here" when they're in their own home room and "from {their
+        // home}" when they're chatting into a neighbor.
+        let sub = null;
+        const form = el.querySelector('.pc-mini-compose');
+        const input = el.querySelector('.pc-mini-input');
+        form.addEventListener('submit', async (ev) => {
+          ev.preventDefault();
+          if (!sub) return;
+          const ok = await sub.send(input.value, null);
+          if (ok) input.value = '';
+        });
+
         (async () => {
           try {
             await ensureConfigLoaded();
@@ -1149,18 +1227,20 @@
             if (!window.PubchatChat) { sysBubble('Chat unavailable.'); return; }
             const onMsg = (payload) => { if (payload) msgBubble(payload); };
             const onPresence = (list) => {
-              const n = (list || []).length;
-              presenceEl.textContent = n === 1 ? '1 here' : `${n} here`;
+              const arr = list || [];
+              let hereN = 0, visitingN = 0;
+              for (const p of arr) {
+                if (p.home?.hotspotId === hotspotId) hereN++;
+                else visitingN++;
+              }
+              presenceEl.textContent = visitingN > 0
+                ? `${hereN} here · ${visitingN} visiting`
+                : (hereN === 1 ? '1 here' : `${hereN} here`);
             };
-            if (interactive) {
-              const identity = window.PubchatIdentity?.getIdentity?.() || null;
-              window.PubchatChat.setAppNamespace(feature.properties.app);
-              await window.PubchatChat.joinHotspot(hotspotId, identity, onMsg, onPresence);
-            } else {
-              silentSub = await window.PubchatChat.subscribeHotspot(
-                hotspotId, feature.properties.app, { onMessage: onMsg, onPresence }
-              );
-            }
+            sub = await window.PubchatChat.subscribeHotspot(
+              hotspotId, feature.properties.app,
+              { onMessage: onMsg, onPresence, identity: getIdentity() }
+            );
           } catch (err) {
             console.warn('mini chat connect failed', err);
             sysBubble('Could not connect to live chat.');
@@ -1168,14 +1248,14 @@
         })();
 
         popup.on('close', () => {
-          if (interactive) {
-            try { window.PubchatChat?.leaveHotspot(); } catch (_) {}
-          } else if (silentSub) {
-            try { silentSub.leave(); } catch (_) {}
-          }
+          if (sub) { try { sub.leave(); } catch (_) {} }
           if (currentMiniPopup === popup) {
             currentMiniPopup = null;
             currentMiniHotspotId = null;
+          }
+          if (currentNeighborPopup === popup) {
+            currentNeighborPopup = null;
+            currentNeighborHotspotId = null;
           }
         });
         return popup;

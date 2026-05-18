@@ -106,6 +106,7 @@
           handle: first.handle ?? key,
           emoji: first.emoji ?? '🙂',
           vibe: first.vibe ?? null,
+          home: first.home ?? null,
           self: identity ? (key === identity.handle) : false,
         });
       }
@@ -117,6 +118,7 @@
         await channel.track({
           handle: identity.handle,
           emoji: identity.emoji,
+          home: identity.home || null,
           joinedAt: Date.now(),
         });
       }
@@ -154,6 +156,7 @@
     const payload = {
       handle: activeIdentity.handle,
       emoji: activeIdentity.emoji,
+      home: activeIdentity.home || null,
       text: trimmed,
       vibe: vibe || null,
       t: now,
@@ -180,25 +183,28 @@
   function isConfigured() { return configured(); }
   function currentHotspotId() { return activeHotspotId; }
 
-  // Parallel, view-only subscription to a different hotspot's channel.
-  // Does NOT touch the singleton activeChannel — callers can keep their
-  // interactive `joinHotspot` chat alive while also peeking at a neighbor.
-  // Returns { leave } that tears down only this subscription.
+  // Parallel subscription to a specific hotspot channel. Independent of
+  // the singleton activeChannel, so callers can hold many at once (the
+  // homepage opens one per popup). When `identity` is provided, also
+  // tracks presence and exposes a `send()` so the user can chat there.
+  // When omitted, behaves as a read-only viewer.
   async function subscribeHotspot(hotspotId, appId, callbacks) {
-    const { onMessage, onPresence } = callbacks || {};
+    const { onMessage, onPresence, identity } = callbacks || {};
     const c = await ensureClient();
     if (!c) {
-      if (onPresence) onPresence([]);
-      return { leave: () => {} };
+      if (onPresence) onPresence(identity
+        ? [{ handle: identity.handle, emoji: identity.emoji, home: identity.home || null, self: true }]
+        : []);
+      return { leave: () => {}, send: async () => false };
     }
     const prevNs = appNamespaceOverride;
     if (appId) appNamespaceOverride = appId;
     const name = channelName(hotspotId);
     appNamespaceOverride = prevNs;
 
-    const channel = c.channel(name, {
-      config: { broadcast: { self: false, ack: false } },
-    });
+    const channelConfig = { broadcast: { self: false, ack: false } };
+    if (identity) channelConfig.presence = { key: identity.handle };
+    const channel = c.channel(name, { config: channelConfig });
     channel.on('broadcast', { event: 'msg' }, (payload) => {
       if (onMessage) onMessage(payload?.payload ?? null);
     });
@@ -214,15 +220,51 @@
           handle: first.handle ?? key,
           emoji: first.emoji ?? '🙂',
           vibe: first.vibe ?? null,
-          self: false,
+          home: first.home ?? null,
+          self: identity ? (key === identity.handle) : false,
         });
       }
       onPresence(list);
     });
-    await channel.subscribe();
+    await channel.subscribe(async (status) => {
+      if (status === 'SUBSCRIBED' && identity) {
+        await channel.track({
+          handle: identity.handle,
+          emoji: identity.emoji,
+          home: identity.home || null,
+          joinedAt: Date.now(),
+        });
+      }
+    });
+    let subLastSendAt = 0;
     return {
       leave: async () => {
+        try { await channel.untrack(); } catch (e) { /* ignore */ }
         try { await c.removeChannel(channel); } catch (e) { /* ignore */ }
+      },
+      send: async (text, vibe) => {
+        if (!identity) return false;
+        const trimmed = String(text ?? '').trim().slice(0, MAX_TEXT_LEN);
+        if (!trimmed) return false;
+        const now = Date.now();
+        if (now - subLastSendAt < MIN_SEND_INTERVAL_MS) return false;
+        subLastSendAt = now;
+        const payload = {
+          handle: identity.handle,
+          emoji: identity.emoji,
+          home: identity.home || null,
+          text: trimmed,
+          vibe: vibe || null,
+          t: now,
+        };
+        if (onMessage) onMessage({ ...payload, __self: true });
+        try {
+          await channel.send({ type: 'broadcast', event: 'msg', payload });
+          return true;
+        } catch (e) {
+          console.warn('pubchat: subscribe send failed', e);
+          return false;
+        }
       },
     };
   }
