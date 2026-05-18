@@ -43,20 +43,35 @@
       </div>
       <button id="pc-sheet-close" class="pc-sheet-close" type="button" aria-label="Close chat">×</button>
     </header>
-    <div id="pc-presence-row" class="pc-presence-row" aria-label="People currently here"></div>
-    <ol id="pc-messages" class="pc-messages" aria-live="polite"></ol>
-    <form id="pc-compose" class="pc-compose">
-      <select id="pc-vibe" class="pc-vibe-picker" aria-label="Vibe tag (optional)">
-        <option value="">vibe…</option>
-        <option value="👋">👋 say hi</option>
-        <option value="☕">☕ coffee</option>
-        <option value="🎶">🎶 music</option>
-        <option value="🐕">🐕 with dog</option>
-        <option value="🍻">🍻 drinks</option>
-      </select>
-      <input id="pc-input" class="pc-input" type="text" maxlength="240" placeholder="say something friendly…" autocomplete="off" />
-      <button type="submit" class="pc-send-btn" aria-label="Send">→</button>
-    </form>
+    <nav class="pc-sheet-tabs" role="tablist">
+      <button class="pc-sheet-tab is-active" data-tab="chat" type="button" role="tab" aria-selected="true">Chat</button>
+      <button class="pc-sheet-tab" data-tab="info" type="button" role="tab" aria-selected="false">Info</button>
+      <button class="pc-sheet-tab" data-tab="vibe" type="button" role="tab" aria-selected="false">Vibe</button>
+    </nav>
+    <div class="pc-sheet-panes">
+      <div class="pc-sheet-pane is-active" data-pane="chat" role="tabpanel">
+        <div id="pc-presence-row" class="pc-presence-row" aria-label="People currently here"></div>
+        <ol id="pc-messages" class="pc-messages" aria-live="polite"></ol>
+        <form id="pc-compose" class="pc-compose">
+          <select id="pc-vibe" class="pc-vibe-picker" aria-label="Vibe tag (optional)">
+            <option value="">vibe…</option>
+            <option value="👋">👋 say hi</option>
+            <option value="☕">☕ coffee</option>
+            <option value="🎶">🎶 music</option>
+            <option value="🐕">🐕 with dog</option>
+            <option value="🍻">🍻 drinks</option>
+          </select>
+          <input id="pc-input" class="pc-input" type="text" maxlength="240" placeholder="say something friendly…" autocomplete="off" />
+          <button type="submit" class="pc-send-btn" aria-label="Send">→</button>
+        </form>
+      </div>
+      <div class="pc-sheet-pane" data-pane="info" role="tabpanel" hidden>
+        <p class="pc-pane-empty">Info coming soon.</p>
+      </div>
+      <div class="pc-sheet-pane" data-pane="vibe" role="tabpanel" hidden>
+        <p class="pc-pane-empty">Vibe coming soon.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Permission modal — first-paint overlay -->

@@ -264,6 +264,76 @@
       letter-spacing: -0.02em;
     }
 
+    /* ── Mini chat-viewer popup (opens on same-category click when GPS
+       has the user inside a geofence). Visually echoes the per-page
+       chat sheet but compact + view-only (no compose form). */
+    .pc-mini-popup .maplibregl-popup-content {
+      padding: 0;
+      background: rgba(22, 27, 35, 0.96);
+      border-radius: 14px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+      width: 320px;
+      overflow: hidden;
+    }
+    .pc-mini-popup .maplibregl-popup-close-button {
+      color: #c0c7d1; font-size: 20px; padding: 4px 8px;
+    }
+    .pc-mini-popup .maplibregl-popup-tip { border-top-color: rgba(22, 27, 35, 0.96); }
+    .pc-mini-head {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 12px 14px 8px;
+      border-bottom: 1px solid #2a3040;
+    }
+    .pc-mini-head-text { flex: 1; min-width: 0; }
+    .pc-mini-cat {
+      font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: 700; line-height: 1;
+    }
+    .pc-mini-title {
+      margin: 4px 0 0; font-size: 0.95rem; font-weight: 800; color: #f5f7fa;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .pc-mini-presence {
+      margin: 4px 0 0; font-size: 0.72rem; color: #c0c7d1; font-weight: 600;
+    }
+    .pc-mini-tabs {
+      display: flex; padding: 0 8px;
+      border-bottom: 1px solid #2a3040;
+    }
+    .pc-mini-tab {
+      background: none; border: none; padding: 8px 12px;
+      font: inherit; font-size: 0.8rem; font-weight: 700;
+      color: #8a93a0; cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .pc-mini-tab:hover { color: #f5f7fa; }
+    .pc-mini-tab.is-active { color: #4cc3ff; border-bottom-color: #4cc3ff; }
+    .pc-mini-pane[hidden] { display: none; }
+    .pc-mini-messages {
+      list-style: none; margin: 0; padding: 10px 12px;
+      max-height: 220px; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 6px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    .pc-mini-bubble {
+      max-width: 88%; padding: 6px 10px; border-radius: 12px;
+      background: #2a3040; color: #f5f7fa;
+      font-size: 0.82rem; line-height: 1.35;
+      align-self: flex-start; word-wrap: break-word;
+    }
+    .pc-mini-bubble.is-system {
+      align-self: center; background: transparent; color: #8a93a0;
+      font-style: italic; font-size: 0.75rem;
+    }
+    .pc-mini-bubble-meta {
+      display: block; font-size: 0.68rem; color: #c0c7d1; font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .pc-mini-pane-empty {
+      margin: 22px 14px; text-align: center; color: #8a93a0; font-size: 0.82rem;
+    }
+
     @media (max-width: 500px) {
       .cm-legend { top: 10px; right: 10px; padding: 8px 10px; font-size: 0.72rem; }
       .cm-brand-card { bottom: 14px; padding: 6px 12px; gap: 10px; }
@@ -444,6 +514,7 @@
   <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
   <script src="/templates/pubchat/schedule.js"></script>
   <script src="/templates/pubchat/social.js"></script>
+  <script src="/templates/pubchat/chat.js"></script>
   <script>
     const APPS = [
       { id: 'pubchat',    url: '/data/pubchat/hotspots.json',      color: '#e11d74' },
@@ -644,11 +715,85 @@
         sports:      { label: 'Sports Venues' },
       };
 
+      // ── GPS-aware "you are here" mode ───────────────────────────
+      // When the user's GPS sits inside a geofence, off-category fences
+      // fade and become unclickable; same-category clicks open the new
+      // mini chat-viewer popup instead of the default info popup.
+      let enteredApp = null;       // e.g. "malls"
+      let enteredFeatureId = null; // e.g. "malls-the-domain"
+
+      function applyEnteredState() {
+        if (!enteredApp) {
+          map.setPaintProperty('chatmaps-fill', 'fill-opacity', 0.28);
+          map.setPaintProperty('chatmaps-outline', 'line-opacity', 0.9);
+          map.setPaintProperty('chatmaps-label', 'text-opacity', 1);
+          return;
+        }
+        const same = ['==', ['get', 'app'], enteredApp];
+        map.setPaintProperty('chatmaps-fill', 'fill-opacity', ['case', same, 0.28, 0.04]);
+        map.setPaintProperty('chatmaps-outline', 'line-opacity', ['case', same, 0.9, 0.08]);
+        map.setPaintProperty('chatmaps-label', 'text-opacity', ['case', same, 1, 0]);
+      }
+
+      const EARTH_R = 6371000;
+      function haversineMeters([lng1, lat1], [lng2, lat2]) {
+        const toRad = d => d * Math.PI / 180;
+        const dLat = toRad(lat2 - lat1);
+        const dLng = toRad(lng2 - lng1);
+        const a = Math.sin(dLat / 2) ** 2
+                + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+        return 2 * EARTH_R * Math.asin(Math.sqrt(a));
+      }
+      function recomputeEntered(userLngLat) {
+        let bestRatio = Infinity;
+        let bestApp = null, bestFid = null;
+        for (const { app, hotspots } of results) {
+          for (const h of hotspots) {
+            const c = h.geofence?.center; const r = h.geofence?.radiusMeters;
+            if (!c || !r) continue;
+            const d = haversineMeters(userLngLat, c);
+            const ratio = d / r;
+            if (ratio < 1 && ratio < bestRatio) {
+              bestRatio = ratio; bestApp = app.id; bestFid = `${app.id}-${h.id}`;
+            }
+          }
+        }
+        if (bestApp !== enteredApp || bestFid !== enteredFeatureId) {
+          enteredApp = bestApp;
+          enteredFeatureId = bestFid;
+          applyEnteredState();
+        }
+      }
+
+      let gpsWatchId = null;
+      function startWatch() {
+        if (gpsWatchId != null || !navigator.geolocation) return;
+        gpsWatchId = navigator.geolocation.watchPosition(
+          pos => recomputeEntered([pos.coords.longitude, pos.coords.latitude]),
+          () => {},
+          { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 }
+        );
+      }
+      geolocate.on('geolocate', () => startWatch());
+
+      // ── Click handler ────────────────────────────────────────────
+      // When NOT inside a geofence: existing info popup with Maps/Waze/Reddit.
+      // When INSIDE: off-category clicks are silently ignored;
+      // same-category clicks open the mini chat-viewer popup.
       map.on('click', 'chatmaps-fill', (e) => {
         const f = e.features?.[0];
         if (!f) return;
-        const meta  = APP_META[f.properties.app] || { label: f.properties.app };
-        const hot   = hotspotByFeatureId.get(f.properties.id);
+        if (enteredApp && f.properties.app !== enteredApp) return;
+
+        const meta = APP_META[f.properties.app] || { label: f.properties.app };
+        const hot  = hotspotByFeatureId.get(f.properties.id);
+
+        if (enteredApp && f.properties.app === enteredApp) {
+          openMiniChat(f, e.lngLat, meta, hot);
+          return;
+        }
+
+        // Default info popup
         const hours = (hot && window.PubchatSchedule)
           ? window.PubchatSchedule.formatSchedule(hot.schedule)
           : '';
@@ -674,6 +819,146 @@
       map.on('mouseenter', 'chatmaps-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
       map.on('mouseleave', 'chatmaps-fill', () => { map.getCanvas().style.cursor = ''; });
 
+      // ── Mini chat-viewer popup (silent subscriber, no compose) ──
+      // Lazy supabase loader — mirrors templates/pubchat/ui.js so we don't
+      // ship the ~30 KB ESM on cold page load.
+      let supabaseLoading = null;
+      function ensureSupabaseLoaded() {
+        if (window.__supabaseCreateClient) return Promise.resolve();
+        if (supabaseLoading) return supabaseLoading;
+        supabaseLoading = import('https://esm.sh/@supabase/supabase-js@2')
+          .then(mod => {
+            window.__supabaseCreateClient = mod.createClient;
+            window.dispatchEvent(new CustomEvent('pubchat:supabase-ready'));
+          })
+          .catch(err => {
+            console.warn('Supabase load failed; chat will be local-only.', err);
+            supabaseLoading = null;
+          });
+        return supabaseLoading;
+      }
+      let configLoading = null;
+      function ensureConfigLoaded() {
+        if (window.PUBCHAT_CONFIG) return Promise.resolve();
+        if (configLoading) return configLoading;
+        configLoading = new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = '/templates/pubchat/config.js';
+          s.onload = () => resolve();
+          s.onerror = () => { configLoading = null; reject(new Error('config load failed')); };
+          document.head.appendChild(s);
+        });
+        return configLoading;
+      }
+
+      function escapeText(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+
+      function openMiniChat(feature, lngLat, meta, hot) {
+        const color = feature.properties.color;
+        const title = feature.properties.title;
+        const el = document.createElement('div');
+        el.innerHTML = `
+          <div class="pc-mini-head">
+            <div class="pc-mini-head-text">
+              <div class="pc-mini-cat" style="color: ${color};">${escapeText(meta.label)}</div>
+              <h2 class="pc-mini-title">${escapeText(title)}</h2>
+              <p class="pc-mini-presence">connecting…</p>
+            </div>
+          </div>
+          <nav class="pc-mini-tabs" role="tablist">
+            <button class="pc-mini-tab is-active" data-tab="chat" type="button" role="tab">Chat</button>
+            <button class="pc-mini-tab" data-tab="info" type="button" role="tab">Info</button>
+            <button class="pc-mini-tab" data-tab="vibe" type="button" role="tab">Vibe</button>
+          </nav>
+          <div class="pc-mini-panes">
+            <div class="pc-mini-pane" data-pane="chat" role="tabpanel">
+              <ol class="pc-mini-messages" aria-live="polite"></ol>
+            </div>
+            <div class="pc-mini-pane" data-pane="info" role="tabpanel" hidden>
+              <p class="pc-mini-pane-empty">Info coming soon.</p>
+            </div>
+            <div class="pc-mini-pane" data-pane="vibe" role="tabpanel" hidden>
+              <p class="pc-mini-pane-empty">Vibe coming soon.</p>
+            </div>
+          </div>
+        `;
+
+        // Tab switching
+        el.querySelector('.pc-mini-tabs').addEventListener('click', (ev) => {
+          const btn = ev.target.closest('.pc-mini-tab');
+          if (!btn) return;
+          const which = btn.dataset.tab;
+          el.querySelectorAll('.pc-mini-tab').forEach(t => {
+            t.classList.toggle('is-active', t.dataset.tab === which);
+          });
+          el.querySelectorAll('.pc-mini-pane').forEach(p => {
+            p.hidden = p.dataset.pane !== which;
+          });
+        });
+
+        const messagesEl = el.querySelector('.pc-mini-messages');
+        const presenceEl = el.querySelector('.pc-mini-presence');
+
+        const popup = new maplibregl.Popup({
+          className: 'pc-mini-popup',
+          offset: 4,
+          closeButton: true,
+          maxWidth: '340px',
+          anchor: 'bottom',
+        })
+          .setLngLat(lngLat)
+          .setDOMContent(el)
+          .addTo(map);
+
+        const sysBubble = (text) => {
+          const li = document.createElement('li');
+          li.className = 'pc-mini-bubble is-system';
+          li.textContent = text;
+          messagesEl.appendChild(li);
+        };
+        const msgBubble = (payload) => {
+          const li = document.createElement('li');
+          li.className = 'pc-mini-bubble';
+          const meta = document.createElement('span');
+          meta.className = 'pc-mini-bubble-meta';
+          meta.textContent = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
+          li.appendChild(meta);
+          li.appendChild(document.createTextNode(payload.text ?? ''));
+          messagesEl.appendChild(li);
+          messagesEl.scrollTop = messagesEl.scrollHeight;
+        };
+
+        sysBubble('Live view · listening for messages…');
+
+        // Lazy-load + subscribe (silent: no identity, no presence tracking)
+        const hotspotId = hot?.id;
+        if (!hotspotId) return;
+        (async () => {
+          try {
+            await ensureConfigLoaded();
+            await ensureSupabaseLoaded();
+            if (!window.PubchatChat) { sysBubble('Chat unavailable.'); return; }
+            window.PubchatChat.setAppNamespace(feature.properties.app);
+            await window.PubchatChat.joinHotspot(
+              hotspotId,
+              null, // silent viewer — no presence track
+              (payload) => { if (payload) msgBubble(payload); },
+              (list) => {
+                const n = (list || []).length;
+                presenceEl.textContent = n === 1 ? '1 here' : `${n} here`;
+              }
+            );
+          } catch (err) {
+            console.warn('mini chat connect failed', err);
+            sysBubble('Could not connect to live chat.');
+          }
+        })();
+
+        popup.on('close', () => {
+          try { window.PubchatChat?.leaveHotspot(); } catch (_) {}
+        });
+      }
+
       // Fly to user's location on load only if permission was already granted (no prompt)
       if (navigator.permissions) {
         navigator.permissions.query({ name: 'geolocation' }).then(result => {
@@ -684,6 +969,8 @@
                 zoom: 15,
                 duration: 1200,
               });
+              recomputeEntered([pos.coords.longitude, pos.coords.latitude]);
+              startWatch();
             });
           }
         });

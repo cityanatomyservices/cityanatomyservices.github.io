@@ -55,11 +55,15 @@
 
   // Namespace realtime channels by URL pathname segment so multiple apps
   // served from the same repo (e.g. /pubchat/, /homelesschat/, /festivals/)
-  // never cross-talk, even if they share hotspotIds.
+  // never cross-talk, even if they share hotspotIds. Callers (like the
+  // homepage mini-popup viewer) can override via setAppNamespace().
+  let appNamespaceOverride = null;
   function appId() {
+    if (appNamespaceOverride) return appNamespaceOverride;
     const seg = window.location.pathname.split('/').filter(Boolean)[0];
     return seg || 'pubchat';
   }
+  function setAppNamespace(id) { appNamespaceOverride = id || null; }
 
   async function joinHotspot(hotspotId, identity, onMessage, onPresence) {
     await leaveHotspot();
@@ -71,17 +75,18 @@
     const c = await ensureClient();
     if (!c) {
       // Mock mode: no remote, but still emit an empty presence so UI renders.
-      if (onPresenceCb) onPresenceCb([{ handle: identity.handle, emoji: identity.emoji, self: true }]);
+      if (onPresenceCb) {
+        onPresenceCb(identity ? [{ handle: identity.handle, emoji: identity.emoji, self: true }] : []);
+      }
       return { mock: true };
     }
 
     const name = channelName(hotspotId);
-    const channel = c.channel(name, {
-      config: {
-        broadcast: { self: false, ack: false },
-        presence: { key: identity.handle },
-      },
-    });
+    const channelConfig = { broadcast: { self: false, ack: false } };
+    // Only join presence if caller provided an identity. Silent viewers
+    // (e.g. the homepage mini-popup) pass identity=null and just listen.
+    if (identity) channelConfig.presence = { key: identity.handle };
+    const channel = c.channel(name, { config: channelConfig });
 
     channel.on('broadcast', { event: 'msg' }, (payload) => {
       if (!onMessageCb) return;
@@ -101,14 +106,14 @@
           handle: first.handle ?? key,
           emoji: first.emoji ?? '🙂',
           vibe: first.vibe ?? null,
-          self: key === identity.handle,
+          self: identity ? (key === identity.handle) : false,
         });
       }
       onPresenceCb(list);
     });
 
     await channel.subscribe(async (status) => {
-      if (status === 'SUBSCRIBED') {
+      if (status === 'SUBSCRIBED' && identity) {
         await channel.track({
           handle: identity.handle,
           emoji: identity.emoji,
@@ -181,5 +186,6 @@
     sendMessage,
     isConfigured,
     currentHotspotId,
+    setAppNamespace,
   };
 })();

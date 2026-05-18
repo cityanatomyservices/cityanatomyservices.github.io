@@ -420,6 +420,40 @@ body:has(#pc-sheet:not([hidden])) .pc-brand-card { display: none; }
 }
 .pc-sheet-info .pc-info-menu li { margin: 2px 0; }
 
+/* Chat / Info / Vibe tab bar + panes */
+.pc-sheet-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 8px;
+}
+.pc-sheet-tab {
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.pc-sheet-tab:hover { color: var(--text); }
+.pc-sheet-tab.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.pc-sheet-panes { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+.pc-sheet-pane { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+.pc-sheet-pane[hidden] { display: none; }
+.pc-pane-empty {
+  margin: 24px 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 /* Map popup: 3-icon social row (Instagram / X / Reddit). */
 .pc-popup-social { display: flex; gap: 8px; margin-top: 12px; }
 .pc-popup-social-btn {

@@ -239,6 +239,23 @@ function initPubchatUI(engine) {
     // Otherwise we trust geolocation to re-fire on re-entry.
   });
 
+  // Tab switch — toggle .is-active on tab buttons and hidden on panes.
+  // Listening on the static parent works fine since tabs aren't recreated.
+  sheet.querySelector('.pc-sheet-tabs')?.addEventListener('click', (e) => {
+    const btn = e.target.closest('.pc-sheet-tab');
+    if (!btn) return;
+    const which = btn.dataset.tab;
+    for (const tab of sheet.querySelectorAll('.pc-sheet-tab')) {
+      const on = tab.dataset.tab === which;
+      tab.classList.toggle('is-active', on);
+      tab.setAttribute('aria-selected', String(on));
+    }
+    for (const pane of sheet.querySelectorAll('.pc-sheet-pane')) {
+      pane.hidden = pane.dataset.pane !== which;
+    }
+    if (which === 'chat') inputEl.focus({ preventScroll: true });
+  });
+
   composeForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const text = inputEl.value;
