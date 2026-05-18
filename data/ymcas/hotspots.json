@@ -1,0 +1,148 @@
+{
+  "cityId": "atx",
+  "title": "YMCAchat · Austin",
+  "category": "YMCAs",
+  "color": "#E1131D",
+  "initialCamera": {
+    "center": [-97.75, 30.3],
+    "zoom": 10
+  },
+  "hotspots": [
+    {
+      "id": "ymca-townlake",
+      "gid": "y8t4kv2qz1",
+      "title": "TownLake YMCA",
+      "subtitle": "1100 W Cesar Chavez St, Austin 78703",
+      "geofence": {
+        "center": [-97.7574, 30.2697],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri"], "from": "05:00", "to": "22:00" },
+          { "days": ["sat", "sun"], "from": "07:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "ymca-east-communities",
+      "gid": "h9p2qx0sn7",
+      "title": "East Communities YMCA",
+      "subtitle": "5315 Ed Bluestein Blvd, Austin 78723",
+      "geofence": {
+        "center": [-97.679, 30.3032],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri"], "from": "05:00", "to": "22:00" },
+          { "days": ["sat", "sun"], "from": "07:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "ymca-north-austin",
+      "gid": "r4j7zwbm3k",
+      "title": "North Austin YMCA",
+      "subtitle": "1000 W Rundberg Ln, Austin 78758",
+      "geofence": {
+        "center": [-97.7066, 30.3724],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri"], "from": "05:00", "to": "22:00" },
+          { "days": ["sat", "sun"], "from": "07:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "ymca-northwest-family",
+      "gid": "f2g6vntq8h",
+      "title": "Northwest Family YMCA",
+      "subtitle": "5807 McNeil Dr, Austin 78729",
+      "geofence": {
+        "center": [-97.7558, 30.4435],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri"], "from": "05:00", "to": "22:00" },
+          { "days": ["sat", "sun"], "from": "07:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "ymca-southwest-family",
+      "gid": "b5d0ck1xpw",
+      "title": "Southwest Family YMCA",
+      "subtitle": "6219 Oakclaire Dr, Austin 78735",
+      "geofence": {
+        "center": [-97.8331, 30.2547],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri"], "from": "05:00", "to": "22:00" },
+          { "days": ["sat", "sun"], "from": "07:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "ymca-hays-communities",
+      "gid": "u3w8eyhf4j",
+      "title": "Hays Communities YMCA",
+      "subtitle": "465 Buda Sportsplex Dr, Buda 78610",
+      "geofence": {
+        "center": [-97.827, 30.076],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri"], "from": "05:00", "to": "22:00" },
+          { "days": ["sat", "sun"], "from": "07:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "ymca-springs-family",
+      "gid": "n7q1mptz5l",
+      "title": "Springs Family YMCA",
+      "subtitle": "27216 Ranch Rd 12, Dripping Springs 78620",
+      "geofence": {
+        "center": [-98.077, 30.181],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri"], "from": "05:00", "to": "22:00" },
+          { "days": ["sat", "sun"], "from": "07:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "ymca-camp-moody",
+      "gid": "c6s9kxvb2r",
+      "title": "YMCA at Camp Moody",
+      "subtitle": "1500 Bliss Spillar Rd, Manchaca 78652",
+      "geofence": {
+        "center": [-97.877, 30.1495],
+        "radiusMeters": 240
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri"], "from": "06:00", "to": "21:00" },
+          { "days": ["sat", "sun"], "from": "08:00", "to": "18:00" }
+        ]
+      }
+    }
+  ]
+}
