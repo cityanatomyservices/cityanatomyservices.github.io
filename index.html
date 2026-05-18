@@ -344,76 +344,78 @@
       letter-spacing: -0.02em;
     }
 
-    /* ── Mini chat-viewer popup (opens on same-category click when GPS
-       has the user inside a geofence). Visually echoes the per-page
-       chat sheet but compact + view-only (no compose form). */
+    /* ── Mini chat popup. Visually matches the default info popup
+       (white card, Helvetica Neue, dark text on light background) so
+       both popup types feel like one family. */
     .pc-mini-popup .maplibregl-popup-content {
       padding: 0;
-      background: rgba(22, 27, 35, 0.96);
-      border-radius: 14px;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(15, 25, 45, 0.18);
       width: 320px;
       overflow: hidden;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
     .pc-mini-popup .maplibregl-popup-close-button {
-      color: #c0c7d1; font-size: 20px; padding: 4px 8px;
+      color: #5a6472; font-size: 20px; padding: 4px 8px;
     }
-    .pc-mini-popup .maplibregl-popup-tip { border-top-color: rgba(22, 27, 35, 0.96); }
+    .pc-mini-popup .maplibregl-popup-tip { border-top-color: #fff; }
     .pc-mini-head {
       display: flex; align-items: flex-start; gap: 10px;
-      padding: 12px 14px 8px;
-      border-bottom: 1px solid #2a3040;
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid #e1e6ee;
     }
     .pc-mini-head-text { flex: 1; min-width: 0; }
     .pc-mini-cat {
-      font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
       font-weight: 700; line-height: 1;
     }
     .pc-mini-title {
-      margin: 4px 0 0; font-size: 0.95rem; font-weight: 800; color: #f5f7fa;
+      margin: 3px 0 0; font-size: 0.95rem; font-weight: 700; color: #1c1c28;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .pc-mini-presence {
-      margin: 4px 0 0; font-size: 0.72rem; color: #c0c7d1; font-weight: 600;
+      margin: 4px 0 0; font-size: 0.72rem; color: #5a6472; font-weight: 600;
     }
     .pc-mini-tabs {
       display: flex; padding: 0 8px;
-      border-bottom: 1px solid #2a3040;
+      border-bottom: 1px solid #e1e6ee;
+      background: #fff;
     }
     .pc-mini-tab {
       background: none; border: none; padding: 8px 12px;
       font: inherit; font-size: 0.8rem; font-weight: 700;
-      color: #8a93a0; cursor: pointer;
+      color: #6f7780; cursor: pointer;
       border-bottom: 2px solid transparent; margin-bottom: -1px;
       transition: color 0.15s ease, border-color 0.15s ease;
     }
-    .pc-mini-tab:hover { color: #f5f7fa; }
-    .pc-mini-tab.is-active { color: #4cc3ff; border-bottom-color: #4cc3ff; }
+    .pc-mini-tab:hover { color: #1c1c28; }
+    .pc-mini-tab.is-active { color: #1a73ff; border-bottom-color: #1a73ff; }
     .pc-mini-pane[hidden] { display: none; }
     .pc-mini-messages {
       list-style: none; margin: 0; padding: 10px 12px;
       max-height: 220px; overflow-y: auto;
       display: flex; flex-direction: column; gap: 6px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
     }
     .pc-mini-bubble {
-      max-width: 88%; padding: 6px 10px; border-radius: 12px;
-      background: #2a3040; color: #f5f7fa;
+      max-width: 88%; padding: 6px 10px; border-radius: 10px;
+      background: #f3f4f6; color: #1c1c28;
       font-size: 0.82rem; line-height: 1.35;
       align-self: flex-start; word-wrap: break-word;
     }
     .pc-mini-bubble.is-system {
-      align-self: center; background: transparent; color: #8a93a0;
+      align-self: center; background: transparent; color: #6f7780;
       font-style: italic; font-size: 0.75rem;
     }
     .pc-mini-bubble-meta {
-      display: block; font-size: 0.68rem; color: #c0c7d1; font-weight: 700;
+      display: block; font-size: 0.68rem; color: #5a6472; font-weight: 700;
       margin-bottom: 2px;
     }
     .pc-mini-pane-empty {
-      margin: 22px 14px; text-align: center; color: #8a93a0; font-size: 0.82rem;
+      margin: 22px 14px; text-align: center; color: #6f7780; font-size: 0.82rem;
     }
-    /* Header badge — cyan when you're physically inside this hotspot,
+    /* Header badge — colored when you're physically inside this hotspot,
        muted when you're peeking at a neighbor from your home geofence. */
     .pc-mini-here-badge,
     .pc-mini-visiting-badge {
@@ -424,49 +426,49 @@
       text-transform: uppercase;
       border-radius: 999px;
     }
-    .pc-mini-here-badge     { color: #0e1117; background: #4cc3ff; }
-    .pc-mini-visiting-badge { color: #c0c7d1; background: #2a3040; border: 1px solid #3a4252; }
+    .pc-mini-here-badge     { color: #fff; background: #1a73ff; }
+    .pc-mini-visiting-badge { color: #5a6472; background: #f3f4f6; border: 1px solid #e1e6ee; }
     /* Per-bubble here/remote markers. The vertical accent bar on the
-       left makes the location visible at a glance even without reading
-       the meta line. */
-    .pc-mini-bubble.is-here-sender   { border-left: 3px solid #4cc3ff; padding-left: 8px; }
-    .pc-mini-bubble.is-remote-sender { border-left: 3px solid #6f7780; padding-left: 8px; background: #1c2128; }
-    .pc-mini-bubble.is-self          { align-self: flex-end; background: #1a4d6e; }
-    .pc-mini-bubble.is-self.is-remote-sender { background: #2d3b46; }
+       left makes the sender's location visible at a glance. */
+    .pc-mini-bubble.is-here-sender   { border-left: 3px solid #1a73ff; padding-left: 8px; background: #eaf1ff; }
+    .pc-mini-bubble.is-remote-sender { border-left: 3px solid #9aa3ad; padding-left: 8px; background: #f3f4f6; }
+    .pc-mini-bubble.is-self          { align-self: flex-end; background: #dbeafe; }
+    .pc-mini-bubble.is-self.is-remote-sender { background: #e5e7eb; }
     .pc-mini-bubble-tag {
       margin-left: 6px;
       font-size: 0.65rem;
       font-weight: 700;
     }
-    .pc-mini-bubble-tag.is-here-tag { color: #4cc3ff; text-transform: uppercase; letter-spacing: 0.04em; }
-    .pc-mini-bubble-tag.is-from-tag { color: #c0c7d1; font-weight: 600; font-style: italic; }
-    /* Compose form — only on the interactive popup. */
+    .pc-mini-bubble-tag.is-here-tag { color: #1a73ff; text-transform: uppercase; letter-spacing: 0.04em; }
+    .pc-mini-bubble-tag.is-from-tag { color: #5a6472; font-weight: 600; font-style: italic; }
+    /* Compose form — light theme matching the info popup. */
     .pc-mini-compose {
       display: flex; gap: 6px;
       padding: 8px 12px 12px;
-      border-top: 1px solid #2a3040;
+      border-top: 1px solid #e1e6ee;
+      background: #fff;
     }
     .pc-mini-input {
       flex: 1; min-width: 0;
-      background: #0e1117;
-      color: #f5f7fa;
-      border: 1px solid #2a3040;
+      background: #fff;
+      color: #1c1c28;
+      border: 1px solid #d1d5db;
       border-radius: 6px;
       padding: 7px 10px;
       font: inherit; font-size: 0.82rem;
       outline: none;
     }
-    .pc-mini-input:focus { border-color: #4cc3ff; }
+    .pc-mini-input:focus { border-color: #1a73ff; }
     .pc-mini-send {
       flex-shrink: 0;
       width: 34px; height: 34px;
-      background: #4cc3ff; color: #0e1117;
+      background: #1a73ff; color: #fff;
       border: none; border-radius: 6px;
       font-size: 1.2rem; font-weight: 800; line-height: 1;
       cursor: pointer;
       transition: filter 0.12s ease;
     }
-    .pc-mini-send:hover { filter: brightness(1.1); }
+    .pc-mini-send:hover { filter: brightness(1.05); }
     .pc-mini-send:active { transform: translateY(1px); }
 
     @media (max-width: 500px) {
@@ -1009,12 +1011,11 @@
 
       // ── Click handler ────────────────────────────────────────────
       // When NOT inside a geofence: existing info popup with Maps/Waze/Reddit.
-      // When INSIDE: off-category clicks are silently ignored;
-      // same-category clicks open the mini chat-viewer popup.
+      // When INSIDE: clicks on same-category neighbors open send-capable
+      // mini chat popups; off-category clicks still show the info popup.
       map.on('click', 'chatmaps-fill', (e) => {
         const f = e.features?.[0];
         if (!f) return;
-        if (enteredApp && f.properties.app !== enteredApp) return;
 
         const meta = APP_META[f.properties.app] || { label: f.properties.app };
         const hot  = hotspotByFeatureId.get(f.properties.id);
