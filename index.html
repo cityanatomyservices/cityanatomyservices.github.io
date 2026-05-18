@@ -813,15 +813,29 @@
 
       function applyEnteredState() {
         if (!enteredApp) {
+          map.setPaintProperty('chatmaps-fill', 'fill-color', ['get', 'color']);
           map.setPaintProperty('chatmaps-fill', 'fill-opacity', 0.28);
+          map.setPaintProperty('chatmaps-outline', 'line-color', ['get', 'color']);
           map.setPaintProperty('chatmaps-outline', 'line-opacity', 0.9);
+          map.setPaintProperty('chatmaps-label', 'text-color', '#1c1c28');
           map.setPaintProperty('chatmaps-label', 'text-opacity', 1);
           return;
         }
         const same = ['==', ['get', 'app'], enteredApp];
-        map.setPaintProperty('chatmaps-fill', 'fill-opacity', ['case', same, 0.28, 0.04]);
-        map.setPaintProperty('chatmaps-outline', 'line-opacity', ['case', same, 0.9, 0.08]);
-        map.setPaintProperty('chatmaps-label', 'text-opacity', ['case', same, 1, 0]);
+        // Same-category keeps its vivid brand color; off-category gets a
+        // muted gray so it stays readable but visibly de-emphasized.
+        map.setPaintProperty('chatmaps-fill', 'fill-color',
+          ['case', same, ['get', 'color'], '#6f7780']);
+        map.setPaintProperty('chatmaps-fill', 'fill-opacity',
+          ['case', same, 0.28, 0.18]);
+        map.setPaintProperty('chatmaps-outline', 'line-color',
+          ['case', same, ['get', 'color'], '#6f7780']);
+        map.setPaintProperty('chatmaps-outline', 'line-opacity',
+          ['case', same, 0.9, 0.45]);
+        map.setPaintProperty('chatmaps-label', 'text-color',
+          ['case', same, '#1c1c28', '#6f7780']);
+        map.setPaintProperty('chatmaps-label', 'text-opacity',
+          ['case', same, 1, 0.55]);
       }
 
       const EARTH_R = 6371000;
@@ -851,7 +865,43 @@
           enteredApp = bestApp;
           enteredFeatureId = bestFid;
           applyEnteredState();
+          autoOpenMiniForEntered();
         }
+      }
+
+      // Auto-open the mini chat-viewer popup the moment GPS enters a
+      // hotspot, and auto-switch / auto-close as the user moves between
+      // (or out of) geofences. Clicking still works the same way.
+      let currentMiniPopup = null;
+      let currentMiniHotspotId = null;
+      function autoOpenMiniForEntered() {
+        if (!enteredFeatureId) {
+          if (currentMiniPopup) currentMiniPopup.remove();
+          return;
+        }
+        if (currentMiniHotspotId === enteredFeatureId) return;
+        const app = APPS.find(a => a.id === enteredApp);
+        const hot = hotspotByFeatureId.get(enteredFeatureId);
+        if (!hot || !app) return;
+        const meta = APP_META[enteredApp] || { label: enteredApp };
+        const center = hot.geofence?.center;
+        if (!center) return;
+        const syntheticFeature = {
+          properties: {
+            app: enteredApp,
+            color: app.color,
+            title: hot.title || hot.id,
+            id: enteredFeatureId,
+          },
+        };
+        if (currentMiniPopup) currentMiniPopup.remove();
+        currentMiniPopup = openMiniChat(
+          syntheticFeature,
+          { lng: center[0], lat: center[1] },
+          meta,
+          hot
+        );
+        currentMiniHotspotId = enteredFeatureId;
       }
 
       let gpsWatchId = null;
@@ -1045,7 +1095,12 @@
 
         popup.on('close', () => {
           try { window.PubchatChat?.leaveHotspot(); } catch (_) {}
+          if (currentMiniPopup === popup) {
+            currentMiniPopup = null;
+            currentMiniHotspotId = null;
+          }
         });
+        return popup;
       }
 
       // Fly to user's location on load only if permission was already granted (no prompt)
