@@ -1,0 +1,117 @@
+{
+  "cityId": "atx",
+  "title": "Mallschat · Austin",
+  "category": "Malls",
+  "color": "#65a30d",
+  "initialCamera": {
+    "center": [-97.75, 30.32],
+    "zoom": 10
+  },
+  "hotspots": [
+    {
+      "id": "the-domain",
+      "gid": "m7k2pq9zwx",
+      "title": "The Domain",
+      "subtitle": "Lifestyle center · 11410 Century Oaks Terrace",
+      "geofence": { "center": [-97.7250, 30.4011], "radiusMeters": 600 }
+    },
+    {
+      "id": "barton-creek-square",
+      "gid": "r4xt8nh1vy",
+      "title": "Barton Creek Square",
+      "subtitle": "Enclosed mall · 2901 S Capital of Texas Hwy",
+      "geofence": { "center": [-97.8044, 30.2596], "radiusMeters": 250 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "10:00", "to": "21:00" },
+          { "days": ["sun"], "from": "11:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "lakeline-mall",
+      "gid": "q3sf6jm0bd",
+      "title": "Lakeline Mall",
+      "subtitle": "Enclosed mall · 11200 Lakeline Mall Dr",
+      "geofence": { "center": [-97.7977, 30.4647], "radiusMeters": 250 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "10:00", "to": "21:00" },
+          { "days": ["sun"], "from": "11:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "the-arboretum",
+      "gid": "n9wc1lp4kg",
+      "title": "The Arboretum",
+      "subtitle": "Open-air shopping · 10000 Research Blvd",
+      "geofence": { "center": [-97.7474, 30.3990], "radiusMeters": 250 }
+    },
+    {
+      "id": "hill-country-galleria",
+      "gid": "h2zb5xy7tr",
+      "title": "Hill Country Galleria",
+      "subtitle": "Open-air mall · 12700 Hill Country Blvd, Bee Cave",
+      "geofence": { "center": [-97.9624, 30.3081], "radiusMeters": 400 }
+    },
+    {
+      "id": "mueller-aldrich",
+      "gid": "p8jv0qn3fm",
+      "title": "Mueller · Aldrich Street",
+      "subtitle": "Shops &amp; restaurants · 1900 Aldrich St",
+      "geofence": { "center": [-97.7026, 30.2997], "radiusMeters": 250 }
+    },
+    {
+      "id": "shops-at-arbor-walk",
+      "gid": "d6lk7gx2sw",
+      "title": "The Shops at Arbor Walk",
+      "subtitle": "Power center · 10515 N Mopac Expy",
+      "geofence": { "center": [-97.7228, 30.3866], "radiusMeters": 250 }
+    },
+    {
+      "id": "round-rock-premium-outlets",
+      "gid": "y1cm4rh9pn",
+      "title": "Round Rock Premium Outlets",
+      "subtitle": "Outlet mall · 4401 N I-35, Round Rock",
+      "geofence": { "center": [-97.6916, 30.5468], "radiusMeters": 350 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "10:00", "to": "21:00" },
+          { "days": ["sun"], "from": "10:00", "to": "19:00" }
+        ]
+      }
+    },
+    {
+      "id": "southpark-meadows",
+      "gid": "b5fn2qj8wt",
+      "title": "Southpark Meadows",
+      "subtitle": "Open-air center · 9600 S I-35",
+      "geofence": { "center": [-97.7900, 30.1714], "radiusMeters": 350 }
+    },
+    {
+      "id": "the-triangle",
+      "gid": "j0pd9hv1zr",
+      "title": "The Triangle",
+      "subtitle": "Shops &amp; restaurants · 4600 W Guadalupe St",
+      "geofence": { "center": [-97.7388, 30.3133], "radiusMeters": 180 }
+    },
+    {
+      "id": "second-street-district",
+      "gid": "v3xm6kt5gc",
+      "title": "2nd Street District",
+      "subtitle": "Downtown shopping &amp; dining · W 2nd St",
+      "geofence": { "center": [-97.7460, 30.2659], "radiusMeters": 200 }
+    },
+    {
+      "id": "davenport-village",
+      "gid": "w8nb2fl4dy",
+      "title": "Davenport Village",
+      "subtitle": "Upscale shops · 3801 N Capital of Texas Hwy",
+      "geofence": { "center": [-97.8033, 30.3526], "radiusMeters": 180 }
+    }
+  ]
+}
