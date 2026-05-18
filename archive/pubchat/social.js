@@ -1,5 +1,5 @@
 // social.js — builds destination URLs for a hotspot's coordinates + name
-// and renders 3 icon buttons (Google Maps, Waze, Reddit) into a popup.
+// and renders 3 branded buttons (Google Maps, Waze, Reddit) into a popup.
 //
 // Pure module. No DOM mutation, no globals other than window.PubchatSocial.
 //
@@ -30,22 +30,18 @@
     };
   }
 
-  const ICONS = {
-    gmaps:  '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>',
-    waze:   '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12.5l19-8.5-8.5 19-2.2-8.3z"/></svg>',
-    reddit: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.1 13.8c0 .2.1.3.1.5 0 2.6-3 4.7-6.7 4.7-3.7 0-6.7-2.1-6.7-4.7 0-.2 0-.3.1-.5a1.6 1.6 0 0 1-.6-1.3 1.6 1.6 0 0 1 2.7-1.2 8.2 8.2 0 0 1 4.3-1.4l.8-3.8a.3.3 0 0 1 .4-.3l2.7.6a1.1 1.1 0 1 1-.1.6l-2.5-.5-.7 3.4a8.1 8.1 0 0 1 4.2 1.4 1.6 1.6 0 0 1 2.7 1.2c0 .5-.2 1-.7 1.3zM9.3 13a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm5.4 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm-5.1 4.5c-.1-.1 0-.3.1-.3a6.4 6.4 0 0 0 4.6 0c.2-.1.3 0 .3.2s-.1.2-.2.3a6.7 6.7 0 0 1-4.6 0c-.1 0-.2-.1-.2-.2z"/></svg>',
-  };
+  // Google Maps pin: red teardrop with a white center circle — the
+  // universally-recognized Google Maps marker.
+  const GMAPS_SVG = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z" fill="#EA4335"/><circle cx="12" cy="10" r="3" fill="#fff"/></svg>';
 
   function buttonsHTML(lat, lng, title) {
     const u = links(lat, lng, title);
     if (!u) return '';
-    const a = (cls, href, label, svg) =>
-      `<a class="pc-popup-social-btn ${cls}" href="${href}" target="_blank" rel="noopener" aria-label="${label}" title="${label}">${svg}</a>`;
     return [
       '<div class="pc-popup-social">',
-        a('is-gmaps',  u.gmaps,  'Google Maps', ICONS.gmaps),
-        a('is-waze',   u.waze,   'Waze',        ICONS.waze),
-        a('is-reddit', u.reddit, 'Reddit',      ICONS.reddit),
+        `<a class="pc-popup-social-btn is-gmaps" href="${u.gmaps}" target="_blank" rel="noopener" aria-label="Open in Google Maps" title="Open in Google Maps">${GMAPS_SVG}</a>`,
+        `<a class="pc-popup-social-btn is-waze" href="${u.waze}" target="_blank" rel="noopener" aria-label="Open in Waze" title="Open in Waze"><span class="pc-brand-waze">Waze</span></a>`,
+        `<a class="pc-popup-social-btn is-reddit" href="${u.reddit}" target="_blank" rel="noopener" aria-label="Search on Reddit" title="Search on Reddit"><span class="pc-brand-reddit">reddit</span></a>`,
       '</div>',
     ].join('');
   }
