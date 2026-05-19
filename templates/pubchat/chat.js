@@ -16,7 +16,18 @@
   let activeIdentity = null;
   let onMessageCb = null;
   let onPresenceCb = null;
+  let onDeleteCb = null;
   let lastSendAt = 0;
+
+  // Opaque per-message id stamped on every outgoing payload. Used by
+  // the delete-my-own-post feature so peers can find and remove the
+  // matching bubble, and so the DB delete query can target one row.
+  function newClientId() {
+    try {
+      if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+    } catch (_) { /* fall through */ }
+    return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  }
 
   function supaReady() {
     return typeof window.__supabaseCreateClient === 'function';
@@ -65,12 +76,13 @@
   }
   function setAppNamespace(id) { appNamespaceOverride = id || null; }
 
-  async function joinHotspot(hotspotId, identity, onMessage, onPresence) {
+  async function joinHotspot(hotspotId, identity, onMessage, onPresence, onDelete) {
     await leaveHotspot();
     activeHotspotId = hotspotId;
     activeIdentity = identity;
     onMessageCb = onMessage;
     onPresenceCb = onPresence;
+    onDeleteCb = onDelete || null;
 
     const c = await ensureClient();
     if (!c) {
@@ -91,6 +103,12 @@
     channel.on('broadcast', { event: 'msg' }, (payload) => {
       if (!onMessageCb) return;
       onMessageCb(payload?.payload ?? null);
+    });
+
+    channel.on('broadcast', { event: 'del' }, (payload) => {
+      if (!onDeleteCb) return;
+      const cid = payload?.payload?.clientId;
+      if (cid) onDeleteCb(cid);
     });
 
     channel.on('presence', { event: 'sync' }, () => {
@@ -136,6 +154,7 @@
     activeIdentity = null;
     onMessageCb = null;
     onPresenceCb = null;
+    onDeleteCb = null;
     if (!c || !ch) return;
     try {
       await ch.untrack();
@@ -154,6 +173,7 @@
     lastSendAt = now;
 
     const payload = {
+      clientId: newClientId(),
       handle: activeIdentity.handle,
       emoji: activeIdentity.emoji,
       home: activeIdentity.home || null,
@@ -198,6 +218,7 @@
         room_id: roomId,
         app,
         hotspot_id: hotspotId,
+        client_id: payload.clientId || null,
         handle: payload.handle,
         emoji: payload.emoji,
         home_hotspot: payload.home?.hotspotId || null,
@@ -214,6 +235,39 @@
     }
   }
 
+  // Delete a message the user just sent. Broadcasts a `del` event to
+  // peers so their UI removes the bubble, and best-effort deletes the
+  // persisted row so it isn't replayed on history loads. The 5-minute
+  // server-side RLS window means stale calls just no-op.
+  async function deleteMessage(clientId) {
+    if (!clientId || !activeChannel || !activeHotspotId) return false;
+    // Echo locally first so the sender's UI updates instantly.
+    if (onDeleteCb) onDeleteCb(clientId);
+    if (!activeChannel.mock) {
+      try {
+        await activeChannel.send({
+          type: 'broadcast',
+          event: 'del',
+          payload: { clientId },
+        });
+      } catch (e) {
+        console.warn('pubchat: delete broadcast failed', e);
+      }
+    }
+    const c = await ensureClient();
+    if (c) {
+      try {
+        const roomId = channelName(activeHotspotId);
+        const { error } = await c.from('chats').delete()
+          .eq('room_id', roomId).eq('client_id', clientId);
+        if (error) console.warn('pubchat: row delete failed', error.message || error);
+      } catch (e) {
+        console.warn('pubchat: row delete threw', e);
+      }
+    }
+    return true;
+  }
+
   // Load the last `sinceMs` of chat history for a room. Returns [] on
   // any error so callers can render their UI either way.
   async function recentMessages(roomId, sinceMs) {
@@ -224,7 +278,7 @@
       const cutoff = new Date(Date.now() - window).toISOString();
       const { data, error } = await c
         .from('chats')
-        .select('handle, emoji, home_hotspot, home_title, text, vibe, created_at')
+        .select('client_id, handle, emoji, home_hotspot, home_title, text, vibe, created_at')
         .eq('room_id', roomId)
         .gte('created_at', cutoff)
         .order('created_at', { ascending: true })
@@ -234,6 +288,7 @@
         return [];
       }
       return (data || []).map(r => ({
+        clientId: r.client_id || null,
         handle: r.handle,
         emoji: r.emoji,
         home: r.home_hotspot
@@ -300,13 +355,13 @@
   // tracks presence and exposes a `send()` so the user can chat there.
   // When omitted, behaves as a read-only viewer.
   async function subscribeHotspot(hotspotId, appId, callbacks) {
-    const { onMessage, onPresence, identity } = callbacks || {};
+    const { onMessage, onPresence, onDelete, identity } = callbacks || {};
     const c = await ensureClient();
     if (!c) {
       if (onPresence) onPresence(identity
         ? [{ handle: identity.handle, emoji: identity.emoji, home: identity.home || null, self: true }]
         : []);
-      return { leave: () => {}, send: async () => false };
+      return { leave: () => {}, send: async () => false, deleteMessage: async () => false };
     }
     const prevNs = appNamespaceOverride;
     if (appId) appNamespaceOverride = appId;
@@ -319,6 +374,10 @@
     const channel = c.channel(name, { config: channelConfig });
     channel.on('broadcast', { event: 'msg' }, (payload) => {
       if (onMessage) onMessage(payload?.payload ?? null);
+    });
+    channel.on('broadcast', { event: 'del' }, (payload) => {
+      const cid = payload?.payload?.clientId;
+      if (cid && onDelete) onDelete(cid);
     });
     channel.on('presence', { event: 'sync' }, () => {
       if (!onPresence) return;
@@ -362,6 +421,7 @@
         if (now - subLastSendAt < MIN_SEND_INTERVAL_MS) return false;
         subLastSendAt = now;
         const payload = {
+          clientId: newClientId(),
           handle: identity.handle,
           emoji: identity.emoji,
           home: identity.home || null,
@@ -379,6 +439,23 @@
         persistChatRow(name, resolvedApp, hotspotId, payload);
         return true;
       },
+      deleteMessage: async (clientId) => {
+        if (!clientId) return false;
+        if (onDelete) onDelete(clientId); // local echo
+        try {
+          await channel.send({ type: 'broadcast', event: 'del', payload: { clientId } });
+        } catch (e) {
+          console.warn('pubchat: subscribe delete broadcast failed', e);
+        }
+        try {
+          const { error } = await c.from('chats').delete()
+            .eq('room_id', name).eq('client_id', clientId);
+          if (error) console.warn('pubchat: row delete failed', error.message || error);
+        } catch (e) {
+          console.warn('pubchat: row delete threw', e);
+        }
+        return true;
+      },
     };
   }
 
@@ -394,6 +471,7 @@
     joinHotspot,
     leaveHotspot,
     sendMessage,
+    deleteMessage,
     subscribeHotspot,
     isConfigured,
     currentHotspotId,

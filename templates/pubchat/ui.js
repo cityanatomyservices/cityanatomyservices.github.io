@@ -126,7 +126,8 @@ function initPubchatUI(engine) {
       hotspot.id,
       currentIdentity,
       handleIncoming,
-      handlePresence
+      handlePresence,
+      removeBubbleByClientId
     );
   }
 
@@ -164,6 +165,7 @@ function initPubchatUI(engine) {
     li.className = 'pc-bubble'
       + (isSelf ? ' is-self' : '')
       + (payload.__historical ? ' is-historical' : '');
+    if (payload.clientId) li.dataset.cid = payload.clientId;
     const meta = document.createElement('span');
     meta.className = 'pc-bubble-meta';
     let metaText = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
@@ -182,8 +184,30 @@ function initPubchatUI(engine) {
     body.appendChild(document.createTextNode(payload.text ?? ''));
     li.appendChild(body);
 
+    // Sender-only delete affordance. The server enforces a 5-minute
+    // window via RLS, so click-after-that is a graceful no-op.
+    if (isSelf && payload.clientId) {
+      const del = document.createElement('button');
+      del.type = 'button';
+      del.className = 'pc-bubble-del';
+      del.setAttribute('aria-label', 'Delete this message');
+      del.title = 'Delete';
+      del.textContent = '×';
+      del.addEventListener('click', async () => {
+        del.disabled = true;
+        await window.PubchatChat.deleteMessage(payload.clientId);
+      });
+      li.appendChild(del);
+    }
+
     messagesEl.appendChild(li);
     messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function removeBubbleByClientId(cid) {
+    if (!cid) return;
+    const li = messagesEl.querySelector(`li[data-cid="${CSS.escape(cid)}"]`);
+    if (li) li.remove();
   }
 
   function appendSystemBubble(text) {

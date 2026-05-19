@@ -443,6 +443,24 @@
     .pc-mini-bubble-tag.is-from-tag { color: #5a6472; font-weight: 600; font-style: italic; }
     .pc-mini-bubble.is-historical    { opacity: 0.65; }
     .pc-mini-bubble.is-historical.is-self { opacity: 0.7; }
+    .pc-mini-bubble.is-self { position: relative; padding-right: 22px; }
+    .pc-mini-bubble-del {
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #5a6472;
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .pc-mini-bubble-del:hover { background: rgba(0, 0, 0, 0.08); color: #1c1c28; }
+    .pc-mini-bubble-del:disabled { opacity: 0.4; cursor: default; }
 
     /* Polls pane (mini popup) */
     .pc-mini-polls {
@@ -1478,11 +1496,14 @@
           const li = document.createElement('li');
           li.className = 'pc-mini-bubble';
           const senderHomeId = payload.home?.hotspotId || null;
-          const isSelf = payload.__self === true;
+          const myHandle = getIdentity()?.handle;
+          const isSelf = payload.__self === true
+            || (myHandle && payload.handle === myHandle);
           if (isSelf) li.classList.add('is-self');
           if (payload.__historical) li.classList.add('is-historical');
           if (senderHomeId && senderHomeId === hotspotId) li.classList.add('is-here-sender');
           else if (senderHomeId) li.classList.add('is-remote-sender');
+          if (payload.clientId) li.dataset.cid = payload.clientId;
 
           const metaLine = document.createElement('span');
           metaLine.className = 'pc-mini-bubble-meta';
@@ -1502,8 +1523,29 @@
           }
           li.appendChild(metaLine);
           li.appendChild(document.createTextNode(payload.text ?? ''));
+
+          if (isSelf && payload.clientId) {
+            const del = document.createElement('button');
+            del.type = 'button';
+            del.className = 'pc-mini-bubble-del';
+            del.setAttribute('aria-label', 'Delete this message');
+            del.title = 'Delete';
+            del.textContent = '×';
+            del.addEventListener('click', async () => {
+              del.disabled = true;
+              if (sub && sub.deleteMessage) await sub.deleteMessage(payload.clientId);
+            });
+            li.appendChild(del);
+          }
+
           messagesEl.appendChild(li);
           messagesEl.scrollTop = messagesEl.scrollHeight;
+        };
+
+        const removeBubble = (cid) => {
+          if (!cid) return;
+          const li = messagesEl.querySelector(`li[data-cid="${CSS.escape(cid)}"]`);
+          if (li) li.remove();
         };
 
         sysBubble(isHome
@@ -1554,7 +1596,7 @@
             };
             sub = await window.PubchatChat.subscribeHotspot(
               hotspotId, feature.properties.app,
-              { onMessage: onMsg, onPresence, identity: getIdentity() }
+              { onMessage: onMsg, onPresence, onDelete: removeBubble, identity: getIdentity() }
             );
           } catch (err) {
             console.warn('mini chat connect failed', err);

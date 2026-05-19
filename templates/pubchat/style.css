@@ -571,6 +571,25 @@ body:has(#pc-sheet:not([hidden])) .pc-brand-card { display: none; }
 .pc-bubble.is-historical { opacity: 0.65; }
 .pc-bubble.is-historical.is-self { opacity: 0.7; }
 
+.pc-bubble.is-self { position: relative; padding-right: 22px; }
+.pc-bubble-del {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.pc-bubble-del:hover { background: rgba(0, 0, 0, 0.18); color: #fff; }
+.pc-bubble-del:disabled { opacity: 0.4; cursor: default; }
+
 /* ── Polls pane ─────────────────────────────────────────────── */
 .pc-polls {
   list-style: none;
