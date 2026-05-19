@@ -1782,72 +1782,6 @@
         map.setLayoutProperty('satellite-layer', 'visibility', on ? 'visible' : 'none');
       }
 
-      // Weather radar — RainViewer free public API. The index endpoint
-      // returns the host + a list of recent radar frames; we pick the
-      // newest past frame as the "now" tile set. Inserted just below the
-      // geofence fill so circles + labels stay readable on top.
-      // https://www.rainviewer.com/api.html
-      let weatherLoaded = false;
-      let weatherRefreshTimer = null;
-      async function fetchLatestRadarTileUrl() {
-        const res = await fetch('https://api.rainviewer.com/public/weather-maps.json', { cache: 'no-cache' });
-        if (!res.ok) throw new Error('rainviewer index HTTP ' + res.status);
-        const idx = await res.json();
-        const past = idx?.radar?.past || [];
-        if (!past.length) throw new Error('no past radar frames');
-        const frame = past[past.length - 1];
-        // {host}{path}/{size}/{z}/{x}/{y}/{color}/{smooth}_{snow}.png
-        // size 256, color 4 (Universal Rainbow), smooth on, snow on.
-        return `${idx.host}${frame.path}/256/{z}/{x}/{y}/4/1_1.png`;
-      }
-      async function ensureWeather(checkbox) {
-        if (weatherLoaded) return true;
-        if (checkbox) checkbox.disabled = true;
-        try {
-          const tileUrl = await fetchLatestRadarTileUrl();
-          map.addSource('weather', {
-            type: 'raster',
-            tiles: [tileUrl],
-            tileSize: 256,
-            // RainViewer radar tiles top out around z=10; above that the
-            // server returns a "zoom level not supported" placeholder.
-            // Cap the source so MapLibre overzooms (stretches the highest
-            // available tile) instead of fetching nonexistent ones.
-            maxzoom: 10,
-            attribution: 'Radar © <a href="https://www.rainviewer.com" target="_blank" rel="noopener">RainViewer</a>',
-          });
-          map.addLayer({
-            id: 'weather-layer',
-            type: 'raster',
-            source: 'weather',
-            paint: { 'raster-opacity': 0.7 },
-          }, 'chatmaps-fill');
-          weatherLoaded = true;
-          return true;
-        } catch (err) {
-          console.warn('Weather load failed:', err);
-          return false;
-        } finally {
-          if (checkbox) checkbox.disabled = false;
-        }
-      }
-      async function refreshWeather() {
-        if (!weatherLoaded) return;
-        try {
-          const tileUrl = await fetchLatestRadarTileUrl();
-          const src = map.getSource('weather');
-          if (src && typeof src.setTiles === 'function') src.setTiles([tileUrl]);
-        } catch (err) {
-          console.warn('Weather refresh failed:', err);
-        }
-      }
-      function setWeatherVisible(on) {
-        if (!weatherLoaded) return;
-        map.setLayoutProperty('weather-layer', 'visibility', on ? 'visible' : 'none');
-        clearInterval(weatherRefreshTimer);
-        weatherRefreshTimer = on ? setInterval(refreshWeather, 5 * 60 * 1000) : null;
-      }
-
       // Toggle every map layer whose source-layer is "building" — covers
       // both our custom 3d-buildings extrusion AND the basemap's flat
       // building fill. Without this, unchecking only hides the extrusion
@@ -1910,15 +1844,6 @@
             if (on) ensureSatellite();
             setSatelliteVisible(on);
           }));
-          // Weather — lazy-loaded RainViewer radar (latest frame, auto-refreshing).
-          layersPanel.appendChild(makeRow('Weather', false, async (on, cb) => {
-            if (on) {
-              const ok = await ensureWeather(cb);
-              if (!ok) { cb.checked = false; return; }
-            }
-            setWeatherVisible(on);
-          }));
-
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
             layersPanel.classList.toggle('open');
