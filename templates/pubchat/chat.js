@@ -271,7 +271,7 @@
   // Load the last `sinceMs` of chat history for a room. Returns [] on
   // any error so callers can render their UI either way.
   async function recentMessages(roomId, sinceMs) {
-    const window = sinceMs || 60 * 60 * 1000; // default 1 hour
+    const window = sinceMs || 24 * 60 * 60 * 1000; // default 24 hours
     const c = await ensureClient();
     if (!c) return [];
     try {

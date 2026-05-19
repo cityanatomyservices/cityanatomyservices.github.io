@@ -1574,7 +1574,7 @@
             await ensureSupabaseLoaded();
             if (!window.PubchatChat) { sysBubble('Chat unavailable.'); return; }
 
-            // Replay last hour of history before live subscribes so
+            // Replay last 24 hours of history before live subscribes so
             // bubbles appear in time order. Non-blocking on error.
             try {
               const roomId = window.PubchatChat.roomIdFor(feature.properties.app, hotspotId);

@@ -114,8 +114,8 @@ function initPubchatUI(engine) {
       appendSystemBubble('Chat is in local-only mode. Paste Supabase creds into config.js to connect other people.');
     }
 
-    // Replay last hour of history before live messages stream in. Best
-    // effort — if Supabase is down we just open empty.
+    // Replay last 24 hours of history before live messages stream in.
+    // Best effort — if Supabase is down we just open empty.
     try {
       const roomId = window.PubchatChat.roomIdFor(undefined, hotspot.id);
       const history = await window.PubchatChat.recentMessages(roomId);
