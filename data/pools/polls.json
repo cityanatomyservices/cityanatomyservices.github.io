@@ -1,0 +1,9 @@
+{
+  "app": "pools",
+  "polls": [
+    { "id": "pools:vibe",      "question": "How's the vibe?",      "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "pools:parking",   "question": "Parking right now?",   "options": ["Easy", "Tight", "Full / circling", "No parking here"] },
+    { "id": "pools:bathrooms", "question": "Bathrooms?",           "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
+    { "id": "pools:status",    "question": "Pool status?",         "options": ["Open", "Capacity", "Cleared (lightning/etc.)", "Closed"] }
+  ]
+}

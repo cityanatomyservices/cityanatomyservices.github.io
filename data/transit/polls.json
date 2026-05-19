@@ -1,0 +1,8 @@
+{
+  "app": "transit",
+  "polls": [
+    { "id": "transit:vibe",      "question": "How's the vibe?",      "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "transit:bathrooms", "question": "Bathrooms?",           "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
+    { "id": "transit:next",      "question": "Next bus/train?",      "options": ["Pulling up", "<10 min", "10–20", "20+ / no idea"] }
+  ]
+}

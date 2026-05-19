@@ -1,0 +1,8 @@
+{
+  "app": "target",
+  "polls": [
+    { "id": "target:vibe",    "question": "How's the vibe?",      "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "target:parking", "question": "Parking right now?",   "options": ["Easy", "Tight", "Full / circling", "No parking here"] },
+    { "id": "target:stock",   "question": "Stock looking good?",  "options": ["Fully stocked", "Some gaps", "Picked over", "Empty shelves"] }
+  ]
+}

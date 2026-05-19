@@ -1,0 +1,7 @@
+{
+  "app": "homelesschat",
+  "polls": [
+    { "id": "homelesschat:vibe", "question": "How's the vibe?", "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "homelesschat:meal", "question": "Meal status?",    "options": ["Serving now", "Starting soon", "Wrapping up", "Closed today"] }
+  ]
+}

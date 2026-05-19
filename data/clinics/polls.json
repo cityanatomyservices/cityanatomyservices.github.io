@@ -1,0 +1,8 @@
+{
+  "app": "clinics",
+  "polls": [
+    { "id": "clinics:vibe",    "question": "How's the vibe?",    "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "clinics:parking", "question": "Parking right now?", "options": ["Easy", "Tight", "Full / circling", "No parking here"] },
+    { "id": "clinics:wait",    "question": "Wait to be seen?",   "options": ["<15 min", "15–45", "45 min–2 hr", "2 hr+"] }
+  ]
+}

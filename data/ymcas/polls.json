@@ -1,0 +1,9 @@
+{
+  "app": "ymcas",
+  "polls": [
+    { "id": "ymcas:vibe",      "question": "How's the vibe?",         "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "ymcas:parking",   "question": "Parking right now?",      "options": ["Easy", "Tight", "Full / circling", "No parking here"] },
+    { "id": "ymcas:bathrooms", "question": "Bathrooms?",              "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
+    { "id": "ymcas:equipment", "question": "Equipment availability?", "options": ["Wide open", "Most free", "Wait for machines", "Packed"] }
+  ]
+}

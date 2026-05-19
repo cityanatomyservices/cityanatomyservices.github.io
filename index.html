@@ -441,6 +441,61 @@
     }
     .pc-mini-bubble-tag.is-here-tag { color: #1a73ff; text-transform: uppercase; letter-spacing: 0.04em; }
     .pc-mini-bubble-tag.is-from-tag { color: #5a6472; font-weight: 600; font-style: italic; }
+    .pc-mini-bubble.is-historical    { opacity: 0.65; }
+    .pc-mini-bubble.is-historical.is-self { opacity: 0.7; }
+
+    /* Polls pane (mini popup) */
+    .pc-mini-polls {
+      list-style: none;
+      margin: 0;
+      padding: 10px 12px 14px;
+      display: flex; flex-direction: column;
+      gap: 14px;
+      overflow-y: auto;
+      max-height: 320px;
+    }
+    .pc-mini-poll-q {
+      margin: 0 0 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1c1c28;
+    }
+    .pc-mini-poll-opts { display: flex; flex-direction: column; gap: 5px; }
+    .pc-mini-poll-opt {
+      position: relative;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px;
+      padding: 7px 10px;
+      font: inherit; font-size: 0.82rem;
+      text-align: left;
+      color: #1c1c28;
+      background: #f3f4f6;
+      border: 1px solid #e1e6ee;
+      border-radius: 8px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .pc-mini-poll-opt::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--pct, 0%);
+      background: #d6e6ff;
+      transition: width 220ms ease;
+      z-index: 0;
+    }
+    .pc-mini-poll-opt > * { position: relative; z-index: 1; }
+    .pc-mini-poll-opt:hover:not(:disabled) { border-color: #1a73ff; }
+    .pc-mini-poll-opt:disabled { cursor: default; opacity: 0.85; }
+    .pc-mini-poll-opt-pct {
+      font-variant-numeric: tabular-nums;
+      font-size: 0.78rem; color: #5a6472;
+      flex-shrink: 0;
+    }
+    .pc-mini-poll-total {
+      margin: 4px 2px 0;
+      font-size: 0.7rem; color: #5a6472;
+    }
     /* Compose form — light theme matching the info popup. */
     .pc-mini-compose {
       display: flex; gap: 6px;
@@ -1237,6 +1292,31 @@
 
       function escapeText(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
 
+      // Cache poll definitions per app — same file across all hotspots
+      // in a category. Missing file is allowed (resolves to {polls: []}).
+      const POLL_DEFS_CACHE = new Map();
+      function loadPollDefs(app) {
+        if (POLL_DEFS_CACHE.has(app)) return POLL_DEFS_CACHE.get(app);
+        const folder = (APPS.find(a => a.id === app)?.url || '').replace(/hotspots\.json$/, '');
+        const url = folder ? folder + 'polls.json' : null;
+        const p = (url
+          ? fetch(url, { cache: 'no-cache' })
+              .then(r => r.ok ? r.json() : { polls: [] })
+              .catch(() => ({ polls: [] }))
+          : Promise.resolve({ polls: [] }));
+        POLL_DEFS_CACHE.set(app, p);
+        return p;
+      }
+
+      function formatAgo(t) {
+        const sec = Math.max(0, Math.round((Date.now() - t) / 1000));
+        if (sec < 60) return `${sec}s ago`;
+        const min = Math.round(sec / 60);
+        if (min < 60) return `${min}m ago`;
+        const hr = Math.round(min / 60);
+        return `${hr}h ago`;
+      }
+
       function openMiniChat(feature, lngLat, meta, hot, opts) {
         const role = (opts && opts.role) || 'neighbor'; // 'home' | 'neighbor'
         const isHome = role === 'home';
@@ -1259,7 +1339,7 @@
           <nav class="pc-mini-tabs" role="tablist">
             <button class="pc-mini-tab is-active" data-tab="chat" type="button" role="tab">Chat</button>
             <button class="pc-mini-tab" data-tab="info" type="button" role="tab">Info</button>
-            <button class="pc-mini-tab" data-tab="vibe" type="button" role="tab">Vibe</button>
+            <button class="pc-mini-tab" data-tab="polls" type="button" role="tab">Polls</button>
           </nav>
           <div class="pc-mini-panes">
             <div class="pc-mini-pane" data-pane="chat" role="tabpanel">
@@ -1272,8 +1352,9 @@
             <div class="pc-mini-pane" data-pane="info" role="tabpanel" hidden>
               <p class="pc-mini-pane-empty">Info coming soon.</p>
             </div>
-            <div class="pc-mini-pane" data-pane="vibe" role="tabpanel" hidden>
-              <p class="pc-mini-pane-empty">Vibe coming soon.</p>
+            <div class="pc-mini-pane" data-pane="polls" role="tabpanel" hidden>
+              <ol class="pc-mini-polls" aria-label="Live polls"></ol>
+              <p class="pc-mini-pane-empty pc-mini-polls-empty" hidden>No polls for this category yet.</p>
             </div>
           </div>
         `;
@@ -1288,7 +1369,86 @@
           el.querySelectorAll('.pc-mini-pane').forEach(p => {
             p.hidden = p.dataset.pane !== which;
           });
+          if (which === 'polls') loadPollsForPopup();
         });
+
+        // Lazy-loaded once per popup open. Re-fetches on every vote.
+        let pollsLoaded = false;
+        async function loadPollsForPopup() {
+          if (!hotspotId) return;
+          const app = feature.properties.app;
+          const pollsList = el.querySelector('.pc-mini-polls');
+          const emptyEl = el.querySelector('.pc-mini-polls-empty');
+          if (!pollsList) return;
+          if (!pollsLoaded) {
+            pollsList.innerHTML = '<li class="pc-mini-bubble is-system">loading…</li>';
+          }
+          try {
+            await ensureConfigLoaded();
+            await ensureSupabaseLoaded();
+            const defs = await loadPollDefs(app);
+            const polls = defs?.polls || [];
+            pollsList.innerHTML = '';
+            if (!polls.length) { emptyEl.hidden = false; return; }
+            emptyEl.hidden = true;
+            const roomId = window.PubchatChat.roomIdFor(app, hotspotId);
+            const rows = await window.PubchatChat.fetchPollResults(roomId);
+            const byPoll = new Map();
+            for (const r of rows) {
+              if (!byPoll.has(r.poll_id)) byPoll.set(r.poll_id, {});
+              byPoll.get(r.poll_id)[r.option_index] = r.votes;
+            }
+            for (const def of polls) {
+              pollsList.appendChild(renderMiniPoll(def, byPoll.get(def.id) || {}, roomId));
+            }
+            pollsLoaded = true;
+          } catch (err) {
+            console.warn('polls load failed', err);
+            pollsList.innerHTML = '';
+            emptyEl.hidden = false;
+          }
+        }
+
+        function renderMiniPoll(def, counts, roomId) {
+          const li = document.createElement('li');
+          li.className = 'pc-mini-poll';
+          const q = document.createElement('p');
+          q.className = 'pc-mini-poll-q';
+          q.textContent = def.question;
+          li.appendChild(q);
+          const total = def.options.reduce((s, _, i) => s + (counts[i] || 0), 0);
+          const opts = document.createElement('div');
+          opts.className = 'pc-mini-poll-opts';
+          def.options.forEach((label, i) => {
+            const votes = counts[i] || 0;
+            const pct = total > 0 ? Math.round((votes / total) * 100) : 0;
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'pc-mini-poll-opt';
+            btn.style.setProperty('--pct', pct + '%');
+            btn.innerHTML = `<span class="pc-mini-poll-opt-label">${escapeText(label)}</span>`
+              + `<span class="pc-mini-poll-opt-pct">${pct}%</span>`;
+            btn.addEventListener('click', async () => {
+              if (btn.disabled) return;
+              opts.querySelectorAll('.pc-mini-poll-opt').forEach(b => b.disabled = true);
+              const handle = getIdentity().handle;
+              const res = await window.PubchatChat.submitPollVote(def.id, roomId, handle, i);
+              if (res.ok || res.alreadyVoted) {
+                pollsLoaded = false;
+                loadPollsForPopup();
+              } else {
+                opts.querySelectorAll('.pc-mini-poll-opt').forEach(b => b.disabled = false);
+              }
+            });
+            opts.appendChild(btn);
+          });
+          li.appendChild(opts);
+          const tot = document.createElement('p');
+          tot.className = 'pc-mini-poll-total';
+          tot.textContent = total === 1 ? '1 vote' : `${total} votes`;
+          li.appendChild(tot);
+          return li;
+        }
 
         const messagesEl = el.querySelector('.pc-mini-messages');
         const presenceEl = el.querySelector('.pc-mini-presence');
@@ -1320,12 +1480,15 @@
           const senderHomeId = payload.home?.hotspotId || null;
           const isSelf = payload.__self === true;
           if (isSelf) li.classList.add('is-self');
+          if (payload.__historical) li.classList.add('is-historical');
           if (senderHomeId && senderHomeId === hotspotId) li.classList.add('is-here-sender');
           else if (senderHomeId) li.classList.add('is-remote-sender');
 
           const metaLine = document.createElement('span');
           metaLine.className = 'pc-mini-bubble-meta';
-          metaLine.textContent = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
+          let metaText = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
+          if (payload.__historical && payload.t) metaText += ` · ${formatAgo(payload.t)}`;
+          metaLine.textContent = metaText;
           if (senderHomeId === hotspotId) {
             const t = document.createElement('span');
             t.className = 'pc-mini-bubble-tag is-here-tag';
@@ -1368,6 +1531,15 @@
             await ensureConfigLoaded();
             await ensureSupabaseLoaded();
             if (!window.PubchatChat) { sysBubble('Chat unavailable.'); return; }
+
+            // Replay last hour of history before live subscribes so
+            // bubbles appear in time order. Non-blocking on error.
+            try {
+              const roomId = window.PubchatChat.roomIdFor(feature.properties.app, hotspotId);
+              const history = await window.PubchatChat.recentMessages(roomId);
+              for (const m of history) msgBubble(m);
+            } catch (_) { /* ignore */ }
+
             const onMsg = (payload) => { if (payload) msgBubble(payload); };
             const onPresence = (list) => {
               const arr = list || [];

@@ -1,0 +1,9 @@
+{
+  "app": "sports",
+  "polls": [
+    { "id": "sports:vibe",      "question": "How's the vibe?",      "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "sports:parking",   "question": "Parking right now?",   "options": ["Easy", "Tight", "Full / circling", "No parking here"] },
+    { "id": "sports:bathrooms", "question": "Bathrooms?",           "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
+    { "id": "sports:game",      "question": "Game status?",         "options": ["Pre-game", "In progress", "Halftime", "Over"] }
+  ]
+}

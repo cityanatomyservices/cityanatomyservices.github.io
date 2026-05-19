@@ -1,0 +1,9 @@
+{
+  "app": "golf",
+  "polls": [
+    { "id": "golf:vibe",      "question": "How's the vibe?",       "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "golf:parking",   "question": "Parking right now?",    "options": ["Easy", "Tight", "Full / circling", "No parking here"] },
+    { "id": "golf:bathrooms", "question": "Bathrooms?",            "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
+    { "id": "golf:pace",      "question": "Pace of play?",         "options": ["Wide open", "Steady", "Stacked up", "Backed up"] }
+  ]
+}

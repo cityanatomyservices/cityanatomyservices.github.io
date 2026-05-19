@@ -1,0 +1,8 @@
+{
+  "app": "capital",
+  "polls": [
+    { "id": "capital:vibe",      "question": "How's the vibe?",      "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "capital:bathrooms", "question": "Bathrooms?",           "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
+    { "id": "capital:tour",      "question": "Tour wait?",           "options": ["Walk in", "Short", "Long", "Booked out"] }
+  ]
+}

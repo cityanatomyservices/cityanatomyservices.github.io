@@ -173,15 +173,126 @@
         event: 'msg',
         payload,
       });
-      return true;
     } catch (e) {
       console.warn('pubchat: send failed', e);
       return false;
     }
+    // Best-effort persistence — never blocks UI success.
+    persistChatRow(channelName(activeHotspotId), appId(), activeHotspotId, payload);
+    return true;
   }
 
   function isConfigured() { return configured(); }
   function currentHotspotId() { return activeHotspotId; }
+
+  // ── Persistence layer (additive — never blocks broadcast) ───────────
+  // Every send tries to also write to public.chats so the room has a
+  // rolling 30-day history. Failures (rate limit, network, missing
+  // table) are logged and swallowed; the live broadcast already
+  // delivered, so the user experience is unchanged.
+  async function persistChatRow(roomId, app, hotspotId, payload) {
+    const c = await ensureClient();
+    if (!c) return;
+    try {
+      const row = {
+        room_id: roomId,
+        app,
+        hotspot_id: hotspotId,
+        handle: payload.handle,
+        emoji: payload.emoji,
+        home_hotspot: payload.home?.hotspotId || null,
+        home_title: payload.home?.hotspotTitle || null,
+        text: payload.text,
+        vibe: payload.vibe || null,
+      };
+      const { error } = await c.from('chats').insert(row);
+      if (error && error.code !== 'P0001') {
+        console.warn('pubchat: chat persist failed', error.message || error);
+      }
+    } catch (e) {
+      console.warn('pubchat: chat persist threw', e);
+    }
+  }
+
+  // Load the last `sinceMs` of chat history for a room. Returns [] on
+  // any error so callers can render their UI either way.
+  async function recentMessages(roomId, sinceMs) {
+    const window = sinceMs || 60 * 60 * 1000; // default 1 hour
+    const c = await ensureClient();
+    if (!c) return [];
+    try {
+      const cutoff = new Date(Date.now() - window).toISOString();
+      const { data, error } = await c
+        .from('chats')
+        .select('handle, emoji, home_hotspot, home_title, text, vibe, created_at')
+        .eq('room_id', roomId)
+        .gte('created_at', cutoff)
+        .order('created_at', { ascending: true })
+        .limit(200);
+      if (error) {
+        console.warn('pubchat: history fetch failed', error.message || error);
+        return [];
+      }
+      return (data || []).map(r => ({
+        handle: r.handle,
+        emoji: r.emoji,
+        home: r.home_hotspot
+          ? { hotspotId: r.home_hotspot, hotspotTitle: r.home_title }
+          : null,
+        text: r.text,
+        vibe: r.vibe,
+        t: new Date(r.created_at).getTime(),
+        __historical: true,
+      }));
+    } catch (e) {
+      console.warn('pubchat: history fetch threw', e);
+      return [];
+    }
+  }
+
+  // ── Polls ──────────────────────────────────────────────────────────
+  // Definitions live in /data/<app>/polls.json (fetched + cached
+  // per-app by the caller). Only votes go to the DB.
+  async function fetchPollResults(roomId) {
+    const c = await ensureClient();
+    if (!c) return [];
+    try {
+      const { data, error } = await c
+        .from('poll_results')
+        .select('poll_id, option_index, votes')
+        .eq('room_id', roomId);
+      if (error) {
+        console.warn('pubchat: poll results fetch failed', error.message || error);
+        return [];
+      }
+      return data || [];
+    } catch (e) {
+      console.warn('pubchat: poll results fetch threw', e);
+      return [];
+    }
+  }
+
+  // Returns { ok: true } or { ok: false, alreadyVoted: bool, error: any }.
+  async function submitPollVote(pollId, roomId, handle, optionIndex) {
+    const c = await ensureClient();
+    if (!c) return { ok: false, error: new Error('no client') };
+    try {
+      const { error } = await c.from('poll_votes').insert({
+        poll_id: pollId,
+        room_id: roomId,
+        handle,
+        option_index: optionIndex,
+      });
+      if (!error) return { ok: true };
+      // 23505 = unique_violation = primary key collision = already voted.
+      if (error.code === '23505') return { ok: false, alreadyVoted: true };
+      console.warn('pubchat: vote insert failed', error.message || error);
+      return { ok: false, error };
+    } catch (e) {
+      console.warn('pubchat: vote insert threw', e);
+      return { ok: false, error: e };
+    }
+  }
 
   // Parallel subscription to a specific hotspot channel. Independent of
   // the singleton activeChannel, so callers can hold many at once (the
@@ -200,6 +311,7 @@
     const prevNs = appNamespaceOverride;
     if (appId) appNamespaceOverride = appId;
     const name = channelName(hotspotId);
+    const resolvedApp = appId || (prevNs ?? (window.location.pathname.split('/').filter(Boolean)[0] || 'pubchat'));
     appNamespaceOverride = prevNs;
 
     const channelConfig = { broadcast: { self: false, ack: false } };
@@ -260,13 +372,22 @@
         if (onMessage) onMessage({ ...payload, __self: true });
         try {
           await channel.send({ type: 'broadcast', event: 'msg', payload });
-          return true;
         } catch (e) {
           console.warn('pubchat: subscribe send failed', e);
           return false;
         }
+        persistChatRow(name, resolvedApp, hotspotId, payload);
+        return true;
       },
     };
+  }
+
+  // Public room-id helper so callers (homepage history loader, polls
+  // tab) build the exact same key as the realtime channel + persisted
+  // chats.room_id column.
+  function roomIdFor(app, hotspotId) {
+    const a = app || appId();
+    return `${a}:${CITY_ID}:${hotspotId}`;
   }
 
   window.PubchatChat = {
@@ -277,5 +398,9 @@
     isConfigured,
     currentHotspotId,
     setAppNamespace,
+    recentMessages,
+    fetchPollResults,
+    submitPollVote,
+    roomIdFor,
   };
 })();

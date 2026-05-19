@@ -1,0 +1,8 @@
+{
+  "app": "campuses",
+  "polls": [
+    { "id": "campuses:vibe",     "question": "How's the vibe?",            "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "campuses:parking",  "question": "Parking right now?",         "options": ["Easy", "Tight", "Full / circling", "No parking here"] },
+    { "id": "campuses:visitors", "question": "Open to visitors right now?","options": ["Welcoming", "Quiet", "Locked down", "Event in progress"] }
+  ]
+}

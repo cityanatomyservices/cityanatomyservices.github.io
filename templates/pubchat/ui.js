@@ -108,10 +108,19 @@ function initPubchatUI(engine) {
     presenceChip.textContent = '1 here';
     sheet.hidden = false;
     inputEl.focus({ preventScroll: true });
+    resetPollsPane();
 
     if (!window.PubchatChat.isConfigured()) {
       appendSystemBubble('Chat is in local-only mode. Paste Supabase creds into config.js to connect other people.');
     }
+
+    // Replay last hour of history before live messages stream in. Best
+    // effort — if Supabase is down we just open empty.
+    try {
+      const roomId = window.PubchatChat.roomIdFor(undefined, hotspot.id);
+      const history = await window.PubchatChat.recentMessages(roomId);
+      for (const m of history) appendMessageBubble(m);
+    } catch (_) { /* ignore */ }
 
     await window.PubchatChat.joinHotspot(
       hotspot.id,
@@ -152,10 +161,14 @@ function initPubchatUI(engine) {
   function appendMessageBubble(payload) {
     const li = document.createElement('li');
     const isSelf = payload.__self === true || payload.handle === currentIdentity.handle;
-    li.className = 'pc-bubble' + (isSelf ? ' is-self' : '');
+    li.className = 'pc-bubble'
+      + (isSelf ? ' is-self' : '')
+      + (payload.__historical ? ' is-historical' : '');
     const meta = document.createElement('span');
     meta.className = 'pc-bubble-meta';
-    meta.textContent = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
+    let metaText = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
+    if (payload.__historical && payload.t) metaText += ` · ${formatAgo(payload.t)}`;
+    meta.textContent = metaText;
     li.appendChild(meta);
 
     const body = document.createElement('span');
@@ -254,7 +267,114 @@ function initPubchatUI(engine) {
       pane.hidden = pane.dataset.pane !== which;
     }
     if (which === 'chat') inputEl.focus({ preventScroll: true });
+    if (which === 'polls') loadPollsPane();
   });
+
+  // ── Polls pane ─────────────────────────────────────────────────
+  let pollsDefinitions = null;       // cached per-app
+  let pollsLoadedForRoom = null;     // last hotspot we rendered for
+
+  function resetPollsPane() {
+    pollsLoadedForRoom = null;
+    const list = document.getElementById('pc-polls');
+    const empty = sheet.querySelector('.pc-polls-empty');
+    if (list) list.innerHTML = '';
+    if (empty) empty.hidden = true;
+  }
+
+  async function loadPollsPane() {
+    const activeId = window.PubchatChat.currentHotspotId();
+    if (!activeId) return;
+    if (pollsLoadedForRoom === activeId) return;
+    pollsLoadedForRoom = activeId;
+
+    const list = document.getElementById('pc-polls');
+    const empty = sheet.querySelector('.pc-polls-empty');
+    if (!list) return;
+    list.innerHTML = '';
+    empty.hidden = true;
+
+    // App-derived URL — mirror chat.js: first path segment, fallback "pubchat".
+    const app = window.location.pathname.split('/').filter(Boolean)[0] || 'pubchat';
+    let defs = pollsDefinitions;
+    if (!defs) {
+      try {
+        const res = await fetch('polls.json', { cache: 'no-cache' });
+        if (res.ok) defs = pollsDefinitions = await res.json();
+      } catch (_) { /* swallow */ }
+    }
+    const polls = defs?.polls || [];
+    if (!polls.length) { empty.hidden = false; return; }
+
+    const roomId = window.PubchatChat.roomIdFor(app, activeId);
+    const results = await window.PubchatChat.fetchPollResults(roomId);
+    const byPoll = aggregateResults(results);
+
+    for (const def of polls) {
+      list.appendChild(renderPoll(def, byPoll.get(def.id) || {}, roomId));
+    }
+  }
+
+  function aggregateResults(rows) {
+    const map = new Map();
+    for (const r of rows) {
+      if (!map.has(r.poll_id)) map.set(r.poll_id, {});
+      map.get(r.poll_id)[r.option_index] = r.votes;
+    }
+    return map;
+  }
+
+  function renderPoll(def, counts, roomId) {
+    const li = document.createElement('li');
+    li.className = 'pc-poll';
+    const q = document.createElement('p');
+    q.className = 'pc-poll-q';
+    q.textContent = def.question;
+    li.appendChild(q);
+
+    const total = def.options.reduce((s, _, i) => s + (counts[i] || 0), 0);
+    const opts = document.createElement('div');
+    opts.className = 'pc-poll-opts';
+    def.options.forEach((label, i) => {
+      const votes = counts[i] || 0;
+      const pct = total > 0 ? Math.round((votes / total) * 100) : 0;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'pc-poll-opt';
+      btn.style.setProperty('--pct', pct + '%');
+      btn.innerHTML = `<span class="pc-poll-opt-label">${escapeHTML(label)}</span>`
+        + `<span class="pc-poll-opt-pct">${pct}%</span>`;
+      btn.addEventListener('click', async () => {
+        if (btn.disabled) return;
+        opts.querySelectorAll('.pc-poll-opt').forEach(b => b.disabled = true);
+        const res = await window.PubchatChat.submitPollVote(
+          def.id, roomId, currentIdentity.handle, i
+        );
+        if (res.ok || res.alreadyVoted) {
+          pollsLoadedForRoom = null;
+          loadPollsPane();
+        } else {
+          opts.querySelectorAll('.pc-poll-opt').forEach(b => b.disabled = false);
+        }
+      });
+      opts.appendChild(btn);
+    });
+    li.appendChild(opts);
+    const tot = document.createElement('p');
+    tot.className = 'pc-poll-total';
+    tot.textContent = total === 1 ? '1 vote' : `${total} votes`;
+    li.appendChild(tot);
+    return li;
+  }
+
+  function formatAgo(t) {
+    const sec = Math.max(0, Math.round((Date.now() - t) / 1000));
+    if (sec < 60) return `${sec}s ago`;
+    const min = Math.round(sec / 60);
+    if (min < 60) return `${min}m ago`;
+    const hr = Math.round(min / 60);
+    return `${hr}h ago`;
+  }
 
   composeForm.addEventListener('submit', async (e) => {
     e.preventDefault();

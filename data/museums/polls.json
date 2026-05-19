@@ -1,0 +1,8 @@
+{
+  "app": "museums",
+  "polls": [
+    { "id": "museums:vibe",      "question": "How's the vibe?",      "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "museums:bathrooms", "question": "Bathrooms?",           "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
+    { "id": "museums:crowd",     "question": "Crowd level?",         "options": ["Empty", "Comfortable", "Crowded", "School-trip chaos"] }
+  ]
+}

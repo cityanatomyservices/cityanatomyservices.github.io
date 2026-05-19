@@ -46,7 +46,7 @@
     <nav class="pc-sheet-tabs" role="tablist">
       <button class="pc-sheet-tab is-active" data-tab="chat" type="button" role="tab" aria-selected="true">Chat</button>
       <button class="pc-sheet-tab" data-tab="info" type="button" role="tab" aria-selected="false">Info</button>
-      <button class="pc-sheet-tab" data-tab="vibe" type="button" role="tab" aria-selected="false">Vibe</button>
+      <button class="pc-sheet-tab" data-tab="polls" type="button" role="tab" aria-selected="false">Polls</button>
     </nav>
     <div class="pc-sheet-panes">
       <div class="pc-sheet-pane is-active" data-pane="chat" role="tabpanel">
@@ -68,8 +68,9 @@
       <div class="pc-sheet-pane" data-pane="info" role="tabpanel" hidden>
         <p class="pc-pane-empty">Info coming soon.</p>
       </div>
-      <div class="pc-sheet-pane" data-pane="vibe" role="tabpanel" hidden>
-        <p class="pc-pane-empty">Vibe coming soon.</p>
+      <div class="pc-sheet-pane" data-pane="polls" role="tabpanel" hidden>
+        <ol id="pc-polls" class="pc-polls" aria-label="Live polls"></ol>
+        <p class="pc-pane-empty pc-polls-empty" hidden>No polls for this category yet.</p>
       </div>
     </div>
   </section>

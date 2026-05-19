@@ -1,0 +1,8 @@
+{
+  "app": "starbucks",
+  "polls": [
+    { "id": "starbucks:vibe",    "question": "How's the vibe?",       "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "starbucks:parking", "question": "Parking right now?",    "options": ["Easy", "Tight", "Full / circling", "No parking here"] },
+    { "id": "starbucks:wait",    "question": "Mobile order wait?",    "options": ["<5 min", "5–10", "10–20", "20+"] }
+  ]
+}

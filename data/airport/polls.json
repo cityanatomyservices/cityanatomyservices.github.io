@@ -1,0 +1,8 @@
+{
+  "app": "airport",
+  "polls": [
+    { "id": "airport:vibe",      "question": "How's the vibe?",      "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "airport:bathrooms", "question": "Bathrooms?",           "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
+    { "id": "airport:security",  "question": "Security line?",       "options": ["Walk through", "5–15 min", "15–30 min", "Over 30"] }
+  ]
+}

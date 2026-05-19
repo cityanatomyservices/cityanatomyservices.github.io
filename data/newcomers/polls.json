@@ -1,0 +1,7 @@
+{
+  "app": "newcomers",
+  "polls": [
+    { "id": "newcomers:vibe",  "question": "How's the vibe?",            "options": ["Empty", "Chill", "Busy", "Packed"] },
+    { "id": "newcomers:why",   "question": "What brought you to Austin?","options": ["Job", "Family", "School", "Just visiting"] }
+  ]
+}
