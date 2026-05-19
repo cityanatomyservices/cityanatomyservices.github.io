@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLPPBJ2VDE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PLPPBJ2VDE');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Austin.chat Works</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fff;
+      color: #111;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page { max-width: 860px; margin: 0 auto; padding: 56px 28px 80px; }
+
+    /* ── Section block ─────────────────────────────────────── */
+    .block { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; padding: 52px 0; border-top: 1px solid #e5e7eb; }
+    .block:first-child { border-top: none; padding-top: 0; }
+    .block.flip { }
+    .block.flip .img-col { order: -1; }
+
+    /* ── Text ──────────────────────────────────────────────── */
+    .text-col h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: #111;
+    }
+    .text-col p {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .text-col p:last-child { margin-bottom: 0; }
+
+    /* ── Images ────────────────────────────────────────────── */
+    .img-col { display: flex; justify-content: center; gap: 16px; }
+
+    .img-col img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 14px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: block;
+    }
+    .img-col.dual img { max-width: 200px; }
+    .img-col.dual img:first-child { margin-top: 20px; }
+
+    /* wide images (map / category list) */
+    .img-col.wide img { max-width: 340px; border-radius: 10px; }
+
+    /* ── Stack section ─────────────────────────────────────── */
+    .stack-block { padding: 52px 0; border-top: 1px solid #e5e7eb; }
+    .stack-block h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+    .stack-block p { color: #444; font-size: 1rem; margin-bottom: 24px; }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .stack-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .stack-item .si-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: #111;
+    }
+    .stack-item .si-desc {
+      font-size: 0.84rem;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .stack-item .si-cost {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #16a34a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Responsive ────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .block { grid-template-columns: 1fr; gap: 28px; }
+      .block.flip .img-col { order: 0; }
+      .img-col.dual img:first-child { margin-top: 0; }
+      .img-col.wide img { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Block 1: Walk in, chat opens (img4) -->
+  <div class="block">
+    <div class="text-col">
+      <h2>Walk into a location — the chat opens</h2>
+      <p>When your GPS puts you inside a geofenced spot, a chat panel opens automatically. A <strong>YOU'RE HERE</strong> badge confirms you're live.</p>
+      <p>No login, no account. Messages are ephemeral — nothing is stored. Walk out and the conversation is gone.</p>
+    </div>
+    <div class="img-col">
+      <img src="/images/img4.png" alt="Chat open for H-E-B East 7th with YOU'RE HERE badge" />
+    </div>
+  </div>
+
+  <!-- Block 2: Cross-location HEB chat (img1 + img2) -->
+  <div class="block flip">
+    <div class="text-col">
+      <h2>Reach out to other locations in the same category</h2>
+      <p>Your home spot is your anchor. From it, you can open any other location in the same category and chime in — labeled <em>from your spot</em> so context is never lost.</p>
+      <p>Ask if another H-E-B has eggs. Warn about a long checkout line across town. The whole chain is one conversation.</p>
+    </div>
+    <div class="img-col dual">
+      <img src="/images/img1.png" alt="User at H-E-B East 7th — YOU'RE HERE" />
+      <img src="/images/img2.png" alt="Same user visiting H-E-B Riverside remotely" />
+    </div>
+  </div>
+
+  <!-- Block 3: Geofenced map / campus (img3) -->
+  <div class="block">
+    <div class="text-col">
+      <h2>Every location becomes a geofenced chat room</h2>
+      <p>Each spot on the map — a campus, a store, a bar — has an invisible boundary drawn around it. Step inside and you're in the room.</p>
+      <p>The Info tab surfaces address, hours, and quick links like Waze and Reddit without leaving the map.</p>
+    </div>
+    <div class="img-col">
+      <img src="/images/img3.png" alt="ACC Riverside info pane showing address, hours, Waze and Reddit buttons" />
+    </div>
+  </div>
+
+  <!-- Block 4: Categories (img6) -->
+  <div class="block flip">
+    <div class="text-col">
+      <h2>Over 20 categories across Austin</h2>
+      <p>H-E-Bs, Walmarts, libraries, bars, food trucks, parks, campuses, transit centers, hospitals, YMCAs, golf courses — each is its own live network.</p>
+      <p>Toggle a category and only those locations light up. Everything else steps back. Switch anytime.</p>
+    </div>
+    <div class="img-col wide">
+      <img src="/images/img6.png" alt="Category selector listing 20+ location types" />
+    </div>
+  </div>
+
+  <!-- Stack -->
+  <div class="stack-block">
+    <h2>Built on open infrastructure — no ongoing cost</h2>
+    <p>Every piece is open-source or free tier. No servers, no bills, no vendor lock-in. Fork the repo, add your spots, push to GitHub Pages — done.</p>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <div class="si-name">MapLibre GL JS</div>
+        <div class="si-desc">Open-source WebGL maps — geofence circles, 3D tilt, satellite imagery, all client-side.</div>
+        <div class="si-cost">Free &amp; open source</div>
+      </div>
+      <div class="stack-item">
+        <div class="si-name">OpenFreeMap</div>
+        <div class="si-desc">OpenStreetMap vector tiles, no API key required.</div>
+        <div class="si-cost">Free · no key needed</div>
+      </div>
+      <div class="stack-item">
+        <div class="si-name">Supabase Realtime</div>
+        <div class="si-desc">Broadcast-only WebSocket channels. Messages are never written to a database.</div>
+        <div class="si-cost">Free tier · no DB writes</div>
+      </div>
+      <div class="stack-item">
+        <div class="si-name">GitHub Pages</div>
+        <div class="si-desc">Pure static HTML/CSS/JS. No build step, no CDN config, no server to manage.</div>
+        <div class="si-cost">Free hosting</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
