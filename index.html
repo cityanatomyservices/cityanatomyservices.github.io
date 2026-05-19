@@ -1809,6 +1809,11 @@
             type: 'raster',
             tiles: [tileUrl],
             tileSize: 256,
+            // RainViewer radar tiles top out around z=10; above that the
+            // server returns a "zoom level not supported" placeholder.
+            // Cap the source so MapLibre overzooms (stretches the highest
+            // available tile) instead of fetching nonexistent ones.
+            maxzoom: 10,
             attribution: 'Radar © <a href="https://www.rainviewer.com" target="_blank" rel="noopener">RainViewer</a>',
           });
           map.addLayer({
