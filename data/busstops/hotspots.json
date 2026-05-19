@@ -1,0 +1,162 @@
+{
+  "cityId": "atx",
+  "title": "Bus Stops · Austin",
+  "category": "Bus Stops",
+  "color": "#0c4a6e",
+  "initialCamera": {
+    "center": [-97.74, 30.30],
+    "zoom": 11
+  },
+  "hotspots": [
+    {
+      "id": "busstop-guadalupe-21st",
+      "gid": "b8s2k7m4n1",
+      "title": "Guadalupe & 21st",
+      "subtitle": "UT West Mall · Routes 1, 7, 803, 484",
+      "geofence": {
+        "center": [-97.7426, 30.2849],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-congress-6th",
+      "gid": "b3f9q1x7r5",
+      "title": "Congress & 6th",
+      "subtitle": "Downtown core · Routes 5, 7, 17, 803, 935",
+      "geofence": {
+        "center": [-97.7432, 30.2686],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-republic-square",
+      "gid": "b6h4p8d2v0",
+      "title": "Republic Square Station",
+      "subtitle": "Guadalupe & 4th · MetroRapid 801, 803 transfer",
+      "geofence": {
+        "center": [-97.7459, 30.2670],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-convention-center",
+      "gid": "b1c7n3w9j6",
+      "title": "Convention Center",
+      "subtitle": "E 4th & Trinity · Routes 17, 935",
+      "geofence": {
+        "center": [-97.7393, 30.2638],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-soco-annie",
+      "gid": "b9k5t1f8p2",
+      "title": "S Congress & Annie",
+      "subtitle": "SoCo shopping district · Routes 1, 801",
+      "geofence": {
+        "center": [-97.7498, 30.2470],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-soco-oltorf",
+      "gid": "b2m6r9l3y8",
+      "title": "S Congress & Oltorf",
+      "subtitle": "South Austin · Routes 1, 801",
+      "geofence": {
+        "center": [-97.7517, 30.2374],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-lamar-airport",
+      "gid": "b7v0z4q5n3",
+      "title": "N Lamar & Airport",
+      "subtitle": "The Triangle · Routes 1, 803, 7",
+      "geofence": {
+        "center": [-97.7274, 30.3066],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-lamar-38th",
+      "gid": "b4w8j2c6h1",
+      "title": "N Lamar & 38th",
+      "subtitle": "Hyde Park edge · Routes 1, 803",
+      "geofence": {
+        "center": [-97.7374, 30.3014],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-lamar-justin",
+      "gid": "b0e3s7g9k4",
+      "title": "N Lamar & Justin Ln",
+      "subtitle": "Near Crestview Station · Routes 1, 803",
+      "geofence": {
+        "center": [-97.7281, 30.3231],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-burnet-anderson",
+      "gid": "b5d1q8x2t7",
+      "title": "Burnet & Anderson",
+      "subtitle": "North Burnet · Routes 3, 803",
+      "geofence": {
+        "center": [-97.7370, 30.3631],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-domain",
+      "gid": "b8u4p0r6n2",
+      "title": "Domain Northside",
+      "subtitle": "Burnet & Esperanza Xing · Routes 3, 383, 466",
+      "geofence": {
+        "center": [-97.7252, 30.4014],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-mlk-station",
+      "gid": "b3y7l5h1v9",
+      "title": "MLK Jr Station",
+      "subtitle": "Red Line bus connection · Routes 18, 350",
+      "geofence": {
+        "center": [-97.7177, 30.2786],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-riverside-pleasant-valley",
+      "gid": "b6f9o3a8m4",
+      "title": "Riverside & Pleasant Valley",
+      "subtitle": "East Riverside · Routes 17, 300",
+      "geofence": {
+        "center": [-97.7140, 30.2392],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-wmcannon-manchaca",
+      "gid": "b1j5z8b3e6",
+      "title": "Wm Cannon & Manchaca",
+      "subtitle": "South Austin transfer · Routes 311, 333",
+      "geofence": {
+        "center": [-97.8133, 30.1882],
+        "radiusMeters": 30
+      }
+    },
+    {
+      "id": "busstop-north-lamar-transit",
+      "gid": "b4k0w7d2i5",
+      "title": "N Lamar Transit Center",
+      "subtitle": "Lamar & Cameron · Routes 1, 7, 350, 466, 803",
+      "geofence": {
+        "center": [-97.7164, 30.3531],
+        "radiusMeters": 30
+      }
+    }
+  ]
+}
