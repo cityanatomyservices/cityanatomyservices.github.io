@@ -985,7 +985,6 @@
       const sched = window.PubchatSchedule;
       return (hotspots || [])
         .filter(h => h.geofence?.center && h.geofence?.radiusMeters)
-        .filter(h => !sched || sched.isActive(h.schedule, now))
         .map(h => ({
           type: 'Feature',
           properties: {
@@ -994,6 +993,9 @@
             subtitle: h.subtitle || '',
             app: app.id,
             color: app.color,
+            // Out-of-hours hotspots stay on the map so the user can see
+            // where they are, but render gray and refuse chat entry.
+            active: !sched || sched.isActive(h.schedule, now),
           },
           geometry: circlePolygon(h.geofence.center, h.geofence.radiusMeters),
         }));
@@ -1148,6 +1150,7 @@
         },
       });
 
+
       // app id → display label + URL slug. Keep in sync with the legend +
       // the APPS array above. Only listed apps are clickable in popups.
       const APP_META = {
@@ -1227,31 +1230,32 @@
       let enteredApp = null;       // e.g. "malls"
       let enteredFeatureId = null; // e.g. "malls-the-domain"
 
+      // Render closed hotspots gray from the first frame, before any GPS
+      // reading triggers entered-state changes. Defined right below.
+      queueMicrotask(() => applyEnteredState());
+
       function applyEnteredState() {
-        if (!enteredApp) {
-          map.setPaintProperty('chatmaps-fill', 'fill-color', ['get', 'color']);
-          map.setPaintProperty('chatmaps-fill', 'fill-opacity', 0.28);
-          map.setPaintProperty('chatmaps-outline', 'line-color', ['get', 'color']);
-          map.setPaintProperty('chatmaps-outline', 'line-opacity', 0.9);
-          map.setPaintProperty('chatmaps-label', 'text-color', '#1c1c28');
-          map.setPaintProperty('chatmaps-label', 'text-opacity', 1);
-          return;
-        }
-        const same = ['==', ['get', 'app'], enteredApp];
-        // Same-category keeps its vivid brand color; off-category gets a
-        // muted gray so it stays readable but visibly de-emphasized.
+        // A hotspot is "in context" (vivid + chat-enabled) when:
+        //   1) it's currently active per its schedule, AND
+        //   2) either the user isn't in any geofence (browsing mode) or
+        //      it belongs to the same category as the one they're in.
+        // Otherwise it renders gray and click opens an info popup only.
+        const active = ['==', ['get', 'active'], true];
+        const inContext = enteredApp
+          ? ['all', active, ['==', ['get', 'app'], enteredApp]]
+          : active;
         map.setPaintProperty('chatmaps-fill', 'fill-color',
-          ['case', same, ['get', 'color'], '#6f7780']);
+          ['case', inContext, ['get', 'color'], '#6f7780']);
         map.setPaintProperty('chatmaps-fill', 'fill-opacity',
-          ['case', same, 0.28, 0.18]);
+          ['case', inContext, 0.28, 0.18]);
         map.setPaintProperty('chatmaps-outline', 'line-color',
-          ['case', same, ['get', 'color'], '#6f7780']);
+          ['case', inContext, ['get', 'color'], '#6f7780']);
         map.setPaintProperty('chatmaps-outline', 'line-opacity',
-          ['case', same, 0.9, 0.45]);
+          ['case', inContext, 0.9, 0.45]);
         map.setPaintProperty('chatmaps-label', 'text-color',
-          ['case', same, '#1c1c28', '#6f7780']);
+          ['case', inContext, '#1c1c28', '#6f7780']);
         map.setPaintProperty('chatmaps-label', 'text-opacity',
-          ['case', same, 1, 0.55]);
+          ['case', inContext, 1, 0.55]);
       }
 
       const EARTH_R = 6371000;
@@ -1266,10 +1270,16 @@
       function recomputeEntered(userLngLat) {
         let bestRatio = Infinity;
         let bestApp = null, bestFid = null;
+        const sched = window.PubchatSchedule;
+        const now = new Date();
         for (const { app, hotspots } of results) {
           for (const h of hotspots) {
             const c = h.geofence?.center; const r = h.geofence?.radiusMeters;
             if (!c || !r) continue;
+            // Inactive (out-of-hours) hotspots stay visible but can't be
+            // entered — being physically inside one shouldn't drop the
+            // user into a chat the venue isn't open for.
+            if (sched && !sched.isActive(h.schedule, now)) continue;
             const d = haversineMeters(userLngLat, c);
             const ratio = d / r;
             if (ratio < 1 && ratio < bestRatio) {
@@ -1408,7 +1418,8 @@
         const meta = APP_META[f.properties.app] || { label: f.properties.app };
         const hot  = hotspotByFeatureId.get(f.properties.id);
 
-        if (enteredApp && f.properties.app === enteredApp) {
+        const isActive = f.properties.active !== false;
+        if (isActive && enteredApp && f.properties.app === enteredApp) {
           // Clicked your own home geofence — reopen the home popup if
           // the user previously dismissed it; otherwise no-op.
           if (f.properties.id === enteredFeatureId) {
