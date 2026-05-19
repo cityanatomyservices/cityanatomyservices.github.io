@@ -259,6 +259,28 @@
     }
     .cm-layer-row input:disabled { opacity: 0.5; }
 
+    /* 2D/3D + Extents view buttons — sit between the compass and the
+       layers hamburger in the top-left stack. Light style to match
+       maplibre's stock zoom/compass buttons; the dark layers button is
+       intentionally the only dark one at the bottom of the stack. */
+    .cm-view-btn {
+      background: #fff;
+      border: 0;
+      width: 29px; height: 29px;
+      padding: 0;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #333;
+      border-radius: 4px;
+    }
+    .cm-view-btn:hover { background: #f1f3f4; color: #000; }
+    .cm-view-btn .cm-view-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .cm-view-btn svg { width: 18px; height: 18px; display: block; }
+
     /* Info button — sits next to the City Anatomy badge in the bottom-left
        stack. Dark-glass icon matching .cm-layers-btn; panel opens upward. */
     .cm-info-ctrl { position: relative; display: flex; }
@@ -1113,6 +1135,26 @@
       );
 
       const features = results.flatMap(({ app, hotspots }) => toFeatures(hotspots, app));
+
+      // Bounding box across every geofence polygon — used by the
+      // "extents" button to zoom out to fit them all. Walks the polygon
+      // ring coordinates so the radius is already baked in.
+      let allFeaturesBounds = null;
+      {
+        let minLng = Infinity, minLat = Infinity, maxLng = -Infinity, maxLat = -Infinity;
+        for (const f of features) {
+          const ring = f.geometry?.coordinates?.[0];
+          if (!Array.isArray(ring)) continue;
+          for (const pt of ring) {
+            const lng = pt[0], lat = pt[1];
+            if (lng < minLng) minLng = lng;
+            if (lat < minLat) minLat = lat;
+            if (lng > maxLng) maxLng = lng;
+            if (lat > maxLat) maxLat = lat;
+          }
+        }
+        if (isFinite(minLng)) allFeaturesBounds = [[minLng, minLat], [maxLng, maxLat]];
+      }
 
       // Build a lookup so the click-popup can find the original hotspot
       // (including its schedule) by the synthetic feature id "<app>-<id>".
@@ -2040,6 +2082,67 @@
           }
         }
       }
+
+      // 2D/3D pitch toggle — sits below the compass. Label reflects the
+       // action the click will perform (shows "2D" while in 3D, "3D" while flat).
+      map.addControl({
+        onAdd() {
+          this._container = document.createElement('div');
+          this._container.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'cm-view-btn';
+          const label = document.createElement('span');
+          label.className = 'cm-view-label';
+          const sync = () => {
+            const flat = map.getPitch() < 1;
+            label.textContent = flat ? '3D' : '2D';
+            btn.setAttribute('aria-label', flat ? 'Switch to 3D view' : 'Switch to 2D view');
+            btn.title = label.textContent;
+          };
+          btn.appendChild(label);
+          sync();
+          btn.addEventListener('click', () => {
+            const flat = map.getPitch() < 1;
+            map.easeTo({ pitch: flat ? 45 : 0, duration: 500 });
+          });
+          // Stay in sync if pitch is changed elsewhere (e.g. the basemap
+          // toggle, programmatic camera, or user gesture).
+          map.on('pitchend', sync);
+          this._container.appendChild(btn);
+          return this._container;
+        },
+        onRemove() { this._container.parentNode.removeChild(this._container); },
+      }, 'top-left');
+
+      // Extents — fit-to-bounds across every loaded geofence.
+      map.addControl({
+        onAdd() {
+          this._container = document.createElement('div');
+          this._container.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'cm-view-btn';
+          btn.setAttribute('aria-label', 'Zoom out to show all geofences');
+          btn.title = 'Fit all';
+          // Four outward-pointing corner brackets — the standard "fit to
+          // extents" glyph. Currently-stroked corners are explicit so the
+          // icon scales cleanly inside the 18px button slot.
+          btn.innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            + 'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            + '<path d="M4 9V4h5"/><path d="M20 9V4h-5"/>'
+            + '<path d="M4 15v5h5"/><path d="M20 15v5h-5"/>'
+            + '</svg>';
+          btn.addEventListener('click', () => {
+            if (!allFeaturesBounds) return;
+            map.fitBounds(allFeaturesBounds, { padding: 60, duration: 700 });
+          });
+          this._container.appendChild(btn);
+          return this._container;
+        },
+        onRemove() { this._container.parentNode.removeChild(this._container); },
+      }, 'top-left');
 
       let layersPanel;
       map.addControl({
