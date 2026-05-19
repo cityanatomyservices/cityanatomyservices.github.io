@@ -162,16 +162,46 @@
       transform: translateY(-1px);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
     }
-    /* Bottom-left stack: City Anatomy badge + info button, side by side. */
+    /* Bottom-left stack: optional EXIT button stacked above the City
+       Anatomy badge; info button sits to the right of the badge. A grid
+       so the exit button shares column 1 with the badge and lines up
+       exactly above it. */
     .cm-bottomleft {
       position: fixed;
       bottom: 14px;
       left: 14px;
       z-index: 20;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto auto;
       gap: 8px;
       align-items: stretch;
     }
+    .cm-bottomleft-exit {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      box-sizing: border-box;
+      background: #dc2626;
+      color: #ffffff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-align: center;
+      padding: 8px 10px;
+      border: 2px solid #ffffff;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      line-height: 1.05;
+    }
+    .cm-bottomleft-exit[hidden] { display: none; }
+    .cm-bottomleft-exit:hover  { background: #b91c1c; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55); }
+    .cm-bottomleft-exit:active { transform: translateY(0); }
+    .cm-bottomleft .cm-cityanatomy-badge { grid-column: 1; grid-row: 2; }
+    .cm-bottomleft .cm-info-ctrl         { grid-column: 2; grid-row: 2; }
 
     /* Layers control (top-left): dark-glass hamburger button matching the
        legend hamburger. Panel drops below; outside-click closes it. */
@@ -882,6 +912,7 @@
   </div>
 
   <div class="cm-bottomleft">
+    <button id="cm-exit-btn" class="cm-bottomleft-exit" type="button" aria-label="Exit current geofence and stop GPS tracking" hidden>EXIT</button>
     <a href="https://anatomy.city" target="_blank" rel="noopener" class="cm-cityanatomy-badge">A City Anatomy<br>Product</a>
     <div class="cm-info-ctrl">
       <button id="cm-info-btn" class="cm-info-btn" type="button" aria-label="About Anatomy.City">i</button>
@@ -1252,8 +1283,38 @@
           refreshIdentityHome();
           applyEnteredState();
           autoOpenMiniForEntered();
+          updateExitVisibility();
         }
       }
+
+      // ── EXIT button ──────────────────────────────────────────────
+      // Shown only while the user is inside a geofence. Click stops the
+      // GPS watch (browsers don't let us revoke the permission, but we
+      // can stop tracking), clears all entered state, and closes any
+      // open chat popup — effectively kicking the user out of the chat
+      // until they hit the GeolocateControl to opt back in.
+      const exitBtn = document.getElementById('cm-exit-btn');
+      function updateExitVisibility() {
+        if (exitBtn) exitBtn.hidden = !enteredApp;
+      }
+      function exitGeofence() {
+        if (gpsWatchId != null && navigator.geolocation) {
+          navigator.geolocation.clearWatch(gpsWatchId);
+          gpsWatchId = null;
+        }
+        enteredApp = null;
+        enteredFeatureId = null;
+        if (currentMiniPopup) {
+          currentMiniPopup.remove();
+          currentMiniPopup = null;
+          currentMiniHotspotId = null;
+        }
+        closeNeighborPopup();
+        refreshIdentityHome();
+        applyEnteredState();
+        updateExitVisibility();
+      }
+      exitBtn?.addEventListener('click', exitGeofence);
 
       // Identity is stable per session (random handle + emoji from
       // PubchatIdentity, persisted in localStorage). The `home` field
