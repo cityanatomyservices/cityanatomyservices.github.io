@@ -1158,6 +1158,15 @@
         .catch(err => { console.warn('zipcodes load failed', err); return []; });
       const zipcodeById = new Map(zipcodes.map(z => [z.id, z]));
 
+      // Neighborhood polygons — middle tier between zipcodes and the
+      // app circles. Same loading + base-layer treatment as zipcodes;
+      // see recomputeEntered() for the three-tier "finer wins" rule.
+      const neighborhoods = await fetch('/data/neighborhoods/hotspots.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(json => json?.hotspots || [])
+        .catch(err => { console.warn('neighborhoods load failed', err); return []; });
+      const neighborhoodById = new Map(neighborhoods.map(n => [n.id, n]));
+
       const features = results.flatMap(({ app, hotspots }) => toFeatures(hotspots, app));
 
       // Bounding box across every geofence polygon — used by the
@@ -1190,6 +1199,9 @@
       }
       for (const z of zipcodes) {
         hotspotByFeatureId.set(`zipcodes-${z.id}`, z);
+      }
+      for (const n of neighborhoods) {
+        hotspotByFeatureId.set(`neighborhoods-${n.id}`, n);
       }
 
       map.addSource('chatmaps', {
@@ -1245,6 +1257,55 @@
         });
       }
 
+      // Neighborhood base layer — sits above zipcodes (so zipcode fills
+      // show through) and below the app circles. Heavier line, lower
+      // fill than zipcodes to read as a finer tier.
+      if (neighborhoods.length) {
+        const nbhdFeatures = neighborhoods.map(n => ({
+          type: 'Feature',
+          properties: {
+            id: `neighborhoods-${n.id}`,
+            nbhdId: n.id,
+            title: n.title,
+            _color: hashColor(n.title),
+          },
+          geometry: { type: 'MultiPolygon', coordinates: n.geofence.polygon },
+        }));
+        map.addSource('neighborhoods-base', {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: nbhdFeatures },
+        });
+        map.addLayer({
+          id: 'neighborhoods-base-fill',
+          type: 'fill',
+          source: 'neighborhoods-base',
+          paint: { 'fill-color': ['get', '_color'], 'fill-opacity': 0.08 },
+        });
+        map.addLayer({
+          id: 'neighborhoods-base-line',
+          type: 'line',
+          source: 'neighborhoods-base',
+          paint: { 'line-color': ['get', '_color'], 'line-width': 1.4, 'line-opacity': 0.85 },
+        });
+        map.addLayer({
+          id: 'neighborhoods-base-label',
+          type: 'symbol',
+          source: 'neighborhoods-base',
+          minzoom: 12,
+          layout: {
+            'text-field': ['get', 'title'],
+            'text-size': 10,
+            'text-font': ['Noto Sans Regular'],
+            'text-allow-overlap': false,
+          },
+          paint: {
+            'text-color': '#1c1c28',
+            'text-halo-color': '#ffffff',
+            'text-halo-width': 1.2,
+          },
+        });
+      }
+
       map.addLayer({
         id: 'chatmaps-fill',
         type: 'fill',
@@ -1290,6 +1351,7 @@
       // the APPS array above. Only listed apps are clickable in popups.
       const APP_META = {
         zipcodes:      { label: 'ZIP Code' },
+        neighborhoods: { label: 'Neighborhood' },
         pubchat:       { label: 'Pubs & Bars' },
         foodtrucks:    { label: 'Food Trucks' },
         parks:         { label: 'Parks' },
@@ -1440,6 +1502,21 @@
             }
           }
         }
+        // Three-tier "finer wins" fallback: circle hotspots (above)
+        // shadow neighborhood polygons, which in turn shadow zipcode
+        // polygons. Only one polygon at each tier is expected to
+        // contain any given point (they don't overlap within a tier).
+        if (bestApp === null) {
+          for (const n of neighborhoods) {
+            const poly = n.geofence?.polygon;
+            if (!poly) continue;
+            if (pointInMultiPolygon(userLngLat[0], userLngLat[1], poly)) {
+              bestApp = 'neighborhoods';
+              bestFid = `neighborhoods-${n.id}`;
+              break;
+            }
+          }
+        }
         if (bestApp === null) {
           for (const z of zipcodes) {
             const poly = z.geofence?.polygon;
@@ -1536,10 +1613,11 @@
         }
         if (currentMiniHotspotId === enteredFeatureId) return;
         const hot = hotspotByFeatureId.get(enteredFeatureId);
-        // Zipcodes aren't in APPS (they're a base layer, not a category).
-        // Build a synthetic app entry so the mini-chat opens normally.
-        const app = enteredApp === 'zipcodes'
-          ? { id: 'zipcodes', color: hot ? hashColor(hot.title) : '#1c1c28' }
+        // Zipcodes and neighborhoods aren't in APPS (they're base layers,
+        // not categories). Build a synthetic app entry so the mini-chat
+        // opens normally for them.
+        const app = (enteredApp === 'zipcodes' || enteredApp === 'neighborhoods')
+          ? { id: enteredApp, color: hot ? hashColor(hot.title) : '#1c1c28' }
           : APPS.find(a => a.id === enteredApp);
         if (!hot || !app) return;
         const meta = APP_META[enteredApp] || { label: enteredApp };
@@ -1657,6 +1735,34 @@
       });
       map.on('mouseenter', 'zipcodes-base-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
       map.on('mouseleave', 'zipcodes-base-fill', () => { map.getCanvas().style.cursor = ''; });
+
+      // Clicks on the neighborhood polygons — same shape as the zipcode
+      // handler, just one tier finer.
+      map.on('click', 'neighborhoods-base-fill', (e) => {
+        const f = e.features?.[0];
+        if (!f) return;
+        const nbhd = neighborhoodById.get(f.properties.nbhdId);
+        if (!nbhd) return;
+        const featureId = f.properties.id;
+        if (enteredApp === 'neighborhoods' && enteredFeatureId === featureId) {
+          if (!currentMiniPopup) autoOpenMiniForEntered();
+          return;
+        }
+        const meta = APP_META.neighborhoods;
+        const html = `
+          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 200px; padding: 14px 16px 16px;">
+            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1c28; font-weight: 700;">${meta.label}</div>
+            <div style="font-size: 0.95rem; font-weight: 700; margin-top: 2px;">${nbhd.title}</div>
+            <div style="font-size: 0.78rem; color: #5a6472; margin-top: 2px;">${nbhd.subtitle || ''}</div>
+          </div>
+        `;
+        new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '280px' })
+          .setLngLat(e.lngLat)
+          .setHTML(html)
+          .addTo(map);
+      });
+      map.on('mouseenter', 'neighborhoods-base-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
+      map.on('mouseleave', 'neighborhoods-base-fill', () => { map.getCanvas().style.cursor = ''; });
 
       // ── Mini chat-viewer popup (silent subscriber, no compose) ──
       // Lazy supabase loader — mirrors templates/pubchat/ui.js so we don't
