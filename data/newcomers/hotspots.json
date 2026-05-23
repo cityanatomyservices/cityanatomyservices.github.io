@@ -1,10 +1,13 @@
 {
   "cityId": "atx",
-  "title": "Newcomerschat · Austin",
+  "title": "Newcomerschat \u00b7 Austin",
   "category": "Newcomers",
   "color": "#14b8a6",
   "initialCamera": {
-    "center": [-97.745, 30.28],
+    "center": [
+      -97.745,
+      30.28
+    ],
     "zoom": 12
   },
   "hotspots": [
@@ -12,16 +15,26 @@
       "id": "visitor-center",
       "gid": "mkobm0q169",
       "title": "Austin Visitor Center",
-      "subtitle": "Maps, tips, and friendly faces · 602 E 4th St",
+      "subtitle": "Maps, tips, and friendly faces \u00b7 602 E 4th St",
       "geofence": {
-        "center": [-97.7388, 30.2625],
+        "center": [
+          -97.7388,
+          30.2625
+        ],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -32,16 +45,26 @@
       "id": "bullock-museum",
       "gid": "djmp74btn6",
       "title": "Bullock Texas State History Museum",
-      "subtitle": "The story of Texas · 1800 N Congress Ave",
+      "subtitle": "The story of Texas \u00b7 1800 N Congress Ave",
       "geofence": {
-        "center": [-97.7388, 30.2806],
+        "center": [
+          -97.7388,
+          30.2806
+        ],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -52,16 +75,26 @@
       "id": "texas-capitol",
       "gid": "wr0pl0bwxs",
       "title": "Texas Capitol Grounds",
-      "subtitle": "Free public tours · 1100 Congress Ave",
+      "subtitle": "Free public tours \u00b7 1100 Congress Ave",
       "geofence": {
-        "center": [-97.7404, 30.2747],
+        "center": [
+          -97.7404,
+          30.2747
+        ],
         "radiusMeters": 250
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -72,16 +105,26 @@
       "id": "ut-tower",
       "gid": "qklh2j1o08",
       "title": "UT Tower &amp; Main Mall",
-      "subtitle": "Iconic UT landmark · 110 Inner Campus Dr",
+      "subtitle": "Iconic UT landmark \u00b7 110 Inner Campus Dr",
       "geofence": {
-        "center": [-97.7394, 30.2862],
+        "center": [
+          -97.7394,
+          30.2862
+        ],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -92,16 +135,26 @@
       "id": "lbj-library",
       "gid": "ulnt8mj1n2",
       "title": "LBJ Presidential Library",
-      "subtitle": "Presidential museum · 2313 Red River St",
+      "subtitle": "Presidential museum \u00b7 2313 Red River St",
       "geofence": {
-        "center": [-97.729, 30.2856],
+        "center": [
+          -97.729,
+          30.2856
+        ],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -112,16 +165,26 @@
       "id": "blanton-museum",
       "gid": "vq0s0ggi98",
       "title": "Blanton Museum of Art",
-      "subtitle": "UT's flagship art museum · 200 E MLK Jr Blvd",
+      "subtitle": "UT's flagship art museum \u00b7 200 E MLK Jr Blvd",
       "geofence": {
-        "center": [-97.7383, 30.2806],
+        "center": [
+          -97.7383,
+          30.2806
+        ],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -132,16 +195,26 @@
       "id": "zilker-park",
       "gid": "dqp9n6gq3e",
       "title": "Zilker Park &amp; Barton Springs",
-      "subtitle": "Austin's central park &amp; the iconic 68° pool",
+      "subtitle": "Austin's central park &amp; the iconic 68\u00b0 pool",
       "geofence": {
-        "center": [-97.771, 30.266],
+        "center": [
+          -97.771,
+          30.266
+        ],
         "radiusMeters": 500
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -152,36 +225,26 @@
       "id": "mount-bonnell",
       "gid": "gdbl7pjxil",
       "title": "Mount Bonnell",
-      "subtitle": "Best skyline view in town · 3800 Mt Bonnell Rd",
+      "subtitle": "Best skyline view in town \u00b7 3800 Mt Bonnell Rd",
       "geofence": {
-        "center": [-97.7733, 30.3215],
+        "center": [
+          -97.7733,
+          30.3215
+        ],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
-            "from": "09:00",
-            "to": "17:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "pennybacker-overlook",
-      "gid": "erlmpehxz6",
-      "title": "Pennybacker Bridge Overlook",
-      "subtitle": "360 Bridge sunset spot · Capital of Texas Hwy",
-      "geofence": {
-        "center": [-97.805, 30.349],
-        "radiusMeters": 250
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -192,16 +255,26 @@
       "id": "ilysm-wall",
       "gid": "a2eje4qs7b",
       "title": "\"I Love You So Much\" Wall",
-      "subtitle": "Jo's Coffee · 1300 S Congress Ave",
+      "subtitle": "Jo's Coffee \u00b7 1300 S Congress Ave",
       "geofence": {
-        "center": [-97.7506, 30.2503],
+        "center": [
+          -97.7506,
+          30.2503
+        ],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -212,16 +285,26 @@
       "id": "south-congress",
       "gid": "a4m01lx9un",
       "title": "South Congress Avenue (SoCo)",
-      "subtitle": "Shops, food trucks, music · 1300–1700 S Congress",
+      "subtitle": "Shops, food trucks, music \u00b7 1300\u20131700 S Congress",
       "geofence": {
-        "center": [-97.751, 30.247],
+        "center": [
+          -97.751,
+          30.247
+        ],
         "radiusMeters": 350
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -234,14 +317,24 @@
       "title": "Rainey Street Historic District",
       "subtitle": "Bungalow bars &amp; food trucks",
       "geofence": {
-        "center": [-97.7378, 30.2543],
+        "center": [
+          -97.7378,
+          30.2543
+        ],
         "radiusMeters": 200
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -254,14 +347,24 @@
       "title": "6th Street (Dirty Sixth)",
       "subtitle": "Downtown's classic bar district",
       "geofence": {
-        "center": [-97.7395, 30.2675],
+        "center": [
+          -97.7395,
+          30.2675
+        ],
         "radiusMeters": 250
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -274,14 +377,24 @@
       "title": "East 6th Street",
       "subtitle": "Live music, cocktail bars, food",
       "geofence": {
-        "center": [-97.726, 30.2615],
+        "center": [
+          -97.726,
+          30.2615
+        ],
         "radiusMeters": 300
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -294,14 +407,24 @@
       "title": "Mueller",
       "subtitle": "Mixed-use neighborhood &amp; farmers market",
       "geofence": {
-        "center": [-97.7062, 30.3008],
+        "center": [
+          -97.7062,
+          30.3008
+        ],
         "radiusMeters": 500
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -314,14 +437,24 @@
       "title": "The Domain (NORTHSIDE)",
       "subtitle": "North Austin shopping &amp; nightlife",
       "geofence": {
-        "center": [-97.724, 30.4014],
+        "center": [
+          -97.724,
+          30.4014
+        ],
         "radiusMeters": 500
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -332,16 +465,26 @@
       "id": "cathedral-of-junk",
       "gid": "wx8h70l5b8",
       "title": "Cathedral of Junk",
-      "subtitle": "Austin's quirkiest backyard art · 4422 Lareina Dr",
+      "subtitle": "Austin's quirkiest backyard art \u00b7 4422 Lareina Dr",
       "geofence": {
-        "center": [-97.7888, 30.2046],
+        "center": [
+          -97.7888,
+          30.2046
+        ],
         "radiusMeters": 100
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -352,16 +495,26 @@
       "id": "mckinney-falls",
       "gid": "jetud8ykpw",
       "title": "McKinney Falls State Park",
-      "subtitle": "Waterfalls, swimming, hiking · 5808 McKinney Falls Pkwy",
+      "subtitle": "Waterfalls, swimming, hiking \u00b7 5808 McKinney Falls Pkwy",
       "geofence": {
-        "center": [-97.7222, 30.1825],
+        "center": [
+          -97.7222,
+          30.1825
+        ],
         "radiusMeters": 600
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -372,16 +525,26 @@
       "id": "auditorium-shores",
       "gid": "rqe34l05w6",
       "title": "Auditorium Shores",
-      "subtitle": "Lady Bird Lake skyline park · Riverside Dr",
+      "subtitle": "Lady Bird Lake skyline park \u00b7 Riverside Dr",
       "geofence": {
-        "center": [-97.7494, 30.2618],
+        "center": [
+          -97.7494,
+          30.2618
+        ],
         "radiusMeters": 250
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -392,16 +555,26 @@
       "id": "pease-park",
       "gid": "d7py11m0bk",
       "title": "Pease Park &amp; Shoal Creek Trail",
-      "subtitle": "Central Austin greenway · 1100 Kingsbury St",
+      "subtitle": "Central Austin greenway \u00b7 1100 Kingsbury St",
       "geofence": {
-        "center": [-97.7572, 30.2914],
+        "center": [
+          -97.7572,
+          30.2914
+        ],
         "radiusMeters": 300
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }
@@ -411,17 +584,27 @@
     {
       "id": "abia-arrivals",
       "gid": "htt6sl3641",
-      "title": "ABIA Austin Airport · Arrivals",
-      "subtitle": "Welcome to Austin · 3600 Presidential Blvd",
+      "title": "ABIA Austin Airport \u00b7 Arrivals",
+      "subtitle": "Welcome to Austin \u00b7 3600 Presidential Blvd",
       "geofence": {
-        "center": [-97.6664, 30.1975],
+        "center": [
+          -97.6664,
+          30.1975
+        ],
         "radiusMeters": 350
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
             "from": "09:00",
             "to": "17:00"
           }

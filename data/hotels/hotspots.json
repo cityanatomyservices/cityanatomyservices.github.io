@@ -1,10 +1,13 @@
 {
   "cityId": "atx",
-  "title": "Hotelchat · Austin",
+  "title": "Hotelchat \u00b7 Austin",
   "category": "Hotels",
   "color": "#0891b2",
   "initialCamera": {
-    "center": [-97.745, 30.295],
+    "center": [
+      -97.745,
+      30.295
+    ],
     "zoom": 11
   },
   "hotspots": [
@@ -12,9 +15,12 @@
       "id": "hotel-jw-marriott",
       "gid": "xr5o76hh6i",
       "title": "JW Marriott Austin",
-      "subtitle": "110 E 2nd St · Downtown",
+      "subtitle": "110 E 2nd St \u00b7 Downtown",
       "geofence": {
-        "center": [-97.7404, 30.2635],
+        "center": [
+          -97.7404,
+          30.2635
+        ],
         "radiusMeters": 80
       }
     },
@@ -22,9 +28,12 @@
       "id": "hotel-fairmont",
       "gid": "suydxcbd99",
       "title": "Fairmont Austin",
-      "subtitle": "101 Red River St · Downtown",
+      "subtitle": "101 Red River St \u00b7 Downtown",
       "geofence": {
-        "center": [-97.7322, 30.2649],
+        "center": [
+          -97.7322,
+          30.2649
+        ],
         "radiusMeters": 80
       }
     },
@@ -32,9 +41,12 @@
       "id": "hotel-w-austin",
       "gid": "rsu4un9ed5",
       "title": "W Austin",
-      "subtitle": "200 Lavaca St · 2nd Street District",
+      "subtitle": "200 Lavaca St \u00b7 2nd Street District",
       "geofence": {
-        "center": [-97.7459, 30.2637],
+        "center": [
+          -97.7459,
+          30.2637
+        ],
         "radiusMeters": 80
       }
     },
@@ -42,9 +54,12 @@
       "id": "hotel-driskill",
       "gid": "vd9wr6ig9j",
       "title": "The Driskill",
-      "subtitle": "604 Brazos St · Historic Downtown",
+      "subtitle": "604 Brazos St \u00b7 Historic Downtown",
       "geofence": {
-        "center": [-97.7412, 30.2683],
+        "center": [
+          -97.7412,
+          30.2683
+        ],
         "radiusMeters": 70
       }
     },
@@ -52,9 +67,12 @@
       "id": "hotel-hilton-austin",
       "gid": "op96i4uahs",
       "title": "Hilton Austin",
-      "subtitle": "500 E 4th St · Downtown Convention",
+      "subtitle": "500 E 4th St \u00b7 Downtown Convention",
       "geofence": {
-        "center": [-97.7386, 30.266],
+        "center": [
+          -97.7386,
+          30.266
+        ],
         "radiusMeters": 80
       }
     },
@@ -62,9 +80,12 @@
       "id": "hotel-four-seasons",
       "gid": "nuzvkt6t64",
       "title": "Four Seasons Austin",
-      "subtitle": "98 San Jacinto Blvd · Lady Bird Lake",
+      "subtitle": "98 San Jacinto Blvd \u00b7 Lady Bird Lake",
       "geofence": {
-        "center": [-97.7373, 30.2625],
+        "center": [
+          -97.7373,
+          30.2625
+        ],
         "radiusMeters": 80
       }
     },
@@ -72,9 +93,12 @@
       "id": "hotel-omni-downtown",
       "gid": "i29625agq5",
       "title": "Omni Austin Downtown",
-      "subtitle": "700 San Jacinto Blvd · Downtown",
+      "subtitle": "700 San Jacinto Blvd \u00b7 Downtown",
       "geofence": {
-        "center": [-97.7375, 30.2686],
+        "center": [
+          -97.7375,
+          30.2686
+        ],
         "radiusMeters": 80
       }
     },
@@ -82,9 +106,12 @@
       "id": "hotel-hyatt-regency",
       "gid": "h2kyagub4p",
       "title": "Hyatt Regency Austin",
-      "subtitle": "208 Barton Springs Rd · Lady Bird Lake",
+      "subtitle": "208 Barton Springs Rd \u00b7 Lady Bird Lake",
       "geofence": {
-        "center": [-97.7443, 30.2597],
+        "center": [
+          -97.7443,
+          30.2597
+        ],
         "radiusMeters": 100
       }
     },
@@ -92,9 +119,12 @@
       "id": "hotel-thompson",
       "gid": "wi700umpmx",
       "title": "Thompson Austin",
-      "subtitle": "506 W Ave · West Downtown",
+      "subtitle": "506 W Ave \u00b7 West Downtown",
       "geofence": {
-        "center": [-97.7493, 30.2671],
+        "center": [
+          -97.7493,
+          30.2671
+        ],
         "radiusMeters": 70
       }
     },
@@ -102,9 +132,12 @@
       "id": "hotel-westin-downtown",
       "gid": "dn1n54ndpe",
       "title": "Westin Austin Downtown",
-      "subtitle": "310 E 5th St · Downtown",
+      "subtitle": "310 E 5th St \u00b7 Downtown",
       "geofence": {
-        "center": [-97.7394, 30.265],
+        "center": [
+          -97.7394,
+          30.265
+        ],
         "radiusMeters": 70
       }
     },
@@ -112,9 +145,12 @@
       "id": "hotel-aloft-downtown",
       "gid": "t6bmf498ws",
       "title": "Aloft Austin Downtown",
-      "subtitle": "109 E 7th St · Downtown",
+      "subtitle": "109 E 7th St \u00b7 Downtown",
       "geofence": {
-        "center": [-97.7428, 30.2679],
+        "center": [
+          -97.7428,
+          30.2679
+        ],
         "radiusMeters": 70
       }
     },
@@ -122,9 +158,12 @@
       "id": "hotel-van-zandt",
       "gid": "byds2s49uj",
       "title": "Hotel Van Zandt",
-      "subtitle": "605 Davis St · Rainey Street",
+      "subtitle": "605 Davis St \u00b7 Rainey Street",
       "geofence": {
-        "center": [-97.7368, 30.2554],
+        "center": [
+          -97.7368,
+          30.2554
+        ],
         "radiusMeters": 80
       }
     },
@@ -132,9 +171,12 @@
       "id": "hotel-line-austin",
       "gid": "vbxea01b0d",
       "title": "LINE Austin",
-      "subtitle": "111 E 11th St · Capitol District",
+      "subtitle": "111 E 11th St \u00b7 Capitol District",
       "geofence": {
-        "center": [-97.7434, 30.2745],
+        "center": [
+          -97.7434,
+          30.2745
+        ],
         "radiusMeters": 80
       }
     },
@@ -142,9 +184,12 @@
       "id": "hotel-intercontinental",
       "gid": "x94vv4lgsq",
       "title": "InterContinental Austin",
-      "subtitle": "303 W 15th St · UT/Capitol",
+      "subtitle": "303 W 15th St \u00b7 UT/Capitol",
       "geofence": {
-        "center": [-97.7473, 30.2763],
+        "center": [
+          -97.7473,
+          30.2763
+        ],
         "radiusMeters": 80
       }
     },
@@ -152,9 +197,12 @@
       "id": "hotel-ella",
       "gid": "itunu4mhg6",
       "title": "Hotel Ella",
-      "subtitle": "1900 Rio Grande · West Campus",
+      "subtitle": "1900 Rio Grande \u00b7 West Campus",
       "geofence": {
-        "center": [-97.7497, 30.2795],
+        "center": [
+          -97.7497,
+          30.2795
+        ],
         "radiusMeters": 70
       }
     },
@@ -162,9 +210,12 @@
       "id": "hotel-arrive-east",
       "gid": "c2mooxvgt9",
       "title": "Arrive East Austin",
-      "subtitle": "1800 E 6th St · East Austin",
+      "subtitle": "1800 E 6th St \u00b7 East Austin",
       "geofence": {
-        "center": [-97.721, 30.2617],
+        "center": [
+          -97.721,
+          30.2617
+        ],
         "radiusMeters": 80
       }
     },
@@ -172,9 +223,12 @@
       "id": "hotel-south-congress",
       "gid": "b7ki48lq1c",
       "title": "South Congress Hotel",
-      "subtitle": "1603 S Congress Ave · SoCo",
+      "subtitle": "1603 S Congress Ave \u00b7 SoCo",
       "geofence": {
-        "center": [-97.751, 30.2454],
+        "center": [
+          -97.751,
+          30.2454
+        ],
         "radiusMeters": 80
       }
     },
@@ -182,9 +236,12 @@
       "id": "hotel-austin-motel",
       "gid": "fme1gpzfqf",
       "title": "Austin Motel",
-      "subtitle": "1220 S Congress Ave · SoCo",
+      "subtitle": "1220 S Congress Ave \u00b7 SoCo",
       "geofence": {
-        "center": [-97.7509, 30.2504],
+        "center": [
+          -97.7509,
+          30.2504
+        ],
         "radiusMeters": 60
       }
     },
@@ -192,9 +249,12 @@
       "id": "hotel-saint-cecilia",
       "gid": "kvmdzg9vys",
       "title": "Hotel Saint Cecilia",
-      "subtitle": "112 Academy Dr · Bouldin Creek",
+      "subtitle": "112 Academy Dr \u00b7 Bouldin Creek",
       "geofence": {
-        "center": [-97.751, 30.2546],
+        "center": [
+          -97.751,
+          30.2546
+        ],
         "radiusMeters": 60
       }
     },
@@ -202,9 +262,12 @@
       "id": "hotel-renaissance-arboretum",
       "gid": "xzkpcffsq0",
       "title": "Renaissance Austin Hotel",
-      "subtitle": "9721 Arboretum Blvd · Northwest",
+      "subtitle": "9721 Arboretum Blvd \u00b7 Northwest",
       "geofence": {
-        "center": [-97.7452, 30.4],
+        "center": [
+          -97.7452,
+          30.4
+        ],
         "radiusMeters": 120
       }
     },
@@ -212,9 +275,12 @@
       "id": "hotel-marriott-domain",
       "gid": "xz97i8sg7s",
       "title": "Marriott Austin at the Domain",
-      "subtitle": "11111 Domain Dr · The Domain",
+      "subtitle": "11111 Domain Dr \u00b7 The Domain",
       "geofence": {
-        "center": [-97.7216, 30.4026],
+        "center": [
+          -97.7216,
+          30.4026
+        ],
         "radiusMeters": 100
       }
     },
@@ -222,9 +288,12 @@
       "id": "hotel-westin-domain",
       "gid": "w3awlfbu2j",
       "title": "Westin Austin at the Domain",
-      "subtitle": "11301 Domain Dr · The Domain",
+      "subtitle": "11301 Domain Dr \u00b7 The Domain",
       "geofence": {
-        "center": [-97.7189, 30.404],
+        "center": [
+          -97.7189,
+          30.404
+        ],
         "radiusMeters": 100
       }
     },
@@ -232,9 +301,12 @@
       "id": "hotel-lone-star-court",
       "gid": "uxxevsywyf",
       "title": "Lone Star Court",
-      "subtitle": "10901 Domain Dr · The Domain",
+      "subtitle": "10901 Domain Dr \u00b7 The Domain",
       "geofence": {
-        "center": [-97.7232, 30.4008],
+        "center": [
+          -97.7232,
+          30.4008
+        ],
         "radiusMeters": 90
       }
     },
@@ -242,9 +314,12 @@
       "id": "hotel-hyatt-place-airport",
       "gid": "whyqkgqxgr",
       "title": "Hyatt Place Austin Airport",
-      "subtitle": "7601 E Ben White Blvd · Airport",
+      "subtitle": "7601 E Ben White Blvd \u00b7 Airport",
       "geofence": {
-        "center": [-97.669, 30.1978],
+        "center": [
+          -97.669,
+          30.1978
+        ],
         "radiusMeters": 120
       }
     },
@@ -252,99 +327,38 @@
       "id": "hotel-hilton-garden-airport",
       "gid": "udw85dtqm1",
       "title": "Hilton Garden Inn Austin Airport",
-      "subtitle": "7800 E Ben White Blvd · Airport",
+      "subtitle": "7800 E Ben White Blvd \u00b7 Airport",
       "geofence": {
-        "center": [-97.662, 30.1975],
+        "center": [
+          -97.662,
+          30.1975
+        ],
         "radiusMeters": 100
-      }
-    },
-    {
-      "id": "hotel-barton-creek-resort",
-      "gid": "jl4589r7r5",
-      "title": "Barton Creek Resort & Spa",
-      "subtitle": "8212 Barton Club Dr · West Austin Hills",
-      "geofence": {
-        "center": [-97.8596, 30.2841],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "hotel-lakeway-resort",
-      "gid": "y95j52co2h",
-      "title": "Lakeway Resort and Spa",
-      "subtitle": "101 Lakeway Dr · Lake Travis",
-      "geofence": {
-        "center": [-97.9716, 30.3596],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "hotel-hyatt-lost-pines",
-      "gid": "b7b7v7ry9e",
-      "title": "Hyatt Regency Lost Pines",
-      "subtitle": "575 Hyatt Lost Pines Rd · Bastrop",
-      "geofence": {
-        "center": [-97.5128, 30.1636],
-        "radiusMeters": 250
-      }
-    },
-    {
-      "id": "hotel-marriott-round-rock",
-      "gid": "qjksadkfm4",
-      "title": "Marriott Round Rock",
-      "subtitle": "2300 N IH-35 · Round Rock",
-      "geofence": {
-        "center": [-97.678, 30.514],
-        "radiusMeters": 120
-      }
-    },
-    {
-      "id": "hotel-sheraton-georgetown",
-      "gid": "k1b9k0i2hv",
-      "title": "Sheraton Georgetown Texas",
-      "subtitle": "1101 N IH-35 · Georgetown",
-      "geofence": {
-        "center": [-97.6744, 30.6584],
-        "radiusMeters": 150
-      }
-    },
-    {
-      "id": "hotel-hilton-garden-cedar-park",
-      "gid": "nhsks8r1aw",
-      "title": "Hilton Garden Inn Cedar Park",
-      "subtitle": "1421 E Whitestone Blvd · Cedar Park",
-      "geofence": {
-        "center": [-97.7956, 30.5296],
-        "radiusMeters": 120
       }
     },
     {
       "id": "hotel-embassy-suites-arboretum",
       "gid": "glv8bobqvt",
       "title": "Embassy Suites Arboretum",
-      "subtitle": "9505 Stonelake Blvd · Northwest Austin",
+      "subtitle": "9505 Stonelake Blvd \u00b7 Northwest Austin",
       "geofence": {
-        "center": [-97.7468, 30.3962],
+        "center": [
+          -97.7468,
+          30.3962
+        ],
         "radiusMeters": 100
-      }
-    },
-    {
-      "id": "hotel-omni-barton-creek",
-      "gid": "obspigcx8l",
-      "title": "Omni Barton Creek Resort",
-      "subtitle": "8212 Barton Club Dr · Hill Country",
-      "geofence": {
-        "center": [-97.865, 30.287],
-        "radiusMeters": 200
       }
     },
     {
       "id": "hotel-ac-downtown",
       "gid": "xqcvjjda24",
       "title": "AC Hotel Austin Downtown",
-      "subtitle": "408 W 2nd St · Second Street District",
+      "subtitle": "408 W 2nd St \u00b7 Second Street District",
       "geofence": {
-        "center": [-97.7472, 30.2641],
+        "center": [
+          -97.7472,
+          30.2641
+        ],
         "radiusMeters": 70
       }
     },
@@ -352,9 +366,12 @@
       "id": "hotel-hyatt-house-arboretum",
       "gid": "w9xikh2it8",
       "title": "Hyatt House Austin/Arboretum",
-      "subtitle": "10121 Stonelake Blvd · Northwest Austin",
+      "subtitle": "10121 Stonelake Blvd \u00b7 Northwest Austin",
       "geofence": {
-        "center": [-97.7461, 30.3976],
+        "center": [
+          -97.7461,
+          30.3976
+        ],
         "radiusMeters": 100
       }
     }

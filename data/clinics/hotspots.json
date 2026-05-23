@@ -1,10 +1,13 @@
 {
   "cityId": "atx",
-  "title": "ClinicChat · Austin",
+  "title": "ClinicChat \u00b7 Austin",
   "category": "Hospitals",
   "color": "#ef4444",
   "initialCamera": {
-    "center": [-97.77, 30.29],
+    "center": [
+      -97.77,
+      30.29
+    ],
     "zoom": 9.8
   },
   "hotspots": [
@@ -12,9 +15,12 @@
       "id": "dell-seton-ut",
       "gid": "p4d2numhkd",
       "title": "Dell Seton Medical Center at UT",
-      "subtitle": "Downtown · Level I trauma center, academic safety-net hospital",
+      "subtitle": "Downtown \u00b7 Level I trauma center, academic safety-net hospital",
       "geofence": {
-        "center": [-97.73452, 30.27659],
+        "center": [
+          -97.73452,
+          30.27659
+        ],
         "radiusMeters": 200
       }
     },
@@ -22,9 +28,12 @@
       "id": "ascension-seton-medical-center-austin",
       "gid": "mwdp3meayk",
       "title": "Ascension Seton Medical Center Austin",
-      "subtitle": "W 38th St · flagship Ascension Seton, full-service acute care",
+      "subtitle": "W 38th St \u00b7 flagship Ascension Seton, full-service acute care",
       "geofence": {
-        "center": [-97.74314, 30.30387],
+        "center": [
+          -97.74314,
+          30.30387
+        ],
         "radiusMeters": 200
       }
     },
@@ -32,9 +41,12 @@
       "id": "dell-childrens",
       "gid": "hvj219rj12",
       "title": "Dell Children's Medical Center",
-      "subtitle": "Mueller · Level I pediatric trauma center",
+      "subtitle": "Mueller \u00b7 Level I pediatric trauma center",
       "geofence": {
-        "center": [-97.70624, 30.29867],
+        "center": [
+          -97.70624,
+          30.29867
+        ],
         "radiusMeters": 200
       }
     },
@@ -42,9 +54,12 @@
       "id": "st-davids-medical-center",
       "gid": "mtmrh04wm2",
       "title": "St. David's Medical Center",
-      "subtitle": "E 32nd St · acute care, 24/7 ER, neurosurgery, women's services",
+      "subtitle": "E 32nd St \u00b7 acute care, 24/7 ER, neurosurgery, women's services",
       "geofence": {
-        "center": [-97.71857, 30.29393],
+        "center": [
+          -97.71857,
+          30.29393
+        ],
         "radiusMeters": 200
       }
     },
@@ -52,9 +67,12 @@
       "id": "st-davids-south-austin",
       "gid": "v9lurjm6jc",
       "title": "St. David's South Austin Medical Center",
-      "subtitle": "Ben White · Level II trauma center, 24/7 ER",
+      "subtitle": "Ben White \u00b7 Level II trauma center, 24/7 ER",
       "geofence": {
-        "center": [-97.7834, 30.22579],
+        "center": [
+          -97.7834,
+          30.22579
+        ],
         "radiusMeters": 200
       }
     },
@@ -62,9 +80,12 @@
       "id": "st-davids-north-austin",
       "gid": "nv1f89edap",
       "title": "St. David's North Austin Medical Center",
-      "subtitle": "N Mopac · 24/7 ER, women's center, children's hospital",
+      "subtitle": "N Mopac \u00b7 24/7 ER, women's center, children's hospital",
       "geofence": {
-        "center": [-97.70403, 30.41594],
+        "center": [
+          -97.70403,
+          30.41594
+        ],
         "radiusMeters": 200
       }
     },
@@ -72,79 +93,12 @@
       "id": "heart-hospital-of-austin",
       "gid": "q4ppa8j1pq",
       "title": "Heart Hospital of Austin",
-      "subtitle": "N Lamar · specialty cardiovascular hospital, 24/7 cardiac ER",
+      "subtitle": "N Lamar \u00b7 specialty cardiovascular hospital, 24/7 cardiac ER",
       "geofence": {
-        "center": [-97.73831, 30.30599],
-        "radiusMeters": 120
-      }
-    },
-    {
-      "id": "st-davids-round-rock",
-      "gid": "y63tz7pk4y",
-      "title": "St. David's Round Rock Medical Center",
-      "subtitle": "Round Rock · Level II trauma center, 24/7 ER",
-      "geofence": {
-        "center": [-97.7045, 30.51418],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "ascension-seton-williamson",
-      "gid": "c5pyr50mz2",
-      "title": "Ascension Seton Williamson",
-      "subtitle": "Round Rock · full-service acute care, 24/7 ER",
-      "geofence": {
-        "center": [-97.6553, 30.55204],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "ascension-seton-hays",
-      "gid": "tpnpegz8mg",
-      "title": "Ascension Seton Hays",
-      "subtitle": "Kyle · acute care with 24/7 ER serving Hays County",
-      "geofence": {
-        "center": [-97.86763, 30.00163],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "cedar-park-regional",
-      "gid": "szwyosutye",
-      "title": "Cedar Park Regional Medical Center",
-      "subtitle": "Cedar Park · community hospital, Level IV trauma, 24/7 ER",
-      "geofence": {
-        "center": [-97.84432, 30.51899],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "bsw-lakeway",
-      "gid": "sci7mec9tq",
-      "title": "Baylor Scott & White Medical Center – Lakeway",
-      "subtitle": "Lakeway · full-service acute care, 24/7 ER, Lake Travis area",
-      "geofence": {
-        "center": [-97.97775, 30.34892],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "westlake-medical-center",
-      "gid": "gg7yu86g5y",
-      "title": "The Hospital at Westlake Medical Center",
-      "subtitle": "Bee Caves Rd · physician-owned acute care, surgery, imaging, ER",
-      "geofence": {
-        "center": [-97.81195, 30.2822],
-        "radiusMeters": 120
-      }
-    },
-    {
-      "id": "st-davids-surgical",
-      "gid": "qc8k2rdcf0",
-      "title": "St. David's Surgical Hospital",
-      "subtitle": "Round Rock · specialty surgical hospital, 24/7 ER",
-      "geofence": {
-        "center": [-97.69423, 30.51839],
+        "center": [
+          -97.73831,
+          30.30599
+        ],
         "radiusMeters": 120
       }
     },
@@ -152,9 +106,12 @@
       "id": "st-davids-rehab",
       "gid": "xypicpy898",
       "title": "St. David's Rehabilitation Hospital",
-      "subtitle": "St. David's campus · inpatient physical rehabilitation",
+      "subtitle": "St. David's campus \u00b7 inpatient physical rehabilitation",
       "geofence": {
-        "center": [-97.71857, 30.29393],
+        "center": [
+          -97.71857,
+          30.29393
+        ],
         "radiusMeters": 100
       }
     },
@@ -162,29 +119,25 @@
       "id": "texas-neurorehab",
       "gid": "x7z3aokfx8",
       "title": "Texas NeuroRehab Center",
-      "subtitle": "Dittmar Rd · neurological rehab & psychiatric specialty hospital",
+      "subtitle": "Dittmar Rd \u00b7 neurological rehab & psychiatric specialty hospital",
       "geofence": {
-        "center": [-97.79159, 30.18762],
+        "center": [
+          -97.79159,
+          30.18762
+        ],
         "radiusMeters": 150
-      }
-    },
-    {
-      "id": "st-davids-er-bee-cave",
-      "gid": "s6vxar7k3u",
-      "title": "St. David's Emergency Center – Bee Cave",
-      "subtitle": "Galleria Cir · freestanding 24/7 ER",
-      "geofence": {
-        "center": [-97.95818, 30.30717],
-        "radiusMeters": 80
       }
     },
     {
       "id": "peoples-community-clinic",
       "gid": "hkch37bhke",
       "title": "People's Community Clinic",
-      "subtitle": "Camino La Costa · nonprofit FQHC, sliding-scale primary care",
+      "subtitle": "Camino La Costa \u00b7 nonprofit FQHC, sliding-scale primary care",
       "geofence": {
-        "center": [-97.69973, 30.32703],
+        "center": [
+          -97.69973,
+          30.32703
+        ],
         "radiusMeters": 100
       }
     },
@@ -192,9 +145,12 @@
       "id": "communitycare-southeast",
       "gid": "gtxpbcuzu4",
       "title": "CommUnityCare Southeast Health & Wellness Center",
-      "subtitle": "Montopolis · FQHC walk-in care, sliding-scale fees",
+      "subtitle": "Montopolis \u00b7 FQHC walk-in care, sliding-scale fees",
       "geofence": {
-        "center": [-97.7129, 30.2272],
+        "center": [
+          -97.7129,
+          30.2272
+        ],
         "radiusMeters": 120
       }
     },
@@ -202,29 +158,38 @@
       "id": "communitycare-hancock",
       "gid": "jieohkaw62",
       "title": "CommUnityCare at Hancock",
-      "subtitle": "Hancock Center · FQHC primary care + David Powell HIV clinic",
+      "subtitle": "Hancock Center \u00b7 FQHC primary care + David Powell HIV clinic",
       "geofence": {
-        "center": [-97.7239, 30.30215],
+        "center": [
+          -97.7239,
+          30.30215
+        ],
         "radiusMeters": 100
       }
     },
     {
       "id": "arc-far-west",
       "gid": "s6vm0ck2bn",
-      "title": "Austin Regional Clinic – Far West",
-      "subtitle": "Austin Center Blvd · flagship multispecialty + after-hours care",
+      "title": "Austin Regional Clinic \u2013 Far West",
+      "subtitle": "Austin Center Blvd \u00b7 flagship multispecialty + after-hours care",
       "geofence": {
-        "center": [-97.76127, 30.36493],
+        "center": [
+          -97.76127,
+          30.36493
+        ],
         "radiusMeters": 100
       }
     },
     {
       "id": "lone-star-ben-white",
       "gid": "pbfjeutexp",
-      "title": "Lone Star Circle of Care – Ben White",
-      "subtitle": "Ben White · FQHC family medicine, peds, women's health",
+      "title": "Lone Star Circle of Care \u2013 Ben White",
+      "subtitle": "Ben White \u00b7 FQHC family medicine, peds, women's health",
       "geofence": {
-        "center": [-97.78648, 30.22468],
+        "center": [
+          -97.78648,
+          30.22468
+        ],
         "radiusMeters": 100
       }
     }

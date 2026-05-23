@@ -1,10 +1,13 @@
 {
   "cityId": "atx",
-  "title": "Sportschat · Austin",
+  "title": "Sportschat \u00b7 Austin",
   "category": "Sports Venues",
   "color": "#facc15",
   "initialCamera": {
-    "center": [-97.74, 30.32],
+    "center": [
+      -97.74,
+      30.32
+    ],
     "zoom": 10
   },
   "hotspots": [
@@ -12,9 +15,12 @@
       "id": "q2-stadium",
       "gid": "domco1m2lw",
       "title": "Q2 Stadium",
-      "subtitle": "Austin FC · 10414 McKalla Pl",
+      "subtitle": "Austin FC \u00b7 10414 McKalla Pl",
       "geofence": {
-        "center": [-97.7197, 30.3886],
+        "center": [
+          -97.7197,
+          30.3886
+        ],
         "radiusMeters": 250
       }
     },
@@ -22,9 +28,12 @@
       "id": "moody-center",
       "gid": "t0rr25hxrk",
       "title": "Moody Center",
-      "subtitle": "UT basketball &amp; concerts · 2001 Robert Dedman Dr",
+      "subtitle": "UT basketball &amp; concerts \u00b7 2001 Robert Dedman Dr",
       "geofence": {
-        "center": [-97.7325, 30.2843],
+        "center": [
+          -97.7325,
+          30.2843
+        ],
         "radiusMeters": 180
       }
     },
@@ -32,9 +41,12 @@
       "id": "dkr-stadium",
       "gid": "t09y68plhj",
       "title": "Darrell K Royal-Texas Memorial Stadium",
-      "subtitle": "UT football · 405 E 23rd St",
+      "subtitle": "UT football \u00b7 405 E 23rd St",
       "geofence": {
-        "center": [-97.7322, 30.2837],
+        "center": [
+          -97.7322,
+          30.2837
+        ],
         "radiusMeters": 250
       }
     },
@@ -42,9 +54,12 @@
       "id": "disch-falk-field",
       "gid": "vbf0d0o4s6",
       "title": "UFCU Disch-Falk Field",
-      "subtitle": "UT baseball · 1300 E MLK Jr Blvd",
+      "subtitle": "UT baseball \u00b7 1300 E MLK Jr Blvd",
       "geofence": {
-        "center": [-97.7218, 30.2825],
+        "center": [
+          -97.7218,
+          30.2825
+        ],
         "radiusMeters": 200
       }
     },
@@ -52,9 +67,12 @@
       "id": "mccombs-field",
       "gid": "eflwlskzg0",
       "title": "McCombs Field",
-      "subtitle": "UT softball · 2001 Comal St",
+      "subtitle": "UT softball \u00b7 2001 Comal St",
       "geofence": {
-        "center": [-97.7263, 30.2817],
+        "center": [
+          -97.7263,
+          30.2817
+        ],
         "radiusMeters": 150
       }
     },
@@ -62,9 +80,12 @@
       "id": "myers-stadium",
       "gid": "y3hvehp9c6",
       "title": "Mike A. Myers Stadium",
-      "subtitle": "UT track &amp; soccer · 707 Clyde Littlefield Dr",
+      "subtitle": "UT track &amp; soccer \u00b7 707 Clyde Littlefield Dr",
       "geofence": {
-        "center": [-97.728, 30.282],
+        "center": [
+          -97.728,
+          30.282
+        ],
         "radiusMeters": 200
       }
     },
@@ -72,99 +93,38 @@
       "id": "gregory-gym",
       "gid": "o1ltsw1df5",
       "title": "Gregory Gymnasium",
-      "subtitle": "UT athletics &amp; recreation · 2101 Speedway",
+      "subtitle": "UT athletics &amp; recreation \u00b7 2101 Speedway",
       "geofence": {
-        "center": [-97.7373, 30.2853],
+        "center": [
+          -97.7373,
+          30.2853
+        ],
         "radiusMeters": 150
-      }
-    },
-    {
-      "id": "cota",
-      "gid": "fkjm90lh6x",
-      "title": "Circuit of the Americas",
-      "subtitle": "F1, MotoGP, concerts · Del Valle",
-      "geofence": {
-        "center": [-97.6411, 30.1328],
-        "radiusMeters": 700
-      }
-    },
-    {
-      "id": "dell-diamond",
-      "gid": "tgkaxjlk3d",
-      "title": "Dell Diamond",
-      "subtitle": "Round Rock Express · 3400 E Palm Valley Blvd",
-      "geofence": {
-        "center": [-97.6325, 30.5096],
-        "radiusMeters": 250
-      }
-    },
-    {
-      "id": "heb-center",
-      "gid": "xtcuozf6ij",
-      "title": "H-E-B Center at Cedar Park",
-      "subtitle": "Texas Stars (AHL) · 2100 Ave of the Stars",
-      "geofence": {
-        "center": [-97.8146, 30.5179],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "bobcat-stadium",
-      "gid": "v70jacpgjm",
-      "title": "Bobcat Stadium",
-      "subtitle": "Texas State football · San Marcos",
-      "geofence": {
-        "center": [-97.9216, 29.8908],
-        "radiusMeters": 300
-      }
-    },
-    {
-      "id": "strahan-coliseum",
-      "gid": "dedfdt8t6p",
-      "title": "Strahan Coliseum",
-      "subtitle": "Texas State basketball · San Marcos",
-      "geofence": {
-        "center": [-97.9281, 29.8888],
-        "radiusMeters": 200
-      }
-    },
-    {
-      "id": "bobcat-ballpark",
-      "gid": "texo1goghf",
-      "title": "Bobcat Ballpark",
-      "subtitle": "Texas State baseball · San Marcos",
-      "geofence": {
-        "center": [-97.9241, 29.8888],
-        "radiusMeters": 200
       }
     },
     {
       "id": "travis-expo",
       "gid": "fe7k2kcxqi",
       "title": "Travis County Expo Center",
-      "subtitle": "Rodeo Austin &amp; events · 7311 Decker Ln",
+      "subtitle": "Rodeo Austin &amp; events \u00b7 7311 Decker Ln",
       "geofence": {
-        "center": [-97.6063, 30.3105],
+        "center": [
+          -97.6063,
+          30.3105
+        ],
         "radiusMeters": 350
-      }
-    },
-    {
-      "id": "old-settlers-park",
-      "gid": "hgzwdycuxs",
-      "title": "Old Settlers Park",
-      "subtitle": "Round Rock youth sports complex",
-      "geofence": {
-        "center": [-97.6438, 30.5341],
-        "radiusMeters": 500
       }
     },
     {
       "id": "krieg-fields",
       "gid": "snr80nbqw5",
       "title": "Krieg Softball Complex",
-      "subtitle": "515 Tower Dr · East Austin",
+      "subtitle": "515 Tower Dr \u00b7 East Austin",
       "geofence": {
-        "center": [-97.7159, 30.2563],
+        "center": [
+          -97.7159,
+          30.2563
+        ],
         "radiusMeters": 250
       }
     },
@@ -174,7 +134,10 @@
       "title": "Austin Tennis Center",
       "subtitle": "7800 Northwest Park Dr",
       "geofence": {
-        "center": [-97.7563, 30.3743],
+        "center": [
+          -97.7563,
+          30.3743
+        ],
         "radiusMeters": 200
       }
     },
@@ -182,9 +145,12 @@
       "id": "lions-muny",
       "gid": "w60qwaqpdb",
       "title": "Lions Municipal Golf Course",
-      "subtitle": "2901 Enfield Rd · Tarrytown",
+      "subtitle": "2901 Enfield Rd \u00b7 Tarrytown",
       "geofence": {
-        "center": [-97.7708, 30.2912],
+        "center": [
+          -97.7708,
+          30.2912
+        ],
         "radiusMeters": 350
       }
     },
@@ -192,29 +158,25 @@
       "id": "hancock-golf",
       "gid": "b1jva6bf56",
       "title": "Hancock Golf Course",
-      "subtitle": "811 E 41st St · Hyde Park",
+      "subtitle": "811 E 41st St \u00b7 Hyde Park",
       "geofence": {
-        "center": [-97.7203, 30.3034],
+        "center": [
+          -97.7203,
+          30.3034
+        ],
         "radiusMeters": 250
-      }
-    },
-    {
-      "id": "austin-country-club",
-      "gid": "a3dw49wwnj",
-      "title": "Austin Country Club",
-      "subtitle": "4408 Long Champ Dr · Davenport Ranch",
-      "geofence": {
-        "center": [-97.805, 30.3198],
-        "radiusMeters": 400
       }
     },
     {
       "id": "avery-ranch-golf",
       "gid": "cdv3sycccr",
       "title": "Avery Ranch Golf Club",
-      "subtitle": "10500 Avery Club Dr · NW Austin",
+      "subtitle": "10500 Avery Club Dr \u00b7 NW Austin",
       "geofence": {
-        "center": [-97.7884, 30.5018],
+        "center": [
+          -97.7884,
+          30.5018
+        ],
         "radiusMeters": 400
       }
     },
@@ -222,9 +184,12 @@
       "id": "onion-creek-club",
       "gid": "bfjcminbsy",
       "title": "Onion Creek Club",
-      "subtitle": "2510 Onion Creek Pkwy · South Austin",
+      "subtitle": "2510 Onion Creek Pkwy \u00b7 South Austin",
       "geofence": {
-        "center": [-97.7825, 30.1418],
+        "center": [
+          -97.7825,
+          30.1418
+        ],
         "radiusMeters": 300
       }
     },
@@ -232,9 +197,12 @@
       "id": "river-place-country-club",
       "gid": "p84y755w5j",
       "title": "River Place Country Club",
-      "subtitle": "4207 River Place Blvd · NW Austin",
+      "subtitle": "4207 River Place Blvd \u00b7 NW Austin",
       "geofence": {
-        "center": [-97.9006, 30.3858],
+        "center": [
+          -97.9006,
+          30.3858
+        ],
         "radiusMeters": 350
       }
     }

@@ -1,10 +1,13 @@
 {
   "cityId": "atx",
-  "title": "GolfChat · Austin",
+  "title": "GolfChat \u00b7 Austin",
   "category": "Golf Courses",
   "color": "#047857",
   "initialCamera": {
-    "center": [-97.78, 30.32],
+    "center": [
+      -97.78,
+      30.32
+    ],
     "zoom": 10
   },
   "hotspots": [
@@ -12,12 +15,30 @@
       "id": "golf-lions-muny",
       "gid": "gl1munytq3",
       "title": "Lions Municipal (Muny)",
-      "subtitle": "2901 Enfield Rd, Austin 78703 · 18 holes, public",
-      "geofence": { "center": [-97.772, 30.286], "radiusMeters": 600 },
+      "subtitle": "2901 Enfield Rd, Austin 78703 \u00b7 18 holes, public",
+      "geofence": {
+        "center": [
+          -97.772,
+          30.286
+        ],
+        "radiusMeters": 600
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     },
@@ -25,12 +46,30 @@
       "id": "golf-hancock",
       "gid": "gl2hncprks",
       "title": "Hancock Golf Course",
-      "subtitle": "811 E 41st St, Austin 78751 · 9 holes, oldest in Texas",
-      "geofence": { "center": [-97.7176, 30.3055], "radiusMeters": 250 },
+      "subtitle": "811 E 41st St, Austin 78751 \u00b7 9 holes, oldest in Texas",
+      "geofence": {
+        "center": [
+          -97.7176,
+          30.3055
+        ],
+        "radiusMeters": 250
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     },
@@ -38,12 +77,30 @@
       "id": "golf-morris-williams",
       "gid": "gl3mwlmsxv",
       "title": "Morris Williams Golf Course",
-      "subtitle": "4300 Manor Rd, Austin 78723 · 18 holes, public",
-      "geofence": { "center": [-97.679, 30.298], "radiusMeters": 600 },
+      "subtitle": "4300 Manor Rd, Austin 78723 \u00b7 18 holes, public",
+      "geofence": {
+        "center": [
+          -97.679,
+          30.298
+        ],
+        "radiusMeters": 600
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     },
@@ -51,12 +108,30 @@
       "id": "golf-jimmy-clay-roy-kizer",
       "gid": "gl4jckrzeb",
       "title": "Jimmy Clay & Roy Kizer",
-      "subtitle": "5400 Jimmy Clay Dr, Austin 78744 · 36 holes, public",
-      "geofence": { "center": [-97.735, 30.188], "radiusMeters": 800 },
+      "subtitle": "5400 Jimmy Clay Dr, Austin 78744 \u00b7 36 holes, public",
+      "geofence": {
+        "center": [
+          -97.735,
+          30.188
+        ],
+        "radiusMeters": 800
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     },
@@ -64,12 +139,30 @@
       "id": "golf-butler-pitch-putt",
       "gid": "gl5btlptpr",
       "title": "Butler Pitch & Putt",
-      "subtitle": "201 Lee Barton Dr, Austin 78704 · 9-hole par-3",
-      "geofence": { "center": [-97.762, 30.262], "radiusMeters": 200 },
+      "subtitle": "201 Lee Barton Dr, Austin 78704 \u00b7 9-hole par-3",
+      "geofence": {
+        "center": [
+          -97.762,
+          30.262
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "08:00", "to": "21:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "21:00"
+          }
         ]
       }
     },
@@ -77,38 +170,30 @@
       "id": "golf-avery-ranch",
       "gid": "gl6avrnchq",
       "title": "Avery Ranch Golf Club",
-      "subtitle": "10500 Avery Club Dr, Austin 78717 · 18 holes, public",
-      "geofence": { "center": [-97.789, 30.486], "radiusMeters": 700 },
+      "subtitle": "10500 Avery Club Dr, Austin 78717 \u00b7 18 holes, public",
+      "geofence": {
+        "center": [
+          -97.789,
+          30.486
+        ],
+        "radiusMeters": 700
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "golf-falconhead",
-      "gid": "gl7flcnhdv",
-      "title": "Falconhead Golf Club",
-      "subtitle": "15201 Falconhead Blvd, Austin 78738 · 18 holes, public",
-      "geofence": { "center": [-97.972, 30.331], "radiusMeters": 700 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "golf-forest-creek",
-      "gid": "gl8frstcrk",
-      "title": "Forest Creek Golf Club",
-      "subtitle": "99 Twin Ridge Pkwy, Round Rock 78664 · 18 holes, public",
-      "geofence": { "center": [-97.629, 30.53], "radiusMeters": 700 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     },
@@ -116,51 +201,30 @@
       "id": "golf-grey-rock",
       "gid": "gl9grkrckm",
       "title": "Grey Rock Golf Club",
-      "subtitle": "7401 Hwy 45, Austin 78739 · 18 holes, public",
-      "geofence": { "center": [-97.866, 30.18], "radiusMeters": 700 },
+      "subtitle": "7401 Hwy 45, Austin 78739 \u00b7 18 holes, public",
+      "geofence": {
+        "center": [
+          -97.866,
+          30.18
+        ],
+        "radiusMeters": 700
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "golf-plum-creek",
-      "gid": "gl10plmcrk",
-      "title": "Plum Creek Golf Club",
-      "subtitle": "4301 Plum Creek Pkwy, Kyle 78640 · 18 holes, public",
-      "geofence": { "center": [-97.85, 29.95], "radiusMeters": 700 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "golf-teravista",
-      "gid": "gl11trvsta",
-      "title": "Teravista Golf Club",
-      "subtitle": "4333 Teravista Club Dr, Round Rock 78665 · 18 holes, public",
-      "geofence": { "center": [-97.65, 30.581], "radiusMeters": 700 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "golf-crystal-falls",
-      "gid": "gl12crstlf",
-      "title": "Crystal Falls Golf Club",
-      "subtitle": "3400 Crystal Falls Pkwy, Leander 78641 · 18 holes",
-      "geofence": { "center": [-97.836, 30.554], "radiusMeters": 700 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     },
@@ -168,38 +232,30 @@
       "id": "golf-austin-cc",
       "gid": "gl13atxccq",
       "title": "Austin Country Club",
-      "subtitle": "4408 Long Champ Dr, Austin 78746 · private, hosts WGC Match Play",
-      "geofence": { "center": [-97.795, 30.345], "radiusMeters": 800 },
+      "subtitle": "4408 Long Champ Dr, Austin 78746 \u00b7 private, hosts WGC Match Play",
+      "geofence": {
+        "center": [
+          -97.795,
+          30.345
+        ],
+        "radiusMeters": 800
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "golf-onion-creek",
-      "gid": "gl14oncrkc",
-      "title": "Onion Creek Club",
-      "subtitle": "2510 Onion Creek Pkwy, Austin 78747 · private",
-      "geofence": { "center": [-97.77, 30.157], "radiusMeters": 700 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "golf-barton-creek-cc",
-      "gid": "gl15brtncc",
-      "title": "Barton Creek Country Club",
-      "subtitle": "8212 Barton Club Dr, Austin 78735 · 4 courses, resort",
-      "geofence": { "center": [-97.842, 30.281], "radiusMeters": 1500 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     },
@@ -207,25 +263,30 @@
       "id": "golf-river-place",
       "gid": "gl16rvrplc",
       "title": "River Place Country Club",
-      "subtitle": "4207 River Pl Blvd, Austin 78730 · private",
-      "geofence": { "center": [-97.851, 30.38], "radiusMeters": 700 },
+      "subtitle": "4207 River Pl Blvd, Austin 78730 \u00b7 private",
+      "geofence": {
+        "center": [
+          -97.851,
+          30.38
+        ],
+        "radiusMeters": 700
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "golf-the-hills-lakeway",
-      "gid": "gl17hlslkw",
-      "title": "The Hills of Lakeway Country Club",
-      "subtitle": "26 Club Estates Pkwy, Lakeway 78738 · private",
-      "geofence": { "center": [-97.978, 30.353], "radiusMeters": 900 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     },
@@ -233,12 +294,30 @@
       "id": "golf-ut-club",
       "gid": "gl18utclbg",
       "title": "UT Golf Club (Steiner Ranch)",
-      "subtitle": "Steiner Ranch, Austin 78732 · UT-affiliated private",
-      "geofence": { "center": [-97.901, 30.408], "radiusMeters": 800 },
+      "subtitle": "Steiner Ranch, Austin 78732 \u00b7 UT-affiliated private",
+      "geofence": {
+        "center": [
+          -97.901,
+          30.408
+        ],
+        "radiusMeters": 800
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "from": "06:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "06:00",
+            "to": "20:00"
+          }
         ]
       }
     }

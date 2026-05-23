@@ -1,10 +1,13 @@
 {
   "cityId": "atx",
-  "title": "HEBchat · Austin",
+  "title": "HEBchat \u00b7 Austin",
   "category": "H-E-B",
   "color": "#7c3aed",
   "initialCamera": {
-    "center": [-97.75, 30.35],
+    "center": [
+      -97.75,
+      30.35
+    ],
     "zoom": 10
   },
   "hotspots": [
@@ -14,14 +17,25 @@
       "title": "H-E-B Mueller",
       "subtitle": "1801 E 51st St, Austin 78723",
       "geofence": {
-        "center": [-97.7039, 30.3024],
+        "center": [
+          -97.7039,
+          30.3024
+        ],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -34,14 +48,25 @@
       "title": "H-E-B Hancock Center",
       "subtitle": "1000 E 41st St, Austin 78751",
       "geofence": {
-        "center": [-97.718, 30.3022],
+        "center": [
+          -97.718,
+          30.3022
+        ],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -54,14 +79,25 @@
       "title": "H-E-B East 7th",
       "subtitle": "2400 E 7th St, Austin 78702",
       "geofence": {
-        "center": [-97.714, 30.2604],
+        "center": [
+          -97.714,
+          30.2604
+        ],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -74,14 +110,25 @@
       "title": "H-E-B South Congress",
       "subtitle": "2400 S Congress Ave, Austin 78704",
       "geofence": {
-        "center": [-97.7517, 30.244],
+        "center": [
+          -97.7517,
+          30.244
+        ],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -94,14 +141,25 @@
       "title": "H-E-B Riverside",
       "subtitle": "2701 E Riverside Dr, Austin 78741",
       "geofence": {
-        "center": [-97.7242, 30.2376],
+        "center": [
+          -97.7242,
+          30.2376
+        ],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -114,14 +172,25 @@
       "title": "H-E-B Westgate",
       "subtitle": "4477 S Lamar Blvd, Austin 78745",
       "geofence": {
-        "center": [-97.7984, 30.2274],
+        "center": [
+          -97.7984,
+          30.2274
+        ],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -134,14 +203,25 @@
       "title": "H-E-B Brodie Lane",
       "subtitle": "6900 Brodie Ln, Austin 78745",
       "geofence": {
-        "center": [-97.8328, 30.2225],
+        "center": [
+          -97.8328,
+          30.2225
+        ],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -154,14 +234,25 @@
       "title": "H-E-B Slaughter Lane",
       "subtitle": "5800 W Slaughter Ln, Austin 78749",
       "geofence": {
-        "center": [-97.8723, 30.1854],
+        "center": [
+          -97.8723,
+          30.1854
+        ],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -174,14 +265,25 @@
       "title": "H-E-B Oak Hill",
       "subtitle": "7301 W Hwy 71, Austin 78735",
       "geofence": {
-        "center": [-97.8589, 30.2412],
+        "center": [
+          -97.8589,
+          30.2412
+        ],
         "radiusMeters": 150
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -194,254 +296,25 @@
       "title": "H-E-B Allandale",
       "subtitle": "5808 Burnet Rd, Austin 78756",
       "geofence": {
-        "center": [-97.7373, 30.338],
+        "center": [
+          -97.7373,
+          30.338
+        ],
         "radiusMeters": 120
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-bee-cave",
-      "gid": "p6dfwrxasz",
-      "title": "H-E-B Bee Cave",
-      "subtitle": "12400 Bee Cave Pkwy, Bee Cave 78738",
-      "geofence": {
-        "center": [-97.9666, 30.3068],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-lakeway",
-      "gid": "fnatx16kop",
-      "title": "H-E-B Lakeway",
-      "subtitle": "2300 Lohmans Spur, Lakeway 78734",
-      "geofence": {
-        "center": [-97.993, 30.3593],
-        "radiusMeters": 150
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-cedar-park-lakeline",
-      "gid": "th7rdgksup",
-      "title": "H-E-B Cedar Park (Lakeline)",
-      "subtitle": "11521 Pavilion Blvd, Cedar Park 78613",
-      "geofence": {
-        "center": [-97.8167, 30.4675],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-cedar-park-whitestone",
-      "gid": "hn8phwrmd0",
-      "title": "H-E-B Cedar Park (Whitestone)",
-      "subtitle": "1335 E Whitestone Blvd, Cedar Park 78613",
-      "geofence": {
-        "center": [-97.8083, 30.529],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-leander",
-      "gid": "re9auuxyn3",
-      "title": "H-E-B Leander",
-      "subtitle": "651 N US 183, Leander 78641",
-      "geofence": {
-        "center": [-97.8537, 30.5734],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-round-rock-university",
-      "gid": "l02adtbiaa",
-      "title": "H-E-B Round Rock (University Oaks)",
-      "subtitle": "1801 E Old Settlers Blvd, Round Rock 78664",
-      "geofence": {
-        "center": [-97.6555, 30.538],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-round-rock-620",
-      "gid": "rxpd83whxh",
-      "title": "H-E-B Round Rock (Hwy 620)",
-      "subtitle": "16900 RM 620, Round Rock 78681",
-      "geofence": {
-        "center": [-97.777, 30.518],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-pflugerville",
-      "gid": "n7xr2scdpf",
-      "title": "H-E-B Pflugerville",
-      "subtitle": "1601 E Pecan St, Pflugerville 78660",
-      "geofence": {
-        "center": [-97.6088, 30.4385],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-hutto",
-      "gid": "fwhdo4gjcx",
-      "title": "H-E-B Hutto",
-      "subtitle": "140 Ed Schmidt Blvd, Hutto 78634",
-      "geofence": {
-        "center": [-97.5468, 30.5459],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-georgetown-williams",
-      "gid": "qnrqgp1fi8",
-      "title": "H-E-B Georgetown (Williams Dr)",
-      "subtitle": "1900 N Austin Ave, Georgetown 78626",
-      "geofence": {
-        "center": [-97.6796, 30.6661],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-buda",
-      "gid": "uwgc9t9x3j",
-      "title": "H-E-B Buda",
-      "subtitle": "1100 Main St, Buda 78610",
-      "geofence": {
-        "center": [-97.842, 30.0822],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-kyle",
-      "gid": "mjrnotqmbo",
-      "title": "H-E-B Kyle",
-      "subtitle": "5401 Marketplace Ave, Kyle 78640",
-      "geofence": {
-        "center": [-97.8765, 30.0048],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
@@ -454,34 +327,25 @@
       "title": "H-E-B Tech Ridge",
       "subtitle": "12434 N IH-35, Austin 78753",
       "geofence": {
-        "center": [-97.672, 30.4085],
+        "center": [
+          -97.672,
+          30.4085
+        ],
         "radiusMeters": 180
       },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
           {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-            "from": "06:00",
-            "to": "23:00"
-          }
-        ]
-      }
-    },
-    {
-      "id": "heb-manor",
-      "gid": "ss2mq4idcg",
-      "title": "H-E-B Manor",
-      "subtitle": "12407 N FM 973, Manor 78653",
-      "geofence": {
-        "center": [-97.5573, 30.346],
-        "radiusMeters": 180
-      },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          {
-            "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
             "from": "06:00",
             "to": "23:00"
           }
