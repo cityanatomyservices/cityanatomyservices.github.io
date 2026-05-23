@@ -1134,6 +1134,17 @@
         )
       );
 
+      // Zipcode base layer — every point in Austin sits inside one of these
+      // polygons, so a user with GPS on always has at least a zipcode chat
+      // room to fall back into. Loaded as map infrastructure (no legend
+      // toggle, no AD_COPY entry); finer geofences shadow it in
+      // recomputeEntered() below.
+      const zipcodes = await fetch('/data/zipcodes/hotspots.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(json => json?.hotspots || [])
+        .catch(err => { console.warn('zipcodes load failed', err); return []; });
+      const zipcodeById = new Map(zipcodes.map(z => [z.id, z]));
+
       const features = results.flatMap(({ app, hotspots }) => toFeatures(hotspots, app));
 
       // Bounding box across every geofence polygon — used by the
@@ -1164,11 +1175,62 @@
           hotspotByFeatureId.set(`${app.id}-${h.id}`, h);
         }
       }
+      for (const z of zipcodes) {
+        hotspotByFeatureId.set(`zipcodes-${z.id}`, z);
+      }
 
       map.addSource('chatmaps', {
         type: 'geojson',
         data: { type: 'FeatureCollection', features },
       });
+
+      // Zipcode base layer — renders beneath the app circles so it can't
+      // visually swamp them. Same deterministic per-ZIP coloring the old
+      // overlay used, so 78701 stays recognizable.
+      if (zipcodes.length) {
+        const zipFeatures = zipcodes.map(z => ({
+          type: 'Feature',
+          properties: {
+            id: `zipcodes-${z.id}`,
+            zipcode: z.id,
+            title: z.title,
+            _color: hashColor(z.title),
+          },
+          geometry: { type: 'MultiPolygon', coordinates: z.geofence.polygon },
+        }));
+        map.addSource('zipcodes-base', {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: zipFeatures },
+        });
+        map.addLayer({
+          id: 'zipcodes-base-fill',
+          type: 'fill',
+          source: 'zipcodes-base',
+          paint: { 'fill-color': ['get', '_color'], 'fill-opacity': 0.12 },
+        });
+        map.addLayer({
+          id: 'zipcodes-base-line',
+          type: 'line',
+          source: 'zipcodes-base',
+          paint: { 'line-color': ['get', '_color'], 'line-width': 1, 'line-opacity': 0.7 },
+        });
+        map.addLayer({
+          id: 'zipcodes-base-label',
+          type: 'symbol',
+          source: 'zipcodes-base',
+          layout: {
+            'text-field': ['get', 'title'],
+            'text-size': 12,
+            'text-font': ['Noto Sans Regular'],
+            'text-allow-overlap': false,
+          },
+          paint: {
+            'text-color': '#1c1c28',
+            'text-halo-color': '#ffffff',
+            'text-halo-width': 1.4,
+          },
+        });
+      }
 
       map.addLayer({
         id: 'chatmaps-fill',
@@ -1214,6 +1276,7 @@
       // app id → display label + URL slug. Keep in sync with the legend +
       // the APPS array above. Only listed apps are clickable in popups.
       const APP_META = {
+        zipcodes:    { label: 'ZIP Code' },
         pubchat:     { label: 'Pubs & Bars' },
         foodtrucks:  { label: 'Food Trucks' },
         librarychat: { label: 'Libraries' },
@@ -1325,7 +1388,34 @@
                 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
         return 2 * EARTH_R * Math.asin(Math.sqrt(a));
       }
+      function pointInRing(lng, lat, ring) {
+        let inside = false;
+        for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+          const xi = ring[i][0], yi = ring[i][1];
+          const xj = ring[j][0], yj = ring[j][1];
+          if (((yi > lat) !== (yj > lat))
+              && (lng < (xj - xi) * (lat - yi) / (yj - yi) + xi)) {
+            inside = !inside;
+          }
+        }
+        return inside;
+      }
+      function pointInMultiPolygon(lng, lat, coords) {
+        for (const polygon of coords) {
+          if (!polygon || !polygon.length) continue;
+          if (!pointInRing(lng, lat, polygon[0])) continue;
+          let inHole = false;
+          for (let k = 1; k < polygon.length; k++) {
+            if (pointInRing(lng, lat, polygon[k])) { inHole = true; break; }
+          }
+          if (!inHole) return true;
+        }
+        return false;
+      }
       function recomputeEntered(userLngLat) {
+        // Finer wins: prefer circle hotspots (pubs, parks, etc.) over the
+        // zipcode base polygons. Only fall back to a zipcode when no
+        // circle match is found.
         let bestRatio = Infinity;
         let bestApp = null, bestFid = null;
         const sched = window.PubchatSchedule;
@@ -1342,6 +1432,17 @@
             const ratio = d / r;
             if (ratio < 1 && ratio < bestRatio) {
               bestRatio = ratio; bestApp = app.id; bestFid = `${app.id}-${h.id}`;
+            }
+          }
+        }
+        if (bestApp === null) {
+          for (const z of zipcodes) {
+            const poly = z.geofence?.polygon;
+            if (!poly) continue;
+            if (pointInMultiPolygon(userLngLat[0], userLngLat[1], poly)) {
+              bestApp = 'zipcodes';
+              bestFid = `zipcodes-${z.id}`;
+              break;
             }
           }
         }
@@ -1429,8 +1530,12 @@
           return;
         }
         if (currentMiniHotspotId === enteredFeatureId) return;
-        const app = APPS.find(a => a.id === enteredApp);
         const hot = hotspotByFeatureId.get(enteredFeatureId);
+        // Zipcodes aren't in APPS (they're a base layer, not a category).
+        // Build a synthetic app entry so the mini-chat opens normally.
+        const app = enteredApp === 'zipcodes'
+          ? { id: 'zipcodes', color: hot ? hashColor(hot.title) : '#1c1c28' }
+          : APPS.find(a => a.id === enteredApp);
         if (!hot || !app) return;
         const meta = APP_META[enteredApp] || { label: enteredApp };
         const center = hot.geofence?.center;
@@ -1518,6 +1623,35 @@
 
       map.on('mouseenter', 'chatmaps-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
       map.on('mouseleave', 'chatmaps-fill', () => { map.getCanvas().style.cursor = ''; });
+
+      // Clicks on the zipcode base polygons. If the user is currently
+      // entered in this zipcode (no finer hotspot matched), reopen their
+      // home mini-chat. Otherwise show a lightweight info popup.
+      map.on('click', 'zipcodes-base-fill', (e) => {
+        const f = e.features?.[0];
+        if (!f) return;
+        const zip = zipcodeById.get(f.properties.zipcode);
+        if (!zip) return;
+        const featureId = f.properties.id;
+        if (enteredApp === 'zipcodes' && enteredFeatureId === featureId) {
+          if (!currentMiniPopup) autoOpenMiniForEntered();
+          return;
+        }
+        const meta = APP_META.zipcodes;
+        const html = `
+          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 200px; padding: 14px 16px 16px;">
+            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1c28; font-weight: 700;">${meta.label}</div>
+            <div style="font-size: 0.95rem; font-weight: 700; margin-top: 2px;">${zip.title}</div>
+            <div style="font-size: 0.78rem; color: #5a6472; margin-top: 2px;">${zip.subtitle || ''}</div>
+          </div>
+        `;
+        new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '280px' })
+          .setLngLat(e.lngLat)
+          .setHTML(html)
+          .addTo(map);
+      });
+      map.on('mouseenter', 'zipcodes-base-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
+      map.on('mouseleave', 'zipcodes-base-fill', () => { map.getCanvas().style.cursor = ''; });
 
       // ── Mini chat-viewer popup (silent subscriber, no compose) ──
       // Lazy supabase loader — mirrors templates/pubchat/ui.js so we don't
@@ -1957,10 +2091,11 @@
 
       // ── Layers control (top-left "☰" dropdown) ───────────────────
       // Pattern borrowed from anatomy.city's austin-bike-shops report.
-      // Three toggles:
+      // Two toggles:
       //   - Buildings (3D extrusion + basemap building layers, on by default)
-      //   - Zip Codes (small geojson, off — lazy-loaded on first toggle)
       //   - Flood Zones (12 MB geojson, off — lazy-loaded on first toggle)
+      // Zipcodes used to live here too but are now a permanent base layer
+      // (see the zipcodes-base layers above).
       // Overlay styling matches loraatx: per-feature color from an 8-color
       // palette (hashed off a key property), fill-opacity 0.2, line-width 1.5.
 
@@ -1976,7 +2111,6 @@
       }
 
       const OVERLAYS = {
-        zipcodes:   { url: '/staging/ZipCode.geojson',   colorKey: 'zipcode', labelKey: 'zipcode' },
         floodzones: { url: '/staging/FloodZone.geojson', colorKey: 'flood_zone' },
       };
       const loadedOverlays = new Set();
@@ -2175,11 +2309,6 @@
           // (our 3d-buildings extrusion AND the Liberty basemap's flat fill).
           layersPanel.appendChild(makeRow('Buildings', true, (on) => {
             setBuildingsVisible(on);
-          }));
-          // Zip Codes
-          layersPanel.appendChild(makeRow('Zip Codes', false, async (on, cb) => {
-            if (on) { const ok = await ensureOverlay('zipcodes', cb); if (!ok) { cb.checked = false; return; } }
-            setOverlayVisible('zipcodes', on);
           }));
           // Flood Zones
           layersPanel.appendChild(makeRow('Flood Zones', false, async (on, cb) => {
