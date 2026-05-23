@@ -1092,6 +1092,21 @@
     })();
 
     map.on('load', async () => {
+      // Deterministic per-key color palette. Used by both the zipcode
+      // base layer (each ZIP gets a stable color) and the lazy-loaded
+      // overlays (Flood Zones). Declared up here so it's initialized
+      // before either consumer runs.
+      const OVERLAY_PALETTE = [
+        '#4285f4', '#ea4335', '#fbbc04', '#34a853',
+        '#ff6d00', '#46bdc6', '#7b1fa2', '#f06292',
+      ];
+      function hashColor(key) {
+        const s = String(key == null ? '' : key);
+        let h = 0;
+        for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+        return OVERLAY_PALETTE[Math.abs(h) % OVERLAY_PALETTE.length];
+      }
+
       // 3D buildings — loraatx-style: height-interpolated color, smooth
       // fade-in across zooms 14-16, vertical gradient for depth.
       const layers = map.getStyle().layers;
@@ -2098,17 +2113,6 @@
       // (see the zipcodes-base layers above).
       // Overlay styling matches loraatx: per-feature color from an 8-color
       // palette (hashed off a key property), fill-opacity 0.2, line-width 1.5.
-
-      const OVERLAY_PALETTE = [
-        '#4285f4', '#ea4335', '#fbbc04', '#34a853',
-        '#ff6d00', '#46bdc6', '#7b1fa2', '#f06292',
-      ];
-      function hashColor(key) {
-        const s = String(key == null ? '' : key);
-        let h = 0;
-        for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
-        return OVERLAY_PALETTE[Math.abs(h) % OVERLAY_PALETTE.length];
-      }
 
       const OVERLAYS = {
         floodzones: { url: '/staging/FloodZone.geojson', colorKey: 'flood_zone' },
