@@ -1,8 +1,0 @@
-{
-  "app": "librarychat",
-  "polls": [
-    { "id": "librarychat:vibe",      "question": "How's the vibe?",      "options": ["Empty", "Chill", "Busy", "Packed"] },
-    { "id": "librarychat:bathrooms", "question": "Bathrooms?",           "options": ["Clean", "OK", "Rough", "Couldn't find any"] },
-    { "id": "librarychat:seats",     "question": "Study seats?",         "options": ["Plenty", "A few", "None left", "Loud / can't focus"] }
-  ]
-}
