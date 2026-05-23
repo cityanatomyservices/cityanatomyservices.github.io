@@ -1,0 +1,127 @@
+{
+  "cityId": "atx",
+  "title": "Culture Spots · Austin",
+  "initialCamera": { "center": [-97.7431, 30.2672], "zoom": 12 },
+  "hotspots": [
+    {
+      "id": "congress-bridge-bats",
+      "gid": "8r2k9pq4mw",
+      "title": "Congress Avenue Bridge Bats",
+      "subtitle": "World's largest urban bat colony · sunset emergence Mar–Nov",
+      "geofence": { "center": [-97.7458, 30.2613], "radiusMeters": 150 },
+      "info": {
+        "description": "Roughly 1.5 million Mexican free-tailed bats stream out from under the Ann W. Richards Congress Avenue Bridge at dusk each evening from mid-March to early November. Watch from the bridge sidewalk, the Statesman Bat Observation Center, or a kayak on Lady Bird Lake."
+      }
+    },
+    {
+      "id": "mount-bonnell",
+      "gid": "n7vf3qj8b1",
+      "title": "Mount Bonnell",
+      "subtitle": "Highest natural point in Austin · panoramic Hill Country overlook",
+      "geofence": { "center": [-97.7732, 30.3211], "radiusMeters": 120 },
+      "info": {
+        "description": "775 feet up via 102 stone steps. Sweeping views of Lake Austin, the Pennybacker Bridge, and the Hill Country. Open daily 5 AM–10 PM. Free."
+      }
+    },
+    {
+      "id": "south-congress-district",
+      "gid": "4mwp7nj6yr",
+      "title": "South Congress (SoCo) District",
+      "subtitle": "Vintage shops, food trucks, murals · the iconic Austin strip",
+      "geofence": { "center": [-97.7493, 30.2510], "radiusMeters": 400 },
+      "info": {
+        "description": "Walkable stretch of South Congress Ave between Riverside and Live Oak. Shops, taco trailers, music venues, and a postcard-skyline view looking north toward the Capitol."
+      }
+    },
+    {
+      "id": "pennybacker-overlook",
+      "gid": "qj9bk2vt7m",
+      "title": "Pennybacker Bridge Overlook",
+      "subtitle": "Cliffside view of the Loop 360 arch bridge",
+      "geofence": { "center": [-97.8030, 30.3582], "radiusMeters": 120 },
+      "info": {
+        "description": "Short scramble from the small dirt parking lot on the south side of Loop 360 leads to the cliff overlook of Percy V. Pennybacker Jr. Bridge — Austin's signature arch over the Colorado River. Best at golden hour."
+      }
+    },
+    {
+      "id": "greetings-from-austin-mural",
+      "gid": "yp3rh8nk4q",
+      "title": "\"Greetings from Austin\" Mural",
+      "subtitle": "1720 S 1st St · postcard-style photo op",
+      "geofence": { "center": [-97.7578, 30.2515], "radiusMeters": 40 },
+      "info": {
+        "description": "Painted on the side of Roadhouse Relics in 1998 by Todd Sanders and Rory Skagen. The classic Austin tourist photo."
+      }
+    },
+    {
+      "id": "i-love-you-so-much-mural",
+      "gid": "k6nb2vqh9p",
+      "title": "\"I love you so much\" Mural",
+      "subtitle": "Jo's Coffee · 1300 S Congress · most-photographed wall in town",
+      "geofence": { "center": [-97.7493, 30.2517], "radiusMeters": 30 },
+      "info": {
+        "description": "Scrawled in red on the side of Jo's Coffee in 2010 by musician Amy Cook for her partner. A line forms most mornings for the photo."
+      }
+    },
+    {
+      "id": "hi-how-are-you-mural",
+      "gid": "wt7m3pq8vk",
+      "title": "\"Hi, How Are You?\" Mural",
+      "subtitle": "Daniel Johnston's Jeremiah the Innocent · 21st & Guadalupe",
+      "geofence": { "center": [-97.7432, 30.2848], "radiusMeters": 40 },
+      "info": {
+        "description": "Daniel Johnston painted the wide-eyed frog on the side of what's now Thai How Are You in 1993. The mural sits at the corner of 21st & Guadalupe across from the UT campus."
+      }
+    },
+    {
+      "id": "treaty-oak",
+      "gid": "vh4pq9nk2m",
+      "title": "Treaty Oak",
+      "subtitle": "500-year-old live oak · Treaty Oak Park · 507 Baylor St",
+      "geofence": { "center": [-97.7560, 30.2722], "radiusMeters": 60 },
+      "info": {
+        "description": "Estimated 500 years old and once the centerpiece of a 14-tree grove called the Council Oaks, sacred to the Comanche and Tonkawa. Famously poisoned in 1989 and nursed back to health."
+      }
+    },
+    {
+      "id": "cathedral-of-junk",
+      "gid": "rq2vp7mk8h",
+      "title": "Cathedral of Junk",
+      "subtitle": "Vince Hannemann's 60-ton folk-art sculpture · by appointment",
+      "geofence": { "center": [-97.7881, 30.2200], "radiusMeters": 50 },
+      "info": {
+        "description": "A three-story castle of welded scrap in a South Austin backyard at 4422 Lareina Dr. Visits by appointment only — call ahead. Donation appreciated."
+      }
+    },
+    {
+      "id": "sixth-street-district",
+      "gid": "mp9qr3vk2n",
+      "title": "6th Street Entertainment District",
+      "subtitle": "Austin's historic main strip · the live-music-bar mile",
+      "geofence": { "center": [-97.7405, 30.2672], "radiusMeters": 350 },
+      "info": {
+        "description": "Old Pecan Street, between Congress and I-35. Music clubs, dive bars, and rooftops. Closes to cars on weekend nights."
+      }
+    },
+    {
+      "id": "rainey-street-district",
+      "gid": "bk4nh7qp9v",
+      "title": "Rainey Street Historic District",
+      "subtitle": "Converted-bungalow bar street between downtown and Lady Bird Lake",
+      "geofence": { "center": [-97.7390, 30.2588], "radiusMeters": 200 },
+      "info": {
+        "description": "Two blocks of early-1900s bungalows turned into bars and food trucks, tucked between downtown and the lake. Short walk to the Boardwalk Trail."
+      }
+    },
+    {
+      "id": "stevie-ray-vaughan-statue",
+      "gid": "ht3mp6vk9r",
+      "title": "Stevie Ray Vaughan Statue",
+      "subtitle": "Auditorium Shores · bronze with downtown-skyline backdrop",
+      "geofence": { "center": [-97.7488, 30.2624], "radiusMeters": 40 },
+      "info": {
+        "description": "Ralph Helmick's 1993 bronze of Austin's most famous guitarist on the north lawn of Auditorium Shores, framing the downtown skyline across Lady Bird Lake."
+      }
+    }
+  ]
+}
