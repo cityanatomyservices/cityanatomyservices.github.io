@@ -1081,8 +1081,8 @@
     })();
 
     map.on('load', async () => {
-      // Deterministic per-key color palette. Used by both the zipcode
-      // base layer (each ZIP gets a stable color) and the lazy-loaded
+      // Deterministic per-key color palette. Used by the neighborhood
+      // base layer (each one gets a stable color) and the lazy-loaded
       // overlays (Flood Zones). Declared up here so it's initialized
       // before either consumer runs.
       const OVERLAY_PALETTE = [
@@ -1147,20 +1147,11 @@
         })
       );
 
-      // Zipcode base layer — every point in Austin sits inside one of these
-      // polygons, so a user with GPS on always has at least a zipcode chat
-      // room to fall back into. Loaded as map infrastructure (no legend
-      // toggle, no AD_COPY entry); finer geofences shadow it in
-      // recomputeEntered() below.
-      const zipcodes = await fetch('/data/zipcodes/hotspots.json')
-        .then(r => r.ok ? r.json() : null)
-        .then(json => json?.hotspots || [])
-        .catch(err => { console.warn('zipcodes load failed', err); return []; });
-      const zipcodeById = new Map(zipcodes.map(z => [z.id, z]));
-
-      // Neighborhood polygons — middle tier between zipcodes and the
-      // app circles. Same loading + base-layer treatment as zipcodes;
-      // see recomputeEntered() for the three-tier "finer wins" rule.
+      // Neighborhood base layer — every point in the supported map
+      // extent sits inside one of these polygons, so a user with GPS on
+      // always has at least a neighborhood chat room to fall back into.
+      // Loaded as map infrastructure (no legend toggle, no AD_COPY
+      // entry); finer geofences shadow it in recomputeEntered() below.
       const neighborhoods = await fetch('/data/neighborhoods/hotspots.json')
         .then(r => r.ok ? r.json() : null)
         .then(json => json?.hotspots || [])
@@ -1197,9 +1188,6 @@
           hotspotByFeatureId.set(`${app.id}-${h.id}`, h);
         }
       }
-      for (const z of zipcodes) {
-        hotspotByFeatureId.set(`zipcodes-${z.id}`, z);
-      }
       for (const n of neighborhoods) {
         hotspotByFeatureId.set(`neighborhoods-${n.id}`, n);
       }
@@ -1209,57 +1197,9 @@
         data: { type: 'FeatureCollection', features },
       });
 
-      // Zipcode base layer — renders beneath the app circles so it can't
-      // visually swamp them. Same deterministic per-ZIP coloring the old
-      // overlay used, so 78701 stays recognizable.
-      if (zipcodes.length) {
-        const zipFeatures = zipcodes.map(z => ({
-          type: 'Feature',
-          properties: {
-            id: `zipcodes-${z.id}`,
-            zipcode: z.id,
-            title: z.title,
-            _color: hashColor(z.title),
-          },
-          geometry: { type: 'MultiPolygon', coordinates: z.geofence.polygon },
-        }));
-        map.addSource('zipcodes-base', {
-          type: 'geojson',
-          data: { type: 'FeatureCollection', features: zipFeatures },
-        });
-        map.addLayer({
-          id: 'zipcodes-base-fill',
-          type: 'fill',
-          source: 'zipcodes-base',
-          paint: { 'fill-color': ['get', '_color'], 'fill-opacity': 0.12 },
-        });
-        map.addLayer({
-          id: 'zipcodes-base-line',
-          type: 'line',
-          source: 'zipcodes-base',
-          paint: { 'line-color': ['get', '_color'], 'line-width': 1, 'line-opacity': 0.7 },
-        });
-        map.addLayer({
-          id: 'zipcodes-base-label',
-          type: 'symbol',
-          source: 'zipcodes-base',
-          layout: {
-            'text-field': ['get', 'title'],
-            'text-size': 12,
-            'text-font': ['Noto Sans Regular'],
-            'text-allow-overlap': false,
-          },
-          paint: {
-            'text-color': '#1c1c28',
-            'text-halo-color': '#ffffff',
-            'text-halo-width': 1.4,
-          },
-        });
-      }
-
-      // Neighborhood base layer — sits above zipcodes (so zipcode fills
-      // show through) and below the app circles. Heavier line, lower
-      // fill than zipcodes to read as a finer tier.
+      // Neighborhood base layer — renders beneath the app circles so it
+      // can't visually swamp them. Deterministic per-neighborhood color
+      // hash so each one stays recognizable.
       if (neighborhoods.length) {
         const nbhdFeatures = neighborhoods.map(n => ({
           type: 'Feature',
@@ -1279,7 +1219,7 @@
           id: 'neighborhoods-base-fill',
           type: 'fill',
           source: 'neighborhoods-base',
-          paint: { 'fill-color': ['get', '_color'], 'fill-opacity': 0.08 },
+          paint: { 'fill-color': ['get', '_color'], 'fill-opacity': 0.12 },
         });
         map.addLayer({
           id: 'neighborhoods-base-line',
@@ -1291,19 +1231,39 @@
           id: 'neighborhoods-base-label',
           type: 'symbol',
           source: 'neighborhoods-base',
-          minzoom: 12,
+          minzoom: 11,
           layout: {
             'text-field': ['get', 'title'],
-            'text-size': 10,
+            'text-size': 11,
             'text-font': ['Noto Sans Regular'],
             'text-allow-overlap': false,
           },
           paint: {
             'text-color': '#1c1c28',
             'text-halo-color': '#ffffff',
-            'text-halo-width': 1.2,
+            'text-halo-width': 1.3,
           },
         });
+
+        // Clamp panning + zoom-out to the neighborhood envelope so the
+        // map can't be dragged out into ungeofenced grey area. Computed
+        // from the union of every neighborhood polygon.
+        let nMinLng = Infinity, nMinLat = Infinity, nMaxLng = -Infinity, nMaxLat = -Infinity;
+        for (const n of neighborhoods) {
+          for (const polygon of n.geofence.polygon) {
+            for (const ring of polygon) {
+              for (const [lng, lat] of ring) {
+                if (lng < nMinLng) nMinLng = lng;
+                if (lat < nMinLat) nMinLat = lat;
+                if (lng > nMaxLng) nMaxLng = lng;
+                if (lat > nMaxLat) nMaxLat = lat;
+              }
+            }
+          }
+        }
+        if (isFinite(nMinLng)) {
+          map.setMaxBounds([[nMinLng, nMinLat], [nMaxLng, nMaxLat]]);
+        }
       }
 
       map.addLayer({
@@ -1350,7 +1310,6 @@
       // app id → display label + URL slug. Keep in sync with the legend +
       // the APPS array above. Only listed apps are clickable in popups.
       const APP_META = {
-        zipcodes:      { label: 'ZIP Code' },
         neighborhoods: { label: 'Neighborhood' },
         pubchat:       { label: 'Pubs & Bars' },
         foodtrucks:    { label: 'Food Trucks' },
@@ -1480,9 +1439,9 @@
         return false;
       }
       function recomputeEntered(userLngLat) {
-        // Finer wins: prefer circle hotspots (pubs, parks, etc.) over the
-        // zipcode base polygons. Only fall back to a zipcode when no
-        // circle match is found.
+        // Finer wins: prefer circle hotspots (pubs, parks, etc.) over
+        // the neighborhood base polygons. Only fall back to a
+        // neighborhood when no circle match is found.
         let bestRatio = Infinity;
         let bestApp = null, bestFid = null;
         const sched = window.PubchatSchedule;
@@ -1502,10 +1461,6 @@
             }
           }
         }
-        // Three-tier "finer wins" fallback: circle hotspots (above)
-        // shadow neighborhood polygons, which in turn shadow zipcode
-        // polygons. Only one polygon at each tier is expected to
-        // contain any given point (they don't overlap within a tier).
         if (bestApp === null) {
           for (const n of neighborhoods) {
             const poly = n.geofence?.polygon;
@@ -1513,17 +1468,6 @@
             if (pointInMultiPolygon(userLngLat[0], userLngLat[1], poly)) {
               bestApp = 'neighborhoods';
               bestFid = `neighborhoods-${n.id}`;
-              break;
-            }
-          }
-        }
-        if (bestApp === null) {
-          for (const z of zipcodes) {
-            const poly = z.geofence?.polygon;
-            if (!poly) continue;
-            if (pointInMultiPolygon(userLngLat[0], userLngLat[1], poly)) {
-              bestApp = 'zipcodes';
-              bestFid = `zipcodes-${z.id}`;
               break;
             }
           }
@@ -1613,11 +1557,11 @@
         }
         if (currentMiniHotspotId === enteredFeatureId) return;
         const hot = hotspotByFeatureId.get(enteredFeatureId);
-        // Zipcodes and neighborhoods aren't in APPS (they're base layers,
-        // not categories). Build a synthetic app entry so the mini-chat
-        // opens normally for them.
-        const app = (enteredApp === 'zipcodes' || enteredApp === 'neighborhoods')
-          ? { id: enteredApp, color: hot ? hashColor(hot.title) : '#1c1c28' }
+        // Neighborhoods aren't in APPS (they're the base layer, not a
+        // category). Build a synthetic app entry so the mini-chat opens
+        // normally for them.
+        const app = enteredApp === 'neighborhoods'
+          ? { id: 'neighborhoods', color: hot ? hashColor(hot.title) : '#1c1c28' }
           : APPS.find(a => a.id === enteredApp);
         if (!hot || !app) return;
         const meta = APP_META[enteredApp] || { label: enteredApp };
@@ -1707,37 +1651,10 @@
       map.on('mouseenter', 'chatmaps-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
       map.on('mouseleave', 'chatmaps-fill', () => { map.getCanvas().style.cursor = ''; });
 
-      // Clicks on the zipcode base polygons. If the user is currently
-      // entered in this zipcode (no finer hotspot matched), reopen their
-      // home mini-chat. Otherwise show a lightweight info popup.
-      map.on('click', 'zipcodes-base-fill', (e) => {
-        const f = e.features?.[0];
-        if (!f) return;
-        const zip = zipcodeById.get(f.properties.zipcode);
-        if (!zip) return;
-        const featureId = f.properties.id;
-        if (enteredApp === 'zipcodes' && enteredFeatureId === featureId) {
-          if (!currentMiniPopup) autoOpenMiniForEntered();
-          return;
-        }
-        const meta = APP_META.zipcodes;
-        const html = `
-          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 200px; padding: 14px 16px 16px;">
-            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1c28; font-weight: 700;">${meta.label}</div>
-            <div style="font-size: 0.95rem; font-weight: 700; margin-top: 2px;">${zip.title}</div>
-            <div style="font-size: 0.78rem; color: #5a6472; margin-top: 2px;">${zip.subtitle || ''}</div>
-          </div>
-        `;
-        new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '280px' })
-          .setLngLat(e.lngLat)
-          .setHTML(html)
-          .addTo(map);
-      });
-      map.on('mouseenter', 'zipcodes-base-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
-      map.on('mouseleave', 'zipcodes-base-fill', () => { map.getCanvas().style.cursor = ''; });
-
-      // Clicks on the neighborhood polygons — same shape as the zipcode
-      // handler, just one tier finer.
+      // Clicks on the neighborhood base polygons. If the user is
+      // currently entered in this neighborhood (no finer hotspot
+      // matched), reopen their home mini-chat. Otherwise show a
+      // lightweight info popup.
       map.on('click', 'neighborhoods-base-fill', (e) => {
         const f = e.features?.[0];
         if (!f) return;
@@ -2206,8 +2123,6 @@
       // Two toggles:
       //   - Buildings (3D extrusion + basemap building layers, on by default)
       //   - Flood Zones (12 MB geojson, off — lazy-loaded on first toggle)
-      // Zipcodes used to live here too but are now a permanent base layer
-      // (see the zipcodes-base layers above).
       // Overlay styling matches loraatx: per-feature color from an 8-color
       // palette (hashed off a key property), fill-opacity 0.2, line-width 1.5.
 

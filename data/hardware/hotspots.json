@@ -1,248 +1,383 @@
 {
   "cityId": "atx",
-  "title": "HardwareChat · Austin",
+  "title": "HardwareChat \u00b7 Austin",
   "category": "Hardware Stores",
   "color": "#ea580c",
   "initialCamera": {
-    "center": [-97.75, 30.33],
+    "center": [
+      -97.75,
+      30.33
+    ],
     "zoom": 10
   },
   "hotspots": [
     {
       "id": "homedepot-sunset-valley",
       "gid": "hd1svqxz73",
-      "title": "Home Depot — Sunset Valley",
+      "title": "Home Depot \u2014 Sunset Valley",
       "subtitle": "5400 Brodie Ln, Sunset Valley 78745",
-      "geofence": { "center": [-97.8312, 30.2316], "radiusMeters": 200 },
+      "geofence": {
+        "center": [
+          -97.8312,
+          30.2316
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          }
         ]
       }
     },
     {
       "id": "homedepot-anderson-lane",
       "gid": "hd2anlwpmk",
-      "title": "Home Depot — Anderson Lane",
+      "title": "Home Depot \u2014 Anderson Lane",
       "subtitle": "1600 W Anderson Ln, Austin 78757",
-      "geofence": { "center": [-97.7398, 30.3582], "radiusMeters": 200 },
+      "geofence": {
+        "center": [
+          -97.7398,
+          30.3582
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          }
         ]
       }
     },
     {
       "id": "homedepot-north-ih35",
       "gid": "hd3ni35vbn",
-      "title": "Home Depot — North IH-35",
+      "title": "Home Depot \u2014 North IH-35",
       "subtitle": "7900 N IH-35, Austin 78753",
-      "geofence": { "center": [-97.6987, 30.3526], "radiusMeters": 200 },
+      "geofence": {
+        "center": [
+          -97.6987,
+          30.3526
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "homedepot-round-rock",
-      "gid": "hd4rrqstkd",
-      "title": "Home Depot — Round Rock",
-      "subtitle": "100 Sundance Pkwy, Round Rock 78681",
-      "geofence": { "center": [-97.6868, 30.523], "radiusMeters": 200 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          }
         ]
       }
     },
     {
       "id": "homedepot-lakeline",
       "gid": "hd5lkln2qa",
-      "title": "Home Depot — Lakeline",
+      "title": "Home Depot \u2014 Lakeline",
       "subtitle": "11301 Lakeline Blvd, Austin 78717",
-      "geofence": { "center": [-97.809, 30.463], "radiusMeters": 200 },
+      "geofence": {
+        "center": [
+          -97.809,
+          30.463
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "homedepot-bee-cave",
-      "gid": "hd6bcvwxnh",
-      "title": "Home Depot — Bee Cave",
-      "subtitle": "12506 Shops Pkwy, Bee Cave 78738",
-      "geofence": { "center": [-97.9456, 30.3094], "radiusMeters": 200 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "homedepot-pflugerville",
-      "gid": "hd7pflg5tr",
-      "title": "Home Depot — Pflugerville",
-      "subtitle": "1517 Town Center Dr, Pflugerville 78660",
-      "geofence": { "center": [-97.6195, 30.4393], "radiusMeters": 200 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          }
         ]
       }
     },
     {
       "id": "homedepot-south-ih35",
       "gid": "hd8si35kmp",
-      "title": "Home Depot — South IH-35",
+      "title": "Home Depot \u2014 South IH-35",
       "subtitle": "11301 S IH-35, Austin 78747",
-      "geofence": { "center": [-97.79, 30.1597], "radiusMeters": 200 },
+      "geofence": {
+        "center": [
+          -97.79,
+          30.1597
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          }
         ]
       }
     },
     {
       "id": "lowes-south-austin",
       "gid": "lw1sath3jb",
-      "title": "Lowe's — South Austin",
+      "title": "Lowe's \u2014 South Austin",
       "subtitle": "9001 S IH-35, Austin 78748",
-      "geofence": { "center": [-97.7903, 30.1839], "radiusMeters": 200 },
+      "geofence": {
+        "center": [
+          -97.7903,
+          30.1839
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          }
         ]
       }
     },
     {
       "id": "lowes-highland",
       "gid": "lw2hldqp4n",
-      "title": "Lowe's — Highland / Middle Fiskville",
+      "title": "Lowe's \u2014 Highland / Middle Fiskville",
       "subtitle": "6000 Middle Fiskville Rd, Austin 78752",
-      "geofence": { "center": [-97.7065, 30.33], "radiusMeters": 200 },
+      "geofence": {
+        "center": [
+          -97.7065,
+          30.33
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "lowes-round-rock",
-      "gid": "lw3rrk8vqz",
-      "title": "Lowe's — Round Rock",
-      "subtitle": "1750 S IH-35, Round Rock 78664",
-      "geofence": { "center": [-97.676, 30.494], "radiusMeters": 200 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "lowes-cedar-park",
-      "gid": "lw4cdpkysm",
-      "title": "Lowe's — Cedar Park",
-      "subtitle": "1335 E Whitestone Blvd, Cedar Park 78613",
-      "geofence": { "center": [-97.8001, 30.5237], "radiusMeters": 200 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
-        ]
-      }
-    },
-    {
-      "id": "lowes-pflugerville",
-      "gid": "lw5pflrgtw",
-      "title": "Lowe's — Pflugerville",
-      "subtitle": "1815 W Pecan St, Pflugerville 78660",
-      "geofence": { "center": [-97.6398, 30.4486], "radiusMeters": 200 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          }
         ]
       }
     },
     {
       "id": "lowes-tech-ridge",
       "gid": "lw6trgxq2c",
-      "title": "Lowe's — Tech Ridge / North Austin",
+      "title": "Lowe's \u2014 Tech Ridge / North Austin",
       "subtitle": "12506 N IH-35, Austin 78753",
-      "geofence": { "center": [-97.6709, 30.408], "radiusMeters": 200 },
+      "geofence": {
+        "center": [
+          -97.6709,
+          30.408
+        ],
+        "radiusMeters": 200
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "06:00", "to": "22:00" },
-          { "days": ["sun"], "from": "08:00", "to": "20:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "06:00",
+            "to": "22:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          }
         ]
       }
     },
     {
       "id": "harborfreight-anderson",
       "gid": "hf1andrwjv",
-      "title": "Harbor Freight — Anderson Lane",
+      "title": "Harbor Freight \u2014 Anderson Lane",
       "subtitle": "Anderson Lane area, Austin 78757",
-      "geofence": { "center": [-97.7295, 30.358], "radiusMeters": 150 },
+      "geofence": {
+        "center": [
+          -97.7295,
+          30.358
+        ],
+        "radiusMeters": 150
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "08:00", "to": "20:00" },
-          { "days": ["sun"], "from": "09:00", "to": "18:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "09:00",
+            "to": "18:00"
+          }
         ]
       }
     },
     {
       "id": "harborfreight-south-austin",
       "gid": "hf2sapczyk",
-      "title": "Harbor Freight — South Austin",
+      "title": "Harbor Freight \u2014 South Austin",
       "subtitle": "William Cannon area, Austin 78745",
-      "geofence": { "center": [-97.803, 30.199], "radiusMeters": 150 },
+      "geofence": {
+        "center": [
+          -97.803,
+          30.199
+        ],
+        "radiusMeters": 150
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "08:00", "to": "20:00" },
-          { "days": ["sun"], "from": "09:00", "to": "18:00" }
-        ]
-      }
-    },
-    {
-      "id": "harborfreight-round-rock",
-      "gid": "hf3rrk6qxn",
-      "title": "Harbor Freight — Round Rock",
-      "subtitle": "Round Rock 78664",
-      "geofence": { "center": [-97.6857, 30.514], "radiusMeters": 150 },
-      "schedule": {
-        "timezone": "America/Chicago",
-        "windows": [
-          { "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "from": "08:00", "to": "20:00" },
-          { "days": ["sun"], "from": "09:00", "to": "18:00" }
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "08:00",
+            "to": "20:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "09:00",
+            "to": "18:00"
+          }
         ]
       }
     }
