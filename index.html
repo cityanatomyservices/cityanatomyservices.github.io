@@ -800,13 +800,6 @@
       </div>
       <div class="cm-legend-row">
         <label class="cm-filter-label">
-          <input type="checkbox" class="cm-filter-cb" data-app="librarychat" checked>
-          <span class="cm-legend-dot" style="background: #1a73ff"></span>
-        </label>
-        <span>Libraries</span>
-      </div>
-      <div class="cm-legend-row">
-        <label class="cm-filter-label">
           <input type="checkbox" class="cm-filter-cb" data-app="parks" checked>
           <span class="cm-legend-dot" style="background: #16a34a"></span>
         </label>
@@ -849,31 +842,10 @@
       </div>
       <div class="cm-legend-row">
         <label class="cm-filter-label">
-          <input type="checkbox" class="cm-filter-cb" data-app="pools" checked>
-          <span class="cm-legend-dot" style="background: #38bdf8"></span>
-        </label>
-        <span>Pools</span>
-      </div>
-      <div class="cm-legend-row">
-        <label class="cm-filter-label">
-          <input type="checkbox" class="cm-filter-cb" data-app="hebs" checked>
+          <input type="checkbox" class="cm-filter-cb" data-app="grocerystores" checked>
           <span class="cm-legend-dot" style="background: #7c3aed"></span>
         </label>
-        <span>H-E-B</span>
-      </div>
-      <div class="cm-legend-row">
-        <label class="cm-filter-label">
-          <input type="checkbox" class="cm-filter-cb" data-app="walmart" checked>
-          <span class="cm-legend-dot" style="background: #4f46e5"></span>
-        </label>
-        <span>Walmart</span>
-      </div>
-      <div class="cm-legend-row">
-        <label class="cm-filter-label">
-          <input type="checkbox" class="cm-filter-cb" data-app="ymcas" checked>
-          <span class="cm-legend-dot" style="background: #E1131D"></span>
-        </label>
-        <span>YMCAs</span>
+        <span>Grocery Stores</span>
       </div>
       <div class="cm-legend-row">
         <label class="cm-filter-label">
@@ -895,13 +867,6 @@
           <span class="cm-legend-dot" style="background: #006241"></span>
         </label>
         <span>Starbucks</span>
-      </div>
-      <div class="cm-legend-row">
-        <label class="cm-filter-label">
-          <input type="checkbox" class="cm-filter-cb" data-app="target" checked>
-          <span class="cm-legend-dot" style="background: #c026d3"></span>
-        </label>
-        <span>Target</span>
       </div>
       <div class="cm-legend-row">
         <label class="cm-filter-label">
@@ -984,27 +949,43 @@
     const APPS = [
       { id: 'pubchat',    url: '/data/pubchat/hotspots.json',      color: '#e11d74' },
       { id: 'foodtrucks', url: '/data/foodtrucks/hotspots.json',   color: '#10b981' },
-      { id: 'librarychat',url: '/data/librarychat/hotspots.json',  color: '#1a73ff' },
       { id: 'parks',      url: '/data/parks/hotspots.json',        color: '#16a34a' },
       { id: 'museums',    url: '/data/museums/hotspots.json',      color: '#a16207' },
       { id: 'capital',    url: '/data/capital/hotspots.json',      color: '#1e40af' },
       { id: 'airport',    url: '/data/airport/hotspots.json',      color: '#fb923c' },
       { id: 'campuses',   url: '/data/campuses/hotspots.json',     color: '#bf5700' },
       { id: 'clinics',    url: '/data/clinics/hotspots.json',      color: '#ef4444' },
-      { id: 'pools',      url: '/data/pools/hotspots.json',        color: '#38bdf8' },
-      { id: 'hebs',       url: '/data/HEBs/hotspots.json',         color: '#7c3aed' },
-      { id: 'walmart',    url: '/data/walmart/hotspots.json',      color: '#4f46e5' },
-      { id: 'ymcas',      url: '/data/ymcas/hotspots.json',        color: '#E1131D' },
+      // Grocery Stores — Walmart + HEB + Target geofences are merged
+      // under one category so a chat at any store is shared across all
+      // three chains. Individual store titles ("HEB · South Congress",
+      // "Walmart · Lamar") remain unchanged and surface in chat as the
+      // sender's home location.
+      { id: 'grocerystores', color: '#7c3aed', chatScope: 'category', urls: [
+        '/data/walmart/hotspots.json',
+        '/data/HEBs/hotspots.json',
+        '/data/target/hotspots.json',
+      ] },
       { id: 'hardware',   url: '/data/hardware/hotspots.json',     color: '#ea580c' },
       { id: 'golf',       url: '/data/golf/hotspots.json',         color: '#047857' },
       { id: 'starbucks',  url: '/data/starbucks/hotspots.json',    color: '#006241' },
-      { id: 'target',     url: '/data/target/hotspots.json',       color: '#c026d3' },
       { id: 'malls',      url: '/data/malls/hotspots.json',        color: '#65a30d' },
       { id: 'newcomers',  url: '/data/newcomers/hotspots.json',    color: '#14b8a6' },
       { id: 'apartments', url: '/data/apartments/hotspots.json',   color: '#475569' },
       { id: 'hotels',     url: '/data/hotels/hotspots.json',       color: '#0891b2' },
       { id: 'sports',     url: '/data/sports/hotspots.json',       color: '#facc15' },
     ];
+
+    // Apps with `chatScope: 'category'` share ONE chat room across every
+    // hotspot in the category (e.g. all Grocery Stores chat together),
+    // while individual store titles still surface in the chat as each
+    // sender's home location. Default scope is per-hotspot.
+    function effectiveHotspotId(appId, hotspotId) {
+      const app = APPS.find(a => a.id === appId);
+      return app && app.chatScope === 'category' ? 'all' : hotspotId;
+    }
+    function effectiveRoomId(appId, hotspotId) {
+      return window.PubchatChat.roomIdFor(appId, effectiveHotspotId(appId, hotspotId));
+    }
 
     function circlePolygon([lng, lat], radiusMeters, points = 16) {
       const coords = [];
@@ -1141,12 +1122,21 @@
       }, labelLayerId);
 
       const results = await Promise.all(
-        APPS.map(app =>
-          fetch(app.url)
-            .then(r => r.ok ? r.json() : null)
-            .then(json => ({ app, hotspots: json?.hotspots || [] }))
-            .catch(() => ({ app, hotspots: [] }))
-        )
+        APPS.map(async app => {
+          // An app can load hotspots from a single `url` or merge from
+          // multiple `urls` (e.g. Grocery Stores combines Walmart + HEB +
+          // Target into one category).
+          const urls = app.urls || [app.url];
+          const lists = await Promise.all(
+            urls.map(u =>
+              fetch(u)
+                .then(r => r.ok ? r.json() : null)
+                .catch(() => null)
+            )
+          );
+          const hotspots = lists.flatMap(j => j?.hotspots || []);
+          return { app, hotspots };
+        })
       );
 
       // Zipcode base layer — every point in Austin sits inside one of these
@@ -1291,29 +1281,24 @@
       // app id → display label + URL slug. Keep in sync with the legend +
       // the APPS array above. Only listed apps are clickable in popups.
       const APP_META = {
-        zipcodes:    { label: 'ZIP Code' },
-        pubchat:     { label: 'Pubs & Bars' },
-        foodtrucks:  { label: 'Food Trucks' },
-        librarychat: { label: 'Libraries' },
-        parks:       { label: 'Parks' },
-        museums:     { label: 'Museums' },
-        capital:     { label: 'Capitol' },
-        airport:     { label: 'Airport' },
-        campuses:    { label: 'Campuses' },
-        clinics:     { label: 'Hospitals' },
-        pools:       { label: 'Pools' },
-        hebs:        { label: 'H-E-B' },
-        walmart:     { label: 'Walmart' },
-        ymcas:       { label: 'YMCAs' },
-        hardware:    { label: 'Hardware Stores' },
-        golf:        { label: 'Golf Courses' },
-        starbucks:   { label: 'Starbucks' },
-        target:      { label: 'Target' },
-        malls:       { label: 'Malls' },
-        newcomers:   { label: 'Newcomers' },
-        apartments:  { label: 'Apartments' },
-        hotels:      { label: 'Hotels' },
-        sports:      { label: 'Sports Venues' },
+        zipcodes:      { label: 'ZIP Code' },
+        pubchat:       { label: 'Pubs & Bars' },
+        foodtrucks:    { label: 'Food Trucks' },
+        parks:         { label: 'Parks' },
+        museums:       { label: 'Museums' },
+        capital:       { label: 'Capitol' },
+        airport:       { label: 'Airport' },
+        campuses:      { label: 'Campuses' },
+        clinics:       { label: 'Hospitals' },
+        grocerystores: { label: 'Grocery Stores' },
+        hardware:      { label: 'Hardware Stores' },
+        golf:          { label: 'Golf Courses' },
+        starbucks:     { label: 'Starbucks' },
+        malls:         { label: 'Malls' },
+        newcomers:     { label: 'Newcomers' },
+        apartments:    { label: 'Apartments' },
+        hotels:        { label: 'Hotels' },
+        sports:        { label: 'Sports Venues' },
       };
 
       // Demo ad copy keyed by app. The text is a placeholder so a
@@ -1322,29 +1307,24 @@
       // austin.chat in the demo; a real deployment would link to the
       // advertiser's site.
       const AD_COPY = {
-        pubchat:      'craft beer & cocktails',
-        foodtrucks:   'mobile POS & food packaging',
-        librarychat:  'audiobooks & tutoring services',
-        parks:        'outdoor gear & trail apps',
-        museums:      'art prints & gallery memberships',
-        capital:      'civic engagement tools',
-        airport:      'travel insurance & rideshare',
-        campuses:     'textbook rentals & student housing',
-        clinics:      'telehealth & prescription savings',
-        pools:        'swim lessons & summer gear',
-        hebs:         'weekly meal kits & grocery deals',
-        walmart:      'household savings & bill pay',
-        ymcas:        'health supplements & fitness gear',
-        hardware:     'power tools & home services',
-        golf:         'clubs, lessons & tee-time apps',
-        starbucks:    'coffee subscriptions & loyalty perks',
-        target:       'home decor & weekly deals',
-        malls:        'fashion sales & gift cards',
-        newcomers:    'movers & neighborhood guides',
-        apartments:   'renters insurance & furniture rentals',
-        hotels:       'local attractions & travel deals',
-        sports:       'tickets, apparel & fan gear',
-        homelesschat: 'community resources & social services',
+        pubchat:       'craft beer & cocktails',
+        foodtrucks:    'mobile POS & food packaging',
+        parks:         'outdoor gear & trail apps',
+        museums:       'art prints & gallery memberships',
+        capital:       'civic engagement tools',
+        airport:       'travel insurance & rideshare',
+        campuses:      'textbook rentals & student housing',
+        clinics:       'telehealth & prescription savings',
+        grocerystores: 'weekly meal kits & grocery deals',
+        hardware:      'power tools & home services',
+        golf:          'clubs, lessons & tee-time apps',
+        starbucks:     'coffee subscriptions & loyalty perks',
+        malls:         'fashion sales & gift cards',
+        newcomers:     'movers & neighborhood guides',
+        apartments:    'renters insurance & furniture rentals',
+        hotels:        'local attractions & travel deals',
+        sports:        'tickets, apparel & fan gear',
+        homelesschat:  'community resources & social services',
       };
       function bannerAdHTML(app, color, variant /* 'inset' | 'full' */) {
         const copy = AD_COPY[app] || 'local goods & services';
@@ -1802,7 +1782,7 @@
             pollsList.innerHTML = '';
             if (!polls.length) { emptyEl.hidden = false; return; }
             emptyEl.hidden = true;
-            const roomId = window.PubchatChat.roomIdFor(app, hotspotId);
+            const roomId = effectiveRoomId(app, hotspotId);
             const rows = await window.PubchatChat.fetchPollResults(roomId);
             const byPoll = new Map();
             for (const r of rows) {
@@ -1970,7 +1950,7 @@
             // Replay last 24 hours of history before live subscribes so
             // bubbles appear in time order. Non-blocking on error.
             try {
-              const roomId = window.PubchatChat.roomIdFor(feature.properties.app, hotspotId);
+              const roomId = effectiveRoomId(feature.properties.app, hotspotId);
               const history = await window.PubchatChat.recentMessages(roomId);
               for (const m of history) msgBubble(m);
             } catch (_) { /* ignore */ }
@@ -1988,7 +1968,8 @@
                 : (hereN === 1 ? '1 here' : `${hereN} here`);
             };
             sub = await window.PubchatChat.subscribeHotspot(
-              hotspotId, feature.properties.app,
+              effectiveHotspotId(feature.properties.app, hotspotId),
+              feature.properties.app,
               { onMessage: onMsg, onPresence, onDelete: removeBubble, identity: getIdentity() }
             );
           } catch (err) {
