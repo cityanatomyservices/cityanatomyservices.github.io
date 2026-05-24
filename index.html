@@ -1192,6 +1192,26 @@
         hotspotByFeatureId.set(`neighborhoods-${n.id}`, n);
       }
 
+      // Precompute which neighborhood contains each circle hotspot so
+      // the neighborhood info popup can list chat-available spots
+      // grouped by category. One point-in-polygon test per hotspot.
+      const hotspotsByNeighborhood = new Map(); // nbhdId -> [{ app, hot }]
+      for (const { app, hotspots } of results) {
+        for (const h of hotspots) {
+          const c = h.geofence?.center;
+          if (!c) continue;
+          for (const n of neighborhoods) {
+            const poly = n.geofence?.polygon;
+            if (!poly) continue;
+            if (pointInMultiPolygon(c[0], c[1], poly)) {
+              if (!hotspotsByNeighborhood.has(n.id)) hotspotsByNeighborhood.set(n.id, []);
+              hotspotsByNeighborhood.get(n.id).push({ app, hot: h });
+              break;
+            }
+          }
+        }
+      }
+
       map.addSource('chatmaps', {
         type: 'geojson',
         data: { type: 'FeatureCollection', features },
@@ -1439,9 +1459,9 @@
         return false;
       }
       function recomputeEntered(userLngLat) {
-        // Finer wins: prefer circle hotspots (pubs, parks, etc.) over
-        // the neighborhood base polygons. Only fall back to a
-        // neighborhood when no circle match is found.
+        // Only circle hotspots are chat-enabled. Neighborhoods are tracked
+        // separately (see recomputeNeighborhood below) — entering one just
+        // opens an info popup, never a chat room.
         let bestRatio = Infinity;
         let bestApp = null, bestFid = null;
         const sched = window.PubchatSchedule;
@@ -1461,17 +1481,6 @@
             }
           }
         }
-        if (bestApp === null) {
-          for (const n of neighborhoods) {
-            const poly = n.geofence?.polygon;
-            if (!poly) continue;
-            if (pointInMultiPolygon(userLngLat[0], userLngLat[1], poly)) {
-              bestApp = 'neighborhoods';
-              bestFid = `neighborhoods-${n.id}`;
-              break;
-            }
-          }
-        }
         if (bestApp !== enteredApp || bestFid !== enteredFeatureId) {
           enteredApp = bestApp;
           enteredFeatureId = bestFid;
@@ -1479,7 +1488,170 @@
           applyEnteredState();
           autoOpenMiniForEntered();
           updateExitVisibility();
+          // enteredApp toggled — re-evaluate whether the neighborhood
+          // popup should be showing (closed while in chat, reopens on
+          // exit unless the user previously dismissed it).
+          reconcileNeighborhoodPopup();
         }
+        recomputeNeighborhood(userLngLat);
+      }
+
+      // Track which neighborhood the user is currently inside (not a
+      // chat tier — only an info-popup trigger). Updated alongside
+      // recomputeEntered; emits a popup on change.
+      let enteredNeighborhoodId = null;
+      // Reset whenever the user crosses a neighborhood boundary — so a
+      // manual dismissal of the popup is respected for the current
+      // visit but not when the user moves on.
+      let dismissedNeighborhoodId = null;
+      function recomputeNeighborhood(userLngLat) {
+        let matchId = null;
+        for (const n of neighborhoods) {
+          const poly = n.geofence?.polygon;
+          if (!poly) continue;
+          if (pointInMultiPolygon(userLngLat[0], userLngLat[1], poly)) {
+            matchId = n.id;
+            break;
+          }
+        }
+        if (matchId !== enteredNeighborhoodId) {
+          enteredNeighborhoodId = matchId;
+          dismissedNeighborhoodId = null;
+        }
+        reconcileNeighborhoodPopup();
+      }
+      // Single source of truth for "should the neighborhood info popup
+      // be visible right now?" — called whenever enteredNeighborhoodId
+      // or enteredApp changes. Open only when we're in a neighborhood,
+      // not in any chat circle, and the user hasn't manually dismissed.
+      function reconcileNeighborhoodPopup() {
+        const wantOpen = enteredNeighborhoodId
+          && !enteredApp
+          && dismissedNeighborhoodId !== enteredNeighborhoodId;
+        if (wantOpen) {
+          const n = neighborhoodById.get(enteredNeighborhoodId);
+          if (n) openNeighborhoodInfoPopup(n, { lng: n.geofence.center[0], lat: n.geofence.center[1] });
+        } else {
+          closeNeighborhoodInfoPopup();
+        }
+      }
+
+      // ── Neighborhood info popup ─────────────────────────────────
+      // Neighborhoods aren't chat rooms. Tapping one (or walking into
+      // one) opens a read-only popup with the neighborhood name and
+      // a category-grouped, clickable list of chat-available spots
+      // inside that polygon. Clicking a spot flies the camera there
+      // and opens the standard info popup for it.
+      let currentNeighborhoodPopup = null;
+      let currentNeighborhoodPopupId = null;
+      let closingNbhdPopupProgrammatically = false;
+      function closeNeighborhoodInfoPopup() {
+        if (currentNeighborhoodPopup) {
+          closingNbhdPopupProgrammatically = true;
+          try { currentNeighborhoodPopup.remove(); } catch (_) {}
+          closingNbhdPopupProgrammatically = false;
+          currentNeighborhoodPopup = null;
+          currentNeighborhoodPopupId = null;
+        }
+      }
+      function openNeighborhoodInfoPopup(nbhd, lngLat) {
+        if (currentNeighborhoodPopupId === nbhd.id && currentNeighborhoodPopup) return;
+        closeNeighborhoodInfoPopup();
+        const spots = hotspotsByNeighborhood.get(nbhd.id) || [];
+        // Bucket by app id, then alphabetize within each bucket.
+        const byApp = new Map();
+        for (const s of spots) {
+          if (!byApp.has(s.app.id)) byApp.set(s.app.id, []);
+          byApp.get(s.app.id).push(s);
+        }
+        const appIds = Array.from(byApp.keys()).sort((a, b) => {
+          const la = (APP_META[a]?.label || a).toLowerCase();
+          const lb = (APP_META[b]?.label || b).toLowerCase();
+          return la.localeCompare(lb);
+        });
+        const groupsHTML = appIds.map(appId => {
+          const items = byApp.get(appId).sort((a, b) =>
+            (a.hot.title || a.hot.id).localeCompare(b.hot.title || b.hot.id));
+          const label = APP_META[appId]?.label || appId;
+          const color = items[0].app.color;
+          const rows = items.map(({ app, hot }) =>
+            `<li style="margin: 2px 0;"><a href="#" class="cm-nbhd-spot" data-app="${app.id}" data-hid="${escapeText(hot.id)}" style="color:${color};text-decoration:none;font-weight:600;">${escapeText(hot.title || hot.id)}</a></li>`
+          ).join('');
+          return `
+            <div style="margin-top:10px;">
+              <div style="font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:${color};font-weight:700;">${escapeText(label)}</div>
+              <ul style="list-style:none;padding:0;margin:4px 0 0 0;font-size:0.85rem;">${rows}</ul>
+            </div>`;
+        }).join('');
+        const description = nbhd.info?.description || nbhd.subtitle || '';
+        const emptyMsg = `<div style="margin-top:10px;font-size:0.8rem;color:#5a6472;font-style:italic;">No chat spots in this neighborhood yet.</div>`;
+        const html = `
+          <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;min-width:240px;max-width:300px;max-height:60vh;overflow-y:auto;padding:14px 16px 16px;">
+            <div style="font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:#1c1c28;font-weight:700;">${escapeText(APP_META.neighborhoods?.label || 'Neighborhood')}</div>
+            <div style="font-size:1.05rem;font-weight:700;margin-top:2px;color:#1c1c28;">${escapeText(nbhd.title)}</div>
+            ${description ? `<div style="font-size:0.78rem;color:#5a6472;margin-top:6px;line-height:1.4;">${escapeText(description)}</div>` : ''}
+            <div style="margin-top:12px;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#5a6472;font-weight:700;">Chat spots here</div>
+            ${spots.length ? groupsHTML : emptyMsg}
+          </div>`;
+        currentNeighborhoodPopup = new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '320px' })
+          .setLngLat(lngLat)
+          .setHTML(html)
+          .addTo(map);
+        currentNeighborhoodPopupId = nbhd.id;
+        currentNeighborhoodPopup.on('close', () => {
+          const wasUserDismiss = !closingNbhdPopupProgrammatically;
+          if (currentNeighborhoodPopupId === nbhd.id) {
+            currentNeighborhoodPopup = null;
+            currentNeighborhoodPopupId = null;
+          }
+          if (wasUserDismiss && enteredNeighborhoodId === nbhd.id) {
+            dismissedNeighborhoodId = nbhd.id;
+          }
+        });
+        // Wire spot links to fly the camera + open the spot's own info popup.
+        const root = currentNeighborhoodPopup.getElement();
+        if (root) {
+          root.querySelectorAll('.cm-nbhd-spot').forEach(a => {
+            a.addEventListener('click', (ev) => {
+              ev.preventDefault();
+              flyToHotspotAndShowInfo(a.dataset.app, a.dataset.hid);
+            });
+          });
+        }
+      }
+
+      // Programmatically fly the map to a hotspot and open the same
+      // info popup the chatmaps-fill click handler would show.
+      function flyToHotspotAndShowInfo(appId, hotId) {
+        const featureId = `${appId}-${hotId}`;
+        const hot = hotspotByFeatureId.get(featureId);
+        if (!hot) return;
+        const center = hot.geofence?.center;
+        if (!center) return;
+        const app = APPS.find(a => a.id === appId);
+        const color = app?.color || '#1c1c28';
+        const meta = APP_META[appId] || { label: appId };
+        const lngLat = { lng: center[0], lat: center[1] };
+        map.flyTo({ center: [center[0], center[1]], zoom: Math.max(map.getZoom(), 15), duration: 700 });
+        const hours = window.PubchatSchedule
+          ? window.PubchatSchedule.formatSchedule(hot.schedule)
+          : '';
+        const social = window.PubchatSocial
+          ? window.PubchatSocial.buttonsHTML(center[1], center[0], hot.title || hot.id)
+          : '';
+        const html = `
+          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 200px; padding: 14px 16px 16px;">
+            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: ${color}; font-weight: 700;">${escapeText(meta.label)}</div>
+            <div style="font-size: 0.95rem; font-weight: 700; margin-top: 2px;">${escapeText(hot.title || hot.id)}</div>
+            ${hot.subtitle ? `<div style="font-size: 0.78rem; color: #5a6472; margin-top: 2px;">${escapeText(hot.subtitle)}</div>` : ''}
+            ${hours ? `<div style="font-size: 0.78rem; color: #1c1c28; margin-top: 10px;"><span style="font-weight:700;">Hours:</span> ${hours}</div>` : ''}
+            ${social}
+            ${bannerAdHTML(appId, color, 'inset')}
+          </div>`;
+        new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '280px' })
+          .setLngLat(lngLat)
+          .setHTML(html)
+          .addTo(map);
       }
 
       // ── EXIT button ──────────────────────────────────────────────
@@ -1505,6 +1677,9 @@
           currentMiniHotspotId = null;
         }
         closeNeighborPopup();
+        enteredNeighborhoodId = null;
+        dismissedNeighborhoodId = null;
+        closeNeighborhoodInfoPopup();
         refreshIdentityHome();
         applyEnteredState();
         updateExitVisibility();
@@ -1557,12 +1732,7 @@
         }
         if (currentMiniHotspotId === enteredFeatureId) return;
         const hot = hotspotByFeatureId.get(enteredFeatureId);
-        // Neighborhoods aren't in APPS (they're the base layer, not a
-        // category). Build a synthetic app entry so the mini-chat opens
-        // normally for them.
-        const app = enteredApp === 'neighborhoods'
-          ? { id: 'neighborhoods', color: hot ? hashColor(hot.title) : '#1c1c28' }
-          : APPS.find(a => a.id === enteredApp);
+        const app = APPS.find(a => a.id === enteredApp);
         if (!hot || !app) return;
         const meta = APP_META[enteredApp] || { label: enteredApp };
         const center = hot.geofence?.center;
@@ -1652,31 +1822,15 @@
       map.on('mouseleave', 'chatmaps-fill', () => { map.getCanvas().style.cursor = ''; });
 
       // Clicks on the neighborhood base polygons. If the user is
-      // currently entered in this neighborhood (no finer hotspot
-      // matched), reopen their home mini-chat. Otherwise show a
-      // lightweight info popup.
+      // Neighborhoods are read-only — no chat. Click anywhere on a
+      // neighborhood polygon to open its info popup (name, description,
+      // and a category-grouped list of chat-available spots inside).
       map.on('click', 'neighborhoods-base-fill', (e) => {
         const f = e.features?.[0];
         if (!f) return;
         const nbhd = neighborhoodById.get(f.properties.nbhdId);
         if (!nbhd) return;
-        const featureId = f.properties.id;
-        if (enteredApp === 'neighborhoods' && enteredFeatureId === featureId) {
-          if (!currentMiniPopup) autoOpenMiniForEntered();
-          return;
-        }
-        const meta = APP_META.neighborhoods;
-        const html = `
-          <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-width: 200px; padding: 14px 16px 16px;">
-            <div style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #1c1c28; font-weight: 700;">${meta.label}</div>
-            <div style="font-size: 0.95rem; font-weight: 700; margin-top: 2px;">${nbhd.title}</div>
-            <div style="font-size: 0.78rem; color: #5a6472; margin-top: 2px;">${nbhd.subtitle || ''}</div>
-          </div>
-        `;
-        new maplibregl.Popup({ offset: 4, closeButton: true, maxWidth: '280px' })
-          .setLngLat(e.lngLat)
-          .setHTML(html)
-          .addTo(map);
+        openNeighborhoodInfoPopup(nbhd, e.lngLat);
       });
       map.on('mouseenter', 'neighborhoods-base-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
       map.on('mouseleave', 'neighborhoods-base-fill', () => { map.getCanvas().style.cursor = ''; });
