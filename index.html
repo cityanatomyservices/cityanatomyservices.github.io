@@ -1587,6 +1587,10 @@
         const infoCopy = description
           ? `<p style="margin:0;font-size:0.85rem;color:#1c1c28;line-height:1.5;">${escapeText(description)}</p>`
           : `<p style="margin:0;font-size:0.85rem;color:#5a6472;font-style:italic;">Description coming soon.</p>`;
+        const wikipediaUrl = nbhd.info?.wikipedia;
+        const wikipediaLink = wikipediaUrl
+          ? `<p style="margin:10px 0 0 0;font-size:0.78rem;"><a href="${escapeText(wikipediaUrl)}" target="_blank" rel="noopener noreferrer" style="color:#1a73ff;text-decoration:none;border-bottom:1px solid #1a73ff;">Wikipedia Source</a></p>`
+          : '';
         const spotsBody = spots.length
           ? groupsHTML
           : `<div style="font-size:0.85rem;color:#5a6472;font-style:italic;">No chat spots in this neighborhood yet.</div>`;
@@ -1605,6 +1609,7 @@
             </nav>
             <div class="cm-nbhd-pane" data-pane="info" role="tabpanel" style="padding-top:12px;">
               ${infoCopy}
+              ${wikipediaLink}
             </div>
             <div class="cm-nbhd-pane" data-pane="spots" role="tabpanel" hidden
                  style="padding-top:8px;max-height:50vh;overflow-y:auto;">
