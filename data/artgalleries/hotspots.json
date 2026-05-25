@@ -1,23 +1,42 @@
 {
   "cityId": "atx",
-  "title": "Art Openings & Galleries · Austin",
+  "title": "Art Openings & Galleries \u00b7 Austin",
   "category": "Art Openings & Galleries",
   "color": "#a855f7",
   "initialCamera": {
-    "center": [-97.7300, 30.2750],
+    "center": [
+      -97.73,
+      30.275
+    ],
     "zoom": 12.0
   },
   "hotspots": [
     {
       "id": "contemporary-austin-jones",
       "gid": "v4qmnxbjhp",
-      "title": "The Contemporary Austin · Jones Center",
-      "subtitle": "700 Congress Ave · downtown contemporary art space",
-      "geofence": { "center": [-97.7434, 30.2700], "radiusMeters": 60 },
+      "title": "The Contemporary Austin \u00b7 Jones Center",
+      "subtitle": "700 Congress Ave \u00b7 downtown contemporary art space",
+      "geofence": {
+        "center": [
+          -97.7434,
+          30.27
+        ],
+        "radiusMeters": 60
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["wed","thu","fri","sat","sun"], "from": "11:00", "to": "17:00" }
+          {
+            "days": [
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "11:00",
+            "to": "17:00"
+          }
         ]
       },
       "info": {
@@ -29,13 +48,35 @@
       "id": "blanton-museum",
       "gid": "w9nbvxjqfh",
       "title": "Blanton Museum of Art",
-      "subtitle": "200 E MLK Jr Blvd · UT campus · Ellsworth Kelly's Austin",
-      "geofence": { "center": [-97.7388, 30.2811], "radiusMeters": 80 },
+      "subtitle": "200 E MLK Jr Blvd \u00b7 UT campus \u00b7 Ellsworth Kelly's Austin",
+      "geofence": {
+        "center": [
+          -97.7388,
+          30.2811
+        ],
+        "radiusMeters": 80
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["tue","wed","thu","fri","sat"], "from": "10:00", "to": "17:00" },
-          { "days": ["sun"], "from": "13:00", "to": "17:00" }
+          {
+            "days": [
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "10:00",
+            "to": "17:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "13:00",
+            "to": "17:00"
+          }
         ]
       },
       "info": {
@@ -46,13 +87,28 @@
     {
       "id": "canopy-big-medium",
       "gid": "l7gnxbvrkq",
-      "title": "Canopy · Big Medium",
-      "subtitle": "916 Springdale Rd · East Austin studio complex + galleries",
-      "geofence": { "center": [-97.6981, 30.2748], "radiusMeters": 100 },
+      "title": "Canopy \u00b7 Big Medium",
+      "subtitle": "916 Springdale Rd \u00b7 East Austin studio complex + galleries",
+      "geofence": {
+        "center": [
+          -97.6981,
+          30.2748
+        ],
+        "radiusMeters": 100
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["thu","fri","sat","sun"], "from": "12:00", "to": "18:00" }
+          {
+            "days": [
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "12:00",
+            "to": "18:00"
+          }
         ]
       },
       "info": {
@@ -64,12 +120,26 @@
       "id": "icosa-collective",
       "gid": "z5pjmqvhwn",
       "title": "ICOSA Collective",
-      "subtitle": "916 Springdale Rd · artist-run cooperative gallery",
-      "geofence": { "center": [-97.6981, 30.2750], "radiusMeters": 40 },
+      "subtitle": "916 Springdale Rd \u00b7 artist-run cooperative gallery",
+      "geofence": {
+        "center": [
+          -97.6981,
+          30.275
+        ],
+        "radiusMeters": 40
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["fri","sat","sun"], "from": "13:00", "to": "18:00" }
+          {
+            "days": [
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "13:00",
+            "to": "18:00"
+          }
         ]
       },
       "info": {
@@ -81,12 +151,24 @@
       "id": "mass-gallery",
       "gid": "g8kvjwbqxn",
       "title": "MASS Gallery",
-      "subtitle": "705 Gunter St · East Austin · group-run artspace",
-      "geofence": { "center": [-97.6960, 30.2530], "radiusMeters": 50 },
+      "subtitle": "705 Gunter St \u00b7 East Austin \u00b7 group-run artspace",
+      "geofence": {
+        "center": [
+          -97.696,
+          30.253
+        ],
+        "radiusMeters": 50
+      },
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["sat"], "from": "12:00", "to": "17:00" }
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "12:00",
+            "to": "17:00"
+          }
         ]
       },
       "info": {
@@ -98,35 +180,3019 @@
       "id": "wally-workman-gallery",
       "gid": "p6yvxnbqlh",
       "title": "Wally Workman Gallery",
-      "subtitle": "1202 W 6th St · Clarksville · contemporary painting",
-      "geofence": { "center": [-97.7567, 30.2724], "radiusMeters": 40 },
+      "subtitle": "1202 W 6Th St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.757145,
+          30.27307
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "947",
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["tue","wed","thu","fri","sat"], "from": "10:00", "to": "17:30" }
+          {
+            "days": [
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "10:00",
+            "to": "17:30"
+          }
         ]
-      },
-      "info": {
-        "description": "Clarksville contemporary painting gallery in a converted house, with monthly solo and group exhibition openings on first Saturdays.",
-        "website": "https://wallyworkmangallery.com"
       }
     },
     {
       "id": "lora-reynolds-gallery",
       "gid": "k9wmbxvhfn",
       "title": "Lora Reynolds Gallery",
-      "subtitle": "360 Nueces St · contemporary international art",
-      "geofence": { "center": [-97.7510, 30.2671], "radiusMeters": 40 },
+      "subtitle": "360 Nueces St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.749564,
+          30.267494
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Lora Reynolds Gallery presents contemporary art in all media by established and emerging, national and international artists. Exhibited artists include Ewan Gibbs, Francesca Gabbiani, Jim Torok, Robert Therrien and Andy Warhol. Lora Reynolds establis"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "427",
       "schedule": {
         "timezone": "America/Chicago",
         "windows": [
-          { "days": ["tue","wed","thu","fri","sat"], "from": "11:00", "to": "17:00" }
+          {
+            "days": [
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "11:00",
+            "to": "17:00"
+          }
         ]
+      }
+    },
+    {
+      "id": "tiny-park-gallery-745",
+      "gid": "6zhniv552y",
+      "title": "Tiny Park Gallery",
+      "subtitle": "1101 Navasota Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.72661,
+          30.268463
+        ],
+        "radiusMeters": 70
       },
       "info": {
-        "description": "Contemporary art gallery downtown with regular openings for solo and two-person exhibitions of international artists.",
-        "website": "https://www.lorareynolds.com"
-      }
+        "description": "Tiny Park<span style=\"font-family: Garamond, Baskerville, Georgia, 'Times New Roman', Times, serif; font-size: 16p"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "745"
+    },
+    {
+      "id": "l-nowlin-gallery-941",
+      "gid": "uwyzgpfdja",
+      "title": "L. Nowlin Gallery",
+      "subtitle": "1202 West 6Th Street Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.757145,
+          30.27307
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "L. Nowlin Gallery, owned and operated by local photographer Lesley Nowlin, (www.lesleynowlinphoto.com) opened its doors in the spring of 2009 in Austin's artistic West End District. L. Nowlin Gallery strives to provide a unique space to expose photograph",
+        "website": "http://www.lnowlingallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "941"
+    },
+    {
+      "id": "birdhouse-748",
+      "gid": "og92njienr",
+      "title": "BiRDHOUSE",
+      "subtitle": "1304 E Cesar Chavez Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.731412,
+          30.259778
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "BiRDHOUSE is an independent gallery space owned and run by independent artists that is dedicated to supporting our eclectic and emerging independent art scene here in AUSTIN and globally.",
+        "website": "http://www.birdhousegallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "748"
+    },
+    {
+      "id": "pioneer-farms-2829",
+      "gid": "js72k9dbwn",
+      "title": "Pioneer Farms",
+      "subtitle": "10621 Pioneer Farms Dr Austin TX 78754 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.661056,
+          30.345825
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "An outdoor living history museum, Pioneer Farms presents the story of rural life in central Texas during the 1880's. Using historically correct farm animals, crops, clothing, furnishings, buildings, implements and food, costumed interpreters offer a com",
+        "website": "http://www.pioneerfarms.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2829"
+    },
+    {
+      "id": "russell-collection-fine-art-gallery-944",
+      "gid": "shawqvmcik",
+      "title": "Russell Collection Fine Art Gallery",
+      "subtitle": "1137 W 6Th St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.756957,
+          30.272404
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Russell Collection is a World Class gallery filled with museum quality art. They set out to offer something different to the serious art collector in central Texas. The current collection includes the works of Rembrandt, Mary Cassatt, Marc Chagall,",
+        "website": "http://www.russell-collection.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "944"
+    },
+    {
+      "id": "polka-lovers-club-of-texas-museum-2413",
+      "gid": "qifm2qcnge",
+      "title": "Polka Lovers Club Of Texas Museum",
+      "subtitle": "515 Yaupon Valley Rd Austin TX 78746 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.807316,
+          30.292674
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2413"
+    },
+    {
+      "id": "bone-black-studio-gallery-women-printmakers-of-austin-176",
+      "gid": "cbwp7w59op",
+      "title": "Bone Black Studio & Gallery, Women Printmakers of Austin",
+      "subtitle": "916 Springdale Rd \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.698289,
+          30.261871
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Gallery and studio space of the Women Printmakers of Austin, located in the Canopy Arts Complex",
+        "website": "http://www.boneblackstudio.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "176"
+    },
+    {
+      "id": "o-henry-museum-city-of-austin-parks-recreation-411",
+      "gid": "zfeqbdb9jg",
+      "title": "O. Henry Museum, City Of Austin, Parks & Recreation",
+      "subtitle": "409 E 5Th St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.739655,
+          30.265839
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The famous author, O. Henry's home while living in Austin. The museum hosts a permanent exhibit, as well as tours, youth and adult workshops, and the utterly punny Pun-Off World Championships. Free admission: Hours: Wednesday \u2013 Sundays, Noon &ndas",
+        "website": "http://www.austintexas.gov/department/o-henry-museum; www.ohenrymuseum.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "411"
+    },
+    {
+      "id": "libertine-gallery-426",
+      "gid": "2u5fft6oxo",
+      "title": "Libertine Gallery",
+      "subtitle": "612 Brazos 100 Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.741707,
+          30.267901
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Libertine Gallery strives to present art and jewelry that is different and edgy but beautiful and of the highest quality. Libertine has it all, representing local as well as nationally renowned artists.",
+        "website": "http://libertinegallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "426"
+    },
+    {
+      "id": "gallery-at-museo-3228",
+      "gid": "3qmgiur8fs",
+      "title": "Gallery at Museo",
+      "subtitle": "11266 Taylor Draper Ln Austin TX 78759 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.752754,
+          30.410535
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "This is a gallery in the Museo apartment home complex",
+        "website": "http://www.museoliving.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3228"
+    },
+    {
+      "id": "link-pin-gallery-184",
+      "gid": "axxao7f52q",
+      "title": "Link & Pin Gallery",
+      "subtitle": "2235 E 6Th St \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.718243,
+          30.259893
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "184"
+    },
+    {
+      "id": "yancey-s-antiques-1872",
+      "gid": "ira8jezfrx",
+      "title": "Yancey's Antiques",
+      "subtitle": "9308 Anderson Mill Rd Austin TX 78729 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.78489,
+          30.450767
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1872"
+    },
+    {
+      "id": "crawshay-gallery-1993",
+      "gid": "p7ank5mbp3",
+      "title": "Crawshay Gallery",
+      "subtitle": "6550 Comanche Trl Austin TX 78732 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.875184,
+          30.408535
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1993"
+    },
+    {
+      "id": "art-on-5th-gallery-1020",
+      "gid": "j7wry6twvu",
+      "title": "Art On 5th Gallery",
+      "subtitle": "3005 S Lamar Blvd Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.782789,
+          30.243219
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Contemporary art gallery including a permanent display of Dr. Seuss works, along with over 40 other artists."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1020"
+    },
+    {
+      "id": "art-frame-direct-3227",
+      "gid": "ieu5iezbqx",
+      "title": "Art & Frame Direct",
+      "subtitle": "9503 Research Blvd Austin TX 78759 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.742953,
+          30.387809
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3227"
+    },
+    {
+      "id": "little-pink-monster-gallery-185",
+      "gid": "4cdi6ba2y7",
+      "title": "Little Pink Monster Gallery",
+      "subtitle": "1913 E 17th St \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.720533,
+          30.277552
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "185"
+    },
+    {
+      "id": "austin-art-garage-1212",
+      "gid": "y9vp2u85as",
+      "title": "Austin Art Garage",
+      "subtitle": "2200 S Lamar Blvd Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.772891,
+          30.247842
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Many talented artists have been too long overlooked and are struggling to sell their art. Austin Art Garage was created to bring these artists into the spotlight and expose their talents. At AustinArtGarage.com you can see all prices and varieties of",
+        "website": "http://www.austinartgarage.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1212"
+    },
+    {
+      "id": "blue-ocean-gallery-1033",
+      "gid": "rqx2wfbfck",
+      "title": "Blue Ocean Gallery",
+      "subtitle": "411 East St Elmo St Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.762764,
+          30.215007
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "fine furniture and fine art gallery"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1033"
+    },
+    {
+      "id": "kathy-womack-gallery-424",
+      "gid": "36y4kzvew8",
+      "title": "Kathy Womack Gallery",
+      "subtitle": "411 Brazos St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.741807,
+          30.265875
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "424"
+    },
+    {
+      "id": "art2love-2865",
+      "gid": "3orpde3hfo",
+      "title": "Art2Love",
+      "subtitle": "4208 Cliffwood Cove Austin TX 78755 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.750397,
+          30.38639
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "art2love\u2019s mission is to empower, encourage and elevate children in crisis through art \u2013 their own art. Through dedicated drawing workshops children express their inner feelings in drawings that are then made into tangible replicas they can hug and interact with. The custom, plush reproductions of the children\u2019s art are called artlings.",
+        "website": "http://art2love.org/contact/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2865"
+    },
+    {
+      "id": "mexic-arte-museum-428",
+      "gid": "7hjc5bcdqv",
+      "title": "Mexic-Arte Museum",
+      "subtitle": "419 Congress Ave Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.743128,
+          30.266313
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Mexic-Arte Museum is dedicated to cultural enrichment and education through the presentation and promotion of traditional and contemporary Mexican, Latino, and Latin American art and culture. Since its founding in 1984, Mexic-Arte Museum has emerged"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "428"
+    },
+    {
+      "id": "images-of-austin-3026",
+      "gid": "iti3psmhty",
+      "title": "Images Of Austin",
+      "subtitle": "5933 Burnet Rd Austin TX 78757 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.739462,
+          30.335083
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3026"
+    },
+    {
+      "id": "good-art-co-423",
+      "gid": "69wsr6szba",
+      "title": "Good Art Co",
+      "subtitle": "1300 Guadalupe St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.743999,
+          30.276128
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "423"
+    },
+    {
+      "id": "french-legation-museum-755",
+      "gid": "xmxnizefwr",
+      "title": "French Legation Museum",
+      "subtitle": "802 San Marcos St Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.731807,
+          30.267002
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The French Legation was originally built in 1840-1841 to be the residence of the charge d'affaires who represented the government of France in the Republic of Texas. The Legation became the home of Dr. and Mrs. Joseph Robertson in 1848, remaining in thei",
+        "website": "http://www.frenchlegationmuseum.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "755"
+    },
+    {
+      "id": "r-s-thompson-art-1900",
+      "gid": "a7ohy5yvbd",
+      "title": "R S Thompson Art",
+      "subtitle": "9801 Big View Dr Austin TX 78730 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.849023,
+          30.366879
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1900"
+    },
+    {
+      "id": "tejano-artist-music-museum-inc-1708",
+      "gid": "i2gew896sd",
+      "title": "Tejano Artist Music Museum Inc",
+      "subtitle": "2908 Overdale Rd Austin TX 78723 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.681991,
+          30.30264
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1708"
+    },
+    {
+      "id": "north-hills-gallery-1947",
+      "gid": "ja6qpqw5my",
+      "title": "North Hills Gallery",
+      "subtitle": "7050 Village Center Drive Austin TX 78731 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.756132,
+          30.353284
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "North Hills Gallery is a Not for Profit art gallery displaying work by 2D artists of all types, both individuals and groups. Exhibits change monthly. The gallery is under the auspices of the Fine Arts Committee of Northwest Hills United Methodist Chur"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1947"
+    },
+    {
+      "id": "thortan-road-studios-1082",
+      "gid": "5yrfpq6k7b",
+      "title": "Thortan Road Studios",
+      "subtitle": "2309 Thornton Rd Austin TX 78704 \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.771502,
+          30.245343
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "0",
+        "website": "https://www.facebook.com/thorntonroadstudios/?fref=nf"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1082"
+    },
+    {
+      "id": "stephen-l-clark-gallery-945",
+      "gid": "pyqzsnpxj2",
+      "title": "Stephen L Clark Gallery",
+      "subtitle": "1101 W 6Th St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.755572,
+          30.271868
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "945"
+    },
+    {
+      "id": "julia-c-butridge-gallery-1214",
+      "gid": "dovyyvbcnv",
+      "title": "Julia C. Butridge Gallery",
+      "subtitle": "1110 Barton Springs Road Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.755849,
+          30.260649
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Julia C. Butridge Gallery is committed to preserving and enriching Austin's cultural life. Area artists and arts organizations have 1,800 square feet available for exhibits in all media and subject matter. The gallery supports excellence in the vis",
+        "website": "http://austin.tx.us/dougherty/gallery.htm"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1214"
+    },
+    {
+      "id": "texas-memorial-museum-university-of-texas-at-austin-1461",
+      "gid": "z9a6p4si35",
+      "title": "Texas Memorial Museum, University Of Texas At Austin",
+      "subtitle": "2400 Trinity St Austin TX 78712 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.732216,
+          30.28697
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Natural history, biodiversity museum",
+        "website": "http://www.utexas.edu/tmm/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1461"
+    },
+    {
+      "id": "george-washington-carver-museum-cultural-center-city-of-austin-parks-r-744",
+      "gid": "jukz849zaa",
+      "title": "George Washington Carver Museum & Cultural Center, City Of Austin, Parks & Recreation",
+      "subtitle": "1165 Angelina St Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.724217,
+          30.270055
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Museum re Af Am history, galleries, classrm, darkrm, dance studio, theatre, archival sapce",
+        "website": "http://www.austintexas.gov/department/george-washington-carver-museum-and-cultural-center; www.carvermuseum.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "744"
+    },
+    {
+      "id": "austin-fire-museum-city-of-austin-parks-recreation-409",
+      "gid": "estjxv74az",
+      "title": "Austin Fire Museum, City Of Austin, Parks & Recreation",
+      "subtitle": "401 E 5Th St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.739739,
+          30.265861
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Austin Fire Dept History Museum & Archives"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "409"
+    },
+    {
+      "id": "el-taller-gallery-3023",
+      "gid": "fnwgqi4a8h",
+      "title": "El Taller Gallery",
+      "subtitle": "2438 West Anderson Lane C-3 Austin TX 78757 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.731565,
+          30.356846
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Come and visit the El Taller Gallery which houses many different styles of artwork from modern masters and contemporary artists and ranging from the abstract to southwestern genres.",
+        "website": "http://eltallergallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3023"
+    },
+    {
+      "id": "old-bakery-and-emporium-city-of-austin-parks-recreation-412",
+      "gid": "8c5ufmkkq4",
+      "title": "Old Bakery And Emporium, City Of Austin, Parks & Recreation",
+      "subtitle": "1006 Congress Ave Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.741717,
+          30.271966
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "A registered national landmark has graced Congress Avenue since 1876 and was featured in many O. Henry stories. The 1st floor features local arts & crafts. The 3rd floor features an Austin history exhibits & art gallery. Free admission: Hours: Monday&nd",
+        "website": "http://www.austintexas.gov/obemporium"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "412"
+    },
+    {
+      "id": "mon-musel-studio-gallery-761",
+      "gid": "2imoebtub4",
+      "title": "Mon\u00e9 Musel Studio & Gallery",
+      "subtitle": "208 San Marcos Street Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.73441,
+          30.261709
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Contemporary Abstract Art Paintings & Mixed Media Artwork by Mone' Musel",
+        "website": "http://www.monemusel.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "761"
+    },
+    {
+      "id": "merrells-house-of-art-3132",
+      "gid": "vxqwts88xn",
+      "title": "Merrells House Of Art",
+      "subtitle": "9235 Partridge Cir Austin TX 78758 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.711349,
+          30.368791
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3132"
+    },
+    {
+      "id": "fish-gallery-2723",
+      "gid": "qjzdp6h3ko",
+      "title": "Fish Gallery",
+      "subtitle": "6000 N Lamar Blvd Austin TX 78752 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.724959,
+          30.328736
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2723"
+    },
+    {
+      "id": "meredith-pardue-studio-2411",
+      "gid": "ab3fidm86r",
+      "title": "Meredith Pardue Studio",
+      "subtitle": "3801 N Capital Of Texas Hwy Austin TX 78746 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.805139,
+          30.336189
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2411"
+    },
+    {
+      "id": "romani-gallery-187",
+      "gid": "io8uvmivxo",
+      "title": "Romani Gallery",
+      "subtitle": "1900 E 12th St \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.719925,
+          30.274061
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "187"
+    },
+    {
+      "id": "art-soul-studio-3130",
+      "gid": "3xogxkhufv",
+      "title": "Art & Soul Studio",
+      "subtitle": "3801 Berkman Dr Austin TX 8723 \u00b7 Education",
+      "geofence": {
+        "center": [
+          -97.698868,
+          30.290834
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "It is our mission to inspire and explore your natural creativity through an art-rich curriculum. Enhance your knowledge of great artists, mediums and create a masterpiece that you are proud of. Explore different types of drawing, painting, collage & printmaking. Art & Soul focuses on Creativity, Inspiration & Pride. We believe that creating art work is something that is important to growth and development, as well as tapping into parts of ourselves we sometimes forget about. We will inspire you with rich colors and values that light up the room. Our classes are designed to provide a sense of inspiration that will touch your hearts and souls forever. Our teachers are dedicated to providing a fun & hands on learning experience for students of all ages. You will be proud of what you create and we take great pride in our students, our teaching and our mission.",
+        "website": "http://artandsoulclasses.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3130"
+    },
+    {
+      "id": "gallery-black-lagoon-182",
+      "gid": "td28rtwvmb",
+      "title": "Gallery Black Lagoon",
+      "subtitle": "4301 Guadalupe St \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.734052,
+          30.308549
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Contemporary Art Gallery & Event Space",
+        "website": "http://www.galleryblacklagoon.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "182"
+    },
+    {
+      "id": "westlake-fine-arts-facility-2414",
+      "gid": "55pjipzkd4",
+      "title": "Westlake Fine Arts Facility",
+      "subtitle": "4100 Westbank Drive Austin TX 78746 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.817074,
+          30.276775
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "This facility located at Westlake High School, is a great venue for community and school events including music and theatre performances."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2414"
+    },
+    {
+      "id": "frank-restaurant-public-art-wall-420",
+      "gid": "pp9aqkcjum",
+      "title": "Frank Restaurant & Public Art Wall",
+      "subtitle": "4Th And Colorado St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.744812,
+          30.266569
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Frank Public Art is a rotating mural project located at 407 Colorado in downtown Austin. Frank Public Art showcases fantastic new artists each month on 35ft x 10ft exterior wall, curated by Jason Archer, Geoff Peveto and Christian Helms. With the goal of",
+        "website": "http://hotdogscoldbeer.com/austin/public-art/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "420"
+    },
+    {
+      "id": "joseph-and-susanna-dickinson-hannig-museum-city-of-austin-parks-recrea-410",
+      "gid": "oqs48i9h7r",
+      "title": "Joseph And Susanna Dickinson Hannig Museum, City Of Austin, Parks & Recreation",
+      "subtitle": "411 E 5Th St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.739634,
+          30.265834
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Museum row, program, ed resources",
+        "website": "http://www.austintexas.gov/department/joseph-and-susanna-dickinson-hannig-museum; www.susannadickinsonmuseum.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "410"
+    },
+    {
+      "id": "art-for-the-people-gallery-1211",
+      "gid": "5brop74jf9",
+      "title": "Art for the People Gallery",
+      "subtitle": "1711 S 1st St Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.755226,
+          30.248238
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Art for the People Gallery scours our city (and beyond) for the best there is, so you ... events to stay up to date with the Bouldin Creek and Austin art community."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1211"
+    },
+    {
+      "id": "co-lab-projects-749",
+      "gid": "ksn35g5v89",
+      "title": "Co-Lab Projects",
+      "subtitle": "613 Allen St Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.704651,
+          30.256403
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Co-Lab Projects is an artist-run nonprofit organization dedicated to providing resources, education, and exhibition space to artists that produce contemporary works of art, installation, and performance."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "749"
+    },
+    {
+      "id": "mass-gallery-inc-759",
+      "gid": "8ymabts6kx",
+      "title": "Mass Gallery Inc",
+      "subtitle": "507 Calles St Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.712499,
+          30.257995
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "MASS was founded in 2006 in a former auto body shop behind the Blue Hanger thrift store on Springdale Road. Through the creative energy of a shifting collection of Austin artists, writers and curators, MASS has presented more than forty exhibitions, even",
+        "website": "http://www.massgallery.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "759"
+    },
+    {
+      "id": "contemporary-austin-416",
+      "gid": "bk2h8kyjgf",
+      "title": "Contemporary Austin",
+      "subtitle": "700 Congress Ave Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.742764,
+          30.26908
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Contemporary Austin reflects the spectrum of contemporary art through exhibitions, commissions, education, and the collection. Reflecting the unconventional spirit of Austin, The Jones Center offers informative and informal art experiences orie"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "416"
+    },
+    {
+      "id": "bay6-gallery-and-studios-1588",
+      "gid": "5vzeu7rwcb",
+      "title": "Bay6 Gallery and Studios",
+      "subtitle": "5305 Bolm Rd Austin TX 78721 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.691662,
+          30.258553
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Bay6 is an artist driven work and exhibition space located in Austin TX. Gallery Hours: Saturdays/Sundays 2-5PM or by appointment",
+        "website": "http://www.bay6studios.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1588"
+    },
+    {
+      "id": "focal-point-3024",
+      "gid": "9gmcox3t5g",
+      "title": "Focal Point",
+      "subtitle": "800 Setting Sun Ct Austin TX 78757 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.732097,
+          30.350518
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3024"
+    },
+    {
+      "id": "dimension-gallery-179",
+      "gid": "jefsp4aphg",
+      "title": "Dimension Gallery",
+      "subtitle": "979 Springdale \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.695548,
+          30.265025
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "179"
+    },
+    {
+      "id": "sacred-arts-studio-gallery-2538",
+      "gid": "qwwi5j9hkb",
+      "title": "Sacred Arts Studio & Gallery",
+      "subtitle": "6001 W William Cannon Dr Austin TX 78749 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.862045,
+          30.22805
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2538"
+    },
+    {
+      "id": "ile-designs-inc-1806",
+      "gid": "piqu5djqjw",
+      "title": "Ile Designs Inc",
+      "subtitle": "12708 Riata Vista Cir Austin TX 78727 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.739331,
+          30.433073
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1806"
+    },
+    {
+      "id": "austin-art-space-gallery-studios-3022",
+      "gid": "yri45ze6ff",
+      "title": "Austin Art Space Gallery & Studios",
+      "subtitle": "7739 Northcross Dr Austin TX 78757 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.735945,
+          30.355077
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3022"
+    },
+    {
+      "id": "country-store-art-gallery-inc-417",
+      "gid": "mgp7uf95mi",
+      "title": "Country Store Art Gallery Inc",
+      "subtitle": "1304 Lavaca St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.742872,
+          30.275877
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "417"
+    },
+    {
+      "id": "modern-rocks-gallery-760",
+      "gid": "i87w4pdpjw",
+      "title": "Modern Rocks Gallery",
+      "subtitle": "916 Springdale Rd Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.698289,
+          30.261871
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "760"
+    },
+    {
+      "id": "in-the-galleries-austin-inc-939",
+      "gid": "yocvce5f33",
+      "title": "In The Galleries Austin Inc",
+      "subtitle": "1214 W 6Th St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.757947,
+          30.273362
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "939"
+    },
+    {
+      "id": "foster-s-art-1871",
+      "gid": "f5tdbtfwr9",
+      "title": "Foster's Art",
+      "subtitle": "13377 Pond Springs Rd Austin TX 78729 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.783624,
+          30.449521
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1871"
+    },
+    {
+      "id": "prickly-pear-galleries-2509",
+      "gid": "p4qijbnekb",
+      "title": "Prickly pear Galleries",
+      "subtitle": "4301 W William Cannon Dr Austin TX 78749 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.83871,
+          30.221985
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "website": "http://www.pricklypeargalleries.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2509"
+    },
+    {
+      "id": "elisabet-ney-museum-city-of-austin-parks-recreation-2656",
+      "gid": "b3ccgembew",
+      "title": "Elisabet Ney Museum, City Of Austin, Parks & Recreation",
+      "subtitle": "304 E 44Th St Austin TX 78751 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.726985,
+          30.306869
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Former studio as museum, public programs, exhibits; historic site",
+        "website": "http://www.austintexas.gov/Elisabetney; www elisabetneymuseum.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2656"
+    },
+    {
+      "id": "b-hollyman-gallery-937",
+      "gid": "ci3xgheonc",
+      "title": "B. Hollyman Gallery",
+      "subtitle": "1202 West 6Th Street Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.757145,
+          30.27307
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "\u201cStart with one true thing.\u201d - Ernest Hemingway B. Hollyman Gallery aims for the true thing. You know it when you see. In an instant. And then it is gone. Luckily, we have photography to capture part of it. We specialize in fine",
+        "website": "http://www.bhollymangallery.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "937"
+    },
+    {
+      "id": "slugfest-printmaking-workshop-gallery-1640",
+      "gid": "pcxnntuany",
+      "title": "Slugfest Printmaking Workshop & Gallery",
+      "subtitle": "1909 Miriam Avenue Austin TX 78722 \u00b7 Studio, Gallery",
+      "geofence": {
+        "center": [
+          -97.711249,
+          30.281564
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "Slugfest Printmaking Workshop is a collaborative workshop producing museum quality limited editions of original prints by both established and emerging artists. The workshop is also open to artists who wish to create or edition prints independently or w",
+        "website": "http://slugfestprints.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1640"
+    },
+    {
+      "id": "public-health-museum-of-texas-3230",
+      "gid": "co8htvks6m",
+      "title": "Public Health Museum Of Texas",
+      "subtitle": "8501 N Mopac Expressway Austin TX 78759 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.741702,
+          30.368275
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3230"
+    },
+    {
+      "id": "east-side-glass-studio-180",
+      "gid": "4jmbboh52c",
+      "title": "East Side Glass Studio",
+      "subtitle": "3401 E 4th St \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.705277,
+          30.253281
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "180"
+    },
+    {
+      "id": "wardenclyffe-1590",
+      "gid": "oxzmcvx2zd",
+      "title": "Wardenclyffe",
+      "subtitle": "1101 Springdale Road Austin TX 78721 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.690132,
+          30.273454
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "a homegrown outlet for local and visiting artists, musicians, and creators of every ilk Bimonthly rotations of visual art, including painting, drawing, photography, sculpture and installation work, as well as performance space for music, theatre, and int",
+        "website": "http://www.wardenclyffegallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1590"
+    },
+    {
+      "id": "republic-of-texas-museum-2724",
+      "gid": "6bxorwqs38",
+      "title": "Republic Of Texas Museum",
+      "subtitle": "510 E Anderson Ln Austin TX 78752 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.702288,
+          30.341962
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Visit award-winning hands-on exhibits for children and adults alongside great traditional exhibits at the Republic of Texas Museum. Enjoy the museum scavenger hunts that feature the Republic and early statehood eras in Texas history. Special exhibits a",
+        "website": "http://www.drtinfo.org/preservation/drt-properties/republic-of-texas-museum"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2724"
+    },
+    {
+      "id": "texas-music-museum-inc-766",
+      "gid": "yc287htpmx",
+      "title": "Texas Music Museum Inc",
+      "subtitle": "1009 E 11Th St Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.73059,
+          30.269389
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "766"
+    },
+    {
+      "id": "harry-ransom-center-university-of-texas-at-austin-1460",
+      "gid": "ukmfsvhbfb",
+      "title": "Harry Ransom Center, University Of Texas At Austin",
+      "subtitle": "300 W 21St St Austin TX 78712 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.735924,
+          30.283461
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Considered one of the world's finest cultural archives, the Harry Ransom Center houses 30 million literary manuscripts, 1 million rare books, 5 million photographs, and over 100,000 visual artworks. Highlights include the Gutenberg Bible and the world's"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1460"
+    },
+    {
+      "id": "the-show-on-the-road-189",
+      "gid": "8788jifuvx",
+      "title": "The SHOW On The Road",
+      "subtitle": "1010 E Cesar Chavez St \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.73438,
+          30.260783
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "189"
+    },
+    {
+      "id": "museum-of-collectibles-curiosities-942",
+      "gid": "rcrovwgru6",
+      "title": "Museum Of Collectibles & Curiosities",
+      "subtitle": "1211 W 10Th St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.755091,
+          30.27622
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "942"
+    },
+    {
+      "id": "art-science-gallery-747",
+      "gid": "hwud8naviy",
+      "title": "Art.Science.Gallery",
+      "subtitle": "916 Springdale Rd Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.698289,
+          30.261871
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Art.Science.Gallery. is an art gallery and science communication space dedicated to art-science fusion of all kinds. Located in Austin, Texas, we are one of the nation\u2019s first art galleries to feature exclusively science-related artworks!",
+        "website": "http://www.artsciencegallery.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "747"
+    },
+    {
+      "id": "hope-outdoor-gallery-863",
+      "gid": "wpj47hikx3",
+      "title": "HOPE Outdoor Gallery",
+      "subtitle": "1101 Baylor St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.752536,
+          30.276503
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "863"
+    },
+    {
+      "id": "not-gallery-1579",
+      "gid": "4wspbgd36a",
+      "title": "Not Gallery",
+      "subtitle": "5305 Bolm Rd Austin TX 78721 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.691112,
+          30.25794
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "website": "http://www.notgallery.net/index.html"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1579"
+    },
+    {
+      "id": "susanna-dickinson-museum-431",
+      "gid": "s3qd3ekxyw",
+      "title": "Susanna Dickinson Museum",
+      "subtitle": "411 East Fifth Street Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.739634,
+          30.265834
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Preserving the home and legacy of Alamo survivor Susanna Dickinson. Learn about Texas history through tours, quilting, storytelling, kid's classes and events. Like us at http://www.facebook.com/artsinparks for free up coming events.",
+        "website": "http://www.SusannaDickinsonMuseum.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "431"
+    },
+    {
+      "id": "southpop-south-austin-museum-of-popular-culture-1217",
+      "gid": "vbtgvmcomx",
+      "title": "SouthPOP-South Austin Museum of Popular Culture",
+      "subtitle": "1516 S Lamar Blvd Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.762905,
+          30.254321
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "collect/exhibit posters & music ephemera 1960s-",
+        "website": "http://southpop.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1217"
+    },
+    {
+      "id": "mondo-gallery-186",
+      "gid": "t2hazahfii",
+      "title": "Mondo Gallery",
+      "subtitle": "4115 Guadalupe St \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.735399,
+          30.306453
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "186"
+    },
+    {
+      "id": "de-stijl-podium-for-art-178",
+      "gid": "8ofchdhy4r",
+      "title": "de stijl | PODIUM FOR ART",
+      "subtitle": "1006 West 31St Street \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.746287,
+          30.300543
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0",
+        "website": "http://www.destijlaustin.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "178"
+    },
+    {
+      "id": "art-usa-2148",
+      "gid": "op5xowiaxg",
+      "title": "Art Usa",
+      "subtitle": "5601 Ballenton Ln Austin TX 78739 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.878858,
+          30.192325
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2148"
+    },
+    {
+      "id": "stone-wave-gallery-188",
+      "gid": "zc9brw7hrq",
+      "title": "Stone Wave Gallery",
+      "subtitle": "1715 E 6th \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.724404,
+          30.262046
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "188"
+    },
+    {
+      "id": "grayduck-gallery-758",
+      "gid": "6ynpfiyjfs",
+      "title": "Grayduck Gallery",
+      "subtitle": "2213 E Cesar Chavez Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.720619,
+          30.255462
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "grayDUCK is a contemporary art gallery located in South Austin. Our aim is to show cutting edge work from across the country including Austin's known and not yet discovered artists. We believe art should be accessible and affordable.",
+        "website": "http://grayduckgallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "758"
+    },
+    {
+      "id": "austin-figurative-gallery-414",
+      "gid": "6ry77se2s8",
+      "title": "Austin Figurative Gallery",
+      "subtitle": "315 North Congress Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.743722,
+          30.265368
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Austin Figurative Gallery features a variety of art and cultural events for the whole community to enjoy.",
+        "website": "http://austinfigurativegallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "414"
+    },
+    {
+      "id": "nova-art-3133",
+      "gid": "6uvj5ybgrt",
+      "title": "Nova Art",
+      "subtitle": "11410 Century Oaks Ter Austin TX 78758 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.711093,
+          30.378845
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3133"
+    },
+    {
+      "id": "the-gallery-1029",
+      "gid": "g688a3mog8",
+      "title": "The Gallery",
+      "subtitle": "3622 Manchaca Rd Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.784277,
+          30.238042
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1029"
+    },
+    {
+      "id": "artworks-art-gallery-aka-artworks-936",
+      "gid": "ui49qi8s2z",
+      "title": "Artworks Art Gallery Aka Artworks",
+      "subtitle": "1214 W 6Th St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.757947,
+          30.273362
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Artworks is a full service gallery operating in Austin since 1985. Located in the historic district of West 6th Street, Artworks offers contemporary art by local, national and international artists in all mediums. Specialties include fine art, custom fra",
+        "website": "http://www.artworksaustin.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "936"
+    },
+    {
+      "id": "f8-fine-art-gallery-938",
+      "gid": "ptmoh579jd",
+      "title": "F8 Fine Art Gallery",
+      "subtitle": "1202 West 6Th Street Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.757145,
+          30.27307
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "F8 Fine Art Gallery celebrates a diversity of fine art photography and paintings by regional and international artists in Austin. This venue is now CLOSED",
+        "website": "http://f8fineart.com/index.html"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "938"
+    },
+    {
+      "id": "texas-museum-of-fiber-arts-2910",
+      "gid": "p2qivzi5ue",
+      "title": "Texas Museum Of Fiber Arts",
+      "subtitle": "3806 Bailey Ln Austin TX 78756 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.745994,
+          30.306583
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2910"
+    },
+    {
+      "id": "courtyard-gallery-at-t-executive-education-and-conference-center-unive-1459",
+      "gid": "rgsi8vcqoe",
+      "title": "Courtyard Gallery, AT&T Executive Education and Conference Center, University of Texas",
+      "subtitle": "1900 University Ave Austin TX 78712 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.74,
+          30.281195
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Courtyard Gallery is located on the second level of the AT&T Executive Education and Conference Center. It a result of a collaborative effort between the Office of the Vice President from University Operations and the College of Fine Arts. There are",
+        "website": "http://www.utvac.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1459"
+    },
+    {
+      "id": "gallery-soco-1213",
+      "gid": "h8jjypov5s",
+      "title": "Gallery Soco",
+      "subtitle": "1714-A South Congress Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.75076,
+          30.246919
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Gallery Soco represents contemporary local and national artists, offering original fine art in various mediums, as well as limited edition prints. Additionally, the gallery provides custom framing services, including museum-quality framing, with hundred",
+        "website": "http://www.gallerysoco.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1213"
+    },
+    {
+      "id": "rita-marie-ross-gallery-1215",
+      "gid": "8o8gwks2z5",
+      "title": "Rita Marie Ross Gallery",
+      "subtitle": "2309 Thornton Rd Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.771502,
+          30.245343
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1215"
+    },
+    {
+      "id": "visual-arts-center-college-of-fine-arts-university-of-texas-at-austin-1462",
+      "gid": "bzbt6manwq",
+      "title": "Visual Arts Center, College Of Fine Arts, University Of Texas At Austin",
+      "subtitle": "2300 Trinity St Austin TX 78712 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.733095,
+          30.285337
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "exhibitions + education",
+        "website": "http://utvac.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1462"
+    },
+    {
+      "id": "museum-of-the-weird-429",
+      "gid": "n5u8k3jh5j",
+      "title": "Museum Of The Weird",
+      "subtitle": "412 E 6Th St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.739086,
+          30.267289
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "429"
+    },
+    {
+      "id": "big-medium-at-canopy-623",
+      "gid": "pt735j7ott",
+      "title": "Big Medium (At Canopy)",
+      "subtitle": "916 Springdale Rd Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.698289,
+          30.261871
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "vis arts/gallery & org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "623"
+    },
+    {
+      "id": "gallery-lombardi-421",
+      "gid": "sfi3dav8jg",
+      "title": "Gallery Lombardi",
+      "subtitle": "602 A- W 7Th Street Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.736358,
+          30.267601
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Gallery Lombardi is a fully furnished gallery with kitchen and conference room. The gallery is located in the downtown area and features a number of Texas artists. This venue is now CLOSED",
+        "website": "http://www.gallerylombardi.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "421"
+    },
+    {
+      "id": "texas-department-of-public-safety-historical-museum-and-research-cente-2725",
+      "gid": "htdpf7qvfd",
+      "title": "Texas Department Of Public Safety Historical Museum And Research Center",
+      "subtitle": "621 W St Johns Ave Austin TX 78752 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.715805,
+          30.338125
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2725"
+    },
+    {
+      "id": "pine-street-station-765",
+      "gid": "5bcktbtv3x",
+      "title": "Pine Street Station",
+      "subtitle": "1101 E 5Th St Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.73202,
+          30.263569
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Pine St. Station Graphic Glas Studios",
+        "website": "http://www.pinestreetstation.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "765"
+    },
+    {
+      "id": "slackerville-1080",
+      "gid": "9h9xrp23te",
+      "title": "Slackerville",
+      "subtitle": "2209 S 1st austin TX 78704 \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.757484,
+          30.244206
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "0",
+        "website": "https://www.facebook.com/SlackervilleAustin/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1080"
+    },
+    {
+      "id": "icosa-gallery-183",
+      "gid": "ynmvui6vbe",
+      "title": "ICOSA Gallery",
+      "subtitle": "702 Shady Lane \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.697783,
+          30.253595
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "183"
+    },
+    {
+      "id": "imaginations-2792",
+      "gid": "btktewruos",
+      "title": "Imaginations",
+      "subtitle": "301 Pecan Dr Austin TX 78753 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.698352,
+          30.351842
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2792"
+    },
+    {
+      "id": "austin-museum-of-art-laguna-gloria-175",
+      "gid": "66nde3xotr",
+      "title": "Austin Museum Of Art - Laguna Gloria",
+      "subtitle": "3809 West 35Th Street Austin TX \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.771678,
+          30.312836
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "As the Museum's original home, AMOA-Laguna Gloria is a monument to the long-standing commitment to the community\u2014offering a unique experience of history, art, and nature. Visitors can tour the recently restored 1916 Italianate-style villa that was",
+        "website": "http://www.amoa.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "175"
+    },
+    {
+      "id": "flatbed-press-studio-and-gallery-753",
+      "gid": "jwobx9roki",
+      "title": "Flatbed Press Studio and Gallery",
+      "subtitle": "2832 E Martin Luther King Blvd Austin TX 78702 \u00b7 Studio, Gallery",
+      "geofence": {
+        "center": [
+          -97.71104,
+          30.281754
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Enjoy original works of art at the Flatbed Press gallery. The Flatbed Press collaborates with artists to showcase limited editions of original etchings, lithographs, woodcuts, and monoprints.",
+        "website": "http://www.flatbedpress.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "753"
+    },
+    {
+      "id": "canopy-624",
+      "gid": "rd3a8act7k",
+      "title": "Canopy",
+      "subtitle": "916 Springdale Rd Austin TX 78702 \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.698289,
+          30.261871
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "website": "http://www.canopyaustin.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "624"
+    },
+    {
+      "id": "space-12-640",
+      "gid": "6sqg85jtmk",
+      "title": "Space 12",
+      "subtitle": "3121 E 12Th St Austin TX 78702 \u00b7 Studio, Gallery",
+      "geofence": {
+        "center": [
+          -97.70149,
+          30.276438
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "Collaborative art & volunteer space",
+        "website": "http://www.space12.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "640"
+    },
+    {
+      "id": "new-east-gallery-763",
+      "gid": "akfmegqipb",
+      "title": "New East Gallery",
+      "subtitle": "1601 E 5Th Street Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.723195,
+          30.260518
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "New East Gallery started off as DiverseArts Little Gallery Exhibition Series in 1993. In March of 2007 DiverseArts Little Gallery was reborn as New East Gallery - DiverseArts' fine art gallery, dedicated to showcasing Austin's emerging and established v",
+        "website": "http://www.diversearts.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "763"
+    },
+    {
+      "id": "museum-of-human-achievement-144",
+      "gid": "39fs8vfp7m",
+      "title": "Museum of Human Achievement",
+      "subtitle": "3600 Lyons Rd \u00b7 Studio, Gallery",
+      "geofence": {
+        "center": [
+          -97.700269,
+          30.261542
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "144"
+    },
+    {
+      "id": "fireseed-clay-art-studio-1071",
+      "gid": "cfz9sfnyrb",
+      "title": "Fireseed Clay Art Studio",
+      "subtitle": "2309 Thornton Rd Austin TX 78704 \u00b7 Studio, Gallery",
+      "geofence": {
+        "center": [
+          -97.771502,
+          30.245343
+        ],
+        "radiusMeters": 60
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1071"
+    },
+    {
+      "id": "cool-river-cafe-1805",
+      "gid": "i4dzydsk67",
+      "title": "Cool River Cafe",
+      "subtitle": "4001 W Parmer Ln Austin TX 78727 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.715585,
+          30.425251
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Venue for eating and visual art"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1805"
+    },
+    {
+      "id": "wax-track-gallery-international-1747",
+      "gid": "na3ze9vc45",
+      "title": "Wax Track Gallery International",
+      "subtitle": "8404 Mayview Dr Austin TX 78724 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.624452,
+          30.300017
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1747"
+    },
+    {
+      "id": "fort-1618",
+      "gid": "f367pdp4wx",
+      "title": "Fort",
+      "subtitle": "301 Chicon Austin TX 78722 \u00b7 Studio, Gallery",
+      "geofence": {
+        "center": [
+          -97.723416,
+          30.25891
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "A creative clubhouse and venue in East Austin."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1618"
+    },
+    {
+      "id": "east-austin-childrens-museum-inc-2156",
+      "gid": "98dctraum8",
+      "title": "East Austin Childrens Museum Inc",
+      "subtitle": "1712 East Drive Austin TX 78741 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.741653,
+          30.294879
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2156"
+    },
+    {
+      "id": "prickly-pear-art-gallery-3229",
+      "gid": "97m8do54af",
+      "title": "Prickly Pear Art Gallery",
+      "subtitle": "9901 N Capital Of Texas Hwy Austin TX 78759 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.741091,
+          30.390452
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3229"
+    },
+    {
+      "id": "delta-millworks-750",
+      "gid": "oingurp5ri",
+      "title": "Delta Millworks",
+      "subtitle": "4701 East 5Th Street Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.700741,
+          30.252719
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Delta Millworks offers wood products and millwork services in Central Texas. Founded in 1985."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "750"
+    },
+    {
+      "id": "artspoken-gallery-2908",
+      "gid": "q7w93tbfqn",
+      "title": "Artspoken Gallery",
+      "subtitle": "1507 West Koenig Lane Austin TX 78756 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.732751,
+          30.331116
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Artspoken Inc., a local business since 2002, opened Artspoken Gallery and Studios in August of 2005 to provide original artwork, open art space, and professional studios for Austin artists and art lovers.",
+        "website": "http://www.artspoken.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2908"
+    },
+    {
+      "id": "valenzuela-preservation-studio-2539",
+      "gid": "2q7wux77c8",
+      "title": "Valenzuela Preservation Studio",
+      "subtitle": "4401 Hoffman Dr Austin TX 78749 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.856299,
+          30.197622
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2539"
+    },
+    {
+      "id": "guzu-gallery-2658",
+      "gid": "njfoveudfh",
+      "title": "Guzu Gallery",
+      "subtitle": "5000 N Lamar Blvd Austin TX 78751 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.731707,
+          30.317936
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2658"
+    },
+    {
+      "id": "metropolis-2159",
+      "gid": "bg6w627jvi",
+      "title": "Metropolis",
+      "subtitle": "2200 S Pleasant Valley Rd Austin TX 78741 \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.726188,
+          30.231655
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "website": "http://metropolisapartmentsaustin.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2159"
+    },
+    {
+      "id": "imagine-art-1639",
+      "gid": "afg36mmtyx",
+      "title": "Imagine Art",
+      "subtitle": "2830 Real St Austin TX 78722 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.711148,
+          30.282816
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Imagine Art is a faith based organization committed to seeing the lives of artists with disabilities, transformed in the context of an authentic community. They offer access to a professional studio for visual artists, workshops, 1:1 artistic direction a",
+        "website": "http://www.imagineart.net"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1639"
+    },
+    {
+      "id": "diversearts-culture-works-751",
+      "gid": "f3gzdeba4v",
+      "title": "Diversearts Culture Works",
+      "subtitle": "1601 E 5Th St Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.723195,
+          30.260518
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The broad mission of DiverseArts Production Group is to promote and expand cultural awareness and appreciation of the arts in Austin, Texas. Through various component projects the gallery address the arts, in general, with a view that is multicultural an"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "751"
+    },
+    {
+      "id": "svt-gallery-1641",
+      "gid": "rm6czcfvd4",
+      "title": "SVT Gallery",
+      "subtitle": "2803 Manor Rd Austin TX 78722 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.712041,
+          30.285127
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "SVT Gallery is inside the Salvage Vanguard Theater complex.",
+        "website": "http://www.salvagevanguard.org/gallery.php"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1641"
+    },
+    {
+      "id": "la-pena-art-gallery-368",
+      "gid": "gx6wo4jen6",
+      "title": "La Pena Art Gallery",
+      "subtitle": "227 Congress Ave Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.743803,
+          30.264496
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "368"
+    },
+    {
+      "id": "clayways-pottery-studio-2876",
+      "gid": "r9hy8kevtq",
+      "title": "Clayways Pottery Studio",
+      "subtitle": "5442 Burnet Rd Austin TX 78756 \u00b7 Studio, Gallery",
+      "geofence": {
+        "center": [
+          -97.740134,
+          30.329216
+        ],
+        "radiusMeters": 60
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2876"
+    },
+    {
+      "id": "j-clark-gallery-940",
+      "gid": "igus22fayb",
+      "title": "J Clark Gallery",
+      "subtitle": "1500 W 6Th St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.76187,
+          30.274826
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "940"
+    },
+    {
+      "id": "texas-highway-patrol-museum-432",
+      "gid": "fhjibr79o4",
+      "title": "Texas Highway Patrol Museum",
+      "subtitle": "704 W 9Th St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.748445,
+          30.273024
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "432"
+    },
+    {
+      "id": "texarts-studios-2018",
+      "gid": "x4uhgh2oh8",
+      "title": "TexARTS Studios",
+      "subtitle": "2300 Lohman'S Spur Austin TX 78734 \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.973394,
+          30.343479
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "TexARTS promotes, educates, produces, and presents visual and performing arts events of the highest caliber for Austin's Lake Region."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2018"
+    },
+    {
+      "id": "cement-loop-138",
+      "gid": "vm99arz4jk",
+      "title": "Cement Loop",
+      "subtitle": "5811 Berkman Dr \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.693441,
+          30.311918
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "0",
+        "website": "http://www.cementloop.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "138"
+    },
+    {
+      "id": "big-medium-bolm-1581",
+      "gid": "nxrfok8axh",
+      "title": "Big Medium (Bolm)",
+      "subtitle": "5305 Bolm Rd Austin TX 78721 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.690712,
+          30.258707
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Big Medium hosts art events and open studios around the year for up-and-coming artists all over Austin and the United States. This project is funded and supported in part by a grant from the Texas Commission on the Arts and in part by the City of Aust"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1581"
+    },
+    {
+      "id": "soco-industrial-arts-studios-1081",
+      "gid": "ptyk5kkw4t",
+      "title": "SoCo Industrial Arts Studios",
+      "subtitle": "209 E Ben White Blvd Austin TX 78704 \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.763072,
+          30.222739
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1081"
+    },
+    {
+      "id": "positive-images-943",
+      "gid": "cgt4jpxup6",
+      "title": "Positive Images",
+      "subtitle": "1118 W 6Th St Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.755522,
+          30.27245
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "943"
+    },
+    {
+      "id": "yard-dog-folk-art-1218",
+      "gid": "3vpem2d7kt",
+      "title": "Yard Dog Folk Art",
+      "subtitle": "1510 S Congress Ave Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.75047,
+          30.24861
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1218"
+    },
+    {
+      "id": "hyde-park-electric-gallery-2657",
+      "gid": "62vwyqgxzp",
+      "title": "Hyde Park Electric Gallery",
+      "subtitle": "4403 Guadalupe Austin TX 78751 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.733352,
+          30.30965
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Art Gallery specializing in abstract art.",
+        "website": "http://austinfigurativegallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2657"
+    },
+    {
+      "id": "art-gallery-at-soma-vida-174",
+      "gid": "oy9xjcnx9u",
+      "title": "Art Gallery at Soma Vida",
+      "subtitle": "2324 E Cesar Chavez St Austin TX \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.718804,
+          30.255382
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "This light filled space gathering space is perfect for your next social event, art opening, workshop or gathering. The Gallery is a spacious 700 sq ft and can accommodate 100 seated, lecture style. evening & weekend rentals. Book arrival/setup time."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "174"
+    },
+    {
+      "id": "little-wing-of-austin-2940",
+      "gid": "6anzfrau8q",
+      "title": "Little Wing Of Austin",
+      "subtitle": "2525 W Anderson Ln Austin TX 78757 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.733853,
+          30.357367
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2940"
+    },
+    {
+      "id": "austin-childrens-museum-the-thinkery-1663",
+      "gid": "zixbetdmur",
+      "title": "Austin Childrens Museum/ The Thinkery",
+      "subtitle": "1830 Simond Ave Austin TX 78723 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.704035,
+          30.296882
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Museum for kids, educ & cultural",
+        "website": "https://thinkeryaustin.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1663"
+    },
+    {
+      "id": "bolm-studios-137",
+      "gid": "tyucgd28zb",
+      "title": "Bolm Studios",
+      "subtitle": "5305 Bolm Rd \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.691662,
+          30.258553
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "0",
+        "website": "https://www.facebook.com/bolmrdstudios/info/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "137"
+    },
+    {
+      "id": "cathedral-of-junk-177",
+      "gid": "96bqctn6v4",
+      "title": "Cathedral of Junk",
+      "subtitle": "4422 Lareina Dr Austin TX \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.771166,
+          30.219715
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Cathedral of Junk stands quietly in the backyard of a small house on a suburban street on the south side of Austin. Unlike other busybody constructions that we've visited -- the Forevertron, the Garden of Eden, the Orange Show -- this one blends with",
+        "website": "http://www.roadsideamerica.com/story/7816"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "177"
+    },
+    {
+      "id": "exquisite-zombies-2722",
+      "gid": "xkbmtf6r4g",
+      "title": "Exquisite Zombies",
+      "subtitle": "7000 Priscilla Dr Austin TX 78752 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.710883,
+          30.333434
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "An Exquisite Art Co-Op, Comprised of Deadly Specialists from Every End of the Globe, Enterprising, Marching, Making... Whispers, Discreet Invitations, Rallying of Spirits, A Bite, Brain Neurons Bubbling Towards Doom, Discovery, Dozens of Grasping Hands,",
+        "website": "http://www.exquisitezombies.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2722"
+    },
+    {
+      "id": "museum-of-natural-artificial-ephemerata-mnae-762",
+      "gid": "382vrqt9yf",
+      "title": "Museum Of Natural & Artificial Ephemerata (Mnae)",
+      "subtitle": "1808 Singleton Ave Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.715326,
+          30.27967
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "762"
+    },
+    {
+      "id": "roadhouse-relics-1216",
+      "gid": "8f6kwuuve9",
+      "title": "Roadhouse Relics",
+      "subtitle": "1720 S 1St St Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.755859,
+          30.248323
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1216"
+    },
+    {
+      "id": "e4-gallery-and-art-studio-752",
+      "gid": "mmn9j57tj7",
+      "title": "E4 Gallery and Art Studio",
+      "subtitle": "3307 East 4Th Street Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.705944,
+          30.253444
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The newest gallery on Austin's east side, E4 Gallery, is run by longtime Austin potter and businessman, Craig Freiburger. Owner of beloved Austin icon Armadillo Clay & Supplies which began, in true Austin style, as a business venture in a garage 27 year",
+        "website": "http://www.armadilloclay.com/home/e4galleryartstudio.html"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "752"
+    },
+    {
+      "id": "women-their-work-415",
+      "gid": "mzv9sm3wvv",
+      "title": "Women & Their Work",
+      "subtitle": "1710 Lavaca St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.741461,
+          30.279665
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "space/vis & perf arts"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "415"
+    },
+    {
+      "id": "gallery-of-the-republic-422",
+      "gid": "ejj4tuicwy",
+      "title": "Gallery Of The Republic",
+      "subtitle": "San Jacinto Ctr Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.742742,
+          30.262309
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "422"
+    },
+    {
+      "id": "edwardian-suite-gallery-and-studio-1637",
+      "gid": "85co6hijkm",
+      "title": "Edwardian Suite Gallery and Studio",
+      "subtitle": "2824 Real Street Austin TX 78722 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.711269,
+          30.282796
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Art Gallery in East Austin"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1637"
+    },
+    {
+      "id": "museum-of-magnetic-sound-recording-2412",
+      "gid": "ouu755gx54",
+      "title": "Museum Of Magnetic Sound Recording",
+      "subtitle": "901 S Mopac Expy Austin TX 78746 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.81488,
+          30.30108
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Support for an Austin Music & Recording Technology Museum",
+        "website": "http://www.austinmuseums.org/amp_profiles/museum-of-magnetic-sound-recording/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2412"
+    },
+    {
+      "id": "medical-arts-gallery-1374",
+      "gid": "2nxd28zyys",
+      "title": "Medical Arts Gallery",
+      "subtitle": "2911 Medical Arts St Austin TX 78705 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.728841,
+          30.288269
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "0"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1374"
+    },
+    {
+      "id": "ariel-art-galleries-inc-1771",
+      "gid": "2pw5oeb6t3",
+      "title": "Ariel Art Galleries Inc",
+      "subtitle": "8112 Red Bird Ct Austin TX 78726 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.862435,
+          30.424005
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "website": "http://arielartgalleries.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1771"
+    },
+    {
+      "id": "marketplace-art-gallery-2909",
+      "gid": "i8x4gb9idn",
+      "title": "Marketplace Art Gallery",
+      "subtitle": "5806 Burnet Road Austin TX 78756 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.740329,
+          30.333782
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Unique Art Gallery Featuring the Work of Five Artists: Garima Heath-Martha Kull-Mozelle Marks-Ghislane Barillaud,-Gail Sneden mktplc.gal@gmail.com p.512-452-1000 Gallery Hours Mon-Sat 10am-6pm, Sun Noon-6pm"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2909"
+    },
+    {
+      "id": "davis-gallery-418",
+      "gid": "474up63fbc",
+      "title": "Davis Gallery",
+      "subtitle": "837 W 12Th St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.749092,
+          30.2759
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Davis Gallery serves as a home to many of the best local and regional painters, printmakers, sculptors and ceramicists. It is a friendly setting for contemplation and conversation through fine contemporary art. The permanent on-site collection of works f",
+        "website": "http://www.davisgalleryaustin.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "418"
+    },
+    {
+      "id": "gallery-shoal-creek-757",
+      "gid": "e2q27cveiw",
+      "title": "Gallery Shoal Creek",
+      "subtitle": "2832 E Martin Luther King Jr Blvd Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.71104,
+          30.281754
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Few galleries boast art spanning four decades and the Gallery Shoal Creek is the exception. At Gabriel's Court, Austin's hallmark gallery continues the tradition of showcasing a sophisticated range of fine art by regional, national and international tale",
+        "website": "http://www.galleryshoalcreek.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "757"
+    },
+    {
+      "id": "texas-military-forces-museum-3289",
+      "gid": "cx5q9srnrs",
+      "title": "Texas Military Forces Museum",
+      "subtitle": "2200 West 35Th Street Austin TX 78763 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.757792,
+          30.309157
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Texas Military Forces Museum focuses on the history of Texas military forces from 1835 to the present using both inside and outdoor exhibits. The building dates to 1918 and once housed a mess hall for camp troops. The Texas Military Forces Museum,",
+        "website": "http://www.texasmilitaryforcesmuseum.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3289"
+    },
+    {
+      "id": "fielding-lecht-gallery-419",
+      "gid": "otrw5zy8cw",
+      "title": "Fielding Lecht Gallery",
+      "subtitle": "708 Congress Avenue Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.742736,
+          30.269152
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Fielding Lecht Gallery is a partnership between Bill and Pam Fielding and Art Director Suzanne Lecht, a recognized authority on contemporary art in Vietnam. Living in Asia since 1982, Suzanne has been working with Vietnamese artists since she moved f",
+        "website": "http://www.fieldinglechtgallery.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "419"
+    },
+    {
+      "id": "first-access-gallery-1010",
+      "gid": "rmdgsdswkd",
+      "title": "First Access Gallery",
+      "subtitle": "2324 South Lamar Blvd Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.775773,
+          30.247626
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Art Gallery/Fashion Store"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1010"
+    },
+    {
+      "id": "gallery-68-756",
+      "gid": "o3gn7a9iqc",
+      "title": "Gallery 68",
+      "subtitle": "2832 East Mlk Jr Blvd Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.71104,
+          30.281754
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Gallery 68 is one of the nine tenants that are located on Boggy Creek in central-east Austin that cater to the art community. This venue is now CLOSED.",
+        "website": "http://www.gallery68.net"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "756"
+    },
+    {
+      "id": "neill-cochran-house-museum-1375",
+      "gid": "tqi9d26yva",
+      "title": "Neill-Cochran House Museum",
+      "subtitle": "2310 San Gabriel St Austin TX 78705 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.748202,
+          30.287529
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "The Neill-Cochran House is one of Austin's oldest and most treasured landmarks. Built in 1855 as a suburban estate, this impressive Greek Revival house has survived war, neglect, and the immense growth of the University area and the Capital City. Ho",
+        "website": "http://www.nchmuseum.org/contact/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1375"
+    },
+    {
+      "id": "photo-methode-gallery-764",
+      "gid": "82js9pigev",
+      "title": "Photo Methode Gallery",
+      "subtitle": "2830-32 E Martin Luther King Blvd Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.711084,
+          30.281748
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "764"
+    },
+    {
+      "id": "umlauf-sculpture-garden-museum-city-of-austin-parks-recreation-1035",
+      "gid": "2ofeb5vevj",
+      "title": "Umlauf Sculpture Garden & Museum, City of Austin, Parks & Recreation",
+      "subtitle": "605 Robert E Lee Road Austin TX 78704 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.766452,
+          30.263288
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1035"
+    },
+    {
+      "id": "metropolitan-gallery-2164",
+      "gid": "jk4ss94g46",
+      "title": "Metropolitan Gallery",
+      "subtitle": "916 Springdale Rd Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.698289,
+          30.261871
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2164"
+    },
+    {
+      "id": "texas-archive-of-the-moving-image-606",
+      "gid": "mbdi7rfsuk",
+      "title": "Texas Archive Of The Moving Image",
+      "subtitle": "501 N Ih 35 Austin TX 78702 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.734132,
+          30.264969
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "archive",
+        "website": "http://www.texasarchive.org/library/index.php/Main_Page"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "606"
+    },
+    {
+      "id": "austin-galleries-1946",
+      "gid": "nutdigivcn",
+      "title": "Austin Galleries",
+      "subtitle": "5804 Lookout Mountain Dr Austin TX 78731 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.77966,
+          30.342536
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Austin Galleries is the premier gallery in Austin, Texas, bringing art, antiques, and clients together since 1964. They offer the largest selection of fine art originals in Texas including bronze and marble sculpture, old master paintings, decorative lig",
+        "website": "http://www.austingalleries.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1946"
+    },
+    {
+      "id": "genuine-joe-coffee-house-3025",
+      "gid": "8qn9hy3g7o",
+      "title": "Genuine Joe Coffee House",
+      "subtitle": "2001 W Anderson Ln Austin TX 78757 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.728465,
+          30.35468
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Coffee shop and visual art venue"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3025"
+    },
+    {
+      "id": "la-pe-a-425",
+      "gid": "c7ys7x4xyu",
+      "title": "La Pe\u00f1a",
+      "subtitle": "227 Congress Ave Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.743803,
+          30.264496
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "La Pena is an interdisciplinary cultural and educational organization dedicated to the enhancement of art in all its forms. La Pe\u00f1a's mission is to support artistic development, to provide exposure to emerging local visual artists, musicians, poet",
+        "website": "http://www.lapena-austin.org"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "425"
+    },
+    {
+      "id": "ib-graphics-1638",
+      "gid": "w9s6v27teb",
+      "title": "Ib Graphics",
+      "subtitle": "1506 Kirkwood Rd Austin TX 78722 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.714164,
+          30.295079
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1638"
+    },
+    {
+      "id": "people-s-gallery-at-city-hall-city-of-austin-cultural-arts-division-430",
+      "gid": "t38guuys4b",
+      "title": "People's Gallery At City Hall, City of Austin, Cultural Arts Division",
+      "subtitle": "301 W 2Nd St Austin TX 78701 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.746713,
+          30.264745
+        ],
+        "radiusMeters": 70
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "430"
+    },
+    {
+      "id": "soundwaves-art-foundation-2517",
+      "gid": "78ds3yrekq",
+      "title": "Soundwaves Art Foundation",
+      "subtitle": "9600 Escarpment Blvd Austin TX 78749 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.85184,
+          30.21162
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Fundraising via musicians w/digital artist",
+        "website": "https://www.indiegogo.com/projects/soundwaves-art"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2517"
+    },
+    {
+      "id": "urban-roots-gallery-946",
+      "gid": "ycd6mygp6h",
+      "title": "Urban Roots Gallery",
+      "subtitle": "1202 West 6Th Street Austin TX 78703 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.757145,
+          30.27307
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Featuring the distinctive artwork of E. Moises Diaz, and Thomas Barbey, Urban Roots Gallery is planted in the diverse West End Gallery District. Explore the contemporary world of sweeping cityscapes or enjoy a new twist on a classic female form. A blen",
+        "website": "http://www.papersculpture.com/aluminum/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "946"
+    },
+    {
+      "id": "pump-project-art-complex-636",
+      "gid": "nyesrqfuon",
+      "title": "Pump Project Art Complex",
+      "subtitle": "702 Shady Lane Austin TX 78702 \u00b7 Studio Complex",
+      "geofence": {
+        "center": [
+          -97.697783,
+          30.253595
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "Pump Project Art Complex is a 501(c)3 non-profit art center located in east Austin, Texas. Their focus is to offer affordable studios and exhibition space to visual artists. Pump Project's 9000 square foot warehouse space houses the 1000 square foot",
+        "website": "http://www.pumpproject.com"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "636"
+    },
+    {
+      "id": "big-medium-gallery-1589",
+      "gid": "8nb6phbdem",
+      "title": "Big Medium Gallery",
+      "subtitle": "5305 Bolm Road Austin TX 78721 \u00b7 Gallery/ Museum",
+      "geofence": {
+        "center": [
+          -97.691662,
+          30.258553
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Big Medium is a non-profit gallery space for the local arts community."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1589"
     }
   ]
 }
