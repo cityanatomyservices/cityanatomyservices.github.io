@@ -1062,7 +1062,56 @@
               <input type="checkbox" class="cm-filter-cb" data-app="temporarymarkets" data-group="events" checked>
               <span class="cm-legend-dot" style="background: #f59e0b"></span>
             </label>
-            <span>Temporary Markets</span>
+            <span>Pop-up Markets</span>
+          </div>
+          <div class="cm-legend-row">
+            <label class="cm-filter-label">
+              <input type="checkbox" class="cm-filter-cb" data-app="festivals" data-group="events" checked>
+              <span class="cm-legend-dot" style="background: #f43f5e"></span>
+            </label>
+            <span>Festivals &amp; Fairs</span>
+          </div>
+          <div class="cm-legend-row">
+            <label class="cm-filter-label">
+              <input type="checkbox" class="cm-filter-cb" data-app="concertsshows" data-group="events" checked>
+              <span class="cm-legend-dot" style="background: #be123c"></span>
+            </label>
+            <span>Concerts &amp; Shows</span>
+          </div>
+          <div class="cm-legend-row">
+            <label class="cm-filter-label">
+              <input type="checkbox" class="cm-filter-cb" data-app="comedymics" data-group="events" checked>
+              <span class="cm-legend-dot" style="background: #fbbf24"></span>
+            </label>
+            <span>Comedy &amp; Open Mics</span>
+          </div>
+          <div class="cm-legend-row">
+            <label class="cm-filter-label">
+              <input type="checkbox" class="cm-filter-cb" data-app="artgalleries" data-group="events" checked>
+              <span class="cm-legend-dot" style="background: #a855f7"></span>
+            </label>
+            <span>Art Openings &amp; Galleries</span>
+          </div>
+          <div class="cm-legend-row">
+            <label class="cm-filter-label">
+              <input type="checkbox" class="cm-filter-cb" data-app="popupshops" data-group="events" checked>
+              <span class="cm-legend-dot" style="background: #c2410c"></span>
+            </label>
+            <span>Pop-up Shops</span>
+          </div>
+          <div class="cm-legend-row">
+            <label class="cm-filter-label">
+              <input type="checkbox" class="cm-filter-cb" data-app="meetupsclasses" data-group="events" checked>
+              <span class="cm-legend-dot" style="background: #38bdf8"></span>
+            </label>
+            <span>Meetups &amp; Classes</span>
+          </div>
+          <div class="cm-legend-row">
+            <label class="cm-filter-label">
+              <input type="checkbox" class="cm-filter-cb" data-app="grouprunsoutdoors" data-group="events" checked>
+              <span class="cm-legend-dot" style="background: #22c55e"></span>
+            </label>
+            <span>Group Runs &amp; Outdoor Meets</span>
           </div>
         </div>
       </div>
@@ -1138,7 +1187,14 @@
       { id: 'apartments', url: '/data/apartments/hotspots.json',   color: '#475569' },
       { id: 'hotels',     url: '/data/hotels/hotspots.json',       color: '#0891b2' },
       { id: 'sports',     url: '/data/sports/hotspots.json',       color: '#facc15' },
-      { id: 'temporarymarkets', url: '/data/temporarymarkets/hotspots.json', color: '#f59e0b' },
+      { id: 'temporarymarkets',   url: '/data/temporarymarkets/hotspots.json',   color: '#f59e0b' },
+      { id: 'festivals',          url: '/data/festivals/hotspots.json',          color: '#f43f5e' },
+      { id: 'concertsshows',      url: '/data/concertsshows/hotspots.json',      color: '#be123c' },
+      { id: 'comedymics',         url: '/data/comedymics/hotspots.json',         color: '#fbbf24' },
+      { id: 'artgalleries',       url: '/data/artgalleries/hotspots.json',       color: '#a855f7' },
+      { id: 'popupshops',         url: '/data/popupshops/hotspots.json',         color: '#c2410c' },
+      { id: 'meetupsclasses',     url: '/data/meetupsclasses/hotspots.json',     color: '#38bdf8' },
+      { id: 'grouprunsoutdoors',  url: '/data/grouprunsoutdoors/hotspots.json',  color: '#22c55e' },
     ];
 
     // Apps with `chatScope: 'category'` share ONE chat room across every
@@ -1172,6 +1228,9 @@
       const sched = window.PubchatSchedule;
       return (hotspots || [])
         .filter(h => h.geofence?.center && h.geofence?.radiusMeters)
+        // One-off events whose last session has ended (and seasonal events
+        // whose dateRange has passed) drop out entirely — no commit needed.
+        .filter(h => !sched || !sched.isFullyExpired(h.schedule, now))
         .map(h => ({
           type: 'Feature',
           properties: {
@@ -1512,7 +1571,14 @@
         apartments:    { label: 'Apartments' },
         hotels:        { label: 'Hotels' },
         sports:        { label: 'Sports Venues' },
-        temporarymarkets: { label: 'Temporary Markets' },
+        temporarymarkets:  { label: 'Pop-up Markets' },
+        festivals:         { label: 'Festivals & Fairs' },
+        concertsshows:     { label: 'Concerts & Shows' },
+        comedymics:        { label: 'Comedy & Open Mics' },
+        artgalleries:      { label: 'Art Openings & Galleries' },
+        popupshops:        { label: 'Pop-up Shops' },
+        meetupsclasses:    { label: 'Meetups & Classes' },
+        grouprunsoutdoors: { label: 'Group Runs & Outdoor Meets' },
       };
 
       // Demo ad copy keyed by app. The text is a placeholder so a
@@ -1539,7 +1605,14 @@
         apartments:    'renters insurance & furniture rentals',
         hotels:        'local attractions & travel deals',
         sports:        'tickets, apparel & fan gear',
-        temporarymarkets: 'reusable totes & local crafts',
+        temporarymarkets:  'reusable totes & local crafts',
+        festivals:         'festival passes & travel deals',
+        concertsshows:     'concert tickets & vinyl drops',
+        comedymics:        'show tickets & comedy specials',
+        artgalleries:      'art prints & gallery memberships',
+        popupshops:        'limited drops & local brands',
+        meetupsclasses:    'class passes & meetup apps',
+        grouprunsoutdoors: 'running gear & trail apps',
         homelesschat:  'community resources & social services',
       };
       function bannerAdHTML(app, color, variant /* 'inset' | 'full' */) {

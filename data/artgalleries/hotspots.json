@@ -1,0 +1,132 @@
+{
+  "cityId": "atx",
+  "title": "Art Openings & Galleries · Austin",
+  "category": "Art Openings & Galleries",
+  "color": "#a855f7",
+  "initialCamera": {
+    "center": [-97.7300, 30.2750],
+    "zoom": 12.0
+  },
+  "hotspots": [
+    {
+      "id": "contemporary-austin-jones",
+      "gid": "v4qmnxbjhp",
+      "title": "The Contemporary Austin · Jones Center",
+      "subtitle": "700 Congress Ave · downtown contemporary art space",
+      "geofence": { "center": [-97.7434, 30.2700], "radiusMeters": 60 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["wed","thu","fri","sat","sun"], "from": "11:00", "to": "17:00" }
+        ]
+      },
+      "info": {
+        "description": "Downtown contemporary art exhibitions, public talks, and opening receptions. Closed Mondays and Tuesdays.",
+        "website": "https://thecontemporaryaustin.org"
+      }
+    },
+    {
+      "id": "blanton-museum",
+      "gid": "w9nbvxjqfh",
+      "title": "Blanton Museum of Art",
+      "subtitle": "200 E MLK Jr Blvd · UT campus · Ellsworth Kelly's Austin",
+      "geofence": { "center": [-97.7388, 30.2811], "radiusMeters": 80 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["tue","wed","thu","fri","sat"], "from": "10:00", "to": "17:00" },
+          { "days": ["sun"], "from": "13:00", "to": "17:00" }
+        ]
+      },
+      "info": {
+        "description": "UT's flagship art museum, home to Ellsworth Kelly's Austin stone chapel and a strong permanent collection. Opening events for new exhibitions are typically free.",
+        "website": "https://blantonmuseum.org"
+      }
+    },
+    {
+      "id": "canopy-big-medium",
+      "gid": "l7gnxbvrkq",
+      "title": "Canopy · Big Medium",
+      "subtitle": "916 Springdale Rd · East Austin studio complex + galleries",
+      "geofence": { "center": [-97.6981, 30.2748], "radiusMeters": 100 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["thu","fri","sat","sun"], "from": "12:00", "to": "18:00" }
+        ]
+      },
+      "info": {
+        "description": "Big Medium's studio complex with multiple working artists' spaces and rotating exhibitions in Grayduck, ICOSA, and other galleries. Opens nights coincide with East Austin Studio Tour weekends.",
+        "website": "https://bigmedium.org"
+      }
+    },
+    {
+      "id": "icosa-collective",
+      "gid": "z5pjmqvhwn",
+      "title": "ICOSA Collective",
+      "subtitle": "916 Springdale Rd · artist-run cooperative gallery",
+      "geofence": { "center": [-97.6981, 30.2750], "radiusMeters": 40 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["fri","sat","sun"], "from": "13:00", "to": "18:00" }
+        ]
+      },
+      "info": {
+        "description": "Artist-run cooperative gallery inside the Canopy complex with monthly opening receptions on Friday evenings.",
+        "website": "https://www.icosacollective.com"
+      }
+    },
+    {
+      "id": "mass-gallery",
+      "gid": "g8kvjwbqxn",
+      "title": "MASS Gallery",
+      "subtitle": "705 Gunter St · East Austin · group-run artspace",
+      "geofence": { "center": [-97.6960, 30.2530], "radiusMeters": 50 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["sat"], "from": "12:00", "to": "17:00" }
+        ]
+      },
+      "info": {
+        "description": "Collectively-run contemporary art gallery in East Austin. Open Saturdays + opening reception nights; opening dates listed on the site.",
+        "website": "https://massgallery.org"
+      }
+    },
+    {
+      "id": "wally-workman-gallery",
+      "gid": "p6yvxnbqlh",
+      "title": "Wally Workman Gallery",
+      "subtitle": "1202 W 6th St · Clarksville · contemporary painting",
+      "geofence": { "center": [-97.7567, 30.2724], "radiusMeters": 40 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["tue","wed","thu","fri","sat"], "from": "10:00", "to": "17:30" }
+        ]
+      },
+      "info": {
+        "description": "Clarksville contemporary painting gallery in a converted house, with monthly solo and group exhibition openings on first Saturdays.",
+        "website": "https://wallyworkmangallery.com"
+      }
+    },
+    {
+      "id": "lora-reynolds-gallery",
+      "gid": "k9wmbxvhfn",
+      "title": "Lora Reynolds Gallery",
+      "subtitle": "360 Nueces St · contemporary international art",
+      "geofence": { "center": [-97.7510, 30.2671], "radiusMeters": 40 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["tue","wed","thu","fri","sat"], "from": "11:00", "to": "17:00" }
+        ]
+      },
+      "info": {
+        "description": "Contemporary art gallery downtown with regular openings for solo and two-person exhibitions of international artists.",
+        "website": "https://www.lorareynolds.com"
+      }
+    }
+  ]
+}

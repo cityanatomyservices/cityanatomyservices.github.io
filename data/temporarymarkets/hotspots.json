@@ -330,8 +330,99 @@
         ],
         "radiusMeters": 100
       },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          { "start": "2026-06-20T08:30", "end": "2026-06-21T17:00" },
+          { "start": "2026-07-18T08:30", "end": "2026-07-19T17:00" },
+          { "start": "2026-08-15T08:30", "end": "2026-08-16T17:00" },
+          { "start": "2026-09-26T08:30", "end": "2026-09-27T17:00" },
+          { "start": "2026-12-05T08:30", "end": "2026-12-06T17:00" }
+        ]
+      },
       "info": {
-        "description": "Indoor vintage market at Palmer Events Center drawing sellers from across Texas. Runs select weekends roughly monthly \u2014 2026 dates include May 23\u201324, Jun 20\u201321, Jul 18\u201319, Aug 15\u201316, Sep 26\u201327, and Dec 5\u20136. Check citywidevintagesale.com before going."
+        "description": "Indoor vintage market at Palmer Events Center drawing sellers from across Texas. Runs select weekends roughly monthly. Sat 8:30am\u20135pm, Sun 11am\u20135pm.",
+        "website": "https://www.citywidevintagesale.com"
+      }
+    },
+    {
+      "id": "markets-for-makers-austin-2026",
+      "gid": "x7vbnjqwkh",
+      "title": "Markets for Makers \u00b7 Austin 2026",
+      "subtitle": "Palmer Events Center \u00b7 juried indie makers fair",
+      "geofence": {
+        "center": [-97.7556, 30.263],
+        "radiusMeters": 100
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          { "start": "2026-07-11T11:00", "end": "2026-07-12T17:00" }
+        ]
+      },
+      "info": {
+        "description": "Traveling juried makers fair at Palmer Events Center with 200+ vendors across home decor, fashion, art, and specialty food. Two days, 11am\u20135pm.",
+        "website": "https://www.marketsformakers.com/austin"
+      }
+    },
+    {
+      "id": "austin-flea-may-30-zilker",
+      "gid": "j4mxwbvqnh",
+      "title": "Austin Flea @ Zilker Brewing",
+      "subtitle": "Zilker Brewing \u00b7 monthly roving artisan + vintage popup",
+      "geofence": {
+        "center": [-97.7314, 30.2628],
+        "radiusMeters": 60
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          { "start": "2026-05-30T12:00", "end": "2026-05-30T17:00" }
+        ]
+      },
+      "info": {
+        "description": "Austin Flea is a roving curated popup of local handmade and vintage vendors. This stop: the Zilker Brewing taproom yard.",
+        "website": "https://www.austinflea.net"
+      }
+    },
+    {
+      "id": "austin-flea-jun-06-brewtorium",
+      "gid": "g8nkpvxwbq",
+      "title": "Austin Flea @ The Brewtorium",
+      "subtitle": "The Brewtorium \u00b7 monthly roving artisan + vintage popup",
+      "geofence": {
+        "center": [-97.6957, 30.3306],
+        "radiusMeters": 60
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          { "start": "2026-06-06T12:00", "end": "2026-06-06T17:00" }
+        ]
+      },
+      "info": {
+        "description": "Austin Flea brings a curated lineup of local artists, designers, and vintage dealers to The Brewtorium's brewery yard.",
+        "website": "https://www.austinflea.net"
+      }
+    },
+    {
+      "id": "austin-flea-jun-13-triangle",
+      "gid": "h5pjvxnwbq",
+      "title": "Austin Flea @ Triangle Park",
+      "subtitle": "Triangle Park \u00b7 monthly roving artisan + vintage popup",
+      "geofence": {
+        "center": [-97.7388, 30.3088],
+        "radiusMeters": 60
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          { "start": "2026-06-13T12:00", "end": "2026-06-13T17:00" }
+        ]
+      },
+      "info": {
+        "description": "Austin Flea at the Triangle Park lawn (46th St & Lamar). Local makers + vintage with food trucks and adjacent eateries.",
+        "website": "https://www.austinflea.net"
       }
     },
     {

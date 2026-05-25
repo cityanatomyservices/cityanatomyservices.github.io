@@ -1,0 +1,62 @@
+{
+  "cityId": "atx",
+  "title": "Pop-up Shops · Austin",
+  "category": "Pop-up Shops",
+  "color": "#c2410c",
+  "initialCamera": {
+    "center": [-97.7400, 30.2750],
+    "zoom": 12.0
+  },
+  "hotspots": [
+    {
+      "id": "distribution-hall-popups",
+      "gid": "v6gqwbxnjh",
+      "title": "Distribution Hall · Rotating Pop-ups",
+      "subtitle": "East Austin event hall · brand activations + sample sales",
+      "geofence": { "center": [-97.7220, 30.2620], "radiusMeters": 80 },
+      "info": {
+        "description": "East Austin event space hosting brand activations, sample sales, and pop-up retail. Check the venue's calendar for current events.",
+        "website": "https://distributionhall.com"
+      }
+    },
+    {
+      "id": "the-domain-popups",
+      "gid": "k3pjbvxnqw",
+      "title": "The Domain · Pop-up Plaza",
+      "subtitle": "North Austin · seasonal brand activations + holiday stalls",
+      "geofence": { "center": [-97.7253, 30.4014], "radiusMeters": 120 },
+      "info": {
+        "description": "The Domain hosts seasonal pop-up retail (Halloween, holiday markets, brand activations) in its central plaza. Check the Domain's events calendar.",
+        "website": "https://www.simon.com/mall/the-domain"
+      }
+    },
+    {
+      "id": "soco-popup-corridor",
+      "gid": "h9wbnxvqjr",
+      "title": "South Congress · Pop-up Corridor",
+      "subtitle": "1500-block S Congress · weekend pop-up tents + vintage stalls",
+      "geofence": { "center": [-97.7536, 30.2502], "radiusMeters": 120 },
+      "info": {
+        "description": "The 1500-block of South Congress hosts a rotating crew of weekend pop-up retailers in addition to the SoCo Makers Market. Best on Fri-Sun afternoons.",
+        "website": "https://socomakersmarket.com"
+      }
+    },
+    {
+      "id": "armadillo-bazaar-2026",
+      "gid": "z4vbnxqkwj",
+      "title": "Armadillo Christmas Bazaar 2026",
+      "subtitle": "Palmer Events Center · 50-year Austin holiday tradition",
+      "geofence": { "center": [-97.7556, 30.2630], "radiusMeters": 100 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          { "start": "2026-12-12T11:00", "end": "2026-12-24T22:00" }
+        ]
+      },
+      "info": {
+        "description": "Annual holiday market with 150+ juried Texas artists, live music every night, and beer. Runs from mid-December through Christmas Eve.",
+        "website": "https://www.armadillobazaar.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "cityId": "atx",
+  "title": "Concerts & Shows \u00b7 Austin",
+  "category": "Concerts & Shows",
+  "color": "#be123c",
+  "initialCamera": {
+    "center": [
+      -97.74,
+      30.27
+    ],
+    "zoom": 12.5
+  },
+  "hotspots": [
+    {
+      "id": "acl-live-moody-theater",
+      "gid": "p3vlrwxhqn",
+      "title": "ACL Live at the Moody Theater",
+      "subtitle": "310 Willie Nelson Blvd \u00b7 home of Austin City Limits TV taping",
+      "geofence": {
+        "center": [
+          -97.7464,
+          30.2647
+        ],
+        "radiusMeters": 80
+      },
+      "info": {
+        "description": "2,750-seat live music venue and home of the long-running Austin City Limits TV taping. Eclectic concert calendar year-round.",
+        "website": "https://acl-live.com"
+      }
+    },
+    {
+      "id": "stubbs-bbq",
+      "gid": "n7kmqyfbrz",
+      "title": "Stubb's BBQ",
+      "subtitle": "801 Red River St \u00b7 outdoor amphitheater + indoor stage",
+      "geofence": {
+        "center": [
+          -97.7363,
+          30.2696
+        ],
+        "radiusMeters": 80
+      },
+      "info": {
+        "description": "Iconic Red River venue with an indoor stage and a 2,200-capacity outdoor amphitheater. Concerts most nights plus Sunday gospel brunch.",
+        "website": "https://www.stubbsaustin.com"
+      }
+    },
+    {
+      "id": "mohawk-austin",
+      "gid": "g8txvqknwj",
+      "title": "Mohawk",
+      "subtitle": "912 Red River St \u00b7 indoor/outdoor live music club",
+      "geofence": {
+        "center": [
+          -97.7361,
+          30.2715
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "Indoor + outdoor stages on Red River. Cornerstone of the Austin indie + punk scene. Nightly shows.",
+        "website": "https://www.mohawkaustin.com"
+      }
+    },
+    {
+      "id": "antones-nightclub",
+      "gid": "d2yvfqmnxh",
+      "title": "Antone's Nightclub",
+      "subtitle": "305 E 5th St \u00b7 Austin's home of the blues since 1975",
+      "geofence": {
+        "center": [
+          -97.7421,
+          30.2666
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "Legendary blues club, now in its downtown location, with national touring acts and Austin residents alike.",
+        "website": "https://www.antonesnightclub.com"
+      }
+    },
+    {
+      "id": "the-long-center",
+      "gid": "j6brvxkqpf",
+      "title": "The Long Center for the Performing Arts",
+      "subtitle": "701 W Riverside Dr \u00b7 symphony, ballet, broadway tours",
+      "geofence": {
+        "center": [
+          -97.7522,
+          30.2599
+        ],
+        "radiusMeters": 100
+      },
+      "info": {
+        "description": "Multi-stage performing arts complex on Lady Bird Lake. Home of Austin Symphony, Ballet Austin, and Austin Opera; also touring Broadway and concerts.",
+        "website": "https://thelongcenter.org"
+      }
+    },
+    {
+      "id": "empire-control-room",
+      "gid": "f5wxhynqbt",
+      "title": "Empire Control Room & Garage",
+      "subtitle": "606 E 7th St \u00b7 indie, electronic, and hip-hop",
+      "geofence": {
+        "center": [
+          -97.7378,
+          30.2683
+        ],
+        "radiusMeters": 70
+      },
+      "info": {
+        "description": "Two-stage venue near 7th & Red River with a strong indie/electronic booking \u2014 and a beloved outdoor garage stage.",
+        "website": "https://empireatx.com"
+      }
+    },
+    {
+      "id": "paramount-theatre",
+      "gid": "y9hbnqvwlc",
+      "title": "Paramount Theatre",
+      "subtitle": "713 Congress Ave \u00b7 1915 vaudeville house, now film + concerts",
+      "geofence": {
+        "center": [
+          -97.743,
+          30.2693
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "Historic 1,270-seat theater on Congress hosting concerts, comedy, the Paramount Summer Classic Film Series, and SXSW screenings.",
+        "website": "https://www.austintheatre.org"
+      }
+    },
+    {
+      "id": "cactus-cafe",
+      "gid": "w4gvmbxqnp",
+      "title": "Cactus Cafe",
+      "subtitle": "UT Student Union \u00b7 listening-room folk + acoustic",
+      "geofence": {
+        "center": [
+          -97.7395,
+          30.2862
+        ],
+        "radiusMeters": 50
+      },
+      "info": {
+        "description": "Tiny listening-room venue on the UT campus, hosting acoustic singer-songwriters in an attentive, quiet setting since 1979.",
+        "website": "https://cactuscafe.org"
+      }
+    },
+    {
+      "id": "continental-club",
+      "gid": "r7jvxqkbmh",
+      "title": "The Continental Club",
+      "subtitle": "1315 S Congress \u00b7 honky-tonk classic on SoCo",
+      "geofence": {
+        "center": [
+          -97.7531,
+          30.252
+        ],
+        "radiusMeters": 50
+      },
+      "info": {
+        "description": "Open since 1957, Austin's classic honky-tonk + roots music room on South Congress. Sets most nights, two stages.",
+        "website": "https://continentalclub.com"
+      }
+    }
+  ]
+}

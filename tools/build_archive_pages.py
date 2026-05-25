@@ -40,7 +40,14 @@ CATEGORIES = [
     ("apartments",       "Apartments",        "#475569", ["/data/apartments/hotspots.json"]),
     ("hotels",           "Hotels",            "#0891b2", ["/data/hotels/hotspots.json"]),
     ("sports",           "Sports Venues",     "#facc15", ["/data/sports/hotspots.json"]),
-    ("temporarymarkets", "Temporary Markets", "#f59e0b", ["/data/temporarymarkets/hotspots.json"]),
+    ("temporarymarkets",   "Pop-up Markets",            "#f59e0b", ["/data/temporarymarkets/hotspots.json"]),
+    ("festivals",          "Festivals & Fairs",         "#f43f5e", ["/data/festivals/hotspots.json"]),
+    ("concertsshows",      "Concerts & Shows",          "#be123c", ["/data/concertsshows/hotspots.json"]),
+    ("comedymics",         "Comedy & Open Mics",        "#fbbf24", ["/data/comedymics/hotspots.json"]),
+    ("artgalleries",       "Art Openings & Galleries",  "#a855f7", ["/data/artgalleries/hotspots.json"]),
+    ("popupshops",         "Pop-up Shops",              "#c2410c", ["/data/popupshops/hotspots.json"]),
+    ("meetupsclasses",     "Meetups & Classes",         "#38bdf8", ["/data/meetupsclasses/hotspots.json"]),
+    ("grouprunsoutdoors",  "Group Runs & Outdoor Meets","#22c55e", ["/data/grouprunsoutdoors/hotspots.json"]),
 ]
 
 TEMPLATE = """<!DOCTYPE html>
