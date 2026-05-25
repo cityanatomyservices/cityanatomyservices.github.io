@@ -910,6 +910,13 @@
         </label>
         <span>Sports Venues</span>
       </div>
+      <div class="cm-legend-row">
+        <label class="cm-filter-label">
+          <input type="checkbox" class="cm-filter-cb" data-app="temporarymarkets" checked>
+          <span class="cm-legend-dot" style="background: #f59e0b"></span>
+        </label>
+        <span>Temporary Markets</span>
+      </div>
     </div>
   </aside>
 
@@ -981,6 +988,7 @@
       { id: 'apartments', url: '/data/apartments/hotspots.json',   color: '#475569' },
       { id: 'hotels',     url: '/data/hotels/hotspots.json',       color: '#0891b2' },
       { id: 'sports',     url: '/data/sports/hotspots.json',       color: '#facc15' },
+      { id: 'temporarymarkets', url: '/data/temporarymarkets/hotspots.json', color: '#f59e0b' },
     ];
 
     // Apps with `chatScope: 'category'` share ONE chat room across every
@@ -1349,6 +1357,7 @@
         apartments:    { label: 'Apartments' },
         hotels:        { label: 'Hotels' },
         sports:        { label: 'Sports Venues' },
+        temporarymarkets: { label: 'Temporary Markets' },
       };
 
       // Demo ad copy keyed by app. The text is a placeholder so a
@@ -1375,6 +1384,7 @@
         apartments:    'renters insurance & furniture rentals',
         hotels:        'local attractions & travel deals',
         sports:        'tickets, apparel & fan gear',
+        temporarymarkets: 'reusable totes & local crafts',
         homelesschat:  'community resources & social services',
       };
       function bannerAdHTML(app, color, variant /* 'inset' | 'full' */) {

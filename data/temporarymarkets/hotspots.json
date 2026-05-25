@@ -1,0 +1,454 @@
+{
+  "cityId": "atx",
+  "title": "Temporary Markets \u00b7 Austin",
+  "category": "Temporary Markets",
+  "color": "#f59e0b",
+  "initialCamera": {
+    "center": [
+      -97.74,
+      30.28
+    ],
+    "zoom": 10.5
+  },
+  "hotspots": [
+    {
+      "id": "sfc-downtown",
+      "gid": "k4r2zx8mqp",
+      "title": "SFC Farmers' Market \u00b7 Downtown",
+      "subtitle": "Republic Square \u00b7 75+ farm, food, and craft vendors",
+      "geofence": {
+        "center": [
+          -97.7466,
+          30.2691
+        ],
+        "radiusMeters": 100
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "09:00",
+            "to": "13:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Sustainable Food Center's flagship downtown farmers market at Republic Square. Year-round on Saturdays, with prepared food, produce, and artisan vendors."
+      }
+    },
+    {
+      "id": "tfm-mueller-sun",
+      "gid": "m7tjbnh2yc",
+      "title": "Texas Farmers' Market at Mueller (Sun)",
+      "subtitle": "Browning Hangar \u00b7 producer-only farm + artisan market",
+      "geofence": {
+        "center": [
+          -97.7039,
+          30.2987
+        ],
+        "radiusMeters": 120
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "10:00",
+            "to": "14:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Year-round producer-only farmers market at the Browning Hangar in Mueller. Sundays draw a heavy neighborhood and regional crowd."
+      }
+    },
+    {
+      "id": "tfm-mueller-wed",
+      "gid": "n6xkfg1ahb",
+      "title": "Texas Farmers' Market at Mueller (Wed)",
+      "subtitle": "Browning Hangar \u00b7 weeknight evening farmers market",
+      "geofence": {
+        "center": [
+          -97.7039,
+          30.2987
+        ],
+        "radiusMeters": 120
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "wed"
+            ],
+            "from": "17:00",
+            "to": "20:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Midweek-evening edition of the Mueller farmers market \u2014 same producers, more food trucks and dinner-and-shop crowd."
+      }
+    },
+    {
+      "id": "tfm-lakeline",
+      "gid": "j2cqswpd9r",
+      "title": "Texas Farmers' Market at Lakeline",
+      "subtitle": "Lakeline Mall \u00b7 northwest suburban farm + maker market",
+      "geofence": {
+        "center": [
+          -97.817,
+          30.4593
+        ],
+        "radiusMeters": 150
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "09:00",
+            "to": "13:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Texas Farmers' Market's northwest outpost in the Lakeline Mall parking lot. Saturday-morning year-round farmers and artisans."
+      }
+    },
+    {
+      "id": "hope-farmers-market",
+      "gid": "d5wgxn8vyk",
+      "title": "HOPE Farmers Market",
+      "subtitle": "Plaza Saltillo \u00b7 east-side Sunday farmers + craft market",
+      "geofence": {
+        "center": [
+          -97.7261,
+          30.2616
+        ],
+        "radiusMeters": 100
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "11:00",
+            "to": "15:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "East-side Sunday market at Plaza Saltillo, rain or shine year-round. Local farms, prepared food, live music, and craft vendors."
+      }
+    },
+    {
+      "id": "barton-creek-farmers-market",
+      "gid": "b4hjpz7qmt",
+      "title": "Barton Creek Farmers Market",
+      "subtitle": "Barton Creek Square \u00b7 Austin's original farmers market",
+      "geofence": {
+        "center": [
+          -97.8016,
+          30.2604
+        ],
+        "radiusMeters": 120
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sat"
+            ],
+            "from": "09:00",
+            "to": "13:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Widely cited as Austin's original farmers market. Saturdays in the Barton Creek Square mall parking area with farm produce, prepared food, and crafts."
+      }
+    },
+    {
+      "id": "domain-farmers-market",
+      "gid": "f3vlrnxkby",
+      "title": "Domain Farmers Market",
+      "subtitle": "Domain North Austin \u00b7 neighborhood farmers + artisan market",
+      "geofence": {
+        "center": [
+          -97.7253,
+          30.4014
+        ],
+        "radiusMeters": 100
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "10:00",
+            "to": "14:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Neighborhood farmers market in the Domain, typically near the IPIC theater plaza. Functions as a popup vendor layer inside North Austin's largest mixed-use development. Confirm exact day and location with the organizer before visiting."
+      }
+    },
+    {
+      "id": "boggy-creek-farmstand",
+      "gid": "g7cdkzh4nq",
+      "title": "Boggy Creek Farm Farmstand",
+      "subtitle": "3414 Lyons Rd \u00b7 East Austin urban farm stand",
+      "geofence": {
+        "center": [
+          -97.7019,
+          30.2729
+        ],
+        "radiusMeters": 80
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ],
+            "from": "08:00",
+            "to": "13:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "East Austin urban farm running a multi-day-per-week farmstand at the farm itself. Wednesday through Saturday mornings with produce and eggs straight from the field."
+      }
+    },
+    {
+      "id": "soco-makers-market",
+      "gid": "r9lnsxw5jt",
+      "title": "SoCo Makers Market",
+      "subtitle": "1500 S Congress Ave \u00b7 handmade, vintage, and art stalls",
+      "geofence": {
+        "center": [
+          -97.7536,
+          30.2516
+        ],
+        "radiusMeters": 80
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "fri",
+              "sat"
+            ],
+            "from": "10:00",
+            "to": "17:00"
+          },
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "12:30",
+            "to": "17:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Outdoor handmade-goods market on South Congress with a curated lineup of local makers. Open Friday through Sunday year-round."
+      }
+    },
+    {
+      "id": "guad-vintage-market",
+      "gid": "v8pnzkdh3y",
+      "title": "Guad Vintage Market",
+      "subtitle": "2932 Guadalupe St \u00b7 Sunday vintage market on the Drag",
+      "geofence": {
+        "center": [
+          -97.7401,
+          30.2942
+        ],
+        "radiusMeters": 60
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "12:00",
+            "to": "18:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Weekly vintage clothing and goods market outside Pavement Modern & Recycled on the Drag near UT. Rotating dealers every Sunday afternoon."
+      }
+    },
+    {
+      "id": "uncommon-flea",
+      "gid": "t5qchpwlrv",
+      "title": "Uncommon Flea",
+      "subtitle": "Behind Uncommon Objects on Fortview Rd \u00b7 monthly curated flea",
+      "geofence": {
+        "center": [
+          -97.7723,
+          30.2266
+        ],
+        "radiusMeters": 60
+      },
+      "info": {
+        "description": "Curated monthly flea market in the parking lot and yard behind Uncommon Objects in South Austin. Held the last Sunday of every month, 10am\u20133pm \u2014 check Instagram (@uncommonflea) before driving over."
+      }
+    },
+    {
+      "id": "city-wide-vintage-sale",
+      "gid": "w3krfybxmh",
+      "title": "City-Wide Vintage Sale",
+      "subtitle": "Palmer Events Center \u00b7 large indoor vintage market",
+      "geofence": {
+        "center": [
+          -97.7556,
+          30.263
+        ],
+        "radiusMeters": 100
+      },
+      "info": {
+        "description": "Indoor vintage market at Palmer Events Center drawing sellers from across Texas. Runs select weekends roughly monthly \u2014 2026 dates include May 23\u201324, Jun 20\u201321, Jul 18\u201319, Aug 15\u201316, Sep 26\u201327, and Dec 5\u20136. Check citywidevintagesale.com before going."
+      }
+    },
+    {
+      "id": "eastside-popup-cmw",
+      "gid": "y4mtbqgsdk",
+      "title": "Eastside Pop-Up @ Central Machine Works",
+      "subtitle": "4824 E Cesar Chavez \u00b7 brewery-yard makers market",
+      "geofence": {
+        "center": [
+          -97.6873,
+          30.2602
+        ],
+        "radiusMeters": 80
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sun"
+            ],
+            "from": "11:00",
+            "to": "17:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Recurring makers pop-up in the Central Machine Works brewery yard. Cadence varies \u2014 verify the next date on the brewery's calendar before visiting."
+      }
+    },
+    {
+      "id": "blue-genie-art-bazaar",
+      "gid": "z9hgxwjmpr",
+      "title": "Blue Genie Art Bazaar",
+      "subtitle": "6100 Airport Blvd \u00b7 seasonal handmade art bazaar",
+      "geofence": {
+        "center": [
+          -97.7068,
+          30.3216
+        ],
+        "radiusMeters": 80
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "10:00",
+            "to": "20:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Curated indoor art bazaar with 200+ local artists. Seasonal \u2014 runs roughly Nov 21 through Dec 24 each year (with a shorter spring pop-up some years). Check bluegenieartbazaar.com for current dates."
+      }
+    },
+    {
+      "id": "cherrywood-art-fair",
+      "gid": "x2vmrnqkdh",
+      "title": "Cherrywood Art Fair",
+      "subtitle": "Maplewood Elementary \u00b7 annual east-side art fair",
+      "geofence": {
+        "center": [
+          -97.7081,
+          30.2899
+        ],
+        "radiusMeters": 100
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sat",
+              "sun"
+            ],
+            "from": "11:00",
+            "to": "17:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Annual neighborhood art fair held one weekend in early December at Maplewood Elementary. Local artists, makers, food, and live music. Check cherrywoodartfair.org for the exact dates."
+      }
+    },
+    {
+      "id": "renegade-craft-austin",
+      "gid": "u7fjwpbnry",
+      "title": "Renegade Craft Austin",
+      "subtitle": "Fair Market, 1100 E 5th St \u00b7 juried indie craft fair",
+      "geofence": {
+        "center": [
+          -97.7335,
+          30.2616
+        ],
+        "radiusMeters": 80
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "sat",
+              "sun"
+            ],
+            "from": "11:00",
+            "to": "17:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "National juried indie craft fair that visits Austin roughly twice a year (spring + holiday). Recent editions have been at Fair Market on East 5th. Check renegadecraft.com for the next Austin date."
+      }
+    }
+  ]
+}
