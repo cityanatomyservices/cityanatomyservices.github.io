@@ -1,0 +1,135 @@
+/* ── austin.chat archive page styles ──────────────────────────────
+   Dark theme matching the live map. Text-only, system fonts, no
+   external assets so each page is ~6KB of CSS + HTML before chats.
+*/
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0e1117;
+  color: #e8eaed;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: #4cc3ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+main.archive {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 22px 80px;
+}
+
+main.archive > header {
+  border-bottom: 1px solid #2a3040;
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+}
+
+nav.crumb {
+  font-size: 0.82rem;
+  color: #8a94a3;
+  letter-spacing: 0.02em;
+}
+nav.crumb a { color: #8a94a3; }
+nav.crumb a:hover { color: #e8eaed; }
+nav.crumb .cur { color: #e8eaed; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 8px 0 6px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h1 .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.18);
+  flex-shrink: 0;
+}
+
+.lede {
+  color: #b0b8c4;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.status, .empty {
+  color: #8a94a3;
+  font-style: italic;
+  padding: 12px 0;
+}
+
+h2.day {
+  margin: 28px 0 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a94a3;
+  border-bottom: 1px solid #1f242e;
+  padding-bottom: 6px;
+}
+
+article.entry {
+  padding: 10px 0;
+  border-bottom: 1px solid #1a1f27;
+}
+article.entry:last-child { border-bottom: 0; }
+
+article.entry > header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: #8a94a3;
+}
+
+article.entry time {
+  color: #8a94a3;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+article.entry .loc {
+  color: #e8eaed;
+  font-weight: 600;
+}
+
+article.entry .who {
+  color: #c0c7d1;
+}
+
+article.entry .msg {
+  margin: 4px 0 0;
+  color: #e8eaed;
+  font-size: 0.98rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+footer.foot {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid #2a3040;
+  font-size: 0.85rem;
+  color: #8a94a3;
+}
+
+@media (max-width: 560px) {
+  main.archive { padding: 20px 16px 60px; }
+  h1 { font-size: 1.35rem; }
+  article.entry > header { gap: 6px 10px; }
+}
