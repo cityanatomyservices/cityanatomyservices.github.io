@@ -1,0 +1,102 @@
+{
+  "cityId": "atx",
+  "title": "Group Runs & Outdoor Meets · Austin",
+  "category": "Group Runs & Outdoor Meets",
+  "color": "#22c55e",
+  "initialCamera": {
+    "center": [-97.7600, 30.2670],
+    "zoom": 12.0
+  },
+  "hotspots": [
+    {
+      "id": "november-project-austin",
+      "gid": "n4bxqvjwhp",
+      "title": "November Project Austin",
+      "subtitle": "Long Center fields · free wednesday-morning workout, all welcome",
+      "geofence": { "center": [-97.7520, 30.2600], "radiusMeters": 80 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["wed"], "from": "06:00", "to": "07:00" }
+        ]
+      },
+      "info": {
+        "description": "Free outdoor group workout every Wednesday at 6:29am rain or shine. Anyone shows up, anyone fits in. Be on the lawn.",
+        "website": "https://november-project.com/austin-tx"
+      }
+    },
+    {
+      "id": "town-lake-loop-lou-neff",
+      "gid": "k7gqxwvbjm",
+      "title": "Lady Bird Lake Loop · Lou Neff Point",
+      "subtitle": "Lou Neff Point · informal jumping-off for the 10-mile loop",
+      "geofence": { "center": [-97.7660, 30.2640], "radiusMeters": 100 },
+      "info": {
+        "description": "Most popular trailhead for the 10-mile Ann and Roy Butler Hike-and-Bike Trail. Informal weekend group runs gather here at dawn most Saturdays.",
+        "website": "https://www.thetrailfoundation.org"
+      }
+    },
+    {
+      "id": "barton-springs-pool-meetup",
+      "gid": "p9bxnjqvwh",
+      "title": "Barton Springs Pool · Morning Swim Crew",
+      "subtitle": "2201 William Barton Dr · 68° year-round spring-fed pool",
+      "geofence": { "center": [-97.7700, 30.2640], "radiusMeters": 80 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["mon","tue","wed","sat","sun"], "from": "05:00", "to": "09:00" }
+        ]
+      },
+      "info": {
+        "description": "Iconic 68° spring-fed swimming pool. Year-round morning lap-swimmers gather most days; informal community feel. Closed Thursdays for cleaning.",
+        "website": "https://www.austintexas.gov/department/barton-springs-pool"
+      }
+    },
+    {
+      "id": "austin-runners-club-sunday-run",
+      "gid": "m6jqvwxbkh",
+      "title": "Austin Runners Club · Sunday Long Run",
+      "subtitle": "Lady Bird Lake · free weekly long run, multiple pace groups",
+      "geofence": { "center": [-97.7559, 30.2647], "radiusMeters": 100 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["sun"], "from": "07:00", "to": "10:00" }
+        ]
+      },
+      "info": {
+        "description": "Free weekly Sunday long run with pace groups from beginner to marathon training. Meets near Auditorium Shores; routes vary 4-20+ miles.",
+        "website": "https://www.austinrunners.org"
+      }
+    },
+    {
+      "id": "barton-creek-greenbelt-meetup",
+      "gid": "h8vxbwqnjr",
+      "title": "Barton Creek Greenbelt · Trail Run Meetup",
+      "subtitle": "Spyglass Trailhead · weekly Saturday trail runs",
+      "geofence": { "center": [-97.7842, 30.2602], "radiusMeters": 100 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["sat"], "from": "07:00", "to": "10:00" }
+        ]
+      },
+      "info": {
+        "description": "Informal weekly trail-running gathering from the Spyglass Trailhead. Distances vary; bring water and shoes that handle rocks.",
+        "website": "https://www.austintexas.gov/department/barton-creek-greenbelt"
+      }
+    },
+    {
+      "id": "town-lake-kayak-launch",
+      "gid": "y3bnxvwqkh",
+      "title": "Lady Bird Lake · Paddle Meetup",
+      "subtitle": "Texas Rowing Center · group paddles + casual kayaks",
+      "geofence": { "center": [-97.7591, 30.2719], "radiusMeters": 80 },
+      "info": {
+        "description": "Kayak / SUP / canoe rental and launch on Lady Bird Lake. Informal group paddles in the cooler months; rentals available daily.",
+        "website": "https://texasrowingcenter.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "cityId": "atx",
+  "title": "Comedy & Open Mics · Austin",
+  "category": "Comedy & Open Mics",
+  "color": "#fbbf24",
+  "initialCamera": {
+    "center": [-97.7400, 30.2750],
+    "zoom": 12.0
+  },
+  "hotspots": [
+    {
+      "id": "cap-city-comedy-club",
+      "gid": "x9jvbrqknh",
+      "title": "Cap City Comedy Club",
+      "subtitle": "North Austin · headline stand-up shows nightly",
+      "geofence": { "center": [-97.7165, 30.4006], "radiusMeters": 70 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["wed","thu"], "from": "19:30", "to": "22:00" },
+          { "days": ["fri","sat"], "from": "19:00", "to": "23:30" },
+          { "days": ["sun"], "from": "19:30", "to": "21:30" }
+        ]
+      },
+      "info": {
+        "description": "Austin's anchor stand-up comedy club, hosting national touring headliners Wednesday through Sunday.",
+        "website": "https://www.capcitycomedy.com"
+      }
+    },
+    {
+      "id": "coldtowne-theater",
+      "gid": "k2bnxvqryh",
+      "title": "ColdTowne Theater",
+      "subtitle": "Burnet Rd · improv + sketch + open mic",
+      "geofence": { "center": [-97.7330, 30.3253], "radiusMeters": 60 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["thu","fri","sat"], "from": "19:30", "to": "23:00" }
+        ]
+      },
+      "info": {
+        "description": "Beloved improv and sketch comedy theater with shows Thursday through Saturday, plus drop-in classes throughout the week.",
+        "website": "https://coldtownetheater.com"
+      }
+    },
+    {
+      "id": "fallout-theater",
+      "gid": "m8gqvjyxnp",
+      "title": "Fallout Theater",
+      "subtitle": "Downtown · improv, sketch, stand-up",
+      "geofence": { "center": [-97.7445, 30.2716], "radiusMeters": 50 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["thu","fri","sat"], "from": "19:30", "to": "23:00" }
+        ]
+      },
+      "info": {
+        "description": "Downtown improv + stand-up venue with a packed weekend schedule of student and pro showcases.",
+        "website": "https://www.fallouttheater.com"
+      }
+    },
+    {
+      "id": "velveeta-room-open-mic",
+      "gid": "r4hxwvqfbn",
+      "title": "The Velveeta Room — Open Mic Tuesday",
+      "subtitle": "521 E 6th St · longest-running open mic in Austin",
+      "geofence": { "center": [-97.7390, 30.2670], "radiusMeters": 40 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["tue"], "from": "20:30", "to": "23:00" }
+        ]
+      },
+      "info": {
+        "description": "Tuesday-night open mic; sign-up at the door. Friday + Saturday feature pro stand-up showcases at 9pm and 11pm.",
+        "website": "https://www.thevelveetaroom.com"
+      }
+    },
+    {
+      "id": "creek-and-the-cave",
+      "gid": "p7vnxjbqfm",
+      "title": "The Creek and The Cave",
+      "subtitle": "611 E 7th St · two-stage comedy club",
+      "geofence": { "center": [-97.7385, 30.2671], "radiusMeters": 40 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["wed","thu","fri","sat","sun"], "from": "19:00", "to": "23:30" }
+        ]
+      },
+      "info": {
+        "description": "Comedy club + restaurant; multiple shows a night across two stages, with podcasts, open mics, and headliners.",
+        "website": "https://creekandcave.com"
+      }
+    },
+    {
+      "id": "esthers-follies",
+      "gid": "h3qbnxyvwp",
+      "title": "Esther's Follies",
+      "subtitle": "525 E 6th St · long-running musical comedy revue",
+      "geofence": { "center": [-97.7395, 30.2672], "radiusMeters": 40 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["thu"], "from": "20:00", "to": "22:00" },
+          { "days": ["fri","sat"], "from": "20:00", "to": "23:30" }
+        ]
+      },
+      "info": {
+        "description": "Austin's flagship comedy + magic + music vaudeville revue, running on Sixth Street since 1977.",
+        "website": "https://esthersfollies.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "cityId": "atx",
+  "title": "Meetups & Classes \u00b7 Austin",
+  "category": "Meetups & Classes",
+  "color": "#38bdf8",
+  "initialCamera": {
+    "center": [
+      -97.74,
+      30.27
+    ],
+    "zoom": 12.0
+  },
+  "hotspots": [
+    {
+      "id": "austin-bouldering-project",
+      "gid": "k7gmqvxhnp",
+      "title": "Austin Bouldering Project",
+      "subtitle": "Springdale Rd \u00b7 drop-in climbing + classes + community",
+      "geofence": {
+        "center": [
+          -97.6989,
+          30.2666
+        ],
+        "radiusMeters": 80
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "06:00",
+            "to": "23:00"
+          },
+          {
+            "days": [
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "22:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Bouldering gym + community space. Day passes, regular intro-to-climbing classes, women's climbing nights, and movement classes.",
+        "website": "https://austinboulderingproject.com"
+      }
+    },
+    {
+      "id": "black-swan-yoga-east-5th",
+      "gid": "n3vwxqkbjy",
+      "title": "Black Swan Yoga \u00b7 East 5th",
+      "subtitle": "403 E 5th St \u00b7 donation-based heated vinyasa, drop-in",
+      "geofence": {
+        "center": [
+          -97.7359,
+          30.2638
+        ],
+        "radiusMeters": 40
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "06:00",
+            "to": "21:00"
+          },
+          {
+            "days": [
+              "sat",
+              "sun"
+            ],
+            "from": "07:00",
+            "to": "20:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Donation-based heated vinyasa flow studio with classes every couple of hours; walk-ins welcome.",
+        "website": "https://blackswanyoga.com"
+      }
+    },
+    {
+      "id": "yoga-yoga-south-lamar",
+      "gid": "p5jvbnxqmw",
+      "title": "Yoga Yoga \u00b7 South Lamar",
+      "subtitle": "1700 S Lamar \u00b7 long-running multi-style yoga studio",
+      "geofence": {
+        "center": [
+          -97.7625,
+          30.254
+        ],
+        "radiusMeters": 50
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri"
+            ],
+            "from": "06:00",
+            "to": "20:30"
+          },
+          {
+            "days": [
+              "sat",
+              "sun"
+            ],
+            "from": "08:30",
+            "to": "18:30"
+          }
+        ]
+      },
+      "info": {
+        "description": "Austin's longest-running yoga studio offering vinyasa, hatha, yin, and prenatal classes. New-student weeks unlimited.",
+        "website": "https://www.yogayoga.com"
+      }
+    },
+    {
+      "id": "capital-area-toastmasters-downtown",
+      "gid": "f8kbnxvqjr",
+      "title": "Toastmasters Downtown Austin",
+      "subtitle": "Downtown \u00b7 public speaking + leadership meetup",
+      "geofence": {
+        "center": [
+          -97.743,
+          30.2693
+        ],
+        "radiusMeters": 60
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "tue"
+            ],
+            "from": "12:00",
+            "to": "13:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Weekly lunchtime Toastmasters club downtown; guests welcome to attend and observe. Confirm exact location via the club's site before visiting.",
+        "website": "https://www.toastmasters.org/find-a-club"
+      }
+    },
+    {
+      "id": "spanish-conversation-meetup",
+      "gid": "q9wxnvjbgh",
+      "title": "Austin Spanish Conversation Meetup",
+      "subtitle": "Cosmic Coffee \u00b7 weekly bilingual conversation table",
+      "geofence": {
+        "center": [
+          -97.7631,
+          30.2273
+        ],
+        "radiusMeters": 60
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          {
+            "days": [
+              "wed"
+            ],
+            "from": "18:30",
+            "to": "20:30"
+          }
+        ]
+      },
+      "info": {
+        "description": "Casual Spanish-English language exchange held weekly at Cosmic Coffee on South Lamar. Bring an open mind and any level of Spanish.",
+        "website": "https://www.meetup.com"
+      }
+    }
+  ]
+}

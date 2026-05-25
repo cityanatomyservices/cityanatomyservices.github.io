@@ -1,0 +1,136 @@
+{
+  "cityId": "atx",
+  "title": "Festivals & Fairs \u00b7 Austin",
+  "category": "Festivals & Fairs",
+  "color": "#f43f5e",
+  "initialCamera": {
+    "center": [
+      -97.74,
+      30.275
+    ],
+    "zoom": 11.5
+  },
+  "hotspots": [
+    {
+      "id": "acl-music-festival-2026",
+      "gid": "h2pmvnxqry",
+      "title": "Austin City Limits Music Festival 2026",
+      "subtitle": "Zilker Park \u00b7 two weekends of headline music",
+      "geofence": {
+        "center": [
+          -97.771,
+          30.2685
+        ],
+        "radiusMeters": 250
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          {
+            "start": "2026-10-02T11:00",
+            "end": "2026-10-04T22:00"
+          },
+          {
+            "start": "2026-10-09T11:00",
+            "end": "2026-10-11T22:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Two consecutive weekends of music across eight stages at Zilker Park. Three days each weekend, gates typically open at 11am.",
+        "website": "https://www.aclfestival.com"
+      }
+    },
+    {
+      "id": "pecan-street-festival-fall-2026",
+      "gid": "v8jqrlbtnf",
+      "title": "Pecan Street Festival \u00b7 Fall 2026",
+      "subtitle": "6th Street downtown \u00b7 semi-annual arts + crafts festival",
+      "geofence": {
+        "center": [
+          -97.7405,
+          30.268
+        ],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          {
+            "start": "2026-09-19T11:00",
+            "end": "2026-09-20T22:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Twice-yearly arts and crafts festival on East 6th Street, with 250+ vendor booths, live music, and food. Free admission.",
+        "website": "https://www.pecanstreetfestival.org"
+      }
+    },
+    {
+      "id": "eeyores-birthday-2027",
+      "gid": "k6dyvqfbnh",
+      "title": "Eeyore's Birthday Party 2027",
+      "subtitle": "Pease Park \u00b7 Austin's wildest annual costume + drum party",
+      "geofence": {
+        "center": [
+          -97.7563,
+          30.2935
+        ],
+        "radiusMeters": 200
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "sessions": [
+          {
+            "start": "2027-04-24T11:00",
+            "end": "2027-04-24T21:00"
+          }
+        ]
+      },
+      "info": {
+        "description": "Annual costume party + drum circle at Pease Park, held the last Saturday of April since 1963. Free, all ages, donations support local nonprofits.",
+        "website": "https://www.eeyores.org"
+      }
+    },
+    {
+      "id": "sxsw-2027",
+      "gid": "m9hbzkpwrl",
+      "title": "SXSW 2027",
+      "subtitle": "Austin Convention Center + venues citywide \u00b7 music, film, tech",
+      "geofence": {
+        "center": [
+          -97.74,
+          30.264
+        ],
+        "radiusMeters": 250
+      },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "dateRange": {
+          "start": "2027-03-12",
+          "end": "2027-03-21"
+        },
+        "windows": [
+          {
+            "days": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ],
+            "from": "08:00",
+            "to": "23:59"
+          }
+        ]
+      },
+      "info": {
+        "description": "Ten days of music, film, and tech across Austin's downtown venues. Convention Center is the central hub but events sprawl city-wide.",
+        "website": "https://www.sxsw.com"
+      }
+    }
+  ]
+}
