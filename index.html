@@ -155,6 +155,71 @@
       flex-shrink: 0;
     }
 
+    /* ── Per-category expand toggle + hotspot list ───────────────── */
+    .cm-legend-body {
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+    .cm-category-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 0;
+      color: #f5f7fa;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      user-select: none;
+    }
+    .cm-category-toggle:hover { color: #4cc3ff; }
+    .cm-category-toggle-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 12px;
+      height: 12px;
+      font-size: 0.9rem;
+      line-height: 1;
+      color: #c0c7d1;
+      flex-shrink: 0;
+    }
+    .cm-category-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 4px 0 4px 24px;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+    .cm-category-body[hidden] { display: none; }
+    .cm-filter-hotspot-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #c0c7d1;
+      user-select: none;
+    }
+    .cm-filter-hotspot-row:hover { color: #f5f7fa; }
+    .cm-filter-hotspot {
+      accent-color: #4cc3ff;
+      width: 11px;
+      height: 11px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .cm-filter-hotspot-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
+    }
+
     /* ── Social icon bar — bottom-center pill ─────────────────────── */
     .cm-brand-card {
       position: fixed;
@@ -1239,6 +1304,11 @@
       const neighborhoodById = new Map(neighborhoods.map(n => [n.id, n]));
 
       const features = results.flatMap(({ app, hotspots }) => toFeatures(hotspots, app));
+
+      // Build the per-category hotspot lists in the legend now that the
+      // hotspot data is available. Each category row gets a +/- toggle
+      // next to its title; expanding it reveals a checkbox per hotspot.
+      buildCategoryDropdowns(results);
 
       // Bounding box across every geofence polygon — used by the
       // "extents" button to zoom out to fit them all. Walks the polygon
@@ -2339,52 +2409,173 @@
       }
 
       // ── Legend filter logic ──────────────────────────────────────
+      // Three-level hierarchy: group → category → hotspot. The per-hotspot
+      // checkboxes are the source of truth for the map filter; category
+      // and group checkboxes are pure UI affordances that cascade down
+      // and reflect aggregate state (checked / unchecked / indeterminate).
       const FILTER_LAYERS = ['chatmaps-fill', 'chatmaps-outline', 'chatmaps-label'];
+      const GROUPS = ['public', 'commercial', 'events'];
+
+      function syncCategoryCheckbox(appId) {
+        const subs = document.querySelectorAll(`.cm-filter-hotspot[data-app="${appId}"]`);
+        const categoryCb = document.querySelector(`.cm-filter-cb[data-app="${appId}"]`);
+        if (!categoryCb) return;
+        if (!subs.length) {
+          // Category has no hotspots loaded yet — leave checkbox alone.
+          return;
+        }
+        const checkedCount = [...subs].filter(cb => cb.checked).length;
+        categoryCb.indeterminate = checkedCount > 0 && checkedCount < subs.length;
+        categoryCb.checked       = checkedCount === subs.length;
+      }
 
       function syncGroupAllCheckbox(group) {
-        const subs = document.querySelectorAll(`.cm-filter-cb[data-group="${group}"]`);
-        if (!subs.length) return;
-        const checkedCount = [...subs].filter(cb => cb.checked).length;
+        const cats = document.querySelectorAll(`.cm-filter-cb[data-group="${group}"]`);
+        if (!cats.length) return;
+        let anyChecked = false, anyUnchecked = false, anyIndeterminate = false;
+        cats.forEach(c => {
+          if (c.indeterminate) anyIndeterminate = true;
+          else if (c.checked)  anyChecked = true;
+          else                 anyUnchecked = true;
+        });
         const groupAll = document.querySelector(`.cm-filter-group-all[data-group="${group}"]`);
         if (!groupAll) return;
-        groupAll.indeterminate = checkedCount > 0 && checkedCount < subs.length;
-        groupAll.checked       = checkedCount === subs.length;
+        groupAll.indeterminate = anyIndeterminate || (anyChecked && anyUnchecked);
+        groupAll.checked       = anyChecked && !anyUnchecked && !anyIndeterminate;
       }
 
       function applyMapFilter() {
-        const checked = [...document.querySelectorAll('.cm-filter-cb:checked')]
-                          .map(cb => cb.dataset.app);
-        const allIds  = APPS.map(a => a.id);
-
+        const allHs = document.querySelectorAll('.cm-filter-hotspot');
         let filter;
-        if (checked.length === allIds.length) {
-          filter = null;
-        } else if (checked.length === 0) {
-          filter = ['==', ['get', 'app'], '__none__'];
+
+        if (allHs.length === 0) {
+          // Pre-load fallback: category-level filter only.
+          const checkedApps = [...document.querySelectorAll('.cm-filter-cb:checked')]
+                                .map(cb => cb.dataset.app);
+          if (checkedApps.length === APPS.length)      filter = null;
+          else if (checkedApps.length === 0)           filter = ['==', ['get', 'app'], '__none__'];
+          else                                         filter = ['in', ['get', 'app'], ['literal', checkedApps]];
         } else {
-          filter = ['in', ['get', 'app'], ['literal', checked]];
+          const checkedIds = [...allHs].filter(cb => cb.checked).map(cb => cb.dataset.featureId);
+          if (checkedIds.length === allHs.length)      filter = null;
+          else if (checkedIds.length === 0)            filter = ['==', ['get', 'id'], '__none__'];
+          else                                         filter = ['in', ['get', 'id'], ['literal', checkedIds]];
+
+          APPS.forEach(a => syncCategoryCheckbox(a.id));
+          GROUPS.forEach(syncGroupAllCheckbox);
+
+          const hidden = [...allHs].filter(cb => !cb.checked).map(cb => cb.dataset.featureId);
+          localStorage.setItem('cm-hidden-features', JSON.stringify(hidden));
         }
 
         FILTER_LAYERS.forEach(layerId => map.setFilter(layerId, filter));
-
-        ['public', 'commercial', 'events'].forEach(syncGroupAllCheckbox);
-
-        localStorage.setItem('cm-filters', JSON.stringify(checked));
       }
 
+      // Build per-category hotspot lists once the hotspot data is loaded.
+      function buildCategoryDropdowns(results) {
+        const byApp = new Map(results.map(({ app, hotspots }) => [app.id, hotspots]));
+
+        document.querySelectorAll('.cm-legend-row').forEach(row => {
+          const cb = row.querySelector('.cm-filter-cb');
+          if (!cb) return;
+          const appId = cb.dataset.app;
+          const hotspots = byApp.get(appId) || [];
+          if (!hotspots.length) return;
+
+          // Replace the plain title span with a clickable +/- toggle.
+          const spans = row.querySelectorAll('span');
+          const titleSpan = [...spans].find(s => !s.classList.contains('cm-legend-dot'));
+          if (!titleSpan) return;
+          const titleText = titleSpan.textContent;
+          const bodyId = 'cm-category-body-' + appId;
+
+          const toggleBtn = document.createElement('button');
+          toggleBtn.type = 'button';
+          toggleBtn.className = 'cm-category-toggle';
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          toggleBtn.setAttribute('aria-controls', bodyId);
+          const icon = document.createElement('span');
+          icon.className = 'cm-category-toggle-icon';
+          icon.setAttribute('aria-hidden', 'true');
+          icon.textContent = '+';
+          const label = document.createElement('span');
+          label.className = 'cm-category-title';
+          label.textContent = titleText;
+          toggleBtn.append(icon, label);
+          titleSpan.replaceWith(toggleBtn);
+
+          const body = document.createElement('div');
+          body.className = 'cm-category-body';
+          body.id = bodyId;
+          body.hidden = true;
+
+          // Sort hotspots alphabetically so the list is browseable.
+          const sorted = [...hotspots].sort((a, b) =>
+            (a.title || a.id || '').localeCompare(b.title || b.id || '')
+          );
+          for (const h of sorted) {
+            const featureId = `${appId}-${h.id}`;
+            const rowLabel = document.createElement('label');
+            rowLabel.className = 'cm-filter-hotspot-row';
+            const hsCb = document.createElement('input');
+            hsCb.type = 'checkbox';
+            hsCb.className = 'cm-filter-hotspot';
+            hsCb.dataset.app = appId;
+            hsCb.dataset.featureId = featureId;
+            hsCb.checked = true;
+            const titleEl = document.createElement('span');
+            titleEl.className = 'cm-filter-hotspot-title';
+            titleEl.textContent = h.title || h.id;
+            rowLabel.append(hsCb, titleEl);
+            body.appendChild(rowLabel);
+          }
+          row.after(body);
+
+          toggleBtn.addEventListener('click', () => {
+            const wasHidden = body.hasAttribute('hidden');
+            if (wasHidden) {
+              body.removeAttribute('hidden');
+              toggleBtn.setAttribute('aria-expanded', 'true');
+              icon.textContent = '−';
+            } else {
+              body.setAttribute('hidden', '');
+              toggleBtn.setAttribute('aria-expanded', 'false');
+              icon.textContent = '+';
+            }
+          });
+        });
+      }
+
+      // Group "All" → cascade to its categories and all their hotspots.
       document.querySelectorAll('.cm-filter-group-all').forEach(groupCb => {
         groupCb.addEventListener('change', e => {
           const group = e.target.dataset.group;
-          document.querySelectorAll(`.cm-filter-cb[data-group="${group}"]`)
-            .forEach(cb => { cb.checked = e.target.checked; });
+          const want  = e.target.checked;
+          document.querySelectorAll(`.cm-filter-cb[data-group="${group}"]`).forEach(cb => {
+            cb.checked = want;
+            document.querySelectorAll(`.cm-filter-hotspot[data-app="${cb.dataset.app}"]`)
+              .forEach(h => { h.checked = want; });
+          });
           applyMapFilter();
         });
       });
 
+      // Category checkbox → cascade to its hotspots.
       document.querySelectorAll('.cm-filter-cb').forEach(cb => {
-        cb.addEventListener('change', applyMapFilter);
+        cb.addEventListener('change', () => {
+          document.querySelectorAll(`.cm-filter-hotspot[data-app="${cb.dataset.app}"]`)
+            .forEach(h => { h.checked = cb.checked; });
+          applyMapFilter();
+        });
       });
 
+      // Hotspot checkbox toggles use event delegation since they're built
+      // dynamically by buildCategoryDropdowns().
+      document.getElementById('cm-legend-body').addEventListener('change', e => {
+        if (e.target.classList.contains('cm-filter-hotspot')) applyMapFilter();
+      });
+
+      // Group header click → expand/collapse the group body.
       document.querySelectorAll('.cm-group-header').forEach(header => {
         header.addEventListener('click', () => {
           const body = document.getElementById(header.getAttribute('aria-controls'));
@@ -2406,11 +2597,23 @@
         document.getElementById('cm-legend-body').classList.toggle('cm-collapsed');
       });
 
-      const savedFilters = JSON.parse(localStorage.getItem('cm-filters') || 'null');
-      if (savedFilters) {
-        document.querySelectorAll('.cm-filter-cb').forEach(cb => {
-          cb.checked = savedFilters.includes(cb.dataset.app);
+      // Restore saved per-hotspot hidden set, migrating from the old
+      // per-category cm-filters key if it's the only thing present.
+      const hiddenRaw = localStorage.getItem('cm-hidden-features');
+      if (hiddenRaw) {
+        const hidden = new Set(JSON.parse(hiddenRaw));
+        document.querySelectorAll('.cm-filter-hotspot').forEach(cb => {
+          cb.checked = !hidden.has(cb.dataset.featureId);
         });
+      } else {
+        const legacy = JSON.parse(localStorage.getItem('cm-filters') || 'null');
+        if (Array.isArray(legacy)) {
+          const onApps = new Set(legacy);
+          document.querySelectorAll('.cm-filter-hotspot').forEach(cb => {
+            cb.checked = onApps.has(cb.dataset.app);
+          });
+          localStorage.removeItem('cm-filters');
+        }
       }
       applyMapFilter();
 
