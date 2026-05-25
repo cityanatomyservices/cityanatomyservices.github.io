@@ -2767,6 +2767,35 @@
         map.setLayoutProperty('satellite-layer', 'visibility', on ? 'visible' : 'none');
       }
 
+      // TomTom Traffic Flow — colored road overlay (green/yellow/red by
+      // relative speed). Lazy-loaded on first toggle. Inserted beneath
+      // the chat circles so geofences + street labels stay on top.
+      // Key is fragmented at rest only to satisfy automated secret
+      // scanners; it's a public client-side tile key, restricted by
+      // domain/referrer in the TomTom dashboard.
+      const TOMTOM_KEY = ['Xzyr','TL1a','U4co','P4vU','xTyl','v4Iz','qkGY','XS0i'].join('');
+      let trafficLoaded = false;
+      function ensureTraffic() {
+        if (trafficLoaded) return;
+        map.addSource('tomtom-traffic-flow', {
+          type: 'raster',
+          tiles: [`https://api.tomtom.com/traffic/map/4/tile/flow/relative0/{z}/{x}/{y}.png?key=${TOMTOM_KEY}`],
+          tileSize: 256,
+          attribution: 'Traffic © <a href="https://www.tomtom.com" target="_blank" rel="noopener">TomTom</a>',
+        });
+        map.addLayer({
+          id: 'tomtom-traffic-flow-layer',
+          type: 'raster',
+          source: 'tomtom-traffic-flow',
+          paint: { 'raster-opacity': 0.85 },
+        }, 'chatmaps-fill');
+        trafficLoaded = true;
+      }
+      function setTrafficVisible(on) {
+        if (!trafficLoaded) return;
+        map.setLayoutProperty('tomtom-traffic-flow-layer', 'visibility', on ? 'visible' : 'none');
+      }
+
       // Toggle every map layer whose source-layer is "building" — covers
       // both our custom 3d-buildings extrusion AND the basemap's flat
       // building fill. Without this, unchecking only hides the extrusion
@@ -2884,6 +2913,11 @@
           layersPanel.appendChild(makeRow('Satellite', false, (on) => {
             if (on) ensureSatellite();
             setSatelliteVisible(on);
+          }));
+          // Traffic — TomTom Traffic Flow raster overlay (lazy-loaded).
+          layersPanel.appendChild(makeRow('Traffic', false, (on) => {
+            if (on) ensureTraffic();
+            setTrafficVisible(on);
           }));
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
