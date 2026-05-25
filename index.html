@@ -525,7 +525,7 @@
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 8px 24px rgba(15, 25, 45, 0.18);
-      width: 320px;
+      width: 400px;
       overflow: hidden;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
@@ -545,7 +545,20 @@
     }
     .pc-mini-title {
       margin: 3px 0 0; font-size: 0.95rem; font-weight: 700; color: #1c1c28;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .pc-mini-inline-info {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #e8ecf0;
+      font-size: 0.79rem;
+      color: #3a4252;
+      line-height: 1.45;
+    }
+    .pc-mini-inline-info p {
+      margin: 0 0 5px;
+    }
+    .pc-mini-inline-info p:last-child {
+      margin-bottom: 0;
     }
     .pc-mini-presence {
       margin: 4px 0 0; font-size: 0.72rem; color: #5a6472; font-weight: 600;
@@ -2168,28 +2181,25 @@
           : (isVisitor
               ? `<span class="pc-mini-visiting-badge" style="background:#eef1f5;color:#5a6472;">Read-only · walk in to chat</span>`
               : '<span class="pc-mini-visiting-badge">Visiting from your spot</span>');
-        // Info-tab body: hot.info description + hours + Maps/Waze/Reddit
-        // social links. Same data the old static info popup surfaced;
-        // now lives inside the chat popup so visitors see chat + info
-        // in one place.
-        const infoBits = [];
+        // Info content — displayed inline below the title, not in a separate tab.
+        const infoHTMLParts = [];
         if (hot?.info?.description) {
-          infoBits.push(`<p class="pc-mini-pane-empty" style="font-style:normal;color:#1c1c28;line-height:1.4;">${escapeText(hot.info.description)}</p>`);
+          infoHTMLParts.push(`<p>${escapeText(hot.info.description)}</p>`);
         }
         const hours = (hot && window.PubchatSchedule)
           ? window.PubchatSchedule.formatSchedule(hot.schedule)
           : '';
         if (hours) {
-          infoBits.push(`<p class="pc-mini-pane-empty" style="font-style:normal;color:#1c1c28;"><strong>Hours:</strong> ${hours}</p>`);
+          infoHTMLParts.push(`<p><strong>Hours:</strong> ${hours}</p>`);
         }
         const hotCenter = hot?.geofence?.center;
         const socialHTML = (hotCenter && window.PubchatSocial)
           ? window.PubchatSocial.buttonsHTML(hotCenter[1], hotCenter[0], hot.title || title)
           : '';
-        if (socialHTML) infoBits.push(socialHTML);
-        const infoBody = infoBits.length
-          ? infoBits.join('')
-          : '<p class="pc-mini-pane-empty">Info coming soon.</p>';
+        if (socialHTML) infoHTMLParts.push(socialHTML);
+        const infoSection = infoHTMLParts.length
+          ? `<div class="pc-mini-inline-info">${infoHTMLParts.join('')}</div>`
+          : '';
         // Compose form (lives in the chat tab). Locked for visitors.
         const composeHTML = canSend
           ? `<form class="pc-mini-compose">
@@ -2207,20 +2217,17 @@
               <h2 class="pc-mini-title">${escapeText(title)}</h2>
               <p class="pc-mini-presence">connecting…</p>
               ${hereBadge}
+              ${infoSection}
             </div>
           </div>
           <nav class="pc-mini-tabs" role="tablist">
             <button class="pc-mini-tab is-active" data-tab="chat" type="button" role="tab">Chat</button>
-            <button class="pc-mini-tab" data-tab="info" type="button" role="tab">Info</button>
             <button class="pc-mini-tab" data-tab="polls" type="button" role="tab">Polls</button>
           </nav>
           <div class="pc-mini-panes">
             <div class="pc-mini-pane" data-pane="chat" role="tabpanel">
               <ol class="pc-mini-messages" aria-live="polite"></ol>
               ${composeHTML}
-            </div>
-            <div class="pc-mini-pane" data-pane="info" role="tabpanel" hidden>
-              ${infoBody}
             </div>
             <div class="pc-mini-pane" data-pane="polls" role="tabpanel" hidden>
               <ol class="pc-mini-polls" aria-label="Live polls"></ol>
@@ -2330,7 +2337,7 @@
           className: 'pc-mini-popup',
           offset: 4,
           closeButton: true,
-          maxWidth: '340px',
+          maxWidth: '420px',
           anchor: 'bottom',
         })
           .setLngLat(lngLat)
