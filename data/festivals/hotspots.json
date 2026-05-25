@@ -131,6 +131,191 @@
         "description": "Ten days of music, film, and tech across Austin's downtown venues. Convention Center is the central hub but events sprawl city-wide.",
         "website": "https://www.sxsw.com"
       }
+    },
+    {
+      "id": "catfish-concerts-house-concerts-2262",
+      "gid": "9i3bfwty3y",
+      "title": "Catfish Concerts | House Concerts",
+      "subtitle": "2506 Lazy Oaks Drive Austin TX 78745 \u00b7 House Concerts",
+      "geofence": {
+        "center": [
+          -97.812978,
+          30.205081
+        ],
+        "radiusMeters": 150
+      },
+      "info": {
+        "description": "Held once a month, hosted by Brian T. Atkinson and presented by Jenni Finlay Promotions, the Catfish Concert series provides incredible Americana music in an intimate setting. Come out, relax, and enjoy some of the best of the best songs and stories.",
+        "website": "http://catfishconcerts.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2262"
+    },
+    {
+      "id": "southpark-after-dark-concert-series-2467",
+      "gid": "khopgfqdok",
+      "title": "Southpark After Dark Concert Series",
+      "subtitle": "9500 IH-35 South Austin TX 78748 \u00b7 Event/ Festival",
+      "geofence": {
+        "center": [
+          -97.822906,
+          30.168174
+        ],
+        "radiusMeters": 150
+      },
+      "info": {
+        "description": "Free summer concert series at The Grove at Southpark Meadows",
+        "website": "http://www.shopsouthparkmeadows.com/events"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2467"
+    },
+    {
+      "id": "sunday-drum-circles-at-mother-pecan-tree-2372",
+      "gid": "da6d3uofp5",
+      "title": "Sunday Drum Circles at Mother Pecan Tree",
+      "subtitle": "S Entrance Barton Springs Pool Austin TX 78746 \u00b7 Event/ Festival",
+      "geofence": {
+        "center": [
+          -97.969371,
+          30.210637
+        ],
+        "radiusMeters": 150
+      },
+      "info": {},
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2372"
+    },
+    {
+      "id": "sfc-farmers-market-1707",
+      "gid": "xtdr8uinow",
+      "title": "SFC Farmers' Market",
+      "subtitle": "1106 Clayton Ln. Austin TX 78723 \u00b7 Event/ Festival",
+      "geofence": {
+        "center": [
+          -97.70033,
+          30.319252
+        ],
+        "radiusMeters": 150
+      },
+      "info": {
+        "description": "SFC Farmers' Market has live music at three sites, Downtown (4th & Guadalupe) on Saturday; Sunset Valley (3200 Jones Road) on Saturday: and The Triangle (4600 Lamar) on Wednesday. Enjoy cafe or lawn seating and quick, read-to-eat meals while listening t",
+        "website": "http://www.sfcfarmersmarket.org/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1707"
+    },
+    {
+      "id": "carson-creek-ranch-2205",
+      "gid": "wkzh9965rd",
+      "title": "Carson Creek Ranch",
+      "subtitle": "9501 Sherman Road Austin TX 78742 \u00b7 Event Venue",
+      "geofence": {
+        "center": [
+          -97.661075,
+          30.228432
+        ],
+        "radiusMeters": 120
+      },
+      "info": {
+        "description": "Carson Creek Ranch is a scenic 58 acre ranch, rich in history, nestled on the banks of the Colorado River in Austin, Texas. It is the ideal setting for your event regardless of scope and size, from an intimate corporate event to a festival for thousands.",
+        "website": "http://www.carsoncreekranch.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2205"
+    },
+    {
+      "id": "full-moon-barn-dance-1208",
+      "gid": "82zki6bdqw",
+      "title": "Full Moon Barn Dance",
+      "subtitle": "3600 South Second Street Austin TX 78704 \u00b7 House Concerts",
+      "geofence": {
+        "center": [
+          -97.769482,
+          30.232068
+        ],
+        "radiusMeters": 150
+      },
+      "info": {
+        "description": "A community gathering celebrating original music, community building, and dancing under the stars. Bring original music/poetry/information to share at the open mic, food and drink to share on the potluck table, and enjoy dancing under the stars to hand-p",
+        "website": "http://www.fullmoonbarndance.com/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1208"
+    },
+    {
+      "id": "strings-on-grass-2468",
+      "gid": "dow88v3ugn",
+      "title": "Strings on Grass",
+      "subtitle": "Slaughter Creek Dr Austin TX 78748 \u00b7 Event/ Festival",
+      "geofence": {
+        "center": [
+          -97.822906,
+          30.168174
+        ],
+        "radiusMeters": 150
+      },
+      "info": {
+        "website": "http://do512.com/venues/strings-on-grass"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "2468"
+    },
+    {
+      "id": "saint-cecilia-music-series-1944",
+      "gid": "p5ifvimpp8",
+      "title": "Saint Cecilia Music Series",
+      "subtitle": "8001 Mesa Drive Austin TX 78731 \u00b7 Event/ Festival",
+      "geofence": {
+        "center": [
+          -97.757419,
+          30.369415
+        ],
+        "radiusMeters": 150
+      },
+      "info": {
+        "description": "The most beautiful music you\u2019ve never heard. This is the essence of the St. Cecilia Music Series. SCMS aims to fill in the blanks between Buxtehude and Bach. Between Dufay and Dandrieu. Between Monteverdi and Marcello. After a single performance from S",
+        "website": "http://www.scmsaustin.org/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1944"
+    },
+    {
+      "id": "blanton-museum-of-art-b-scene-concert-series-1457",
+      "gid": "feu6khs8b8",
+      "title": "Blanton Museum of Art | \"B scene\" concert series",
+      "subtitle": "200 East Martin Luther King Jr. Boulevard Austin TX 78712 \u00b7 Event/ Festival",
+      "geofence": {
+        "center": [
+          -97.737531,
+          30.280986
+        ],
+        "radiusMeters": 150
+      },
+      "info": {
+        "description": "The University of Texas at Austin's Blanton Museum of Art holds public events called \"B scene at The Blanton\". This concert series features all genres of musical acts. The Blanton Museum of Art is committed to being a center of excellence, knowledge and",
+        "website": "http://blantonmuseum.org/experience_the_blanton/b_scene/"
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "1457"
+    },
+    {
+      "id": "casa-karen-3021",
+      "gid": "mcw8bda8tv",
+      "title": "Casa Karen",
+      "subtitle": "7402 Greenhaven Drive Austin TX 78757 \u00b7 House Concerts",
+      "geofence": {
+        "center": [
+          -97.74006,
+          30.35252
+        ],
+        "radiusMeters": 150
+      },
+      "info": {
+        "description": "Casa Karen Music Series promotes live jazz in a quiet beautiful environment with a concert grand piano that is always in tune and a guaranteed thoughtful attentive audience to support the creative process."
+      },
+      "source": "atx_creative_spaces_csv",
+      "sourceId": "3021"
     }
   ]
 }
