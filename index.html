@@ -160,21 +160,25 @@
       max-height: calc(100vh - 80px);
       overflow-y: auto;
     }
-    .cm-category-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .cm-category-expand {
       background: none;
       border: none;
       padding: 0;
-      color: #f5f7fa;
-      font: inherit;
-      font-weight: 600;
       cursor: pointer;
-      text-align: left;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cm-category-expand:hover .cm-category-toggle-icon { color: #4cc3ff; }
+    .cm-category-link {
+      color: #f5f7fa;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
       user-select: none;
     }
-    .cm-category-toggle:hover { color: #4cc3ff; }
+    .cm-category-link:hover { color: #4cc3ff; text-decoration: underline; }
     .cm-category-toggle-icon {
       display: inline-flex;
       align-items: center;
@@ -2491,27 +2495,35 @@
           const hotspots = byApp.get(appId) || [];
           if (!hotspots.length) return;
 
-          // Replace the plain title span with a clickable +/- toggle.
+          // Replace the plain title span with a +/- expand button and a
+          // category-archive link. The button expands the hotspot list;
+          // the link navigates to the per-category chat archive page.
           const spans = row.querySelectorAll('span');
           const titleSpan = [...spans].find(s => !s.classList.contains('cm-legend-dot'));
           if (!titleSpan) return;
           const titleText = titleSpan.textContent;
           const bodyId = 'cm-category-body-' + appId;
 
-          const toggleBtn = document.createElement('button');
-          toggleBtn.type = 'button';
-          toggleBtn.className = 'cm-category-toggle';
-          toggleBtn.setAttribute('aria-expanded', 'false');
-          toggleBtn.setAttribute('aria-controls', bodyId);
+          const expandBtn = document.createElement('button');
+          expandBtn.type = 'button';
+          expandBtn.className = 'cm-category-expand';
+          expandBtn.setAttribute('aria-expanded', 'false');
+          expandBtn.setAttribute('aria-controls', bodyId);
+          expandBtn.setAttribute('aria-label', 'Expand ' + titleText);
           const icon = document.createElement('span');
           icon.className = 'cm-category-toggle-icon';
           icon.setAttribute('aria-hidden', 'true');
           icon.textContent = '+';
-          const label = document.createElement('span');
-          label.className = 'cm-category-title';
-          label.textContent = titleText;
-          toggleBtn.append(icon, label);
-          titleSpan.replaceWith(toggleBtn);
+          expandBtn.appendChild(icon);
+
+          const titleLink = document.createElement('a');
+          titleLink.className = 'cm-category-link';
+          titleLink.href = '/' + appId + '/';
+          titleLink.textContent = titleText;
+          titleLink.title = 'Open the ' + titleText + ' chat archive';
+
+          titleSpan.replaceWith(expandBtn);
+          expandBtn.after(titleLink);
 
           const body = document.createElement('div');
           body.className = 'cm-category-body';
@@ -2546,15 +2558,15 @@
           }
           row.after(body);
 
-          toggleBtn.addEventListener('click', () => {
+          expandBtn.addEventListener('click', () => {
             const wasHidden = body.hasAttribute('hidden');
             if (wasHidden) {
               body.removeAttribute('hidden');
-              toggleBtn.setAttribute('aria-expanded', 'true');
+              expandBtn.setAttribute('aria-expanded', 'true');
               icon.textContent = '−';
             } else {
               body.setAttribute('hidden', '');
-              toggleBtn.setAttribute('aria-expanded', 'false');
+              expandBtn.setAttribute('aria-expanded', 'false');
               icon.textContent = '+';
             }
           });
