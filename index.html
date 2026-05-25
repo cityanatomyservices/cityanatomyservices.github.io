@@ -199,12 +199,12 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      cursor: pointer;
       font-size: 0.72rem;
       font-weight: 500;
       color: #c0c7d1;
       user-select: none;
     }
+    .cm-filter-hotspot-cb { display: flex; align-items: center; flex-shrink: 0; cursor: pointer; }
     .cm-filter-hotspot-row:hover { color: #f5f7fa; }
     .cm-filter-hotspot {
       accent-color: #4cc3ff;
@@ -214,11 +214,20 @@
       flex-shrink: 0;
     }
     .cm-filter-hotspot-title {
+      background: none;
+      border: none;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 220px;
+      max-width: 200px;
+      flex: 1;
     }
+    .cm-filter-hotspot-title:hover { color: #4cc3ff; }
 
     /* ── Social icon bar — bottom-center pill ─────────────────────── */
     .cm-brand-card {
@@ -2515,19 +2524,25 @@
           );
           for (const h of sorted) {
             const featureId = `${appId}-${h.id}`;
-            const rowLabel = document.createElement('label');
-            rowLabel.className = 'cm-filter-hotspot-row';
+            const hsRow = document.createElement('div');
+            hsRow.className = 'cm-filter-hotspot-row';
+            const cbLabel = document.createElement('label');
+            cbLabel.className = 'cm-filter-hotspot-cb';
             const hsCb = document.createElement('input');
             hsCb.type = 'checkbox';
             hsCb.className = 'cm-filter-hotspot';
             hsCb.dataset.app = appId;
             hsCb.dataset.featureId = featureId;
             hsCb.checked = true;
-            const titleEl = document.createElement('span');
-            titleEl.className = 'cm-filter-hotspot-title';
-            titleEl.textContent = h.title || h.id;
-            rowLabel.append(hsCb, titleEl);
-            body.appendChild(rowLabel);
+            cbLabel.appendChild(hsCb);
+            const titleBtn = document.createElement('button');
+            titleBtn.type = 'button';
+            titleBtn.className = 'cm-filter-hotspot-title';
+            titleBtn.dataset.app = appId;
+            titleBtn.dataset.hotspotId = h.id;
+            titleBtn.textContent = h.title || h.id;
+            hsRow.append(cbLabel, titleBtn);
+            body.appendChild(hsRow);
           }
           row.after(body);
 
@@ -2573,6 +2588,13 @@
       // dynamically by buildCategoryDropdowns().
       document.getElementById('cm-legend-body').addEventListener('change', e => {
         if (e.target.classList.contains('cm-filter-hotspot')) applyMapFilter();
+      });
+
+      // Clicking a hotspot title flies to it and opens its popup.
+      document.getElementById('cm-legend-body').addEventListener('click', e => {
+        const btn = e.target.closest('.cm-filter-hotspot-title');
+        if (!btn) return;
+        flyToHotspotAndShowInfo(btn.dataset.app, btn.dataset.hotspotId);
       });
 
       // Group header click → expand/collapse the group body.
