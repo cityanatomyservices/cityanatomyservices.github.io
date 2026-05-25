@@ -112,6 +112,81 @@
         "description": "Austin's flagship comedy + magic + music vaudeville revue, running on Sixth Street since 1977.",
         "website": "https://esthersfollies.com"
       }
+    },
+    {
+      "id": "comedy-mothership",
+      "gid": "t6nqbvxjwp",
+      "title": "Comedy Mothership",
+      "subtitle": "320 E 6th St · Joe Rogan's flagship downtown club",
+      "geofence": { "center": [-97.7414, 30.2675], "radiusMeters": 50 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["sun","mon"], "from": "19:00", "to": "23:00" },
+          { "days": ["wed","thu"], "from": "19:00", "to": "23:30" },
+          { "days": ["fri","sat"], "from": "18:30", "to": "01:00" }
+        ]
+      },
+      "info": {
+        "description": "Two-room downtown stand-up club ('Fat Man' + 'Little Boy') in the historic Ritz building. Nightly ticketed shows, heavily-subscribed Sunday/Monday open mics, and the live Kill Tony podcast.",
+        "website": "https://www.comedymothership.com"
+      }
+    },
+    {
+      "id": "sunset-strip-comedy-club",
+      "gid": "f8mqxvjybn",
+      "title": "Sunset Strip Comedy Club",
+      "subtitle": "214 E 6th St (upstairs) · stand-up six nights a week",
+      "geofence": { "center": [-97.7426, 30.2675], "radiusMeters": 40 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["tue","wed","thu"], "from": "19:30", "to": "23:00" },
+          { "days": ["fri","sat"], "from": "19:00", "to": "01:00" },
+          { "days": ["sun"], "from": "19:00", "to": "22:30" }
+        ]
+      },
+      "info": {
+        "description": "6th Street upstairs club (above Happy Chicks) combining local comics and national touring acts, six nights a week.",
+        "website": "https://www.sunsetstripatx.com"
+      }
+    },
+    {
+      "id": "rozcos-comedy-club",
+      "gid": "j9pbnxvqyw",
+      "title": "Rozco's Comedy Club",
+      "subtitle": "1805 E 7th St · East Austin stand-up hidden gem",
+      "geofence": { "center": [-97.7237, 30.2620], "radiusMeters": 40 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["wed","thu"], "from": "19:30", "to": "22:30" },
+          { "days": ["fri","sat"], "from": "19:00", "to": "23:30" },
+          { "days": ["sun"], "from": "12:00", "to": "15:00" }
+        ]
+      },
+      "info": {
+        "description": "Intimate East 7th & Chicon stand-up room with regular showcases plus the occasional brunch-time or all-ages show.",
+        "website": "https://www.rozcoscomedy.com"
+      }
+    },
+    {
+      "id": "east-austin-comedy",
+      "gid": "n4qbvxjpyw",
+      "title": "East Austin Comedy",
+      "subtitle": "2505 E 6th St, Ste D · curated stand-up in a BYOB den",
+      "geofence": { "center": [-97.7178, 30.2615], "radiusMeters": 35 },
+      "schedule": {
+        "timezone": "America/Chicago",
+        "windows": [
+          { "days": ["wed","thu"], "from": "18:30", "to": "21:30" },
+          { "days": ["fri","sat"], "from": "18:30", "to": "23:00" }
+        ]
+      },
+      "info": {
+        "description": "Small, intimate East 6th club known for early-evening BYOB shows and curated stand-up lineups.",
+        "website": "https://www.eastaustincomedy.com"
+      }
     }
   ]
 }
