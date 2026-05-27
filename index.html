@@ -155,6 +155,105 @@
       flex-shrink: 0;
     }
 
+    /* ── Bucket-header (top-level): expand button + bucket checkbox ── */
+    .cm-bucket-header { gap: 6px; }
+    .cm-bucket-expand {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cm-bucket-expand:hover .cm-group-toggle { color: #4cc3ff; }
+    .cm-bucket-cb-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      flex: 1;
+      user-select: none;
+    }
+    .cm-filter-bucket {
+      accent-color: var(--bucket-color, #4cc3ff);
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    /* Category label sits inside a bucket; it's expand-only — no
+       checkbox of its own. Hotspot checkboxes do the real work. */
+    .cm-legend-category { display: flex; flex-direction: column; }
+    .cm-legend-category + .cm-legend-category { margin-top: 2px; }
+    .cm-category-expand {
+      gap: 6px;
+      color: #f5f7fa;
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-align: left;
+      width: 100%;
+      user-select: none;
+    }
+    .cm-category-dot { width: 10px; height: 10px; }
+    .cm-category-label { flex: 1; }
+    .cm-bucket-empty {
+      margin: 0;
+      padding: 4px 0 4px 4px;
+      color: #6f7780;
+      font-size: 0.72rem;
+      font-style: italic;
+    }
+    .cm-event-row { padding: 2px 0; }
+    .cm-event-title {
+      background: none;
+      border: none;
+      padding: 0;
+      color: #c0c7d1;
+      font: inherit;
+      font-size: 0.74rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 230px;
+      flex: 1;
+    }
+    .cm-event-title:hover { color: #4cc3ff; }
+
+    /* ── In-sheet event banner ──────────────────────────────────── */
+    .pc-mini-event-banner-slot:empty { display: none; }
+    .pc-mini-event-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 12px;
+      margin: 0;
+      background: linear-gradient(90deg, #faf5ff 0%, #f3e8ff 100%);
+      border: none;
+      border-bottom: 1px solid #e9d8fc;
+      color: #6b21a8;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .pc-mini-event-banner.is-live {
+      background: linear-gradient(90deg, #fef9c3 0%, #fde68a 100%);
+      border-bottom-color: #f59e0b;
+      color: #92400e;
+    }
+    .pc-mini-event-banner:hover { filter: brightness(1.04); }
+    .pc-mini-event-banner-icon { font-size: 1rem; line-height: 1; }
+    .pc-mini-event-banner-text { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+    .pc-mini-event-banner-text strong { font-size: 0.84rem; font-weight: 700; }
+    .pc-mini-event-banner-sub { font-size: 0.7rem; font-weight: 500; opacity: 0.8; }
+    .pc-mini-event-banner-arrow { font-size: 1rem; opacity: 0.6; }
+
     /* ── Per-category expand toggle + hotspot list ───────────────── */
     .cm-legend-body {
       max-height: calc(100vh - 80px);
@@ -908,226 +1007,14 @@
     </div>
     <div class="cm-legend-body" id="cm-legend-body">
 
-      <div class="cm-legend-group" data-group="public">
-        <button class="cm-group-header" type="button" aria-expanded="false" aria-controls="cm-group-body-public">
-          <span class="cm-group-toggle" aria-hidden="true">+</span>
-          <span class="cm-group-title">Public</span>
-        </button>
-        <div class="cm-group-body" id="cm-group-body-public" hidden>
-          <label class="cm-legend-group-all-row">
-            <input type="checkbox" class="cm-filter-group-all" data-group="public" checked>
-            <span class="cm-legend-all-label">All</span>
-          </label>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="parks" data-group="public" checked>
-              <span class="cm-legend-dot" style="background: #16a34a"></span>
-            </label>
-            <span>Parks</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="culturespots" data-group="public" checked>
-              <span class="cm-legend-dot" style="background: #d946ef"></span>
-            </label>
-            <span>Culture Spots</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="museums" data-group="public" checked>
-              <span class="cm-legend-dot" style="background: #a16207"></span>
-            </label>
-            <span>Museums</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="capital" data-group="public" checked>
-              <span class="cm-legend-dot" style="background: #1e40af"></span>
-            </label>
-            <span>Capitol</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="airport" data-group="public" checked>
-              <span class="cm-legend-dot" style="background: #fb923c"></span>
-            </label>
-            <span>Airport</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="campuses" data-group="public" checked>
-              <span class="cm-legend-dot" style="background: #bf5700"></span>
-            </label>
-            <span>Campuses</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="clinics" data-group="public" checked>
-              <span class="cm-legend-dot" style="background: #ef4444"></span>
-            </label>
-            <span>Hospitals</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="newcomers" data-group="public" checked>
-              <span class="cm-legend-dot" style="background: #14b8a6"></span>
-            </label>
-            <span>Newcomers</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cm-legend-group" data-group="commercial">
-        <button class="cm-group-header" type="button" aria-expanded="false" aria-controls="cm-group-body-commercial">
-          <span class="cm-group-toggle" aria-hidden="true">+</span>
-          <span class="cm-group-title">Commercial</span>
-        </button>
-        <div class="cm-group-body" id="cm-group-body-commercial" hidden>
-          <label class="cm-legend-group-all-row">
-            <input type="checkbox" class="cm-filter-group-all" data-group="commercial" checked>
-            <span class="cm-legend-all-label">All</span>
-          </label>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="pubchat" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #e11d74"></span>
-            </label>
-            <span>Pubs &amp; Bars</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="foodtrucks" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #10b981"></span>
-            </label>
-            <span>Food Trucks</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="grocerystores" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #7c3aed"></span>
-            </label>
-            <span>Grocery Stores</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="hardware" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #ea580c"></span>
-            </label>
-            <span>Hardware Stores</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="golf" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #047857"></span>
-            </label>
-            <span>Golf Courses</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="starbucks" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #006241"></span>
-            </label>
-            <span>Starbucks</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="malls" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #65a30d"></span>
-            </label>
-            <span>Malls</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="apartments" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #475569"></span>
-            </label>
-            <span>Apartments</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="hotels" data-group="commercial" checked>
-              <span class="cm-legend-dot" style="background: #0891b2"></span>
-            </label>
-            <span>Hotels</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cm-legend-group" data-group="events">
-        <button class="cm-group-header" type="button" aria-expanded="false" aria-controls="cm-group-body-events">
-          <span class="cm-group-toggle" aria-hidden="true">+</span>
-          <span class="cm-group-title">Events</span>
-        </button>
-        <div class="cm-group-body" id="cm-group-body-events" hidden>
-          <label class="cm-legend-group-all-row">
-            <input type="checkbox" class="cm-filter-group-all" data-group="events" checked>
-            <span class="cm-legend-all-label">All</span>
-          </label>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="sports" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #facc15"></span>
-            </label>
-            <span>Sports Venues</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="temporarymarkets" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #f59e0b"></span>
-            </label>
-            <span>Pop-up Markets</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="festivals" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #f43f5e"></span>
-            </label>
-            <span>Festivals &amp; Fairs</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="concertsshows" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #be123c"></span>
-            </label>
-            <span>Concerts &amp; Shows</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="comedymics" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #fbbf24"></span>
-            </label>
-            <span>Comedy &amp; Open Mics</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="artgalleries" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #a855f7"></span>
-            </label>
-            <span>Art Openings &amp; Galleries</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="popupshops" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #c2410c"></span>
-            </label>
-            <span>Pop-up Shops</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="meetupsclasses" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #38bdf8"></span>
-            </label>
-            <span>Meetups &amp; Classes</span>
-          </div>
-          <div class="cm-legend-row">
-            <label class="cm-filter-label">
-              <input type="checkbox" class="cm-filter-cb" data-app="grouprunsoutdoors" data-group="events" checked>
-              <span class="cm-legend-dot" style="background: #22c55e"></span>
-            </label>
-            <span>Group Runs &amp; Outdoor Meets</span>
-          </div>
-        </div>
-      </div>
+      <!--
+        The legend is built dynamically from BUCKETS + APPS by
+        buildLegend() — see the <script> block near the bottom of this
+        file. Each bucket gets a top-level checkbox; categories inside
+        a bucket are non-interactive labels that expand to the
+        bucket's per-hotspot rows once data loads.
+      -->
+      <div id="cm-legend-buckets"></div>
 
     </div>
   </aside>
@@ -1172,54 +1059,83 @@
   <script src="/templates/pubchat/identity.js"></script>
   <script src="/templates/pubchat/chat.js"></script>
   <script>
+    // Every category routes its chat into one of four always-on global
+    // rooms (social/rec/shopping/services). The category itself
+    // survives only as legend organization + map color + popup label —
+    // it no longer owns a chat room. The fifth bucket, `events`, is
+    // reserved for the temporal-overlay layer (see data/events/events.json)
+    // and is not assigned to any always-on category here.
     const APPS = [
-      { id: 'pubchat',    url: '/data/pubchat/hotspots.json',      color: '#e11d74' },
-      { id: 'foodtrucks', url: '/data/foodtrucks/hotspots.json',   color: '#10b981' },
-      { id: 'parks',        url: '/data/parks/hotspots.json',        color: '#16a34a' },
-      { id: 'culturespots', url: '/data/culturespots/hotspots.json', color: '#d946ef' },
-      { id: 'museums',      url: '/data/museums/hotspots.json',      color: '#a16207' },
-      { id: 'capital',    url: '/data/capital/hotspots.json',      color: '#1e40af' },
-      { id: 'airport',    url: '/data/airport/hotspots.json',      color: '#fb923c' },
-      { id: 'campuses',   url: '/data/campuses/hotspots.json',     color: '#bf5700' },
-      { id: 'clinics',    url: '/data/clinics/hotspots.json',      color: '#ef4444' },
-      // Grocery Stores — Walmart + HEB + Target geofences are merged
-      // under one category so a chat at any store is shared across all
-      // three chains. Individual store titles ("HEB · South Congress",
-      // "Walmart · Lamar") remain unchanged and surface in chat as the
+      { id: 'pubchat',    bucket: 'social',   url: '/data/pubchat/hotspots.json',      color: '#e11d74' },
+      { id: 'foodtrucks', bucket: 'social',   url: '/data/foodtrucks/hotspots.json',   color: '#10b981' },
+      { id: 'starbucks',  bucket: 'social',   url: '/data/starbucks/hotspots.json',    color: '#006241' },
+      { id: 'culturespots', bucket: 'social', url: '/data/culturespots/hotspots.json', color: '#d946ef' },
+      { id: 'newcomers',  bucket: 'social',   url: '/data/newcomers/hotspots.json',    color: '#14b8a6' },
+      { id: 'artgalleries',  bucket: 'social', url: '/data/artgalleries/hotspots.json', color: '#a855f7' },
+      { id: 'parks',        bucket: 'rec',    url: '/data/parks/hotspots.json',        color: '#16a34a' },
+      { id: 'museums',      bucket: 'rec',    url: '/data/museums/hotspots.json',      color: '#a16207' },
+      { id: 'golf',       bucket: 'rec',      url: '/data/golf/hotspots.json',         color: '#047857' },
+      { id: 'sports',     bucket: 'rec',      url: '/data/sports/hotspots.json',       color: '#facc15' },
+      { id: 'concertsshows',     bucket: 'rec', url: '/data/concertsshows/hotspots.json',     color: '#be123c' },
+      { id: 'comedymics',        bucket: 'rec', url: '/data/comedymics/hotspots.json',        color: '#fbbf24' },
+      { id: 'festivals',         bucket: 'rec', url: '/data/festivals/hotspots.json',         color: '#f43f5e' },
+      { id: 'meetupsclasses',    bucket: 'rec', url: '/data/meetupsclasses/hotspots.json',    color: '#38bdf8' },
+      { id: 'grouprunsoutdoors', bucket: 'rec', url: '/data/grouprunsoutdoors/hotspots.json', color: '#22c55e' },
+      // Grocery Stores — Walmart + HEB + Target render under one
+      // category. Individual store titles surface in chat as the
       // sender's home location.
-      { id: 'grocerystores', color: '#7c3aed', chatScope: 'category', urls: [
+      { id: 'grocerystores', bucket: 'shopping', color: '#7c3aed', urls: [
         '/data/walmart/hotspots.json',
         '/data/HEBs/hotspots.json',
         '/data/target/hotspots.json',
       ] },
-      { id: 'hardware',   url: '/data/hardware/hotspots.json',     color: '#ea580c' },
-      { id: 'golf',       url: '/data/golf/hotspots.json',         color: '#047857' },
-      { id: 'starbucks',  url: '/data/starbucks/hotspots.json',    color: '#006241' },
-      { id: 'malls',      url: '/data/malls/hotspots.json',        color: '#65a30d' },
-      { id: 'newcomers',  url: '/data/newcomers/hotspots.json',    color: '#14b8a6' },
-      { id: 'apartments', url: '/data/apartments/hotspots.json',   color: '#475569' },
-      { id: 'hotels',     url: '/data/hotels/hotspots.json',       color: '#0891b2' },
-      { id: 'sports',     url: '/data/sports/hotspots.json',       color: '#facc15' },
-      { id: 'temporarymarkets',   url: '/data/temporarymarkets/hotspots.json',   color: '#f59e0b' },
-      { id: 'festivals',          url: '/data/festivals/hotspots.json',          color: '#f43f5e' },
-      { id: 'concertsshows',      url: '/data/concertsshows/hotspots.json',      color: '#be123c' },
-      { id: 'comedymics',         url: '/data/comedymics/hotspots.json',         color: '#fbbf24' },
-      { id: 'artgalleries',       url: '/data/artgalleries/hotspots.json',       color: '#a855f7' },
-      { id: 'popupshops',         url: '/data/popupshops/hotspots.json',         color: '#c2410c' },
-      { id: 'meetupsclasses',     url: '/data/meetupsclasses/hotspots.json',     color: '#38bdf8' },
-      { id: 'grouprunsoutdoors',  url: '/data/grouprunsoutdoors/hotspots.json',  color: '#22c55e' },
+      { id: 'hardware',   bucket: 'shopping', url: '/data/hardware/hotspots.json',     color: '#ea580c' },
+      { id: 'malls',      bucket: 'shopping', url: '/data/malls/hotspots.json',        color: '#65a30d' },
+      { id: 'temporarymarkets', bucket: 'shopping', url: '/data/temporarymarkets/hotspots.json', color: '#f59e0b' },
+      { id: 'popupshops',       bucket: 'shopping', url: '/data/popupshops/hotspots.json',       color: '#c2410c' },
+      { id: 'capital',    bucket: 'services', url: '/data/capital/hotspots.json',      color: '#1e40af' },
+      { id: 'airport',    bucket: 'services', url: '/data/airport/hotspots.json',      color: '#fb923c' },
+      { id: 'campuses',   bucket: 'services', url: '/data/campuses/hotspots.json',     color: '#bf5700' },
+      { id: 'clinics',    bucket: 'services', url: '/data/clinics/hotspots.json',      color: '#ef4444' },
+      { id: 'apartments', bucket: 'services', url: '/data/apartments/hotspots.json',   color: '#475569' },
+      { id: 'hotels',     bucket: 'services', url: '/data/hotels/hotspots.json',       color: '#0891b2' },
     ];
 
-    // Apps with `chatScope: 'category'` share ONE chat room across every
-    // hotspot in the category (e.g. all Grocery Stores chat together),
-    // while individual store titles still surface in the chat as each
-    // sender's home location. Default scope is per-hotspot.
-    function effectiveHotspotId(appId, hotspotId) {
-      const app = APPS.find(a => a.id === appId);
-      return app && app.chatScope === 'category' ? 'all' : hotspotId;
+    // The five top-level chat scopes. Each is a Realtime channel of its
+    // own (`<bucket>:atx:all` for the four always-on buckets;
+    // `events:atx:<event-id>` per event). Colors here drive bucket-level
+    // legend dots and (eventually) bucket-level visual badges.
+    const BUCKETS = [
+      { id: 'shopping', label: 'Shopping', color: '#f97316' },
+      { id: 'services', label: 'Services', color: '#0ea5e9' },
+      { id: 'rec',      label: 'Rec',      color: '#16a34a' },
+      { id: 'social',   label: 'Social',   color: '#e11d74' },
+      { id: 'events',   label: 'Events',   color: '#a855f7' },
+    ];
+    const BUCKET_IDS = BUCKETS.map(b => b.id);
+
+    function bucketIdFor(appOrBucketId) {
+      if (BUCKET_IDS.includes(appOrBucketId)) return appOrBucketId;
+      const app = APPS.find(a => a.id === appOrBucketId);
+      return app ? app.bucket : null;
     }
-    function effectiveRoomId(appId, hotspotId) {
-      return window.PubchatChat.roomIdFor(appId, effectiveHotspotId(appId, hotspotId));
+    // The room key has two pieces — the chat `app` slug (always a
+    // bucket id) and a hotspot fragment. Buckets collapse every
+    // hotspot to 'all'; the `events` bucket keeps the event id as
+    // the per-event room key.
+    function effectiveAppId(appOrBucketId) {
+      return bucketIdFor(appOrBucketId) || appOrBucketId;
+    }
+    function effectiveHotspotId(appOrBucketId, hotspotId) {
+      const bucket = bucketIdFor(appOrBucketId);
+      if (bucket === 'events') return hotspotId;  // per-event room
+      return 'all';
+    }
+    function effectiveRoomId(appOrBucketId, hotspotId) {
+      return window.PubchatChat.roomIdFor(
+        effectiveAppId(appOrBucketId),
+        effectiveHotspotId(appOrBucketId, hotspotId),
+      );
     }
 
     function circlePolygon([lng, lat], radiusMeters, points = 16) {
@@ -1377,6 +1293,47 @@
         })
       );
 
+      // Events are temporal overlays attached to existing parent
+      // geofences. Each event references `parentHotspotId` matching a
+      // hotspot already loaded above. We resolve parents lazily — events
+      // with broken parent refs are dropped + warned.
+      const eventsRaw = await fetch('/data/events/events.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(json => json?.events || [])
+        .catch(err => { console.warn('events load failed', err); return []; });
+      const hotspotIndex = new Map();
+      for (const { app, hotspots } of results) {
+        for (const h of hotspots) hotspotIndex.set(h.id, { app, hot: h });
+      }
+      const EVENTS = [];
+      for (const ev of eventsRaw) {
+        const parent = ev.parentHotspotId ? hotspotIndex.get(ev.parentHotspotId) : null;
+        if (!parent) {
+          console.warn('event has no resolvable parent', ev.id, ev.parentHotspotId);
+          continue;
+        }
+        ev._parent = parent;
+        EVENTS.push(ev);
+      }
+      const eventsByParentId = new Map();
+      for (const ev of EVENTS) {
+        const arr = eventsByParentId.get(ev._parent.hot.id) || [];
+        arr.push(ev);
+        eventsByParentId.set(ev._parent.hot.id, arr);
+      }
+      function getActiveEventsAt(parentHotId, now) {
+        const s = window.PubchatSchedule;
+        const arr = eventsByParentId.get(parentHotId) || [];
+        const t = now || new Date();
+        return arr.filter(ev => s && s.isActive(ev.schedule, t));
+      }
+      function getPreviewEventsAt(parentHotId, now) {
+        const s = window.PubchatSchedule;
+        const arr = eventsByParentId.get(parentHotId) || [];
+        const t = now || new Date();
+        return arr.filter(ev => s && !s.isActive(ev.schedule, t) && s.isInPreviewWindow(ev.schedule, t));
+      }
+
       // Neighborhood base layer — every point in the supported map
       // extent sits inside one of these polygons, so a user with GPS on
       // always has at least a neighborhood chat room to fall back into.
@@ -1393,7 +1350,9 @@
       // Build the per-category hotspot lists in the legend now that the
       // hotspot data is available. Each category row gets a +/- toggle
       // next to its title; expanding it reveals a checkbox per hotspot.
+      buildLegend();
       buildCategoryDropdowns(results);
+      buildEventsLegend(EVENTS);
 
       // Bounding box across every geofence polygon — used by the
       // "extents" button to zoom out to fit them all. Walks the polygon
@@ -1564,8 +1523,16 @@
 
       // app id → display label + URL slug. Keep in sync with the legend +
       // the APPS array above. Only listed apps are clickable in popups.
+      // Buckets (social/rec/shopping/services/events) are listed here so
+      // that any UI that resolves "what to call the room I'm in" can show
+      // a bucket name for posts persisted under a bucket app id.
       const APP_META = {
         neighborhoods: { label: 'Neighborhood' },
+        shopping:      { label: 'Shopping' },
+        services:      { label: 'Services' },
+        rec:           { label: 'Rec' },
+        social:        { label: 'Social' },
+        events:        { label: 'Events' },
         pubchat:       { label: 'Pubs & Bars' },
         foodtrucks:    { label: 'Food Trucks' },
         parks:         { label: 'Parks' },
@@ -1600,6 +1567,14 @@
       // austin.chat in the demo; a real deployment would link to the
       // advertiser's site.
       const AD_COPY = {
+        // Bucket-level copy — what the banner ad reads inside a
+        // bucket chat (the per-category lines below are still used by
+        // legacy callers, but new bucket chats fall back to these).
+        shopping:      'local sales, gift cards & weekly deals',
+        services:      'banking, healthcare & utilities',
+        rec:           'tickets, gear & nearby fun',
+        social:        'happy-hour specials & nearby events',
+        events:        'tickets, merch & event ride options',
         pubchat:       'craft beer & cocktails',
         foodtrucks:    'mobile POS & food packaging',
         parks:         'outdoor gear & trail apps',
@@ -1656,11 +1631,17 @@
         // A hotspot is "in context" (vivid + chat-enabled) when:
         //   1) it's currently active per its schedule, AND
         //   2) either the user isn't in any geofence (browsing mode) or
-        //      it belongs to the same category as the one they're in.
+        //      it belongs to the same *bucket* as the one they're in
+        //      (Mohawk + Stubb's both Social → both vivid when standing
+        //      in either).
         // Otherwise it renders gray and click opens an info popup only.
         const active = ['==', ['get', 'active'], true];
-        const inContext = enteredApp
-          ? ['all', active, ['==', ['get', 'app'], enteredApp]]
+        const enteredBucket = bucketIdFor(enteredApp);
+        const sameBucketApps = enteredBucket
+          ? APPS.filter(a => a.bucket === enteredBucket).map(a => a.id)
+          : null;
+        const inContext = sameBucketApps
+          ? ['all', active, ['in', ['get', 'app'], ['literal', sameBucketApps]]]
           : active;
         map.setPaintProperty('chatmaps-fill', 'fill-color',
           ['case', inContext, ['get', 'color'], '#6f7780']);
@@ -1922,9 +1903,12 @@
         const meta = APP_META[appId] || { label: appId };
         const lngLat = { lng: center[0], lat: center[1] };
         map.flyTo({ center: [center[0], center[1]], zoom: Math.max(map.getZoom(), 15), duration: 700 });
-        const isSameCategory = enteredApp === appId;
-        const isOwnHome = isSameCategory && enteredFeatureId === featureId;
-        const role = isOwnHome ? 'home' : (isSameCategory ? 'neighbor' : 'visitor');
+        // Same-bucket geofences share the same global chat room, so
+        // tapping a Mohawk pin while standing at Stubb's still gives
+        // a full neighbor (send-capable) experience.
+        const isSameBucket = enteredApp && (bucketIdFor(enteredApp) === bucketIdFor(appId));
+        const isOwnHome = isSameBucket && enteredFeatureId === featureId;
+        const role = isOwnHome ? 'home' : (isSameBucket ? 'neighbor' : 'visitor');
         const syntheticFeature = {
           properties: {
             id: featureId,
@@ -2065,14 +2049,16 @@
         const hot  = hotspotByFeatureId.get(f.properties.id);
 
         const isActive = f.properties.active !== false;
-        if (isActive && enteredApp && f.properties.app === enteredApp) {
+        const inSameBucket = isActive && enteredApp
+          && (bucketIdFor(f.properties.app) === bucketIdFor(enteredApp));
+        if (inSameBucket) {
           // Clicked your own home geofence — reopen the home popup if
           // the user previously dismissed it; otherwise no-op.
           if (f.properties.id === enteredFeatureId) {
             if (!currentMiniPopup) autoOpenMiniForEntered();
             return;
           }
-          // Same-category neighbor — open a send-capable popup. Only one
+          // Same-bucket neighbor — open a send-capable popup. Only one
           // neighbor popup at a time.
           if (currentNeighborPopup) currentNeighborPopup.remove();
           currentNeighborPopup = openMiniChat(f, e.lngLat, meta, hot, { role: 'neighbor' });
@@ -2226,6 +2212,7 @@
           </nav>
           <div class="pc-mini-panes">
             <div class="pc-mini-pane" data-pane="chat" role="tabpanel">
+              <div class="pc-mini-event-banner-slot"></div>
               <ol class="pc-mini-messages" aria-live="polite"></ol>
               ${composeHTML}
             </div>
@@ -2461,7 +2448,7 @@
             };
             sub = await window.PubchatChat.subscribeHotspot(
               effectiveHotspotId(feature.properties.app, hotspotId),
-              feature.properties.app,
+              effectiveAppId(feature.properties.app),
               { onMessage: onMsg, onPresence, onDelete: removeBubble, identity: getIdentity() }
             );
           } catch (err) {
@@ -2469,6 +2456,40 @@
             sysBubble('Could not connect to live chat.');
           }
         })();
+
+        // ── Event banner ─────────────────────────────────────────────
+        // When the user is inside a parent geofence and one of that
+        // hotspot's events is active or in preview, surface an opt-in
+        // banner above the messages list. Tapping switches the popup
+        // to the event's persistent chat room. Skipped entirely for
+        // popups that ARE already an event chat (app === 'events').
+        if (typeof getActiveEventsAt === 'function' && feature.properties.app !== 'events') {
+          const slot = el.querySelector('.pc-mini-event-banner-slot');
+          const activeEvents = getActiveEventsAt(hotspotId);
+          const previewEvents = getPreviewEventsAt(hotspotId);
+          const banners = [...activeEvents, ...previewEvents];
+          if (slot && banners.length) {
+            for (const ev of banners) {
+              const isLive = activeEvents.includes(ev);
+              const banner = document.createElement('button');
+              banner.type = 'button';
+              banner.className = 'pc-mini-event-banner' + (isLive ? ' is-live' : '');
+              banner.innerHTML = `
+                <span class="pc-mini-event-banner-icon" aria-hidden="true">${isLive ? '⚡' : '⏳'}</span>
+                <span class="pc-mini-event-banner-text">
+                  <strong>${escapeText(ev.title)}</strong>
+                  <span class="pc-mini-event-banner-sub">${isLive ? 'live now · join event chat' : 'upcoming · open preview chat'}</span>
+                </span>
+                <span class="pc-mini-event-banner-arrow" aria-hidden="true">→</span>
+              `;
+              banner.addEventListener('click', () => {
+                popup.remove();
+                openEventChat(ev);
+              });
+              slot.appendChild(banner);
+            }
+          }
+        }
 
         popup.on('close', () => {
           if (sub) { try { sub.leave(); } catch (_) {} }
@@ -2502,39 +2523,151 @@
       }
 
       // ── Legend filter logic ──────────────────────────────────────
-      // Three-level hierarchy: group → category → hotspot. The per-hotspot
-      // checkboxes are the source of truth for the map filter; category
-      // and group checkboxes are pure UI affordances that cascade down
-      // and reflect aggregate state (checked / unchecked / indeterminate).
+      // Hierarchy is now bucket → category-label → hotspot. The
+      // per-hotspot checkboxes are the source of truth for the map
+      // filter. Bucket checkboxes are a cascade affordance that toggles
+      // every hotspot in the bucket (and shows aggregate
+      // checked/indeterminate state). Category labels are
+      // non-interactive — they only collapse/expand their hotspot list.
       const FILTER_LAYERS = ['chatmaps-fill', 'chatmaps-outline', 'chatmaps-label'];
-      const GROUPS = ['public', 'commercial', 'events'];
 
-      function syncCategoryCheckbox(appId) {
-        const subs = document.querySelectorAll(`.cm-filter-hotspot[data-app="${appId}"]`);
-        const categoryCb = document.querySelector(`.cm-filter-cb[data-app="${appId}"]`);
-        if (!categoryCb) return;
-        if (!subs.length) {
-          // Category has no hotspots loaded yet — leave checkbox alone.
-          return;
+      // Build the static scaffold (bucket headers + category labels +
+      // empty hotspot bodies). buildCategoryDropdowns() fills the
+      // bodies once the hotspot data has loaded.
+      function buildLegend() {
+        const root = document.getElementById('cm-legend-buckets');
+        if (!root) return;
+        root.innerHTML = '';
+        for (const bucket of BUCKETS) {
+          const apps = APPS.filter(a => a.bucket === bucket.id);
+          const groupId = 'cm-bucket-body-' + bucket.id;
+
+          const group = document.createElement('div');
+          group.className = 'cm-legend-group';
+          group.dataset.bucket = bucket.id;
+
+          const header = document.createElement('div');
+          header.className = 'cm-group-header cm-bucket-header';
+          header.style.setProperty('--bucket-color', bucket.color);
+
+          const expand = document.createElement('button');
+          expand.type = 'button';
+          expand.className = 'cm-bucket-expand';
+          expand.setAttribute('aria-expanded', 'false');
+          expand.setAttribute('aria-controls', groupId);
+          expand.setAttribute('aria-label', 'Expand ' + bucket.label);
+          expand.innerHTML = '<span class="cm-group-toggle" aria-hidden="true">+</span>';
+
+          const cbLabel = document.createElement('label');
+          cbLabel.className = 'cm-bucket-cb-label';
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.className = 'cm-filter-bucket';
+          cb.dataset.bucket = bucket.id;
+          cb.checked = true;
+          const dot = document.createElement('span');
+          dot.className = 'cm-legend-dot';
+          dot.style.background = bucket.color;
+          const title = document.createElement('span');
+          title.className = 'cm-group-title';
+          title.textContent = bucket.label;
+          cbLabel.append(cb, dot, title);
+
+          header.append(expand, cbLabel);
+          group.appendChild(header);
+
+          const body = document.createElement('div');
+          body.className = 'cm-group-body';
+          body.id = groupId;
+          body.hidden = true;
+
+          if (bucket.id === 'events') {
+            // The events bucket renders its rows separately, after
+            // data/events/events.json has loaded.
+            const placeholder = document.createElement('p');
+            placeholder.className = 'cm-bucket-empty';
+            placeholder.textContent = 'No events scheduled yet.';
+            placeholder.dataset.eventsPlaceholder = '1';
+            body.appendChild(placeholder);
+          } else {
+            // One non-interactive label per category in this bucket.
+            // Empty bodies (the per-hotspot rows) are filled by
+            // buildCategoryDropdowns() once data has loaded.
+            for (const app of apps) {
+              const catId = 'cm-category-body-' + app.id;
+              const catWrap = document.createElement('div');
+              catWrap.className = 'cm-legend-category';
+              catWrap.dataset.app = app.id;
+
+              const catHeader = document.createElement('button');
+              catHeader.type = 'button';
+              catHeader.className = 'cm-category-expand';
+              catHeader.setAttribute('aria-expanded', 'false');
+              catHeader.setAttribute('aria-controls', catId);
+              const catIcon = document.createElement('span');
+              catIcon.className = 'cm-category-toggle-icon';
+              catIcon.setAttribute('aria-hidden', 'true');
+              catIcon.textContent = '+';
+              const catDot = document.createElement('span');
+              catDot.className = 'cm-legend-dot cm-category-dot';
+              catDot.style.background = app.color;
+              const catLabel = document.createElement('span');
+              catLabel.className = 'cm-category-label';
+              catLabel.textContent = (APP_META[app.id]?.label) || app.id;
+              catHeader.append(catIcon, catDot, catLabel);
+
+              const catBody = document.createElement('div');
+              catBody.className = 'cm-category-body';
+              catBody.id = catId;
+              catBody.hidden = true;
+
+              catHeader.addEventListener('click', () => {
+                const wasHidden = catBody.hasAttribute('hidden');
+                if (wasHidden) {
+                  catBody.removeAttribute('hidden');
+                  catHeader.setAttribute('aria-expanded', 'true');
+                  catIcon.textContent = '−';
+                } else {
+                  catBody.setAttribute('hidden', '');
+                  catHeader.setAttribute('aria-expanded', 'false');
+                  catIcon.textContent = '+';
+                }
+              });
+
+              catWrap.append(catHeader, catBody);
+              body.appendChild(catWrap);
+            }
+          }
+
+          expand.addEventListener('click', () => {
+            const wasHidden = body.hasAttribute('hidden');
+            if (wasHidden) {
+              body.removeAttribute('hidden');
+              expand.setAttribute('aria-expanded', 'true');
+              expand.querySelector('.cm-group-toggle').textContent = '−';
+            } else {
+              body.setAttribute('hidden', '');
+              expand.setAttribute('aria-expanded', 'false');
+              expand.querySelector('.cm-group-toggle').textContent = '+';
+            }
+          });
+
+          group.appendChild(body);
+          root.appendChild(group);
         }
-        const checkedCount = [...subs].filter(cb => cb.checked).length;
-        categoryCb.indeterminate = checkedCount > 0 && checkedCount < subs.length;
-        categoryCb.checked       = checkedCount === subs.length;
       }
 
-      function syncGroupAllCheckbox(group) {
-        const cats = document.querySelectorAll(`.cm-filter-cb[data-group="${group}"]`);
-        if (!cats.length) return;
-        let anyChecked = false, anyUnchecked = false, anyIndeterminate = false;
-        cats.forEach(c => {
-          if (c.indeterminate) anyIndeterminate = true;
-          else if (c.checked)  anyChecked = true;
-          else                 anyUnchecked = true;
-        });
-        const groupAll = document.querySelector(`.cm-filter-group-all[data-group="${group}"]`);
-        if (!groupAll) return;
-        groupAll.indeterminate = anyIndeterminate || (anyChecked && anyUnchecked);
-        groupAll.checked       = anyChecked && !anyUnchecked && !anyIndeterminate;
+      function syncBucketCheckbox(bucketId) {
+        const bucketCb = document.querySelector(`.cm-filter-bucket[data-bucket="${bucketId}"]`);
+        if (!bucketCb) return;
+        const appsInBucket = APPS.filter(a => a.bucket === bucketId).map(a => a.id);
+        const sel = appsInBucket.map(id => `.cm-filter-hotspot[data-app="${id}"]`).join(',');
+        if (!sel) return;
+        const subs = document.querySelectorAll(sel);
+        if (!subs.length) return;
+        const checkedCount = [...subs].filter(cb => cb.checked).length;
+        bucketCb.indeterminate = checkedCount > 0 && checkedCount < subs.length;
+        bucketCb.checked       = checkedCount === subs.length;
       }
 
       function applyMapFilter() {
@@ -2542,9 +2675,11 @@
         let filter;
 
         if (allHs.length === 0) {
-          // Pre-load fallback: category-level filter only.
-          const checkedApps = [...document.querySelectorAll('.cm-filter-cb:checked')]
-                                .map(cb => cb.dataset.app);
+          // Pre-load fallback: bucket-level filter only. A checked
+          // bucket expands to every app in that bucket.
+          const checkedBuckets = [...document.querySelectorAll('.cm-filter-bucket:checked')]
+                                   .map(cb => cb.dataset.bucket);
+          const checkedApps = APPS.filter(a => checkedBuckets.includes(a.bucket)).map(a => a.id);
           if (checkedApps.length === APPS.length)      filter = null;
           else if (checkedApps.length === 0)           filter = ['==', ['get', 'app'], '__none__'];
           else                                         filter = ['in', ['get', 'app'], ['literal', checkedApps]];
@@ -2554,8 +2689,7 @@
           else if (checkedIds.length === 0)            filter = ['==', ['get', 'id'], '__none__'];
           else                                         filter = ['in', ['get', 'id'], ['literal', checkedIds]];
 
-          APPS.forEach(a => syncCategoryCheckbox(a.id));
-          GROUPS.forEach(syncGroupAllCheckbox);
+          BUCKETS.forEach(b => syncBucketCheckbox(b.id));
 
           const hidden = [...allHs].filter(cb => !cb.checked).map(cb => cb.dataset.featureId);
           localStorage.setItem('cm-hidden-features', JSON.stringify(hidden));
@@ -2564,58 +2698,23 @@
         FILTER_LAYERS.forEach(layerId => map.setFilter(layerId, filter));
       }
 
-      // Build per-category hotspot lists once the hotspot data is loaded.
+      // Once hotspot data is loaded, populate each category label's
+      // body with its per-hotspot checkbox rows.
       function buildCategoryDropdowns(results) {
         const byApp = new Map(results.map(({ app, hotspots }) => [app.id, hotspots]));
 
-        document.querySelectorAll('.cm-legend-row').forEach(row => {
-          const cb = row.querySelector('.cm-filter-cb');
-          if (!cb) return;
-          const appId = cb.dataset.app;
-          const hotspots = byApp.get(appId) || [];
-          if (!hotspots.length) return;
+        for (const app of APPS) {
+          const hotspots = byApp.get(app.id) || [];
+          if (!hotspots.length) continue;
+          const body = document.getElementById('cm-category-body-' + app.id);
+          if (!body) continue;
+          body.innerHTML = '';
 
-          // Replace the plain title span with a +/- expand button and a
-          // category-archive link. The button expands the hotspot list;
-          // the link navigates to the per-category chat archive page.
-          const spans = row.querySelectorAll('span');
-          const titleSpan = [...spans].find(s => !s.classList.contains('cm-legend-dot'));
-          if (!titleSpan) return;
-          const titleText = titleSpan.textContent;
-          const bodyId = 'cm-category-body-' + appId;
-
-          const expandBtn = document.createElement('button');
-          expandBtn.type = 'button';
-          expandBtn.className = 'cm-category-expand';
-          expandBtn.setAttribute('aria-expanded', 'false');
-          expandBtn.setAttribute('aria-controls', bodyId);
-          expandBtn.setAttribute('aria-label', 'Expand ' + titleText);
-          const icon = document.createElement('span');
-          icon.className = 'cm-category-toggle-icon';
-          icon.setAttribute('aria-hidden', 'true');
-          icon.textContent = '+';
-          expandBtn.appendChild(icon);
-
-          const titleLink = document.createElement('a');
-          titleLink.className = 'cm-category-link';
-          titleLink.href = '/' + appId + '/';
-          titleLink.textContent = titleText;
-          titleLink.title = 'Open the ' + titleText + ' chat archive';
-
-          titleSpan.replaceWith(expandBtn);
-          expandBtn.after(titleLink);
-
-          const body = document.createElement('div');
-          body.className = 'cm-category-body';
-          body.id = bodyId;
-          body.hidden = true;
-
-          // Sort hotspots alphabetically so the list is browseable.
           const sorted = [...hotspots].sort((a, b) =>
             (a.title || a.id || '').localeCompare(b.title || b.id || '')
           );
           for (const h of sorted) {
-            const featureId = `${appId}-${h.id}`;
+            const featureId = `${app.id}-${h.id}`;
             const hsRow = document.createElement('div');
             hsRow.className = 'cm-filter-hotspot-row';
             const cbLabel = document.createElement('label');
@@ -2623,62 +2722,168 @@
             const hsCb = document.createElement('input');
             hsCb.type = 'checkbox';
             hsCb.className = 'cm-filter-hotspot';
-            hsCb.dataset.app = appId;
+            hsCb.dataset.app = app.id;
             hsCb.dataset.featureId = featureId;
             hsCb.checked = true;
             cbLabel.appendChild(hsCb);
             const titleBtn = document.createElement('button');
             titleBtn.type = 'button';
             titleBtn.className = 'cm-filter-hotspot-title';
-            titleBtn.dataset.app = appId;
+            titleBtn.dataset.app = app.id;
             titleBtn.dataset.hotspotId = h.id;
             titleBtn.textContent = h.title || h.id;
             hsRow.append(cbLabel, titleBtn);
             body.appendChild(hsRow);
           }
-          row.after(body);
-
-          expandBtn.addEventListener('click', () => {
-            const wasHidden = body.hasAttribute('hidden');
-            if (wasHidden) {
-              body.removeAttribute('hidden');
-              expandBtn.setAttribute('aria-expanded', 'true');
-              icon.textContent = '−';
-            } else {
-              body.setAttribute('hidden', '');
-              expandBtn.setAttribute('aria-expanded', 'false');
-              icon.textContent = '+';
-            }
-          });
-        });
+        }
       }
 
-      // Group "All" → cascade to its categories and all their hotspots.
-      document.querySelectorAll('.cm-filter-group-all').forEach(groupCb => {
-        groupCb.addEventListener('change', e => {
-          const group = e.target.dataset.group;
-          const want  = e.target.checked;
-          document.querySelectorAll(`.cm-filter-cb[data-group="${group}"]`).forEach(cb => {
-            cb.checked = want;
-            document.querySelectorAll(`.cm-filter-hotspot[data-app="${cb.dataset.app}"]`)
-              .forEach(h => { h.checked = want; });
+      // Render the Events bucket's body — one row per event grouped by
+      // its `category` label (events live in data/events/events.json and
+      // each carries a `category` for legend organization only).
+      function buildEventsLegend(events) {
+        const body = document.getElementById('cm-bucket-body-events');
+        if (!body) return;
+        body.innerHTML = '';
+        if (!events.length) {
+          const placeholder = document.createElement('p');
+          placeholder.className = 'cm-bucket-empty';
+          placeholder.textContent = 'No events scheduled yet.';
+          body.appendChild(placeholder);
+          return;
+        }
+        const byCategory = new Map();
+        for (const ev of events) {
+          const cat = ev.category || 'events';
+          if (!byCategory.has(cat)) byCategory.set(cat, []);
+          byCategory.get(cat).push(ev);
+        }
+        for (const [cat, list] of byCategory) {
+          const catId = 'cm-events-cat-' + cat;
+          const catWrap = document.createElement('div');
+          catWrap.className = 'cm-legend-category';
+
+          const catHeader = document.createElement('button');
+          catHeader.type = 'button';
+          catHeader.className = 'cm-category-expand';
+          catHeader.setAttribute('aria-expanded', 'false');
+          catHeader.setAttribute('aria-controls', catId);
+          const catIcon = document.createElement('span');
+          catIcon.className = 'cm-category-toggle-icon';
+          catIcon.textContent = '+';
+          const catLabel = document.createElement('span');
+          catLabel.className = 'cm-category-label';
+          catLabel.textContent = (APP_META[cat]?.label) || cat;
+          catHeader.append(catIcon, catLabel);
+
+          const catBody = document.createElement('div');
+          catBody.className = 'cm-category-body';
+          catBody.id = catId;
+          catBody.hidden = true;
+
+          for (const ev of list) {
+            const row = document.createElement('div');
+            row.className = 'cm-event-row';
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'cm-event-title';
+            btn.dataset.eventId = ev.id;
+            const nextLabel = describeNextOccurrence(ev.schedule);
+            const parentTitle = ev._parent?.hot?.title || '';
+            const label = `${ev.title}${parentTitle ? ' @ ' + parentTitle : ''}${nextLabel ? ' · ' + nextLabel : ''}`;
+            btn.textContent = label;
+            btn.addEventListener('click', () => openEventChat(ev));
+            row.appendChild(btn);
+            catBody.appendChild(row);
+          }
+
+          catHeader.addEventListener('click', () => {
+            const wasHidden = catBody.hasAttribute('hidden');
+            if (wasHidden) {
+              catBody.removeAttribute('hidden');
+              catHeader.setAttribute('aria-expanded', 'true');
+              catIcon.textContent = '−';
+            } else {
+              catBody.setAttribute('hidden', '');
+              catHeader.setAttribute('aria-expanded', 'false');
+              catIcon.textContent = '+';
+            }
           });
-          applyMapFilter();
-        });
-      });
 
-      // Category checkbox → cascade to its hotspots.
-      document.querySelectorAll('.cm-filter-cb').forEach(cb => {
-        cb.addEventListener('change', () => {
-          document.querySelectorAll(`.cm-filter-hotspot[data-app="${cb.dataset.app}"]`)
-            .forEach(h => { h.checked = cb.checked; });
-          applyMapFilter();
-        });
-      });
+          catWrap.append(catHeader, catBody);
+          body.appendChild(catWrap);
+        }
+      }
 
-      // Hotspot checkbox toggles use event delegation since they're built
-      // dynamically by buildCategoryDropdowns().
+      // Opens a popup pointed at the parent's coordinates but routed
+      // to the event's persistent room (`events:atx:<event-id>`). Used
+      // by legend-tap (preview from anywhere) AND by the in-sheet
+      // banner when a user inside the parent geofence opts in to an
+      // active event chat.
+      function openEventChat(ev) {
+        const parent = ev._parent;
+        if (!parent) return;
+        const center = parent.hot.geofence?.center;
+        if (!center) return;
+        const bucket = BUCKETS.find(b => b.id === 'events');
+        const color = bucket?.color || '#a855f7';
+        const meta = APP_META[ev.category] || APP_META.events || { label: 'Event' };
+        const lngLat = { lng: center[0], lat: center[1] };
+        map.flyTo({ center, zoom: Math.max(map.getZoom(), 15), duration: 700 });
+        const syntheticFeature = {
+          properties: {
+            id: 'events-' + ev.id,
+            app: 'events',
+            color,
+            title: ev.title,
+            subtitle: parent.hot.title ? ('@ ' + parent.hot.title) : '',
+            active: true,
+          },
+        };
+        // Synthesise a "hotspot-shaped" object so openMiniChat can read
+        // schedule + info from it without special-casing events.
+        const hotShape = {
+          id: ev.id,
+          title: ev.title,
+          subtitle: ev.subtitle,
+          geofence: parent.hot.geofence,
+          schedule: ev.schedule,
+          info: ev.info,
+          _event: ev,
+        };
+        if (currentNeighborPopup) currentNeighborPopup.remove();
+        currentNeighborPopup = openMiniChat(syntheticFeature, lngLat, meta, hotShape, { role: 'neighbor' });
+        currentNeighborHotspotId = syntheticFeature.properties.id;
+      }
+
+      function describeNextOccurrence(schedule) {
+        const s = window.PubchatSchedule;
+        if (!s || !schedule) return '';
+        const now = new Date();
+        if (s.isActive(schedule, now)) return 'live now';
+        const next = s.nextChange(schedule, now);
+        if (!next) return '';
+        const dayMs = 24 * 60 * 60 * 1000;
+        const diffDays = Math.round((next.getTime() - now.getTime()) / dayMs);
+        if (diffDays <= 0) return next.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        if (diffDays === 1) return 'tomorrow';
+        if (diffDays < 7) return `in ${diffDays}d`;
+        return next.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      }
+
+      // Bucket checkbox → cascade to every hotspot in that bucket.
       document.getElementById('cm-legend-body').addEventListener('change', e => {
+        if (e.target.classList.contains('cm-filter-bucket')) {
+          const bucket = e.target.dataset.bucket;
+          const want = e.target.checked;
+          const apps = APPS.filter(a => a.bucket === bucket).map(a => a.id);
+          for (const appId of apps) {
+            document.querySelectorAll(`.cm-filter-hotspot[data-app="${appId}"]`)
+              .forEach(h => { h.checked = want; });
+          }
+          applyMapFilter();
+          return;
+        }
         if (e.target.classList.contains('cm-filter-hotspot')) applyMapFilter();
       });
 
@@ -2687,24 +2892,6 @@
         const btn = e.target.closest('.cm-filter-hotspot-title');
         if (!btn) return;
         flyToHotspotAndShowInfo(btn.dataset.app, btn.dataset.hotspotId);
-      });
-
-      // Group header click → expand/collapse the group body.
-      document.querySelectorAll('.cm-group-header').forEach(header => {
-        header.addEventListener('click', () => {
-          const body = document.getElementById(header.getAttribute('aria-controls'));
-          if (!body) return;
-          const wasHidden = body.hasAttribute('hidden');
-          if (wasHidden) {
-            body.removeAttribute('hidden');
-            header.setAttribute('aria-expanded', 'true');
-          } else {
-            body.setAttribute('hidden', '');
-            header.setAttribute('aria-expanded', 'false');
-          }
-          const toggle = header.querySelector('.cm-group-toggle');
-          if (toggle) toggle.textContent = wasHidden ? '−' : '+';
-        });
       });
 
       document.getElementById('cm-hamburger').addEventListener('click', () => {

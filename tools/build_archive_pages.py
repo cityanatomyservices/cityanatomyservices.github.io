@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
-"""Generate per-category archive pages.
+"""Generate per-bucket chat archive pages.
 
-For each category in CATEGORIES below, writes ./{slug}/index.html — a
+For each bucket in CATEGORIES below, writes ./{slug}/index.html — a
 ~25-line static shell that hands off to /templates/archive/archive.js.
 That script does the real work (fetching chats from Supabase). This
 script is safe to re-run; existing files are overwritten in place.
 
-Keep CATEGORIES in sync with the APPS array in index.html.
+Buckets collapse the original 25 per-category chats into four
+always-on global rooms (Shopping / Services / Rec / Social). Each
+bucket page loads every parent venue's hotspots.json so it can
+resolve `hotspot_id → venue title` for the bubble metadata.
+
+The fifth bucket — `events` — has its own lifecycle (per-event
+persistent rooms snapshotted to temporary pages) and is intentionally
+left out of this generator until that lifecycle ships.
 """
 
 from __future__ import annotations
@@ -16,38 +23,47 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 
 # (slug, display label, color, [hotspots.json URL(s)])
-# Slug == appId stored in public.chats.app, matching the live-map APPS array.
+# Slug == appId stored in public.chats.app — must match the bucket id
+# in the live-map BUCKETS array in index.html. The hotspot URLs cover
+# every parent venue that routes its chat into this bucket, so the
+# archive page can render "from {venue}" tags correctly.
 CATEGORIES = [
-    ("pubchat",          "Pubs & Bars",       "#e11d74", ["/data/pubchat/hotspots.json"]),
-    ("foodtrucks",       "Food Trucks",       "#10b981", ["/data/foodtrucks/hotspots.json"]),
-    ("parks",            "Parks",             "#16a34a", ["/data/parks/hotspots.json"]),
-    ("culturespots",     "Culture Spots",     "#d946ef", ["/data/culturespots/hotspots.json"]),
-    ("museums",          "Museums",           "#a16207", ["/data/museums/hotspots.json"]),
-    ("capital",          "Capitol",           "#1e40af", ["/data/capital/hotspots.json"]),
-    ("airport",          "Airport",           "#fb923c", ["/data/airport/hotspots.json"]),
-    ("campuses",         "Campuses",          "#bf5700", ["/data/campuses/hotspots.json"]),
-    ("clinics",          "Hospitals",         "#ef4444", ["/data/clinics/hotspots.json"]),
-    ("grocerystores",    "Grocery Stores",    "#7c3aed", [
+    ("shopping", "Shopping", "#f97316", [
         "/data/walmart/hotspots.json",
         "/data/HEBs/hotspots.json",
         "/data/target/hotspots.json",
+        "/data/hardware/hotspots.json",
+        "/data/malls/hotspots.json",
+        "/data/temporarymarkets/hotspots.json",
+        "/data/popupshops/hotspots.json",
     ]),
-    ("hardware",         "Hardware Stores",   "#ea580c", ["/data/hardware/hotspots.json"]),
-    ("golf",             "Golf Courses",      "#047857", ["/data/golf/hotspots.json"]),
-    ("starbucks",        "Starbucks",         "#006241", ["/data/starbucks/hotspots.json"]),
-    ("malls",            "Malls",             "#65a30d", ["/data/malls/hotspots.json"]),
-    ("newcomers",        "Newcomers",         "#14b8a6", ["/data/newcomers/hotspots.json"]),
-    ("apartments",       "Apartments",        "#475569", ["/data/apartments/hotspots.json"]),
-    ("hotels",           "Hotels",            "#0891b2", ["/data/hotels/hotspots.json"]),
-    ("sports",           "Sports Venues",     "#facc15", ["/data/sports/hotspots.json"]),
-    ("temporarymarkets",   "Pop-up Markets",            "#f59e0b", ["/data/temporarymarkets/hotspots.json"]),
-    ("festivals",          "Festivals & Fairs",         "#f43f5e", ["/data/festivals/hotspots.json"]),
-    ("concertsshows",      "Concerts & Shows",          "#be123c", ["/data/concertsshows/hotspots.json"]),
-    ("comedymics",         "Comedy & Open Mics",        "#fbbf24", ["/data/comedymics/hotspots.json"]),
-    ("artgalleries",       "Art Openings & Galleries",  "#a855f7", ["/data/artgalleries/hotspots.json"]),
-    ("popupshops",         "Pop-up Shops",              "#c2410c", ["/data/popupshops/hotspots.json"]),
-    ("meetupsclasses",     "Meetups & Classes",         "#38bdf8", ["/data/meetupsclasses/hotspots.json"]),
-    ("grouprunsoutdoors",  "Group Runs & Outdoor Meets","#22c55e", ["/data/grouprunsoutdoors/hotspots.json"]),
+    ("services", "Services", "#0ea5e9", [
+        "/data/capital/hotspots.json",
+        "/data/airport/hotspots.json",
+        "/data/campuses/hotspots.json",
+        "/data/clinics/hotspots.json",
+        "/data/apartments/hotspots.json",
+        "/data/hotels/hotspots.json",
+    ]),
+    ("rec", "Rec", "#16a34a", [
+        "/data/parks/hotspots.json",
+        "/data/museums/hotspots.json",
+        "/data/golf/hotspots.json",
+        "/data/sports/hotspots.json",
+        "/data/concertsshows/hotspots.json",
+        "/data/comedymics/hotspots.json",
+        "/data/festivals/hotspots.json",
+        "/data/meetupsclasses/hotspots.json",
+        "/data/grouprunsoutdoors/hotspots.json",
+    ]),
+    ("social", "Social", "#e11d74", [
+        "/data/pubchat/hotspots.json",
+        "/data/foodtrucks/hotspots.json",
+        "/data/starbucks/hotspots.json",
+        "/data/culturespots/hotspots.json",
+        "/data/newcomers/hotspots.json",
+        "/data/artgalleries/hotspots.json",
+    ]),
 ]
 
 TEMPLATE = """<!DOCTYPE html>

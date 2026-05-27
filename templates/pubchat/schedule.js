@@ -61,6 +61,23 @@
     return schedule.windows.some(w => windowIncludes(w, day, minutes));
   }
 
+  // True iff schedule isn't active right now but will become active
+  // within `windowDays` (default 30). Used to decide which upcoming
+  // events deserve a "preview" badge / preview-mode chat ahead of
+  // their first session, without surfacing things that are months out.
+  function isInPreviewWindow(schedule, now, windowDays) {
+    now = now || new Date();
+    if (!schedule) return false;
+    if (isActive(schedule, now)) return false;
+    const next = nextChange(schedule, now);
+    if (!next) return false;
+    // nextChange flips between active/inactive — if we're currently
+    // inactive, the next flip is the start of an active window.
+    const days = windowDays == null ? 30 : windowDays;
+    const ms = days * 24 * 60 * 60 * 1000;
+    return next.getTime() - now.getTime() <= ms;
+  }
+
   // True iff this event will never become active again.
   //  - sessions[] non-empty AND every end < now AND no windows[]
   //  - dateRange.end exists AND end-of-that-day < now
@@ -322,5 +339,5 @@
     return { day: weekday, minutes: hour * 60 + minute };
   }
 
-  window.PubchatSchedule = { isActive, nextChange, isFullyExpired, formatSchedule };
+  window.PubchatSchedule = { isActive, nextChange, isFullyExpired, isInPreviewWindow, formatSchedule };
 })();
