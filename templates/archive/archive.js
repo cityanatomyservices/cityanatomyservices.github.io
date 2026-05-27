@@ -74,7 +74,7 @@
     const url = `${sb.SUPABASE_URL}/rest/v1/chats`
               + `?app=eq.${encodeURIComponent(cfg.appId)}`
               + `&select=hotspot_id,handle,emoji,text,created_at`
-              + `&order=created_at.desc&limit=500`;
+              + `&order=created_at.desc&limit=2000`;
     const r = await fetch(url, {
       headers: {
         apikey: sb.SUPABASE_ANON_KEY,
@@ -164,7 +164,7 @@
     const foot = document.createElement('footer');
     foot.className = 'foot';
     const note = count
-      ? `Showing the ${count} most recent. Older chats roll off after 30 days. `
+      ? `Showing the ${count} most recent. The full thread lives here permanently. `
       : '';
     foot.innerHTML = note;
     const back = document.createElement('a');

@@ -171,10 +171,10 @@
     .cm-bucket-cb-label {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       cursor: pointer;
-      flex: 1;
       user-select: none;
+      flex-shrink: 0;
     }
     .cm-filter-bucket {
       accent-color: var(--bucket-color, #4cc3ff);
@@ -183,6 +183,18 @@
       cursor: pointer;
       flex-shrink: 0;
     }
+    .cm-bucket-title-link {
+      color: #f5f7fa;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-decoration: none;
+      flex: 1;
+      cursor: pointer;
+      user-select: none;
+    }
+    .cm-bucket-title-link:hover { color: #4cc3ff; text-decoration: underline; }
+    .cm-group-title { flex: 1; }
     /* Category label sits inside a bucket; it's expand-only — no
        checkbox of its own. Hotspot checkboxes do the real work. */
     .cm-legend-category { display: flex; flex-direction: column; }
@@ -2561,6 +2573,7 @@
 
           const cbLabel = document.createElement('label');
           cbLabel.className = 'cm-bucket-cb-label';
+          cbLabel.title = 'Toggle every ' + bucket.label + ' geofence';
           const cb = document.createElement('input');
           cb.type = 'checkbox';
           cb.className = 'cm-filter-bucket';
@@ -2569,12 +2582,26 @@
           const dot = document.createElement('span');
           dot.className = 'cm-legend-dot';
           dot.style.background = bucket.color;
-          const title = document.createElement('span');
-          title.className = 'cm-group-title';
-          title.textContent = bucket.label;
-          cbLabel.append(cb, dot, title);
+          cbLabel.append(cb, dot);
 
-          header.append(expand, cbLabel);
+          // The bucket title navigates to its archive page — the
+          // permanent record of every message ever posted to this
+          // bucket. The events bucket has no static archive (its
+          // posts roll out to per-event pages instead) so its title
+          // stays a non-link.
+          let titleEl;
+          if (bucket.id === 'events') {
+            titleEl = document.createElement('span');
+            titleEl.className = 'cm-group-title';
+          } else {
+            titleEl = document.createElement('a');
+            titleEl.className = 'cm-group-title cm-bucket-title-link';
+            titleEl.href = '/' + bucket.id + '/';
+            titleEl.title = 'Open the ' + bucket.label + ' chat archive';
+          }
+          titleEl.textContent = bucket.label;
+
+          header.append(expand, cbLabel, titleEl);
           group.appendChild(header);
 
           const body = document.createElement('div');
