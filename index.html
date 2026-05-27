@@ -1247,11 +1247,63 @@
       return { type: 'Polygon', coordinates: [coords] };
     }
 
+    // A geofence is either a circle (`center` + `radiusMeters`) or a
+    // canonical polygon (`polygon`: MultiPolygon-shape coord array, same
+    // structure neighborhoods use). The helpers below paper over both
+    // forms so the rest of the engine stays shape-agnostic.
+    function geofenceCenter(g) {
+      if (!g) return null;
+      if (g.center) return g.center;
+      if (g.polygon) return polygonRepresentativePoint(g.polygon);
+      return null;
+    }
+    function geofenceGeometry(g) {
+      if (!g) return null;
+      if (g.polygon) return { type: 'MultiPolygon', coordinates: g.polygon };
+      if (g.center && g.radiusMeters) return circlePolygon(g.center, g.radiusMeters);
+      return null;
+    }
+    // Average all outer-ring vertices across every polygon in the
+    // MultiPolygon. Not the true centroid, but good enough for fly-to
+    // and popup anchoring — and far cheaper than a real centroid calc.
+    function polygonRepresentativePoint(multi) {
+      let sx = 0, sy = 0, n = 0;
+      for (const poly of multi) {
+        const ring = poly?.[0];
+        if (!Array.isArray(ring)) continue;
+        for (const pt of ring) { sx += pt[0]; sy += pt[1]; n++; }
+      }
+      return n ? [sx / n, sy / n] : null;
+    }
+    // Max distance (in metres) from `center` to any outer-ring vertex —
+    // the polygon's bounding-radius. Used as a denominator when scoring
+    // "how tightly is the user inside this geofence" so smaller parks
+    // outrank larger ones the user is also standing in.
+    function polygonApproxRadius(multi, center) {
+      if (!center) return 0;
+      const EARTH_R = 6371000;
+      const toRad = d => d * Math.PI / 180;
+      let max = 0;
+      for (const poly of multi) {
+        const ring = poly?.[0];
+        if (!Array.isArray(ring)) continue;
+        for (const pt of ring) {
+          const dLat = toRad(pt[1] - center[1]);
+          const dLng = toRad(pt[0] - center[0]);
+          const a = Math.sin(dLat / 2) ** 2
+                  + Math.cos(toRad(center[1])) * Math.cos(toRad(pt[1])) * Math.sin(dLng / 2) ** 2;
+          const d = 2 * EARTH_R * Math.asin(Math.sqrt(a));
+          if (d > max) max = d;
+        }
+      }
+      return max;
+    }
+
     function toFeatures(hotspots, app, now) {
       now = now || new Date();
       const sched = window.PubchatSchedule;
       return (hotspots || [])
-        .filter(h => h.geofence?.center && h.geofence?.radiusMeters)
+        .filter(h => h.geofence && (h.geofence.polygon || (h.geofence.center && h.geofence.radiusMeters)))
         // One-off events whose last session has ended (and seasonal events
         // whose dateRange has passed) drop out entirely — no commit needed.
         .filter(h => !sched || !sched.isFullyExpired(h.schedule, now))
@@ -1267,7 +1319,7 @@
             // where they are, but render gray and refuse chat entry.
             active: !sched || sched.isActive(h.schedule, now),
           },
-          geometry: circlePolygon(h.geofence.center, h.geofence.radiusMeters),
+          geometry: geofenceGeometry(h.geofence),
         }));
     }
 
@@ -1450,20 +1502,29 @@
       buildEventsLegend(EVENTS);
 
       // Bounding box across every geofence polygon — used by the
-      // "extents" button to zoom out to fit them all. Walks the polygon
-      // ring coordinates so the radius is already baked in.
+      // "extents" button to zoom out to fit them all. Walks every
+      // outer ring across both Polygon and MultiPolygon geometries.
       let allFeaturesBounds = null;
       {
         let minLng = Infinity, minLat = Infinity, maxLng = -Infinity, maxLat = -Infinity;
+        const expand = (pt) => {
+          const lng = pt[0], lat = pt[1];
+          if (lng < minLng) minLng = lng;
+          if (lat < minLat) minLat = lat;
+          if (lng > maxLng) maxLng = lng;
+          if (lat > maxLat) maxLat = lat;
+        };
         for (const f of features) {
-          const ring = f.geometry?.coordinates?.[0];
-          if (!Array.isArray(ring)) continue;
-          for (const pt of ring) {
-            const lng = pt[0], lat = pt[1];
-            if (lng < minLng) minLng = lng;
-            if (lat < minLat) minLat = lat;
-            if (lng > maxLng) maxLng = lng;
-            if (lat > maxLat) maxLat = lat;
+          const g = f.geometry;
+          if (!g) continue;
+          if (g.type === 'Polygon') {
+            const ring = g.coordinates?.[0];
+            if (Array.isArray(ring)) for (const pt of ring) expand(pt);
+          } else if (g.type === 'MultiPolygon') {
+            for (const poly of g.coordinates || []) {
+              const ring = poly?.[0];
+              if (Array.isArray(ring)) for (const pt of ring) expand(pt);
+            }
           }
         }
         if (isFinite(minLng)) allFeaturesBounds = [[minLng, minLat], [maxLng, maxLat]];
@@ -1487,7 +1548,7 @@
       const hotspotsByNeighborhood = new Map(); // nbhdId -> [{ app, hot }]
       for (const { app, hotspots } of results) {
         for (const h of hotspots) {
-          const c = h.geofence?.center;
+          const c = geofenceCenter(h.geofence);
           if (!c) continue;
           for (const n of neighborhoods) {
             const poly = n.geofence?.polygon;
@@ -1704,24 +1765,39 @@
         return false;
       }
       function recomputeEntered(userLngLat) {
-        // Only circle hotspots are chat-enabled. Neighborhoods are tracked
+        // Pick the tightest geofence (smallest "inside-ness ratio") the
+        // user is currently standing in. Neighborhoods are tracked
         // separately (see recomputeNeighborhood below) — entering one just
-        // opens an info popup, never a chat room.
+        // opens an info popup, never a chat room. Circles score by
+        // distance/radius; polygons score by distance-to-centroid /
+        // longest-radius-of-bounds so a tiny pocket park beats a 1500-acre
+        // metro park when the user is inside both.
         let bestRatio = Infinity;
         let bestApp = null, bestFid = null;
         const sched = window.PubchatSchedule;
         const now = new Date();
         for (const { app, hotspots } of results) {
           for (const h of hotspots) {
-            const c = h.geofence?.center; const r = h.geofence?.radiusMeters;
-            if (!c || !r) continue;
+            const g = h.geofence;
+            if (!g) continue;
             // Inactive (out-of-hours) hotspots stay visible but can't be
             // entered — being physically inside one shouldn't drop the
             // user into a chat the venue isn't open for.
             if (sched && !sched.isActive(h.schedule, now)) continue;
-            const d = haversineMeters(userLngLat, c);
-            const ratio = d / r;
-            if (ratio < 1 && ratio < bestRatio) {
+            let ratio = Infinity;
+            if (g.polygon) {
+              if (!pointInMultiPolygon(userLngLat[0], userLngLat[1], g.polygon)) continue;
+              const cen = polygonRepresentativePoint(g.polygon);
+              const span = polygonApproxRadius(g.polygon, cen) || 1;
+              ratio = cen ? haversineMeters(userLngLat, cen) / span : 0;
+            } else if (g.center && g.radiusMeters) {
+              const d = haversineMeters(userLngLat, g.center);
+              ratio = d / g.radiusMeters;
+              if (ratio >= 1) continue;
+            } else {
+              continue;
+            }
+            if (ratio < bestRatio) {
               bestRatio = ratio; bestApp = app.id; bestFid = `${app.id}-${h.id}`;
             }
           }
@@ -1909,7 +1985,7 @@
         const featureId = `${appId}-${hotId}`;
         const hot = hotspotByFeatureId.get(featureId);
         if (!hot) return;
-        const center = hot.geofence?.center;
+        const center = geofenceCenter(hot.geofence);
         if (!center) return;
         const app = APPS.find(a => a.id === appId);
         const color = app?.color || '#1c1c28';
@@ -2018,7 +2094,7 @@
         const app = APPS.find(a => a.id === enteredApp);
         if (!hot || !app) return;
         const meta = APP_META[enteredApp] || { label: enteredApp };
-        const center = hot.geofence?.center;
+        const center = geofenceCenter(hot.geofence);
         if (!center) return;
         const syntheticFeature = {
           properties: {
@@ -2191,7 +2267,7 @@
         if (hours) {
           infoHTMLParts.push(`<p><strong>Hours:</strong> ${hours}</p>`);
         }
-        const hotCenter = hot?.geofence?.center;
+        const hotCenter = geofenceCenter(hot?.geofence);
         const socialHTML = (hotCenter && window.PubchatSocial)
           ? window.PubchatSocial.buttonsHTML(hotCenter[1], hotCenter[0], hot.title || title)
           : '';
@@ -2851,7 +2927,7 @@
       function openEventChat(ev) {
         const parent = ev._parent;
         if (!parent) return;
-        const center = parent.hot.geofence?.center;
+        const center = geofenceCenter(parent.hot.geofence);
         if (!center) return;
         const bucket = BUCKETS.find(b => b.id === 'events');
         const color = bucket?.color || '#a855f7';
