@@ -31,7 +31,10 @@ HOTSPOTS = REPO / "data" / "parks" / "hotspots.json"
 CANONICAL = REPO / "staging" / "BOUNDARIES_city_of_austin_parks_20260525.geojson"
 
 TIER1_TYPES = {"Metropolitan", "District", "Nature Preserve"}
-EXCLUDE_TYPES = {"Golf Course"}
+# Schools are intentionally excluded — joint-use schoolyards live near
+# K-12 students and the user doesn't want kid-adjacent chat rooms.
+# Golf courses live in the separate /data/golf/ category.
+EXCLUDE_TYPES = {"Golf Course", "School"}
 MIN_ACRES = 10.0
 
 SCHEDULE = {
