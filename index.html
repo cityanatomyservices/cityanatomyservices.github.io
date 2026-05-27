@@ -1114,6 +1114,89 @@
     ];
     const BUCKET_IDS = BUCKETS.map(b => b.id);
 
+    // app id → display label + URL slug. Keep in sync with the legend +
+    // the APPS array above. Only listed apps are clickable in popups.
+    // Buckets (social/rec/shopping/services/events) are listed here so
+    // that any UI that resolves "what to call the room I'm in" can show
+    // a bucket name for posts persisted under a bucket app id.
+    const APP_META = {
+      neighborhoods: { label: 'Neighborhood' },
+      shopping:      { label: 'Shopping' },
+      services:      { label: 'Services' },
+      rec:           { label: 'Rec' },
+      social:        { label: 'Social' },
+      events:        { label: 'Events' },
+      pubchat:       { label: 'Pubs & Bars' },
+      foodtrucks:    { label: 'Food Trucks' },
+      parks:         { label: 'Parks' },
+      culturespots:  { label: 'Culture Spots' },
+      museums:       { label: 'Museums' },
+      capital:       { label: 'Capitol' },
+      airport:       { label: 'Airport' },
+      campuses:      { label: 'Campuses' },
+      clinics:       { label: 'Hospitals' },
+      grocerystores: { label: 'Grocery Stores' },
+      hardware:      { label: 'Hardware Stores' },
+      golf:          { label: 'Golf Courses' },
+      starbucks:     { label: 'Starbucks' },
+      malls:         { label: 'Malls' },
+      newcomers:     { label: 'Newcomers' },
+      apartments:    { label: 'Apartments' },
+      hotels:        { label: 'Hotels' },
+      sports:        { label: 'Sports Venues' },
+      temporarymarkets:  { label: 'Pop-up Markets' },
+      festivals:         { label: 'Festivals & Fairs' },
+      concertsshows:     { label: 'Concerts & Shows' },
+      comedymics:        { label: 'Comedy & Open Mics' },
+      artgalleries:      { label: 'Art Openings & Galleries' },
+      popupshops:        { label: 'Pop-up Shops' },
+      meetupsclasses:    { label: 'Meetups & Classes' },
+      grouprunsoutdoors: { label: 'Group Runs & Outdoor Meets' },
+    };
+
+    // Demo ad copy keyed by app. The text is a placeholder so a
+    // prospective buyer can see WHERE inventory would render and the
+    // SHAPE of what they'd be selling. Every banner links to
+    // austin.chat in the demo; a real deployment would link to the
+    // advertiser's site.
+    const AD_COPY = {
+      // Bucket-level copy — what the banner ad reads inside a
+      // bucket chat (the per-category lines below are still used by
+      // legacy callers, but new bucket chats fall back to these).
+      shopping:      'local sales, gift cards & weekly deals',
+      services:      'banking, healthcare & utilities',
+      rec:           'tickets, gear & nearby fun',
+      social:        'happy-hour specials & nearby events',
+      events:        'tickets, merch & event ride options',
+      pubchat:       'craft beer & cocktails',
+      foodtrucks:    'mobile POS & food packaging',
+      parks:         'outdoor gear & trail apps',
+      culturespots:  'tour passes & souvenir photo prints',
+      museums:       'art prints & gallery memberships',
+      capital:       'civic engagement tools',
+      airport:       'travel insurance & rideshare',
+      campuses:      'textbook rentals & student housing',
+      clinics:       'telehealth & prescription savings',
+      grocerystores: 'weekly meal kits & grocery deals',
+      hardware:      'power tools & home services',
+      golf:          'clubs, lessons & tee-time apps',
+      starbucks:     'coffee subscriptions & loyalty perks',
+      malls:         'fashion sales & gift cards',
+      newcomers:     'movers & neighborhood guides',
+      apartments:    'renters insurance & furniture rentals',
+      hotels:        'local attractions & travel deals',
+      sports:        'tickets, apparel & fan gear',
+      temporarymarkets:  'reusable totes & local crafts',
+      festivals:         'festival passes & travel deals',
+      concertsshows:     'concert tickets & vinyl drops',
+      comedymics:        'show tickets & comedy specials',
+      artgalleries:      'art prints & gallery memberships',
+      popupshops:        'limited drops & local brands',
+      meetupsclasses:    'class passes & meetup apps',
+      grouprunsoutdoors: 'running gear & trail apps',
+      homelesschat:  'community resources & social services',
+    };
+
     function bucketIdFor(appOrBucketId) {
       if (BUCKET_IDS.includes(appOrBucketId)) return appOrBucketId;
       const app = APPS.find(a => a.id === appOrBucketId);
@@ -1521,88 +1604,6 @@
       });
 
 
-      // app id → display label + URL slug. Keep in sync with the legend +
-      // the APPS array above. Only listed apps are clickable in popups.
-      // Buckets (social/rec/shopping/services/events) are listed here so
-      // that any UI that resolves "what to call the room I'm in" can show
-      // a bucket name for posts persisted under a bucket app id.
-      const APP_META = {
-        neighborhoods: { label: 'Neighborhood' },
-        shopping:      { label: 'Shopping' },
-        services:      { label: 'Services' },
-        rec:           { label: 'Rec' },
-        social:        { label: 'Social' },
-        events:        { label: 'Events' },
-        pubchat:       { label: 'Pubs & Bars' },
-        foodtrucks:    { label: 'Food Trucks' },
-        parks:         { label: 'Parks' },
-        culturespots:  { label: 'Culture Spots' },
-        museums:       { label: 'Museums' },
-        capital:       { label: 'Capitol' },
-        airport:       { label: 'Airport' },
-        campuses:      { label: 'Campuses' },
-        clinics:       { label: 'Hospitals' },
-        grocerystores: { label: 'Grocery Stores' },
-        hardware:      { label: 'Hardware Stores' },
-        golf:          { label: 'Golf Courses' },
-        starbucks:     { label: 'Starbucks' },
-        malls:         { label: 'Malls' },
-        newcomers:     { label: 'Newcomers' },
-        apartments:    { label: 'Apartments' },
-        hotels:        { label: 'Hotels' },
-        sports:        { label: 'Sports Venues' },
-        temporarymarkets:  { label: 'Pop-up Markets' },
-        festivals:         { label: 'Festivals & Fairs' },
-        concertsshows:     { label: 'Concerts & Shows' },
-        comedymics:        { label: 'Comedy & Open Mics' },
-        artgalleries:      { label: 'Art Openings & Galleries' },
-        popupshops:        { label: 'Pop-up Shops' },
-        meetupsclasses:    { label: 'Meetups & Classes' },
-        grouprunsoutdoors: { label: 'Group Runs & Outdoor Meets' },
-      };
-
-      // Demo ad copy keyed by app. The text is a placeholder so a
-      // prospective buyer can see WHERE inventory would render and the
-      // SHAPE of what they'd be selling. Every banner links to
-      // austin.chat in the demo; a real deployment would link to the
-      // advertiser's site.
-      const AD_COPY = {
-        // Bucket-level copy — what the banner ad reads inside a
-        // bucket chat (the per-category lines below are still used by
-        // legacy callers, but new bucket chats fall back to these).
-        shopping:      'local sales, gift cards & weekly deals',
-        services:      'banking, healthcare & utilities',
-        rec:           'tickets, gear & nearby fun',
-        social:        'happy-hour specials & nearby events',
-        events:        'tickets, merch & event ride options',
-        pubchat:       'craft beer & cocktails',
-        foodtrucks:    'mobile POS & food packaging',
-        parks:         'outdoor gear & trail apps',
-        culturespots:  'tour passes & souvenir photo prints',
-        museums:       'art prints & gallery memberships',
-        capital:       'civic engagement tools',
-        airport:       'travel insurance & rideshare',
-        campuses:      'textbook rentals & student housing',
-        clinics:       'telehealth & prescription savings',
-        grocerystores: 'weekly meal kits & grocery deals',
-        hardware:      'power tools & home services',
-        golf:          'clubs, lessons & tee-time apps',
-        starbucks:     'coffee subscriptions & loyalty perks',
-        malls:         'fashion sales & gift cards',
-        newcomers:     'movers & neighborhood guides',
-        apartments:    'renters insurance & furniture rentals',
-        hotels:        'local attractions & travel deals',
-        sports:        'tickets, apparel & fan gear',
-        temporarymarkets:  'reusable totes & local crafts',
-        festivals:         'festival passes & travel deals',
-        concertsshows:     'concert tickets & vinyl drops',
-        comedymics:        'show tickets & comedy specials',
-        artgalleries:      'art prints & gallery memberships',
-        popupshops:        'limited drops & local brands',
-        meetupsclasses:    'class passes & meetup apps',
-        grouprunsoutdoors: 'running gear & trail apps',
-        homelesschat:  'community resources & social services',
-      };
       function bannerAdHTML(app, color, variant /* 'inset' | 'full' */) {
         const copy = AD_COPY[app] || 'local goods & services';
         const cls = 'pc-popup-ad ' + (variant === 'full' ? 'is-full' : 'is-inset');
