@@ -347,7 +347,7 @@
     /* ── Social icon bar — bottom-center pill ─────────────────────── */
     .cm-brand-card {
       position: fixed;
-      bottom: 20px;
+      bottom: 56px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 20;
@@ -401,7 +401,7 @@
        exactly above it. */
     .cm-bottomleft {
       position: fixed;
-      bottom: 14px;
+      bottom: 50px;
       left: 14px;
       z-index: 20;
       display: grid;
@@ -435,6 +435,92 @@
     .cm-bottomleft-exit:active { transform: translateY(0); }
     .cm-bottomleft .cm-cityanatomy-badge { grid-column: 1; grid-row: 2; }
     .cm-bottomleft .cm-info-ctrl         { grid-column: 2; grid-row: 2; }
+
+    /* ── Austin info ticker — bottom of the map ──────────────────────
+       Deliberately LIGHT + minimal (echoes the anatomy.city menu),
+       contrasting the dark map chrome above it. Auto-scrolls when idle;
+       the track is natively scrollable/draggable by the user. */
+    .cm-newsfeed {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 40px;
+      z-index: 21;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid #e1e5ec;
+      box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.10);
+      display: flex;
+      align-items: stretch;
+    }
+    .cm-newsfeed[hidden] { display: none; }
+    .cm-feed-tag {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6e7787;
+      background: #f1f3f7;
+      border-right: 1px solid #e1e5ec;
+      user-select: none;
+    }
+    .cm-feed-track {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;            /* Firefox */
+      -ms-overflow-style: none;         /* IE/Edge */
+      scroll-behavior: auto;
+      white-space: nowrap;
+    }
+    .cm-feed-track::-webkit-scrollbar { display: none; }
+    .cm-feed-item {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 22px;
+      height: 100%;
+      color: #16191f;
+      text-decoration: none;
+      font-size: 0.84rem;
+      position: relative;
+    }
+    .cm-feed-item + .cm-feed-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 16px;
+      background: #e1e5ec;
+    }
+    .cm-feed-item:hover { text-decoration: none; }
+    .cm-feed-item:hover .cm-feed-headline { color: #0e7ec9; }
+    .cm-feed-icon { font-size: 0.92rem; line-height: 1; flex-shrink: 0; }
+    .cm-feed-lane {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      color: #9aa3b2;
+      flex-shrink: 0;
+    }
+    .cm-feed-headline { color: #16191f; font-weight: 500; transition: color 0.12s ease; }
+    /* Alerts stand out in red. */
+    .cm-feed-item[data-lane="alerts"] .cm-feed-lane,
+    .cm-feed-item[data-lane="alerts"] .cm-feed-icon { color: #dc2626; }
+    .cm-feed-item[data-lane="alerts"] .cm-feed-headline { color: #b91c1c; font-weight: 600; }
 
     /* Layers control (top-left): dark-glass hamburger button matching the
        legend hamburger. Panel drops below; outside-click closes it. */
@@ -908,11 +994,14 @@
 
     @media (max-width: 500px) {
       .cm-legend { top: 10px; right: 10px; padding: 8px 10px; font-size: 0.72rem; }
-      .cm-brand-card { bottom: 14px; padding: 6px 12px; gap: 10px; }
+      .cm-brand-card { bottom: 50px; padding: 6px 12px; gap: 10px; }
       .cm-brand-card svg { width: 16px; height: 16px; }
-      .cm-bottomleft { bottom: 10px; left: 10px; gap: 6px; }
+      .cm-bottomleft { bottom: 46px; left: 10px; gap: 6px; }
       .cm-cityanatomy-badge { font-size: 0.56rem; padding: 5px 8px; }
       .cm-info-btn { width: 26px; height: 26px; font-size: 0.92rem; }
+      .cm-feed-tag { padding: 0 10px; font-size: 0.58rem; }
+      .cm-feed-item { padding: 0 16px; font-size: 0.8rem; }
+      .cm-feed-lane { display: none; }
     }
 
     /* ── Intro modal (first-visit overlay) ─────────────────────────
@@ -996,6 +1085,13 @@
 </head>
 <body>
   <div id="map"></div>
+
+  <!-- Austin info ticker. Populated from /data/austinfeed/feed.json by
+       the IIFE near the end of this file; hidden until it has items. -->
+  <aside id="cm-newsfeed" class="cm-newsfeed" aria-label="Austin info feed" hidden>
+    <span class="cm-feed-tag">Austin</span>
+    <div class="cm-feed-track" id="cm-feed-track" role="list"></div>
+  </aside>
 
   <div id="cm-permission" class="cm-permission-modal" role="dialog" aria-modal="true" aria-labelledby="cm-perm-title" hidden>
     <div class="cm-permission-card">
@@ -3337,6 +3433,88 @@
         }
       });
     });
+  </script>
+
+  <script>
+    // ── Austin info ticker ────────────────────────────────────────
+    // Loads /data/austinfeed/feed.json (regenerated daily by the
+    // build_daily_feed workflow), renders each item as a link, and
+    // auto-scrolls when the user has been idle for a few seconds. The
+    // track is natively scrollable, so manual drag/wheel/touch works
+    // too — interaction just pauses the auto-advance. Independent of
+    // the map, so it runs on its own.
+    (function () {
+      const IDLE_MS = 4000;     // resume auto-scroll this long after interaction
+      const SPEED   = 0.4;      // px per frame (~24px/s at 60fps)
+
+      const bar   = document.getElementById('cm-newsfeed');
+      const track = document.getElementById('cm-feed-track');
+      if (!bar || !track) return;
+
+      function esc(s) {
+        return String(s ?? '').replace(/[&<>"']/g, c =>
+          ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      }
+      function notExpired(it, now) {
+        if (!it.expires) return true;
+        const t = Date.parse(it.expires);
+        return isNaN(t) || t >= now;
+      }
+      function itemHTML(it) {
+        const lane = esc(it.lane || '');
+        const href = it.link || '#';
+        return `<a class="cm-feed-item" role="listitem" data-lane="${lane}"`
+          + ` href="${esc(href)}" target="_blank" rel="noopener">`
+          + `<span class="cm-feed-icon" aria-hidden="true">${esc(it.icon || '•')}</span>`
+          + `<span class="cm-feed-lane">${esc(it.label || it.lane || '')}</span>`
+          + `<span class="cm-feed-headline">${esc(it.headline || '')}</span>`
+          + `</a>`;
+      }
+
+      fetch('/data/austinfeed/feed.json', { cache: 'no-cache' })
+        .then(r => r.ok ? r.json() : null)
+        .then(doc => {
+          const now = Date.now();
+          const items = (doc && doc.items || []).filter(it => it && it.headline && notExpired(it, now));
+          if (!items.length) return;   // stay hidden — no empty strip
+
+          track.innerHTML = items.map(itemHTML).join('');
+          bar.hidden = false;
+
+          // Only loop/auto-scroll if the content overflows. If it fits,
+          // leave it static.
+          requestAnimationFrame(() => {
+            if (track.scrollWidth <= track.clientWidth + 4) return;
+
+            // Duplicate once for a seamless wrap. Clones are decorative.
+            const loopWidth = track.scrollWidth;
+            const clone = document.createElement('div');
+            clone.style.display = 'contents';
+            clone.setAttribute('aria-hidden', 'true');
+            clone.innerHTML = items.map(itemHTML).join('');
+            track.appendChild(clone);
+
+            let lastInteraction = 0;
+            const bump = () => { lastInteraction = performance.now(); };
+            ['pointerdown', 'wheel', 'touchstart', 'scroll', 'keydown'].forEach(ev =>
+              track.addEventListener(ev, bump, { passive: true }));
+            let hovering = false;
+            bar.addEventListener('mouseenter', () => { hovering = true; });
+            bar.addEventListener('mouseleave', () => { hovering = false; });
+
+            function frame(t) {
+              const idle = (t - lastInteraction) > IDLE_MS;
+              if (idle && !hovering) track.scrollLeft += SPEED;
+              // Wrap in both directions so manual scrolling never hits a wall.
+              if (track.scrollLeft >= loopWidth) track.scrollLeft -= loopWidth;
+              else if (track.scrollLeft < 0)      track.scrollLeft += loopWidth;
+              requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+          });
+        })
+        .catch(() => { /* leave the bar hidden on any error */ });
+    })();
   </script>
 </body>
 </html>

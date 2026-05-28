@@ -1,0 +1,212 @@
+{
+  "cityId": "atx",
+  "generated": "2026-05-28T20:50:49Z",
+  "items": [
+    {
+      "id": "alert-urn:oid:2.49.0.1.840.0.bb3b590c3a8caff7c",
+      "lane": "alerts",
+      "headline": "Air Quality Alert issued May 28 at 3:05PM CDT by NWS Austin/San Antonio TX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bb3b590c3a8caff7c26f7525db495861c782f6c5.001.1",
+      "label": "Alert",
+      "icon": "⚠️",
+      "detail": "AQAEWX\n\nAtmospheric conditions are expected to be favorable for producing\nhigh levels of ozone air pollution in the Austin area on Friday.\n\nYou can help prevent ozone pollution by sharing a ride, walking\nor riding a bicycle, taking your lunch to work, avoiding drive\nthrough lanes",
+      "severity": 4,
+      "priority": 4,
+      "published": "2026-05-28T15:05:00-05:00",
+      "expires": "2026-05-29T19:15:00-05:00"
+    },
+    {
+      "id": "weather-now",
+      "lane": "weather",
+      "headline": "This Afternoon: Sunny, 91°F",
+      "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
+      "label": "Weather",
+      "icon": "☀️",
+      "detail": "Sunny, with a high near 91. East southeast wind around 5 mph. Tonight: Mostly Clear, 71°F.",
+      "priority": 10,
+      "published": "2026-05-28T20:50:49Z"
+    },
+    {
+      "id": "event-austin-flea-may-30-zilker",
+      "lane": "events",
+      "headline": "Austin Flea @ Zilker Brewing  ·  2026-05-30",
+      "link": "https://www.austinflea.net",
+      "label": "Event",
+      "icon": "📅",
+      "detail": "Zilker Brewing · monthly roving artisan + vintage popup",
+      "priority": 20,
+      "published": "2026-05-30T12:00"
+    },
+    {
+      "id": "sample-deal-replace-me",
+      "lane": "deals",
+      "headline": "Your deal here · austin.chat advertising",
+      "link": "https://austin.chat/",
+      "label": "Deal",
+      "icon": "🏷️",
+      "detail": "Curated deals live in staging/deals.json. Replace this sample with real offers; set an 'expires' (ISO 8601 UTC) so stale ones drop off automatically.",
+      "priority": 25,
+      "expires": "2099-12-31T23:59:59Z"
+    },
+    {
+      "id": "news-kut-35495018",
+      "lane": "news",
+      "headline": "Alex Jones' Infowars site has finally shut down — for now  ·  KUT",
+      "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Mon, 04 May 2026 16:24:03 GMT"
+    },
+    {
+      "id": "news-kut-42513151",
+      "lane": "news",
+      "headline": "Austin Democrats brace for more redistricting efforts next year  ·  KUT",
+      "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Sun, 03 May 2026 11:00:00 GMT"
+    },
+    {
+      "id": "news-kut-28503098",
+      "lane": "news",
+      "headline": "Rep. Greg Casar pushes 'accountability and affordability' message for Democrats in Austin  ·  KUT",
+      "link": "https://www.kut.org/politics/2026-05-02/austin-tx-democrats-greg-casar-kut-festival-2026",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Sun, 03 May 2026 00:07:12 GMT"
+    },
+    {
+      "id": "news-kut-77984614",
+      "lane": "news",
+      "headline": "Public media leaders discuss the future of journalism amid local and national pressure  ·  KUT",
+      "link": "https://www.kut.org/news/2026-05-02/future-public-radio-npr-katherine-maher-kut-festival-2026",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Sat, 02 May 2026 10:03:00 GMT"
+    },
+    {
+      "id": "news-kxan-57360429",
+      "lane": "news",
+      "headline": "All lanes closed due to gravel spill on State Highway 71 in southeast Austin  ·  KXAN",
+      "link": "https://www.kxan.com/news/local/austin/all-lanes-closed-due-to-gravel-spill-on-state-highway-71-in-southeast-austin/",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Thu, 28 May 2026 20:45:13 +0000"
+    },
+    {
+      "id": "news-kxan-33704014",
+      "lane": "news",
+      "headline": "New Texas law tightens oversight on self-driving car companies  ·  KXAN",
+      "link": "https://www.kxan.com/traffic/transportation/new-texas-law-tightens-oversight-on-self-driving-car-companies/",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Thu, 28 May 2026 12:36:36 +0000"
+    },
+    {
+      "id": "news-kxan-54884595",
+      "lane": "news",
+      "headline": "Austin approves $35M settlement in Yogurt Shop Murders case  ·  KXAN",
+      "link": "https://www.kxan.com/news/local/austin/austin-approves-35m-settlement-for-men-exonerated-in-yogurt-shop-murders/",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Thu, 28 May 2026 17:39:59 +0000"
+    },
+    {
+      "id": "news-kxan-83709531",
+      "lane": "news",
+      "headline": "Former Round Rock pastor, convicted of 'child porn' possession, responds to lawsuit from prison  ·  KXAN",
+      "link": "https://www.kxan.com/news/local/round-rock/former-pastor-responds-csam-victims-lawsuit/",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Thu, 28 May 2026 19:00:03 +0000"
+    },
+    {
+      "id": "news-austinmonitor-94949020",
+      "lane": "news",
+      "headline": "Our last update: Everything you need to know  ·  Austin Monitor",
+      "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Wed, 05 Nov 2025 23:48:45 +0000"
+    },
+    {
+      "id": "news-austinmonitor-68460045",
+      "lane": "news",
+      "headline": "Millennium seating setback spotlights uncertain future for East Austin hub  ·  Austin Monitor",
+      "link": "https://austinmonitor.com/stories/2025/10/millennium-seating-setback-spotlights-uncertain-future-for-east-austin-hub/",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Tue, 28 Oct 2025 00:24:59 +0000"
+    },
+    {
+      "id": "news-austinmonitor-35453452",
+      "lane": "news",
+      "headline": "Erosion issues persist in Zilker Park amid limited resources  ·  Austin Monitor",
+      "link": "https://austinmonitor.com/stories/2025/10/erosion-issues-persist-in-zilker-park-amid-limited-resources/",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Sun, 26 Oct 2025 21:31:53 +0000"
+    },
+    {
+      "id": "news-austinmonitor-74337671",
+      "lane": "news",
+      "headline": "Report shows pedestrian crash deaths in Austin have not decreased  ·  Austin Monitor",
+      "link": "https://austinmonitor.com/stories/2025/10/report-shows-pedestrian-crash-deaths-in-ausitn-have-not-decreased/",
+      "label": "News",
+      "icon": "📰",
+      "priority": 30,
+      "published": "Thu, 23 Oct 2025 21:51:30 +0000"
+    },
+    {
+      "id": "sports-2470477",
+      "lane": "sports",
+      "headline": "Paris SG vs Arsenal  ·  2026-05-30 16:00",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-05-30"
+    },
+    {
+      "id": "sports-2470477",
+      "lane": "sports",
+      "headline": "Paris SG vs Arsenal  ·  2026-05-30 16:00",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-05-30"
+    },
+    {
+      "id": "sports-2470477",
+      "lane": "sports",
+      "headline": "Paris SG vs Arsenal  ·  2026-05-30 16:00",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-05-30"
+    },
+    {
+      "id": "sports-2470477",
+      "lane": "sports",
+      "headline": "Paris SG vs Arsenal  ·  2026-05-30 16:00",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-05-30"
+    }
+  ]
+}

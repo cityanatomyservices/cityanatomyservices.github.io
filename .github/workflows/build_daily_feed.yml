@@ -1,0 +1,39 @@
+name: Build daily Austin feed
+
+on:
+  schedule:
+    - cron: "0 8 * * *"          # 08:00 UTC = 03:00 Austin — before the event scrape (09:00 UTC)
+  workflow_dispatch:              # also runnable on-demand from Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build_daily_feed
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build feed
+        run: python -m tools.austin_feed.run
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet --exit-code data/austinfeed/; then
+            echo "No feed changes."
+            exit 0
+          fi
+          git config user.name  "austin-feed-bot"
+          git config user.email "feed-bot@users.noreply.github.com"
+          git add data/austinfeed/
+          git commit -m "Daily feed: $(date -u +%Y-%m-%d)"
+          git push
