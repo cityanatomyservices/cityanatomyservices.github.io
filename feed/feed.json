@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-05-29T08:07:51Z",
+  "generated": "2026-05-29T12:48:19Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -29,13 +29,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Clear, 71°F",
+      "headline": "Today: Mostly Sunny, 93°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly clear, with a low around 71. South southwest wind around 0 mph. Friday: Mostly Sunny, 93°F.",
+      "detail": "Mostly sunny, with a high near 93. South southwest wind 0 to 5 mph. Tonight: Mostly Cloudy, 73°F.",
       "priority": 10,
-      "published": "2026-05-29T08:07:51Z"
+      "published": "2026-05-29T12:48:19Z"
     },
     {
       "id": "event-austin-flea-may-30-zilker",
@@ -49,7 +49,7 @@
       "published": "2026-05-30T12:00"
     },
     {
-      "id": "news-kut-2150984",
+      "id": "news-kut-28391694",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -61,7 +61,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-74206738",
+      "id": "news-kut-19683146",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -73,19 +73,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-77367332",
+      "id": "news-kxan-15891769",
       "lane": "news",
-      "headline": "State denies Austin ISD's application for accountability pause, additional funding for struggling campuses",
-      "link": "https://www.kxan.com/investigations/state-denies-austin-isds-application-for-accountability-pause-additional-funding-for-struggling-campuses/",
+      "headline": "Krause Springs: One of Central Texas' most drought-resilient swimming holes",
+      "link": "https://www.kxan.com/weather/wheres-the-water/krause-springs-one-of-central-texas-most-drought-resilient-swimming-holes/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 28 May 2026 22:03:57 +0000"
+      "published": "Mon, 25 May 2026 12:00:00 +0000"
     },
     {
-      "id": "news-austinmonitor-13492165",
+      "id": "news-austinmonitor-73279139",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
