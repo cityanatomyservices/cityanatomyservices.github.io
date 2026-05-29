@@ -349,7 +349,7 @@
        info card strip. */
     .cm-bottomleft {
       position: fixed;
-      bottom: 108px;
+      bottom: 140px;
       left: 14px;
       z-index: 20;
       display: flex;
@@ -365,7 +365,6 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: 96px;
       z-index: 21;
       background: rgba(245, 247, 250, 0.97);
       backdrop-filter: blur(8px);
@@ -373,28 +372,53 @@
       border-top: 1px solid #e1e5ec;
       box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.10);
       display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0 12px;
+      flex-direction: column;
+      gap: 7px;
+      padding: 8px 12px;
     }
     .cm-newsfeed[hidden] { display: none; }
-    .cm-feed-tag {
-      flex-shrink: 0;
-      align-self: stretch;
+    /* Upper level: selectable topic pills (blue when on). */
+    .cm-feed-topics {
       display: flex;
       align-items: center;
-      padding-right: 12px;
-      margin-right: 2px;
-      font-size: 0.64rem;
+      gap: 7px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .cm-feed-topics::-webkit-scrollbar { display: none; }
+    .cm-feed-topics-label {
+      flex-shrink: 0;
+      font-size: 0.6rem;
       font-weight: 800;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #6e7787;
-      border-right: 1px solid #e1e5ec;
+      padding-right: 4px;
       user-select: none;
     }
+    .cm-feed-pill {
+      flex-shrink: 0;
+      padding: 4px 13px;
+      border-radius: 999px;
+      border: 1px solid #cdd5e0;
+      background: #ffffff;
+      color: #3a4453;
+      font: inherit;
+      font-size: 0.72rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+    }
+    .cm-feed-pill:hover { border-color: #2563eb; }
+    .cm-feed-pill[aria-pressed="true"] {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #ffffff;
+    }
     .cm-feed-track {
-      flex: 1;
       display: flex;
       align-items: stretch;
       gap: 10px;
@@ -404,8 +428,19 @@
       scrollbar-width: none;            /* Firefox */
       -ms-overflow-style: none;         /* IE/Edge */
       scroll-behavior: auto;
+      cursor: grab;
     }
+    .cm-feed-track.is-dragging { cursor: grabbing; }
+    .cm-feed-track.is-dragging .cm-feed-card { pointer-events: none; }
     .cm-feed-track::-webkit-scrollbar { display: none; }
+    .cm-feed-empty {
+      display: flex;
+      align-items: center;
+      color: #6e7787;
+      font-size: 0.78rem;
+      font-style: italic;
+      padding-left: 4px;
+    }
     .cm-feed-card {
       flex-shrink: 0;
       width: 256px;
@@ -929,9 +964,9 @@
 
     @media (max-width: 500px) {
       .cm-legend { top: 10px; right: 10px; padding: 8px 10px; font-size: 0.72rem; }
-      .cm-bottomleft { bottom: 100px; left: 10px; }
+      .cm-bottomleft { bottom: 132px; left: 10px; }
       .cm-info-btn { width: 26px; height: 26px; font-size: 0.92rem; }
-      .cm-newsfeed { height: 90px; padding: 0 8px; gap: 8px; }
+      .cm-newsfeed { padding: 7px 8px; gap: 6px; }
       .cm-feed-tag { display: none; }
       .cm-feed-track { gap: 8px; height: 72px; }
       .cm-feed-card { width: 210px; padding: 8px 11px; }
@@ -1019,10 +1054,11 @@
 <body>
   <div id="map"></div>
 
-  <!-- Austin info ticker. Populated from /data/austinfeed/feed.json by
-       the IIFE near the end of this file; hidden until it has items. -->
+  <!-- Austin info feed. Two levels: selectable topic pills (upper) that
+       decide which lanes appear as cards (lower). Built by the IIFE near
+       the end of this file; hidden until it has rendered. -->
   <aside id="cm-newsfeed" class="cm-newsfeed" aria-label="Austin info feed" hidden>
-    <span class="cm-feed-tag">Austin</span>
+    <div class="cm-feed-topics" id="cm-feed-topics" role="group" aria-label="Choose feed topics"></div>
     <div class="cm-feed-track" id="cm-feed-track" role="list"></div>
   </aside>
 
@@ -3356,20 +3392,47 @@
   </script>
 
   <script>
-    // ── Austin info ticker ────────────────────────────────────────
-    // Loads /data/austinfeed/feed.json (regenerated daily by the
-    // build_daily_feed workflow), renders each item as a link, and
-    // auto-scrolls when the user has been idle for a few seconds. The
-    // track is natively scrollable, so manual drag/wheel/touch works
-    // too — interaction just pauses the auto-advance. Independent of
-    // the map, so it runs on its own.
+    // ── Austin info feed (two-level) ──────────────────────────────
+    // Upper level: selectable topic pills (blue when on). Lower level:
+    // one card per selected topic, drawn from /data/austinfeed/feed.json
+    // (regenerated daily by the build_daily_feed workflow). The card row
+    // steps left every few seconds when it overflows, and is also
+    // draggable (mouse) / swipeable (touch). Selection persists in
+    // localStorage. Independent of the map.
     (function () {
-      const IDLE_MS = 4000;     // resume auto-scroll this long after interaction
-      const SPEED   = 0.4;      // px per frame (~24px/s at 60fps)
+      const STEP_MS  = 3000;    // advance one card every 3s
+      const PAUSE_MS = 3000;    // pause auto-advance this long after interaction
+      const STORE_KEY = 'austinchat-feed-topics';
 
-      const bar   = document.getElementById('cm-newsfeed');
-      const track = document.getElementById('cm-feed-track');
-      if (!bar || !track) return;
+      // Topic pills. `lane` keys into the feed items + accent colors;
+      // some lanes (reports/realestate/stocks/gossip) have no data source
+      // yet, so their pill is selectable but shows a card only once the
+      // pipeline feeds that lane.
+      const TOPICS = [
+        { lane: 'weather', label: 'Weather' },
+        { lane: 'news',    label: 'Local News' },
+        { lane: 'events',  label: 'Events' },
+        { lane: 'sports',  label: 'Local Sports' },
+        { lane: 'deals',   label: 'Deals & Specials' },
+        { lane: 'reports', label: 'Special Reports' },
+        { lane: 'lunch',   label: 'School Lunches' },
+        { lane: 'alerts',  label: 'Alerts' },
+        { lane: 'realestate', label: 'Real Estate' },
+        { lane: 'stocks',  label: 'Stocks' },
+        { lane: 'gossip',  label: 'Gossip' },
+      ];
+      const DEFAULT_SELECTED = ['weather', 'news', 'events'];
+      const ACCENTS = {
+        alerts: '#dc2626', weather: '#f59e0b', events: '#a855f7',
+        deals: '#16a34a', news: '#0e7ec9', sports: '#4f46e5',
+        lunch: '#0d9488', reports: '#0891b2', realestate: '#b45309',
+        stocks: '#15803d', gossip: '#db2777',
+      };
+
+      const bar    = document.getElementById('cm-newsfeed');
+      const track  = document.getElementById('cm-feed-track');
+      const topics = document.getElementById('cm-feed-topics');
+      if (!bar || !track || !topics) return;
 
       function esc(s) {
         return String(s ?? '').replace(/[&<>"']/g, c =>
@@ -3380,30 +3443,27 @@
         const t = Date.parse(it.expires);
         return isNaN(t) || t >= now;
       }
-      // Per-lane left-accent + label color, echoing the anatomy.city
-      // "Reports" cards.
-      const ACCENTS = {
-        alerts:  '#dc2626',
-        weather: '#f59e0b',
-        events:  '#a855f7',
-        deals:   '#16a34a',
-        news:    '#0e7ec9',
-        sports:  '#4f46e5',
-        lunch:   '#0d9488',
-      };
-      function itemHTML(it) {
+      function loadSelected() {
+        try {
+          const raw = JSON.parse(localStorage.getItem(STORE_KEY));
+          if (Array.isArray(raw)) return new Set(raw);
+        } catch (_) {}
+        return new Set(DEFAULT_SELECTED);
+      }
+      function saveSelected(set) {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify([...set])); } catch (_) {}
+      }
+
+      function cardHTML(it) {
         const lane = it.lane || '';
         const accent = ACCENTS[lane] || '#6e7787';
-        const href = it.link || '#';
         const label = `${esc(it.icon || '')} ${esc(it.label || lane)}`.trim();
-        const desc = it.detail
-          ? `<span class="cm-feed-desc">${esc(it.detail)}</span>` : '';
+        const desc = it.detail ? `<span class="cm-feed-desc">${esc(it.detail)}</span>` : '';
         return `<a class="cm-feed-card" role="listitem" data-lane="${esc(lane)}"`
-          + ` style="--accent:${accent}" href="${esc(href)}" target="_blank" rel="noopener">`
+          + ` style="--accent:${accent}" href="${esc(it.link || '#')}" target="_blank" rel="noopener">`
           + `<span class="cm-feed-label">${label}</span>`
           + `<span class="cm-feed-title">${esc(it.headline || '')}</span>`
-          + desc
-          + `</a>`;
+          + desc + `</a>`;
       }
 
       fetch('/data/austinfeed/feed.json', { cache: 'no-cache' })
@@ -3411,42 +3471,132 @@
         .then(doc => {
           const now = Date.now();
           const items = (doc && doc.items || []).filter(it => it && it.headline && notExpired(it, now));
-          if (!items.length) return;   // stay hidden — no empty strip
 
-          track.innerHTML = items.map(itemHTML).join('');
+          // First (highest-priority) item per lane — one card per topic.
+          const firstByLane = new Map();
+          for (const it of items) if (!firstByLane.has(it.lane)) firstByLane.set(it.lane, it);
+
+          const selected = loadSelected();
           bar.hidden = false;
 
-          // Only loop/auto-scroll if the content overflows. If it fits,
-          // leave it static.
-          requestAnimationFrame(() => {
-            if (track.scrollWidth <= track.clientWidth + 4) return;
+          // Build the pills.
+          topics.innerHTML = '<span class="cm-feed-topics-label">Austin</span>';
+          for (const t of TOPICS) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'cm-feed-pill';
+            btn.dataset.lane = t.lane;
+            btn.textContent = t.label;
+            btn.setAttribute('aria-pressed', selected.has(t.lane) ? 'true' : 'false');
+            btn.addEventListener('click', () => {
+              if (selected.has(t.lane)) selected.delete(t.lane);
+              else selected.add(t.lane);
+              btn.setAttribute('aria-pressed', selected.has(t.lane) ? 'true' : 'false');
+              saveSelected(selected);
+              renderCards();
+            });
+            topics.appendChild(btn);
+          }
 
-            // Duplicate once for a seamless wrap. Clones are decorative.
-            const loopWidth = track.scrollWidth;
-            const clone = document.createElement('div');
-            clone.style.display = 'contents';
-            clone.setAttribute('aria-hidden', 'true');
-            clone.innerHTML = items.map(itemHTML).join('');
-            track.appendChild(clone);
+          let stepTimer = null;
+          let lastInteraction = 0;
+          let loopWidth = 0;
 
-            let lastInteraction = 0;
-            const bump = () => { lastInteraction = performance.now(); };
-            ['pointerdown', 'wheel', 'touchstart', 'scroll', 'keydown'].forEach(ev =>
-              track.addEventListener(ev, bump, { passive: true }));
-            let hovering = false;
-            bar.addEventListener('mouseenter', () => { hovering = true; });
-            bar.addEventListener('mouseleave', () => { hovering = false; });
+          function renderCards() {
+            if (stepTimer) { clearInterval(stepTimer); stepTimer = null; }
+            // One card per selected topic that actually has an item,
+            // in the pill order.
+            const cards = TOPICS
+              .filter(t => selected.has(t.lane) && firstByLane.has(t.lane))
+              .map(t => firstByLane.get(t.lane));
 
-            function frame(t) {
-              const idle = (t - lastInteraction) > IDLE_MS;
-              if (idle && !hovering) track.scrollLeft += SPEED;
-              // Wrap in both directions so manual scrolling never hits a wall.
-              if (track.scrollLeft >= loopWidth) track.scrollLeft -= loopWidth;
-              else if (track.scrollLeft < 0)      track.scrollLeft += loopWidth;
-              requestAnimationFrame(frame);
+            if (!cards.length) {
+              const anySelected = TOPICS.some(t => selected.has(t.lane));
+              track.innerHTML = `<span class="cm-feed-empty">`
+                + (anySelected
+                    ? 'No updates for the selected topics right now.'
+                    : 'Pick a topic above to fill your feed.')
+                + `</span>`;
+              return;
             }
-            requestAnimationFrame(frame);
+
+            track.innerHTML = cards.map(cardHTML).join('');
+
+            // Loop + auto-advance only when the row overflows.
+            requestAnimationFrame(() => {
+              loopWidth = 0;
+              if (track.scrollWidth > track.clientWidth + 4) {
+                loopWidth = track.scrollWidth;
+                const clone = document.createElement('div');
+                clone.style.display = 'contents';
+                clone.setAttribute('aria-hidden', 'true');
+                clone.innerHTML = cards.map(cardHTML).join('');
+                track.appendChild(clone);
+                startStepping();
+              }
+            });
+          }
+
+          function cardStep() {
+            const first = track.querySelector('.cm-feed-card');
+            if (!first) return 240;
+            const w = first.getBoundingClientRect().width;
+            const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '10') || 10;
+            return w + gap;
+          }
+
+          function startStepping() {
+            if (stepTimer) clearInterval(stepTimer);
+            stepTimer = setInterval(() => {
+              if (performance.now() - lastInteraction < PAUSE_MS) return;
+              if (hovering || dragging) return;
+              track.scrollBy({ left: cardStep(), behavior: 'smooth' });
+            }, STEP_MS);
+          }
+
+          // Wrap seamlessly when the duplicated set scrolls past.
+          track.addEventListener('scroll', () => {
+            if (loopWidth && track.scrollLeft >= loopWidth) {
+              track.scrollLeft -= loopWidth;
+            } else if (loopWidth && track.scrollLeft < 0) {
+              track.scrollLeft += loopWidth;
+            }
+          }, { passive: true });
+
+          // Interaction pauses the auto-advance.
+          let hovering = false, dragging = false;
+          const bump = () => { lastInteraction = performance.now(); };
+          ['wheel', 'touchstart', 'pointerdown'].forEach(ev =>
+            track.addEventListener(ev, bump, { passive: true }));
+          bar.addEventListener('mouseenter', () => { hovering = true; });
+          bar.addEventListener('mouseleave', () => { hovering = false; });
+
+          // Mouse drag-to-scroll (touch scrolls natively). A small move
+          // threshold suppresses the click so a drag doesn't open a link.
+          let startX = 0, startLeft = 0, moved = false;
+          track.addEventListener('pointerdown', (e) => {
+            if (e.pointerType !== 'mouse') return;
+            dragging = true; moved = false;
+            startX = e.clientX; startLeft = track.scrollLeft;
+            track.classList.add('is-dragging');
           });
+          window.addEventListener('pointermove', (e) => {
+            if (!dragging) return;
+            const dx = e.clientX - startX;
+            if (Math.abs(dx) > 4) moved = true;
+            track.scrollLeft = startLeft - dx;
+          });
+          window.addEventListener('pointerup', () => {
+            if (!dragging) return;
+            dragging = false;
+            track.classList.remove('is-dragging');
+            lastInteraction = performance.now();
+          });
+          track.addEventListener('click', (e) => {
+            if (moved) { e.preventDefault(); e.stopPropagation(); }
+          }, true);
+
+          renderCards();
         })
         .catch(() => { /* leave the bar hidden on any error */ });
     })();

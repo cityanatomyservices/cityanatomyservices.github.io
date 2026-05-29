@@ -26,15 +26,22 @@ OUTPUT = DATA / "austinfeed" / "feed.json"
 USER_AGENT = "austin.chat-feed-bot/1.0 (+https://austin.chat)"
 
 # Per-lane display defaults + base sort priority (ascending = earlier in
-# the ticker). Individual items may override label/icon/priority.
+# the ticker). Individual items may override label/icon/priority. Lanes
+# without a source module yet (reports/realestate/stocks/gossip) are
+# listed so the UI's topic pills and any future scraper share one
+# vocabulary.
 LANES = {
-    "alerts":  {"label": "Alert",    "icon": "⚠️", "priority": 0},
-    "weather": {"label": "Weather",  "icon": "☀️", "priority": 10},
-    "events":  {"label": "Event",    "icon": "📅", "priority": 20},
-    "deals":   {"label": "Deal",     "icon": "🏷️", "priority": 25},
-    "news":    {"label": "News",     "icon": "📰", "priority": 30},
-    "sports":  {"label": "Sports",   "icon": "🏆", "priority": 40},
-    "lunch":   {"label": "Lunch",    "icon": "🍎", "priority": 50},
+    "alerts":     {"label": "Alert",          "icon": "⚠️", "priority": 0},
+    "weather":    {"label": "Weather",        "icon": "☀️", "priority": 10},
+    "events":     {"label": "Event",          "icon": "📅", "priority": 20},
+    "deals":      {"label": "Deal",           "icon": "🏷️", "priority": 25},
+    "news":       {"label": "Local News",     "icon": "📰", "priority": 30},
+    "sports":     {"label": "Local Sports",   "icon": "🏆", "priority": 40},
+    "lunch":      {"label": "School Lunch",   "icon": "🍎", "priority": 50},
+    "reports":    {"label": "Special Report", "icon": "📋", "priority": 35},
+    "realestate": {"label": "Real Estate",    "icon": "🏠", "priority": 45},
+    "stocks":     {"label": "Stocks",         "icon": "📈", "priority": 55},
+    "gossip":     {"label": "Gossip",         "icon": "💬", "priority": 60},
 }
 
 
