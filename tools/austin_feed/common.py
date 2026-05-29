@@ -1,9 +1,9 @@
 """Shared types + helpers for the Austin daily feed.
 
 Each scraper in `sources/` exposes a `scrape() -> list[FeedItem]`
-function. `run.py` calls every scraper, sorts the combined items, drops
-expired ones, and writes a single `data/austinfeed/feed.json` that the
-bottom-of-map ticker renders.
+function. `run.py` calls every scraper, sorts + caps the combined items,
+drops expired ones, and writes a single `feed/feed.json` that the
+bottom-of-map feed renders.
 
 Hermetic by design: stdlib only (urllib + xml.etree), no API keys.
 """
@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import urllib.request
 import urllib.error
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -21,7 +22,11 @@ from typing import Iterable
 REPO = Path(__file__).resolve().parent.parent.parent
 DATA = REPO / "data"
 STAGING = REPO / "staging"
-OUTPUT = DATA / "austinfeed" / "feed.json"
+# The feed lives at the repo-root /feed/ so the UI fetches /feed/feed.json.
+OUTPUT = REPO / "feed" / "feed.json"
+
+# How many entries we keep per topic so the UI can rotate through a pool.
+PER_LANE = 5
 
 USER_AGENT = "austin.chat-feed-bot/1.0 (+https://austin.chat)"
 
@@ -53,7 +58,8 @@ class FeedItem:
     link: str                 # source URL (opens in a new tab)
     label: str = ""           # falls back to LANES[lane]["label"]
     icon: str = ""            # falls back to LANES[lane]["icon"]
-    detail: str = ""          # optional longer text (stored, not shown yet)
+    detail: str = ""          # optional longer text (shown as card subtitle)
+    source: str = ""          # curated outlet name, e.g. "KUT"
     severity: int | None = None   # alerts only
     priority: int | None = None   # falls back to LANES[lane]["priority"]
     published: str = ""       # ISO 8601 UTC
@@ -65,8 +71,12 @@ class FeedItem:
         d["label"] = self.label or lane_def["label"]
         d["icon"] = self.icon or lane_def["icon"]
         d["priority"] = self.priority if self.priority is not None else lane_def["priority"]
+        # A curated entry with a source but no detail shows the source as
+        # its subtitle.
+        if not d.get("detail") and d.get("source"):
+            d["detail"] = d["source"]
         # Drop empty optionals to keep the file tidy.
-        for k in ("detail", "published", "expires"):
+        for k in ("detail", "source", "published", "expires"):
             if not d.get(k):
                 d.pop(k, None)
         if d.get("severity") is None:
@@ -126,9 +136,60 @@ def sort_items(items: list[FeedItem]) -> list[FeedItem]:
     return sorted(items, key=key)
 
 
+def cap_per_lane(items: list[FeedItem], n: int = PER_LANE) -> list[FeedItem]:
+    """Keep at most `n` items per lane, preserving the incoming order
+    (callers pass already-sorted items, so this keeps each lane's best)."""
+    counts: dict[str, int] = {}
+    kept: list[FeedItem] = []
+    for it in items:
+        c = counts.get(it.lane, 0)
+        if c >= n:
+            continue
+        counts[it.lane] = c + 1
+        kept.append(it)
+    return kept
+
+
+# ── Shared RSS/Atom parsing (used by the registry source) ─────────────
+def _rss_text(node, tag) -> str:
+    el = node.find(tag)
+    return (el.text or "").strip() if el is not None and el.text else ""
+
+
+def parse_feed(raw: bytes, limit: int = 5) -> list[dict]:
+    """Parse RSS 2.0 or Atom bytes into [{title, link, published}], newest
+    as they appear in the document, up to `limit`."""
+    root = ET.fromstring(raw)
+    out: list[dict] = []
+    entries = root.findall(".//item")
+    atom = False
+    if not entries:
+        ns = {"a": "http://www.w3.org/2005/Atom"}
+        entries = root.findall(".//a:entry", ns)
+        atom = True
+    for e in entries:
+        if atom:
+            ns = {"a": "http://www.w3.org/2005/Atom"}
+            title = (e.findtext("a:title", default="", namespaces=ns) or "").strip()
+            link_el = e.find("a:link", ns)
+            link = link_el.get("href") if link_el is not None else ""
+            pub = (e.findtext("a:updated", default="", namespaces=ns) or "").strip()
+        else:
+            title = _rss_text(e, "title")
+            link = _rss_text(e, "link")
+            pub = _rss_text(e, "pubDate")
+        if not title or not link:
+            continue
+        out.append({"title": title, "link": link, "published": pub})
+        if len(out) >= limit:
+            break
+    return out
+
+
 def write_feed(items: list[FeedItem], dry_run: bool = False) -> dict:
     items = drop_expired(items)
     items = sort_items(items)
+    items = cap_per_lane(items)
     doc = {
         "cityId": "atx",
         "generated": now_utc_iso(),

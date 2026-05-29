@@ -1,0 +1,32 @@
+{
+  "_comment": "Canonical curated source list for the daily Austin feed. One row per source per topic. RSS rows: {type:rss, url, source, max}. JSON rows: {type:json, url, source, max, items_path, map}. Rows whose url is a REPLACE-... placeholder or example.com are skipped until you set a real URL. Topics weather/alerts/events/sports/lunch are produced by bespoke source modules and need no rows here.",
+
+  "news": [
+    { "type": "rss", "url": "https://www.kut.org/news.rss",                "source": "KUT",              "max": 2 },
+    { "type": "rss", "url": "https://www.kxan.com/feed/",                  "source": "KXAN",             "max": 1 },
+    { "type": "rss", "url": "https://www.austinmonitor.com/feed/",         "source": "Austin Monitor",   "max": 1 },
+    { "type": "rss", "url": "https://communityimpact.com/rss/city/austin/", "source": "Community Impact", "max": 1 }
+  ],
+
+  "deals": [
+    { "type": "rss", "url": "REPLACE-with-a-deals-or-events-RSS-feed", "source": "", "max": 4 }
+  ],
+
+  "reports": [
+    { "type": "rss", "url": "REPLACE-with-a-longform/special-reports-RSS-feed", "source": "", "max": 3 }
+  ],
+
+  "realestate": [
+    { "type": "rss", "url": "REPLACE-with-an-Austin-real-estate-RSS-feed", "source": "", "max": 3 }
+  ],
+
+  "gossip": [
+    { "type": "rss", "url": "REPLACE-with-a-local-culture/gossip-RSS-feed", "source": "", "max": 3 }
+  ],
+
+  "stocks": [
+    { "type": "json", "url": "REPLACE-with-a-no-key-quote-JSON-endpoint", "source": "", "max": 3,
+      "items_path": "quotes",
+      "map": { "headline": "summary", "link": "url", "published": "asof" } }
+  ]
+}

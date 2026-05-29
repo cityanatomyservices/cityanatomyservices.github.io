@@ -455,9 +455,10 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
       text-decoration: none;
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.18s ease;
       overflow: hidden;
     }
+    .cm-feed-card.is-swapping { opacity: 0.15; }
     .cm-feed-card:hover {
       text-decoration: none;
       transform: translateY(-2px);
@@ -3394,7 +3395,7 @@
   <script>
     // ── Austin info feed (two-level) ──────────────────────────────
     // Upper level: selectable topic pills (blue when on). Lower level:
-    // one card per selected topic, drawn from /data/austinfeed/feed.json
+    // one card per selected topic, drawn from /feed/feed.json
     // (regenerated daily by the build_daily_feed workflow). The card row
     // steps left every few seconds when it overflows, and is also
     // draggable (mouse) / swipeable (touch). Selection persists in
@@ -3454,27 +3455,42 @@
         try { localStorage.setItem(STORE_KEY, JSON.stringify([...set])); } catch (_) {}
       }
 
+      function cardInner(it) {
+        const label = `${esc(it.icon || '')} ${esc(it.label || it.lane || '')}`.trim();
+        const desc = it.detail ? `<span class="cm-feed-desc">${esc(it.detail)}</span>` : '';
+        return `<span class="cm-feed-label">${label}</span>`
+          + `<span class="cm-feed-title">${esc(it.headline || '')}</span>` + desc;
+      }
       function cardHTML(it) {
         const lane = it.lane || '';
         const accent = ACCENTS[lane] || '#6e7787';
-        const label = `${esc(it.icon || '')} ${esc(it.label || lane)}`.trim();
-        const desc = it.detail ? `<span class="cm-feed-desc">${esc(it.detail)}</span>` : '';
         return `<a class="cm-feed-card" role="listitem" data-lane="${esc(lane)}"`
           + ` style="--accent:${accent}" href="${esc(it.link || '#')}" target="_blank" rel="noopener">`
-          + `<span class="cm-feed-label">${label}</span>`
-          + `<span class="cm-feed-title">${esc(it.headline || '')}</span>`
-          + desc + `</a>`;
+          + cardInner(it) + `</a>`;
+      }
+      // Swap an existing card's content to a new item, in place (keeps the
+      // node so scroll position + the fade transition survive).
+      function updateCard(el, it) {
+        const lane = it.lane || '';
+        el.href = it.link || '#';
+        el.dataset.lane = lane;
+        el.style.setProperty('--accent', ACCENTS[lane] || '#6e7787');
+        el.innerHTML = cardInner(it);
       }
 
-      fetch('/data/austinfeed/feed.json', { cache: 'no-cache' })
+      fetch('/feed/feed.json', { cache: 'no-cache' })
         .then(r => r.ok ? r.json() : null)
         .then(doc => {
           const now = Date.now();
           const items = (doc && doc.items || []).filter(it => it && it.headline && notExpired(it, now));
 
-          // First (highest-priority) item per lane — one card per topic.
-          const firstByLane = new Map();
-          for (const it of items) if (!firstByLane.has(it.lane)) firstByLane.set(it.lane, it);
+          // All items per lane (file order = priority-sorted), so each
+          // topic card can rotate through its 4–5 pool.
+          const itemsByLane = new Map();
+          for (const it of items) {
+            if (!itemsByLane.has(it.lane)) itemsByLane.set(it.lane, []);
+            itemsByLane.get(it.lane).push(it);
+          }
 
           const selected = loadSelected();
           bar.hidden = false;
@@ -3498,19 +3514,28 @@
             topics.appendChild(btn);
           }
 
-          let stepTimer = null;
+          let rotateTimer = null;
           let lastInteraction = 0;
-          let loopWidth = 0;
+          let rotation = 0;
+          let hovering = false, dragging = false;
+          // Lanes currently rendered, in card order — so the rotate tick
+          // knows which pool each card belongs to.
+          let renderedLanes = [];
+
+          // The item to show for a lane right now = its pool indexed by the
+          // global rotation counter (each topic cycles through its 4–5).
+          function laneItem(lane) {
+            const pool = itemsByLane.get(lane) || [];
+            return pool.length ? pool[rotation % pool.length] : null;
+          }
 
           function renderCards() {
-            if (stepTimer) { clearInterval(stepTimer); stepTimer = null; }
-            // One card per selected topic that actually has an item,
-            // in the pill order.
-            const cards = TOPICS
-              .filter(t => selected.has(t.lane) && firstByLane.has(t.lane))
-              .map(t => firstByLane.get(t.lane));
+            if (rotateTimer) { clearInterval(rotateTimer); rotateTimer = null; }
+            renderedLanes = TOPICS
+              .filter(t => selected.has(t.lane) && (itemsByLane.get(t.lane) || []).length)
+              .map(t => t.lane);
 
-            if (!cards.length) {
+            if (!renderedLanes.length) {
               const anySelected = TOPICS.some(t => selected.has(t.lane));
               track.innerHTML = `<span class="cm-feed-empty">`
                 + (anySelected
@@ -3520,51 +3545,31 @@
               return;
             }
 
-            track.innerHTML = cards.map(cardHTML).join('');
-
-            // Loop + auto-advance only when the row overflows.
-            requestAnimationFrame(() => {
-              loopWidth = 0;
-              if (track.scrollWidth > track.clientWidth + 4) {
-                loopWidth = track.scrollWidth;
-                const clone = document.createElement('div');
-                clone.style.display = 'contents';
-                clone.setAttribute('aria-hidden', 'true');
-                clone.innerHTML = cards.map(cardHTML).join('');
-                track.appendChild(clone);
-                startStepping();
-              }
-            });
+            track.innerHTML = renderedLanes.map(lane => cardHTML(laneItem(lane))).join('');
+            startRotating();
           }
 
-          function cardStep() {
-            const first = track.querySelector('.cm-feed-card');
-            if (!first) return 240;
-            const w = first.getBoundingClientRect().width;
-            const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '10') || 10;
-            return w + gap;
-          }
-
-          function startStepping() {
-            if (stepTimer) clearInterval(stepTimer);
-            stepTimer = setInterval(() => {
-              if (performance.now() - lastInteraction < PAUSE_MS) return;
+          // Every STEP_MS, advance the rotation and swap each topic card to
+          // the next entry in its pool (a quick fade), in place — so manual
+          // scroll position survives. Only runs if some topic has >1 entry.
+          function startRotating() {
+            const multi = renderedLanes.some(lane => (itemsByLane.get(lane) || []).length > 1);
+            if (!multi) return;
+            rotateTimer = setInterval(() => {
               if (hovering || dragging) return;
-              track.scrollBy({ left: cardStep(), behavior: 'smooth' });
+              if (performance.now() - lastInteraction < PAUSE_MS) return;
+              rotation++;
+              const cards = track.querySelectorAll('.cm-feed-card');
+              cards.forEach((el, i) => {
+                const it = laneItem(renderedLanes[i]);
+                if (!it) return;
+                el.classList.add('is-swapping');
+                setTimeout(() => { updateCard(el, it); el.classList.remove('is-swapping'); }, 180);
+              });
             }, STEP_MS);
           }
 
-          // Wrap seamlessly when the duplicated set scrolls past.
-          track.addEventListener('scroll', () => {
-            if (loopWidth && track.scrollLeft >= loopWidth) {
-              track.scrollLeft -= loopWidth;
-            } else if (loopWidth && track.scrollLeft < 0) {
-              track.scrollLeft += loopWidth;
-            }
-          }, { passive: true });
-
-          // Interaction pauses the auto-advance.
-          let hovering = false, dragging = false;
+          // Interaction pauses the rotation.
           const bump = () => { lastInteraction = performance.now(); };
           ['wheel', 'touchstart', 'pointerdown'].forEach(ev =>
             track.addEventListener(ev, bump, { passive: true }));
