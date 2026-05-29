@@ -10,6 +10,13 @@ staging/feed_overrides.json shape:
 [
   { "lane": "reports", "headline": "Austin's 5 best new patios",
     "link": "https://...", "detail": "Editor's pick",
+    "expires": "2026-12-31T23:59:59Z" },
+
+  # Geo-targeted card (e.g. a local business ad): add "neighborhoods"
+  # with one or more neighborhood ids. The UI shows it only when the
+  # visitor is in a matching neighborhood. Omit it for a citywide card.
+  { "lane": "local", "headline": "20% off at Joe's Coffee",
+    "link": "https://...", "neighborhoods": ["nbhd-bouldin-creek"],
     "expires": "2026-12-31T23:59:59Z" }
 ]
 """
@@ -42,6 +49,9 @@ def scrape() -> list[FeedItem]:
         link = (r.get("link") or "").strip()
         if not lane or not headline or not link:
             continue
+        nbhds = r.get("neighborhoods") or []
+        if isinstance(nbhds, str):
+            nbhds = [nbhds]
         items.append(FeedItem(
             id=r.get("id") or f"pin-{lane}-{i}",
             lane=lane,
@@ -49,6 +59,7 @@ def scrape() -> list[FeedItem]:
             link=link,
             detail=r.get("detail") or "",
             source=r.get("source") or "",
+            neighborhoods=[str(x) for x in nbhds],
             priority=r.get("priority", PIN_PRIORITY),
             published=r.get("published") or "",
             expires=r.get("expires") or "",

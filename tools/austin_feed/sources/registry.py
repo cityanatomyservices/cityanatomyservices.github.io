@@ -44,6 +44,13 @@ def _dig(obj, dotted: str):
     return cur
 
 
+def _nbhds(row: dict) -> list[str]:
+    n = row.get("neighborhoods") or []
+    if isinstance(n, str):
+        n = [n]
+    return [str(x) for x in n]
+
+
 def _from_rss(lane: str, row: dict) -> list[FeedItem]:
     raw = http_get(row["url"], accept="application/rss+xml, application/xml, text/xml")
     items = []
@@ -54,6 +61,7 @@ def _from_rss(lane: str, row: dict) -> list[FeedItem]:
             headline=e["title"],
             link=e["link"],
             source=row.get("source", ""),
+            neighborhoods=_nbhds(row),
             published=e.get("published", ""),
         ))
     return items
@@ -75,6 +83,7 @@ def _from_json(lane: str, row: dict) -> list[FeedItem]:
             headline=headline,
             link=link,
             source=row.get("source", ""),
+            neighborhoods=_nbhds(row),
             detail=str(_dig(r, mapping.get("detail", "")) or ""),
             published=str(_dig(r, mapping.get("published", "")) or ""),
         ))

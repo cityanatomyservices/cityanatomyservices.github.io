@@ -1890,8 +1890,25 @@
         if (matchId !== enteredNeighborhoodId) {
           enteredNeighborhoodId = matchId;
           dismissedNeighborhoodId = null;
+          announceNeighborhood();
         }
         reconcileNeighborhoodPopup();
+      }
+      // Publish the current neighborhood to the bottom feed (a separate,
+      // sandboxed IIFE) so it can show cards targeted to where the user
+      // is. Coords are included too, leaving the door open for finer
+      // targeting later; the feed keys off the neighborhood id today.
+      function announceNeighborhood() {
+        const n = enteredNeighborhoodId ? neighborhoodById.get(enteredNeighborhoodId) : null;
+        window.__cmNeighborhood = n ? {
+          id: n.id,
+          title: n.title,
+          meta: n.info || {},
+          center: n.geofence?.center || null,
+        } : null;
+        window.dispatchEvent(new CustomEvent('cm:neighborhood-changed', {
+          detail: window.__cmNeighborhood,
+        }));
       }
       // Single source of truth for "should the neighborhood info popup
       // be visible right now?" — called whenever enteredNeighborhoodId
@@ -1942,18 +1959,28 @@
           const lb = (APP_META[b]?.label || b).toLowerCase();
           return la.localeCompare(lb);
         });
+        // Each app group is a collapsible "+" row, mirroring the
+        // top-right Austin Chat menu. A single group is expanded by
+        // default; multiple groups start collapsed.
+        const singleGroup = appIds.length === 1;
         const groupsHTML = appIds.map(appId => {
           const items = byApp.get(appId).sort((a, b) =>
             (a.hot.title || a.hot.id).localeCompare(b.hot.title || b.hot.id));
           const label = APP_META[appId]?.label || appId;
           const color = items[0].app.color;
+          const open = singleGroup;
           const rows = items.map(({ app, hot }) =>
             `<li style="margin: 2px 0;"><a href="#" class="cm-nbhd-spot" data-app="${app.id}" data-hid="${escapeText(hot.id)}" style="color:${color};text-decoration:none;font-weight:600;">${escapeText(hot.title || hot.id)}</a></li>`
           ).join('');
           return `
-            <div style="margin-top:10px;">
-              <div style="font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:${color};font-weight:700;">${escapeText(label)}</div>
-              <ul style="list-style:none;padding:0;margin:4px 0 0 0;font-size:0.85rem;">${rows}</ul>
+            <div class="cm-nbhd-group" style="margin-top:8px;border-top:1px solid #eef0f3;padding-top:8px;">
+              <button type="button" class="cm-nbhd-group-toggle" data-group="${escapeText(appId)}" aria-expanded="${open ? 'true' : 'false'}"
+                style="display:flex;align-items:center;gap:8px;width:100%;background:none;border:0;padding:2px 0;cursor:pointer;text-align:left;">
+                <span class="cm-nbhd-toggle-icon" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;font-size:0.95rem;line-height:1;color:${color};flex-shrink:0;">${open ? '−' : '+'}</span>
+                <span style="font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:${color};font-weight:700;flex:1;">${escapeText(label)}</span>
+                <span style="font-size:0.7rem;color:#8a93a0;font-weight:600;">${items.length}</span>
+              </button>
+              <ul class="cm-nbhd-group-body" ${open ? '' : 'hidden'} style="list-style:none;padding:0;margin:4px 0 0 22px;font-size:0.85rem;">${rows}</ul>
             </div>`;
         }).join('');
         const description = nbhd.info?.description || nbhd.subtitle || '';
@@ -1967,25 +1994,19 @@
         const spotsBody = spots.length
           ? groupsHTML
           : `<div style="font-size:0.85rem;color:#5a6472;font-style:italic;">No chat spots in this neighborhood yet.</div>`;
-        // Two tabs: Info (a paragraph sized naturally) and Chat Spots
-        // (scrolls within a fixed height). Popup width fits the
-        // paragraph; height tracks whichever tab is active.
+        // Single combined view: the description blurb folded into the
+        // header, then a "Chat Spots" list whose app groups expand via a
+        // "+" toggle (like the top-right Austin Chat menu).
         const html = `
           <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;width:280px;padding:14px 16px 16px;">
             <div style="font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:#1c1c28;font-weight:700;">${escapeText(APP_META.neighborhoods?.label || 'Neighborhood')}</div>
             <div style="font-size:1.05rem;font-weight:700;margin-top:2px;color:#1c1c28;">${escapeText(nbhd.title)}</div>
-            <nav class="cm-nbhd-tabs" role="tablist" style="display:flex;gap:14px;border-bottom:1px solid #e3e6ea;margin-top:12px;">
-              <button data-tab="info" type="button" role="tab"
-                style="background:none;border:0;padding:8px 0;font-size:0.8rem;font-weight:600;cursor:pointer;color:#1c1c28;border-bottom:2px solid #1c1c28;margin-bottom:-1px;">Info</button>
-              <button data-tab="spots" type="button" role="tab"
-                style="background:none;border:0;padding:8px 0;font-size:0.8rem;font-weight:600;cursor:pointer;color:#8a93a0;border-bottom:2px solid transparent;margin-bottom:-1px;">Chat Spots</button>
-            </nav>
-            <div class="cm-nbhd-pane" data-pane="info" role="tabpanel" style="padding-top:12px;">
+            <div style="margin-top:10px;">
               ${infoCopy}
               ${wikipediaLink}
             </div>
-            <div class="cm-nbhd-pane" data-pane="spots" role="tabpanel" hidden
-                 style="padding-top:8px;max-height:50vh;overflow-y:auto;">
+            <div style="font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:#8a93a0;font-weight:700;margin-top:14px;padding-top:12px;border-top:1px solid #e3e6ea;">Chat Spots</div>
+            <div class="cm-nbhd-spots" style="max-height:50vh;overflow-y:auto;">
               ${spotsBody}
             </div>
           </div>`;
@@ -2006,18 +2027,15 @@
         });
         const root = currentNeighborhoodPopup.getElement();
         if (root) {
-          // Tab switching.
-          const tabs = root.querySelectorAll('.cm-nbhd-tabs button');
-          const panes = root.querySelectorAll('.cm-nbhd-pane');
-          tabs.forEach(btn => {
+          // "+" expanders: each app group toggles its own spot list.
+          root.querySelectorAll('.cm-nbhd-group-toggle').forEach(btn => {
             btn.addEventListener('click', () => {
-              const which = btn.dataset.tab;
-              tabs.forEach(t => {
-                const active = t.dataset.tab === which;
-                t.style.color = active ? '#1c1c28' : '#8a93a0';
-                t.style.borderBottomColor = active ? '#1c1c28' : 'transparent';
-              });
-              panes.forEach(p => { p.hidden = p.dataset.pane !== which; });
+              const body = btn.parentElement.querySelector('.cm-nbhd-group-body');
+              const icon = btn.querySelector('.cm-nbhd-toggle-icon');
+              const open = btn.getAttribute('aria-expanded') === 'true';
+              btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+              if (icon) icon.textContent = open ? '+' : '−';
+              if (body) body.hidden = open;
             });
           });
           // Spot links: fly camera + open the spot's chat-view popup.
@@ -3409,6 +3427,7 @@
       // yet, so their pill is selectable but shows a card only once the
       // pipeline feeds that lane.
       const TOPICS = [
+        { lane: 'local',   label: '📍 Near You' },
         { lane: 'weather', label: 'Weather' },
         { lane: 'news',    label: 'Local News' },
         { lane: 'events',  label: 'Events' },
@@ -3421,8 +3440,9 @@
         { lane: 'stocks',  label: 'Stocks' },
         { lane: 'gossip',  label: 'Gossip' },
       ];
-      const DEFAULT_SELECTED = ['weather', 'news', 'events'];
+      const DEFAULT_SELECTED = ['local', 'weather', 'news', 'events'];
       const ACCENTS = {
+        local: '#e11d48',
         alerts: '#dc2626', weather: '#f59e0b', events: '#a855f7',
         deals: '#16a34a', news: '#0e7ec9', sports: '#4f46e5',
         lunch: '#0d9488', reports: '#0891b2', realestate: '#b45309',
@@ -3474,13 +3494,30 @@
           const now = Date.now();
           const items = (doc && doc.items || []).filter(it => it && it.headline && notExpired(it, now));
 
-          // All items per lane (file order = priority-sorted), so each
-          // topic card can rotate through its 4–5 pool.
-          const itemsByLane = new Map();
-          for (const it of items) {
-            if (!itemsByLane.has(it.lane)) itemsByLane.set(it.lane, []);
-            itemsByLane.get(it.lane).push(it);
+          // Current neighborhood, published by the map (announceNeighborhood).
+          let currentNbhd = window.__cmNeighborhood || null;
+
+          // A card with no `neighborhoods` is citywide (always shown). A
+          // targeted card shows only when the user is in a matching
+          // neighborhood — that's the "custom to where you are" path.
+          function visibleHere(it) {
+            if (!it.neighborhoods || !it.neighborhoods.length) return true;
+            return !!currentNbhd && it.neighborhoods.includes(currentNbhd.id);
           }
+
+          // Items per lane (file order = priority-sorted), filtered to the
+          // current location. Rebuilt whenever the neighborhood changes.
+          let itemsByLane = new Map();
+          function buildPools() {
+            const m = new Map();
+            for (const it of items) {
+              if (!visibleHere(it)) continue;
+              if (!m.has(it.lane)) m.set(it.lane, []);
+              m.get(it.lane).push(it);
+            }
+            itemsByLane = m;
+          }
+          buildPools();
 
           const selected = loadSelected();
           bar.hidden = false;
@@ -3607,6 +3644,14 @@
           track.addEventListener('click', (e) => {
             if (moved) { e.preventDefault(); e.stopPropagation(); }
           }, true);
+
+          // When the map reports a new neighborhood, refilter the pools so
+          // location-targeted cards appear/disappear, and re-render.
+          window.addEventListener('cm:neighborhood-changed', (e) => {
+            currentNbhd = e.detail || null;
+            buildPools();
+            renderCards();
+          });
 
           renderCards();
         })

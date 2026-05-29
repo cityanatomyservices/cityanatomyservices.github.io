@@ -37,6 +37,7 @@ USER_AGENT = "austin.chat-feed-bot/1.0 (+https://austin.chat)"
 # vocabulary.
 LANES = {
     "alerts":     {"label": "Alert",          "icon": "⚠️", "priority": 0},
+    "local":      {"label": "Near You",       "icon": "📍", "priority": 5},
     "weather":    {"label": "Weather",        "icon": "☀️", "priority": 10},
     "events":     {"label": "Event",          "icon": "📅", "priority": 20},
     "deals":      {"label": "Deal",           "icon": "🏷️", "priority": 25},
@@ -60,6 +61,7 @@ class FeedItem:
     icon: str = ""            # falls back to LANES[lane]["icon"]
     detail: str = ""          # optional longer text (shown as card subtitle)
     source: str = ""          # curated outlet name, e.g. "KUT"
+    neighborhoods: list[str] = field(default_factory=list)  # nbhd ids; empty = citywide
     severity: int | None = None   # alerts only
     priority: int | None = None   # falls back to LANES[lane]["priority"]
     published: str = ""       # ISO 8601 UTC
@@ -76,7 +78,7 @@ class FeedItem:
         if not d.get("detail") and d.get("source"):
             d["detail"] = d["source"]
         # Drop empty optionals to keep the file tidy.
-        for k in ("detail", "source", "published", "expires"):
+        for k in ("detail", "source", "neighborhoods", "published", "expires"):
             if not d.get(k):
                 d.pop(k, None)
         if d.get("severity") is None:
@@ -136,14 +138,22 @@ def sort_items(items: list[FeedItem]) -> list[FeedItem]:
     return sorted(items, key=key)
 
 
+# The "local" lane is geo-filtered client-side (one pool spanning every
+# neighborhood), so it needs a higher cap than the lanes the UI shows in
+# full — otherwise far-apart neighborhoods would starve each other.
+LANE_CAPS = {"local": 30}
+
+
 def cap_per_lane(items: list[FeedItem], n: int = PER_LANE) -> list[FeedItem]:
-    """Keep at most `n` items per lane, preserving the incoming order
-    (callers pass already-sorted items, so this keeps each lane's best)."""
+    """Keep at most `n` items per lane (LANE_CAPS overrides per lane),
+    preserving the incoming order (callers pass already-sorted items, so
+    this keeps each lane's best)."""
     counts: dict[str, int] = {}
     kept: list[FeedItem] = []
     for it in items:
+        cap = LANE_CAPS.get(it.lane, n)
         c = counts.get(it.lane, 0)
-        if c >= n:
+        if c >= cap:
             continue
         counts[it.lane] = c + 1
         kept.append(it)

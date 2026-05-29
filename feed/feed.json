@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-05-29T12:48:19Z",
+  "generated": "2026-05-29T13:00:47Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -10,6 +10,21 @@
       "label": "Deal",
       "icon": "🏷️",
       "detail": "Pinned/curated entries live in staging/feed_overrides.json. Replace this with real offers, Special Reports, Gossip blurbs, etc. Set an 'expires' (ISO 8601 UTC) so stale ones drop off automatically.",
+      "priority": 1,
+      "expires": "2099-12-31T23:59:59Z"
+    },
+    {
+      "id": "sample-local-ad-replace-me",
+      "lane": "local",
+      "headline": "Local business ad · shown only in this neighborhood",
+      "link": "https://austin.chat/",
+      "label": "Near You",
+      "icon": "📍",
+      "detail": "Add \"neighborhoods\": [\"nbhd-bouldin-creek\"] to target a card to one or more neighborhoods. It appears in the feed only when the visitor is standing in a matching neighborhood; leave it off for a citywide card.",
+      "neighborhoods": [
+        "nbhd-bouldin-creek",
+        "nbhd-barton-hills"
+      ],
       "priority": 1,
       "expires": "2099-12-31T23:59:59Z"
     },
@@ -35,7 +50,7 @@
       "icon": "☀️",
       "detail": "Mostly sunny, with a high near 93. South southwest wind 0 to 5 mph. Tonight: Mostly Cloudy, 73°F.",
       "priority": 10,
-      "published": "2026-05-29T12:48:19Z"
+      "published": "2026-05-29T13:00:47Z"
     },
     {
       "id": "event-austin-flea-may-30-zilker",
@@ -49,7 +64,7 @@
       "published": "2026-05-30T12:00"
     },
     {
-      "id": "news-kut-28391694",
+      "id": "news-kut-36786301",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -61,7 +76,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-19683146",
+      "id": "news-kut-59631497",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -73,7 +88,7 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-15891769",
+      "id": "news-kxan-30509405",
       "lane": "news",
       "headline": "Krause Springs: One of Central Texas' most drought-resilient swimming holes",
       "link": "https://www.kxan.com/weather/wheres-the-water/krause-springs-one-of-central-texas-most-drought-resilient-swimming-holes/",
@@ -85,7 +100,7 @@
       "published": "Mon, 25 May 2026 12:00:00 +0000"
     },
     {
-      "id": "news-austinmonitor-73279139",
+      "id": "news-austinmonitor-51714917",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
