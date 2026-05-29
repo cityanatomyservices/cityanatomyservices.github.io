@@ -455,10 +455,9 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
       text-decoration: none;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.18s ease;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
       overflow: hidden;
     }
-    .cm-feed-card.is-swapping { opacity: 0.15; }
     .cm-feed-card:hover {
       text-decoration: none;
       transform: translateY(-2px);
@@ -3468,15 +3467,6 @@
           + ` style="--accent:${accent}" href="${esc(it.link || '#')}" target="_blank" rel="noopener">`
           + cardInner(it) + `</a>`;
       }
-      // Swap an existing card's content to a new item, in place (keeps the
-      // node so scroll position + the fade transition survive).
-      function updateCard(el, it) {
-        const lane = it.lane || '';
-        el.href = it.link || '#';
-        el.dataset.lane = lane;
-        el.style.setProperty('--accent', ACCENTS[lane] || '#6e7787');
-        el.innerHTML = cardInner(it);
-      }
 
       fetch('/feed/feed.json', { cache: 'no-cache' })
         .then(r => r.ok ? r.json() : null)
@@ -3514,28 +3504,22 @@
             topics.appendChild(btn);
           }
 
-          let rotateTimer = null;
+          let stepTimer = null;
           let lastInteraction = 0;
-          let rotation = 0;
+          let loopWidth = 0;
           let hovering = false, dragging = false;
-          // Lanes currently rendered, in card order — so the rotate tick
-          // knows which pool each card belongs to.
-          let renderedLanes = [];
-
-          // The item to show for a lane right now = its pool indexed by the
-          // global rotation counter (each topic cycles through its 4–5).
-          function laneItem(lane) {
-            const pool = itemsByLane.get(lane) || [];
-            return pool.length ? pool[rotation % pool.length] : null;
-          }
 
           function renderCards() {
-            if (rotateTimer) { clearInterval(rotateTimer); rotateTimer = null; }
-            renderedLanes = TOPICS
-              .filter(t => selected.has(t.lane) && (itemsByLane.get(t.lane) || []).length)
-              .map(t => t.lane);
+            if (stepTimer) { clearInterval(stepTimer); stepTimer = null; }
+            // Every entry for every selected topic, grouped in pill order
+            // (so a topic's 4–5 cards sit together), scrolling leftward.
+            const cards = [];
+            for (const t of TOPICS) {
+              if (!selected.has(t.lane)) continue;
+              for (const it of (itemsByLane.get(t.lane) || [])) cards.push(it);
+            }
 
-            if (!renderedLanes.length) {
+            if (!cards.length) {
               const anySelected = TOPICS.some(t => selected.has(t.lane));
               track.innerHTML = `<span class="cm-feed-empty">`
                 + (anySelected
@@ -3545,31 +3529,54 @@
               return;
             }
 
-            track.innerHTML = renderedLanes.map(lane => cardHTML(laneItem(lane))).join('');
-            startRotating();
+            track.innerHTML = cards.map(cardHTML).join('');
+            track.scrollLeft = 0;
+
+            // Auto-advance leftward only when the row overflows. A
+            // duplicated copy of the set gives a seamless wrap.
+            requestAnimationFrame(() => {
+              loopWidth = 0;
+              if (track.scrollWidth > track.clientWidth + 4) {
+                loopWidth = track.scrollWidth;
+                const clone = document.createElement('div');
+                clone.style.display = 'contents';
+                clone.setAttribute('aria-hidden', 'true');
+                clone.innerHTML = cards.map(cardHTML).join('');
+                track.appendChild(clone);
+                startStepping();
+              }
+            });
           }
 
-          // Every STEP_MS, advance the rotation and swap each topic card to
-          // the next entry in its pool (a quick fade), in place — so manual
-          // scroll position survives. Only runs if some topic has >1 entry.
-          function startRotating() {
-            const multi = renderedLanes.some(lane => (itemsByLane.get(lane) || []).length > 1);
-            if (!multi) return;
-            rotateTimer = setInterval(() => {
+          function cardStep() {
+            const first = track.querySelector('.cm-feed-card');
+            if (!first) return 240;
+            const w = first.getBoundingClientRect().width;
+            const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '10') || 10;
+            return w + gap;
+          }
+
+          // Step one card to the left every STEP_MS, pausing on
+          // hover/drag/recent interaction.
+          function startStepping() {
+            if (stepTimer) clearInterval(stepTimer);
+            stepTimer = setInterval(() => {
               if (hovering || dragging) return;
               if (performance.now() - lastInteraction < PAUSE_MS) return;
-              rotation++;
-              const cards = track.querySelectorAll('.cm-feed-card');
-              cards.forEach((el, i) => {
-                const it = laneItem(renderedLanes[i]);
-                if (!it) return;
-                el.classList.add('is-swapping');
-                setTimeout(() => { updateCard(el, it); el.classList.remove('is-swapping'); }, 180);
-              });
+              track.scrollBy({ left: cardStep(), behavior: 'smooth' });
             }, STEP_MS);
           }
 
-          // Interaction pauses the rotation.
+          // Wrap seamlessly when the duplicated set scrolls past.
+          track.addEventListener('scroll', () => {
+            if (loopWidth && track.scrollLeft >= loopWidth) {
+              track.scrollLeft -= loopWidth;
+            } else if (loopWidth && track.scrollLeft < 0) {
+              track.scrollLeft += loopWidth;
+            }
+          }, { passive: true });
+
+          // Interaction pauses the auto-advance.
           const bump = () => { lastInteraction = performance.now(); };
           ['wheel', 'touchstart', 'pointerdown'].forEach(ev =>
             track.addEventListener(ev, bump, { passive: true }));
