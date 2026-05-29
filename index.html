@@ -3622,18 +3622,24 @@
 
           // Mouse drag-to-scroll (touch scrolls natively). A small move
           // threshold suppresses the click so a drag doesn't open a link.
+          // is-dragging (which sets pointer-events:none on cards) is added
+          // only after movement crosses the threshold — otherwise a plain
+          // click would have its target resolved to the track instead of
+          // the anchor, and the link would never open.
           let startX = 0, startLeft = 0, moved = false;
           track.addEventListener('pointerdown', (e) => {
             if (e.pointerType !== 'mouse') return;
             dragging = true; moved = false;
             startX = e.clientX; startLeft = track.scrollLeft;
-            track.classList.add('is-dragging');
           });
           window.addEventListener('pointermove', (e) => {
             if (!dragging) return;
             const dx = e.clientX - startX;
-            if (Math.abs(dx) > 4) moved = true;
-            track.scrollLeft = startLeft - dx;
+            if (Math.abs(dx) > 4 && !moved) {
+              moved = true;
+              track.classList.add('is-dragging');
+            }
+            if (moved) track.scrollLeft = startLeft - dx;
           });
           window.addEventListener('pointerup', () => {
             if (!dragging) return;
