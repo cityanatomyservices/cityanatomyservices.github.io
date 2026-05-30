@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-05-29T13:00:47Z",
+  "generated": "2026-05-30T11:22:32Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -29,28 +29,26 @@
       "expires": "2099-12-31T23:59:59Z"
     },
     {
-      "id": "alert-urn:oid:2.49.0.1.840.0.bb3b590c3a8caff7c",
-      "lane": "alerts",
-      "headline": "Air Quality Alert issued May 28 at 3:05PM CDT by NWS Austin/San Antonio TX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bb3b590c3a8caff7c26f7525db495861c782f6c5.001.1",
-      "label": "Alert",
-      "icon": "⚠️",
-      "detail": "AQAEWX\n\nAtmospheric conditions are expected to be favorable for producing\nhigh levels of ozone air pollution in the Austin area on Friday.\n\nYou can help prevent ozone pollution by sharing a ride, walking\nor riding a bicycle, taking your lunch to work, avoiding drive\nthrough lanes",
-      "severity": 4,
-      "priority": 4,
-      "published": "2026-05-28T15:05:00-05:00",
-      "expires": "2026-05-29T19:15:00-05:00"
-    },
-    {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 93°F",
+      "headline": "Today: Partly Sunny, 91°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 93. South southwest wind 0 to 5 mph. Tonight: Mostly Cloudy, 73°F.",
+      "detail": "Partly sunny, with a high near 91. South wind 5 to 10 mph. Tonight: Mostly Cloudy, 74°F.",
       "priority": 10,
-      "published": "2026-05-29T13:00:47Z"
+      "published": "2026-05-30T11:22:32Z"
+    },
+    {
+      "id": "event-austin-flea-jun-06-brewtorium",
+      "lane": "events",
+      "headline": "Austin Flea @ The Brewtorium  ·  2026-06-06",
+      "link": "https://www.austinflea.net",
+      "label": "Event",
+      "icon": "📅",
+      "detail": "The Brewtorium · monthly roving artisan + vintage popup",
+      "priority": 20,
+      "published": "2026-06-06T12:00"
     },
     {
       "id": "event-austin-flea-may-30-zilker",
@@ -64,7 +62,7 @@
       "published": "2026-05-30T12:00"
     },
     {
-      "id": "news-kut-36786301",
+      "id": "news-kut-40530991",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -76,7 +74,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-59631497",
+      "id": "news-kut-63388553",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -88,19 +86,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-30509405",
+      "id": "news-kxan-55395903",
       "lane": "news",
-      "headline": "Krause Springs: One of Central Texas' most drought-resilient swimming holes",
-      "link": "https://www.kxan.com/weather/wheres-the-water/krause-springs-one-of-central-texas-most-drought-resilient-swimming-holes/",
+      "headline": "Austin's Paramount Theatre uncovers nearly a century of lost items under the floor",
+      "link": "https://www.kxan.com/news/local/austin/austins-paramount-theatre-uncovers-nearly-a-century-of-lost-items-under-the-floor/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 25 May 2026 12:00:00 +0000"
+      "published": "Fri, 29 May 2026 16:50:52 +0000"
     },
     {
-      "id": "news-austinmonitor-51714917",
+      "id": "news-austinmonitor-37760184",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
