@@ -692,7 +692,7 @@
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 8px 24px rgba(15, 25, 45, 0.18);
-      width: 400px;
+      width: 360px;
       overflow: hidden;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
@@ -701,34 +701,34 @@
     }
     .pc-mini-popup .maplibregl-popup-tip { border-top-color: #fff; }
     .pc-mini-head {
-      display: flex; align-items: flex-start; gap: 10px;
-      padding: 14px 16px 10px;
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 8px 14px 7px;
       border-bottom: 1px solid #e1e6ee;
     }
     .pc-mini-head-text { flex: 1; min-width: 0; }
     .pc-mini-cat {
-      font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
       font-weight: 700; line-height: 1;
     }
     .pc-mini-title {
-      margin: 3px 0 0; font-size: 0.95rem; font-weight: 700; color: #1c1c28;
+      margin: 2px 0 0; font-size: 0.88rem; font-weight: 700; color: #1c1c28; line-height: 1.2;
     }
     .pc-mini-inline-info {
-      margin-top: 8px;
-      padding-top: 8px;
-      border-top: 1px solid #e8ecf0;
-      font-size: 0.79rem;
+      padding: 6px 14px 7px;
+      border-bottom: 1px solid #e8ecf0;
+      font-size: 0.74rem;
       color: #3a4252;
-      line-height: 1.45;
+      line-height: 1.35;
+      background: #fbfcfd;
     }
-    .pc-mini-inline-info p {
-      margin: 0 0 5px;
-    }
-    .pc-mini-inline-info p:last-child {
-      margin-bottom: 0;
+    .pc-mini-inline-info p { margin: 0 0 3px; }
+    .pc-mini-inline-info p:last-child { margin-bottom: 0; }
+    .pc-mini-head-row {
+      display: flex; align-items: center; gap: 6px;
+      margin-top: 3px; flex-wrap: wrap;
     }
     .pc-mini-presence {
-      margin: 4px 0 0; font-size: 0.72rem; color: #5a6472; font-weight: 600;
+      margin: 0; font-size: 0.66rem; color: #5a6472; font-weight: 600;
     }
     .pc-mini-tabs {
       display: flex; padding: 0 8px;
@@ -746,11 +746,21 @@
     .pc-mini-tab.is-active { color: #1a73ff; border-bottom-color: #1a73ff; }
     .pc-mini-pane[hidden] { display: none; }
     .pc-mini-messages {
-      list-style: none; margin: 0; padding: 10px 12px;
-      max-height: 220px; overflow-y: auto;
-      display: flex; flex-direction: column; gap: 6px;
-      background: #fff;
+      list-style: none; margin: 0; padding: 12px 12px;
+      min-height: 200px;
+      max-height: 340px; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 8px;
+      background: #fafbfc;
+      border-top: 1px solid #eef0f3;
     }
+    /* Footer row: navigation buttons sit right above the ad. */
+    .pc-mini-footer-nav {
+      display: flex; gap: 8px;
+      padding: 8px 12px;
+      background: #fff;
+      border-top: 1px solid #e8ecf0;
+    }
+    .pc-mini-footer-nav .pc-popup-social { margin-top: 0; }
     .pc-mini-bubble {
       max-width: 88%; padding: 6px 10px; border-radius: 10px;
       background: #f3f4f6; color: #1c1c28;
@@ -970,6 +980,8 @@
       .cm-feed-tag { display: none; }
       .cm-feed-track { gap: 8px; height: 72px; }
       .cm-feed-card { width: 210px; padding: 8px 11px; }
+      .pc-mini-popup .maplibregl-popup-content { width: 92vw; max-width: 360px; }
+      .pc-mini-messages { max-height: 50vh; }
     }
 
     /* ── Intro modal (first-visit overlay) ─────────────────────────
@@ -1730,14 +1742,15 @@
 
 
       function bannerAdHTML(app, color, variant /* 'inset' | 'full' */) {
-        const copy = AD_COPY[app] || 'local goods & services';
+        // Demo creative. All popups currently show this placeholder so the
+        // sponsored slot has visible copy until a real advertiser lands.
         const cls = 'pc-popup-ad ' + (variant === 'full' ? 'is-full' : 'is-inset');
         return `
           <a class="${cls}" href="https://austin.chat" target="_blank" rel="noopener"
              style="--ad-color: ${color};"
-             aria-label="Demo banner ad — links to austin.chat">
+             aria-label="Demo banner ad — Bayou Blanc BBQ Sauce">
             <span class="pc-popup-ad-tag">Ad</span>
-            <span class="pc-popup-ad-text">A banner ad for ${escapeText(copy)}</span>
+            <span class="pc-popup-ad-text">Bayou Blanc BBQ Sauce · Texas heat, Louisiana soul</span>
             <span class="pc-popup-ad-arrow" aria-hidden="true">→</span>
           </a>`;
       }
@@ -2327,6 +2340,7 @@
               ? `<span class="pc-mini-visiting-badge" style="background:#eef1f5;color:#5a6472;">Read-only · walk in to chat</span>`
               : '<span class="pc-mini-visiting-badge">Visiting from your spot</span>');
         // Info content — displayed inline below the title, not in a separate tab.
+        // (Maps/Waze/Reddit live in a footer row above the ad, not here.)
         const infoHTMLParts = [];
         if (hot?.info?.description) {
           infoHTMLParts.push(`<p>${escapeText(hot.info.description)}</p>`);
@@ -2337,13 +2351,15 @@
         if (hours) {
           infoHTMLParts.push(`<p><strong>Hours:</strong> ${hours}</p>`);
         }
+        const infoSection = infoHTMLParts.length
+          ? `<div class="pc-mini-inline-info">${infoHTMLParts.join('')}</div>`
+          : '';
         const hotCenter = geofenceCenter(hot?.geofence);
         const socialHTML = (hotCenter && window.PubchatSocial)
           ? window.PubchatSocial.buttonsHTML(hotCenter[1], hotCenter[0], hot.title || title)
           : '';
-        if (socialHTML) infoHTMLParts.push(socialHTML);
-        const infoSection = infoHTMLParts.length
-          ? `<div class="pc-mini-inline-info">${infoHTMLParts.join('')}</div>`
+        const footerNavHTML = socialHTML
+          ? `<div class="pc-mini-footer-nav">${socialHTML}</div>`
           : '';
         // Compose form (lives in the chat tab). Locked for visitors.
         const composeHTML = canSend
@@ -2360,11 +2376,13 @@
             <div class="pc-mini-head-text">
               <div class="pc-mini-cat" style="color: ${color};">${escapeText(meta.label)}</div>
               <h2 class="pc-mini-title">${escapeText(title)}</h2>
-              <p class="pc-mini-presence">connecting…</p>
-              ${hereBadge}
-              ${infoSection}
+              <div class="pc-mini-head-row">
+                <p class="pc-mini-presence">connecting…</p>
+                ${hereBadge}
+              </div>
             </div>
           </div>
+          ${infoSection}
           <nav class="pc-mini-tabs" role="tablist">
             <button class="pc-mini-tab is-active" data-tab="chat" type="button" role="tab">Chat</button>
             <button class="pc-mini-tab" data-tab="polls" type="button" role="tab">Polls</button>
@@ -2380,6 +2398,7 @@
               <p class="pc-mini-pane-empty pc-mini-polls-empty" hidden>No polls for this category yet.</p>
             </div>
           </div>
+          ${footerNavHTML}
           ${bannerAdHTML(feature.properties.app, color, 'full')}
         `;
 
@@ -2478,6 +2497,20 @@
 
         const messagesEl = el.querySelector('.pc-mini-messages');
         const presenceEl = el.querySelector('.pc-mini-presence');
+
+        // Demo seed message — every popup shows at least one bubble so the
+        // chat function reads as a chat instead of an empty box. Replace /
+        // remove when real chat traffic kicks in.
+        const demoLi = document.createElement('li');
+        demoLi.className = 'pc-mini-bubble';
+        demoLi.dataset.demo = '1';
+        const demoMeta = document.createElement('span');
+        demoMeta.className = 'pc-mini-bubble-meta';
+        demoMeta.textContent = '👋 demo';
+        const demoBody = document.createElement('span');
+        demoBody.textContent = 'hello world';
+        demoLi.append(demoMeta, demoBody);
+        messagesEl.appendChild(demoLi);
 
         const popup = new maplibregl.Popup({
           className: 'pc-mini-popup',
