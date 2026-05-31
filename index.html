@@ -745,6 +745,78 @@
     .pc-mini-tab:hover { color: #1c1c28; }
     .pc-mini-tab.is-active { color: #1a73ff; border-bottom-color: #1a73ff; }
     .pc-mini-pane[hidden] { display: none; }
+
+    /* ── Filter chips (Chat tab top) ──────────────────────────────────
+       Each chip is a checkbox-styled toggle; checked = that facet is
+       narrowing the visible messages. Multiple chips compose as AND-
+       within-category, OR-across-categories (matches the user's mental
+       model: "show me messages from this place OR this neighborhood,
+       tagged X AND Y"). Default state for the geofence the popup was
+       opened from: all chips checked. */
+    .pc-mini-filters {
+      display: flex; flex-wrap: wrap; gap: 4px;
+      padding: 6px 10px 4px;
+      background: #fbfcfd;
+      border-bottom: 1px solid #eef0f3;
+      max-height: 64px; overflow-y: auto;
+    }
+    .pc-mini-filters:empty { display: none; }
+    .pc-mini-filter {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 8px; border-radius: 999px;
+      border: 1px solid #d4dae3; background: #fff; color: #5a6472;
+      font-size: 0.7rem; font-weight: 600; line-height: 1.4;
+      cursor: pointer; user-select: none;
+    }
+    .pc-mini-filter[aria-pressed="true"] {
+      background: #1a73ff; border-color: #1a73ff; color: #fff;
+    }
+    .pc-mini-filter-kind {
+      font-size: 0.58rem; letter-spacing: 0.06em; text-transform: uppercase;
+      opacity: 0.65; font-weight: 700;
+    }
+
+    /* ── Vote buttons on each message bubble ─────────────────────── */
+    .pc-mini-bubble-votes {
+      display: inline-flex; gap: 4px;
+      margin-top: 4px;
+    }
+    .pc-mini-vote-btn {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 1px 7px; border-radius: 999px;
+      border: 1px solid #d4dae3; background: #fff;
+      font-size: 0.7rem; font-weight: 700; color: #5a6472;
+      cursor: pointer; line-height: 1.3;
+    }
+    .pc-mini-vote-btn:hover { border-color: #1a73ff; color: #1a73ff; }
+    .pc-mini-vote-btn.is-active.is-up   { background: #16a34a; border-color: #16a34a; color: #fff; }
+    .pc-mini-vote-btn.is-active.is-down { background: #dc2626; border-color: #dc2626; color: #fff; }
+    .pc-mini-vote-count { font-variant-numeric: tabular-nums; font-size: 0.66rem; }
+
+    /* ── Tags tab ─────────────────────────────────────────────────── */
+    .pc-mini-tags-intro {
+      margin: 0; padding: 10px 14px 4px;
+      font-size: 0.76rem; color: #3a4252; line-height: 1.4;
+    }
+    .pc-mini-tags-chips {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 6px 14px 12px;
+    }
+    .pc-mini-tag-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 9px; border-radius: 999px;
+      border: 1px solid #d4dae3; background: #fff; color: #1c1c28;
+      font-size: 0.78rem; font-weight: 600; line-height: 1.4;
+      cursor: pointer; user-select: none;
+    }
+    .pc-mini-tag-chip:hover { border-color: #1a73ff; color: #1a73ff; }
+    .pc-mini-tag-chip[aria-pressed="true"] {
+      background: #1a73ff; border-color: #1a73ff; color: #fff;
+    }
+    .pc-mini-tag-chip-count {
+      font-size: 0.7rem; opacity: 0.7; font-variant-numeric: tabular-nums;
+    }
+    .pc-mini-tag-chip[aria-pressed="true"] .pc-mini-tag-chip-count { opacity: 0.95; }
     .pc-mini-messages {
       list-style: none; margin: 0; padding: 12px 12px;
       min-height: 200px;
@@ -1609,7 +1681,10 @@
       // Precompute which neighborhood contains each circle hotspot so
       // the neighborhood info popup can list chat-available spots
       // grouped by category. One point-in-polygon test per hotspot.
+      // Reverse map (hotspot featureId -> neighborhood id) lets the chat
+      // popup stamp origin metadata on outgoing messages.
       const hotspotsByNeighborhood = new Map(); // nbhdId -> [{ app, hot }]
+      const neighborhoodByFeatureId = new Map(); // "app-hotId" -> nbhd id
       for (const { app, hotspots } of results) {
         for (const h of hotspots) {
           const c = geofenceCenter(h.geofence);
@@ -1620,6 +1695,7 @@
             if (pointInMultiPolygon(c[0], c[1], poly)) {
               if (!hotspotsByNeighborhood.has(n.id)) hotspotsByNeighborhood.set(n.id, []);
               hotspotsByNeighborhood.get(n.id).push({ app, hot: h });
+              neighborhoodByFeatureId.set(`${app.id}-${h.id}`, n.id);
               break;
             }
           }
@@ -2385,23 +2461,27 @@
           ${infoSection}
           <nav class="pc-mini-tabs" role="tablist">
             <button class="pc-mini-tab is-active" data-tab="chat" type="button" role="tab">Chat</button>
-            <button class="pc-mini-tab" data-tab="polls" type="button" role="tab">Polls</button>
+            <button class="pc-mini-tab" data-tab="tags" type="button" role="tab">Tags</button>
           </nav>
           <div class="pc-mini-panes">
             <div class="pc-mini-pane" data-pane="chat" role="tabpanel">
               <div class="pc-mini-event-banner-slot"></div>
+              <div class="pc-mini-filters" aria-label="Filter the chat"></div>
               <ol class="pc-mini-messages" aria-live="polite"></ol>
               ${composeHTML}
             </div>
-            <div class="pc-mini-pane" data-pane="polls" role="tabpanel" hidden>
-              <ol class="pc-mini-polls" aria-label="Live polls"></ol>
-              <p class="pc-mini-pane-empty pc-mini-polls-empty" hidden>No polls for this category yet.</p>
+            <div class="pc-mini-pane" data-pane="tags" role="tabpanel" hidden>
+              <p class="pc-mini-tags-intro">Tap a chip to add it to <strong>${escapeText(title)}</strong>. Anonymous, counted across all visitors.</p>
+              <div class="pc-mini-tags-chips" aria-label="Apply tags"></div>
+              <p class="pc-mini-pane-empty pc-mini-tags-empty" hidden>No tags for this category yet.</p>
             </div>
           </div>
           ${footerNavHTML}
           ${bannerAdHTML(feature.properties.app, color, 'full')}
         `;
 
+        // Tab switching (Chat | Tags). Tags tab lazy-loads its chip
+        // counts the first time it's opened.
         el.querySelector('.pc-mini-tabs').addEventListener('click', (ev) => {
           const btn = ev.target.closest('.pc-mini-tab');
           if (!btn) return;
@@ -2412,91 +2492,180 @@
           el.querySelectorAll('.pc-mini-pane').forEach(p => {
             p.hidden = p.dataset.pane !== which;
           });
-          if (which === 'polls') loadPollsForPopup();
+          if (which === 'tags') loadTagsForPopup();
         });
 
-        // Lazy-loaded once per popup open. Re-fetches on every vote.
-        let pollsLoaded = false;
-        async function loadPollsForPopup() {
+        // ── Tags tab: curated chip set merged from the global list and
+        // the bucket's overrides, with live counts from geofence_tag_counts.
+        // Tapping a chip applies / un-applies that tag to this hotspot.
+        // My-own selections are remembered per handle in localStorage so
+        // the toggle state survives popup re-open.
+        const TAGS_REGISTRY_PROMISE = (window.__cmTagsRegistryPromise = window.__cmTagsRegistryPromise
+          || fetch('/data/tags.json', { cache: 'no-cache' })
+              .then(r => r.ok ? r.json() : { global: [], byBucket: {} })
+              .catch(() => ({ global: [], byBucket: {} })));
+        const myTagsKey = (h) => `cm-mytags:${h || 'anon'}:${hotspotId || ''}`;
+        function loadMyTags() {
+          try {
+            const raw = JSON.parse(localStorage.getItem(myTagsKey(getIdentity()?.handle)) || '[]');
+            return new Set(Array.isArray(raw) ? raw : []);
+          } catch (_) { return new Set(); }
+        }
+        function saveMyTags(set) {
+          try { localStorage.setItem(myTagsKey(getIdentity()?.handle), JSON.stringify([...set])); } catch (_) {}
+        }
+        let tagsLoaded = false;
+        let tagCounts = new Map(); // tag -> votes
+        const myTags = loadMyTags();
+        async function loadTagsForPopup() {
           if (!hotspotId) return;
-          const app = feature.properties.app;
-          const pollsList = el.querySelector('.pc-mini-polls');
-          const emptyEl = el.querySelector('.pc-mini-polls-empty');
-          if (!pollsList) return;
-          if (!pollsLoaded) {
-            pollsList.innerHTML = '<li class="pc-mini-bubble is-system">loading…</li>';
-          }
+          const chips = el.querySelector('.pc-mini-tags-chips');
+          const emptyEl = el.querySelector('.pc-mini-tags-empty');
+          if (!chips) return;
+          if (!tagsLoaded) chips.innerHTML = '<span class="pc-mini-pane-empty">loading…</span>';
           try {
             await ensureConfigLoaded();
             await ensureSupabaseLoaded();
-            const defs = await loadPollDefs(app);
-            const polls = defs?.polls || [];
-            pollsList.innerHTML = '';
-            if (!polls.length) { emptyEl.hidden = false; return; }
+            const reg = await TAGS_REGISTRY_PROMISE;
+            const bucketTags = (reg.byBucket?.[bucketIdFor(feature.properties.app)] || []);
+            const tagList = Array.from(new Set([...(reg.global || []), ...bucketTags]));
+            if (!tagList.length) { chips.innerHTML = ''; emptyEl.hidden = false; return; }
             emptyEl.hidden = true;
-            const roomId = effectiveRoomId(app, hotspotId);
-            const rows = await window.PubchatChat.fetchPollResults(roomId);
-            const byPoll = new Map();
-            for (const r of rows) {
-              if (!byPoll.has(r.poll_id)) byPoll.set(r.poll_id, {});
-              byPoll.get(r.poll_id)[r.option_index] = r.votes;
-            }
-            for (const def of polls) {
-              pollsList.appendChild(renderMiniPoll(def, byPoll.get(def.id) || {}, roomId));
-            }
-            pollsLoaded = true;
+            tagCounts = await window.PubchatChat.fetchTagCounts(hotspotId);
+            renderTagChips(chips, tagList);
+            tagsLoaded = true;
           } catch (err) {
-            console.warn('polls load failed', err);
-            pollsList.innerHTML = '';
-            emptyEl.hidden = false;
+            console.warn('tags load failed', err);
+            chips.innerHTML = ''; emptyEl.hidden = false;
+          }
+        }
+        function renderTagChips(chips, tagList) {
+          chips.innerHTML = '';
+          for (const tag of tagList) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'pc-mini-tag-chip';
+            btn.dataset.tag = tag;
+            btn.setAttribute('aria-pressed', myTags.has(tag) ? 'true' : 'false');
+            btn.innerHTML = `<span>#${escapeText(tag)}</span>`
+              + `<span class="pc-mini-tag-chip-count">${tagCounts.get(tag) || 0}</span>`;
+            if (!canSend) btn.disabled = true;
+            btn.addEventListener('click', async () => {
+              if (!sub || btn.disabled) return;
+              const pressed = btn.getAttribute('aria-pressed') === 'true';
+              btn.disabled = true;
+              if (pressed) {
+                if (await sub.removeTag(hotspotId, tag)) {
+                  myTags.delete(tag); saveMyTags(myTags);
+                  tagCounts.set(tag, Math.max(0, (tagCounts.get(tag) || 1) - 1));
+                  origin.tagsSnapshot = [...myTags];
+                  if (sub.updateOrigin) sub.updateOrigin({ tagsSnapshot: origin.tagsSnapshot });
+                }
+              } else {
+                if (await sub.applyTag(hotspotId, tag)) {
+                  myTags.add(tag); saveMyTags(myTags);
+                  tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+                  origin.tagsSnapshot = [...myTags];
+                  if (sub.updateOrigin) sub.updateOrigin({ tagsSnapshot: origin.tagsSnapshot });
+                }
+              }
+              renderTagChips(chips, tagList);
+              btn.disabled = !canSend;
+            });
+            chips.appendChild(btn);
           }
         }
 
-        function renderMiniPoll(def, counts, roomId) {
-          const li = document.createElement('li');
-          li.className = 'pc-mini-poll';
-          const q = document.createElement('p');
-          q.className = 'pc-mini-poll-q';
-          q.textContent = def.question;
-          li.appendChild(q);
-          const total = def.options.reduce((s, _, i) => s + (counts[i] || 0), 0);
-          const opts = document.createElement('div');
-          opts.className = 'pc-mini-poll-opts';
-          def.options.forEach((label, i) => {
-            const votes = counts[i] || 0;
-            const pct = total > 0 ? Math.round((votes / total) * 100) : 0;
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'pc-mini-poll-opt';
-            btn.style.setProperty('--pct', pct + '%');
-            btn.innerHTML = `<span class="pc-mini-poll-opt-label">${escapeText(label)}</span>`
-              + `<span class="pc-mini-poll-opt-pct">${pct}%</span>`;
-            // Visitors can read the live tally but not vote.
-            if (!canSend) btn.disabled = true;
-            btn.addEventListener('click', async () => {
-              if (btn.disabled || !canSend) return;
-              opts.querySelectorAll('.pc-mini-poll-opt').forEach(b => b.disabled = true);
-              const handle = getIdentity().handle;
-              const res = await window.PubchatChat.submitPollVote(def.id, roomId, handle, i);
-              if (res.ok || res.alreadyVoted) {
-                pollsLoaded = false;
-                loadPollsForPopup();
-              } else {
-                opts.querySelectorAll('.pc-mini-poll-opt').forEach(b => b.disabled = false);
-              }
-            });
-            opts.appendChild(btn);
-          });
-          li.appendChild(opts);
-          const tot = document.createElement('p');
-          tot.className = 'pc-mini-poll-total';
-          tot.textContent = total === 1 ? '1 vote' : `${total} votes`;
-          li.appendChild(tot);
-          return li;
+        // ── Origin metadata: where this popup was opened from. Every
+        // message sent from here carries this stamp; filters at the top
+        // of the chat tab default to ON for these facets.
+        const origin = {
+          bucket:            bucketIdFor(feature.properties.app) || null,
+          app:               feature.properties.app || null,
+          hotspotId:         hotspotId || null,
+          hotspotTitle:      hot?.title || title || null,
+          neighborhoodId:    neighborhoodByFeatureId.get(`${feature.properties.app}-${hotspotId}`) || null,
+          neighborhoodTitle: null,
+          tagsSnapshot:      [...myTags],
+        };
+        if (origin.neighborhoodId) {
+          const n = neighborhoodById.get(origin.neighborhoodId);
+          if (n) origin.neighborhoodTitle = n.title;
         }
 
         const messagesEl = el.querySelector('.pc-mini-messages');
         const presenceEl = el.querySelector('.pc-mini-presence');
+        const filtersEl  = el.querySelector('.pc-mini-filters');
+
+        // ── Filter state. A message passes when, for every CATEGORY
+        // that has at least one chip ON, the message matches at least
+        // one of that category's ON values. Categories with all chips
+        // OFF don't constrain (so unchecking widens the view).
+        const filterDefs = []; // [{kind, key, label, value}]
+        if (origin.hotspotId)      filterDefs.push({ kind:'location', key:`h:${origin.hotspotId}`,        label: origin.hotspotTitle, value: origin.hotspotId });
+        if (origin.neighborhoodId) filterDefs.push({ kind:'location', key:`n:${origin.neighborhoodId}`,    label: origin.neighborhoodTitle, value: origin.neighborhoodId });
+        if (origin.app)            filterDefs.push({ kind:'topic',    key:`a:${origin.app}`,              label: meta.label, value: origin.app });
+        if (origin.bucket && origin.bucket !== origin.app)
+          filterDefs.push({ kind:'topic',    key:`b:${origin.bucket}`,           label: origin.bucket[0].toUpperCase() + origin.bucket.slice(1), value: origin.bucket });
+        // Tag filters get added once the geofence's tags are known.
+        const filterOn = new Set(filterDefs.map(f => f.key));   // all ON by default
+        function renderFilterChips() {
+          if (!filtersEl) return;
+          filtersEl.innerHTML = '';
+          for (const f of filterDefs) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'pc-mini-filter';
+            b.dataset.key = f.key;
+            b.setAttribute('aria-pressed', filterOn.has(f.key) ? 'true' : 'false');
+            b.innerHTML = `<span class="pc-mini-filter-kind">${f.kind}</span><span>${escapeText(f.label || f.value)}</span>`;
+            b.addEventListener('click', () => {
+              if (filterOn.has(f.key)) filterOn.delete(f.key); else filterOn.add(f.key);
+              b.setAttribute('aria-pressed', filterOn.has(f.key) ? 'true' : 'false');
+              applyFilterToAllBubbles();
+            });
+            filtersEl.appendChild(b);
+          }
+        }
+        function messageMatches(o) {
+          // No filters at all → show everything.
+          if (!filterDefs.length) return true;
+          o = o || {};
+          // Group ON keys by kind. For each kind that has ≥1 ON, the
+          // message must match at least one of that kind's ON values.
+          const onByKind = new Map(); // kind -> [{key, value, sub}]
+          for (const f of filterDefs) {
+            if (!filterOn.has(f.key)) continue;
+            if (!onByKind.has(f.kind)) onByKind.set(f.kind, []);
+            onByKind.get(f.kind).push(f);
+          }
+          if (!onByKind.size) return true;     // every chip off → all
+          for (const [kind, list] of onByKind) {
+            let ok = false;
+            for (const f of list) {
+              if (kind === 'location') {
+                if (f.key.startsWith('h:') && o.hotspotId === f.value) { ok = true; break; }
+                if (f.key.startsWith('n:') && o.neighborhoodId === f.value) { ok = true; break; }
+              } else if (kind === 'topic') {
+                if (f.key.startsWith('a:') && o.app === f.value) { ok = true; break; }
+                if (f.key.startsWith('b:') && o.bucket === f.value) { ok = true; break; }
+              } else if (kind === 'tag') {
+                if (Array.isArray(o.tags) && o.tags.includes(f.value)) { ok = true; break; }
+              }
+            }
+            if (!ok) return false;
+          }
+          return true;
+        }
+        function applyFilterToAllBubbles() {
+          messagesEl.querySelectorAll('li[data-cm-origin]').forEach(li => {
+            try {
+              const o = JSON.parse(li.dataset.cmOrigin || '{}');
+              li.style.display = messageMatches(o) ? '' : 'none';
+            } catch (_) { li.style.display = ''; }
+          });
+        }
+        renderFilterChips();
 
         // Demo seed message — every popup shows at least one bubble so the
         // chat function reads as a chat instead of an empty box. Replace /
@@ -2529,6 +2698,26 @@
           li.textContent = text;
           messagesEl.appendChild(li);
         };
+        // My-own vote state lives in localStorage so the highlighted
+        // up/down stays selected across popup re-opens (anon can't read
+        // chat_votes directly; the server's counts are the source of
+        // truth for everyone else).
+        const myVotesKey = (h) => `cm-myvotes:${h || 'anon'}`;
+        function loadMyVotes() {
+          try {
+            const raw = JSON.parse(localStorage.getItem(myVotesKey(getIdentity()?.handle)) || '{}');
+            return new Map(Object.entries(raw || {}));
+          } catch (_) { return new Map(); }
+        }
+        function saveMyVotes(m) {
+          try {
+            const o = {};
+            for (const [k, v] of m) o[k] = v;
+            localStorage.setItem(myVotesKey(getIdentity()?.handle), JSON.stringify(o));
+          } catch (_) {}
+        }
+        const myVotes = loadMyVotes();   // clientId -> 1 | -1
+
         // Bubble with here/remote markers. A sender is "here" when their
         // payload.home.hotspotId matches this room's hotspot id; "from X"
         // when it doesn't (they're chatting in from another same-category
@@ -2546,12 +2735,23 @@
           else if (senderHomeId) li.classList.add('is-remote-sender');
           if (payload.clientId) li.dataset.cid = payload.clientId;
 
+          // Origin stamp drives the filter chips. Live broadcasts carry
+          // it in `payload.o`; historical rows carry it in `payload.o`
+          // too (recentCityMessages maps the DB columns into the same
+          // shape).
+          if (payload.o) li.dataset.cmOrigin = JSON.stringify(payload.o);
+
           const metaLine = document.createElement('span');
           metaLine.className = 'pc-mini-bubble-meta';
           let metaText = `${payload.emoji ?? '🙂'} ${payload.handle ?? 'someone'}`;
           if (payload.__historical && payload.t) metaText += ` · ${formatAgo(payload.t)}`;
           metaLine.textContent = metaText;
-          if (senderHomeId === hotspotId) {
+          if (payload.o?.hotspotTitle && payload.o.hotspotId && payload.o.hotspotId !== hotspotId) {
+            const t = document.createElement('span');
+            t.className = 'pc-mini-bubble-tag is-from-tag';
+            t.textContent = `· @ ${payload.o.hotspotTitle}`;
+            metaLine.appendChild(t);
+          } else if (senderHomeId === hotspotId) {
             const t = document.createElement('span');
             t.className = 'pc-mini-bubble-tag is-here-tag';
             t.textContent = '· here';
@@ -2564,6 +2764,43 @@
           }
           li.appendChild(metaLine);
           li.appendChild(document.createTextNode(payload.text ?? ''));
+
+          // 👍 / 👎 row. Counts come from chat_vote_counts (batch-loaded
+          // after history) and from the live 'vote' broadcast event.
+          if (payload.clientId) {
+            const votes = document.createElement('span');
+            votes.className = 'pc-mini-bubble-votes';
+            votes.dataset.votes = '1';
+            const mk = (sign, glyph) => {
+              const b = document.createElement('button');
+              b.type = 'button';
+              b.className = `pc-mini-vote-btn is-${sign === 1 ? 'up' : 'down'}`;
+              b.dataset.dir = String(sign);
+              b.innerHTML = `<span>${glyph}</span><span class="pc-mini-vote-count">0</span>`;
+              if (!canSend) b.disabled = true;
+              b.addEventListener('click', async () => {
+                if (!sub || !sub.castVote || b.disabled) return;
+                const current = myVotes.get(payload.clientId) || 0;
+                const next = current === sign ? 0 : sign;
+                // Optimistic UI: adjust local counts immediately.
+                adjustVoteCounts(li, current, next);
+                if (next === 0) myVotes.delete(payload.clientId);
+                else myVotes.set(payload.clientId, next);
+                saveMyVotes(myVotes);
+                paintMyVote(li, next);
+                const ok = await sub.castVote(payload.clientId, next);
+                if (!ok) { /* roll back */ adjustVoteCounts(li, next, current);
+                  if (current === 0) myVotes.delete(payload.clientId); else myVotes.set(payload.clientId, current);
+                  saveMyVotes(myVotes); paintMyVote(li, current);
+                }
+              });
+              return b;
+            };
+            votes.appendChild(mk(1, '👍'));
+            votes.appendChild(mk(-1, '👎'));
+            li.appendChild(votes);
+            paintMyVote(li, myVotes.get(payload.clientId) || 0);
+          }
 
           if (isSelf && payload.clientId) {
             const del = document.createElement('button');
@@ -2579,9 +2816,39 @@
             li.appendChild(del);
           }
 
+          // Hide if the current filter excludes this origin. Filter UI
+          // toggles re-evaluate via applyFilterToAllBubbles().
+          if (payload.o && !messageMatches(payload.o)) li.style.display = 'none';
+
           messagesEl.appendChild(li);
-          messagesEl.scrollTop = messagesEl.scrollHeight;
+          if (li.style.display !== 'none') messagesEl.scrollTop = messagesEl.scrollHeight;
         };
+
+        function paintMyVote(li, myValue) {
+          const up = li.querySelector('.pc-mini-vote-btn.is-up');
+          const down = li.querySelector('.pc-mini-vote-btn.is-down');
+          if (up)   up.classList.toggle('is-active', myValue === 1);
+          if (down) down.classList.toggle('is-active', myValue === -1);
+        }
+        function setVoteCounts(li, up, down) {
+          const u = li.querySelector('.pc-mini-vote-btn.is-up   .pc-mini-vote-count');
+          const d = li.querySelector('.pc-mini-vote-btn.is-down .pc-mini-vote-count');
+          if (u) u.textContent = String(up);
+          if (d) d.textContent = String(down);
+        }
+        function readCounts(li) {
+          const u = parseInt(li.querySelector('.pc-mini-vote-btn.is-up   .pc-mini-vote-count')?.textContent || '0', 10) || 0;
+          const d = parseInt(li.querySelector('.pc-mini-vote-btn.is-down .pc-mini-vote-count')?.textContent || '0', 10) || 0;
+          return { up: u, down: d };
+        }
+        function adjustVoteCounts(li, fromValue, toValue) {
+          const c = readCounts(li);
+          if (fromValue === 1)  c.up   = Math.max(0, c.up   - 1);
+          if (fromValue === -1) c.down = Math.max(0, c.down - 1);
+          if (toValue   === 1)  c.up   = c.up   + 1;
+          if (toValue   === -1) c.down = c.down + 1;
+          setVoteCounts(li, c.up, c.down);
+        }
 
         const removeBubble = (cid) => {
           if (!cid) return;
@@ -2618,13 +2885,27 @@
             await ensureSupabaseLoaded();
             if (!window.PubchatChat) { sysBubble('Chat unavailable.'); return; }
 
-            // Replay last 24 hours of history before live subscribes so
-            // bubbles appear in time order. Non-blocking on error.
+            // Replay last 24h of the unified city stream before live
+            // subscribes so bubbles appear in time order.
+            const clientIds = [];
             try {
-              const roomId = effectiveRoomId(feature.properties.app, hotspotId);
-              const history = await window.PubchatChat.recentMessages(roomId);
-              for (const m of history) msgBubble(m);
+              const history = await window.PubchatChat.recentCityMessages();
+              for (const m of history) {
+                msgBubble(m);
+                if (m.clientId) clientIds.push(m.clientId);
+              }
             } catch (_) { /* ignore */ }
+
+            // Batch-load 👍/👎 counts for everything just rendered.
+            if (clientIds.length && window.PubchatChat.fetchVoteCounts) {
+              try {
+                const counts = await window.PubchatChat.fetchVoteCounts(clientIds);
+                for (const [cid, c] of counts) {
+                  const li = messagesEl.querySelector(`li[data-cid="${CSS.escape(cid)}"]`);
+                  if (li) setVoteCounts(li, c.up || 0, c.down || 0);
+                }
+              } catch (_) { /* ignore */ }
+            }
 
             const onMsg = (payload) => { if (payload) msgBubble(payload); };
             const onPresence = (list) => {
@@ -2638,10 +2919,36 @@
                 ? `${hereN} here · ${visitingN} visiting`
                 : (hereN === 1 ? '1 here' : `${hereN} here`);
             };
-            sub = await window.PubchatChat.subscribeHotspot(
-              effectiveHotspotId(feature.properties.app, hotspotId),
-              effectiveAppId(feature.properties.app),
-              { onMessage: onMsg, onPresence, onDelete: removeBubble, identity: getIdentity() }
+            // When a peer votes, refresh that bubble's counts from the view.
+            const onVote = async (p) => {
+              if (!p || !p.clientId) return;
+              const li = messagesEl.querySelector(`li[data-cid="${CSS.escape(p.clientId)}"]`);
+              if (!li) return;
+              try {
+                const counts = await window.PubchatChat.fetchVoteCounts([p.clientId]);
+                const c = counts.get(p.clientId);
+                if (c) setVoteCounts(li, c.up || 0, c.down || 0);
+              } catch (_) { /* ignore */ }
+            };
+            // When someone applies a tag, only refresh if it's THIS popup's geofence.
+            const onTag = async (p) => {
+              if (!p || p.hotspotId !== hotspotId) return;
+              if (!tagsLoaded) return;       // re-fetched lazily next open
+              try {
+                tagCounts = await window.PubchatChat.fetchTagCounts(hotspotId);
+              } catch (_) { return; }
+              const chips = el.querySelector('.pc-mini-tags-chips');
+              const reg = await TAGS_REGISTRY_PROMISE;
+              const tagList = Array.from(new Set([
+                ...(reg.global || []),
+                ...(reg.byBucket?.[bucketIdFor(feature.properties.app)] || []),
+              ]));
+              renderTagChips(chips, tagList);
+            };
+
+            sub = await window.PubchatChat.subscribeCity(
+              { onMessage: onMsg, onPresence, onDelete: removeBubble, onVote, onTag, identity: getIdentity() },
+              origin,
             );
           } catch (err) {
             console.warn('mini chat connect failed', err);

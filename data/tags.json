@@ -1,0 +1,73 @@
+{
+  "_comment": "Curated tag chips for the Tags tab of each chat popup. The popup shows the global list merged with its bucket-specific list. Tags are lowercase, hyphen-separated, and stored that way in geofence_tags. Add tags by editing this file; no SQL change needed.",
+
+  "global": [
+    "fun",
+    "boring",
+    "crowded",
+    "empty",
+    "quiet",
+    "loud",
+    "clean",
+    "dirty",
+    "friendly",
+    "rude",
+    "expensive",
+    "cheap",
+    "kid-friendly",
+    "dog-friendly",
+    "wheelchair-accessible",
+    "outdoor-seating",
+    "free-parking",
+    "good-vibes"
+  ],
+
+  "byBucket": {
+    "social": [
+      "live-music",
+      "dance-floor",
+      "happy-hour",
+      "good-drinks",
+      "great-food",
+      "patio",
+      "late-night",
+      "low-cover"
+    ],
+    "rec": [
+      "great-views",
+      "shaded",
+      "well-maintained",
+      "fitness-friendly",
+      "easy-trail",
+      "tough-trail",
+      "family-event",
+      "free-admission"
+    ],
+    "shopping": [
+      "good-sales",
+      "wide-selection",
+      "helpful-staff",
+      "fast-checkout",
+      "in-stock",
+      "local-goods",
+      "great-deals"
+    ],
+    "services": [
+      "fast-service",
+      "short-wait",
+      "long-wait",
+      "easy-parking",
+      "well-staffed",
+      "english-spanish",
+      "no-appointment-needed"
+    ],
+    "events": [
+      "must-see",
+      "starting-soon",
+      "great-acoustics",
+      "long-line",
+      "easy-to-find",
+      "merch-available"
+    ]
+  }
+}
