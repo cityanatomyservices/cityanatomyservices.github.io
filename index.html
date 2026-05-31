@@ -690,61 +690,68 @@
     .pc-mini-popup .maplibregl-popup-content {
       padding: 0;
       background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(15, 25, 45, 0.18);
+      border-radius: 14px;
+      box-shadow: 0 12px 34px rgba(15, 25, 45, 0.24);
       width: 360px;
       overflow: hidden;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
     .pc-mini-popup .maplibregl-popup-close-button {
-      color: #5a6472; font-size: 20px; padding: 4px 8px;
+      color: #8a93a0; font-size: 22px; padding: 2px 9px; z-index: 3;
+      line-height: 1;
     }
+    .pc-mini-popup .maplibregl-popup-close-button:hover { color: #1c1c28; background: transparent; }
     .pc-mini-popup .maplibregl-popup-tip { border-top-color: #fff; }
-    .pc-mini-head {
-      display: flex; align-items: flex-start; gap: 8px;
-      padding: 8px 14px 7px;
-      border-bottom: 1px solid #e1e6ee;
-    }
-    .pc-mini-head-text { flex: 1; min-width: 0; }
-    .pc-mini-cat {
-      font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
-      font-weight: 700; line-height: 1;
-    }
-    .pc-mini-title {
-      margin: 2px 0 0; font-size: 0.88rem; font-weight: 700; color: #1c1c28; line-height: 1.2;
-    }
-    .pc-mini-inline-info {
-      padding: 6px 14px 7px;
-      border-bottom: 1px solid #e8ecf0;
-      font-size: 0.74rem;
-      color: #3a4252;
-      line-height: 1.35;
-      background: #fbfcfd;
-    }
-    .pc-mini-inline-info p { margin: 0 0 3px; }
-    .pc-mini-inline-info p:last-child { margin-bottom: 0; }
-    .pc-mini-head-row {
-      display: flex; align-items: center; gap: 6px;
-      margin-top: 3px; flex-wrap: wrap;
-    }
-    .pc-mini-presence {
-      margin: 0; font-size: 0.66rem; color: #5a6472; font-weight: 600;
+    /* Thin brand-colored strip at the very top. */
+    .pc-mini-accent {
+      height: 4px;
+      background: var(--cat, #1a73ff);
     }
     .pc-mini-tabs {
-      display: flex; padding: 0 8px;
-      border-bottom: 1px solid #e1e6ee;
+      display: flex; gap: 2px; padding: 4px 10px 0;
+      border-bottom: 1px solid #e8ecf0;
       background: #fff;
     }
     .pc-mini-tab {
-      background: none; border: none; padding: 8px 12px;
-      font: inherit; font-size: 0.8rem; font-weight: 700;
-      color: #6f7780; cursor: pointer;
-      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      background: none; border: none; padding: 9px 14px;
+      font: inherit; font-size: 0.84rem; font-weight: 700;
+      color: #8a93a0; cursor: pointer;
+      border-bottom: 2.5px solid transparent; margin-bottom: -1px;
       transition: color 0.15s ease, border-color 0.15s ease;
     }
     .pc-mini-tab:hover { color: #1c1c28; }
-    .pc-mini-tab.is-active { color: #1a73ff; border-bottom-color: #1a73ff; }
+    .pc-mini-tab.is-active { color: var(--cat, #1a73ff); border-bottom-color: var(--cat, #1a73ff); }
     .pc-mini-pane[hidden] { display: none; }
+
+    /* ── Venue metadata footer — plain formatted text lines ─────────── */
+    .pc-mini-meta {
+      padding: 10px 14px 12px;
+      border-top: 1px solid #e8ecf0;
+      background: #f7f9fc;
+      font-size: 0.74rem;
+      line-height: 1.45;
+      color: #5a6472;
+    }
+    .pc-mini-meta-title {
+      font-size: 0.92rem; font-weight: 800; color: #1c1c28; line-height: 1.2;
+    }
+    .pc-mini-meta-sub {
+      margin-top: 1px; font-size: 0.72rem; font-weight: 600; color: #8a93a0;
+      letter-spacing: 0.01em;
+    }
+    .pc-mini-meta .pc-mini-presence {
+      margin: 6px 0 0; font-size: 0.72rem; font-weight: 700; color: #1a73ff;
+    }
+    .pc-mini-meta-status {
+      margin-top: 2px; font-size: 0.72rem; font-weight: 600; color: #8a93a0;
+    }
+    .pc-mini-meta-status.is-here { color: #16a34a; }
+    .pc-mini-meta-line { margin-top: 6px; color: #3a4252; }
+    .pc-mini-meta-key {
+      font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: 800; color: #8a93a0; margin-right: 4px;
+    }
+    .pc-mini-meta-desc { color: #5a6472; }
 
     /* ── Filter chips (Chat tab top) ──────────────────────────────────
        Each chip is a checkbox-styled toggle; checked = that facet is
@@ -818,21 +825,18 @@
     }
     .pc-mini-tag-chip[aria-pressed="true"] .pc-mini-tag-chip-count { opacity: 0.95; }
     .pc-mini-messages {
-      list-style: none; margin: 0; padding: 12px 12px;
+      list-style: none; margin: 0; padding: 14px 12px;
       min-height: 200px;
-      max-height: 340px; overflow-y: auto;
-      display: flex; flex-direction: column; gap: 8px;
-      background: #fafbfc;
-      border-top: 1px solid #eef0f3;
+      max-height: 40vh; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 9px;
+      background: #fff;
     }
-    /* Footer row: navigation buttons sit right above the ad. */
+    /* Maps/Waze/Reddit row, inside the metadata footer above the ad. */
     .pc-mini-footer-nav {
       display: flex; gap: 8px;
-      padding: 8px 12px;
-      background: #fff;
-      border-top: 1px solid #e8ecf0;
+      margin-top: 10px;
     }
-    .pc-mini-footer-nav .pc-popup-social { margin-top: 0; }
+    .pc-mini-footer-nav .pc-popup-social { margin-top: 0; flex: 1; }
     .pc-mini-bubble {
       max-width: 88%; padding: 6px 10px; border-radius: 10px;
       background: #f3f4f6; color: #1c1c28;
@@ -1016,32 +1020,33 @@
     /* Compose form — light theme matching the info popup. */
     /* Compose form — light theme matching the info popup. */
     .pc-mini-compose {
-      display: flex; gap: 6px;
-      padding: 8px 12px 12px;
-      border-top: 1px solid #e1e6ee;
+      display: flex; gap: 7px; align-items: center;
+      padding: 9px 12px 11px;
+      border-top: 1px solid #eef0f3;
       background: #fff;
     }
     .pc-mini-input {
       flex: 1; min-width: 0;
-      background: #fff;
+      background: #f1f3f7;
       color: #1c1c28;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      padding: 7px 10px;
-      font: inherit; font-size: 0.82rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font: inherit; font-size: 0.84rem;
       outline: none;
+      transition: border-color 0.12s ease, background 0.12s ease;
     }
-    .pc-mini-input:focus { border-color: #1a73ff; }
+    .pc-mini-input:focus { border-color: var(--cat, #1a73ff); background: #fff; }
     .pc-mini-send {
       flex-shrink: 0;
-      width: 34px; height: 34px;
-      background: #1a73ff; color: #fff;
-      border: none; border-radius: 6px;
-      font-size: 1.2rem; font-weight: 800; line-height: 1;
+      width: 38px; height: 38px;
+      background: var(--cat, #1a73ff); color: #fff;
+      border: none; border-radius: 50%;
+      font-size: 1.25rem; font-weight: 800; line-height: 1;
       cursor: pointer;
-      transition: filter 0.12s ease;
+      transition: filter 0.12s ease, transform 0.05s ease;
     }
-    .pc-mini-send:hover { filter: brightness(1.05); }
+    .pc-mini-send:hover { filter: brightness(1.08); }
     .pc-mini-send:active { transform: translateY(1px); }
 
     @media (max-width: 500px) {
@@ -2410,33 +2415,34 @@
         const color = feature.properties.color;
         const title = feature.properties.title;
         const hotspotId = hot?.id;
-        const hereBadge = isHome
-          ? '<span class="pc-mini-here-badge">You’re here</span>'
-          : (isVisitor
-              ? `<span class="pc-mini-visiting-badge" style="background:#eef1f5;color:#5a6472;">Read-only · walk in to chat</span>`
-              : '<span class="pc-mini-visiting-badge">Visiting from your spot</span>');
-        // Info content — displayed inline below the title, not in a separate tab.
-        // (Maps/Waze/Reddit live in a footer row above the ad, not here.)
-        const infoHTMLParts = [];
-        if (hot?.info?.description) {
-          infoHTMLParts.push(`<p>${escapeText(hot.info.description)}</p>`);
-        }
+        const statusText = isHome
+          ? 'You’re here now'
+          : (isVisitor ? 'Read-only · walk into a geofence to chat'
+                       : 'Chatting in from your spot');
+        // Venue metadata — rendered as plain formatted text lines at the
+        // BOTTOM of the popup so the chat stays the focus up top.
+        const nbhdId = neighborhoodByFeatureId.get(`${feature.properties.app}-${hotspotId}`) || null;
+        const nbhdTitle = nbhdId ? (neighborhoodById.get(nbhdId)?.title || null) : null;
+        const desc = hot?.info?.description ? escapeText(hot.info.description) : '';
         const hours = (hot && window.PubchatSchedule)
           ? window.PubchatSchedule.formatSchedule(hot.schedule)
-          : '';
-        if (hours) {
-          infoHTMLParts.push(`<p><strong>Hours:</strong> ${hours}</p>`);
-        }
-        const infoSection = infoHTMLParts.length
-          ? `<div class="pc-mini-inline-info">${infoHTMLParts.join('')}</div>`
           : '';
         const hotCenter = geofenceCenter(hot?.geofence);
         const socialHTML = (hotCenter && window.PubchatSocial)
           ? window.PubchatSocial.buttonsHTML(hotCenter[1], hotCenter[0], hot.title || title)
           : '';
-        const footerNavHTML = socialHTML
-          ? `<div class="pc-mini-footer-nav">${socialHTML}</div>`
-          : '';
+        const subLine = [escapeText(meta.label), nbhdTitle ? escapeText(nbhdTitle) : '']
+          .filter(Boolean).join(' · ');
+        const metaHTML = `
+          <div class="pc-mini-meta">
+            <div class="pc-mini-meta-title">${escapeText(title)}</div>
+            <div class="pc-mini-meta-sub">${subLine}</div>
+            <p class="pc-mini-presence">connecting…</p>
+            <div class="pc-mini-meta-status${isHome ? ' is-here' : ''}">${statusText}</div>
+            ${hours ? `<div class="pc-mini-meta-line"><span class="pc-mini-meta-key">Hours</span> ${hours}</div>` : ''}
+            ${desc ? `<div class="pc-mini-meta-line pc-mini-meta-desc">${desc}</div>` : ''}
+            ${socialHTML ? `<div class="pc-mini-footer-nav">${socialHTML}</div>` : ''}
+          </div>`;
         // Compose form (lives in the chat tab). Locked for visitors.
         const composeHTML = canSend
           ? `<form class="pc-mini-compose">
@@ -2447,18 +2453,9 @@
               Walk into a ${escapeText(meta.label)} geofence to join this chat.
             </div>`;
         const el = document.createElement('div');
+        el.style.setProperty('--cat', color);
         el.innerHTML = `
-          <div class="pc-mini-head">
-            <div class="pc-mini-head-text">
-              <div class="pc-mini-cat" style="color: ${color};">${escapeText(meta.label)}</div>
-              <h2 class="pc-mini-title">${escapeText(title)}</h2>
-              <div class="pc-mini-head-row">
-                <p class="pc-mini-presence">connecting…</p>
-                ${hereBadge}
-              </div>
-            </div>
-          </div>
-          ${infoSection}
+          <div class="pc-mini-accent"></div>
           <nav class="pc-mini-tabs" role="tablist">
             <button class="pc-mini-tab is-active" data-tab="chat" type="button" role="tab">Chat</button>
             <button class="pc-mini-tab" data-tab="tags" type="button" role="tab">Tags</button>
@@ -2476,7 +2473,7 @@
               <p class="pc-mini-pane-empty pc-mini-tags-empty" hidden>No tags for this category yet.</p>
             </div>
           </div>
-          ${footerNavHTML}
+          ${metaHTML}
           ${bannerAdHTML(feature.properties.app, color, 'full')}
         `;
 
