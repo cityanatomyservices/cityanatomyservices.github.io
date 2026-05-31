@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-05-30T11:22:32Z",
+  "generated": "2026-05-31T11:41:51Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny, 91°F",
+      "headline": "Today: Partly Sunny, 93°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly sunny, with a high near 91. South wind 5 to 10 mph. Tonight: Mostly Cloudy, 74°F.",
+      "detail": "Partly sunny, with a high near 93. South wind 0 to 5 mph. Tonight: Partly Cloudy, 74°F.",
       "priority": 10,
-      "published": "2026-05-30T11:22:32Z"
+      "published": "2026-05-31T11:41:51Z"
     },
     {
       "id": "event-austin-flea-jun-06-brewtorium",
@@ -51,18 +51,7 @@
       "published": "2026-06-06T12:00"
     },
     {
-      "id": "event-austin-flea-may-30-zilker",
-      "lane": "events",
-      "headline": "Austin Flea @ Zilker Brewing  ·  2026-05-30",
-      "link": "https://www.austinflea.net",
-      "label": "Event",
-      "icon": "📅",
-      "detail": "Zilker Brewing · monthly roving artisan + vintage popup",
-      "priority": 20,
-      "published": "2026-05-30T12:00"
-    },
-    {
-      "id": "news-kut-40530991",
+      "id": "news-kut-58938765",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -74,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-63388553",
+      "id": "news-kut-13256686",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -86,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-55395903",
+      "id": "news-kxan-68435133",
       "lane": "news",
-      "headline": "Austin's Paramount Theatre uncovers nearly a century of lost items under the floor",
-      "link": "https://www.kxan.com/news/local/austin/austins-paramount-theatre-uncovers-nearly-a-century-of-lost-items-under-the-floor/",
+      "headline": "Wembanyama, Spurs win the West, topple Thunder 111-103 in Game 7 to head to NBA Finals",
+      "link": "https://www.kxan.com/sports-general/ap-game-7-awaits-spurs-at-thunder-on-saturday-night-to-decide-western-conference-crown/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 29 May 2026 16:50:52 +0000"
+      "published": "Sun, 31 May 2026 03:25:14 +0000"
     },
     {
-      "id": "news-austinmonitor-37760184",
+      "id": "news-austinmonitor-60885556",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -110,44 +99,44 @@
       "published": "Wed, 05 Nov 2025 23:48:45 +0000"
     },
     {
-      "id": "sports-2470477",
+      "id": "sports-2467936",
       "lane": "sports",
-      "headline": "Paris SG vs Arsenal  ·  2026-05-30 16:00",
+      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-05-30"
+      "published": "2026-08-05"
     },
     {
-      "id": "sports-2470477",
+      "id": "sports-2467936",
       "lane": "sports",
-      "headline": "Paris SG vs Arsenal  ·  2026-05-30 16:00",
+      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-05-30"
+      "published": "2026-08-05"
     },
     {
-      "id": "sports-2470477",
+      "id": "sports-2467936",
       "lane": "sports",
-      "headline": "Paris SG vs Arsenal  ·  2026-05-30 16:00",
+      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-05-30"
+      "published": "2026-08-05"
     },
     {
-      "id": "sports-2470477",
+      "id": "sports-2467936",
       "lane": "sports",
-      "headline": "Paris SG vs Arsenal  ·  2026-05-30 16:00",
+      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-05-30"
+      "published": "2026-08-05"
     }
   ]
 }
