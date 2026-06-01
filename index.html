@@ -1060,84 +1060,6 @@
       .pc-mini-popup .maplibregl-popup-content { width: 92vw; max-width: 360px; }
       .pc-mini-messages { max-height: 50vh; }
     }
-
-    /* ── Intro modal (first-visit overlay) ─────────────────────────
-       Short, friendly card explaining the no-login / no-tracking deal
-       with a single Allow GPS button that triggers the GeolocateControl. */
-    .cm-permission-modal {
-      position: fixed; inset: 0;
-      background: rgba(10, 14, 22, 0.78);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      z-index: 9000;
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      animation: cm-perm-fade 0.25s ease-out;
-    }
-    @keyframes cm-perm-fade { from { opacity: 0; } to { opacity: 1; } }
-    .cm-permission-modal[hidden] { display: none; }
-    .cm-permission-card {
-      position: relative;
-      background: #fff;
-      color: #1c1c28;
-      border-radius: 16px;
-      padding: 28px 28px 22px;
-      max-width: 360px;
-      width: 100%;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-      text-align: center;
-    }
-    .cm-permission-close {
-      position: absolute;
-      top: 6px; right: 8px;
-      background: none; border: none;
-      font-size: 1.4rem;
-      color: #6f7780;
-      cursor: pointer;
-      line-height: 1;
-      padding: 4px 8px;
-    }
-    .cm-permission-close:hover { color: #1c1c28; }
-    .cm-perm-title {
-      margin: 0;
-      font-size: 1.55rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-    .cm-perm-tagline {
-      margin: 6px 0 18px;
-      font-size: 0.88rem;
-      color: #5a6472;
-    }
-    .cm-perm-list {
-      list-style: none;
-      margin: 0 0 22px;
-      padding: 0;
-      text-align: left;
-      display: inline-block;
-    }
-    .cm-perm-list li {
-      margin: 6px 0;
-      font-size: 0.86rem;
-      color: #1c1c28;
-      line-height: 1.4;
-    }
-    .cm-btn.is-primary {
-      display: inline-block;
-      background: #1a73ff;
-      color: #fff;
-      border: none;
-      padding: 12px 22px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      transition: filter 0.12s ease;
-    }
-    .cm-btn.is-primary:hover { filter: brightness(1.05); }
-    .cm-btn.is-primary:active { transform: translateY(1px); }
   </style>
 </head>
 <body>
@@ -1150,21 +1072,6 @@
     <div class="cm-feed-topics" id="cm-feed-topics" role="group" aria-label="Choose feed topics"></div>
     <div class="cm-feed-track" id="cm-feed-track" role="list"></div>
   </aside>
-
-  <div id="cm-permission" class="cm-permission-modal" role="dialog" aria-modal="true" aria-labelledby="cm-perm-title" hidden>
-    <div class="cm-permission-card">
-      <button class="cm-permission-close" type="button" aria-label="Close">&times;</button>
-      <h2 id="cm-perm-title" class="cm-perm-title">austin.chat</h2>
-      <p class="cm-perm-tagline">Ephemeral chat for every spot in Austin.</p>
-      <ul class="cm-perm-list">
-        <li>💬 No login, no account</li>
-        <li>🕵️ No tracking, nothing saved</li>
-        <li>🎲 Random handle each visit</li>
-        <li>📍 Walk into a hotspot to drop into its live chat</li>
-      </ul>
-      <button id="cm-allow-gps" class="cm-btn is-primary">Allow GPS location</button>
-    </div>
-  </div>
 
   <aside class="cm-legend" aria-label="ChatMaps legend">
     <div class="cm-legend-header">
@@ -1483,35 +1390,21 @@
     map.addControl(geolocate, 'top-left');
     map.addControl(new maplibregl.NavigationControl({ showZoom: false }), 'top-left');
 
-    // Intro modal — shown on first visit only. If geolocation was already
-    // granted (or denied) the OS-level prompt is moot; if the user has
-    // dismissed before, don't pester them. Clicking "Allow GPS" triggers
-    // the GeolocateControl, which fires 'geolocate' and starts the watch.
-    (async function initIntroModal() {
-      const modal = document.getElementById('cm-permission');
-      if (!modal) return;
-      const allowBtn = document.getElementById('cm-allow-gps');
-      const closeBtn = modal.querySelector('.cm-permission-close');
-      const SEEN_KEY = 'austin.chat:intro-seen';
-      const wasSeen = (() => { try { return localStorage.getItem(SEEN_KEY) === '1'; } catch (_) { return false; } })();
+    // No intro screen — go straight to the browser's own GPS prompt.
+    // 'granted' locates immediately; 'prompt' surfaces Chrome's native
+    // permission dialog; 'denied' is left alone (the GeolocateControl
+    // button stays available for a manual retry). The control's built-in
+    // 'geolocate' event flies to the user and starts the position watch.
+    (async function autoRequestGps() {
       let permState = 'prompt';
       if (navigator.permissions) {
         try {
-          const result = await navigator.permissions.query({ name: 'geolocation' });
-          permState = result.state;
+          permState = (await navigator.permissions.query({ name: 'geolocation' })).state;
         } catch (_) { /* ignore */ }
       }
-      if (permState === 'granted' || permState === 'denied' || wasSeen) return;
-      modal.hidden = false;
-      const dismiss = () => {
-        modal.hidden = true;
-        try { localStorage.setItem(SEEN_KEY, '1'); } catch (_) {}
-      };
-      closeBtn.addEventListener('click', dismiss);
-      allowBtn.addEventListener('click', () => {
-        dismiss();
-        try { geolocate.trigger(); } catch (err) { console.warn('geolocate.trigger failed', err); }
-      });
+      if (permState === 'denied') return;
+      const fire = () => { try { geolocate.trigger(); } catch (err) { console.warn('geolocate.trigger failed', err); } };
+      if (map.loaded()) fire(); else map.once('load', fire);
     })();
 
     map.on('load', async () => {
@@ -2288,7 +2181,10 @@
           { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 }
         );
       }
-      geolocate.on('geolocate', () => startWatch());
+      geolocate.on('geolocate', (e) => {
+        if (e && e.coords) recomputeEntered([e.coords.longitude, e.coords.latitude]);
+        startWatch();
+      });
 
       // ── Click handler ────────────────────────────────────────────
       // When NOT inside a geofence: existing info popup with Maps/Waze/Reddit.
@@ -3001,22 +2897,9 @@
         return popup;
       }
 
-      // Fly to user's location on load only if permission was already granted (no prompt)
-      if (navigator.permissions) {
-        navigator.permissions.query({ name: 'geolocation' }).then(result => {
-          if (result.state === 'granted') {
-            navigator.geolocation.getCurrentPosition(pos => {
-              map.flyTo({
-                center: [pos.coords.longitude, pos.coords.latitude],
-                zoom: 15,
-                duration: 1200,
-              });
-              recomputeEntered([pos.coords.longitude, pos.coords.latitude]);
-              startWatch();
-            });
-          }
-        });
-      }
+      // On-load geolocation is handled by autoRequestGps() above, which
+      // triggers the GeolocateControl — that flies to the user and, via
+      // the 'geolocate' handler, starts the position watch.
 
       // ── Legend filter logic ──────────────────────────────────────
       // Hierarchy is now bucket → category-label → hotspot. The

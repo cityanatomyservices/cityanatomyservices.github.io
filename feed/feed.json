@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-05-31T11:41:51Z",
+  "generated": "2026-06-01T15:58:34Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny, 93°F",
+      "headline": "Today: Mostly Sunny, 93°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly sunny, with a high near 93. South wind 0 to 5 mph. Tonight: Partly Cloudy, 74°F.",
+      "detail": "Mostly sunny, with a high near 93. Southeast wind around 5 mph. New rainfall amounts less than a tenth of an inch possible. Tonight: Partly Cloudy, 75°F.",
       "priority": 10,
-      "published": "2026-05-31T11:41:51Z"
+      "published": "2026-06-01T15:58:34Z"
     },
     {
       "id": "event-austin-flea-jun-06-brewtorium",
@@ -51,7 +51,7 @@
       "published": "2026-06-06T12:00"
     },
     {
-      "id": "news-kut-58938765",
+      "id": "news-kut-3843466",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-13256686",
+      "id": "news-kut-10910673",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-68435133",
+      "id": "news-kxan-19326857",
       "lane": "news",
-      "headline": "Wembanyama, Spurs win the West, topple Thunder 111-103 in Game 7 to head to NBA Finals",
-      "link": "https://www.kxan.com/sports-general/ap-game-7-awaits-spurs-at-thunder-on-saturday-night-to-decide-western-conference-crown/",
+      "headline": "Photos show extensive fire, water damage to Bar Peached",
+      "link": "https://www.kxan.com/news/local/austin/photos-show-extensive-fire-water-damage-to-bar-peached/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sun, 31 May 2026 03:25:14 +0000"
+      "published": "Mon, 01 Jun 2026 11:49:41 +0000"
     },
     {
-      "id": "news-austinmonitor-60885556",
+      "id": "news-austinmonitor-646116",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
