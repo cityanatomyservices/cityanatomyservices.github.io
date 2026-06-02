@@ -1,57 +1,189 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-01T15:58:34Z",
+  "generated": "2026-06-02T11:41:30Z",
   "items": [
     {
-      "id": "sample-deal-replace-me",
-      "lane": "deals",
-      "headline": "Your deal here · austin.chat advertising",
-      "link": "https://austin.chat/",
-      "label": "Deal",
-      "icon": "🏷️",
-      "detail": "Pinned/curated entries live in staging/feed_overrides.json. Replace this with real offers, Special Reports, Gossip blurbs, etc. Set an 'expires' (ISO 8601 UTC) so stale ones drop off automatically.",
-      "priority": 1,
-      "expires": "2099-12-31T23:59:59Z"
+      "id": "grid-0",
+      "lane": "alerts",
+      "headline": "ERCOT grid conditions & conservation",
+      "link": "https://www.ercot.com/gridmktinfo/dashboards/gridconditions",
+      "label": "Grid (ERCOT)",
+      "icon": "⚡",
+      "detail": "Is the Texas grid asking you to conserve today? Live supply, demand and conservation appeals.",
+      "priority": 3
     },
     {
-      "id": "sample-local-ad-replace-me",
-      "lane": "local",
-      "headline": "Local business ad · shown only in this neighborhood",
-      "link": "https://austin.chat/",
-      "label": "Near You",
-      "icon": "📍",
-      "detail": "Add \"neighborhoods\": [\"nbhd-bouldin-creek\"] to target a card to one or more neighborhoods. It appears in the feed only when the visitor is standing in a matching neighborhood; leave it off for a citywide card.",
-      "neighborhoods": [
-        "nbhd-bouldin-creek",
-        "nbhd-barton-hills"
-      ],
-      "priority": 1,
-      "expires": "2099-12-31T23:59:59Z"
+      "id": "airquality-0",
+      "lane": "alerts",
+      "headline": "Air quality & ozone action days",
+      "link": "https://www.airnow.gov/?city=Austin&state=TX&country=USA",
+      "label": "Air Quality",
+      "icon": "🌫️",
+      "detail": "Current AQI plus ozone-action-day alerts for Central Texas — worst on hot, still summer afternoons.",
+      "priority": 4
     },
     {
-      "id": "weather-now",
+      "id": "airquality-1",
+      "lane": "alerts",
+      "headline": "TCEQ Central Texas ozone forecast",
+      "link": "https://www.tceq.texas.gov/airquality/monops/forecast_today.html",
+      "label": "Air Quality",
+      "icon": "🌫️",
+      "detail": "The state's air-quality forecast and ozone outlook for the Austin–Round Rock region.",
+      "priority": 4
+    },
+    {
+      "id": "burnban-0",
+      "lane": "alerts",
+      "headline": "Travis County burn ban status",
+      "link": "https://www.traviscountytx.gov/fire-marshal/burn-ban",
+      "label": "Burn Ban",
+      "icon": "🔥",
+      "detail": "Is an outdoor burn ban in effect? Check before any open flame, fire pit or burning in unincorporated areas.",
+      "priority": 5
+    },
+    {
+      "id": "mosquito-0",
+      "lane": "alerts",
+      "headline": "Mosquito & West Nile activity",
+      "link": "https://www.austintexas.gov/department/mosquitoes",
+      "label": "Mosquito / West Nile",
+      "icon": "🦟",
+      "detail": "Austin Public Health's positive mosquito-pool map and spraying notices (May–Nov season).",
+      "priority": 6
+    },
+    {
+      "id": "weather-0",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 93°F",
-      "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
+      "headline": "Austin forecast — National Weather Service",
+      "link": "https://forecast.weather.gov/MapClick.php?lat=30.27&lon=-97.74",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 93. Southeast wind around 5 mph. New rainfall amounts less than a tenth of an inch possible. Tonight: Partly Cloudy, 75°F.",
-      "priority": 10,
-      "published": "2026-06-01T15:58:34Z"
+      "detail": "Today's official NWS forecast: highs, lows and rain chances for the Austin area.",
+      "priority": 10
     },
     {
-      "id": "event-austin-flea-jun-06-brewtorium",
+      "id": "pollen-0",
+      "lane": "weather",
+      "headline": "Austin pollen & allergy forecast",
+      "link": "https://www.kxan.com/weather/allergy-forecast-austin-texas/",
+      "label": "Pollen",
+      "icon": "🤧",
+      "detail": "Today's cedar, oak, grass and mold counts — Austin's notorious cedar fever peaks Dec–Feb.",
+      "priority": 11
+    },
+    {
+      "id": "bats-0",
+      "lane": "outdoors",
+      "headline": "Congress Ave bat emergence",
+      "link": "https://austinbatrefuge.org/congress-avenue-bridge/",
+      "label": "Bats & Sky",
+      "icon": "🦇",
+      "detail": "When the ~1.5M Mexican free-tailed bats fly out — roughly around sunset, Mar–Nov (peak in August).",
+      "priority": 12
+    },
+    {
+      "id": "bats-1",
+      "lane": "outdoors",
+      "headline": "Austin sunrise, sunset & moon",
+      "link": "https://www.timeanddate.com/sun/usa/austin",
+      "label": "Bats & Sky",
+      "icon": "🦇",
+      "detail": "Today's sun times, golden hour and moon phase for Austin — handy for photos and bat-watching.",
+      "priority": 12
+    },
+    {
+      "id": "lakesprings-0",
+      "lane": "outdoors",
+      "headline": "Highland Lakes levels (Travis & Buchanan)",
+      "link": "https://hydromet.lcra.org/",
+      "label": "Lake & Springs",
+      "icon": "🌊",
+      "detail": "LCRA Hydromet: current lake levels and percent-full for Lake Travis and Lake Buchanan.",
+      "priority": 13
+    },
+    {
+      "id": "lakesprings-1",
+      "lane": "outdoors",
+      "headline": "Barton Springs Pool status & temp",
+      "link": "https://www.austintexas.gov/department/barton-springs-pool",
+      "label": "Lake & Springs",
+      "icon": "🌊",
+      "detail": "Hours, closures and the famously steady ~68–74°F spring-fed water temperature.",
+      "priority": 13
+    },
+    {
+      "id": "events-0",
       "lane": "events",
-      "headline": "Austin Flea @ The Brewtorium  ·  2026-06-06",
-      "link": "https://www.austinflea.net",
-      "label": "Event",
-      "icon": "📅",
-      "detail": "The Brewtorium · monthly roving artisan + vintage popup",
-      "priority": 20,
-      "published": "2026-06-06T12:00"
+      "headline": "Tonight in Austin — live music & events",
+      "link": "https://do512.com/",
+      "label": "Tonight",
+      "icon": "🎶",
+      "detail": "Do512's running list of shows, markets and things to do across the city tonight.",
+      "priority": 20
     },
     {
-      "id": "news-kut-3843466",
+      "id": "trash-0",
+      "lane": "civic",
+      "headline": "Trash, recycling & compost schedule",
+      "link": "https://www.austintexas.gov/services/view-your-recycling-composting-and-trash-schedule",
+      "label": "Trash & Recycle",
+      "icon": "🗑️",
+      "detail": "Austin Resource Recovery: look up this week's collection day by address — recycling and compost alternate weeks.",
+      "priority": 21
+    },
+    {
+      "id": "watering-0",
+      "lane": "civic",
+      "headline": "Find your lawn-watering day & drought stage",
+      "link": "https://www.austintexas.gov/water/find-your-watering-day",
+      "label": "Watering Day",
+      "icon": "💧",
+      "detail": "Austin Water assigns watering days by address; check the current conservation stage before you run a sprinkler.",
+      "priority": 22
+    },
+    {
+      "id": "capmetro-0",
+      "lane": "civic",
+      "headline": "CapMetro service alerts",
+      "link": "https://www.capmetro.org/alerts",
+      "label": "CapMetro",
+      "icon": "🚌",
+      "detail": "Bus, MetroRail and Rapid delays, detours and rider alerts across the CapMetro system.",
+      "priority": 23
+    },
+    {
+      "id": "roads-0",
+      "lane": "civic",
+      "headline": "Texas road closures & construction",
+      "link": "https://drivetexas.org/",
+      "label": "Roads",
+      "icon": "🚧",
+      "detail": "TxDOT DriveTexas live map of closures, construction and incidents around Austin.",
+      "priority": 24
+    },
+    {
+      "id": "council-0",
+      "lane": "civic",
+      "headline": "City of Austin meetings & agendas",
+      "link": "https://www.austintexas.gov/government/meeting-schedule",
+      "label": "City Council",
+      "icon": "🏛️",
+      "detail": "City Council and board/commission meeting schedule, agendas, and how to watch or sign up to speak.",
+      "priority": 25
+    },
+    {
+      "id": "animalcenter-0",
+      "lane": "civic",
+      "headline": "Austin Animal Center — adopt & urgent needs",
+      "link": "https://www.austintexas.gov/department/aac/adopt",
+      "label": "Animal Center",
+      "icon": "🐾",
+      "detail": "Adoptable pets plus at-capacity and urgent-foster appeals from the city's no-kill shelter.",
+      "priority": 26
+    },
+    {
+      "id": "news-0",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +195,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-10910673",
+      "id": "news-1",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +207,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-19326857",
+      "id": "news-2",
       "lane": "news",
-      "headline": "Photos show extensive fire, water damage to Bar Peached",
-      "link": "https://www.kxan.com/news/local/austin/photos-show-extensive-fire-water-damage-to-bar-peached/",
+      "headline": "Man released from ICE detention after San Marcos traffic stop led to arrest",
+      "link": "https://www.kxan.com/news/local/san-marcos/man-released-from-ice-detention-after-san-marcos-traffic-stop-led-to-arrest/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 01 Jun 2026 11:49:41 +0000"
+      "published": "Tue, 02 Jun 2026 03:25:16 +0000"
     },
     {
-      "id": "news-austinmonitor-646116",
+      "id": "news-3",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -99,44 +231,14 @@
       "published": "Wed, 05 Nov 2025 23:48:45 +0000"
     },
     {
-      "id": "sports-2467936",
-      "lane": "sports",
-      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-05"
-    },
-    {
-      "id": "sports-2467936",
-      "lane": "sports",
-      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-05"
-    },
-    {
-      "id": "sports-2467936",
-      "lane": "sports",
-      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-05"
-    },
-    {
-      "id": "sports-2467936",
-      "lane": "sports",
-      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-05"
+      "id": "lunch-0",
+      "lane": "lunch",
+      "headline": "Austin ISD school lunch menus",
+      "link": "https://www.schoolcafe.com/austinisd",
+      "label": "School Lunch",
+      "icon": "🍎",
+      "detail": "Today's breakfast and lunch menus for Austin ISD campuses, via SchoolCafé.",
+      "priority": 50
     }
   ]
 }

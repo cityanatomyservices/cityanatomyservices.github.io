@@ -3642,31 +3642,26 @@
       const PAUSE_MS = 3000;    // pause auto-advance this long after interaction
       const STORE_KEY = 'austinchat-feed-topics';
 
-      // Topic pills. `lane` keys into the feed items + accent colors;
-      // some lanes (reports/realestate/stocks/gossip) have no data source
-      // yet, so their pill is selectable but shows a card only once the
-      // pipeline feeds that lane.
+      // Topic pills. `lane` keys into the feed items + accent colors. Cards
+      // come from /feed/feed.json, rebuilt daily from staging/sources.json
+      // (one curated topic per block). The daily-utility lanes lead; `local`
+      // carries neighborhood-targeted cards from feed_overrides.json and stays
+      // empty until one is pinned, so it's off by default.
       const TOPICS = [
-        { lane: 'local',   label: '📍 Near You' },
-        { lane: 'weather', label: 'Weather' },
-        { lane: 'news',    label: 'Local News' },
-        { lane: 'events',  label: 'Events' },
-        { lane: 'sports',  label: 'Local Sports' },
-        { lane: 'deals',   label: 'Deals & Specials' },
-        { lane: 'reports', label: 'Special Reports' },
-        { lane: 'lunch',   label: 'School Lunches' },
-        { lane: 'alerts',  label: 'Alerts' },
-        { lane: 'realestate', label: 'Real Estate' },
-        { lane: 'stocks',  label: 'Stocks' },
-        { lane: 'gossip',  label: 'Gossip' },
+        { lane: 'weather',  label: 'Weather' },
+        { lane: 'alerts',   label: 'Alerts' },
+        { lane: 'civic',    label: 'City & Utilities' },
+        { lane: 'outdoors', label: 'Outdoors' },
+        { lane: 'events',   label: 'Events' },
+        { lane: 'lunch',    label: 'School Lunches' },
+        { lane: 'news',     label: 'Local News' },
+        { lane: 'local',    label: '📍 Near You' },
       ];
-      const DEFAULT_SELECTED = ['local', 'weather', 'news', 'events'];
+      const DEFAULT_SELECTED = ['weather', 'alerts', 'civic', 'outdoors', 'events', 'news'];
       const ACCENTS = {
-        local: '#e11d48',
-        alerts: '#dc2626', weather: '#f59e0b', events: '#a855f7',
-        deals: '#16a34a', news: '#0e7ec9', sports: '#4f46e5',
-        lunch: '#0d9488', reports: '#0891b2', realestate: '#b45309',
-        stocks: '#15803d', gossip: '#db2777',
+        local: '#e11d48', alerts: '#dc2626', weather: '#f59e0b',
+        events: '#a855f7', news: '#0e7ec9', lunch: '#0d9488',
+        civic: '#2563eb', outdoors: '#0284c7',
       };
 
       const bar    = document.getElementById('cm-newsfeed');

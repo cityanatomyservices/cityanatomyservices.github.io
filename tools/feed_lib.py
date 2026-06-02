@@ -1,9 +1,9 @@
 """Shared types + helpers for the Austin daily feed.
 
-Each scraper in `sources/` exposes a `scrape() -> list[FeedItem]`
-function. `run.py` calls every scraper, sorts + caps the combined items,
-drops expired ones, and writes a single `feed/feed.json` that the
-bottom-of-map feed renders.
+The feed is the strip of cards at the bottom of austin.chat. `build_feed.py`
+turns the curated directory in `staging/sources.json` into a single
+`feed/feed.json` that the UI renders. This module holds the item type and the
+plumbing both share (sort / expiry / caps / RSS parsing / writing).
 
 Hermetic by design: stdlib only (urllib + xml.etree), no API keys.
 """
@@ -19,7 +19,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
-REPO = Path(__file__).resolve().parent.parent.parent
+# feed_lib.py lives at tools/feed_lib.py, so the repo root is two parents up.
+REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 STAGING = REPO / "staging"
 # The feed lives at the repo-root /feed/ so the UI fetches /feed/feed.json.
@@ -30,24 +31,19 @@ PER_LANE = 5
 
 USER_AGENT = "austin.chat-feed-bot/1.0 (+https://austin.chat)"
 
-# Per-lane display defaults + base sort priority (ascending = earlier in
-# the ticker). Individual items may override label/icon/priority. Lanes
-# without a source module yet (reports/realestate/stocks/gossip) are
-# listed so the UI's topic pills and any future scraper share one
-# vocabulary.
+# Per-lane display defaults + base sort priority (ascending = earlier in the
+# ticker). Topics in sources.json normally set their own label/icon/priority;
+# these are the fallbacks when a topic omits them, and they keep the UI's pill
+# vocabulary and the builder in sync.
 LANES = {
-    "alerts":     {"label": "Alert",          "icon": "⚠️", "priority": 0},
-    "local":      {"label": "Near You",       "icon": "📍", "priority": 5},
-    "weather":    {"label": "Weather",        "icon": "☀️", "priority": 10},
-    "events":     {"label": "Event",          "icon": "📅", "priority": 20},
-    "deals":      {"label": "Deal",           "icon": "🏷️", "priority": 25},
-    "news":       {"label": "Local News",     "icon": "📰", "priority": 30},
-    "sports":     {"label": "Local Sports",   "icon": "🏆", "priority": 40},
-    "lunch":      {"label": "School Lunch",   "icon": "🍎", "priority": 50},
-    "reports":    {"label": "Special Report", "icon": "📋", "priority": 35},
-    "realestate": {"label": "Real Estate",    "icon": "🏠", "priority": 45},
-    "stocks":     {"label": "Stocks",         "icon": "📈", "priority": 55},
-    "gossip":     {"label": "Gossip",         "icon": "💬", "priority": 60},
+    "alerts":     {"label": "Alert",            "icon": "⚠️", "priority": 0},
+    "local":      {"label": "Near You",         "icon": "📍", "priority": 5},
+    "weather":    {"label": "Weather",          "icon": "☀️", "priority": 10},
+    "outdoors":   {"label": "Outdoors",         "icon": "🌳", "priority": 12},
+    "events":     {"label": "Event",            "icon": "📅", "priority": 20},
+    "civic":      {"label": "City & Utilities", "icon": "🏛️", "priority": 21},
+    "news":       {"label": "Local News",       "icon": "📰", "priority": 30},
+    "lunch":      {"label": "School Lunch",     "icon": "🍎", "priority": 50},
 }
 
 
@@ -128,6 +124,19 @@ def drop_expired(items: Iterable[FeedItem], now: datetime | None = None) -> list
     return kept
 
 
+def dedupe_by_id(items: Iterable[FeedItem]) -> list[FeedItem]:
+    """Keep the first item for each id (the UI keys cards by id; duplicates
+    would render twice)."""
+    seen: set[str] = set()
+    kept: list[FeedItem] = []
+    for it in items:
+        if it.id in seen:
+            continue
+        seen.add(it.id)
+        kept.append(it)
+    return kept
+
+
 def sort_items(items: list[FeedItem]) -> list[FeedItem]:
     def key(it: FeedItem):
         lane_def = LANES.get(it.lane, {"priority": 60})
@@ -138,10 +147,21 @@ def sort_items(items: list[FeedItem]) -> list[FeedItem]:
     return sorted(items, key=key)
 
 
-# The "local" lane is geo-filtered client-side (one pool spanning every
-# neighborhood), so it needs a higher cap than the lanes the UI shows in
-# full — otherwise far-apart neighborhoods would starve each other.
-LANE_CAPS = {"local": 30}
+# Most lanes are category buckets holding several distinct curated topics
+# (e.g. "civic" = trash + watering + roads + council + …), so they need room
+# for every card. Only the live lanes (news) and the geo-pooled "local" lane
+# (one pool spanning every neighborhood, client-side filtered) get special
+# caps; everything unlisted falls back to PER_LANE.
+LANE_CAPS = {
+    "local": 30,
+    "civic": 20,
+    "alerts": 20,
+    "outdoors": 12,
+    "weather": 10,
+    "events": 10,
+    "lunch": 10,
+    "news": 6,
+}
 
 
 def cap_per_lane(items: list[FeedItem], n: int = PER_LANE) -> list[FeedItem]:
@@ -160,15 +180,15 @@ def cap_per_lane(items: list[FeedItem], n: int = PER_LANE) -> list[FeedItem]:
     return kept
 
 
-# ── Shared RSS/Atom parsing (used by the registry source) ─────────────
+# ── Shared RSS/Atom parsing (used by the rss fetcher) ─────────────────
 def _rss_text(node, tag) -> str:
     el = node.find(tag)
     return (el.text or "").strip() if el is not None and el.text else ""
 
 
 def parse_feed(raw: bytes, limit: int = 5) -> list[dict]:
-    """Parse RSS 2.0 or Atom bytes into [{title, link, published}], newest
-    as they appear in the document, up to `limit`."""
+    """Parse RSS 2.0 or Atom bytes into [{title, link, published}], in
+    document order, up to `limit`."""
     root = ET.fromstring(raw)
     out: list[dict] = []
     entries = root.findall(".//item")
@@ -198,6 +218,7 @@ def parse_feed(raw: bytes, limit: int = 5) -> list[dict]:
 
 def write_feed(items: list[FeedItem], dry_run: bool = False) -> dict:
     items = drop_expired(items)
+    items = dedupe_by_id(items)
     items = sort_items(items)
     items = cap_per_lane(items)
     doc = {

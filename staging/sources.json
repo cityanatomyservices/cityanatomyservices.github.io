@@ -1,0 +1,231 @@
+{
+  "_comment": "Curated directory for the austin.chat daily feed. tools/build_feed.py turns this into feed/feed.json. One block per topic: id (stable slug), lane (drives accent color + which pill shows it), label + icon (the card tag), priority (lower = earlier), and links[] (each title->headline, blurb->detail, url->link) that render as always-on cards. Optional fetch{type,enabled,...} points at a module in tools/feed_fetchers/ to replace the curated card with a live value; it falls back to the link on any error. Add a topic = add a block here (no code). Hand-pinned/ad cards go in feed_overrides.json.",
+
+  "cityId": "atx",
+
+  "topics": [
+    {
+      "id": "weather",
+      "lane": "weather",
+      "label": "Weather",
+      "icon": "☀️",
+      "priority": 10,
+      "links": [
+        { "title": "Austin forecast — National Weather Service",
+          "blurb": "Today's official NWS forecast: highs, lows and rain chances for the Austin area.",
+          "url": "https://forecast.weather.gov/MapClick.php?lat=30.27&lon=-97.74" }
+      ],
+      "fetch": { "type": "nws", "enabled": false, "lat": 30.2672, "lon": -97.7431 }
+    },
+    {
+      "id": "pollen",
+      "lane": "weather",
+      "label": "Pollen",
+      "icon": "🤧",
+      "priority": 11,
+      "links": [
+        { "title": "Austin pollen & allergy forecast",
+          "blurb": "Today's cedar, oak, grass and mold counts — Austin's notorious cedar fever peaks Dec–Feb.",
+          "url": "https://www.kxan.com/weather/allergy-forecast-austin-texas/" }
+      ]
+    },
+    {
+      "id": "airquality",
+      "lane": "alerts",
+      "label": "Air Quality",
+      "icon": "🌫️",
+      "priority": 4,
+      "links": [
+        { "title": "Air quality & ozone action days",
+          "blurb": "Current AQI plus ozone-action-day alerts for Central Texas — worst on hot, still summer afternoons.",
+          "url": "https://www.airnow.gov/?city=Austin&state=TX&country=USA" },
+        { "title": "TCEQ Central Texas ozone forecast",
+          "blurb": "The state's air-quality forecast and ozone outlook for the Austin–Round Rock region.",
+          "url": "https://www.tceq.texas.gov/airquality/monops/forecast_today.html" }
+      ]
+    },
+    {
+      "id": "grid",
+      "lane": "alerts",
+      "label": "Grid (ERCOT)",
+      "icon": "⚡",
+      "priority": 3,
+      "links": [
+        { "title": "ERCOT grid conditions & conservation",
+          "blurb": "Is the Texas grid asking you to conserve today? Live supply, demand and conservation appeals.",
+          "url": "https://www.ercot.com/gridmktinfo/dashboards/gridconditions" }
+      ]
+    },
+    {
+      "id": "burnban",
+      "lane": "alerts",
+      "label": "Burn Ban",
+      "icon": "🔥",
+      "priority": 5,
+      "links": [
+        { "title": "Travis County burn ban status",
+          "blurb": "Is an outdoor burn ban in effect? Check before any open flame, fire pit or burning in unincorporated areas.",
+          "url": "https://www.traviscountytx.gov/fire-marshal/burn-ban" }
+      ]
+    },
+    {
+      "id": "mosquito",
+      "lane": "alerts",
+      "label": "Mosquito / West Nile",
+      "icon": "🦟",
+      "priority": 6,
+      "links": [
+        { "title": "Mosquito & West Nile activity",
+          "blurb": "Austin Public Health's positive mosquito-pool map and spraying notices (May–Nov season).",
+          "url": "https://www.austintexas.gov/department/mosquitoes" }
+      ]
+    },
+    {
+      "id": "trash",
+      "lane": "civic",
+      "label": "Trash & Recycle",
+      "icon": "🗑️",
+      "priority": 21,
+      "links": [
+        { "title": "Trash, recycling & compost schedule",
+          "blurb": "Austin Resource Recovery: look up this week's collection day by address — recycling and compost alternate weeks.",
+          "url": "https://www.austintexas.gov/services/view-your-recycling-composting-and-trash-schedule" }
+      ]
+    },
+    {
+      "id": "watering",
+      "lane": "civic",
+      "label": "Watering Day",
+      "icon": "💧",
+      "priority": 22,
+      "links": [
+        { "title": "Find your lawn-watering day & drought stage",
+          "blurb": "Austin Water assigns watering days by address; check the current conservation stage before you run a sprinkler.",
+          "url": "https://www.austintexas.gov/water/find-your-watering-day" }
+      ]
+    },
+    {
+      "id": "capmetro",
+      "lane": "civic",
+      "label": "CapMetro",
+      "icon": "🚌",
+      "priority": 23,
+      "links": [
+        { "title": "CapMetro service alerts",
+          "blurb": "Bus, MetroRail and Rapid delays, detours and rider alerts across the CapMetro system.",
+          "url": "https://www.capmetro.org/alerts" }
+      ]
+    },
+    {
+      "id": "roads",
+      "lane": "civic",
+      "label": "Roads",
+      "icon": "🚧",
+      "priority": 24,
+      "links": [
+        { "title": "Texas road closures & construction",
+          "blurb": "TxDOT DriveTexas live map of closures, construction and incidents around Austin.",
+          "url": "https://drivetexas.org/" }
+      ]
+    },
+    {
+      "id": "council",
+      "lane": "civic",
+      "label": "City Council",
+      "icon": "🏛️",
+      "priority": 25,
+      "links": [
+        { "title": "City of Austin meetings & agendas",
+          "blurb": "City Council and board/commission meeting schedule, agendas, and how to watch or sign up to speak.",
+          "url": "https://www.austintexas.gov/government/meeting-schedule" }
+      ]
+    },
+    {
+      "id": "animalcenter",
+      "lane": "civic",
+      "label": "Animal Center",
+      "icon": "🐾",
+      "priority": 26,
+      "links": [
+        { "title": "Austin Animal Center — adopt & urgent needs",
+          "blurb": "Adoptable pets plus at-capacity and urgent-foster appeals from the city's no-kill shelter.",
+          "url": "https://www.austintexas.gov/department/aac/adopt" }
+      ]
+    },
+    {
+      "id": "bats",
+      "lane": "outdoors",
+      "label": "Bats & Sky",
+      "icon": "🦇",
+      "priority": 12,
+      "links": [
+        { "title": "Congress Ave bat emergence",
+          "blurb": "When the ~1.5M Mexican free-tailed bats fly out — roughly around sunset, Mar–Nov (peak in August).",
+          "url": "https://austinbatrefuge.org/congress-avenue-bridge/" },
+        { "title": "Austin sunrise, sunset & moon",
+          "blurb": "Today's sun times, golden hour and moon phase for Austin — handy for photos and bat-watching.",
+          "url": "https://www.timeanddate.com/sun/usa/austin" }
+      ]
+    },
+    {
+      "id": "lakesprings",
+      "lane": "outdoors",
+      "label": "Lake & Springs",
+      "icon": "🌊",
+      "priority": 13,
+      "links": [
+        { "title": "Highland Lakes levels (Travis & Buchanan)",
+          "blurb": "LCRA Hydromet: current lake levels and percent-full for Lake Travis and Lake Buchanan.",
+          "url": "https://hydromet.lcra.org/" },
+        { "title": "Barton Springs Pool status & temp",
+          "blurb": "Hours, closures and the famously steady ~68–74°F spring-fed water temperature.",
+          "url": "https://www.austintexas.gov/department/barton-springs-pool" }
+      ]
+    },
+    {
+      "id": "events",
+      "lane": "events",
+      "label": "Tonight",
+      "icon": "🎶",
+      "priority": 20,
+      "links": [
+        { "title": "Tonight in Austin — live music & events",
+          "blurb": "Do512's running list of shows, markets and things to do across the city tonight.",
+          "url": "https://do512.com/" }
+      ],
+      "fetch": { "type": "rss", "enabled": false,
+                 "feeds": [ { "url": "https://do512.com/feed", "source": "Do512", "max": 4 } ] }
+    },
+    {
+      "id": "lunch",
+      "lane": "lunch",
+      "label": "School Lunch",
+      "icon": "🍎",
+      "priority": 50,
+      "links": [
+        { "title": "Austin ISD school lunch menus",
+          "blurb": "Today's breakfast and lunch menus for Austin ISD campuses, via SchoolCafé.",
+          "url": "https://www.schoolcafe.com/austinisd" }
+      ]
+    },
+    {
+      "id": "news",
+      "lane": "news",
+      "label": "Local News",
+      "icon": "📰",
+      "priority": 30,
+      "links": [
+        { "title": "Austin local news",
+          "blurb": "Headlines from Austin's newsrooms — KUT, KXAN, the Austin Monitor and Community Impact.",
+          "url": "https://www.kut.org/" }
+      ],
+      "fetch": { "type": "rss", "enabled": true,
+                 "feeds": [
+                   { "url": "https://www.kut.org/news.rss",                 "source": "KUT",              "max": 2 },
+                   { "url": "https://www.kxan.com/feed/",                   "source": "KXAN",             "max": 1 },
+                   { "url": "https://www.austinmonitor.com/feed/",          "source": "Austin Monitor",   "max": 1 },
+                   { "url": "https://communityimpact.com/rss/city/austin/", "source": "Community Impact", "max": 1 }
+                 ] }
+    }
+  ]
+}

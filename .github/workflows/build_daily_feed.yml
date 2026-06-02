@@ -24,7 +24,7 @@ jobs:
           python-version: "3.11"
 
       - name: Build feed
-        run: python -m tools.austin_feed.run
+        run: python tools/build_feed.py
 
       - name: Commit if changed
         run: |
