@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-02T11:41:30Z",
+  "generated": "2026-06-02T15:55:07Z",
   "items": [
     {
       "id": "grid-0",
@@ -133,6 +133,16 @@
       "priority": 21
     },
     {
+      "id": "library-0",
+      "lane": "events",
+      "headline": "Austin Public Library events",
+      "link": "https://library.austintexas.gov/events/calendar",
+      "label": "Library Events",
+      "icon": "📚",
+      "detail": "Free events, story times and programs across every APL branch, searchable by age and category.",
+      "priority": 21
+    },
+    {
       "id": "watering-0",
       "lane": "civic",
       "headline": "Find your lawn-watering day & drought stage",
@@ -173,6 +183,36 @@
       "priority": 25
     },
     {
+      "id": "council-1",
+      "lane": "civic",
+      "headline": "Boards & commissions agendas",
+      "link": "https://www.austintexas.gov/clerk/agenda-kiosk-boards-and-commissions",
+      "label": "City Council",
+      "icon": "🏛️",
+      "detail": "Official agendas for Austin's recurring boards and commissions, via the City Clerk's Agenda Kiosk.",
+      "priority": 25
+    },
+    {
+      "id": "council-2",
+      "lane": "civic",
+      "headline": "Boards & commissions index + RSS",
+      "link": "https://bandc.crccheck.com",
+      "label": "City Council",
+      "icon": "🏛️",
+      "detail": "Browsable index of every City board and commission, with per-body RSS feeds for new agendas.",
+      "priority": 25
+    },
+    {
+      "id": "council-3",
+      "lane": "civic",
+      "headline": "Speak at a City Council meeting",
+      "link": "https://www.austintexas.gov/services/participate-city-council-meeting",
+      "label": "City Council",
+      "icon": "🏛️",
+      "detail": "Public-comment rules, registration windows and remote or in-person options for Council meetings.",
+      "priority": 25
+    },
+    {
       "id": "animalcenter-0",
       "lane": "civic",
       "headline": "Austin Animal Center — adopt & urgent needs",
@@ -181,6 +221,16 @@
       "icon": "🐾",
       "detail": "Adoptable pets plus at-capacity and urgent-foster appeals from the city's no-kill shelter.",
       "priority": 26
+    },
+    {
+      "id": "schoolboard-0",
+      "lane": "civic",
+      "headline": "Austin ISD Board of Trustees",
+      "link": "https://www.austinisd.org/board/meetings",
+      "label": "AISD Board",
+      "icon": "🎓",
+      "detail": "AISD board and committee meetings — agendas, livestream and how to give public comment.",
+      "priority": 27
     },
     {
       "id": "news-0",
@@ -209,14 +259,14 @@
     {
       "id": "news-2",
       "lane": "news",
-      "headline": "Man released from ICE detention after San Marcos traffic stop led to arrest",
-      "link": "https://www.kxan.com/news/local/san-marcos/man-released-from-ice-detention-after-san-marcos-traffic-stop-led-to-arrest/",
+      "headline": "Austin, Union Pacific strengthen coordination after downtown train derailment",
+      "link": "https://www.kxan.com/news/local/austin/austin-union-pacific-strengthen-coordination-after-downtown-train-derailment/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 02 Jun 2026 03:25:16 +0000"
+      "published": "Tue, 02 Jun 2026 13:35:57 +0000"
     },
     {
       "id": "news-3",
@@ -233,11 +283,41 @@
     {
       "id": "lunch-0",
       "lane": "lunch",
-      "headline": "Austin ISD school lunch menus",
+      "headline": "Today's school menus — SchoolCafé",
       "link": "https://www.schoolcafe.com/austinisd",
       "label": "School Lunch",
       "icon": "🍎",
-      "detail": "Today's breakfast and lunch menus for Austin ISD campuses, via SchoolCafé.",
+      "detail": "Daily breakfast and lunch items, ingredients, macros and allergens for Austin ISD campuses.",
+      "priority": 50
+    },
+    {
+      "id": "lunch-1",
+      "lane": "lunch",
+      "headline": "Austin ISD menus hub",
+      "link": "https://www.austinisd.org/nutrition-food-services/menus",
+      "label": "School Lunch",
+      "icon": "🍎",
+      "detail": "District landing page for breakfast, lunch and after-school menus — links out to SchoolCafé for daily detail.",
+      "priority": 50
+    },
+    {
+      "id": "lunch-2",
+      "lane": "lunch",
+      "headline": "Free & reduced meals (CEP)",
+      "link": "https://www.austinisd.org/nutrition-food-services/meal-programs",
+      "label": "School Lunch",
+      "icon": "🍎",
+      "detail": "Which AISD campuses serve free meals, plus breakfast, after-school and summer meal programs.",
+      "priority": 50
+    },
+    {
+      "id": "lunch-3",
+      "lane": "lunch",
+      "headline": "AISD Food Services — prices & info",
+      "link": "https://www.austinisd.org/nutrition-food-services",
+      "label": "School Lunch",
+      "icon": "🍎",
+      "detail": "Meal prices, payments, program overview and contacts for the district nutrition program.",
       "priority": 50
     }
   ]

@@ -137,7 +137,16 @@
       "links": [
         { "title": "City of Austin meetings & agendas",
           "blurb": "City Council and board/commission meeting schedule, agendas, and how to watch or sign up to speak.",
-          "url": "https://www.austintexas.gov/government/meeting-schedule" }
+          "url": "https://www.austintexas.gov/government/meeting-schedule" },
+        { "title": "Boards & commissions agendas",
+          "blurb": "Official agendas for Austin's recurring boards and commissions, via the City Clerk's Agenda Kiosk.",
+          "url": "https://www.austintexas.gov/clerk/agenda-kiosk-boards-and-commissions" },
+        { "title": "Boards & commissions index + RSS",
+          "blurb": "Browsable index of every City board and commission, with per-body RSS feeds for new agendas.",
+          "url": "https://bandc.crccheck.com" },
+        { "title": "Speak at a City Council meeting",
+          "blurb": "Public-comment rules, registration windows and remote or in-person options for Council meetings.",
+          "url": "https://www.austintexas.gov/services/participate-city-council-meeting" }
       ]
     },
     {
@@ -150,6 +159,18 @@
         { "title": "Austin Animal Center — adopt & urgent needs",
           "blurb": "Adoptable pets plus at-capacity and urgent-foster appeals from the city's no-kill shelter.",
           "url": "https://www.austintexas.gov/department/aac/adopt" }
+      ]
+    },
+    {
+      "id": "schoolboard",
+      "lane": "civic",
+      "label": "AISD Board",
+      "icon": "🎓",
+      "priority": 27,
+      "links": [
+        { "title": "Austin ISD Board of Trustees",
+          "blurb": "AISD board and committee meetings — agendas, livestream and how to give public comment.",
+          "url": "https://www.austinisd.org/board/meetings" }
       ]
     },
     {
@@ -197,15 +218,36 @@
                  "feeds": [ { "url": "https://do512.com/feed", "source": "Do512", "max": 4 } ] }
     },
     {
+      "id": "library",
+      "lane": "events",
+      "label": "Library Events",
+      "icon": "📚",
+      "priority": 21,
+      "links": [
+        { "title": "Austin Public Library events",
+          "blurb": "Free events, story times and programs across every APL branch, searchable by age and category.",
+          "url": "https://library.austintexas.gov/events/calendar" }
+      ]
+    },
+    {
       "id": "lunch",
       "lane": "lunch",
       "label": "School Lunch",
       "icon": "🍎",
       "priority": 50,
       "links": [
-        { "title": "Austin ISD school lunch menus",
-          "blurb": "Today's breakfast and lunch menus for Austin ISD campuses, via SchoolCafé.",
-          "url": "https://www.schoolcafe.com/austinisd" }
+        { "title": "Today's school menus — SchoolCafé",
+          "blurb": "Daily breakfast and lunch items, ingredients, macros and allergens for Austin ISD campuses.",
+          "url": "https://www.schoolcafe.com/austinisd" },
+        { "title": "Austin ISD menus hub",
+          "blurb": "District landing page for breakfast, lunch and after-school menus — links out to SchoolCafé for daily detail.",
+          "url": "https://www.austinisd.org/nutrition-food-services/menus" },
+        { "title": "Free & reduced meals (CEP)",
+          "blurb": "Which AISD campuses serve free meals, plus breakfast, after-school and summer meal programs.",
+          "url": "https://www.austinisd.org/nutrition-food-services/meal-programs" },
+        { "title": "AISD Food Services — prices & info",
+          "blurb": "Meal prices, payments, program overview and contacts for the district nutrition program.",
+          "url": "https://www.austinisd.org/nutrition-food-services" }
       ]
     },
     {
