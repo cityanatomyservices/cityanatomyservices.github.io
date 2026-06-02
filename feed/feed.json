@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-01T15:58:34Z",
+  "generated": "2026-06-02T14:06:21Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 93°F",
+      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 94°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 93. Southeast wind around 5 mph. New rainfall amounts less than a tenth of an inch possible. Tonight: Partly Cloudy, 75°F.",
+      "detail": "A slight chance of showers and thunderstorms after 1pm. Mostly sunny, with a high near 94. Heat index values as high as 102. East wind 0 to 5 mph. Chance of precipitation is 20%. Tonight: Chance Showers And Thunderstorms, 75°F.",
       "priority": 10,
-      "published": "2026-06-01T15:58:34Z"
+      "published": "2026-06-02T14:06:21Z"
     },
     {
       "id": "event-austin-flea-jun-06-brewtorium",
@@ -51,7 +51,7 @@
       "published": "2026-06-06T12:00"
     },
     {
-      "id": "news-kut-3843466",
+      "id": "news-kut-33578969",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-10910673",
+      "id": "news-kut-46105255",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-19326857",
+      "id": "news-kxan-96085556",
       "lane": "news",
-      "headline": "Photos show extensive fire, water damage to Bar Peached",
-      "link": "https://www.kxan.com/news/local/austin/photos-show-extensive-fire-water-damage-to-bar-peached/",
+      "headline": "Austin, Union Pacific strengthen coordination after downtown train derailment",
+      "link": "https://www.kxan.com/news/local/austin/austin-union-pacific-strengthen-coordination-after-downtown-train-derailment/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 01 Jun 2026 11:49:41 +0000"
+      "published": "Tue, 02 Jun 2026 13:35:57 +0000"
     },
     {
-      "id": "news-austinmonitor-646116",
+      "id": "news-austinmonitor-4618070",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -99,44 +99,24 @@
       "published": "Wed, 05 Nov 2025 23:48:45 +0000"
     },
     {
-      "id": "sports-2467936",
+      "id": "sports-2406939",
       "lane": "sports",
-      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
+      "headline": "Austin FC vs Seattle Sounders  ·  2026-07-23 00:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-05"
+      "published": "2026-07-23"
     },
     {
-      "id": "sports-2467936",
+      "id": "sports-2393399",
       "lane": "sports",
-      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
+      "headline": "Oklahoma City Comets vs Round Rock Express  ·  2026-06-03 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-05"
-    },
-    {
-      "id": "sports-2467936",
-      "lane": "sports",
-      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-05"
-    },
-    {
-      "id": "sports-2467936",
-      "lane": "sports",
-      "headline": "Arsenal vs Real Betis  ·  2026-08-05 18:30",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-05"
+      "published": "2026-06-03"
     }
   ]
 }
