@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-02T14:06:21Z",
+  "generated": "2026-06-03T14:43:41Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 94°F",
+      "headline": "Today: Partly Sunny then Chance Showers And Thunderstorms, 91°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A slight chance of showers and thunderstorms after 1pm. Mostly sunny, with a high near 94. Heat index values as high as 102. East wind 0 to 5 mph. Chance of precipitation is 20%. Tonight: Chance Showers And Thunderstorms, 75°F.",
+      "detail": "A chance of showers and thunderstorms after 1pm. Partly sunny. High near 91, with temperatures falling to around 87 in the afternoon. East northeast wind 0 to 5 mph. Chance of precipitation is 30%. Tonight: Chance Showers And Thunderstorms, 73°F.",
       "priority": 10,
-      "published": "2026-06-02T14:06:21Z"
+      "published": "2026-06-03T14:43:41Z"
     },
     {
       "id": "event-austin-flea-jun-06-brewtorium",
@@ -51,7 +51,7 @@
       "published": "2026-06-06T12:00"
     },
     {
-      "id": "news-kut-33578969",
+      "id": "news-kut-21564740",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-46105255",
+      "id": "news-kut-15222501",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-96085556",
+      "id": "news-kxan-7025474",
       "lane": "news",
-      "headline": "Austin, Union Pacific strengthen coordination after downtown train derailment",
-      "link": "https://www.kxan.com/news/local/austin/austin-union-pacific-strengthen-coordination-after-downtown-train-derailment/",
+      "headline": "Fired Austin PD officer files lawsuit to get job back after acquittal",
+      "link": "https://www.kxan.com/news/local/austin/fired-austin-pd-officer-files-lawsuit-to-get-job-back-after-acquittal/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 02 Jun 2026 13:35:57 +0000"
+      "published": "Wed, 03 Jun 2026 14:35:23 +0000"
     },
     {
-      "id": "news-austinmonitor-4618070",
+      "id": "news-austinmonitor-83616577",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
