@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-05T12:40:43Z",
+  "generated": "2026-06-06T11:28:00Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,24 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Chance Showers And Thunderstorms, 86°F",
+      "headline": "Today: Chance Showers And Thunderstorms, 90°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A chance of showers and thunderstorms before 1pm, then a chance of showers and thunderstorms. Mostly cloudy, with a high near 86. Southeast wind 0 to 5 mph. Chance of precipitation is 50%. Tonight: Chance Showers And Thunderstorms then Showers And Thunderstorms Likely, 73°F.",
+      "detail": "A chance of showers and thunderstorms. Partly sunny, with a high near 90. South southeast wind 0 to 5 mph. Chance of precipitation is 40%. New rainfall amounts between a tenth and quarter of an inch possible. Tonight: Slight Chance Showers And Thunderstorms, 76°F.",
       "priority": 10,
-      "published": "2026-06-05T12:40:43Z"
+      "published": "2026-06-06T11:28:00Z"
+    },
+    {
+      "id": "event-austin-flea-jun-13-triangle",
+      "lane": "events",
+      "headline": "Austin Flea @ Triangle Park  ·  2026-06-13",
+      "link": "https://www.austinflea.net",
+      "label": "Event",
+      "icon": "📅",
+      "detail": "Triangle Park · monthly roving artisan + vintage popup",
+      "priority": 20,
+      "published": "2026-06-13T12:00"
     },
     {
       "id": "event-austin-flea-jun-06-brewtorium",
@@ -51,7 +62,7 @@
       "published": "2026-06-06T12:00"
     },
     {
-      "id": "news-kut-35704923",
+      "id": "news-kut-63852482",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +74,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-37916332",
+      "id": "news-kut-44175470",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +86,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-52944879",
+      "id": "news-kxan-19287078",
       "lane": "news",
-      "headline": "Texas sweeps Texas Tech, claims 2nd consecutive softball national title",
-      "link": "https://www.kxan.com/sports/texas-sweeps-texas-tech-claims-2nd-consecutive-softball-national-title/",
+      "headline": "Dashcam video shows high-speed chase tied to Austin shooting suspects",
+      "link": "https://www.kxan.com/news/crime/dashcam-video-shows-high-speed-chase-tied-to-austin-shooting-suspects/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 05 Jun 2026 02:21:43 +0000"
+      "published": "Fri, 05 Jun 2026 21:45:46 +0000"
     },
     {
-      "id": "news-austinmonitor-16305648",
+      "id": "news-austinmonitor-81542549",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -109,14 +120,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393409",
+      "id": "sports-2393414",
       "lane": "sports",
-      "headline": "Oklahoma City Comets vs Round Rock Express  ·  2026-06-05 00:05",
+      "headline": "Oklahoma City Comets vs Round Rock Express  ·  2026-06-06 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-05"
+      "published": "2026-06-06"
     }
   ]
 }
