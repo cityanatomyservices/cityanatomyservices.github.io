@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-06T11:28:00Z",
+  "generated": "2026-06-07T11:49:50Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Chance Showers And Thunderstorms, 90°F",
+      "headline": "Today: Mostly Cloudy, 91°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A chance of showers and thunderstorms. Partly sunny, with a high near 90. South southeast wind 0 to 5 mph. Chance of precipitation is 40%. New rainfall amounts between a tenth and quarter of an inch possible. Tonight: Slight Chance Showers And Thunderstorms, 76°F.",
+      "detail": "Mostly cloudy, with a high near 91. Heat index values as high as 103. South wind 5 to 10 mph, with gusts as high as 25 mph. Tonight: Mostly Cloudy, 77°F.",
       "priority": 10,
-      "published": "2026-06-06T11:28:00Z"
+      "published": "2026-06-07T11:49:50Z"
     },
     {
       "id": "event-austin-flea-jun-13-triangle",
@@ -51,18 +51,7 @@
       "published": "2026-06-13T12:00"
     },
     {
-      "id": "event-austin-flea-jun-06-brewtorium",
-      "lane": "events",
-      "headline": "Austin Flea @ The Brewtorium  ·  2026-06-06",
-      "link": "https://www.austinflea.net",
-      "label": "Event",
-      "icon": "📅",
-      "detail": "The Brewtorium · monthly roving artisan + vintage popup",
-      "priority": 20,
-      "published": "2026-06-06T12:00"
-    },
-    {
-      "id": "news-kut-63852482",
+      "id": "news-kut-93462594",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -74,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-44175470",
+      "id": "news-kut-88305075",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -86,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-19287078",
+      "id": "news-kxan-65023550",
       "lane": "news",
-      "headline": "Dashcam video shows high-speed chase tied to Austin shooting suspects",
-      "link": "https://www.kxan.com/news/crime/dashcam-video-shows-high-speed-chase-tied-to-austin-shooting-suspects/",
+      "headline": "Couple dies following house explosion in Gillespie County",
+      "link": "https://www.kxan.com/news/local/hill-country/couple-dies-following-house-explosion-in-gillespie-county/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 05 Jun 2026 21:45:46 +0000"
+      "published": "Sat, 06 Jun 2026 14:54:55 +0000"
     },
     {
-      "id": "news-austinmonitor-81542549",
+      "id": "news-austinmonitor-10900925",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -120,14 +109,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393414",
+      "id": "sports-2393424",
       "lane": "sports",
-      "headline": "Oklahoma City Comets vs Round Rock Express  ·  2026-06-06 00:05",
+      "headline": "Oklahoma City Comets vs Round Rock Express  ·  2026-06-07 19:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-06"
+      "published": "2026-06-07"
     }
   ]
 }
