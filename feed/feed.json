@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-07T11:49:50Z",
+  "generated": "2026-06-08T14:11:16Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Cloudy, 91°F",
+      "headline": "Today: Chance Showers And Thunderstorms, 90°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly cloudy, with a high near 91. Heat index values as high as 103. South wind 5 to 10 mph, with gusts as high as 25 mph. Tonight: Mostly Cloudy, 77°F.",
+      "detail": "A chance of showers and thunderstorms between 10am and 1pm, then a slight chance of showers and thunderstorms between 1pm and 4pm. Mostly sunny, with a high near 90. Heat index values as high as 102. South wind 5 to 10 mph, with gusts as high as 25 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible. Tonight: Partly Cloudy, 75°F.",
       "priority": 10,
-      "published": "2026-06-07T11:49:50Z"
+      "published": "2026-06-08T14:11:16Z"
     },
     {
       "id": "event-austin-flea-jun-13-triangle",
@@ -51,7 +51,7 @@
       "published": "2026-06-13T12:00"
     },
     {
-      "id": "news-kut-93462594",
+      "id": "news-kut-82844181",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-88305075",
+      "id": "news-kut-87288535",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-65023550",
+      "id": "news-kxan-92334964",
       "lane": "news",
-      "headline": "Couple dies following house explosion in Gillespie County",
-      "link": "https://www.kxan.com/news/local/hill-country/couple-dies-following-house-explosion-in-gillespie-county/",
+      "headline": "Texas sweeps Oregon, advances to Men's College World Series for record 39th time",
+      "link": "https://www.kxan.com/sports-general/horns-report/texas-sweeps-oregon-advances-to-mens-college-world-series-for-record-39th-time/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 06 Jun 2026 14:54:55 +0000"
+      "published": "Mon, 08 Jun 2026 05:48:16 +0000"
     },
     {
-      "id": "news-austinmonitor-10900925",
+      "id": "news-austinmonitor-71508656",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -109,14 +109,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393424",
+      "id": "sports-2393428",
       "lane": "sports",
-      "headline": "Oklahoma City Comets vs Round Rock Express  ·  2026-06-07 19:05",
+      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-09 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-07"
+      "published": "2026-06-09"
     }
   ]
 }
