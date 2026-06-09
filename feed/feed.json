@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-08T14:11:16Z",
+  "generated": "2026-06-09T12:39:54Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Chance Showers And Thunderstorms, 90°F",
+      "headline": "Today: Mostly Sunny, 93°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A chance of showers and thunderstorms between 10am and 1pm, then a slight chance of showers and thunderstorms between 1pm and 4pm. Mostly sunny, with a high near 90. Heat index values as high as 102. South wind 5 to 10 mph, with gusts as high as 25 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible. Tonight: Partly Cloudy, 75°F.",
+      "detail": "Mostly sunny, with a high near 93. Heat index values as high as 102. South southeast wind 5 to 10 mph. Tonight: Partly Cloudy, 77°F.",
       "priority": 10,
-      "published": "2026-06-08T14:11:16Z"
+      "published": "2026-06-09T12:39:54Z"
     },
     {
       "id": "event-austin-flea-jun-13-triangle",
@@ -51,7 +51,7 @@
       "published": "2026-06-13T12:00"
     },
     {
-      "id": "news-kut-82844181",
+      "id": "news-kut-94890186",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-87288535",
+      "id": "news-kut-18046286",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-92334964",
+      "id": "news-kxan-77990426",
       "lane": "news",
-      "headline": "Texas sweeps Oregon, advances to Men's College World Series for record 39th time",
-      "link": "https://www.kxan.com/sports-general/horns-report/texas-sweeps-oregon-advances-to-mens-college-world-series-for-record-39th-time/",
+      "headline": "New screwworm cases raise concern for Texas cattle, beef prices",
+      "link": "https://www.kxan.com/news/local/austin/new-screwworm-cases-raise-concern-for-texas-cattle-beef-prices/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 08 Jun 2026 05:48:16 +0000"
+      "published": "Tue, 09 Jun 2026 02:08:51 +0000"
     },
     {
-      "id": "news-austinmonitor-71508656",
+      "id": "news-austinmonitor-70025018",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
