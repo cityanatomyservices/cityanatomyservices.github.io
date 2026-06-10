@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-09T12:39:54Z",
+  "generated": "2026-06-10T12:58:39Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 93°F",
+      "headline": "Today: Partly Sunny, 94°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 93. Heat index values as high as 102. South southeast wind 5 to 10 mph. Tonight: Partly Cloudy, 77°F.",
+      "detail": "Partly sunny, with a high near 94. Heat index values as high as 106. South southeast wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Partly Cloudy, 77°F.",
       "priority": 10,
-      "published": "2026-06-09T12:39:54Z"
+      "published": "2026-06-10T12:58:39Z"
     },
     {
       "id": "event-austin-flea-jun-13-triangle",
@@ -51,7 +51,7 @@
       "published": "2026-06-13T12:00"
     },
     {
-      "id": "news-kut-94890186",
+      "id": "news-kut-12231484",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-18046286",
+      "id": "news-kut-48025739",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-77990426",
+      "id": "news-kxan-54113806",
       "lane": "news",
-      "headline": "New screwworm cases raise concern for Texas cattle, beef prices",
-      "link": "https://www.kxan.com/news/local/austin/new-screwworm-cases-raise-concern-for-texas-cattle-beef-prices/",
+      "headline": "Texas teen who fatally stabbed track athlete at school meet found guilty and sentenced to prison",
+      "link": "https://www.kxan.com/news/texas/ap-closing-arguments-set-in-texas-trial-of-teen-charged-in-fatal-stabbing-at-a-school-track-meet/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 09 Jun 2026 02:08:51 +0000"
+      "published": "Wed, 10 Jun 2026 12:47:33 +0000"
     },
     {
-      "id": "news-austinmonitor-70025018",
+      "id": "news-austinmonitor-73686222",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -109,14 +109,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393428",
+      "id": "sports-2393434",
       "lane": "sports",
-      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-09 23:45",
+      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-10 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-09"
+      "published": "2026-06-10"
     }
   ]
 }
