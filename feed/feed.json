@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-10T12:58:39Z",
+  "generated": "2026-06-11T14:01:19Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny, 94°F",
+      "headline": "Today: Slight Chance Rain Showers then Partly Sunny, 95°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly sunny, with a high near 94. Heat index values as high as 106. South southeast wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Partly Cloudy, 77°F.",
+      "detail": "A slight chance of rain showers before 10am. Partly sunny, with a high near 95. Heat index values as high as 106. South wind around 10 mph, with gusts as high as 20 mph. Chance of precipitation is 20%. Tonight: Partly Cloudy, 78°F.",
       "priority": 10,
-      "published": "2026-06-10T12:58:39Z"
+      "published": "2026-06-11T14:01:19Z"
     },
     {
       "id": "event-austin-flea-jun-13-triangle",
@@ -51,7 +51,7 @@
       "published": "2026-06-13T12:00"
     },
     {
-      "id": "news-kut-12231484",
+      "id": "news-kut-23254664",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,7 +63,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-48025739",
+      "id": "news-kut-43723091",
       "lane": "news",
       "headline": "Austin Democrats brace for more redistricting efforts next year",
       "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
@@ -75,19 +75,19 @@
       "published": "Sun, 03 May 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kxan-54113806",
+      "id": "news-kxan-28675773",
       "lane": "news",
-      "headline": "Texas teen who fatally stabbed track athlete at school meet found guilty and sentenced to prison",
-      "link": "https://www.kxan.com/news/texas/ap-closing-arguments-set-in-texas-trial-of-teen-charged-in-fatal-stabbing-at-a-school-track-meet/",
+      "headline": "1 dead following crash involving vehicle, motorcycle",
+      "link": "https://www.kxan.com/news/local/1-dead-following-crash-involving-vehicle-motorcycle/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Wed, 10 Jun 2026 12:47:33 +0000"
+      "published": "Thu, 11 Jun 2026 11:17:47 +0000"
     },
     {
-      "id": "news-austinmonitor-73686222",
+      "id": "news-austinmonitor-47561512",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -109,14 +109,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393434",
+      "id": "sports-2393437",
       "lane": "sports",
-      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-10 23:45",
+      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-11 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-10"
+      "published": "2026-06-11"
     }
   ]
 }
