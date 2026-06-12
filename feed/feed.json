@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-11T14:01:19Z",
+  "generated": "2026-06-12T12:55:16Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Slight Chance Rain Showers then Partly Sunny, 95°F",
+      "headline": "Today: Slight Chance Rain Showers then Slight Chance Showers And Thunderstorms, 94°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A slight chance of rain showers before 10am. Partly sunny, with a high near 95. Heat index values as high as 106. South wind around 10 mph, with gusts as high as 20 mph. Chance of precipitation is 20%. Tonight: Partly Cloudy, 78°F.",
+      "detail": "A slight chance of rain showers between 10am and 1pm, then a slight chance of showers and thunderstorms. Partly sunny, with a high near 94. Heat index values as high as 101. Southeast wind 0 to 5 mph. Chance of precipitation is 20%. Tonight: Slight Chance Showers And Thunderstorms then Partly Cloudy, 76°F.",
       "priority": 10,
-      "published": "2026-06-11T14:01:19Z"
+      "published": "2026-06-12T12:55:16Z"
     },
     {
       "id": "event-austin-flea-jun-13-triangle",
@@ -51,7 +51,19 @@
       "published": "2026-06-13T12:00"
     },
     {
-      "id": "news-kut-23254664",
+      "id": "news-kut-33357640",
+      "lane": "news",
+      "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
+      "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Thu, 11 Jun 2026 20:56:03 GMT"
+    },
+    {
+      "id": "news-kut-39549422",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -63,31 +75,19 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kut-43723091",
+      "id": "news-kxan-67430332",
       "lane": "news",
-      "headline": "Austin Democrats brace for more redistricting efforts next year",
-      "link": "https://www.kut.org/politics/2026-05-03/austin-tx-house-representatives-redistricting-kut-festival-2026",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Sun, 03 May 2026 11:00:00 GMT"
-    },
-    {
-      "id": "news-kxan-28675773",
-      "lane": "news",
-      "headline": "1 dead following crash involving vehicle, motorcycle",
-      "link": "https://www.kxan.com/news/local/1-dead-following-crash-involving-vehicle-motorcycle/",
+      "headline": "Austin ISD fund balance falls to 10% as district considers cuts, possible loan",
+      "link": "https://www.kxan.com/news/education/austin-isd-fund-balance-falls-to-10-as-district-considers-cuts-possible-loan/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 11 Jun 2026 11:17:47 +0000"
+      "published": "Fri, 12 Jun 2026 01:23:54 +0000"
     },
     {
-      "id": "news-austinmonitor-47561512",
+      "id": "news-austinmonitor-67151793",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -109,14 +109,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393437",
+      "id": "sports-2393439",
       "lane": "sports",
-      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-11 23:45",
+      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-13 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-11"
+      "published": "2026-06-13"
     }
   ]
 }
