@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-12T12:55:16Z",
+  "generated": "2026-06-13T11:55:07Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,24 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Slight Chance Rain Showers then Slight Chance Showers And Thunderstorms, 94°F",
+      "headline": "Today: Mostly Sunny, 94°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A slight chance of rain showers between 10am and 1pm, then a slight chance of showers and thunderstorms. Partly sunny, with a high near 94. Heat index values as high as 101. Southeast wind 0 to 5 mph. Chance of precipitation is 20%. Tonight: Slight Chance Showers And Thunderstorms then Partly Cloudy, 76°F.",
+      "detail": "Mostly sunny, with a high near 94. Heat index values as high as 102. South southeast wind 0 to 10 mph, with gusts as high as 20 mph. Tonight: Partly Cloudy, 78°F.",
       "priority": 10,
-      "published": "2026-06-12T12:55:16Z"
+      "published": "2026-06-13T11:55:07Z"
+    },
+    {
+      "id": "event-city-wide-vintage-sale",
+      "lane": "events",
+      "headline": "City-Wide Vintage Sale  ·  2026-06-20",
+      "link": "https://www.citywidevintagesale.com",
+      "label": "Event",
+      "icon": "📅",
+      "detail": "Palmer Events Center · large indoor vintage market",
+      "priority": 20,
+      "published": "2026-06-20T08:30"
     },
     {
       "id": "event-austin-flea-jun-13-triangle",
@@ -51,7 +62,7 @@
       "published": "2026-06-13T12:00"
     },
     {
-      "id": "news-kut-33357640",
+      "id": "news-kut-79225778",
       "lane": "news",
       "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
       "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
@@ -60,10 +71,10 @@
       "detail": "KUT",
       "source": "KUT",
       "priority": 30,
-      "published": "Thu, 11 Jun 2026 20:56:03 GMT"
+      "published": "Thu, 11 Jun 2026 18:23:13 GMT"
     },
     {
-      "id": "news-kut-39549422",
+      "id": "news-kut-77194494",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -75,19 +86,19 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kxan-67430332",
+      "id": "news-kxan-36512625",
       "lane": "news",
-      "headline": "Austin ISD fund balance falls to 10% as district considers cuts, possible loan",
-      "link": "https://www.kxan.com/news/education/austin-isd-fund-balance-falls-to-10-as-district-considers-cuts-possible-loan/",
+      "headline": "Austin man accused of sexually motivated break-ins at three West Campus apartments",
+      "link": "https://www.kxan.com/investigations/austin-man-accused-of-sexually-motivated-break-ins-at-three-west-campus-apartments/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 12 Jun 2026 01:23:54 +0000"
+      "published": "Fri, 12 Jun 2026 22:09:00 +0000"
     },
     {
-      "id": "news-austinmonitor-67151793",
+      "id": "news-austinmonitor-32679983",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
