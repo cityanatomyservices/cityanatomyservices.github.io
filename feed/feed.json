@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-13T11:55:07Z",
+  "generated": "2026-06-14T11:58:44Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 94°F",
+      "headline": "Today: Chance Showers And Thunderstorms, 91°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 94. Heat index values as high as 102. South southeast wind 0 to 10 mph, with gusts as high as 20 mph. Tonight: Partly Cloudy, 78°F.",
+      "detail": "A slight chance of rain showers before 10am, then a chance of showers and thunderstorms between 10am and 1pm, then a chance of showers and thunderstorms. Partly sunny, with a high near 91. Heat index values as high as 101. Southeast wind 0 to 5 mph. Chance of precipitation is 40%. New rainfall amounts between a quarter and half of an inch possible. Tonight: Chance Showers And Thunderstorms then Showers And Thunderstorms Likely, 77°F.",
       "priority": 10,
-      "published": "2026-06-13T11:55:07Z"
+      "published": "2026-06-14T11:58:44Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,18 +51,7 @@
       "published": "2026-06-20T08:30"
     },
     {
-      "id": "event-austin-flea-jun-13-triangle",
-      "lane": "events",
-      "headline": "Austin Flea @ Triangle Park  ·  2026-06-13",
-      "link": "https://www.austinflea.net",
-      "label": "Event",
-      "icon": "📅",
-      "detail": "Triangle Park · monthly roving artisan + vintage popup",
-      "priority": 20,
-      "published": "2026-06-13T12:00"
-    },
-    {
-      "id": "news-kut-79225778",
+      "id": "news-kut-68431013",
       "lane": "news",
       "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
       "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
@@ -74,7 +63,7 @@
       "published": "Thu, 11 Jun 2026 18:23:13 GMT"
     },
     {
-      "id": "news-kut-77194494",
+      "id": "news-kut-15223893",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -86,19 +75,19 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kxan-36512625",
+      "id": "news-kxan-73438999",
       "lane": "news",
-      "headline": "Austin man accused of sexually motivated break-ins at three West Campus apartments",
-      "link": "https://www.kxan.com/investigations/austin-man-accused-of-sexually-motivated-break-ins-at-three-west-campus-apartments/",
+      "headline": "North Austin crash leads to lane closures, one person hurt",
+      "link": "https://www.kxan.com/news/local/austin/north-austin-crash-leads-to-lane-closures-one-person-hurt/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 12 Jun 2026 22:09:00 +0000"
+      "published": "Sun, 14 Jun 2026 11:51:43 +0000"
     },
     {
-      "id": "news-austinmonitor-32679983",
+      "id": "news-austinmonitor-33563499",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -120,14 +109,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393439",
+      "id": "sports-2393444",
       "lane": "sports",
-      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-13 00:05",
+      "headline": "Round Rock Express vs El Paso Chihuahuas  ·  2026-06-14 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-13"
+      "published": "2026-06-14"
     }
   ]
 }
