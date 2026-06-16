@@ -1,20 +1,7 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-15T15:48:15Z",
+  "generated": "2026-06-16T15:10:55Z",
   "items": [
-    {
-      "id": "alert-urn:oid:2.49.0.1.840.0.39ed238f648ff198b",
-      "lane": "alerts",
-      "headline": "Flood Watch issued June 14 at 9:31PM CDT until June 16 at 7:00PM CDT by NWS Austin/San Antonio TX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.39ed238f648ff198b2ecbc6f8ed133643b59ddb2.001.1",
-      "label": "Alert",
-      "icon": "⚠️",
-      "detail": "* WHAT...Flooding caused by excessive rainfall continues to be\npossible.\n\n* WHERE...A portion of south central Texas, including the following\ncounties, Atascosa, Bandera, Bastrop, Bexar, Blanco, Burnet,\nCaldwell, Comal, De Witt, Dimmit, Edwards, Fayette, Frio,\nGillespie, Gonzales",
-      "severity": 1,
-      "priority": 1,
-      "published": "2026-06-14T21:31:00-05:00",
-      "expires": "2026-06-15T19:15:00-05:00"
-    },
     {
       "id": "sample-deal-replace-me",
       "lane": "deals",
@@ -44,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Showers And Thunderstorms Likely, 83°F",
+      "headline": "Today: Chance Showers And Thunderstorms, 88°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Showers and thunderstorms likely. Mostly cloudy, with a high near 83. East northeast wind 0 to 5 mph. Chance of precipitation is 60%. New rainfall amounts between three quarters and one inch possible. Tonight: Chance Showers And Thunderstorms, 74°F.",
+      "detail": "A chance of showers and thunderstorms. Partly sunny, with a high near 88. East northeast wind 0 to 5 mph. Chance of precipitation is 50%. New rainfall amounts less than a tenth of an inch possible. Tonight: Chance Showers And Thunderstorms then Partly Cloudy, 74°F.",
       "priority": 10,
-      "published": "2026-06-15T15:48:15Z"
+      "published": "2026-06-16T15:10:55Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -64,7 +51,7 @@
       "published": "2026-06-20T08:30"
     },
     {
-      "id": "news-kut-20935353",
+      "id": "news-kut-31191223",
       "lane": "news",
       "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
       "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
@@ -76,7 +63,7 @@
       "published": "Thu, 11 Jun 2026 18:23:13 GMT"
     },
     {
-      "id": "news-kut-67450898",
+      "id": "news-kut-40224707",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -88,19 +75,19 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kxan-25745958",
+      "id": "news-kxan-84837388",
       "lane": "news",
-      "headline": "Live updates: Flood threat across Central Texas Monday",
-      "link": "https://www.kxan.com/weather/wx-live-blog-june-15-2026/",
+      "headline": "Person killed in southeast Austin, police seek information",
+      "link": "https://www.kxan.com/news/crime/person-killed-in-southeast-austin-police-seek-information/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 15 Jun 2026 14:52:11 +0000"
+      "published": "Tue, 16 Jun 2026 10:39:11 +0000"
     },
     {
-      "id": "news-austinmonitor-14367355",
+      "id": "news-austinmonitor-32595091",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
