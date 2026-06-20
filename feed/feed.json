@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-19T13:36:20Z",
+  "generated": "2026-06-20T11:58:01Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -29,28 +29,15 @@
       "expires": "2099-12-31T23:59:59Z"
     },
     {
-      "id": "alert-urn:oid:2.49.0.1.840.0.61afcce78b39f1797",
-      "lane": "alerts",
-      "headline": "Heat Advisory issued June 19 at 5:15AM CDT until June 19 at 8:00PM CDT by NWS Austin/San Antonio TX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.61afcce78b39f1797be7f1e3393d1390a5b4ce29.001.1",
-      "label": "Alert",
-      "icon": "⚠️",
-      "detail": "* WHAT...Heat index values of 108 to 112 expected.\n\n* WHERE...Much of south central Texas.\n\n* WHEN...From noon today to 8 PM CDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
-      "severity": 2,
-      "priority": 2,
-      "published": "2026-06-19T05:15:00-05:00",
-      "expires": "2026-06-19T20:00:00-05:00"
-    },
-    {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Juneteenth: Chance Showers And Thunderstorms, 94°F",
+      "headline": "Today: Chance Showers And Thunderstorms, 92°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A chance of showers and thunderstorms after 10am. Mostly cloudy, with a high near 94. Heat index values as high as 107. East wind around 5 mph. Chance of precipitation is 50%. New rainfall amounts between a quarter and half of an inch possible. Tonight: Chance Showers And Thunderstorms, 78°F.",
+      "detail": "A chance of showers and thunderstorms. Partly sunny, with a high near 92. Heat index values as high as 101. South southeast wind around 5 mph. Chance of precipitation is 40%. New rainfall amounts between a quarter and half of an inch possible. Tonight: Chance Showers And Thunderstorms then Partly Cloudy, 78°F.",
       "priority": 10,
-      "published": "2026-06-19T13:36:20Z"
+      "published": "2026-06-20T11:58:01Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -64,7 +51,7 @@
       "published": "2026-06-20T08:30"
     },
     {
-      "id": "news-kut-32395463",
+      "id": "news-kut-53867026",
       "lane": "news",
       "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
       "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
@@ -76,7 +63,7 @@
       "published": "Thu, 11 Jun 2026 18:23:13 GMT"
     },
     {
-      "id": "news-kut-69003890",
+      "id": "news-kut-30791300",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -88,19 +75,19 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kxan-55400713",
+      "id": "news-kxan-30390816",
       "lane": "news",
-      "headline": "Scattered storms, flood risk amid high heat indices",
-      "link": "https://www.kxan.com/weather/forecast/scattered-storms-flood-risk-amid-high-heat-indices/",
+      "headline": "Still in drought despite recent rain, making up for 50-inch deficit",
+      "link": "https://www.kxan.com/news/local/austin/still-in-drought-despite-recent-rain-making-up-for-50-inch-deficit/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 19 Jun 2026 11:15:03 +0000"
+      "published": "Sat, 20 Jun 2026 03:18:04 +0000"
     },
     {
-      "id": "news-austinmonitor-80518947",
+      "id": "news-austinmonitor-74251118",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -122,14 +109,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393463",
+      "id": "sports-2393468",
       "lane": "sports",
-      "headline": "Las Vegas Aviators vs Round Rock Express  ·  2026-06-19 02:05",
+      "headline": "Las Vegas Aviators vs Round Rock Express  ·  2026-06-20 02:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-19"
+      "published": "2026-06-20"
     }
   ]
 }
