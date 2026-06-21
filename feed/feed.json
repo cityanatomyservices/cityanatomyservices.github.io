@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-20T11:58:01Z",
+  "generated": "2026-06-21T12:11:18Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,27 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Chance Showers And Thunderstorms, 92°F",
+      "headline": "Today: Slight Chance Showers And Thunderstorms, 93°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A chance of showers and thunderstorms. Partly sunny, with a high near 92. Heat index values as high as 101. South southeast wind around 5 mph. Chance of precipitation is 40%. New rainfall amounts between a quarter and half of an inch possible. Tonight: Chance Showers And Thunderstorms then Partly Cloudy, 78°F.",
+      "detail": "A slight chance of showers and thunderstorms before 1pm. Partly sunny, with a high near 93. Heat index values as high as 100. South wind 0 to 10 mph, with gusts as high as 25 mph. Chance of precipitation is 20%. Tonight: Mostly Cloudy, 79°F.",
       "priority": 10,
-      "published": "2026-06-20T11:58:01Z"
+      "published": "2026-06-21T12:11:18Z"
     },
     {
-      "id": "event-city-wide-vintage-sale",
-      "lane": "events",
-      "headline": "City-Wide Vintage Sale  ·  2026-06-20",
-      "link": "https://www.citywidevintagesale.com",
-      "label": "Event",
-      "icon": "📅",
-      "detail": "Palmer Events Center · large indoor vintage market",
-      "priority": 20,
-      "published": "2026-06-20T08:30"
-    },
-    {
-      "id": "news-kut-53867026",
+      "id": "news-kut-12256642",
       "lane": "news",
       "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
       "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
@@ -63,7 +52,7 @@
       "published": "Thu, 11 Jun 2026 18:23:13 GMT"
     },
     {
-      "id": "news-kut-30791300",
+      "id": "news-kut-24160046",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -75,7 +64,7 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kxan-30390816",
+      "id": "news-kxan-90291219",
       "lane": "news",
       "headline": "Still in drought despite recent rain, making up for 50-inch deficit",
       "link": "https://www.kxan.com/news/local/austin/still-in-drought-despite-recent-rain-making-up-for-50-inch-deficit/",
@@ -87,7 +76,7 @@
       "published": "Sat, 20 Jun 2026 03:18:04 +0000"
     },
     {
-      "id": "news-austinmonitor-74251118",
+      "id": "news-austinmonitor-86948089",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -109,14 +98,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393468",
+      "id": "sports-2393473",
       "lane": "sports",
-      "headline": "Las Vegas Aviators vs Round Rock Express  ·  2026-06-20 02:05",
+      "headline": "Las Vegas Aviators vs Round Rock Express  ·  2026-06-21 02:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-20"
+      "published": "2026-06-21"
     }
   ]
 }
