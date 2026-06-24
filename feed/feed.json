@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-23T12:34:56Z",
+  "generated": "2026-06-24T12:20:14Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 96°F",
+      "headline": "Today: Mostly Sunny, 97°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 96. Heat index values as high as 104. South wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Mostly Clear, 77°F.",
+      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 101. South wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Mostly Clear, 74°F.",
       "priority": 10,
-      "published": "2026-06-23T12:34:56Z"
+      "published": "2026-06-24T12:20:14Z"
     },
     {
-      "id": "news-kut-49558322",
+      "id": "news-kut-96030326",
       "lane": "news",
       "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
       "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
@@ -52,7 +52,7 @@
       "published": "Thu, 11 Jun 2026 18:23:13 GMT"
     },
     {
-      "id": "news-kut-83696702",
+      "id": "news-kut-92636991",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -64,19 +64,19 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kxan-58597490",
+      "id": "news-kxan-44620253",
       "lane": "news",
-      "headline": "The heat is here to stay as temperatures keep climbing",
-      "link": "https://www.kxan.com/weather/forecast/the-heat-is-here-to-stay-as-temperatures-keep-climbing/",
+      "headline": "One dead, one hurt in overnight stabbings in south Austin",
+      "link": "https://www.kxan.com/news/local/austin/one-dead-one-hurt-in-overnight-stabbings-in-south-austin/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 23 Jun 2026 11:50:39 +0000"
+      "published": "Wed, 24 Jun 2026 09:58:05 +0000"
     },
     {
-      "id": "news-austinmonitor-91037130",
+      "id": "news-austinmonitor-54890252",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
