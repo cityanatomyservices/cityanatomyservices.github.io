@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-25T12:23:06Z",
+  "generated": "2026-06-26T12:12:52Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 96°F",
+      "headline": "Today: Partly Sunny, 97°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 96. Heat index values as high as 102. South wind 5 to 10 mph, with gusts as high as 25 mph. Tonight: Mostly Clear, 76°F.",
+      "detail": "Partly sunny, with a high near 97. Heat index values as high as 106. South wind 10 to 15 mph, with gusts as high as 25 mph. Tonight: Partly Cloudy, 76°F.",
       "priority": 10,
-      "published": "2026-06-25T12:23:06Z"
+      "published": "2026-06-26T12:12:52Z"
     },
     {
-      "id": "news-kut-85959486",
+      "id": "news-kut-64657209",
       "lane": "news",
       "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
       "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
@@ -52,7 +52,7 @@
       "published": "Thu, 11 Jun 2026 18:23:13 GMT"
     },
     {
-      "id": "news-kut-44027189",
+      "id": "news-kut-51977482",
       "lane": "news",
       "headline": "Alex Jones' Infowars site has finally shut down — for now",
       "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
@@ -64,19 +64,19 @@
       "published": "Mon, 04 May 2026 16:24:03 GMT"
     },
     {
-      "id": "news-kxan-29884918",
+      "id": "news-kxan-89288041",
       "lane": "news",
-      "headline": "Welfare check leads to 5th homicide in two weeks, 70-year-old found dead with ‘obvious trauma’",
-      "link": "https://www.kxan.com/news/crime/welfare-check-leads-to-5th-homicide-in-two-weeks-70-year-old-found-dead-with-obvious-trauma/",
+      "headline": "Austin ‘serial killer’ serving life sentence charged with child porn possession",
+      "link": "https://www.kxan.com/news/crime/austin-serial-killer-serving-life-sentence-charged-with-child-porn-possession/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 25 Jun 2026 03:17:46 +0000"
+      "published": "Thu, 25 Jun 2026 15:37:03 +0000"
     },
     {
-      "id": "news-austinmonitor-96884608",
+      "id": "news-austinmonitor-47843236",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -98,14 +98,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393486",
+      "id": "sports-2393495",
       "lane": "sports",
-      "headline": "Tacoma Rainiers vs Round Rock Express  ·  2026-06-25 01:05",
+      "headline": "Tacoma Rainiers vs Round Rock Express  ·  2026-06-26 02:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-25"
+      "published": "2026-06-26"
     }
   ]
 }
