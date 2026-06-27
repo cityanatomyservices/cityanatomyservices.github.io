@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-26T12:12:52Z",
+  "generated": "2026-06-27T11:35:54Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,28 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny, 97°F",
+      "headline": "Today: Mostly Sunny, 97°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly sunny, with a high near 97. Heat index values as high as 106. South wind 10 to 15 mph, with gusts as high as 25 mph. Tonight: Partly Cloudy, 76°F.",
+      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 105. South wind 5 to 15 mph, with gusts as high as 25 mph. Tonight: Partly Cloudy, 78°F.",
       "priority": 10,
-      "published": "2026-06-26T12:12:52Z"
+      "published": "2026-06-27T11:35:54Z"
     },
     {
-      "id": "news-kut-64657209",
+      "id": "news-kut-99322163",
+      "lane": "news",
+      "headline": "Missing giraffe Gracie found safe after nearly two weeks on the loose",
+      "link": "https://www.kut.org/news/2026-06-26/missing-giraffe-gracie-found-safe-after-nearly-two-weeks-on-the-loose",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Fri, 26 Jun 2026 16:47:59 GMT"
+    },
+    {
+      "id": "news-kut-69708378",
       "lane": "news",
       "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
       "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
@@ -52,31 +64,19 @@
       "published": "Thu, 11 Jun 2026 18:23:13 GMT"
     },
     {
-      "id": "news-kut-51977482",
+      "id": "news-kxan-22776335",
       "lane": "news",
-      "headline": "Alex Jones' Infowars site has finally shut down — for now",
-      "link": "https://www.kut.org/news/2026-05-04/infowars-dead-alex-jones-the-onion-austin-tx-lawsuit",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Mon, 04 May 2026 16:24:03 GMT"
-    },
-    {
-      "id": "news-kxan-89288041",
-      "lane": "news",
-      "headline": "Austin ‘serial killer’ serving life sentence charged with child porn possession",
-      "link": "https://www.kxan.com/news/crime/austin-serial-killer-serving-life-sentence-charged-with-child-porn-possession/",
+      "headline": "Man killed in San Marcos officer-involved shooting, police say",
+      "link": "https://www.kxan.com/news/crime/san-marcos-police-respond-to-officer-involved-shooting-on-sh-123/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 25 Jun 2026 15:37:03 +0000"
+      "published": "Sat, 27 Jun 2026 03:33:49 +0000"
     },
     {
-      "id": "news-austinmonitor-47843236",
+      "id": "news-austinmonitor-22025913",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -98,14 +98,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393495",
+      "id": "sports-2393496",
       "lane": "sports",
-      "headline": "Tacoma Rainiers vs Round Rock Express  ·  2026-06-26 02:05",
+      "headline": "Tacoma Rainiers vs Round Rock Express  ·  2026-06-27 02:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-26"
+      "published": "2026-06-27"
     }
   ]
 }
