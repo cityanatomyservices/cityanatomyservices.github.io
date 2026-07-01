@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-06-30T12:10:56Z",
+  "generated": "2026-07-01T12:35:03Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,28 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 96°F",
+      "headline": "Today: Mostly Sunny, 97°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 96. Heat index values as high as 102. South southeast wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Mostly Clear, 77°F.",
+      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 103. South wind 5 to 10 mph. Tonight: Mostly Clear, 76°F.",
       "priority": 10,
-      "published": "2026-06-30T12:10:56Z"
+      "published": "2026-07-01T12:35:03Z"
     },
     {
-      "id": "news-kut-75494386",
+      "id": "news-kut-58599859",
+      "lane": "news",
+      "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
+      "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Tue, 30 Jun 2026 19:57:03 GMT"
+    },
+    {
+      "id": "news-kut-88351840",
       "lane": "news",
       "headline": "Missing giraffe Gracie found safe after nearly two weeks on the loose",
       "link": "https://www.kut.org/news/2026-06-26/missing-giraffe-gracie-found-safe-after-nearly-two-weeks-on-the-loose",
@@ -52,31 +64,19 @@
       "published": "Fri, 26 Jun 2026 16:47:59 GMT"
     },
     {
-      "id": "news-kut-665578",
+      "id": "news-kxan-69540944",
       "lane": "news",
-      "headline": "YETI co-founder among owners of West Texas ranch facilitating border wall construction",
-      "link": "https://www.kut.org/news/2026-06-11/yeti-co-founder-among-owners-of-west-texas-ranch-facilitating-border-wall-construction",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Thu, 11 Jun 2026 18:23:13 GMT"
-    },
-    {
-      "id": "news-kxan-42494486",
-      "lane": "news",
-      "headline": "A year after the flood, Kerr County rebuilds one day at a time",
-      "link": "https://www.kxan.com/after-the-flood/after-the-flood-kerr-county-rebuilds-one-day-at-a-time/",
+      "headline": "1 dead following crash involving person on scooter in east Austin",
+      "link": "https://www.kxan.com/news/local/austin/1-dead-following-crash-involving-person-on-scooter/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 30 Jun 2026 12:00:00 +0000"
+      "published": "Wed, 01 Jul 2026 11:13:16 +0000"
     },
     {
-      "id": "news-austinmonitor-54788302",
+      "id": "news-austinmonitor-71168575",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -98,14 +98,14 @@
       "published": "2026-07-03"
     },
     {
-      "id": "sports-2393513",
+      "id": "sports-2393518",
       "lane": "sports",
-      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-06-30 23:45",
+      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-01 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-06-30"
+      "published": "2026-07-01"
     }
   ]
 }
