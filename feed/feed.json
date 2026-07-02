@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-01T12:35:03Z",
+  "generated": "2026-07-02T12:12:40Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -35,12 +35,24 @@
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 103. South wind 5 to 10 mph. Tonight: Mostly Clear, 76°F.",
+      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 102. South wind 0 to 5 mph. Tonight: Mostly Clear, 76°F.",
       "priority": 10,
-      "published": "2026-07-01T12:35:03Z"
+      "published": "2026-07-02T12:12:40Z"
     },
     {
-      "id": "news-kut-58599859",
+      "id": "news-kut-35101526",
+      "lane": "news",
+      "headline": "A year after the Hill Country floods, Kerrville and Sandy Creek face different recoveries",
+      "link": "https://www.kut.org/news/2026-07-01/a-year-after-the-hill-country-floods-kerrville-and-sandy-creek-face-different-recoveries",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Wed, 01 Jul 2026 16:23:42 GMT"
+    },
+    {
+      "id": "news-kut-82650939",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -52,31 +64,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kut-88351840",
+      "id": "news-kxan-71272806",
       "lane": "news",
-      "headline": "Missing giraffe Gracie found safe after nearly two weeks on the loose",
-      "link": "https://www.kut.org/news/2026-06-26/missing-giraffe-gracie-found-safe-after-nearly-two-weeks-on-the-loose",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Fri, 26 Jun 2026 16:47:59 GMT"
-    },
-    {
-      "id": "news-kxan-69540944",
-      "lane": "news",
-      "headline": "1 dead following crash involving person on scooter in east Austin",
-      "link": "https://www.kxan.com/news/local/austin/1-dead-following-crash-involving-person-on-scooter/",
+      "headline": "High school coach arrested for alleged aggravated sexual assault of a child: Elgin Police",
+      "link": "https://www.kxan.com/news/crime/high-school-coach-arrested-for-alleged-aggravated-sexual-assault-of-a-child-elgin-police/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Wed, 01 Jul 2026 11:13:16 +0000"
+      "published": "Wed, 01 Jul 2026 20:35:49 +0000"
     },
     {
-      "id": "news-austinmonitor-71168575",
+      "id": "news-austinmonitor-52686791",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -98,14 +98,14 @@
       "published": "2026-07-03"
     },
     {
-      "id": "sports-2393518",
+      "id": "sports-2393523",
       "lane": "sports",
-      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-01 23:45",
+      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-02 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-01"
+      "published": "2026-07-02"
     }
   ]
 }
