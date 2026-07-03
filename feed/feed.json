@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-02T12:12:40Z",
+  "generated": "2026-07-03T12:10:17Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -35,12 +35,12 @@
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 102. South wind 0 to 5 mph. Tonight: Mostly Clear, 76°F.",
+      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 104. South wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-07-02T12:12:40Z"
+      "published": "2026-07-03T12:10:17Z"
     },
     {
-      "id": "news-kut-35101526",
+      "id": "news-kut-80468226",
       "lane": "news",
       "headline": "A year after the Hill Country floods, Kerrville and Sandy Creek face different recoveries",
       "link": "https://www.kut.org/news/2026-07-01/a-year-after-the-hill-country-floods-kerrville-and-sandy-creek-face-different-recoveries",
@@ -52,7 +52,7 @@
       "published": "Wed, 01 Jul 2026 16:23:42 GMT"
     },
     {
-      "id": "news-kut-82650939",
+      "id": "news-kut-28769632",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -64,19 +64,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-71272806",
+      "id": "news-kxan-39823367",
       "lane": "news",
-      "headline": "High school coach arrested for alleged aggravated sexual assault of a child: Elgin Police",
-      "link": "https://www.kxan.com/news/crime/high-school-coach-arrested-for-alleged-aggravated-sexual-assault-of-a-child-elgin-police/",
+      "headline": "State senator plans to challenge San Marcos' data center ban, says city lacks legal authority",
+      "link": "https://www.kxan.com/news/local/san-marcos/state-senator-plans-to-challenge-san-marcos-data-center-ban-says-city-lacks-legal-authority/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Wed, 01 Jul 2026 20:35:49 +0000"
+      "published": "Fri, 03 Jul 2026 00:51:49 +0000"
     },
     {
-      "id": "news-austinmonitor-52686791",
+      "id": "news-austinmonitor-6970511",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -88,6 +88,16 @@
       "published": "Wed, 05 Nov 2025 23:48:45 +0000"
     },
     {
+      "id": "sports-2393528",
+      "lane": "sports",
+      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-04 00:05",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-07-04"
+    },
+    {
       "id": "sports-2504254",
       "lane": "sports",
       "headline": "Austin FC vs Querétaro  ·  2026-07-03 20:00",
@@ -96,16 +106,6 @@
       "icon": "🏆",
       "priority": 40,
       "published": "2026-07-03"
-    },
-    {
-      "id": "sports-2393523",
-      "lane": "sports",
-      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-02 23:45",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-07-02"
     }
   ]
 }
