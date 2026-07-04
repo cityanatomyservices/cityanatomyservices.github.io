@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-03T12:10:17Z",
+  "generated": "2026-07-04T11:33:30Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,27 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 97°F",
+      "headline": "Independence Day: Mostly Sunny, 98°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 104. South wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
+      "detail": "Mostly sunny, with a high near 98. Heat index values as high as 103. South wind around 5 mph. Tonight: Partly Cloudy, 77°F.",
       "priority": 10,
-      "published": "2026-07-03T12:10:17Z"
+      "published": "2026-07-04T11:33:30Z"
     },
     {
-      "id": "news-kut-80468226",
+      "id": "event-markets-for-makers-austin-2026",
+      "lane": "events",
+      "headline": "Markets for Makers · Austin 2026  ·  2026-07-11",
+      "link": "https://www.marketsformakers.com/austin",
+      "label": "Event",
+      "icon": "📅",
+      "detail": "Palmer Events Center · juried indie makers fair",
+      "priority": 20,
+      "published": "2026-07-11T11:00"
+    },
+    {
+      "id": "news-kut-16261368",
       "lane": "news",
       "headline": "A year after the Hill Country floods, Kerrville and Sandy Creek face different recoveries",
       "link": "https://www.kut.org/news/2026-07-01/a-year-after-the-hill-country-floods-kerrville-and-sandy-creek-face-different-recoveries",
@@ -52,7 +63,7 @@
       "published": "Wed, 01 Jul 2026 16:23:42 GMT"
     },
     {
-      "id": "news-kut-28769632",
+      "id": "news-kut-59110211",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -64,19 +75,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-39823367",
+      "id": "news-kxan-85164877",
       "lane": "news",
-      "headline": "State senator plans to challenge San Marcos' data center ban, says city lacks legal authority",
-      "link": "https://www.kxan.com/news/local/san-marcos/state-senator-plans-to-challenge-san-marcos-data-center-ban-says-city-lacks-legal-authority/",
+      "headline": "Gov. Abbott calls for banning data center development in rural Texas neighborhoods",
+      "link": "https://www.kxan.com/news/texas-politics/gov-abbott-calls-for-banning-data-center-development-in-rural-texas-neighborhoods/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 03 Jul 2026 00:51:49 +0000"
+      "published": "Fri, 03 Jul 2026 21:23:36 +0000"
     },
     {
-      "id": "news-austinmonitor-6970511",
+      "id": "news-austinmonitor-58144296",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -88,6 +99,16 @@
       "published": "Wed, 05 Nov 2025 23:48:45 +0000"
     },
     {
+      "id": "sports-2504299",
+      "lane": "sports",
+      "headline": "Austin FC vs Sporting JAX  ·  2026-07-08 20:00",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-07-08"
+    },
+    {
       "id": "sports-2393528",
       "lane": "sports",
       "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-04 00:05",
@@ -96,16 +117,6 @@
       "icon": "🏆",
       "priority": 40,
       "published": "2026-07-04"
-    },
-    {
-      "id": "sports-2504254",
-      "lane": "sports",
-      "headline": "Austin FC vs Querétaro  ·  2026-07-03 20:00",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-07-03"
     }
   ]
 }
