@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-04T11:33:30Z",
+  "generated": "2026-07-05T11:36:28Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Independence Day: Mostly Sunny, 98°F",
+      "headline": "Today: Mostly Sunny, 98°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 98. Heat index values as high as 103. South wind around 5 mph. Tonight: Partly Cloudy, 77°F.",
+      "detail": "Mostly sunny, with a high near 98. Heat index values as high as 103. South wind 0 to 5 mph. Tonight: Mostly Clear, 78°F.",
       "priority": 10,
-      "published": "2026-07-04T11:33:30Z"
+      "published": "2026-07-05T11:36:28Z"
     },
     {
       "id": "event-markets-for-makers-austin-2026",
@@ -51,7 +51,7 @@
       "published": "2026-07-11T11:00"
     },
     {
-      "id": "news-kut-16261368",
+      "id": "news-kut-77362566",
       "lane": "news",
       "headline": "A year after the Hill Country floods, Kerrville and Sandy Creek face different recoveries",
       "link": "https://www.kut.org/news/2026-07-01/a-year-after-the-hill-country-floods-kerrville-and-sandy-creek-face-different-recoveries",
@@ -63,7 +63,7 @@
       "published": "Wed, 01 Jul 2026 16:23:42 GMT"
     },
     {
-      "id": "news-kut-59110211",
+      "id": "news-kut-85044052",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -75,19 +75,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-85164877",
+      "id": "news-kxan-53757375",
       "lane": "news",
-      "headline": "Gov. Abbott calls for banning data center development in rural Texas neighborhoods",
-      "link": "https://www.kxan.com/news/texas-politics/gov-abbott-calls-for-banning-data-center-development-in-rural-texas-neighborhoods/",
+      "headline": "PHOTOS: Central Texas celebrates Fourth of July, USA's 250th birthday",
+      "link": "https://www.kxan.com/news/local/photos-central-texas-celebrates-fourth-of-july-usas-250th-birthday/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 03 Jul 2026 21:23:36 +0000"
+      "published": "Sat, 04 Jul 2026 21:50:21 +0000"
     },
     {
-      "id": "news-austinmonitor-58144296",
+      "id": "news-austinmonitor-86879681",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -109,14 +109,14 @@
       "published": "2026-07-08"
     },
     {
-      "id": "sports-2393528",
+      "id": "sports-2393533",
       "lane": "sports",
-      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-04 00:05",
+      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-05 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-04"
+      "published": "2026-07-05"
     }
   ]
 }
