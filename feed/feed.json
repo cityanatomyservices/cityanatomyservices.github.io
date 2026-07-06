@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-05T11:36:28Z",
+  "generated": "2026-07-06T13:47:44Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 98°F",
+      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 97°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 98. Heat index values as high as 103. South wind 0 to 5 mph. Tonight: Mostly Clear, 78°F.",
+      "detail": "A slight chance of showers and thunderstorms after 4pm. Mostly sunny, with a high near 97. Heat index values as high as 103. South wind 0 to 5 mph. Chance of precipitation is 20%. New rainfall amounts less than a tenth of an inch possible. Tonight: Slight Chance Showers And Thunderstorms then Partly Cloudy, 78°F.",
       "priority": 10,
-      "published": "2026-07-05T11:36:28Z"
+      "published": "2026-07-06T13:47:44Z"
     },
     {
       "id": "event-markets-for-makers-austin-2026",
@@ -51,19 +51,7 @@
       "published": "2026-07-11T11:00"
     },
     {
-      "id": "news-kut-77362566",
-      "lane": "news",
-      "headline": "A year after the Hill Country floods, Kerrville and Sandy Creek face different recoveries",
-      "link": "https://www.kut.org/news/2026-07-01/a-year-after-the-hill-country-floods-kerrville-and-sandy-creek-face-different-recoveries",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Wed, 01 Jul 2026 16:23:42 GMT"
-    },
-    {
-      "id": "news-kut-85044052",
+      "id": "news-kut-39748771",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -75,19 +63,31 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-53757375",
+      "id": "news-kut-10067375",
       "lane": "news",
-      "headline": "PHOTOS: Central Texas celebrates Fourth of July, USA's 250th birthday",
-      "link": "https://www.kxan.com/news/local/photos-central-texas-celebrates-fourth-of-july-usas-250th-birthday/",
+      "headline": "Missing giraffe Gracie found safe after nearly two weeks on the loose",
+      "link": "https://www.kut.org/news/2026-06-26/missing-giraffe-gracie-found-safe-after-nearly-two-weeks-on-the-loose",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Fri, 26 Jun 2026 16:47:59 GMT"
+    },
+    {
+      "id": "news-kxan-18084572",
+      "lane": "news",
+      "headline": "TCSO investigating double homicide outside of northeast Austin strip club",
+      "link": "https://www.kxan.com/news/local/travis-county/tcso-investigating-double-homicide-outside-of-northeast-austin-strip-club/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 04 Jul 2026 21:50:21 +0000"
+      "published": "Sun, 05 Jul 2026 12:43:23 +0000"
     },
     {
-      "id": "news-austinmonitor-86879681",
+      "id": "news-austinmonitor-8294835",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -109,14 +109,14 @@
       "published": "2026-07-08"
     },
     {
-      "id": "sports-2393533",
+      "id": "sports-2393543",
       "lane": "sports",
-      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-07-05 00:05",
+      "headline": "Reno Aces vs Round Rock Express  ·  2026-07-08 01:35",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-05"
+      "published": "2026-07-08"
     }
   ]
 }
