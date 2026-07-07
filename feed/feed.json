@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-06T13:47:44Z",
+  "generated": "2026-07-07T12:28:25Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 97°F",
+      "headline": "Today: Mostly Sunny, 97°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A slight chance of showers and thunderstorms after 4pm. Mostly sunny, with a high near 97. Heat index values as high as 103. South wind 0 to 5 mph. Chance of precipitation is 20%. New rainfall amounts less than a tenth of an inch possible. Tonight: Slight Chance Showers And Thunderstorms then Partly Cloudy, 78°F.",
+      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 102. South wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-07-06T13:47:44Z"
+      "published": "2026-07-07T12:28:25Z"
     },
     {
       "id": "event-markets-for-makers-austin-2026",
@@ -51,7 +51,7 @@
       "published": "2026-07-11T11:00"
     },
     {
-      "id": "news-kut-39748771",
+      "id": "news-kut-12357151",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -63,7 +63,7 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kut-10067375",
+      "id": "news-kut-9364791",
       "lane": "news",
       "headline": "Missing giraffe Gracie found safe after nearly two weeks on the loose",
       "link": "https://www.kut.org/news/2026-06-26/missing-giraffe-gracie-found-safe-after-nearly-two-weeks-on-the-loose",
@@ -75,19 +75,19 @@
       "published": "Fri, 26 Jun 2026 16:47:59 GMT"
     },
     {
-      "id": "news-kxan-18084572",
+      "id": "news-kxan-19776768",
       "lane": "news",
-      "headline": "TCSO investigating double homicide outside of northeast Austin strip club",
-      "link": "https://www.kxan.com/news/local/travis-county/tcso-investigating-double-homicide-outside-of-northeast-austin-strip-club/",
+      "headline": "Police identify man killed in July 4 shooting at north Austin shopping center",
+      "link": "https://www.kxan.com/news/local/austin/man-killed-another-person-injured-in-shooting-near-south-austin-shopping-center-with-history-of-crime-tabc-violations/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sun, 05 Jul 2026 12:43:23 +0000"
+      "published": "Mon, 06 Jul 2026 22:16:13 +0000"
     },
     {
-      "id": "news-austinmonitor-8294835",
+      "id": "news-austinmonitor-60900198",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
