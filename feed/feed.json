@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-07T12:28:25Z",
+  "generated": "2026-07-08T11:47:46Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 97°F",
+      "headline": "Today: Sunny, 98°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 97. Heat index values as high as 102. South wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
+      "detail": "Sunny, with a high near 98. Heat index values as high as 104. South southwest wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-07-07T12:28:25Z"
+      "published": "2026-07-08T11:47:46Z"
     },
     {
       "id": "event-markets-for-makers-austin-2026",
@@ -51,7 +51,19 @@
       "published": "2026-07-11T11:00"
     },
     {
-      "id": "news-kut-12357151",
+      "id": "news-kut-25810979",
+      "lane": "news",
+      "headline": "ICE agent fatally shoots man in Houston during 'targeted enforcement operation'",
+      "link": "https://www.kut.org/news/2026-07-07/ice-agent-fatally-shoots-man-in-houston-during-targeted-enforcement-operation",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Tue, 07 Jul 2026 21:34:47 GMT"
+    },
+    {
+      "id": "news-kut-8505606",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -63,31 +75,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kut-9364791",
+      "id": "news-kxan-11914566",
       "lane": "news",
-      "headline": "Missing giraffe Gracie found safe after nearly two weeks on the loose",
-      "link": "https://www.kut.org/news/2026-06-26/missing-giraffe-gracie-found-safe-after-nearly-two-weeks-on-the-loose",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Fri, 26 Jun 2026 16:47:59 GMT"
-    },
-    {
-      "id": "news-kxan-19776768",
-      "lane": "news",
-      "headline": "Police identify man killed in July 4 shooting at north Austin shopping center",
-      "link": "https://www.kxan.com/news/local/austin/man-killed-another-person-injured-in-shooting-near-south-austin-shopping-center-with-history-of-crime-tabc-violations/",
+      "headline": "Family marks 20 years since Roxanne Paltauf's disappearance with Austin billboard",
+      "link": "https://www.kxan.com/news/crime/unsolved-central-texas/family-marks-20-years-since-roxanne-paltaufs-disappearance-with-austin-billboard/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 06 Jul 2026 22:16:13 +0000"
+      "published": "Tue, 07 Jul 2026 15:13:18 +0000"
     },
     {
-      "id": "news-austinmonitor-60900198",
+      "id": "news-austinmonitor-62264719",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
