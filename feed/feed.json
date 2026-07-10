@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-08T11:47:46Z",
+  "generated": "2026-07-10T12:26:31Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 98°F",
+      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 95°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 98. Heat index values as high as 104. South southwest wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
+      "detail": "A slight chance of showers and thunderstorms after 4pm. Mostly sunny, with a high near 95. Heat index values as high as 102. South southeast wind 0 to 10 mph, with gusts as high as 20 mph. Chance of precipitation is 20%. Tonight: Slight Chance Showers And Thunderstorms then Mostly Clear, 78°F.",
       "priority": 10,
-      "published": "2026-07-08T11:47:46Z"
+      "published": "2026-07-10T12:26:31Z"
     },
     {
       "id": "event-markets-for-makers-austin-2026",
@@ -51,19 +51,19 @@
       "published": "2026-07-11T11:00"
     },
     {
-      "id": "news-kut-25810979",
+      "id": "news-kut-96763596",
       "lane": "news",
-      "headline": "ICE agent fatally shoots man in Houston during 'targeted enforcement operation'",
-      "link": "https://www.kut.org/news/2026-07-07/ice-agent-fatally-shoots-man-in-houston-during-targeted-enforcement-operation",
+      "headline": "Judge orders Texas to admit all mentally ill jail detainees to state facilities within 21 days",
+      "link": "https://www.kut.org/news/2026-07-09/judge-orders-texas-to-admit-all-mentally-ill-jail-detainees-to-state-facilities-within-21-days",
       "label": "Local News",
       "icon": "📰",
       "detail": "KUT",
       "source": "KUT",
       "priority": 30,
-      "published": "Tue, 07 Jul 2026 21:34:47 GMT"
+      "published": "Thu, 09 Jul 2026 17:42:20 GMT"
     },
     {
-      "id": "news-kut-8505606",
+      "id": "news-kut-58549020",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -75,19 +75,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-11914566",
+      "id": "news-kxan-64813213",
       "lane": "news",
-      "headline": "Family marks 20 years since Roxanne Paltauf's disappearance with Austin billboard",
-      "link": "https://www.kxan.com/news/crime/unsolved-central-texas/family-marks-20-years-since-roxanne-paltaufs-disappearance-with-austin-billboard/",
+      "headline": "Her son was murdered in Austin; She buried him in her front yard",
+      "link": "https://www.kxan.com/news/crime/crime-imprints/her-son-was-murdered-in-austin-she-buried-him-in-her-front-yard/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 07 Jul 2026 15:13:18 +0000"
+      "published": "Thu, 09 Jul 2026 17:57:24 +0000"
     },
     {
-      "id": "news-austinmonitor-62264719",
+      "id": "news-austinmonitor-26472992",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -99,24 +99,34 @@
       "published": "Wed, 05 Nov 2025 23:48:45 +0000"
     },
     {
-      "id": "sports-2504299",
+      "id": "sports-2526113",
       "lane": "sports",
-      "headline": "Austin FC vs Sporting JAX  ·  2026-07-08 20:00",
+      "headline": "Texas Stars vs Iowa Wild  ·  2026-10-03 00:00",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-08"
+      "published": "2026-10-03"
     },
     {
-      "id": "sports-2393543",
+      "id": "sports-2504356",
       "lane": "sports",
-      "headline": "Reno Aces vs Round Rock Express  ·  2026-07-08 01:35",
+      "headline": "Austin FC vs Charlotte FC  ·  2026-07-15 20:00",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-08"
+      "published": "2026-07-15"
+    },
+    {
+      "id": "sports-2393553",
+      "lane": "sports",
+      "headline": "Reno Aces vs Round Rock Express  ·  2026-07-10 01:35",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-07-10"
     }
   ]
 }
