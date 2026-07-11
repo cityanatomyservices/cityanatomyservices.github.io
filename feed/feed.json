@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-10T12:26:31Z",
+  "generated": "2026-07-11T11:07:00Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,24 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 95°F",
+      "headline": "Today: Partly Sunny then Chance Showers And Thunderstorms, 94°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A slight chance of showers and thunderstorms after 4pm. Mostly sunny, with a high near 95. Heat index values as high as 102. South southeast wind 0 to 10 mph, with gusts as high as 20 mph. Chance of precipitation is 20%. Tonight: Slight Chance Showers And Thunderstorms then Mostly Clear, 78°F.",
+      "detail": "A chance of showers and thunderstorms after 1pm. Partly sunny, with a high near 94. Heat index values as high as 103. South southeast wind 0 to 5 mph. Chance of precipitation is 40%. New rainfall amounts between a tenth and quarter of an inch possible. Tonight: Chance Showers And Thunderstorms then Partly Cloudy, 77°F.",
       "priority": 10,
-      "published": "2026-07-10T12:26:31Z"
+      "published": "2026-07-11T11:07:00Z"
+    },
+    {
+      "id": "event-city-wide-vintage-sale",
+      "lane": "events",
+      "headline": "City-Wide Vintage Sale  ·  2026-07-18",
+      "link": "https://www.citywidevintagesale.com",
+      "label": "Event",
+      "icon": "📅",
+      "detail": "Palmer Events Center · large indoor vintage market",
+      "priority": 20,
+      "published": "2026-07-18T08:30"
     },
     {
       "id": "event-markets-for-makers-austin-2026",
@@ -51,7 +62,7 @@
       "published": "2026-07-11T11:00"
     },
     {
-      "id": "news-kut-96763596",
+      "id": "news-kut-66462797",
       "lane": "news",
       "headline": "Judge orders Texas to admit all mentally ill jail detainees to state facilities within 21 days",
       "link": "https://www.kut.org/news/2026-07-09/judge-orders-texas-to-admit-all-mentally-ill-jail-detainees-to-state-facilities-within-21-days",
@@ -63,7 +74,7 @@
       "published": "Thu, 09 Jul 2026 17:42:20 GMT"
     },
     {
-      "id": "news-kut-58549020",
+      "id": "news-kut-62338125",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -75,19 +86,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-64813213",
+      "id": "news-kxan-7920963",
       "lane": "news",
-      "headline": "Her son was murdered in Austin; She buried him in her front yard",
-      "link": "https://www.kxan.com/news/crime/crime-imprints/her-son-was-murdered-in-austin-she-buried-him-in-her-front-yard/",
+      "headline": "3rd person charged in connection with Sam's BBQ shooting in east Austin: Affidavit",
+      "link": "https://www.kxan.com/news/crime/3rd-person-charged-in-connection-with-sams-bbq-shooting-in-east-austin-affidavit/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 09 Jul 2026 17:57:24 +0000"
+      "published": "Fri, 10 Jul 2026 22:07:44 +0000"
     },
     {
-      "id": "news-austinmonitor-26472992",
+      "id": "news-austinmonitor-37591406",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -119,14 +130,14 @@
       "published": "2026-07-15"
     },
     {
-      "id": "sports-2393553",
+      "id": "sports-2393556",
       "lane": "sports",
-      "headline": "Reno Aces vs Round Rock Express  ·  2026-07-10 01:35",
+      "headline": "Reno Aces vs Round Rock Express  ·  2026-07-11 01:35",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-10"
+      "published": "2026-07-11"
     }
   ]
 }
