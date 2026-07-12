@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-11T11:07:00Z",
+  "generated": "2026-07-12T11:11:59Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny then Chance Showers And Thunderstorms, 94°F",
+      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 94°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A chance of showers and thunderstorms after 1pm. Partly sunny, with a high near 94. Heat index values as high as 103. South southeast wind 0 to 5 mph. Chance of precipitation is 40%. New rainfall amounts between a tenth and quarter of an inch possible. Tonight: Chance Showers And Thunderstorms then Partly Cloudy, 77°F.",
+      "detail": "A slight chance of showers and thunderstorms after 4pm. Mostly sunny, with a high near 94. Heat index values as high as 102. South southeast wind 0 to 5 mph. Chance of precipitation is 20%. Tonight: Slight Chance Showers And Thunderstorms, 78°F.",
       "priority": 10,
-      "published": "2026-07-11T11:07:00Z"
+      "published": "2026-07-12T11:11:59Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,18 +51,7 @@
       "published": "2026-07-18T08:30"
     },
     {
-      "id": "event-markets-for-makers-austin-2026",
-      "lane": "events",
-      "headline": "Markets for Makers · Austin 2026  ·  2026-07-11",
-      "link": "https://www.marketsformakers.com/austin",
-      "label": "Event",
-      "icon": "📅",
-      "detail": "Palmer Events Center · juried indie makers fair",
-      "priority": 20,
-      "published": "2026-07-11T11:00"
-    },
-    {
-      "id": "news-kut-66462797",
+      "id": "news-kut-62474810",
       "lane": "news",
       "headline": "Judge orders Texas to admit all mentally ill jail detainees to state facilities within 21 days",
       "link": "https://www.kut.org/news/2026-07-09/judge-orders-texas-to-admit-all-mentally-ill-jail-detainees-to-state-facilities-within-21-days",
@@ -74,7 +63,7 @@
       "published": "Thu, 09 Jul 2026 17:42:20 GMT"
     },
     {
-      "id": "news-kut-62338125",
+      "id": "news-kut-48752340",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -86,19 +75,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-7920963",
+      "id": "news-kxan-80959810",
       "lane": "news",
-      "headline": "3rd person charged in connection with Sam's BBQ shooting in east Austin: Affidavit",
-      "link": "https://www.kxan.com/news/crime/3rd-person-charged-in-connection-with-sams-bbq-shooting-in-east-austin-affidavit/",
+      "headline": "Sen. Lindsey Graham dies of 'brief and sudden illness'",
+      "link": "https://www.kxan.com/news/sen-lindsey-graham-dies-of-brief-and-sudden-illness/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 10 Jul 2026 22:07:44 +0000"
+      "published": "Sun, 12 Jul 2026 10:34:24 +0000"
     },
     {
-      "id": "news-austinmonitor-37591406",
+      "id": "news-austinmonitor-21903159",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -130,14 +119,14 @@
       "published": "2026-07-15"
     },
     {
-      "id": "sports-2393556",
+      "id": "sports-2393562",
       "lane": "sports",
-      "headline": "Reno Aces vs Round Rock Express  ·  2026-07-11 01:35",
+      "headline": "Reno Aces vs Round Rock Express  ·  2026-07-12 01:35",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-11"
+      "published": "2026-07-12"
     }
   ]
 }
