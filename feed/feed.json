@@ -1,7 +1,20 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-13T12:32:33Z",
+  "generated": "2026-07-14T11:26:14Z",
   "items": [
+    {
+      "id": "alert-urn:oid:2.49.0.1.840.0.1c38becdd8b3bbd4c",
+      "lane": "alerts",
+      "headline": "Flood Watch issued July 13 at 10:36PM CDT until July 16 at 7:00PM CDT by NWS Austin/San Antonio TX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1c38becdd8b3bbd4c752b6290249745cb1747d31.001.1",
+      "label": "Alert",
+      "icon": "⚠️",
+      "detail": "* WHAT...Flooding caused by excessive rainfall continues to be\npossible.\n\n* WHERE...A portion of south central Texas, including the following\ncounties, Bandera, Bexar, Blanco, Burnet, Comal, Dimmit, Edwards,\nFrio, Gillespie, Hays, Kendall, Kerr, Kinney, Llano, Maverick,\nMedina, R",
+      "severity": 1,
+      "priority": 1,
+      "published": "2026-07-13T22:36:00-05:00",
+      "expires": "2026-07-15T05:00:00-05:00"
+    },
     {
       "id": "sample-deal-replace-me",
       "lane": "deals",
@@ -31,13 +44,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny then Chance Showers And Thunderstorms, 92°F",
+      "headline": "Overnight: Showers And Thunderstorms Likely, 75°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A chance of showers and thunderstorms after 1pm. Partly sunny, with a high near 92. Heat index values as high as 102. South wind 0 to 5 mph. Chance of precipitation is 50%. New rainfall amounts less than a tenth of an inch possible. Tonight: Chance Showers And Thunderstorms, 75°F.",
+      "detail": "Showers and thunderstorms likely. Cloudy, with a low around 75. East southeast wind around 0 mph. Chance of precipitation is 60%. New rainfall amounts between a quarter and half of an inch possible. Tuesday: Showers And Thunderstorms, 86°F.",
       "priority": 10,
-      "published": "2026-07-13T12:32:33Z"
+      "published": "2026-07-14T11:26:14Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,7 +64,7 @@
       "published": "2026-07-18T08:30"
     },
     {
-      "id": "news-kut-47939383",
+      "id": "news-kut-1014349",
       "lane": "news",
       "headline": "Judge orders Texas to admit all mentally ill jail detainees to state facilities within 21 days",
       "link": "https://www.kut.org/news/2026-07-09/judge-orders-texas-to-admit-all-mentally-ill-jail-detainees-to-state-facilities-within-21-days",
@@ -63,7 +76,7 @@
       "published": "Thu, 09 Jul 2026 17:42:20 GMT"
     },
     {
-      "id": "news-kut-63862883",
+      "id": "news-kut-91461825",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -75,19 +88,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-45465928",
+      "id": "news-kxan-1360053",
       "lane": "news",
-      "headline": "Rounds of heavy rain prompt flood risk this week",
-      "link": "https://www.kxan.com/weather/forecast/rounds-of-heavy-rain-prompt-flood-risk-this-week/",
+      "headline": "Heavy rain likely at times, flash flood risk increasing",
+      "link": "https://www.kxan.com/weather/forecast/heavy-rain-likely-at-times-flash-flood-risk-increasing/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 13 Jul 2026 11:04:28 +0000"
+      "published": "Tue, 14 Jul 2026 11:03:40 +0000"
     },
     {
-      "id": "news-austinmonitor-1982285",
+      "id": "news-austinmonitor-66209242",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
