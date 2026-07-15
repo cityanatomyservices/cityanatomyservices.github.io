@@ -1,19 +1,19 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-14T11:26:14Z",
+  "generated": "2026-07-15T11:36:26Z",
   "items": [
     {
-      "id": "alert-urn:oid:2.49.0.1.840.0.1c38becdd8b3bbd4c",
+      "id": "alert-urn:oid:2.49.0.1.840.0.6574337d929a38ab4",
       "lane": "alerts",
-      "headline": "Flood Watch issued July 13 at 10:36PM CDT until July 16 at 7:00PM CDT by NWS Austin/San Antonio TX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1c38becdd8b3bbd4c752b6290249745cb1747d31.001.1",
+      "headline": "Flood Watch issued July 14 at 1:59PM CDT until July 16 at 7:00PM CDT by NWS Austin/San Antonio TX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6574337d929a38ab47bda0f3919d98ead4674397.002.1",
       "label": "Alert",
       "icon": "⚠️",
-      "detail": "* WHAT...Flooding caused by excessive rainfall continues to be\npossible.\n\n* WHERE...A portion of south central Texas, including the following\ncounties, Bandera, Bexar, Blanco, Burnet, Comal, Dimmit, Edwards,\nFrio, Gillespie, Hays, Kendall, Kerr, Kinney, Llano, Maverick,\nMedina, R",
+      "detail": "* WHAT...Flooding and flash flooding caused by excessive rainfall\ncontinues to be possible.\n\n* WHERE...A portion of south central Texas, including the following\ncounties, Bandera, Bexar, Blanco, Burnet, Comal, Dimmit, Edwards,\nFrio, Gillespie, Hays, Kendall, Kerr, Kinney, Llano, ",
       "severity": 1,
       "priority": 1,
-      "published": "2026-07-13T22:36:00-05:00",
-      "expires": "2026-07-15T05:00:00-05:00"
+      "published": "2026-07-14T13:59:00-05:00",
+      "expires": "2026-07-16T07:00:00-05:00"
     },
     {
       "id": "sample-deal-replace-me",
@@ -44,13 +44,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Showers And Thunderstorms Likely, 75°F",
+      "headline": "Today: Showers And Thunderstorms, 84°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Showers and thunderstorms likely. Cloudy, with a low around 75. East southeast wind around 0 mph. Chance of precipitation is 60%. New rainfall amounts between a quarter and half of an inch possible. Tuesday: Showers And Thunderstorms, 86°F.",
+      "detail": "Showers and thunderstorms before 4pm, then a chance of showers and thunderstorms. Mostly cloudy, with a high near 84. Southeast wind 0 to 5 mph. Chance of precipitation is 80%. New rainfall amounts between a half and three quarters of an inch possible. Tonight: Chance Showers And Thunderstorms, 72°F.",
       "priority": 10,
-      "published": "2026-07-14T11:26:14Z"
+      "published": "2026-07-15T11:36:26Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -64,7 +64,7 @@
       "published": "2026-07-18T08:30"
     },
     {
-      "id": "news-kut-1014349",
+      "id": "news-kut-75509901",
       "lane": "news",
       "headline": "Judge orders Texas to admit all mentally ill jail detainees to state facilities within 21 days",
       "link": "https://www.kut.org/news/2026-07-09/judge-orders-texas-to-admit-all-mentally-ill-jail-detainees-to-state-facilities-within-21-days",
@@ -76,7 +76,7 @@
       "published": "Thu, 09 Jul 2026 17:42:20 GMT"
     },
     {
-      "id": "news-kut-91461825",
+      "id": "news-kut-29981921",
       "lane": "news",
       "headline": "Gov. Abbott blasts Supreme Court ruling preserving birthright citizenship",
       "link": "https://www.kut.org/news/2026-06-30/gov-abbott-blasts-supreme-court-ruling-preserving-birthright-citizenship",
@@ -88,19 +88,19 @@
       "published": "Tue, 30 Jun 2026 19:57:03 GMT"
     },
     {
-      "id": "news-kxan-1360053",
+      "id": "news-kxan-89806446",
       "lane": "news",
-      "headline": "Heavy rain likely at times, flash flood risk increasing",
-      "link": "https://www.kxan.com/weather/forecast/heavy-rain-likely-at-times-flash-flood-risk-increasing/",
+      "headline": "Flood risk continues as heavy rain redevelops",
+      "link": "https://www.kxan.com/weather/forecast/flood-risk-continues-as-heavy-rain-redevelops/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 14 Jul 2026 11:03:40 +0000"
+      "published": "Wed, 15 Jul 2026 10:24:04 +0000"
     },
     {
-      "id": "news-austinmonitor-66209242",
+      "id": "news-austinmonitor-72790438",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
