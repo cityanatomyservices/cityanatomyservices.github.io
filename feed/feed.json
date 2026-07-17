@@ -1,20 +1,7 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-16T11:41:20Z",
+  "generated": "2026-07-17T11:22:46Z",
   "items": [
-    {
-      "id": "alert-urn:oid:2.49.0.1.840.0.3be4a327401c20a92",
-      "lane": "alerts",
-      "headline": "Flood Watch issued July 15 at 1:05PM CDT until July 16 at 7:00PM CDT by NWS Austin/San Antonio TX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3be4a327401c20a92e5b0d90d6a78fc7d971f372.001.1",
-      "label": "Alert",
-      "icon": "⚠️",
-      "detail": "* WHAT...Flooding and flash flooding caused by excessive rainfall\ncontinues to be possible.\n\n* WHERE...A portion of south central Texas, including the following\ncounties, Bandera, Bexar, Blanco, Burnet, Comal, Dimmit, Edwards,\nFrio, Gillespie, Guadalupe, Hays, Kendall, Kerr, Kinn",
-      "severity": 1,
-      "priority": 1,
-      "published": "2026-07-15T13:05:00-05:00",
-      "expires": "2026-07-16T19:00:00-05:00"
-    },
     {
       "id": "sample-deal-replace-me",
       "lane": "deals",
@@ -44,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Showers And Thunderstorms Likely, 88°F",
+      "headline": "Today: Partly Sunny, 92°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Showers and thunderstorms likely before 4pm, then a chance of showers and thunderstorms. Mostly cloudy, with a high near 88. South southeast wind around 5 mph. Chance of precipitation is 60%. New rainfall amounts between a tenth and quarter of an inch possible. Tonight: Chance Showers And Thunderstorms then Mostly Cloudy, 75°F.",
+      "detail": "Partly sunny, with a high near 92. Heat index values as high as 102. South southeast wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Partly Cloudy, 76°F.",
       "priority": 10,
-      "published": "2026-07-16T11:41:20Z"
+      "published": "2026-07-17T11:22:46Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -64,43 +51,43 @@
       "published": "2026-07-18T08:30"
     },
     {
-      "id": "news-kut-12862568",
+      "id": "news-kut-33626714",
       "lane": "news",
-      "headline": "Camp Mystic moves flood lawsuit to federal court, citing bankruptcy",
-      "link": "https://www.kut.org/news/2026-07-15/camp-mystic-moves-flood-lawsuit-to-federal-court-citing-bankruptcy",
+      "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
+      "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
       "label": "Local News",
       "icon": "📰",
       "detail": "KUT",
       "source": "KUT",
       "priority": 30,
-      "published": "Wed, 15 Jul 2026 17:21:02 GMT"
+      "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kut-82390260",
+      "id": "news-kut-16000405",
       "lane": "news",
-      "headline": "Judge orders Texas to admit all mentally ill jail detainees to state facilities within 21 days",
-      "link": "https://www.kut.org/news/2026-07-09/judge-orders-texas-to-admit-all-mentally-ill-jail-detainees-to-state-facilities-within-21-days",
+      "headline": "As flooding returns to Hill Country, Texas lawmakers say new safety laws already making a difference",
+      "link": "https://www.kut.org/news/2026-07-16/texas-flooding-safety-laws-sirens-camps",
       "label": "Local News",
       "icon": "📰",
       "detail": "KUT",
       "source": "KUT",
       "priority": 30,
-      "published": "Thu, 09 Jul 2026 17:42:20 GMT"
+      "published": "Thu, 16 Jul 2026 15:11:14 GMT"
     },
     {
-      "id": "news-kxan-8457244",
+      "id": "news-kxan-15992947",
       "lane": "news",
-      "headline": "Live updates: Flash Flood emergency in Kerr County as rain continues to pound Texas",
-      "link": "https://www.kxan.com/news/texas/flash-flood-emergency-in-texas-thursday-july-16-2026/",
+      "headline": "Live updates: Impacts from flash flooding continue to be felt",
+      "link": "https://www.kxan.com/news/texas/flash-flood-emergency-in-texas-friday-july-17-2026/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 16 Jul 2026 09:58:16 +0000"
+      "published": "Fri, 17 Jul 2026 10:58:59 +0000"
     },
     {
-      "id": "news-austinmonitor-56281665",
+      "id": "news-austinmonitor-32429437",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
