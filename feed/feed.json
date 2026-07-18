@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-17T11:22:46Z",
+  "generated": "2026-07-18T11:05:05Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny, 92°F",
+      "headline": "Today: Partly Sunny, 95°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly sunny, with a high near 92. Heat index values as high as 102. South southeast wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Partly Cloudy, 76°F.",
+      "detail": "Partly sunny, with a high near 95. Heat index values as high as 104. South wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Partly Cloudy, 76°F.",
       "priority": 10,
-      "published": "2026-07-17T11:22:46Z"
+      "published": "2026-07-18T11:05:05Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,7 +51,7 @@
       "published": "2026-07-18T08:30"
     },
     {
-      "id": "news-kut-33626714",
+      "id": "news-kut-569958",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -63,7 +63,7 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kut-16000405",
+      "id": "news-kut-63364865",
       "lane": "news",
       "headline": "As flooding returns to Hill Country, Texas lawmakers say new safety laws already making a difference",
       "link": "https://www.kut.org/news/2026-07-16/texas-flooding-safety-laws-sirens-camps",
@@ -75,9 +75,9 @@
       "published": "Thu, 16 Jul 2026 15:11:14 GMT"
     },
     {
-      "id": "news-kxan-15992947",
+      "id": "news-kxan-78881507",
       "lane": "news",
-      "headline": "Live updates: Impacts from flash flooding continue to be felt",
+      "headline": "Live updates: Floodgates open at multiple dams; Llano River forecast to crest tonight in major flood stage",
       "link": "https://www.kxan.com/news/texas/flash-flood-emergency-in-texas-friday-july-17-2026/",
       "label": "Local News",
       "icon": "📰",
@@ -87,7 +87,7 @@
       "published": "Fri, 17 Jul 2026 10:58:59 +0000"
     },
     {
-      "id": "news-austinmonitor-32429437",
+      "id": "news-austinmonitor-80536008",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
