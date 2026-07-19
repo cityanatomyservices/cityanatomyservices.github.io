@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-18T11:05:05Z",
+  "generated": "2026-07-19T11:09:15Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,27 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny, 95°F",
+      "headline": "Today: Mostly Sunny, 95°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly sunny, with a high near 95. Heat index values as high as 104. South wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Partly Cloudy, 76°F.",
+      "detail": "Mostly sunny, with a high near 95. Heat index values as high as 104. South wind around 5 mph. Tonight: Mostly Clear, 75°F.",
       "priority": 10,
-      "published": "2026-07-18T11:05:05Z"
+      "published": "2026-07-19T11:09:15Z"
     },
     {
-      "id": "event-city-wide-vintage-sale",
-      "lane": "events",
-      "headline": "City-Wide Vintage Sale  ·  2026-07-18",
-      "link": "https://www.citywidevintagesale.com",
-      "label": "Event",
-      "icon": "📅",
-      "detail": "Palmer Events Center · large indoor vintage market",
-      "priority": 20,
-      "published": "2026-07-18T08:30"
-    },
-    {
-      "id": "news-kut-569958",
+      "id": "news-kut-70115625",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -63,7 +52,7 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kut-63364865",
+      "id": "news-kut-86067094",
       "lane": "news",
       "headline": "As flooding returns to Hill Country, Texas lawmakers say new safety laws already making a difference",
       "link": "https://www.kut.org/news/2026-07-16/texas-flooding-safety-laws-sirens-camps",
@@ -75,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 15:11:14 GMT"
     },
     {
-      "id": "news-kxan-78881507",
+      "id": "news-kxan-4216682",
       "lane": "news",
-      "headline": "Live updates: Floodgates open at multiple dams; Llano River forecast to crest tonight in major flood stage",
-      "link": "https://www.kxan.com/news/texas/flash-flood-emergency-in-texas-friday-july-17-2026/",
+      "headline": "One man dead in south Austin apartment shooting",
+      "link": "https://www.kxan.com/news/local/austin/one-man-dead-in-south-austin-apartment-shooting/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 17 Jul 2026 10:58:59 +0000"
+      "published": "Sat, 18 Jul 2026 11:44:18 +0000"
     },
     {
-      "id": "news-austinmonitor-80536008",
+      "id": "news-austinmonitor-60738114",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -119,14 +108,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393574",
+      "id": "sports-2393578",
       "lane": "sports",
-      "headline": "Round Rock Express vs Las Vegas Aviators  ·  2026-07-18 00:05",
+      "headline": "Round Rock Express vs Las Vegas Aviators  ·  2026-07-19 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-18"
+      "published": "2026-07-19"
     }
   ]
 }
