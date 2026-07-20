@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-19T11:09:15Z",
+  "generated": "2026-07-20T12:17:38Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 95°F",
+      "headline": "Today: Sunny, 97°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 95. Heat index values as high as 104. South wind around 5 mph. Tonight: Mostly Clear, 75°F.",
+      "detail": "Sunny, with a high near 97. Heat index values as high as 101. South southwest wind around 5 mph. Tonight: Mostly Clear, 73°F.",
       "priority": 10,
-      "published": "2026-07-19T11:09:15Z"
+      "published": "2026-07-20T12:17:38Z"
     },
     {
-      "id": "news-kut-70115625",
+      "id": "news-kut-17950029",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -52,7 +52,7 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kut-86067094",
+      "id": "news-kut-51505335",
       "lane": "news",
       "headline": "As flooding returns to Hill Country, Texas lawmakers say new safety laws already making a difference",
       "link": "https://www.kut.org/news/2026-07-16/texas-flooding-safety-laws-sirens-camps",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 15:11:14 GMT"
     },
     {
-      "id": "news-kxan-4216682",
+      "id": "news-kxan-52715086",
       "lane": "news",
-      "headline": "One man dead in south Austin apartment shooting",
-      "link": "https://www.kxan.com/news/local/austin/one-man-dead-in-south-austin-apartment-shooting/",
+      "headline": "Former WilCo sheriff and attorney file civil lawsuit against Travis and Williamson counties DA",
+      "link": "https://www.kxan.com/news/former-wilco-sheriff-and-attorney-file-civil-lawsuit-against-travis-and-williamson-counties-da/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 18 Jul 2026 11:44:18 +0000"
+      "published": "Mon, 20 Jul 2026 03:40:51 +0000"
     },
     {
-      "id": "news-austinmonitor-60738114",
+      "id": "news-austinmonitor-46013463",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -108,14 +108,14 @@
       "published": "2026-07-23"
     },
     {
-      "id": "sports-2393578",
+      "id": "sports-2393586",
       "lane": "sports",
-      "headline": "Round Rock Express vs Las Vegas Aviators  ·  2026-07-19 00:05",
+      "headline": "Albuquerque Isotopes vs Round Rock Express  ·  2026-07-22 00:35",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-19"
+      "published": "2026-07-22"
     }
   ]
 }
