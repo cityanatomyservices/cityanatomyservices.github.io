@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-20T12:17:38Z",
+  "generated": "2026-07-21T11:47:37Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,28 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 97°F",
+      "headline": "Today: Sunny, 100°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 97. Heat index values as high as 101. South southwest wind around 5 mph. Tonight: Mostly Clear, 73°F.",
+      "detail": "Sunny, with a high near 100. Heat index values as high as 107. South wind 0 to 5 mph. Tonight: Mostly Clear, 80°F.",
       "priority": 10,
-      "published": "2026-07-20T12:17:38Z"
+      "published": "2026-07-21T11:47:37Z"
     },
     {
-      "id": "news-kut-17950029",
+      "id": "news-kut-91484554",
+      "lane": "news",
+      "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
+      "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Mon, 20 Jul 2026 20:39:46 GMT"
+    },
+    {
+      "id": "news-kut-81625565",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -52,31 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kut-51505335",
+      "id": "news-kxan-86565860",
       "lane": "news",
-      "headline": "As flooding returns to Hill Country, Texas lawmakers say new safety laws already making a difference",
-      "link": "https://www.kut.org/news/2026-07-16/texas-flooding-safety-laws-sirens-camps",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Thu, 16 Jul 2026 15:11:14 GMT"
-    },
-    {
-      "id": "news-kxan-52715086",
-      "lane": "news",
-      "headline": "Former WilCo sheriff and attorney file civil lawsuit against Travis and Williamson counties DA",
-      "link": "https://www.kxan.com/news/former-wilco-sheriff-and-attorney-file-civil-lawsuit-against-travis-and-williamson-counties-da/",
+      "headline": "Tropical tracker: Tropical Storm Bertha forms in the Gulf",
+      "link": "https://www.kxan.com/weather/2026-tropical-timeline-tracker/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 20 Jul 2026 03:40:51 +0000"
+      "published": "Mon, 20 Jul 2026 15:07:09 +0000"
     },
     {
-      "id": "news-austinmonitor-46013463",
+      "id": "news-austinmonitor-49867841",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
