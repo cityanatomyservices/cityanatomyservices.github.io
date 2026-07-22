@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-21T11:47:37Z",
+  "generated": "2026-07-22T11:48:38Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -29,18 +29,31 @@
       "expires": "2099-12-31T23:59:59Z"
     },
     {
+      "id": "alert-urn:oid:2.49.0.1.840.0.b0cf73a817d2f2295",
+      "lane": "alerts",
+      "headline": "Heat Advisory issued July 22 at 12:35AM CDT until July 22 at 8:00PM CDT by NWS Austin/San Antonio TX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.b0cf73a817d2f22957bdb30c7ed4cace5ada0c71.001.1",
+      "label": "Alert",
+      "icon": "⚠️",
+      "detail": "* WHAT...High temperatures of 100 to 104 degrees and heat index\nvalues up to 114 degrees expected.\n\n* WHERE...A portion of south central Texas.\n\n* WHEN...From noon today to 8 PM CDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
+      "severity": 2,
+      "priority": 2,
+      "published": "2026-07-22T00:35:00-05:00",
+      "expires": "2026-07-22T20:00:00-05:00"
+    },
+    {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 100°F",
+      "headline": "Today: Sunny, 104°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 100. Heat index values as high as 107. South wind 0 to 5 mph. Tonight: Mostly Clear, 80°F.",
+      "detail": "Sunny, with a high near 104. Heat index values as high as 114. North wind 0 to 5 mph. Tonight: Mostly Clear, 85°F.",
       "priority": 10,
-      "published": "2026-07-21T11:47:37Z"
+      "published": "2026-07-22T11:48:38Z"
     },
     {
-      "id": "news-kut-91484554",
+      "id": "news-kut-42771678",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +65,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-81625565",
+      "id": "news-kut-83441985",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +77,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-86565860",
+      "id": "news-kxan-92107060",
       "lane": "news",
-      "headline": "Tropical tracker: Tropical Storm Bertha forms in the Gulf",
-      "link": "https://www.kxan.com/weather/2026-tropical-timeline-tracker/",
+      "headline": "Paxton opens floor to questions, shuts down inquiries on voting record and real estate holdings",
+      "link": "https://www.kxan.com/news/texas-politics/paxton-opens-floor-to-questions-shuts-down-inquiries-on-voting-record-and-real-estate-holdings/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 20 Jul 2026 15:07:09 +0000"
+      "published": "Tue, 21 Jul 2026 22:40:38 +0000"
     },
     {
-      "id": "news-austinmonitor-49867841",
+      "id": "news-austinmonitor-85162736",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -100,7 +113,7 @@
     {
       "id": "sports-2406939",
       "lane": "sports",
-      "headline": "Austin FC vs Seattle Sounders  ·  2026-07-23 00:30",
+      "headline": "Austin FC vs Seattle Sounders  ·  2026-07-23 01:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
