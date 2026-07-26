@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-25T11:12:07Z",
+  "generated": "2026-07-26T11:20:28Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 98°F",
+      "headline": "Today: Sunny, 99°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 98. Heat index values as high as 104. South wind around 5 mph. Tonight: Partly Cloudy, 76°F.",
+      "detail": "Sunny, with a high near 99. Heat index values as high as 106. South southwest wind around 5 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-07-25T11:12:07Z"
+      "published": "2026-07-26T11:20:28Z"
     },
     {
-      "id": "news-kut-38687561",
+      "id": "news-kut-65430531",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-60516399",
+      "id": "news-kut-21294512",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-5177351",
+      "id": "news-kxan-9566950",
       "lane": "news",
-      "headline": "After fatal APD shooting, expert discusses how officers are trained to respond",
-      "link": "https://www.kxan.com/news/local/austin/after-fatal-apd-shooting-expert-discusses-how-officers-are-trained-to-respond/",
+      "headline": "ATCEMS: Recovery efforts underway for missing Lake Travis swimmer",
+      "link": "https://www.kxan.com/news/local/austin/atcems-recovery-efforts-underway-for-missing-lake-travis-swimmer/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 25 Jul 2026 03:09:33 +0000"
+      "published": "Sat, 25 Jul 2026 18:43:45 +0000"
     },
     {
-      "id": "news-austinmonitor-97885792",
+      "id": "news-austinmonitor-81042522",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -101,7 +101,7 @@
       "id": "sports-2406957",
       "lane": "sports",
       "headline": "Houston Dynamo vs Austin FC  ·  2026-07-26 00:30",
-      "link": "https://www.thesportsdb.com/",
+      "link": "https://www.youtube.com/watch?v=P1zVN3bPRN0",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
@@ -110,12 +110,12 @@
     {
       "id": "sports-2393598",
       "lane": "sports",
-      "headline": "Albuquerque Isotopes vs Round Rock Express  ·  2026-07-25 22:30",
+      "headline": "Albuquerque Isotopes vs Round Rock Express  ·  2026-07-26 00:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-25"
+      "published": "2026-07-26"
     }
   ]
 }
