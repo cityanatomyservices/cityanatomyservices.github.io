@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-27T12:55:34Z",
+  "generated": "2026-07-28T11:58:41Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 99°F",
+      "headline": "Today: Sunny, 100°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 99. Heat index values as high as 104. South wind 5 to 10 mph. Tonight: Mostly Clear, 76°F.",
+      "detail": "Sunny, with a high near 100. Heat index values as high as 108. South wind 5 to 10 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-07-27T12:55:34Z"
+      "published": "2026-07-28T11:58:41Z"
     },
     {
-      "id": "news-kut-56351262",
+      "id": "news-kut-85976160",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-3237477",
+      "id": "news-kut-71363480",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-34626033",
+      "id": "news-kxan-11140956",
       "lane": "news",
-      "headline": "'Very high' Pflugerville utility rate frustrates customer",
-      "link": "https://www.kxan.com/investigations/very-high-pflugerville-utility-rate-frustrates-customer/",
+      "headline": "Family identifies 17-year-old killed in APD shooting as community pressure grows for accountability",
+      "link": "https://www.kxan.com/news/local/austin/family-identifies-17-year-old-killed-in-apd-shooting-as-community-pressure-grows-for-accountability/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 27 Jul 2026 12:00:00 +0000"
+      "published": "Mon, 27 Jul 2026 23:41:37 +0000"
     },
     {
-      "id": "news-austinmonitor-86322601",
+      "id": "news-austinmonitor-12615023",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
