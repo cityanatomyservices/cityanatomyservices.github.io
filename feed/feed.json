@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-29T12:02:08Z",
+  "generated": "2026-07-30T11:52:49Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 100°F",
+      "headline": "Today: Mostly Sunny, 101°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 100. Heat index values as high as 108. South wind 5 to 10 mph. Tonight: Partly Cloudy, 78°F.",
+      "detail": "Mostly sunny, with a high near 101. Heat index values as high as 108. South southwest wind around 5 mph. Tonight: Partly Cloudy, 77°F.",
       "priority": 10,
-      "published": "2026-07-29T12:02:08Z"
+      "published": "2026-07-30T11:52:49Z"
     },
     {
-      "id": "news-kut-35708617",
+      "id": "news-kut-13711779",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-13753538",
+      "id": "news-kut-50926778",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-25080622",
+      "id": "news-kxan-46810263",
       "lane": "news",
-      "headline": "Months-long Austin Police investigation leads to arrests, seizures of mail keys, drugs firearms",
-      "link": "https://www.kxan.com/news/local/austin/months-long-austin-police-investigation-leads-to-arrests-seizures-of-mail-keys-drugs-firearms/",
+      "headline": "APD releases additional footage of shooting that killed a 17-year-old",
+      "link": "https://www.kxan.com/news/local/austin/apd-releases-additional-footage-of-shooting-that-killed-a-17-year-old/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 28 Jul 2026 17:15:10 +0000"
+      "published": "Thu, 30 Jul 2026 00:54:30 +0000"
     },
     {
-      "id": "news-austinmonitor-48897150",
+      "id": "news-austinmonitor-52527956",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -108,14 +108,14 @@
       "published": "2026-08-02"
     },
     {
-      "id": "sports-2393617",
+      "id": "sports-2393622",
       "lane": "sports",
-      "headline": "Round Rock Express vs Reno Aces  ·  2026-07-29 23:45",
+      "headline": "Round Rock Express vs Reno Aces  ·  2026-07-30 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-07-29"
+      "published": "2026-07-30"
     }
   ]
 }
