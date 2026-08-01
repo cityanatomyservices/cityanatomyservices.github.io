@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-07-31T12:01:07Z",
+  "generated": "2026-08-01T11:17:16Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 101°F",
+      "headline": "Today: Slight Chance Rain Showers then Slight Chance Showers And Thunderstorms, 98°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 101. Heat index values as high as 108. South wind around 5 mph. Tonight: Mostly Clear, 78°F.",
+      "detail": "A slight chance of rain showers between 10am and 1pm, then a slight chance of showers and thunderstorms between 1pm and 4pm, then a chance of showers and thunderstorms. Partly sunny, with a high near 98. Heat index values as high as 107. West wind around 5 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible. Tonight: Chance Showers And Thunderstorms then Mostly Cloudy, 78°F.",
       "priority": 10,
-      "published": "2026-07-31T12:01:07Z"
+      "published": "2026-08-01T11:17:16Z"
     },
     {
-      "id": "news-kut-25692959",
+      "id": "news-kut-96785271",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-20151363",
+      "id": "news-kut-58432640",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-34650499",
+      "id": "news-kxan-84248012",
       "lane": "news",
-      "headline": "Austin ISD trustees approve immediate closure for Paredes Middle School",
-      "link": "https://www.kxan.com/news/austin-isd-trustees-approve-immediate-closure-for-paredes-middle-school/",
+      "headline": "UT Tower's $77 million restoration project is about 40% complete; Here's a look at what's changed so far",
+      "link": "https://www.kxan.com/news/local/austin/ut-towers-77-million-restoration-project-is-about-40-complete-heres-a-look-at-whats-changed-so-far/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 31 Jul 2026 01:09:58 +0000"
+      "published": "Fri, 31 Jul 2026 21:45:35 +0000"
     },
     {
-      "id": "news-austinmonitor-76331363",
+      "id": "news-austinmonitor-89066586",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -86,6 +86,16 @@
       "source": "Austin Monitor",
       "priority": 30,
       "published": "Wed, 05 Nov 2025 23:48:45 +0000"
+    },
+    {
+      "id": "sports-2555672",
+      "lane": "sports",
+      "headline": "Texas vs Florida  ·  2027-01-02 21:00",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2027-01-02"
     },
     {
       "id": "sports-2526113",
