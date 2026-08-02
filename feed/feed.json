@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-01T11:17:16Z",
+  "generated": "2026-08-02T11:17:14Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Slight Chance Rain Showers then Slight Chance Showers And Thunderstorms, 98°F",
+      "headline": "Today: Sunny, 101°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A slight chance of rain showers between 10am and 1pm, then a slight chance of showers and thunderstorms between 1pm and 4pm, then a chance of showers and thunderstorms. Partly sunny, with a high near 98. Heat index values as high as 107. West wind around 5 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible. Tonight: Chance Showers And Thunderstorms then Mostly Cloudy, 78°F.",
+      "detail": "Sunny, with a high near 101. Heat index values as high as 100. North northeast wind 0 to 5 mph. Tonight: Clear, 76°F.",
       "priority": 10,
-      "published": "2026-08-01T11:17:16Z"
+      "published": "2026-08-02T11:17:14Z"
     },
     {
-      "id": "news-kut-96785271",
+      "id": "news-kut-8480181",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-58432640",
+      "id": "news-kut-80555960",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-84248012",
+      "id": "news-kxan-89554863",
       "lane": "news",
-      "headline": "UT Tower's $77 million restoration project is about 40% complete; Here's a look at what's changed so far",
-      "link": "https://www.kxan.com/news/local/austin/ut-towers-77-million-restoration-project-is-about-40-complete-heres-a-look-at-whats-changed-so-far/",
+      "headline": "Witnesses look back 60 years after UT Tower shooting",
+      "link": "https://www.kxan.com/news/texas/witnesses-look-back-60-years-after-ut-tower-shooting/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 31 Jul 2026 21:45:35 +0000"
+      "published": "Sun, 02 Aug 2026 03:42:40 +0000"
     },
     {
-      "id": "news-austinmonitor-89066586",
+      "id": "news-austinmonitor-67204605",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -118,14 +118,14 @@
       "published": "2026-08-02"
     },
     {
-      "id": "sports-2393628",
+      "id": "sports-2393632",
       "lane": "sports",
-      "headline": "Round Rock Express vs Reno Aces  ·  2026-08-01 00:05",
+      "headline": "Round Rock Express vs Reno Aces  ·  2026-08-02 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-01"
+      "published": "2026-08-02"
     }
   ]
 }
