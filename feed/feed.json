@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-02T11:17:14Z",
+  "generated": "2026-08-03T12:55:19Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 101°F",
+      "headline": "Today: Sunny, 103°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 101. Heat index values as high as 100. North northeast wind 0 to 5 mph. Tonight: Clear, 76°F.",
+      "detail": "Sunny, with a high near 103. Heat index values as high as 104. South southwest wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-08-02T11:17:14Z"
+      "published": "2026-08-03T12:55:19Z"
     },
     {
-      "id": "news-kut-8480181",
+      "id": "news-kut-10514492",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-80555960",
+      "id": "news-kut-10104981",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-89554863",
+      "id": "news-kxan-75226008",
       "lane": "news",
-      "headline": "Witnesses look back 60 years after UT Tower shooting",
-      "link": "https://www.kxan.com/news/texas/witnesses-look-back-60-years-after-ut-tower-shooting/",
+      "headline": "Who should pay for growth? Texas cities, developers debate impact fees",
+      "link": "https://www.kxan.com/news/texas-politics/who-should-pay-for-growth-texas-cities-developers-debate-impact-fees/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sun, 02 Aug 2026 03:42:40 +0000"
+      "published": "Mon, 03 Aug 2026 11:14:36 +0000"
     },
     {
-      "id": "news-austinmonitor-67204605",
+      "id": "news-austinmonitor-66790427",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -108,24 +108,24 @@
       "published": "2026-10-03"
     },
     {
-      "id": "sports-2406975",
+      "id": "sports-2483232",
       "lane": "sports",
-      "headline": "Colorado Rapids vs Austin FC  ·  2026-08-02 01:30",
+      "headline": "Austin FC vs Tijuana  ·  2026-08-07 01:00",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-02"
+      "published": "2026-08-07"
     },
     {
-      "id": "sports-2393632",
+      "id": "sports-2393643",
       "lane": "sports",
-      "headline": "Round Rock Express vs Reno Aces  ·  2026-08-02 00:05",
+      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-05 01:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-02"
+      "published": "2026-08-05"
     }
   ]
 }
