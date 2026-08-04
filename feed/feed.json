@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-03T12:55:19Z",
+  "generated": "2026-08-04T12:02:47Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 103°F",
+      "headline": "Today: Sunny, 101°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 103. Heat index values as high as 104. South southwest wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
+      "detail": "Sunny, with a high near 101. Heat index values as high as 106. South wind 5 to 10 mph. Tonight: Mostly Clear, 78°F.",
       "priority": 10,
-      "published": "2026-08-03T12:55:19Z"
+      "published": "2026-08-04T12:02:47Z"
     },
     {
-      "id": "news-kut-10514492",
+      "id": "news-kut-55852698",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-10104981",
+      "id": "news-kut-47983357",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-75226008",
+      "id": "news-kxan-14211643",
       "lane": "news",
-      "headline": "Who should pay for growth? Texas cities, developers debate impact fees",
-      "link": "https://www.kxan.com/news/texas-politics/who-should-pay-for-growth-texas-cities-developers-debate-impact-fees/",
+      "headline": "Round Rock police officer fatally shoots suspect while responding to stabbing call",
+      "link": "https://www.kxan.com/news/local/round-rock/suspect-dead-after-officer-involved-shooting-in-round-rock/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 03 Aug 2026 11:14:36 +0000"
+      "published": "Tue, 04 Aug 2026 08:30:43 +0000"
     },
     {
-      "id": "news-austinmonitor-66790427",
+      "id": "news-austinmonitor-76291671",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
