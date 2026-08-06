@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-05T12:00:12Z",
+  "generated": "2026-08-06T12:03:21Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 99°F",
+      "headline": "Today: Sunny, 100°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 99. Heat index values as high as 106. South wind around 5 mph. Tonight: Mostly Clear, 78°F.",
+      "detail": "Sunny, with a high near 100. Heat index values as high as 107. South wind around 5 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-08-05T12:00:12Z"
+      "published": "2026-08-06T12:03:21Z"
     },
     {
-      "id": "news-kut-56014214",
+      "id": "news-kut-58910634",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-23781233",
+      "id": "news-kut-51652735",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-81139689",
+      "id": "news-kxan-73021999",
       "lane": "news",
-      "headline": "Round Rock police officer fatally shoots suspect while responding to stabbing call",
-      "link": "https://www.kxan.com/news/local/round-rock/suspect-dead-after-officer-involved-shooting-in-round-rock/",
+      "headline": "Texas crime victim fund touts progress after payment delays, 'poor processes'",
+      "link": "https://www.kxan.com/investigations/texas-crime-victim-fund-touts-progress-after-payment-delays-poor-processes/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 04 Aug 2026 08:30:43 +0000"
+      "published": "Thu, 06 Aug 2026 12:00:00 +0000"
     },
     {
-      "id": "news-austinmonitor-58539924",
+      "id": "news-austinmonitor-94524355",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -118,14 +118,14 @@
       "published": "2026-08-07"
     },
     {
-      "id": "sports-2393643",
+      "id": "sports-2393645",
       "lane": "sports",
-      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-05 01:45",
+      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-06 01:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-05"
+      "published": "2026-08-06"
     }
   ]
 }
