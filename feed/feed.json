@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-06T12:03:21Z",
+  "generated": "2026-08-07T10:53:46Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 100°F",
+      "headline": "Overnight: Partly Cloudy, 77°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 100. Heat index values as high as 107. South wind around 5 mph. Tonight: Mostly Clear, 77°F.",
+      "detail": "Partly cloudy, with a low around 77. South wind around 5 mph. Friday: Sunny, 99°F.",
       "priority": 10,
-      "published": "2026-08-06T12:03:21Z"
+      "published": "2026-08-07T10:53:46Z"
     },
     {
-      "id": "news-kut-58910634",
+      "id": "news-kut-4854000",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +52,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-51652735",
+      "id": "news-kut-39547529",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +64,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-73021999",
+      "id": "news-kxan-12308975",
       "lane": "news",
-      "headline": "Texas crime victim fund touts progress after payment delays, 'poor processes'",
-      "link": "https://www.kxan.com/investigations/texas-crime-victim-fund-touts-progress-after-payment-delays-poor-processes/",
+      "headline": "Austin voters to decide on libraries, parks bond package in November",
+      "link": "https://www.kxan.com/news/local/austin/austin-voters-to-decide-on-libraries-parks-bond-package-in-november/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 06 Aug 2026 12:00:00 +0000"
+      "published": "Thu, 06 Aug 2026 22:15:06 +0000"
     },
     {
-      "id": "news-austinmonitor-94524355",
+      "id": "news-austinmonitor-58706298",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -111,21 +111,21 @@
       "id": "sports-2483232",
       "lane": "sports",
       "headline": "Austin FC vs Tijuana  ·  2026-08-07 01:00",
-      "link": "https://www.thesportsdb.com/",
+      "link": "https://www.youtube.com/watch?v=xRMbyhG4ZrM",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
       "published": "2026-08-07"
     },
     {
-      "id": "sports-2393645",
+      "id": "sports-2393652",
       "lane": "sports",
-      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-06 01:45",
+      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-07 01:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-06"
+      "published": "2026-08-07"
     }
   ]
 }
