@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-07T10:53:46Z",
+  "generated": "2026-08-08T10:35:06Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,27 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Partly Cloudy, 77°F",
+      "headline": "Overnight: Mostly Clear, 76°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly cloudy, with a low around 77. South wind around 5 mph. Friday: Sunny, 99°F.",
+      "detail": "Mostly clear, with a low around 76. South wind around 0 mph. Saturday: Sunny, 99°F.",
       "priority": 10,
-      "published": "2026-08-07T10:53:46Z"
+      "published": "2026-08-08T10:35:06Z"
     },
     {
-      "id": "news-kut-4854000",
+      "id": "event-city-wide-vintage-sale",
+      "lane": "events",
+      "headline": "City-Wide Vintage Sale  ·  2026-08-15",
+      "link": "https://www.citywidevintagesale.com",
+      "label": "Event",
+      "icon": "📅",
+      "detail": "Palmer Events Center · large indoor vintage market",
+      "priority": 20,
+      "published": "2026-08-15T08:30"
+    },
+    {
+      "id": "news-kut-75174846",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -52,7 +63,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-39547529",
+      "id": "news-kut-11749587",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -64,19 +75,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-12308975",
+      "id": "news-kxan-19603094",
       "lane": "news",
-      "headline": "Austin voters to decide on libraries, parks bond package in November",
-      "link": "https://www.kxan.com/news/local/austin/austin-voters-to-decide-on-libraries-parks-bond-package-in-november/",
+      "headline": "Austin ISD restores neighborhood bus stops for middle school students after feedback",
+      "link": "https://www.kxan.com/news/local/austin/austin-isd-restores-neighborhood-bus-stops-for-middle-school-students-after-feedback/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 06 Aug 2026 22:15:06 +0000"
+      "published": "Sat, 08 Aug 2026 01:06:19 +0000"
     },
     {
-      "id": "news-austinmonitor-58706298",
+      "id": "news-austinmonitor-47102380",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -108,24 +119,24 @@
       "published": "2026-10-03"
     },
     {
-      "id": "sports-2483232",
+      "id": "sports-2483250",
       "lane": "sports",
-      "headline": "Austin FC vs Tijuana  ·  2026-08-07 01:00",
-      "link": "https://www.youtube.com/watch?v=xRMbyhG4ZrM",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-07"
-    },
-    {
-      "id": "sports-2393652",
-      "lane": "sports",
-      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-07 01:45",
+      "headline": "Austin FC vs Puebla  ·  2026-08-10 01:00",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-07"
+      "published": "2026-08-10"
+    },
+    {
+      "id": "sports-2393658",
+      "lane": "sports",
+      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-08 01:45",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-08-08"
     }
   ]
 }
