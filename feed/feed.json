@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-08T10:35:06Z",
+  "generated": "2026-08-09T10:36:13Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Clear, 76°F",
+      "headline": "Overnight: Partly Cloudy, 77°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly clear, with a low around 76. South wind around 0 mph. Saturday: Sunny, 99°F.",
+      "detail": "Partly cloudy, with a low around 77. South wind around 0 mph. Sunday: Sunny then Slight Chance Showers And Thunderstorms, 99°F.",
       "priority": 10,
-      "published": "2026-08-08T10:35:06Z"
+      "published": "2026-08-09T10:36:13Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,7 +51,7 @@
       "published": "2026-08-15T08:30"
     },
     {
-      "id": "news-kut-75174846",
+      "id": "news-kut-43952160",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -63,7 +63,7 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-11749587",
+      "id": "news-kut-7411766",
       "lane": "news",
       "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
       "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
@@ -75,19 +75,19 @@
       "published": "Thu, 16 Jul 2026 18:02:11 GMT"
     },
     {
-      "id": "news-kxan-19603094",
+      "id": "news-kxan-37216320",
       "lane": "news",
-      "headline": "Austin ISD restores neighborhood bus stops for middle school students after feedback",
-      "link": "https://www.kxan.com/news/local/austin/austin-isd-restores-neighborhood-bus-stops-for-middle-school-students-after-feedback/",
+      "headline": "Leander ISD police chief put on administrative leave, state pursues license suspension",
+      "link": "https://www.kxan.com/investigations/leander-isd-police-chief-put-on-administrative-leave-after-kxan-investigation/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 08 Aug 2026 01:06:19 +0000"
+      "published": "Sat, 08 Aug 2026 14:20:36 +0000"
     },
     {
-      "id": "news-austinmonitor-47102380",
+      "id": "news-austinmonitor-66444869",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -129,14 +129,14 @@
       "published": "2026-08-10"
     },
     {
-      "id": "sports-2393658",
+      "id": "sports-2393660",
       "lane": "sports",
-      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-08 01:45",
+      "headline": "Sacramento River Cats vs Round Rock Express  ·  2026-08-09 01:37",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-08"
+      "published": "2026-08-09"
     }
   ]
 }
