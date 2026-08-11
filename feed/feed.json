@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-10T11:10:12Z",
+  "generated": "2026-08-11T10:51:19Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Cloudy, 77°F",
+      "headline": "Overnight: Mostly Cloudy, 78°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly cloudy, with a low around 77. South wind around 0 mph. Monday: Mostly Sunny then Slight Chance Showers And Thunderstorms, 99°F.",
+      "detail": "Mostly cloudy, with a low around 78. South wind around 5 mph. Tuesday: Mostly Sunny, 101°F.",
       "priority": 10,
-      "published": "2026-08-10T11:10:12Z"
+      "published": "2026-08-11T10:51:19Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,7 +51,19 @@
       "published": "2026-08-15T08:30"
     },
     {
-      "id": "news-kut-32543985",
+      "id": "news-kut-80650462",
+      "lane": "news",
+      "headline": "Camp Mystic paid Eastland family members nearly $300K as revenue plunged after deadly flood",
+      "link": "https://www.kut.org/news/2026-08-10/camp-mystic-paid-eastland-family-members-nearly-300k-as-revenue-plunged-after-deadly-flood",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Mon, 10 Aug 2026 20:35:07 GMT"
+    },
+    {
+      "id": "news-kut-89892103",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -63,31 +75,19 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kut-38898329",
+      "id": "news-kxan-38866399",
       "lane": "news",
-      "headline": "1 summer camp evacuates, others monitoring as life-threatening floods strike the Hill Country",
-      "link": "https://www.kut.org/2026-07-16/1-summer-camp-evacuates-others-monitoring-as-life-threatening-floods-strike-the-hill-country",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Thu, 16 Jul 2026 18:02:11 GMT"
-    },
-    {
-      "id": "news-kxan-9038990",
-      "lane": "news",
-      "headline": "Outdoor burning caused 300-acre Saxon Fire near Bertram",
-      "link": "https://www.kxan.com/news/local/hill-country/saxon-fire-near-bertram-spreads-to-over-100-acres-50-contained/",
+      "headline": "Big Bend residents, local sheriff question CBP border infrastructure plans",
+      "link": "https://www.kxan.com/news/texas-politics/big-bend-residents-local-sheriff-question-cbp-border-infrastructure-plans/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sun, 09 Aug 2026 23:23:41 +0000"
+      "published": "Mon, 10 Aug 2026 23:25:17 +0000"
     },
     {
-      "id": "news-austinmonitor-37331163",
+      "id": "news-austinmonitor-68331965",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -119,6 +119,16 @@
       "published": "2026-10-03"
     },
     {
+      "id": "sports-2483268",
+      "lane": "sports",
+      "headline": "América vs Austin FC  ·  2026-08-14 00:30",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-08-14"
+    },
+    {
       "id": "sports-2393670",
       "lane": "sports",
       "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-11 23:45",
@@ -127,16 +137,6 @@
       "icon": "🏆",
       "priority": 40,
       "published": "2026-08-11"
-    },
-    {
-      "id": "sports-2483250",
-      "lane": "sports",
-      "headline": "Austin FC vs Puebla  ·  2026-08-10 01:00",
-      "link": "https://www.youtube.com/watch?v=-3jMGNkT4IY",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-10"
     }
   ]
 }
