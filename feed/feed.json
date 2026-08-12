@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-11T10:51:19Z",
+  "generated": "2026-08-12T11:00:39Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Cloudy, 78°F",
+      "headline": "Today: Mostly Sunny, 101°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly cloudy, with a low around 78. South wind around 5 mph. Tuesday: Mostly Sunny, 101°F.",
+      "detail": "Mostly sunny, with a high near 101. Heat index values as high as 106. South wind 5 to 10 mph, with gusts as high as 20 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-08-11T10:51:19Z"
+      "published": "2026-08-12T11:00:39Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,7 +51,7 @@
       "published": "2026-08-15T08:30"
     },
     {
-      "id": "news-kut-80650462",
+      "id": "news-kut-26537175",
       "lane": "news",
       "headline": "Camp Mystic paid Eastland family members nearly $300K as revenue plunged after deadly flood",
       "link": "https://www.kut.org/news/2026-08-10/camp-mystic-paid-eastland-family-members-nearly-300k-as-revenue-plunged-after-deadly-flood",
@@ -63,7 +63,7 @@
       "published": "Mon, 10 Aug 2026 20:35:07 GMT"
     },
     {
-      "id": "news-kut-89892103",
+      "id": "news-kut-29606874",
       "lane": "news",
       "headline": "Texas turns to recovery after deadly floods, but danger isn't over along the Nueces River",
       "link": "https://www.kut.org/news/2026-07-20/texas-turns-to-recovery-after-deadly-floods-but-danger-isnt-over-along-the-nueces-river",
@@ -75,19 +75,19 @@
       "published": "Mon, 20 Jul 2026 20:39:46 GMT"
     },
     {
-      "id": "news-kxan-38866399",
+      "id": "news-kxan-65150227",
       "lane": "news",
-      "headline": "Big Bend residents, local sheriff question CBP border infrastructure plans",
-      "link": "https://www.kxan.com/news/texas-politics/big-bend-residents-local-sheriff-question-cbp-border-infrastructure-plans/",
+      "headline": "How many capital murder convictions have there been in Texas?",
+      "link": "https://www.kxan.com/news/crime/how-many-capital-murder-convictions-have-there-been-in-texas/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Mon, 10 Aug 2026 23:25:17 +0000"
+      "published": "Wed, 12 Aug 2026 10:39:52 +0000"
     },
     {
-      "id": "news-austinmonitor-68331965",
+      "id": "news-austinmonitor-6001939",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -129,14 +129,14 @@
       "published": "2026-08-14"
     },
     {
-      "id": "sports-2393670",
+      "id": "sports-2393678",
       "lane": "sports",
-      "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-11 23:45",
+      "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-12 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-11"
+      "published": "2026-08-12"
     }
   ]
 }
