@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-13T11:01:21Z",
+  "generated": "2026-08-14T10:58:15Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,13 +31,13 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 102°F",
+      "headline": "Overnight: Mostly Cloudy, 79°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 102. Heat index values as high as 109. South wind 5 to 10 mph, with gusts as high as 25 mph. Tonight: Partly Cloudy, 78°F.",
+      "detail": "Mostly cloudy, with a low around 79. South wind around 5 mph. Friday: Mostly Sunny, 100°F.",
       "priority": 10,
-      "published": "2026-08-13T11:01:21Z"
+      "published": "2026-08-14T10:58:15Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,7 +51,7 @@
       "published": "2026-08-15T08:30"
     },
     {
-      "id": "news-kut-28118681",
+      "id": "news-kut-12944436",
       "lane": "news",
       "headline": "Fort Hood military helicopter crash kills 2, sparks grass fire in Salado",
       "link": "https://www.kut.org/news/2026-08-12/fort-hood-helicopter-crash-fire-salado-tx",
@@ -63,7 +63,7 @@
       "published": "Wed, 12 Aug 2026 22:04:15 GMT"
     },
     {
-      "id": "news-kut-71323992",
+      "id": "news-kut-79547243",
       "lane": "news",
       "headline": "Camp Mystic paid Eastland family members nearly $300K as revenue plunged after deadly flood",
       "link": "https://www.kut.org/news/2026-08-10/camp-mystic-paid-eastland-family-members-nearly-300k-as-revenue-plunged-after-deadly-flood",
@@ -75,19 +75,19 @@
       "published": "Mon, 10 Aug 2026 20:35:07 GMT"
     },
     {
-      "id": "news-kxan-22040947",
+      "id": "news-kxan-33464604",
       "lane": "news",
-      "headline": "Austin's $6.6B budget includes funding to restructure 911 dispatch",
-      "link": "https://www.kxan.com/news/local/austin/austins-6-6b-budget-includes-funding-to-restructure-911-dispatch/",
+      "headline": "Texas DPS confirms fatal shooting in Austin after pursuit of stolen Fort Worth ambulance",
+      "link": "https://www.kxan.com/news/local/austin/active-law-enforcement-incident-shuts-down-upper-deck-of-i-35/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 13 Aug 2026 03:39:36 +0000"
+      "published": "Thu, 13 Aug 2026 12:59:15 +0000"
     },
     {
-      "id": "news-austinmonitor-66764248",
+      "id": "news-austinmonitor-85343785",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -119,24 +119,24 @@
       "published": "2026-10-03"
     },
     {
+      "id": "sports-2393688",
+      "lane": "sports",
+      "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-15 00:05",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-08-15"
+    },
+    {
       "id": "sports-2483268",
       "lane": "sports",
       "headline": "América vs Austin FC  ·  2026-08-14 00:30",
-      "link": "https://www.thesportsdb.com/",
+      "link": "https://www.youtube.com/watch?v=fqhfbpBPNNU",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
       "published": "2026-08-14"
-    },
-    {
-      "id": "sports-2393681",
-      "lane": "sports",
-      "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-13 23:45",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-13"
     }
   ]
 }
