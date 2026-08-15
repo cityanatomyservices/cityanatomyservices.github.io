@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-14T10:58:15Z",
+  "generated": "2026-08-15T10:24:05Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -35,9 +35,9 @@
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly cloudy, with a low around 79. South wind around 5 mph. Friday: Mostly Sunny, 100°F.",
+      "detail": "Mostly cloudy, with a low around 79. South wind around 5 mph. Saturday: Mostly Sunny, 101°F.",
       "priority": 10,
-      "published": "2026-08-14T10:58:15Z"
+      "published": "2026-08-15T10:24:05Z"
     },
     {
       "id": "event-city-wide-vintage-sale",
@@ -51,7 +51,7 @@
       "published": "2026-08-15T08:30"
     },
     {
-      "id": "news-kut-12944436",
+      "id": "news-kut-11917580",
       "lane": "news",
       "headline": "Fort Hood military helicopter crash kills 2, sparks grass fire in Salado",
       "link": "https://www.kut.org/news/2026-08-12/fort-hood-helicopter-crash-fire-salado-tx",
@@ -63,7 +63,7 @@
       "published": "Wed, 12 Aug 2026 22:04:15 GMT"
     },
     {
-      "id": "news-kut-79547243",
+      "id": "news-kut-75537936",
       "lane": "news",
       "headline": "Camp Mystic paid Eastland family members nearly $300K as revenue plunged after deadly flood",
       "link": "https://www.kut.org/news/2026-08-10/camp-mystic-paid-eastland-family-members-nearly-300k-as-revenue-plunged-after-deadly-flood",
@@ -75,19 +75,19 @@
       "published": "Mon, 10 Aug 2026 20:35:07 GMT"
     },
     {
-      "id": "news-kxan-33464604",
+      "id": "news-kxan-84603176",
       "lane": "news",
-      "headline": "Texas DPS confirms fatal shooting in Austin after pursuit of stolen Fort Worth ambulance",
-      "link": "https://www.kxan.com/news/local/austin/active-law-enforcement-incident-shuts-down-upper-deck-of-i-35/",
+      "headline": "Two Austin ISD schools receive fifth consecutive 'F' accountability rating",
+      "link": "https://www.kxan.com/news/local/austin/austin-isd-f-rating-tea/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Thu, 13 Aug 2026 12:59:15 +0000"
+      "published": "Sat, 15 Aug 2026 00:12:14 +0000"
     },
     {
-      "id": "news-austinmonitor-85343785",
+      "id": "news-austinmonitor-95578233",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -119,6 +119,16 @@
       "published": "2026-10-03"
     },
     {
+      "id": "sports-2406985",
+      "lane": "sports",
+      "headline": "Austin FC vs FC Dallas  ·  2026-08-17 00:30",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-08-17"
+    },
+    {
       "id": "sports-2393688",
       "lane": "sports",
       "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-15 00:05",
@@ -127,16 +137,6 @@
       "icon": "🏆",
       "priority": 40,
       "published": "2026-08-15"
-    },
-    {
-      "id": "sports-2483268",
-      "lane": "sports",
-      "headline": "América vs Austin FC  ·  2026-08-14 00:30",
-      "link": "https://www.youtube.com/watch?v=fqhfbpBPNNU",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-14"
     }
   ]
 }
