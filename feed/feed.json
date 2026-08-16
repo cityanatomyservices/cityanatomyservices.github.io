@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-15T10:24:05Z",
+  "generated": "2026-08-16T10:24:43Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,27 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Cloudy, 79°F",
+      "headline": "Overnight: Partly Cloudy, 77°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly cloudy, with a low around 79. South wind around 5 mph. Saturday: Mostly Sunny, 101°F.",
+      "detail": "Partly cloudy, with a low around 77. South wind around 0 mph. Sunday: Sunny, 102°F.",
       "priority": 10,
-      "published": "2026-08-15T10:24:05Z"
+      "published": "2026-08-16T10:24:43Z"
     },
     {
-      "id": "event-city-wide-vintage-sale",
-      "lane": "events",
-      "headline": "City-Wide Vintage Sale  ·  2026-08-15",
-      "link": "https://www.citywidevintagesale.com",
-      "label": "Event",
-      "icon": "📅",
-      "detail": "Palmer Events Center · large indoor vintage market",
-      "priority": 20,
-      "published": "2026-08-15T08:30"
-    },
-    {
-      "id": "news-kut-11917580",
+      "id": "news-kut-95992171",
       "lane": "news",
       "headline": "Fort Hood military helicopter crash kills 2, sparks grass fire in Salado",
       "link": "https://www.kut.org/news/2026-08-12/fort-hood-helicopter-crash-fire-salado-tx",
@@ -63,7 +52,7 @@
       "published": "Wed, 12 Aug 2026 22:04:15 GMT"
     },
     {
-      "id": "news-kut-75537936",
+      "id": "news-kut-62062917",
       "lane": "news",
       "headline": "Camp Mystic paid Eastland family members nearly $300K as revenue plunged after deadly flood",
       "link": "https://www.kut.org/news/2026-08-10/camp-mystic-paid-eastland-family-members-nearly-300k-as-revenue-plunged-after-deadly-flood",
@@ -75,19 +64,19 @@
       "published": "Mon, 10 Aug 2026 20:35:07 GMT"
     },
     {
-      "id": "news-kxan-84603176",
+      "id": "news-kxan-14618373",
       "lane": "news",
-      "headline": "Two Austin ISD schools receive fifth consecutive 'F' accountability rating",
-      "link": "https://www.kxan.com/news/local/austin/austin-isd-f-rating-tea/",
+      "headline": "Texas GOP lawmaker predicts fallout for his party over Big Bend border work",
+      "link": "https://www.kxan.com/news/texas-politics/texas-gop-lawmaker-predicts-fallout-for-his-party-over-big-bend-border-work/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 15 Aug 2026 00:12:14 +0000"
+      "published": "Sat, 15 Aug 2026 22:54:09 +0000"
     },
     {
-      "id": "news-austinmonitor-95578233",
+      "id": "news-austinmonitor-33243617",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -129,14 +118,14 @@
       "published": "2026-08-17"
     },
     {
-      "id": "sports-2393688",
+      "id": "sports-2393691",
       "lane": "sports",
-      "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-15 00:05",
+      "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-16 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-15"
+      "published": "2026-08-16"
     }
   ]
 }
