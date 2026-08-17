@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-16T10:24:43Z",
+  "generated": "2026-08-17T10:33:29Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Partly Cloudy, 77°F",
+      "headline": "Overnight: Mostly Clear, 76°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly cloudy, with a low around 77. South wind around 0 mph. Sunday: Sunny, 102°F.",
+      "detail": "Mostly clear, with a low around 76. Southwest wind around 5 mph. Monday: Sunny, 103°F.",
       "priority": 10,
-      "published": "2026-08-16T10:24:43Z"
+      "published": "2026-08-17T10:33:29Z"
     },
     {
-      "id": "news-kut-95992171",
+      "id": "news-kut-46003331",
       "lane": "news",
       "headline": "Fort Hood military helicopter crash kills 2, sparks grass fire in Salado",
       "link": "https://www.kut.org/news/2026-08-12/fort-hood-helicopter-crash-fire-salado-tx",
@@ -52,7 +52,7 @@
       "published": "Wed, 12 Aug 2026 22:04:15 GMT"
     },
     {
-      "id": "news-kut-62062917",
+      "id": "news-kut-72714317",
       "lane": "news",
       "headline": "Camp Mystic paid Eastland family members nearly $300K as revenue plunged after deadly flood",
       "link": "https://www.kut.org/news/2026-08-10/camp-mystic-paid-eastland-family-members-nearly-300k-as-revenue-plunged-after-deadly-flood",
@@ -64,19 +64,19 @@
       "published": "Mon, 10 Aug 2026 20:35:07 GMT"
     },
     {
-      "id": "news-kxan-14618373",
+      "id": "news-kxan-73546933",
       "lane": "news",
-      "headline": "Texas GOP lawmaker predicts fallout for his party over Big Bend border work",
-      "link": "https://www.kxan.com/news/texas-politics/texas-gop-lawmaker-predicts-fallout-for-his-party-over-big-bend-border-work/",
+      "headline": "ID requirements for mail-in voting in Texas reinstated by federal appeals court",
+      "link": "https://www.kxan.com/news/texas/id-requirements-for-mail-in-voting-in-texas-reinstated-by-federal-appeals-court/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 15 Aug 2026 22:54:09 +0000"
+      "published": "Sun, 16 Aug 2026 12:00:00 +0000"
     },
     {
-      "id": "news-austinmonitor-33243617",
+      "id": "news-austinmonitor-58077432",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -108,24 +108,24 @@
       "published": "2026-10-03"
     },
     {
+      "id": "sports-2393704",
+      "lane": "sports",
+      "headline": "El Paso Chihuahuas vs Round Rock Express  ·  2026-08-19 00:35",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-08-19"
+    },
+    {
       "id": "sports-2406985",
       "lane": "sports",
       "headline": "Austin FC vs FC Dallas  ·  2026-08-17 00:30",
-      "link": "https://www.thesportsdb.com/",
+      "link": "https://www.youtube.com/watch?v=IFXkgvRbYKU",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
       "published": "2026-08-17"
-    },
-    {
-      "id": "sports-2393691",
-      "lane": "sports",
-      "headline": "Round Rock Express vs Sugar Land Space Cowboys  ·  2026-08-16 00:05",
-      "link": "https://www.thesportsdb.com/",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-16"
     }
   ]
 }
