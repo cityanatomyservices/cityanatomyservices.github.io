@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-17T10:33:29Z",
+  "generated": "2026-08-18T10:29:57Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,28 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Clear, 76°F",
+      "headline": "Overnight: Mostly Clear, 78°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly clear, with a low around 76. Southwest wind around 5 mph. Monday: Sunny, 103°F.",
+      "detail": "Mostly clear, with a low around 78. South southwest wind around 5 mph. Tuesday: Sunny, 104°F.",
       "priority": 10,
-      "published": "2026-08-17T10:33:29Z"
+      "published": "2026-08-18T10:29:57Z"
     },
     {
-      "id": "news-kut-46003331",
+      "id": "news-kut-84365902",
+      "lane": "news",
+      "headline": "Trump administration pauses border construction in Big Bend National Park",
+      "link": "https://www.kut.org/news/2026-08-17/trump-administration-pauses-border-construction-in-big-bend-national-park",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Mon, 17 Aug 2026 20:06:03 GMT"
+    },
+    {
+      "id": "news-kut-94374532",
       "lane": "news",
       "headline": "Fort Hood military helicopter crash kills 2, sparks grass fire in Salado",
       "link": "https://www.kut.org/news/2026-08-12/fort-hood-helicopter-crash-fire-salado-tx",
@@ -52,31 +64,19 @@
       "published": "Wed, 12 Aug 2026 22:04:15 GMT"
     },
     {
-      "id": "news-kut-72714317",
+      "id": "news-kxan-79824992",
       "lane": "news",
-      "headline": "Camp Mystic paid Eastland family members nearly $300K as revenue plunged after deadly flood",
-      "link": "https://www.kut.org/news/2026-08-10/camp-mystic-paid-eastland-family-members-nearly-300k-as-revenue-plunged-after-deadly-flood",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Mon, 10 Aug 2026 20:35:07 GMT"
-    },
-    {
-      "id": "news-kxan-73546933",
-      "lane": "news",
-      "headline": "ID requirements for mail-in voting in Texas reinstated by federal appeals court",
-      "link": "https://www.kxan.com/news/texas/id-requirements-for-mail-in-voting-in-texas-reinstated-by-federal-appeals-court/",
+      "headline": "'Major' crash causes partial road closure near UFCU Stadium in San Marcos",
+      "link": "https://www.kxan.com/news/local/san-marcos/san-marcos-major-traffic-crash/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sun, 16 Aug 2026 12:00:00 +0000"
+      "published": "Tue, 18 Aug 2026 03:46:41 +0000"
     },
     {
-      "id": "news-austinmonitor-58077432",
+      "id": "news-austinmonitor-30467018",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -108,6 +108,16 @@
       "published": "2026-10-03"
     },
     {
+      "id": "sports-2407003",
+      "lane": "sports",
+      "headline": "Seattle Sounders vs Austin FC  ·  2026-08-20 01:30",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-08-20"
+    },
+    {
       "id": "sports-2393704",
       "lane": "sports",
       "headline": "El Paso Chihuahuas vs Round Rock Express  ·  2026-08-19 00:35",
@@ -116,16 +126,6 @@
       "icon": "🏆",
       "priority": 40,
       "published": "2026-08-19"
-    },
-    {
-      "id": "sports-2406985",
-      "lane": "sports",
-      "headline": "Austin FC vs FC Dallas  ·  2026-08-17 00:30",
-      "link": "https://www.youtube.com/watch?v=IFXkgvRbYKU",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-17"
     }
   ]
 }
