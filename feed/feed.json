@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-18T10:29:57Z",
+  "generated": "2026-08-19T10:30:19Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,28 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Clear, 78°F",
+      "headline": "Overnight: Mostly Cloudy, 80°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly clear, with a low around 78. South southwest wind around 5 mph. Tuesday: Sunny, 104°F.",
+      "detail": "Mostly cloudy, with a low around 80. South southwest wind around 5 mph. Wednesday: Mostly Sunny, 103°F.",
       "priority": 10,
-      "published": "2026-08-18T10:29:57Z"
+      "published": "2026-08-19T10:30:19Z"
     },
     {
-      "id": "news-kut-84365902",
+      "id": "news-kut-46159860",
+      "lane": "news",
+      "headline": "Frank Beard, the drummer for legendary Houston rock band ZZ Top, dies at 77",
+      "link": "https://www.kut.org/life-arts/2026-08-18/frank-beard-the-drummer-for-legendary-houston-rock-band-zz-top-dies-at-77",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Tue, 18 Aug 2026 21:06:27 GMT"
+    },
+    {
+      "id": "news-kut-21564678",
       "lane": "news",
       "headline": "Trump administration pauses border construction in Big Bend National Park",
       "link": "https://www.kut.org/news/2026-08-17/trump-administration-pauses-border-construction-in-big-bend-national-park",
@@ -52,31 +64,19 @@
       "published": "Mon, 17 Aug 2026 20:06:03 GMT"
     },
     {
-      "id": "news-kut-94374532",
+      "id": "news-kxan-29647905",
       "lane": "news",
-      "headline": "Fort Hood military helicopter crash kills 2, sparks grass fire in Salado",
-      "link": "https://www.kut.org/news/2026-08-12/fort-hood-helicopter-crash-fire-salado-tx",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Wed, 12 Aug 2026 22:04:15 GMT"
-    },
-    {
-      "id": "news-kxan-79824992",
-      "lane": "news",
-      "headline": "'Major' crash causes partial road closure near UFCU Stadium in San Marcos",
-      "link": "https://www.kxan.com/news/local/san-marcos/san-marcos-major-traffic-crash/",
+      "headline": "Gov. Abbott proposes ban on H-1B visa use for Texas public schools during campaign stop",
+      "link": "https://www.kxan.com/news/texas/gov-abbott-proposes-ban-on-h-1b-visa-use-for-texas-public-schools-during-campaign-stop/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 18 Aug 2026 03:46:41 +0000"
+      "published": "Wed, 19 Aug 2026 01:51:31 +0000"
     },
     {
-      "id": "news-austinmonitor-30467018",
+      "id": "news-austinmonitor-17529857",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
