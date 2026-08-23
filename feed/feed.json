@@ -1,7 +1,20 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-22T10:24:47Z",
+  "generated": "2026-08-23T10:25:14Z",
   "items": [
+    {
+      "id": "alert-urn:oid:2.49.0.1.840.0.bd7e4a655c57503f0",
+      "lane": "alerts",
+      "headline": "Extreme Heat Warning issued August 22 at 11:06PM CDT until August 23 at 7:00PM CDT by NWS Austin/San Antoni…",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bd7e4a655c57503f06ee28ddbc7158f50dfd6087.001.2",
+      "label": "Alert",
+      "icon": "⚠️",
+      "detail": "* WHAT...Dangerously hot conditions with temperatures up to 107 and\nheat index values up to 110 are expected Sunday afternoon.\nTemperatures up to 105 are expected Monday through Wednesday.\n\n* WHERE...Bastrop, Burnet, Caldwell, Fayette, Gonzales, Lavaca, Lee,\nLlano, Travis, and Wi",
+      "severity": 1,
+      "priority": 1,
+      "published": "2026-08-22T23:06:00-05:00",
+      "expires": "2026-08-23T19:00:00-05:00"
+    },
     {
       "id": "sample-deal-replace-me",
       "lane": "deals",
@@ -29,31 +42,31 @@
       "expires": "2099-12-31T23:59:59Z"
     },
     {
-      "id": "alert-urn:oid:2.49.0.1.840.0.9a5dde7dd8e11569b",
+      "id": "alert-urn:oid:2.49.0.1.840.0.bd7e4a655c57503f0",
       "lane": "alerts",
-      "headline": "Heat Advisory issued August 22 at 4:48AM CDT until August 23 at 7:00PM CDT by NWS Austin/San Antonio TX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.9a5dde7dd8e11569b063bff4a38a90756d6f2e38.001.1",
+      "headline": "Heat Advisory issued August 22 at 11:06PM CDT until August 26 at 7:00PM CDT by NWS Austin/San Antonio TX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bd7e4a655c57503f06ee28ddbc7158f50dfd6087.001.3",
       "label": "Alert",
       "icon": "⚠️",
-      "detail": "* WHAT...Temperatures up to 105 and heat index values up to 111\nexpected.\n\n* WHERE...I-35 Corridor, Coastal Plains, and across Burnet/Llano\nCounties in the Hill Country.\n\n* WHEN...Until 7 PM CDT Sunday.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
+      "detail": "* WHAT...Dangerously hot conditions with temperatures up to 107 and\nheat index values up to 110 are expected Sunday afternoon.\nTemperatures up to 105 are expected Monday through Wednesday.\n\n* WHERE...Bastrop, Burnet, Caldwell, Fayette, Gonzales, Lavaca, Lee,\nLlano, Travis, and Wi",
       "severity": 2,
       "priority": 2,
-      "published": "2026-08-22T04:48:00-05:00",
-      "expires": "2026-08-22T21:00:00-05:00"
+      "published": "2026-08-22T23:06:00-05:00",
+      "expires": "2026-08-23T19:00:00-05:00"
     },
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Partly Cloudy, 78°F",
+      "headline": "Overnight: Mostly Cloudy, 79°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Partly cloudy, with a low around 78. South wind around 0 mph. Saturday: Sunny then Slight Chance Showers And Thunderstorms, 105°F.",
+      "detail": "Mostly cloudy, with a low around 79. South southwest wind around 0 mph. Sunday: Mostly Sunny, 106°F.",
       "priority": 10,
-      "published": "2026-08-22T10:24:47Z"
+      "published": "2026-08-23T10:25:14Z"
     },
     {
-      "id": "news-kut-93671523",
+      "id": "news-kut-40799535",
       "lane": "news",
       "headline": "Ben Philpott named Morning Edition host on KUT News",
       "link": "https://www.kut.org/station-information/2026-08-19/ben-philpott-named-morning-edition-host-on-kut-news",
@@ -65,7 +78,7 @@
       "published": "Wed, 19 Aug 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kut-85714496",
+      "id": "news-kut-93873825",
       "lane": "news",
       "headline": "Frank Beard, the drummer for legendary Houston rock band ZZ Top, dies at 77",
       "link": "https://www.kut.org/life-arts/2026-08-18/frank-beard-the-drummer-for-legendary-houston-rock-band-zz-top-dies-at-77",
@@ -77,19 +90,19 @@
       "published": "Tue, 18 Aug 2026 21:06:27 GMT"
     },
     {
-      "id": "news-kxan-46260970",
+      "id": "news-kxan-10595032",
       "lane": "news",
-      "headline": "Five-year-old picked up by ICE in Austin, sent to Dilley detention center alongside dad",
-      "link": "https://www.kxan.com/investigations/five-year-old-picked-up-by-ice-in-austin-sent-to-dilley-detention-center/",
+      "headline": "Hornsby Bend residents demand action on water quality, cost concerns during community town hall",
+      "link": "https://www.kxan.com/news/local/hornsby-bend-residents-demand-action-on-water-quality-cost-concerns-during-community-town-hall/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 21 Aug 2026 17:44:36 +0000"
+      "published": "Sat, 22 Aug 2026 18:35:49 +0000"
     },
     {
-      "id": "news-austinmonitor-89014816",
+      "id": "news-austinmonitor-45119954",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -124,21 +137,21 @@
       "id": "sports-2407015",
       "lane": "sports",
       "headline": "Austin FC vs Philadelphia Union  ·  2026-08-23 01:00",
-      "link": "https://www.thesportsdb.com/",
+      "link": "https://www.youtube.com/watch?v=7tA00vbzabE",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
       "published": "2026-08-23"
     },
     {
-      "id": "sports-2393716",
+      "id": "sports-2393723",
       "lane": "sports",
-      "headline": "El Paso Chihuahuas vs Round Rock Express  ·  2026-08-22 00:35",
+      "headline": "El Paso Chihuahuas vs Round Rock Express  ·  2026-08-23 00:35",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-22"
+      "published": "2026-08-23"
     }
   ]
 }
