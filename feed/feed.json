@@ -1,19 +1,19 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-23T10:25:14Z",
+  "generated": "2026-08-24T10:38:08Z",
   "items": [
     {
-      "id": "alert-urn:oid:2.49.0.1.840.0.bd7e4a655c57503f0",
+      "id": "alert-urn:oid:2.49.0.1.840.0.2f598a49342e7b554",
       "lane": "alerts",
-      "headline": "Extreme Heat Warning issued August 22 at 11:06PM CDT until August 23 at 7:00PM CDT by NWS Austin/San Antoni…",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bd7e4a655c57503f06ee28ddbc7158f50dfd6087.001.2",
+      "headline": "Extreme Heat Warning issued August 23 at 7:11PM CDT until August 24 at 7:00PM CDT by NWS Austin/San Antonio TX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2f598a49342e7b5541e4b3a5da9ff84b9527aad8.003.1",
       "label": "Alert",
       "icon": "⚠️",
-      "detail": "* WHAT...Dangerously hot conditions with temperatures up to 107 and\nheat index values up to 110 are expected Sunday afternoon.\nTemperatures up to 105 are expected Monday through Wednesday.\n\n* WHERE...Bastrop, Burnet, Caldwell, Fayette, Gonzales, Lavaca, Lee,\nLlano, Travis, and Wi",
+      "detail": "* WHAT...Dangerously hot conditions with temperatures up to 107 and\nheat index values up to 110 are expected Monday afternoon.\nTemperatures up to 105 are expected Tuesday and Wednesday.\n\n* WHERE...Bastrop, Burnet, Llano, Travis, and Williamson Counties.\n\n* WHEN...For the Extreme ",
       "severity": 1,
       "priority": 1,
-      "published": "2026-08-22T23:06:00-05:00",
-      "expires": "2026-08-23T19:00:00-05:00"
+      "published": "2026-08-23T19:11:00-05:00",
+      "expires": "2026-08-24T19:00:00-05:00"
     },
     {
       "id": "sample-deal-replace-me",
@@ -42,31 +42,31 @@
       "expires": "2099-12-31T23:59:59Z"
     },
     {
-      "id": "alert-urn:oid:2.49.0.1.840.0.bd7e4a655c57503f0",
+      "id": "alert-urn:oid:2.49.0.1.840.0.2f598a49342e7b554",
       "lane": "alerts",
-      "headline": "Heat Advisory issued August 22 at 11:06PM CDT until August 26 at 7:00PM CDT by NWS Austin/San Antonio TX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bd7e4a655c57503f06ee28ddbc7158f50dfd6087.001.3",
+      "headline": "Heat Advisory issued August 23 at 7:11PM CDT until August 26 at 7:00PM CDT by NWS Austin/San Antonio TX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2f598a49342e7b5541e4b3a5da9ff84b9527aad8.003.2",
       "label": "Alert",
       "icon": "⚠️",
-      "detail": "* WHAT...Dangerously hot conditions with temperatures up to 107 and\nheat index values up to 110 are expected Sunday afternoon.\nTemperatures up to 105 are expected Monday through Wednesday.\n\n* WHERE...Bastrop, Burnet, Caldwell, Fayette, Gonzales, Lavaca, Lee,\nLlano, Travis, and Wi",
+      "detail": "* WHAT...Dangerously hot conditions with temperatures up to 107 and\nheat index values up to 110 are expected Monday afternoon.\nTemperatures up to 105 are expected Tuesday and Wednesday.\n\n* WHERE...Bastrop, Burnet, Llano, Travis, and Williamson Counties.\n\n* WHEN...For the Extreme ",
       "severity": 2,
       "priority": 2,
-      "published": "2026-08-22T23:06:00-05:00",
-      "expires": "2026-08-23T19:00:00-05:00"
+      "published": "2026-08-23T19:11:00-05:00",
+      "expires": "2026-08-24T19:00:00-05:00"
     },
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Cloudy, 79°F",
+      "headline": "Overnight: Mostly Clear, 80°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly cloudy, with a low around 79. South southwest wind around 0 mph. Sunday: Mostly Sunny, 106°F.",
+      "detail": "Mostly clear, with a low around 80. South southwest wind around 5 mph. Monday: Sunny, 106°F.",
       "priority": 10,
-      "published": "2026-08-23T10:25:14Z"
+      "published": "2026-08-24T10:38:08Z"
     },
     {
-      "id": "news-kut-40799535",
+      "id": "news-kut-86986479",
       "lane": "news",
       "headline": "Ben Philpott named Morning Edition host on KUT News",
       "link": "https://www.kut.org/station-information/2026-08-19/ben-philpott-named-morning-edition-host-on-kut-news",
@@ -78,7 +78,7 @@
       "published": "Wed, 19 Aug 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kut-93873825",
+      "id": "news-kut-53556121",
       "lane": "news",
       "headline": "Frank Beard, the drummer for legendary Houston rock band ZZ Top, dies at 77",
       "link": "https://www.kut.org/life-arts/2026-08-18/frank-beard-the-drummer-for-legendary-houston-rock-band-zz-top-dies-at-77",
@@ -90,19 +90,19 @@
       "published": "Tue, 18 Aug 2026 21:06:27 GMT"
     },
     {
-      "id": "news-kxan-10595032",
+      "id": "news-kxan-7713814",
       "lane": "news",
-      "headline": "Hornsby Bend residents demand action on water quality, cost concerns during community town hall",
-      "link": "https://www.kxan.com/news/local/hornsby-bend-residents-demand-action-on-water-quality-cost-concerns-during-community-town-hall/",
+      "headline": "2 injured in fire at Austin flea market off Hwy 290",
+      "link": "https://www.kxan.com/news/local/afd-on-scene-of-a-fire-at-flea-market-off-hwy-290/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 22 Aug 2026 18:35:49 +0000"
+      "published": "Mon, 24 Aug 2026 01:08:58 +0000"
     },
     {
-      "id": "news-austinmonitor-45119954",
+      "id": "news-austinmonitor-71569710",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -134,24 +134,24 @@
       "published": "2026-10-03"
     },
     {
-      "id": "sports-2407015",
+      "id": "sports-2574551",
       "lane": "sports",
-      "headline": "Austin FC vs Philadelphia Union  ·  2026-08-23 01:00",
-      "link": "https://www.youtube.com/watch?v=7tA00vbzabE",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-23"
-    },
-    {
-      "id": "sports-2393723",
-      "lane": "sports",
-      "headline": "El Paso Chihuahuas vs Round Rock Express  ·  2026-08-23 00:35",
+      "headline": "Toluca vs Austin FC  ·  2026-08-27 00:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-23"
+      "published": "2026-08-27"
+    },
+    {
+      "id": "sports-2393733",
+      "lane": "sports",
+      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-08-25 23:45",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-08-25"
     }
   ]
 }
