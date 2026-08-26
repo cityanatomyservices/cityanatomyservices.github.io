@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-25T10:34:22Z",
+  "generated": "2026-08-26T10:36:45Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -29,31 +29,43 @@
       "expires": "2099-12-31T23:59:59Z"
     },
     {
-      "id": "alert-urn:oid:2.49.0.1.840.0.acfbba441c0b78a84",
+      "id": "alert-urn:oid:2.49.0.1.840.0.f6e917e469f78577c",
       "lane": "alerts",
-      "headline": "Heat Advisory issued August 24 at 6:53PM CDT until August 26 at 7:00PM CDT by NWS Austin/San Antonio TX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.acfbba441c0b78a849499f784d244ff5ec1a2e50.001.2",
+      "headline": "Heat Advisory issued August 26 at 1:37AM CDT until August 26 at 7:00PM CDT by NWS Austin/San Antonio TX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f6e917e469f78577caa3d4d8f419956f6f1d63ba.001.1",
       "label": "Alert",
       "icon": "⚠️",
-      "detail": "* WHAT...Temperatures up to 105 and heat index values up to 110\nexpected Tuesday and Wednesday.\n\n* WHERE...Bastrop, Burnet, Llano, Travis, and Williamson Counties.\n\n* WHEN...Until 7 PM CDT Wednesday.\n\n* IMPACTS...Hot temperatures may cause heat illnesses.",
+      "detail": "* WHAT...Temperatures up to 104 and heat index values up to 106\nexpected this afternoon.\n\n* WHERE...Bastrop, Burnet, Llano, Travis, and Williamson Counties.\n\n* WHEN...Until 7 PM CDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
       "severity": 2,
       "priority": 2,
-      "published": "2026-08-24T18:53:00-05:00",
-      "expires": "2026-08-25T19:00:00-05:00"
+      "published": "2026-08-26T01:37:00-05:00",
+      "expires": "2026-08-26T19:00:00-05:00"
     },
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Overnight: Mostly Clear, 78°F",
+      "headline": "Overnight: Mostly Clear, 79°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly clear, with a low around 78. South southwest wind around 5 mph. Tuesday: Sunny, 105°F.",
+      "detail": "Mostly clear, with a low around 79. South southwest wind around 5 mph. Wednesday: Sunny, 104°F.",
       "priority": 10,
-      "published": "2026-08-25T10:34:22Z"
+      "published": "2026-08-26T10:36:45Z"
     },
     {
-      "id": "news-kut-94545363",
+      "id": "news-kut-28852529",
+      "lane": "news",
+      "headline": "Dolly Parton, one of country music's most singular performers, has died at age 80",
+      "link": "https://www.kut.org/life-arts/2026-08-25/dolly-parton-one-of-country-musics-most-singular-performers-has-died-at-age-80",
+      "label": "Local News",
+      "icon": "📰",
+      "detail": "KUT",
+      "source": "KUT",
+      "priority": 30,
+      "published": "Tue, 25 Aug 2026 18:25:29 GMT"
+    },
+    {
+      "id": "news-kut-54202916",
       "lane": "news",
       "headline": "Ben Philpott named Morning Edition host on KUT News",
       "link": "https://www.kut.org/station-information/2026-08-19/ben-philpott-named-morning-edition-host-on-kut-news",
@@ -65,31 +77,19 @@
       "published": "Wed, 19 Aug 2026 11:00:00 GMT"
     },
     {
-      "id": "news-kut-84884563",
+      "id": "news-kxan-42326687",
       "lane": "news",
-      "headline": "Frank Beard, the drummer for legendary Houston rock band ZZ Top, dies at 77",
-      "link": "https://www.kut.org/life-arts/2026-08-18/frank-beard-the-drummer-for-legendary-houston-rock-band-zz-top-dies-at-77",
-      "label": "Local News",
-      "icon": "📰",
-      "detail": "KUT",
-      "source": "KUT",
-      "priority": 30,
-      "published": "Tue, 18 Aug 2026 21:06:27 GMT"
-    },
-    {
-      "id": "news-kxan-93774418",
-      "lane": "news",
-      "headline": "AI giant Anthropic in talks to lease massive Bastrop County data center, sources said",
-      "link": "https://www.kxan.com/news/local/ai-giant-anthropic-in-talks-to-lease-massive-bastrop-county-data-center-sources-said/",
+      "headline": "Pflugerville covers Flock cameras, turns off system",
+      "link": "https://www.kxan.com/news/local/pflugerville/pflugerville-covers-flock-cameras-turns-off-system/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 25 Aug 2026 01:22:46 +0000"
+      "published": "Tue, 25 Aug 2026 23:05:59 +0000"
     },
     {
-      "id": "news-austinmonitor-8870425",
+      "id": "news-austinmonitor-73496904",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -131,14 +131,14 @@
       "published": "2026-08-27"
     },
     {
-      "id": "sports-2393733",
+      "id": "sports-2393736",
       "lane": "sports",
-      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-08-25 23:45",
+      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-08-26 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-25"
+      "published": "2026-08-26"
     }
   ]
 }
