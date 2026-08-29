@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-28T21:07:46Z",
+  "generated": "2026-08-29T14:56:58Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "This Afternoon: Chance Showers And Thunderstorms, 100°F",
+      "headline": "Today: Sunny, 100°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A chance of showers and thunderstorms. Mostly sunny, with a high near 100. Heat index values as high as 108. East wind around 5 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible. Tonight: Chance Showers And Thunderstorms then Mostly Clear, 78°F.",
+      "detail": "Sunny, with a high near 100. Heat index values as high as 104. South southeast wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-08-28T21:07:46Z"
+      "published": "2026-08-29T14:56:58Z"
     },
     {
-      "id": "news-kut-82699263",
+      "id": "news-kut-44217019",
       "lane": "news",
       "headline": "‘She wanted to be a big star’: Ray Benson reflects on friendship with Dolly Parton",
       "link": "https://www.kut.org/life-arts/2026-08-26/dolly-parton-texas-ray-benson-memorial",
@@ -52,7 +52,7 @@
       "published": "Wed, 26 Aug 2026 19:43:42 GMT"
     },
     {
-      "id": "news-kut-44688050",
+      "id": "news-kut-49917033",
       "lane": "news",
       "headline": "Dolly Parton, one of country music's most singular performers, has died at age 80",
       "link": "https://www.kut.org/life-arts/2026-08-25/dolly-parton-one-of-country-musics-most-singular-performers-has-died-at-age-80",
@@ -64,19 +64,19 @@
       "published": "Tue, 25 Aug 2026 18:25:29 GMT"
     },
     {
-      "id": "news-kxan-41085572",
+      "id": "news-kxan-97961904",
       "lane": "news",
-      "headline": "1 dead after under-construction house collapses on workers in south Austin",
-      "link": "https://www.kxan.com/top-stories/austin-house-collapse/",
+      "headline": "Austin game developers push for union contract amid Microsoft's Xbox layoffs",
+      "link": "https://www.kxan.com/news/local/austin/austin-game-developers-push-for-union-contract-amid-microsofts-xbox-layoffs/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Fri, 28 Aug 2026 03:38:54 +0000"
+      "published": "Sat, 29 Aug 2026 03:44:15 +0000"
     },
     {
-      "id": "news-austinmonitor-29460824",
+      "id": "news-austinmonitor-84771959",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
