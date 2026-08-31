@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-08-30T14:43:16Z",
+  "generated": "2026-08-31T17:26:01Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Sunny, 100°F",
+      "headline": "This Afternoon: Sunny, 101°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Sunny, with a high near 100. Heat index values as high as 103. South wind 0 to 5 mph. Tonight: Mostly Clear, 77°F.",
+      "detail": "Sunny, with a high near 101. Heat index values as high as 106. Southeast wind around 5 mph. Tonight: Mostly Clear, 79°F.",
       "priority": 10,
-      "published": "2026-08-30T14:43:16Z"
+      "published": "2026-08-31T17:26:01Z"
     },
     {
-      "id": "news-kut-45965654",
+      "id": "news-kut-48638071",
       "lane": "news",
       "headline": "‘She wanted to be a big star’: Ray Benson reflects on friendship with Dolly Parton",
       "link": "https://www.kut.org/life-arts/2026-08-26/dolly-parton-texas-ray-benson-memorial",
@@ -52,7 +52,7 @@
       "published": "Wed, 26 Aug 2026 19:43:42 GMT"
     },
     {
-      "id": "news-kut-22767537",
+      "id": "news-kut-6347296",
       "lane": "news",
       "headline": "Dolly Parton, one of country music's most singular performers, has died at age 80",
       "link": "https://www.kut.org/life-arts/2026-08-25/dolly-parton-one-of-country-musics-most-singular-performers-has-died-at-age-80",
@@ -64,19 +64,19 @@
       "published": "Tue, 25 Aug 2026 18:25:29 GMT"
     },
     {
-      "id": "news-kxan-74719477",
+      "id": "news-kxan-13848788",
       "lane": "news",
-      "headline": "1 dead, 1 in custody in northeast Austin homicide, police say",
-      "link": "https://www.kxan.com/news/crime/homicide-investigation-underway-in-northeast-austin-police-say/",
+      "headline": "Why homeowners in a Texas neighborhood keep losing water as boil notices mount",
+      "link": "https://www.kxan.com/texas-water/why-homeowners-in-a-texas-neighborhood-keep-losing-water-as-boil-notices-mount/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sun, 30 Aug 2026 01:16:51 +0000"
+      "published": "Mon, 31 Aug 2026 15:01:56 +0000"
     },
     {
-      "id": "news-austinmonitor-84245587",
+      "id": "news-austinmonitor-13861964",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -108,24 +108,24 @@
       "published": "2026-10-03"
     },
     {
-      "id": "sports-2407036",
+      "id": "sports-2407048",
       "lane": "sports",
-      "headline": "Portland Timbers vs Austin FC  ·  2026-08-30 02:30",
-      "link": "https://www.youtube.com/watch?v=hcOzb6bq4L4",
-      "label": "Local Sports",
-      "icon": "🏆",
-      "priority": 40,
-      "published": "2026-08-30"
-    },
-    {
-      "id": "sports-2393751",
-      "lane": "sports",
-      "headline": "Round Rock Express vs Albuquerque Isotopes  ·  2026-08-30 00:05",
+      "headline": "Austin FC vs San Jose Earthquakes  ·  2026-09-06 00:30",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-08-30"
+      "published": "2026-09-06"
+    },
+    {
+      "id": "sports-2393763",
+      "lane": "sports",
+      "headline": "Round Rock Express vs Oklahoma City Comets  ·  2026-09-01 23:45",
+      "link": "https://www.thesportsdb.com/",
+      "label": "Local Sports",
+      "icon": "🏆",
+      "priority": 40,
+      "published": "2026-09-01"
     }
   ]
 }
