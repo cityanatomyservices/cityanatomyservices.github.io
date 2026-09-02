@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-09-01T14:36:16Z",
+  "generated": "2026-09-02T14:09:42Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 99°F",
+      "headline": "Today: Mostly Sunny then Slight Chance Showers And Thunderstorms, 100°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A slight chance of showers and thunderstorms after 1pm. Mostly sunny, with a high near 99. Heat index values as high as 104. Northeast wind 0 to 5 mph. Chance of precipitation is 20%. Tonight: Slight Chance Showers And Thunderstorms, 78°F.",
+      "detail": "A slight chance of showers and thunderstorms after 4pm. Mostly sunny, with a high near 100. Heat index values as high as 104. Southwest wind around 5 mph. Chance of precipitation is 20%. Tonight: Slight Chance Showers And Thunderstorms then Partly Cloudy, 79°F.",
       "priority": 10,
-      "published": "2026-09-01T14:36:16Z"
+      "published": "2026-09-02T14:09:42Z"
     },
     {
-      "id": "news-kut-37548988",
+      "id": "news-kut-83780520",
       "lane": "news",
       "headline": "‘She wanted to be a big star’: Ray Benson reflects on friendship with Dolly Parton",
       "link": "https://www.kut.org/life-arts/2026-08-26/dolly-parton-texas-ray-benson-memorial",
@@ -52,7 +52,7 @@
       "published": "Wed, 26 Aug 2026 19:43:42 GMT"
     },
     {
-      "id": "news-kut-22588383",
+      "id": "news-kut-5487116",
       "lane": "news",
       "headline": "Dolly Parton, one of country music's most singular performers, has died at age 80",
       "link": "https://www.kut.org/life-arts/2026-08-25/dolly-parton-one-of-country-musics-most-singular-performers-has-died-at-age-80",
@@ -64,19 +64,19 @@
       "published": "Tue, 25 Aug 2026 18:25:29 GMT"
     },
     {
-      "id": "news-kxan-51241190",
+      "id": "news-kxan-50062977",
       "lane": "news",
-      "headline": "Tropical Storm Edouard brings rain chances Tuesday",
-      "link": "https://www.kxan.com/weather/forecast/tropical-storm-edouard-brining-rain-chances-today/",
+      "headline": "Bastrop moves to immediately cover city's Flock cameras as vote to terminate contract looms",
+      "link": "https://www.kxan.com/news/local/bastrop/bastrop-moves-to-immediately-cover-citys-flock-cameras-as-vote-to-terminate-contract-looms/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Tue, 01 Sep 2026 10:59:45 +0000"
+      "published": "Wed, 02 Sep 2026 12:39:19 +0000"
     },
     {
-      "id": "news-austinmonitor-83584242",
+      "id": "news-austinmonitor-46619058",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -118,14 +118,14 @@
       "published": "2026-09-06"
     },
     {
-      "id": "sports-2393763",
+      "id": "sports-2393767",
       "lane": "sports",
-      "headline": "Round Rock Express vs Oklahoma City Comets  ·  2026-09-01 23:45",
+      "headline": "Round Rock Express vs Oklahoma City Comets  ·  2026-09-02 23:45",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-09-01"
+      "published": "2026-09-02"
     }
   ]
 }
