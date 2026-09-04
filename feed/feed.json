@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-09-03T14:12:52Z",
+  "generated": "2026-09-04T14:03:34Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Partly Sunny then Slight Chance Showers And Thunderstorms, 101°F",
+      "headline": "Today: Chance Rain Showers then Slight Chance Showers And Thunderstorms, 96°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "A slight chance of showers and thunderstorms after 4pm. Partly sunny, with a high near 101. Heat index values as high as 108. South wind 5 to 10 mph. Chance of precipitation is 20%. Tonight: Slight Chance Showers And Thunderstorms, 78°F.",
+      "detail": "A chance of rain showers before 1pm, then a slight chance of showers and thunderstorms between 1pm and 4pm. Partly sunny, with a high near 96. Heat index values as high as 104. South southeast wind around 5 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible. Tonight: Mostly Clear, 77°F.",
       "priority": 10,
-      "published": "2026-09-03T14:12:52Z"
+      "published": "2026-09-04T14:03:34Z"
     },
     {
-      "id": "news-kut-37439656",
+      "id": "news-kut-25160702",
       "lane": "news",
       "headline": "‘She wanted to be a big star’: Ray Benson reflects on friendship with Dolly Parton",
       "link": "https://www.kut.org/life-arts/2026-08-26/dolly-parton-texas-ray-benson-memorial",
@@ -52,7 +52,7 @@
       "published": "Wed, 26 Aug 2026 19:43:42 GMT"
     },
     {
-      "id": "news-kut-75155623",
+      "id": "news-kut-75017372",
       "lane": "news",
       "headline": "Dolly Parton, one of country music's most singular performers, has died at age 80",
       "link": "https://www.kut.org/life-arts/2026-08-25/dolly-parton-one-of-country-musics-most-singular-performers-has-died-at-age-80",
@@ -64,19 +64,19 @@
       "published": "Tue, 25 Aug 2026 18:25:29 GMT"
     },
     {
-      "id": "news-kxan-70231817",
+      "id": "news-kxan-21384909",
       "lane": "news",
-      "headline": "Bastrop County woman sues Giddings, former cop who solicited sexual acts during traffic stop",
-      "link": "https://www.kxan.com/news/local/bastrop-county/bastrop-county-woman-sues-giddings-former-cop-who-solicited-sexual-acts-during-traffic-stop/",
+      "headline": "Austin has no mold-specific code; new regulations could be coming",
+      "link": "https://www.kxan.com/news/local/austin/austin-has-no-mold-specific-code-new-regulations-could-be-coming/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Wed, 02 Sep 2026 21:08:33 +0000"
+      "published": "Fri, 04 Sep 2026 11:30:00 +0000"
     },
     {
-      "id": "news-austinmonitor-69832330",
+      "id": "news-austinmonitor-80044420",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -118,14 +118,14 @@
       "published": "2026-09-06"
     },
     {
-      "id": "sports-2393774",
+      "id": "sports-2393777",
       "lane": "sports",
-      "headline": "Round Rock Express vs Oklahoma City Comets  ·  2026-09-03 23:45",
+      "headline": "Round Rock Express vs Oklahoma City Comets  ·  2026-09-05 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-09-03"
+      "published": "2026-09-05"
     }
   ]
 }
