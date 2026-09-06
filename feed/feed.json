@@ -1,6 +1,6 @@
 {
   "cityId": "atx",
-  "generated": "2026-09-05T13:17:14Z",
+  "generated": "2026-09-06T13:27:02Z",
   "items": [
     {
       "id": "sample-deal-replace-me",
@@ -31,16 +31,16 @@
     {
       "id": "weather-now",
       "lane": "weather",
-      "headline": "Today: Mostly Sunny, 98°F",
+      "headline": "Today: Chance Rain Showers then Chance Showers And Thunderstorms, 97°F",
       "link": "https://forecast.weather.gov/MapClick.php?lat=30.2672&lon=-97.7431",
       "label": "Weather",
       "icon": "☀️",
-      "detail": "Mostly sunny, with a high near 98. Heat index values as high as 102. South southeast wind 0 to 5 mph. Tonight: Partly Cloudy, 78°F.",
+      "detail": "A chance of rain showers before 1pm, then a chance of showers and thunderstorms. Partly sunny, with a high near 97. Heat index values as high as 106. South southeast wind 0 to 5 mph. Chance of precipitation is 40%. New rainfall amounts less than a tenth of an inch possible. Tonight: Slight Chance Showers And Thunderstorms then Mostly Clear, 78°F.",
       "priority": 10,
-      "published": "2026-09-05T13:17:14Z"
+      "published": "2026-09-06T13:27:02Z"
     },
     {
-      "id": "news-kut-45412307",
+      "id": "news-kut-89516877",
       "lane": "news",
       "headline": "‘She wanted to be a big star’: Ray Benson reflects on friendship with Dolly Parton",
       "link": "https://www.kut.org/life-arts/2026-08-26/dolly-parton-texas-ray-benson-memorial",
@@ -52,7 +52,7 @@
       "published": "Wed, 26 Aug 2026 19:43:42 GMT"
     },
     {
-      "id": "news-kut-32630170",
+      "id": "news-kut-19380065",
       "lane": "news",
       "headline": "Dolly Parton, one of country music's most singular performers, has died at age 80",
       "link": "https://www.kut.org/life-arts/2026-08-25/dolly-parton-one-of-country-musics-most-singular-performers-has-died-at-age-80",
@@ -64,19 +64,19 @@
       "published": "Tue, 25 Aug 2026 18:25:29 GMT"
     },
     {
-      "id": "news-kxan-77134524",
+      "id": "news-kxan-62650864",
       "lane": "news",
-      "headline": "Suspect located, victim safe after south Austin SWAT response",
-      "link": "https://www.kxan.com/news/local/austin/suspect-located-victim-safe-after-south-austin-swat-response/",
+      "headline": "Infrastructure improvements on track for northwest Austin rail station",
+      "link": "https://www.kxan.com/news/infrastructure-improvements-on-track-for-northwest-austin-rail-station/",
       "label": "Local News",
       "icon": "📰",
       "detail": "KXAN",
       "source": "KXAN",
       "priority": 30,
-      "published": "Sat, 05 Sep 2026 12:12:41 +0000"
+      "published": "Sun, 06 Sep 2026 02:45:05 +0000"
     },
     {
-      "id": "news-austinmonitor-20651403",
+      "id": "news-austinmonitor-72466608",
       "lane": "news",
       "headline": "Our last update: Everything you need to know",
       "link": "https://austinmonitor.com/stories/2025/11/whats-next/",
@@ -118,14 +118,14 @@
       "published": "2026-09-06"
     },
     {
-      "id": "sports-2393777",
+      "id": "sports-2393783",
       "lane": "sports",
-      "headline": "Round Rock Express vs Oklahoma City Comets  ·  2026-09-05 00:05",
+      "headline": "Round Rock Express vs Oklahoma City Comets  ·  2026-09-06 00:05",
       "link": "https://www.thesportsdb.com/",
       "label": "Local Sports",
       "icon": "🏆",
       "priority": 40,
-      "published": "2026-09-05"
+      "published": "2026-09-06"
     }
   ]
 }
