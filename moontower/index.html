@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moontower</title>
+<link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+<!-- Generated files, copied in by scripts/sync-web.js. Never hand-edit them. -->
+<script src="vendor/arclight-1895.style.js"></script>
+<script src="vendor/locations.js"></script>
+<script src="vendor/routes.js"></script>
+<style>
+  /* Palette is the app's own arclight-1895 (see map/style/PALETTE.md). */
+  :root {
+    --ink:    #070a12;   /* the night the city sits on */
+    --paper:  #c6c4dd;   /* body text */
+    --bright: #e9e6ff;   /* lit */
+    --accent: #b9a8f0;   /* arc light */
+    --dim:    #6e6d89;
+    --edge:   #2b354c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--ink); color: var(--paper);
+               font-family: Georgia, 'Times New Roman', serif; overflow: hidden; }
+  #map { position: absolute; inset: 0; }
+
+  /* Everything fades up once the map is actually drawn, so the page never
+     flashes furniture over an empty black box. */
+  #title, #story-card { opacity: 0; transition: opacity 1.2s ease; }
+  body.ready #title { opacity: 1; }
+
+  #title { position: absolute; top: 5vh; left: 0; right: 0; z-index: 2;
+           text-align: center; pointer-events: none; }
+  #title h1 { margin: 0; font-size: clamp(28px, 5vw, 58px); letter-spacing: .22em;
+              color: var(--bright); font-weight: 400;
+              text-shadow: 0 0 26px rgba(185,168,240,.45); }
+  #title .rule { width: min(280px, 40vw); height: 1px; margin: 14px auto;
+                 background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+  /* COPY NOTE: this line is lifted VERBATIM from README.md. It is the owner's
+     writing, not invented here. Replace with a different owner-written line
+     any time — this is the only prose on the page outside the stop data. */
+  #title p { margin: 0 auto; max-width: min(760px, 88vw); font-size: clamp(13px, 1.5vw, 17px);
+             line-height: 1.55; color: var(--paper); opacity: .85; }
+  #title a { pointer-events: auto; display: inline-block; margin-top: 18px;
+             color: var(--bright); text-decoration: none; font-size: 14px;
+             letter-spacing: .14em; padding: 8px 20px;
+             border: 1px solid var(--edge); border-radius: 999px;
+             background: rgba(7,10,18,.72); }
+  #title a:hover { border-color: var(--accent); }
+
+  #story-card { position: absolute; right: 3vw; bottom: 4vh; z-index: 2;
+                width: min(430px, 42vw); max-height: 74vh; overflow: auto;
+                background: rgba(7,10,18,.9); border: 1px solid var(--edge);
+                border-radius: 8px; padding: 18px 20px; line-height: 1.5; }
+  #story-card.visible { opacity: 1; }
+  #story-card .media { width: 100%; border-radius: 4px; margin-bottom: 12px; display: block; }
+  #story-card .eyebrow { font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+                         color: var(--dim); margin-bottom: 8px; }
+  #story-card h2 { margin: 0 0 4px; font-size: 20px; font-weight: 400; color: var(--accent); }
+  #story-card .corner { font-size: 13px; color: var(--bright); margin-bottom: 10px; }
+  #story-card p { margin: 8px 0; font-size: 14px; }
+  #story-card .label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+                       color: var(--dim); margin-right: 6px; }
+  #story-card .dim { color: var(--dim); font-size: 13px; }
+
+  #fallback { position: absolute; inset: 0; display: grid; place-items: center;
+              z-index: 3; color: var(--dim); font-size: 14px; }
+
+  @media (max-width: 720px) {
+    #story-card { right: 4vw; left: 4vw; width: auto; max-height: 46vh; }
+  }
+</style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <div id="title">
+    <h1>MOONTOWER</h1>
+    <div class="rule"></div>
+    <p>A geofenced, collect-them-all walking/biking tour of Austin's 1895 moonlight towers.</p>
+    <!-- TODO(owner): the store link. href is a placeholder until you give me the URL. -->
+    <a href="#" id="app-link">Moontower</a>
+  </div>
+
+  <div id="story-card"></div>
+  <div id="fallback" hidden></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

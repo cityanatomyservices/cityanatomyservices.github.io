@@ -63,6 +63,34 @@ parcel copy is superseded. The austin.chat data the owner is keeping — the
 (`C:\GISData\austin\places.gpkg`, GeoJSON in `C:\GISData\derived\`).
 The austin.chat domain stays registered but points at nothing.
 
+## Home page — 2026-09-09 (owner: "make it look cooler", same basic layout)
+
+Same skeleton as before: top bar, map window, chip row, card row, footer.
+What changed:
+
+- **The window plays the Moontower map** by default. `moontower/` is a COPY
+  of `MoonTowerTour/web` (see `moontower/README.md` for the refresh recipe)
+  so anatomy.city does not depend on austin1885.city. It self-tours; nothing
+  waits for the visitor.
+- **Chips = products, cards = their pages**, all from `home.json`
+  (`home.js` renders it). Picking a card loads its page in the window. Every
+  visible string is the owner's: module names/blurbs from
+  `CityAnatomyAustin/src/content/copy.ts`, page titles from each page's
+  `<title>`. Add a product or page by editing `home.json` only.
+- **One palette, no light/dark toggle.** `style.css` `:root` now carries the
+  Moontower night tokens (ink / paper / arc-light) and Georgia serif, so the
+  window and the page match. The toggle button on the other pages is hidden
+  by CSS; `page.js` still runs the mobile nav.
+- **Footer links are real** (TikTok, X, Substack, Patreon from
+  `docs/BRAND.md`). YouTube has no URL in the brand table yet, so no icon.
+  No Play Store button until the listing is live.
+- **Reports are off the home page** (owner: "I don't care about the
+  reports"). They still exist: one folder per report under `apps/reports/`,
+  listed at https://anatomy.city/apps/ and https://anatomy.city/apps/reports/.
+  The old home-page loader read `apps/reports/reports.json`.
+
+Owner copy flags: `/apps/` hero lede still mentions "live chat experiences".
+
 ## Push token — fixed 2026-09-09
 
 The `cityanatomyservices` gh login now has the `workflow` scope, and the full

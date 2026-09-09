@@ -1,23 +1,17 @@
 :root {
-  --background: #f5f7fa;
-  --text: #1c1c28;
-  --accent: #0067c5;
-  --accent-light: #5ba8ff;
-  --surface: #ffffff;
-  --muted: #6f7780;
-  --border: #e1e6ee;
-  --shadow: rgba(15, 25, 45, 0.12);
-}
-
-:root[data-theme='dark'] {
-  --background: #0e1117;
-  --text: #f5f7fa;
-  --accent: #4cc3ff;
-  --accent-light: #8ad7ff;
-  --surface: #161b23;
-  --muted: #c0c7d1;
-  --border: #2a3040;
-  --shadow: rgba(0, 0, 0, 0.45);
+  /* Night palette, copied from moontower/index.html so the map window and
+     the page around it are the same city at the same hour. */
+  --background: #070a12;   /* ink — the night the city sits on */
+  --text: #e9e6ff;         /* bright — lit */
+  --accent: #b9a8f0;       /* arc light */
+  --accent-light: #e9e6ff;
+  --surface: #0c1020;
+  --muted: #c6c4dd;        /* paper — body text */
+  --dim: #6e6d89;
+  --border: #2b354c;       /* edge */
+  --shadow: rgba(0, 0, 0, 0.55);
+  --glow: rgba(185, 168, 240, 0.28);
+  color-scheme: dark;
 }
 
 * {
@@ -31,7 +25,7 @@ body {
 
 body {
   margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   background: var(--background);
   color: var(--text);
   display: flex;
@@ -42,8 +36,9 @@ body {
 h1,
 h2 {
   margin: 0 0 0.5rem;
-  font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  color: var(--text);
 }
 
 p {
@@ -71,9 +66,9 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1.15rem 1.9rem;
+  padding: 0.95rem 1.9rem;
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 6px 16px var(--shadow);
+  box-shadow: 0 1px 0 var(--glow);
 }
 
 .topbar-left {
@@ -88,23 +83,26 @@ a:hover {
 }
 
 .brand {
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--text);
+  text-shadow: 0 0 18px var(--glow);
 }
 
 .primary-nav {
   display: inline-flex;
   align-items: center;
-  gap: 1.25rem;
-  font-weight: 600;
-  font-size: 1rem;
+  gap: 1.4rem;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
 }
 
 .primary-nav a {
-  color: var(--text);
+  color: var(--muted);
   padding: 0.35rem 0;
   border-radius: 8px;
   position: relative;
@@ -138,7 +136,7 @@ a:hover {
   font-size: 2.4rem;
   letter-spacing: 0.02em;
   color: var(--text);
-  font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   margin: 0.25rem 0;
 }
 
@@ -150,21 +148,21 @@ main {
 
 .map-hero {
   position: relative;
-  flex: 0 0 65vh;
+  flex: 1 1 auto;
   display: flex;
-  height: 65vh;
+  min-height: 65vh;
   border-bottom: none;
   overflow: hidden;
+  background: var(--background);
 }
 
+/* Soft vignette so the window's edges melt into the page instead of
+   ending at a hard rectangle. Pointer events pass through to the map. */
 .map-hero::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.12), transparent);
+  inset: 0;
+  box-shadow: inset 0 0 80px 20px var(--background);
   pointer-events: none;
   z-index: 1;
 }
@@ -219,7 +217,9 @@ main {
   background: var(--surface);
   color: var(--muted);
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 400;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.03em;
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
@@ -231,7 +231,8 @@ main {
 .sm-nav-btn.is-active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--background);
+  box-shadow: 0 0 16px var(--glow);
 }
 
 /* ── Featured report cards ───────────────────────────────── */
@@ -285,14 +286,14 @@ main {
   background: var(--accent);
   border-color: var(--accent);
   border-left-color: var(--accent);
-  color: #fff;
-  box-shadow: 0 10px 22px var(--shadow);
+  color: var(--background);
+  box-shadow: 0 0 24px var(--glow);
 }
 
 .report-cards-inner .report-card.is-active .report-card-eyebrow,
 .report-cards-inner .report-card.is-active .report-card-title,
 .report-cards-inner .report-card.is-active .report-card-blurb {
-  color: #fff;
+  color: var(--background);
 }
 
 .report-card-eyebrow {
@@ -307,9 +308,9 @@ main {
   margin: 0;
   font-size: 0.98rem;
   line-height: 1.25;
-  font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   color: var(--text);
-  font-weight: 700;
+  font-weight: 400;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -438,7 +439,7 @@ main {
 }
 
 .page-footer {
-  background: var(--surface);
+  background: var(--background);
   border-top: 1px solid var(--border);
   padding: 18px 28px 24px;
   text-align: center;
@@ -456,12 +457,13 @@ main {
   justify-content: center;
   width: 28px;
   height: 28px;
-  color: var(--muted);
-  transition: color 0.15s ease;
+  color: var(--dim);
+  transition: color 0.15s ease, filter 0.15s ease;
 }
 
 .social-icons a:hover {
   color: var(--accent);
+  filter: drop-shadow(0 0 6px var(--glow));
 }
 
 .social-icons svg {
@@ -561,7 +563,8 @@ main {
   padding: 1rem 1.1rem;
 }
 
-.theme-toggle {
+.theme-toggle { display: none !important; }
+.theme-toggle-unused {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
