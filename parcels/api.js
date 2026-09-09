@@ -15,14 +15,26 @@
     return _sb;
   }
 
+  // Reads the anon-readable parcels_public view of the paid project. That
+  // schema stores the base district in zoning_base and the full combining
+  // string (e.g. "SF-3-NP") in zoning_ztype, so we map them onto the field
+  // names the drawer expects (zoning / zoning_overlay).
   async function getParcel(parcelId) {
     const { data, error } = await requireSb()
-      .from('parcels')
-      .select('parcel_id,zoning,zoning_overlay,zoning_source,metadata')
+      .from('parcels_public')
+      .select('parcel_id,zoning_base,zoning_ztype,metadata')
       .eq('parcel_id', String(parcelId))
       .maybeSingle();
     if (error) throw error;
-    return data;
+    if (!data) return data;
+    const overlay = data.zoning_ztype && data.zoning_ztype !== data.zoning_base
+      ? data.zoning_ztype : null;
+    return {
+      parcel_id:      data.parcel_id,
+      zoning:         data.zoning_base,
+      zoning_overlay: overlay,
+      metadata:       data.metadata
+    };
   }
 
   async function getConstraints(parcelId) {

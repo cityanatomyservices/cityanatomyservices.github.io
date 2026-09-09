@@ -22,14 +22,51 @@ What was done, in order:
 DNS did not change: anatomy.city is proxied by Cloudflare, which forwards to
 GitHub Pages. GitHub picks the repo by the `CNAME` file, so keep that file.
 
-## OPEN — two follow-ups
+## Supabase — the site uses only the paid cityanatomyservices project (2026-09-09)
 
-**1. Push the full history (blocked on a token scope).** None of the `gh`
+Owner's rule: the paid Supabase account (org `cityanatomyservices`) is the only
+one that matters. It holds project **`aqbyxpiwugcvoephsvpm` ("parcels")** —
+the parcel database shared with WhatCanIBuildHere (`austingraph/austingraph.github.io`)
+and the CityAnatomyAustin container app — plus the "Pubber" project.
+
+Before the move the site pointed at `tqnklodtiithbsxxyycp`, a project on the
+FREE account (the austin.chat one). It held a small copy of the parcel data,
+two custom RPCs and its own PMTiles file. That dependency is gone:
+
+- `/parcels/` now reads the paid project: `parcels_public` view (anon-readable),
+  PMTiles `tiles/parcels.pmtiles` (source layer `parcels`), and two RPCs.
+- The two RPCs and the `austin_zoning_rules` lookup table were ADDED to the
+  paid project from `scripts/sql/` (`get_parcel_constraints.sql`,
+  `search_parcels.sql`, `austin_zoning_rules.sql`). They are the only objects
+  this repo owns there. Re-apply by pasting a file into the SQL editor.
+  Schema mapping: old `parcels.zoning` = new `zoning_base`; old
+  `zoning_overlay` = `zoning_ztype` when it differs from the base district.
+- The parcel tables themselves belong to the austingraph repo. **Never run
+  this repo's loader SQL (`scripts/*.sql`, `scripts/sql/load_*`,
+  `spatial_join_zoning.sql`, `zoning_stage_to_final.sql`) against the paid
+  project** — they alter and update `parcels`. They were the free project's
+  pipeline and are kept only as history. The three workflows that ran them
+  (`build-parcels-pmtiles`, `load-zoning`, weekly `refresh-lists`) were
+  deleted for the same reason. **No Actions secrets are needed** — the two
+  remaining Remotion render workflows use none.
+- `apps/chats/*` (three chat maps) still talk to the free project's Realtime
+  (`chats` table). They are the shelved austin.chat feature; if the free
+  project is deleted those pages stop working. Owner decides.
+
+What the free project (`tqnklodtiithbsxxyycp`) still holds, for the record:
+austin.chat tables (`chats`, `chat_votes`, `geofence_tags`, `poll_votes`), a
+`parcels` table + `search_parcels`/`get_parcel_constraints`, and
+`tiles/austin-parcels.pmtiles`. Nothing on the site needs it except the chat
+maps above.
+
+## OPEN — one follow-up
+
+**Push the full history (blocked on a token scope).** None of the `gh`
 logins on this machine have the `workflow` scope, and GitHub refuses any push
-that adds `.github/workflows/*` files without it. To get the site back up
-immediately, `main` on GitHub currently holds a single temporary snapshot
-commit with the workflows omitted. The full history is in this local folder.
-Fix, from a WSL terminal:
+that adds `.github/workflows/*` files without it. To keep the site up,
+`main` on GitHub currently holds a single temporary snapshot commit with the
+workflows omitted. The full history (641 commits + the changes above) is in
+this local folder. Fix, from a WSL terminal:
 
 ```
 gh auth switch --user cityanatomyservices
@@ -41,16 +78,3 @@ git -c credential.helper= -c credential.helper='!f(){ echo username=cityanatomys
 
 The force push is safe: the only thing it replaces is the temporary snapshot.
 Delete this section once done.
-
-**2. Re-add the Actions secrets.** GitHub secrets do not travel with a
-repo copy. All three need re-adding; `SUPABASE_URL` is `https://tqnklodtiithbsxxyycp.supabase.co`. From
-the Supabase dashboard for project `tqnklodtiithbsxxyycp`:
-
-- `SUPABASE_DB_PASSWORD` — the raw database password
-- `SUPABASE_SERVICE_KEY` — the service-role key (not the anon key)
-
-Set them at https://github.com/cityanatomyservices/cityanatomyservices.github.io/settings/secrets/actions
-or with `gh secret set NAME --repo cityanatomyservices/cityanatomyservices.github.io`.
-Without them the weekly `refresh-lists` cron (Mondays 09:00 UTC) and the
-manual `build-parcels-pmtiles` / `load-zoning` workflows fail. The two
-Remotion render workflows need no secrets.

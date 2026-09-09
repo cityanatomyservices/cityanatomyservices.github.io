@@ -1,52 +1,29 @@
 -- scripts/sql/get_parcel_constraints.sql
 --
 -- RPC the browser calls (via PostgREST `rpc/get_parcel_constraints`) to
--- populate the "Constraints" tab of the side drawer.
+-- populate the "Constraints" tab of the side drawer on /parcels/.
 --
--- Inputs:  p_parcel_id text
--- Output:  jsonb shaped as:
---   {
---     "parcel_id":     "...",
---     "zoning":        "SF-3",
---     "zoning_overlay":"NCCD-... | null",
---     "lot_area_sqft": 6203,
---     "lot_area_acres": 0.142,
---     "rules": {
---       "display_name": "Family Residence",
---       "category":     "residential",
---       "far":          0.40,
---       "max_height_ft": 35,
---       "impervious_pct": 45,
---       "building_pct":   40,
---       "min_lot_sqft":   5750,
---       "front_setback_ft": 25,
---       "side_setback_ft":   5,
---       "rear_setback_ft":  10,
---       "max_units_per_acre": 7,
---       "notes": null,
---       "source_citation": "§25-2-492 Table"
---     },
---     "computed": {
---       "max_floor_area_sqft":  2481,
---       "max_impervious_sqft":  2791,
---       "max_building_sqft":    2481,
---       "max_height_ft":          35,
---       "max_units":               1
---     },
---     "warnings": [ "..." ]
---   }
+-- 2026-09-09: rewritten for the paid cityanatomyservices Supabase project
+-- (aqbyxpiwugcvoephsvpm). Differences from the old free-project version:
+--   * reads public.parcels_public (the anon-readable view over parcels)
+--     instead of public.parcels — anon has no grant on the base table;
+--   * the base zoning district lives in zoning_base (was parcels.zoning);
+--   * the full combining string (e.g. "SF-3-NP") lives in zoning_ztype and is
+--     returned as zoning_overlay when it differs from the base district.
+-- The parcel tables themselves are owned by the WhatCanIBuildHere repo
+-- (austingraph/austingraph.github.io); this file only ADDS a function.
 --
--- Failure modes (each surfaces as a `warnings` entry, not an error):
---   - parcel not found        -> { error: "parcel_not_found" } only
---   - parcel.zoning is null   -> rules omitted, warning emitted
---   - zoning code has no rules-table match -> rules omitted, warning emitted
+-- Output jsonb (nulls stripped):
+--   { parcel_id, zoning, zoning_overlay, lot_area_sqft, lot_area_acres,
+--     rules: {...austin_zoning_rules row...}, computed: {...}, warnings: [...] }
+-- Failure modes surface as `warnings`, not errors:
+--   parcel not found -> { error: "parcel_not_found" }
+--   no base zoning   -> rules omitted, warning "zoning_unknown"
+--   no rules row     -> rules omitted, warning "no_rules_for_zoning:<code>"
 --
--- Anon-callable; security_invoker = on so RLS still applies to the underlying
--- tables.
---
--- Idempotent. Replaces the function on re-run.
-
-set statement_timeout = 0;
+-- Anon-callable; security invoker, so the view/RLS grants still apply.
+-- Idempotent. How to run: node-free — paste into the Supabase SQL editor,
+-- or POST it to the Management API query endpoint (see docs/STATUS.md).
 
 create or replace function public.get_parcel_constraints(p_parcel_id text)
 returns jsonb
@@ -55,31 +32,37 @@ stable
 security invoker
 as $$
 declare
-  v_parcel       public.parcels%rowtype;
+  v_parcel       public.parcels_public%rowtype;
   v_rules        public.austin_zoning_rules%rowtype;
+  v_zoning       text;
+  v_overlay      text;
   v_lot_sqft     numeric;
   v_lot_acres    numeric;
   v_warnings     jsonb := '[]'::jsonb;
   v_rules_jsonb  jsonb := null;
   v_computed     jsonb := '{}'::jsonb;
 begin
-  select * into v_parcel from public.parcels where parcel_id = p_parcel_id;
+  select * into v_parcel from public.parcels_public where parcel_id = p_parcel_id;
   if not found then
     return jsonb_build_object('error', 'parcel_not_found', 'parcel_id', p_parcel_id);
   end if;
+
+  v_zoning  := v_parcel.zoning_base;
+  v_overlay := case when v_parcel.zoning_ztype is distinct from v_parcel.zoning_base
+                    then v_parcel.zoning_ztype end;
 
   -- Lot area in sqft from geographic area (handles latitude correctly).
   v_lot_sqft  := round((st_area(v_parcel.geom::geography) * 10.7639)::numeric, 1);
   v_lot_acres := round((v_lot_sqft / 43560.0)::numeric, 4);
 
-  if v_parcel.zoning is null then
+  if v_zoning is null then
     v_warnings := v_warnings || jsonb_build_array('zoning_unknown');
   else
     select * into v_rules from public.austin_zoning_rules
-      where base_zoning = v_parcel.zoning;
+      where base_zoning = v_zoning;
     if not found then
       v_warnings := v_warnings || jsonb_build_array(
-        format('no_rules_for_zoning:%s', v_parcel.zoning)
+        format('no_rules_for_zoning:%s', v_zoning)
       );
     else
       v_rules_jsonb := jsonb_build_object(
@@ -124,17 +107,16 @@ begin
     end if;
   end if;
 
-  if v_parcel.zoning_overlay is not null and v_parcel.zoning_overlay <> '' then
+  if v_overlay is not null then
     v_warnings := v_warnings || jsonb_build_array(
-      format('overlay_present:%s', v_parcel.zoning_overlay)
+      format('overlay_present:%s', v_overlay)
     );
   end if;
 
   return jsonb_strip_nulls(jsonb_build_object(
     'parcel_id',      v_parcel.parcel_id,
-    'zoning',         v_parcel.zoning,
-    'zoning_overlay', v_parcel.zoning_overlay,
-    'zoning_source',  v_parcel.zoning_source,
+    'zoning',         v_zoning,
+    'zoning_overlay', v_overlay,
     'lot_area_sqft',  v_lot_sqft,
     'lot_area_acres', v_lot_acres,
     'rules',          v_rules_jsonb,
@@ -143,12 +125,9 @@ begin
   ));
 end $$;
 
--- Anon callable.
 revoke all on function public.get_parcel_constraints(text) from public;
 grant execute on function public.get_parcel_constraints(text) to anon, authenticated;
 
--- Smoke test the user can run after install:
+-- Smoke test:
 --   select public.get_parcel_constraints(parcel_id)
---     from public.parcels
---    where zoning = 'SF-3'
---    limit 1;
+--     from public.parcels_public where zoning_base = 'SF-3' limit 1;

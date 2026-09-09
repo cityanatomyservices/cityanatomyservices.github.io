@@ -1,5 +1,9 @@
 // config.js — Austin Parcels app configuration.
 //
+// 2026-09-09: points at the paid cityanatomyservices Supabase project
+// (aqbyxpiwugcvoephsvpm, the parcel database shared with WhatCanIBuildHere).
+// The browser reads the parcels_public view + two RPCs; see docs/STATUS.md.
+//
 // Both keys below are PUBLIC by design:
 //   - supabase.anonKey is Supabase's publishable client key; access is gated
 //     by RLS policies on the parcels tables.
@@ -8,13 +12,13 @@
 
 window.PARCELS_CONFIG = {
   supabase: {
-    url:     'https://tqnklodtiithbsxxyycp.supabase.co',
-    anonKey: 'sb_publishable_1GIKBIVXNF4LyL0_vYCDTQ_FZYYpZYW'
+    url:     'https://aqbyxpiwugcvoephsvpm.supabase.co',
+    anonKey: 'sb_publishable_QMWSj0CLYe3k3XSGCsWOhw_5RsI-nmN'
   },
 
   pmtiles: {
     // Served by Supabase Storage; range requests supported.
-    url:         'pmtiles://https://tqnklodtiithbsxxyycp.supabase.co/storage/v1/object/public/tiles/austin-parcels.pmtiles',
+    url:         'pmtiles://https://aqbyxpiwugcvoephsvpm.supabase.co/storage/v1/object/public/tiles/parcels.pmtiles?v=20260614',
     sourceLayer: 'parcels',
     minzoom:     12,
     maxzoom:     16
