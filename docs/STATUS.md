@@ -63,22 +63,12 @@ parcel copy is superseded. The austin.chat data the owner is keeping — the
 (`C:\GISData\austin\places.gpkg`, GeoJSON in `C:\GISData\derived\`).
 The austin.chat domain stays registered but points at nothing.
 
-## OPEN — one follow-up
+## Push token — fixed 2026-09-09
 
-**Push the full history (blocked on a token scope).** None of the `gh`
-logins on this machine have the `workflow` scope, and GitHub refuses any push
-that adds `.github/workflows/*` files without it. To keep the site up,
-`main` on GitHub currently holds a single temporary snapshot commit with the
-workflows omitted. The full history (641 commits + the changes above) is in
-this local folder. Fix, from a WSL terminal:
+The `cityanatomyservices` gh login now has the `workflow` scope, and the full
+history (645 commits) is on GitHub main. Nothing is open for this repo.
+Push from a non-active account with:
 
 ```
-gh auth switch --user cityanatomyservices
-gh auth refresh -h github.com -s workflow      # opens a browser, one-time code
-gh auth switch --user atxmapdata
-cd /mnt/c/Dev/projects/cityanatomyservices/cityanatomyservices.github.io
-git -c credential.helper= -c credential.helper='!f(){ echo username=cityanatomyservices; echo "password=$(gh auth token --user cityanatomyservices)"; }; f' push --force origin main
+git -c credential.helper= -c credential.helper='!f(){ echo username=cityanatomyservices; echo "password=$(gh auth token --user cityanatomyservices)"; }; f' push origin main
 ```
-
-The force push is safe: the only thing it replaces is the temporary snapshot.
-Delete this section once done.
