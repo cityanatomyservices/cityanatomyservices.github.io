@@ -49,15 +49,19 @@ two custom RPCs and its own PMTiles file. That dependency is gone:
   (`build-parcels-pmtiles`, `load-zoning`, weekly `refresh-lists`) were
   deleted for the same reason. **No Actions secrets are needed** — the two
   remaining Remotion render workflows use none.
-- `apps/chats/*` (three chat maps) still talk to the free project's Realtime
-  (`chats` table). They are the shelved austin.chat feature; if the free
-  project is deleted those pages stop working. Owner decides.
+- `apps/chats/*` (the three austin.chat maps) and their ChatMaps cards on
+  `/apps/` were REMOVED 2026-09-09 (owner: "the function is over"). The site
+  now has no dependency on the free account at all. Note for the owner: the
+  `/apps/` hero lede still says "live chat experiences" — owner copy, not
+  touched.
 
-What the free project (`tqnklodtiithbsxxyycp`) still holds, for the record:
-austin.chat tables (`chats`, `chat_votes`, `geofence_tags`, `poll_votes`), a
-`parcels` table + `search_parcels`/`get_parcel_constraints`, and
-`tiles/austin-parcels.pmtiles`. Nothing on the site needs it except the chat
-maps above.
+The free project (`tqnklodtiithbsxxyycp`) can be deleted whenever the owner
+likes: its austin.chat tables are all EMPTY (checked 2026-09-09), and its
+parcel copy is superseded. The austin.chat data the owner is keeping — the
+1,202 curated geofences — lives in git in the archived repo
+`cityanatomyservices/austin-chat-archive` (`data/`) and in the GIS library
+(`C:\GISData\austin\places.gpkg`, GeoJSON in `C:\GISData\derived\`).
+The austin.chat domain stays registered but points at nothing.
 
 ## OPEN — one follow-up
 
