@@ -43,8 +43,8 @@ The force push is safe: the only thing it replaces is the temporary snapshot.
 Delete this section once done.
 
 **2. Re-add the Actions secrets.** GitHub secrets do not travel with a
-repo copy. `SUPABASE_URL` is already set (it is not really a secret). Still
-needed, from the Supabase dashboard for project `tqnklodtiithbsxxyycp`:
+repo copy. All three need re-adding; `SUPABASE_URL` is `https://tqnklodtiithbsxxyycp.supabase.co`. From
+the Supabase dashboard for project `tqnklodtiithbsxxyycp`:
 
 - `SUPABASE_DB_PASSWORD` — the raw database password
 - `SUPABASE_SERVICE_KEY` — the service-role key (not the anon key)
