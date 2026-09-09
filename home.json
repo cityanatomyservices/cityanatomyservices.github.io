@@ -1,32 +1,17 @@
 {
-  "_comment": "Home page chips and cards. chip = product name, cards = its pages. Visible text is copied verbatim from CityAnatomyAustin/src/content/copy.ts and each page's <title>; the owner writes all copy. src is loaded into the map window; a card with link instead opens a new tab.",
+  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is loaded into the map window.",
   "chips": [
     {
-      "label": "Moontower",
+      "label": "Apps",
       "cards": [
-        { "title": "Moontower", "blurb": "Austin, 1895 — light them all", "src": "/moontower/" }
+        { "title": "Moontower", "blurb": "Austin, 1895 — light them all", "src": "/moontower/" },
+        { "title": "The 1885 Murder Tour", "blurb": "Austin, 1885 — The Servant Girl Murders", "src": "https://austin1885.city/annihilatortour/" },
+        { "title": "What can I build here?", "blurb": "", "src": "/parcels/" }
       ]
     },
-    {
-      "label": "The 1885 Murder Tour",
-      "cards": [
-        { "title": "Austin, 1885 — The Servant Girl Murders", "blurb": "", "src": "https://austin1885.city/annihilatortour/" },
-        { "title": "The stops — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/stops/" },
-        { "title": "Mollie Smith — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/1molliesmith/" },
-        { "title": "Eliza Shelley — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/2elizashelley/" },
-        { "title": "Irene Cross — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/3irenecross/" },
-        { "title": "Mary Ramey — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/4maryramey/" },
-        { "title": "Gracie Vance & Orange Washington — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/5gracievance/" },
-        { "title": "Susan Hancock — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/6susanhancock/" },
-        { "title": "Eula Phillips — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/7eulaphillips/" },
-        { "title": "Oakwood Cemetery — Memorial — Austin, 1885", "blurb": "", "src": "https://austin1885.city/annihilatortour/8oakwoodcemetery/" }
-      ]
-    },
-    {
-      "label": "What can I build here?",
-      "cards": [
-        { "title": "Parcelizer — City Anatomy", "blurb": "", "src": "/parcels/" }
-      ]
-    }
+    { "label": "Videos",   "cards": [] },
+    { "label": "News",     "cards": [] },
+    { "label": "Substack", "cards": [] },
+    { "label": "Services", "cards": [] }
   ]
 }
