@@ -1,17 +1,47 @@
 {
-  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is loaded into the map window.",
+  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is loaded into the map window. Videos: the YouTube channel's uploads playlist (UU + channel id) in the embed player; channel @AustinLive1885 = UCOoh_9NBCugP1vWjh1uK7Bg.",
   "chips": [
     {
       "label": "Apps",
       "cards": [
-        { "title": "Moontower", "blurb": "Austin, 1895 — light them all", "src": "/moontower/" },
-        { "title": "The 1885 Murder Tour", "blurb": "Austin, 1885 — The Servant Girl Murders", "src": "https://austin1885.city/annihilatortour/" },
-        { "title": "What can I build here?", "blurb": "", "src": "/parcels/" }
+        {
+          "title": "Moontower",
+          "blurb": "Austin, 1895 — light them all",
+          "src": "/moontower/"
+        },
+        {
+          "title": "The 1885 Murder Tour",
+          "blurb": "Austin, 1885 — The Servant Girl Murders",
+          "src": "https://austin1885.city/annihilatortour/"
+        },
+        {
+          "title": "What can I build here?",
+          "blurb": "",
+          "src": "/parcels/"
+        }
       ]
     },
-    { "label": "Videos",   "cards": [] },
-    { "label": "News",     "cards": [] },
-    { "label": "Substack", "cards": [] },
-    { "label": "Services", "cards": [] }
+    {
+      "label": "Videos",
+      "cards": [
+        {
+          "title": "Austin1885",
+          "blurb": "@AustinLive1885",
+          "src": "https://www.youtube.com/embed/videoseries?list=UUOoh_9NBCugP1vWjh1uK7Bg"
+        }
+      ]
+    },
+    {
+      "label": "News",
+      "cards": []
+    },
+    {
+      "label": "Substack",
+      "cards": []
+    },
+    {
+      "label": "Services",
+      "cards": []
+    }
   ]
 }
