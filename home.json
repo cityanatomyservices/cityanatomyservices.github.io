@@ -1,5 +1,5 @@
 {
-  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is loaded into the map window. (The YouTube playlist embed under Media was removed 2026-09-09 - owner: not really working.) A chip may carry its own src (News Feed -> /news/): with no cards, picking the chip loads that page in the window.",
+  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is loaded into the map window. (The YouTube playlist embed under Media was removed 2026-09-09 - owner: not really working.) A chip may carry its own src (News Feed -> /news/): with no cards, picking the chip loads that page in the window. A chip may carry from: a URL of apps/reports/reports.json shape; home.js turns each report into a card that opens /apps/reports/<id>/storymap/ (the same page the reports page opens).",
   "chips": [
     {
       "label": "Apps",
@@ -20,6 +20,11 @@
           "src": "/parcels/"
         }
       ]
+    },
+    {
+      "label": "Reports",
+      "from": "/apps/reports/reports.json",
+      "cards": []
     },
     {
       "label": "Media",

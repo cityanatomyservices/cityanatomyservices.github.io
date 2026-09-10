@@ -63,6 +63,30 @@
     });
   }
 
+  // A chip with `from` borrows its cards from the reports page's list
+  // (apps/reports/reports.json) so the two stay identical. Each report card
+  // opens its story map, exactly what clicking it on the reports page does.
+  const loaded = new Map();
+  function withCards(chip) {
+    if (!chip.from) return Promise.resolve(chip);
+    if (loaded.has(chip.from)) return loaded.get(chip.from);
+    const p = fetch(chip.from)
+      .then(r => (r.ok ? r.json() : []))
+      .then(items => ({
+        ...chip,
+        cards: (items || []).map(item => ({
+          eyebrow: item.eyebrow || item.category || '',
+          title: item.title || '',
+          blurb: item.blurb || '',
+          accent: item.accent,
+          src: '/apps/reports/' + item.id + '/storymap/'
+        }))
+      }))
+      .catch(() => ({ ...chip, cards: [] }));
+    loaded.set(chip.from, p);
+    return p;
+  }
+
   fetch('/home.json')
     .then(r => (r.ok ? r.json() : null))
     .then(data => {
@@ -76,7 +100,7 @@
         btn.textContent = chip.label;
         btn.addEventListener('click', () => {
           buttons.forEach(b => b.classList.toggle('is-active', b === btn));
-          renderCards(chip);
+          withCards(chip).then(renderCards);
           // A chip with its own src and no cards is a page in itself (News Feed).
           if (chip.src && !(chip.cards || []).length) show(chip.src);
         });
@@ -84,7 +108,7 @@
         buttons.push(btn);
         if (index === 0) {
           btn.classList.add('is-active');
-          renderCards(chip);
+          withCards(chip).then(renderCards);
         }
       });
     })
