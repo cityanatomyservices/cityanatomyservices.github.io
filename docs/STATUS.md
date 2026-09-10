@@ -91,6 +91,28 @@ What changed:
 
 Owner copy flags: `/apps/` hero lede still mentions "live chat experiences".
 
+## News Feed chip — map-based news, built 2026-09-09
+
+Owner: "rethink the old feeds as a map-based news feed for this site",
+"rewrite it in JS, use those four outlets". The old feeds were two Actions in
+the austin.chat repo (daily feed + nightly Palmer Events scrape); they ran
+fine but had placeholder lanes, no locations, and stopped when that repo was
+archived today.
+
+Now: `tools/news/build-feed.js` (Node, no dependencies) reads KUT, KXAN,
+Austin Monitor, Community Impact RSS, pins each story on a known Austin
+place (`tools/news/gazetteer.json`, generated from the austin.chat places +
+`landmarks.json`), writes `news/feed.geojson`. `.github/workflows/build-news-feed.yml`
+runs it daily at 06:00 Austin and commits; first run succeeded. `news/`
+is the page (Moontower basemap, pins + story list); the News Feed chip
+loads it in the window (a chip can carry its own `src` in `home.json`).
+Details in `news/README.md`. First build: 41 stories, 25 pinned.
+
+Known: Austin Monitor's RSS is stale since 2025-11 (kept, fail-soft);
+KUT's news.rss only carries ~10 items. Research into more sources
+(city government, planning, real estate, geolocated open data) was run
+2026-09-09 — see `docs/NEWS-SOURCES.md` once written.
+
 ## Push token — fixed 2026-09-09
 
 The `cityanatomyservices` gh login now has the `workflow` scope, and the full
