@@ -4,13 +4,14 @@
  * arrives, and the city fills with light as it goes. Reaching the end, it goes
  * dark and begins again.
  *
- * The mouse cannot steer it. Clicking a tower PINS that tower (pauses the tour
- * and holds its card); clicking empty map releases it. This is deliberate — a
- * tour that chased the cursor would yank the light off a tower mid-read.
+ * The mouse cannot steer it, and on THIS page it cannot touch it at all: the
+ * demo has no click handler, so nothing ever calls pin() or release() below.
+ * They are left in place because this file is shared with the interactive web
+ * app at /moontowertour/, where clicking a tower does pin it.
  */
 
 const FLY_MS = 3000;      // flight time between towers - FIXED, see note below
-const DWELL_MS = 7000;    // time parked on a tower, reading its card
+const DWELL_MS = 7000;    // time parked on a tower before moving on
 const PITCH = 50;         // degrees the camera leans in while parked on a tower
 const TILT_MS = 1400;     // how long the lean-in takes once we have landed
 const FLY_TIMEOUT_MS = FLY_MS + 4000; // safety net if 'moveend' never arrives

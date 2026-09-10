@@ -1,5 +1,42 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — the Moontower demo loses its popups and gains the app link
+
+Owner: "Remove all of the popups from the moontower animation and make the card
+on there that says Moontower, change that Moontower WebApp and make it linked to
+the https://anatomy.city/moontowertour/". This supersedes the earlier choice to
+keep the story cards.
+
+**`/moontower/` has no popups at all now.** `js/card.js` is deleted, the
+`#story-card` element and every one of its CSS rules are gone, and the tour's
+`onArrive` is an empty function. The demo is the moving map and nothing else:
+the camera flies tower to tower, the lamps come on, the light pools spread.
+Checked past two arrivals — nothing appears.
+
+**The pill under the tagline is now the way into the real thing.** It was a
+placeholder `href="#"` reading "Moontower"; it now reads **"Moontower WebApp"**
+(the owner's own words) and links to `https://anatomy.city/moontowertour/`.
+It carries `target="_blank"` deliberately — this page is embedded in the
+anatomy.city home window, so without it the app would open inside that small
+frame instead of a real window.
+
+`moontower/index.html` loads its module as `js/main.js?v=20260910d`. That is not
+decoration: `card.js` is gone, so a browser still holding the old `main.js`
+would import a 404 and take the whole demo down. Bump it whenever main.js's
+imports change; its own imports (`tour.js`, `map-bits.js`, `towers-3d.js`) are
+unchanged and cache safely.
+
+`js/tour.js` keeps `pin()` and `release()` — nothing on this page calls them,
+but the file is shared with the interactive web app where clicking a tower does
+pin it. Its comments now say so instead of describing a card this page no longer
+has. `moontower/README.md` records all three divergences from
+`MoonTowerTour/web` at the top, since a straight re-copy would undo them.
+
+Verified headless: pill reads "Moontower WebApp" → `/moontowertour/`,
+`target=_blank`; zero `#story-card` in the DOM after 16s of touring; the only
+absolutely-positioned things left are the map canvas, the attribution control
+and the hidden fallback. No console errors.
+
 ## 2026-09-10 — the home page fits one screen at every size
 
 Owner: "Can you fix the footer, the site is not completely responsive for some

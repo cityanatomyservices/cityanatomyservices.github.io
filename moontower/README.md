@@ -1,19 +1,21 @@
 # moontower/ — COPY of MoonTowerTour/web (source of truth)
 
 **This copy has DIVERGED on purpose (owner, 2026-09-10) — a straight re-copy would undo it.**
-This page is a **demonstration** shown in the anatomy.city home window: it still self-tours and
-still opens its story card on arrival, but **nothing on it responds to a click**. Three deliberate
-differences from the source:
+This page is a **demonstration** shown in the anatomy.city home window: it self-tours and that is
+all — **no popups, nothing to click**. Three deliberate differences from the source:
 
 1. `js/main.js` — the `map.on('click')` tower pin/release handler is gone (the map was already
-   `interactive: false`).
-2. `js/card.js` + `index.html` — no "Read more" fold. With nothing clickable the fold could never
-   be opened, so the card always carries `.open` and shows the whole stop; the button, its label
-   and its CSS are removed.
-3. The interactive Moontower is the web app at `/moontowertour/`, which the home page's Moontower
-   card opens in a new window.
+   `interactive: false`). `js/tour.js` still carries `pin()`/`release()` because it is shared with
+   the web app, but nothing here calls them.
+2. **There is no story card at all** (owner, 2026-09-10: "Remove all of the popups"). `js/card.js`
+   is DELETED, the `#story-card` element and every one of its CSS rules are gone, and the tour's
+   `onArrive` is an empty function. The demo is the moving map and nothing else.
+3. `index.html` — the pill under the tagline (`#app-link`) is the owner's own text, **"Moontower
+   WebApp"**, linking to `https://anatomy.city/moontowertour/` with `target="_blank"`. It was a
+   placeholder `href="#"` reading "Moontower". The `_blank` matters: this page is embedded in the
+   anatomy.city home window, and without it the app would open inside that small frame.
 
-Re-copy from the source only if you re-apply those three, or the demo becomes clickable again.
+Re-copy from the source only if you re-apply all three, or the demo grows popups again.
 
 ---
 

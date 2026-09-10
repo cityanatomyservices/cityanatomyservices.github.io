@@ -1,9 +1,8 @@
 /**
- * Wiring only: map + sources + tour + card. Each piece lives in its own file.
+ * Wiring only: map + sources + tour. Each piece lives in its own file.
  */
 import { buildTowers, buildIllumination } from './map-bits.js';
 import { createTour } from './tour.js';
-import { createCard } from './card.js';
 import { createTowers3D } from './towers-3d.js';
 
 const stops = window.MOONTOWER_STOPS;
@@ -19,7 +18,6 @@ if (!stops || !style) {
   const features = stops.features;
   const lit = new Set();          // which towers are alight right now
   let towers3d = null;            // the 3D models, once the map is up
-  const card = createCard(document.getElementById('story-card'));
 
   const map = new maplibregl.Map({
     container: 'map',
@@ -28,9 +26,9 @@ if (!stops || !style) {
     zoom: 11.6,
     attributionControl: { compact: true },
     // This page is a DEMONSTRATION (owner, 2026-09-10): the tour drives the
-    // camera and the card opens itself on arrival, but nothing here responds
-    // to a click. The web app at /moontowertour/ is the interactive one, and
-    // the card on the home page is what opens it.
+    // camera and nothing else happens — no popups, nothing to click. The real,
+    // interactive tour is the web app at /moontowertour/, which the "Moontower
+    // WebApp" link at the top of this page opens.
     interactive: false,
   });
 
@@ -71,7 +69,10 @@ if (!stops || !style) {
       map,
       features,
       lit,
-      onArrive: (f) => card.show(f),
+      // Nothing pops up: the demo is the moving map and nothing else
+      // (owner, 2026-09-10). The tour still needs somewhere to report an
+      // arrival, so this is deliberately empty.
+      onArrive: () => {},
       onRedraw: redraw,
     });
     tour.start();

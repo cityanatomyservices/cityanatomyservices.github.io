@@ -27,7 +27,7 @@
 
   /* Everything fades up once the map is actually drawn, so the page never
      flashes furniture over an empty black box. */
-  #title, #story-card { opacity: 0; transition: opacity 1.2s ease; }
+  #title { opacity: 0; transition: opacity 1.2s ease; }
   body.ready #title { opacity: 1; }
 
   #title { position: absolute; top: 5vh; left: 0; right: 0; z-index: 2;
@@ -49,33 +49,9 @@
              background: rgba(7,10,18,.72); }
   #title a:hover { border-color: var(--accent); }
 
-  #story-card { position: absolute; right: 3vw; bottom: 4vh; z-index: 2;
-                width: min(430px, 42vw); max-height: 74vh; overflow: auto;
-                background: rgba(7,10,18,.9); border: 1px solid var(--edge);
-                border-radius: 8px; padding: 18px 20px; line-height: 1.5; }
-  #story-card.visible { opacity: 1; }
-  #story-card .media { width: 100%; border-radius: 4px; margin-bottom: 12px; display: block; }
-  #story-card .eyebrow { font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
-                         color: var(--dim); margin-bottom: 8px; }
-  #story-card h2 { margin: 0 0 4px; font-size: 20px; font-weight: 400; color: var(--accent); }
-  #story-card .corner { font-size: 13px; color: var(--bright); margin-bottom: 10px; }
-  #story-card p { margin: 8px 0; font-size: 14px; }
-  #story-card .label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
-                       color: var(--dim); margin-right: 6px; }
-  #story-card .dim { color: var(--dim); font-size: 13px; }
-  /* No "Read more" fold on this page: it is a demonstration, nothing is
-     clickable, so the card always opens fully (card.js adds .open itself).
-     The fold still lives in the web app at /moontowertour/. */
-
   #fallback { position: absolute; inset: 0; display: grid; place-items: center;
               z-index: 3; color: var(--dim); font-size: 14px; }
 
-  @media (max-width: 720px) {
-    /* The card is always open here, so it gets the taller phone allowance
-       and its body always shows. */
-    #story-card { right: 4vw; left: 4vw; width: auto; max-height: 62vh; }
-    #story-card .body { display: block; }
-  }
 </style>
 </head>
 <body>
@@ -85,13 +61,19 @@
     <h1>MOONTOWER</h1>
     <div class="rule"></div>
     <p>A geofenced, collect-them-all walking/biking tour of Austin's 1895 moonlight towers.</p>
-    <!-- TODO(owner): the store link. href is a placeholder until you give me the URL. -->
-    <a href="#" id="app-link">Moontower</a>
+    <!-- Opens the real, interactive tour. target=_blank because this page is
+         embedded in the anatomy.city home window; without it the app would
+         load inside that little frame. -->
+    <a href="https://anatomy.city/moontowertour/" id="app-link"
+       target="_blank" rel="noopener">Moontower WebApp</a>
   </div>
 
-  <div id="story-card"></div>
   <div id="fallback" hidden></div>
 
-  <script type="module" src="js/main.js"></script>
+  <!-- ?v= matters here: js/card.js was DELETED, and a browser still holding the
+       old main.js would try to import it, 404, and take the whole demo down.
+       Bump this whenever main.js's imports change. Its own imports (tour.js,
+       map-bits.js, towers-3d.js) are unchanged and cache safely. -->
+  <script type="module" src="js/main.js?v=20260910d"></script>
 </body>
 </html>
