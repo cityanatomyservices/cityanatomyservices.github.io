@@ -1,5 +1,38 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — News Feed off the home page; the site is a holder for the web apps
+
+Owner: "Lets remove the news feed button and that page in the carrosel, I want
+to keep the list for some way to update myself but I don't think people will
+use that, I want this site more to be a holder for webapps that I have mostly
+already built."
+
+- **The News Feed chip is gone** from `home.json`, so the chip row is now
+  Apps / Reports / Media / Services.
+- **The page opens on Apps**, which starts the demo reel straight away
+  (`"open": true` moved to the Apps chip). `index.html`'s iframe default src is
+  `/moontower/` instead of `/news/`, so the first painted frame is already the
+  demo rather than a news map that then gets replaced.
+- **Nothing about the news feed was deleted.** The daily Action
+  (`.github/workflows/build-news-feed.yml`) still rebuilds `news/feed.geojson`
+  every morning and the page is still live at **https://anatomy.city/news/** —
+  it is just not advertised on the home page. `news/README.md` says so at the
+  top, along with how to put the chip back (a `"src": "/news/"` chip with no
+  cards — a data edit, no code).
+- `home.js`'s "a chip with its own src and no cards is a page in itself" branch
+  is now unused but kept: it is the mechanism for putting any page back on the
+  home page without writing code, which is the whole point of `home.json`.
+- Cache version bumped to `?v=20260910b` on all 16 references.
+
+Verified headless: chips are Apps/Reports/Media/Services, Apps is active on
+load, the window opens on `/moontower/`, the three app cards render, and
+`/news/` visited directly still lists its 102 stories. No console errors.
+
+**Still open, and worth a decision:** the **Media** and **Services** chips have
+no cards, so picking either shows an empty row under the window. If the site is
+a holder for the web apps, those two either need cards or should come out the
+same way the News Feed chip did.
+
 ## 2026-09-10 (fix) — day is the default, and the button is findable
 
 Owner: "I'm not seeing the light/dark button, I do want it to default to light

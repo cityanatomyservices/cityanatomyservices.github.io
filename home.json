@@ -1,5 +1,5 @@
 {
-  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. A CARD OPENS ITS WEB APP (`app`) in a new browser window (owner 2026-09-10) - clicking a card no longer changes what plays in the map window. A card with no `app` but a `src` is the old kind and still previews in the window. THE WINDOW PLAYS A DEMO REEL: a chip marked `cycle: true` runs through its cards marked `demo: true` in order, each holding the window for `demoMs` (default 60000) before the next. The demos are animations only - nothing in them responds to a click. A chip may carry its own `src` (News Feed -> /news/): with no cards, picking the chip loads that page in the window. The chip with `open: true` is what the page opens on. A chip may carry `from`: a URL of apps/reports/reports.json shape; home.js turns each report into a card that opens the report's MapLibre map app at /apps/reports/<id>/.",
+  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. THE SITE IS A HOLDER FOR THE WEB APPS (owner 2026-09-10). A CARD OPENS ITS WEB APP (`app`) in a new browser window - clicking a card does not change what plays in the map window. A card with no `app` but a `src` is the old kind and still previews in the window. THE WINDOW PLAYS A DEMO REEL: a chip marked `cycle: true` runs through its cards marked `demo: true` in order, each holding the window for `demoMs` (default 60000) before the next. The demos are animations only - nothing in them responds to a click. The chip with `open: true` is what the page opens on (Apps, so the reel starts straight away). A chip may still carry its own `src` and no cards, which makes it a page in itself loaded into the window - no chip uses that now (the News Feed chip was removed 2026-09-10), but it is how you would put a page back on the home page without writing code. A chip may carry `from`: a URL of apps/reports/reports.json shape; home.js turns each report into a card that opens the report's MapLibre map app at /apps/reports/<id>/.",
   "chips": [
     {
       "label": "Apps",
@@ -27,7 +27,8 @@
           "app": "/parcels/"
         }
       ],
-      "cycle": true
+      "cycle": true,
+      "open": true
     },
     {
       "label": "Reports",
@@ -37,12 +38,6 @@
     {
       "label": "Media",
       "cards": []
-    },
-    {
-      "label": "News Feed",
-      "cards": [],
-      "src": "/news/",
-      "open": true
     },
     {
       "label": "Services",

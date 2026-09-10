@@ -119,7 +119,7 @@
     .then(data => {
       const chips = (data && data.chips) || [];
       if (!chips.length) return;
-      // The page opens on the chip marked `open` (the News Feed map), else the first.
+      // The page opens on the chip marked `open` (Apps, so the demo reel starts), else the first.
       const openIndex = Math.max(0, chips.findIndex(chip => chip.open));
       const buttons = [];
       chips.forEach((chip, index) => {
@@ -133,7 +133,7 @@
           withCards(chip).then(c => {
             renderCards(c);
             // `cycle` chips play their demos in turn; a chip with its own src
-            // and no cards is a page in itself (News Feed).
+            // and no cards is a page in itself loaded into the window.
             if (chip.cycle) startReel(c.cards);
             else if (chip.src && !(c.cards || []).length) show(chip.src);
           });

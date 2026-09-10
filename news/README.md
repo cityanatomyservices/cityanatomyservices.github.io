@@ -1,5 +1,13 @@
 # news/ — the map-based news feed
 
+**Not on the home page any more (owner, 2026-09-10):** "I don't think people
+will use that." The chip is gone from `home.json`. **Everything else is kept
+and still running** — the daily Action still rebuilds `feed.geojson`, and the
+page is still live and reachable at **https://anatomy.city/news/** for the
+owner's own reading. It is simply not advertised. To put it back on the home
+page, add a chip with `"src": "/news/"` and no cards to `home.json`; that is a
+data edit, no code.
+
 What it is: the four Austin outlets' RSS feeds, refreshed daily, with each
 story pinned on the news basemap when its text names a known
 Austin place. Opens in the home page window under the **News Feed** chip.
