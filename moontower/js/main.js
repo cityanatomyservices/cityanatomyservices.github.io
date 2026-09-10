@@ -27,8 +27,10 @@ if (!stops || !style) {
     center: [-97.7441, 30.2728],
     zoom: 11.6,
     attributionControl: { compact: true },
-    // The tour drives the camera; the visitor watches. Clicking a tower is the
-    // one interaction, handled below.
+    // This page is a DEMONSTRATION (owner, 2026-09-10): the tour drives the
+    // camera and the card opens itself on arrival, but nothing here responds
+    // to a click. The web app at /moontowertour/ is the interactive one, and
+    // the card on the home page is what opens it.
     interactive: false,
   });
 
@@ -74,17 +76,9 @@ if (!stops || !style) {
     });
     tour.start();
 
-    // Clicking a tower pins it; clicking anywhere else lets the tour go on.
+    // No click handler: the tour is never pinned or released by hand. The
+    // cursor says so too.
     map.getCanvas().style.cursor = 'default';
-    map.on('click', (e) => {
-      const hit = map.queryRenderedFeatures(e.point).find((f) => f.source === 'towers');
-      if (hit) {
-        const full = features.find((f) => f.properties.id === hit.properties.id);
-        if (full) tour.pin(full);
-      } else {
-        tour.release();
-      }
-    });
   });
 
   map.on('error', (e) => {

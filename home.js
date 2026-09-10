@@ -1,30 +1,56 @@
 // home.js — the home page's chip row.
 //
-// Picking a chip shows that product's cards; picking a card loads its
-// PREVIEW in the map window above. A card with an `app` also gets a small ↗
-// that opens the full-screen web app in a new browser window — the apps are
-// never used inside the front page (owner, 2026-09-10). Everything shown
-// comes from home.json, so adding a product or a page is a data edit, not a
-// code edit.
+// Picking a chip shows that product's cards. A card OPENS ITS WEB APP in a new
+// browser window (owner, 2026-09-10) — it no longer swaps the preview in the
+// map window. The window instead plays a demo reel: a chip marked `cycle` runs
+// through its `demo` cards on a timer, so both animations get seen without
+// anyone clicking. Everything shown comes from home.json, so adding a product
+// or a page is a data edit, not a code edit.
 (function () {
   const frame = document.getElementById('storymap-frame');
   const chipRow = document.getElementById('category-nav');
   const cardRow = document.getElementById('report-cards');
   if (!frame || !chipRow || !cardRow) return;
 
+  // How long each demo holds the window before the reel moves on. A card can
+  // override it with its own `demoMs` in home.json.
+  const DEMO_MS = 60000;
+
   function show(src) {
-    // Only touch the iframe when the page actually changes, so a re-click
-    // does not restart the Moontower tour.
+    // Only touch the iframe when the page actually changes, so a re-pick does
+    // not restart the demo that is already running.
     if (frame.getAttribute('src') !== src) frame.setAttribute('src', src);
   }
 
-  function renderCards(chip, { activateFirst }) {
+  // The demo reel. One timer, always cleared before a new one starts, so a
+  // visitor hopping between chips can never leave two reels running.
+  let reelTimer = null;
+  function stopReel() {
+    if (reelTimer) { clearTimeout(reelTimer); reelTimer = null; }
+  }
+  function startReel(cards) {
+    stopReel();
+    const reel = (cards || []).filter(c => c.demo && c.src);
+    if (!reel.length) return;
+    let i = 0;
+    const step = () => {
+      const card = reel[i];
+      show(card.src);
+      i = (i + 1) % reel.length;
+      reelTimer = setTimeout(step, card.demoMs || DEMO_MS);
+    };
+    step();
+  }
+
+  function renderCards(chip) {
     cardRow.innerHTML = '';
-    (chip.cards || []).forEach((item, index) => {
-      const isLink = !!item.link;
-      const card = document.createElement(isLink ? 'a' : 'button');
-      if (isLink) {
-        card.href = item.link;
+    (chip.cards || []).forEach((item) => {
+      // Where the card goes: its web app, else an explicit external link. A
+      // card with neither is the old kind and still previews in the window.
+      const href = item.app || item.link || '';
+      const card = document.createElement(href ? 'a' : 'button');
+      if (href) {
+        card.href = href;
         card.target = '_blank';
         card.rel = 'noopener noreferrer';
       } else {
@@ -50,45 +76,22 @@
         card.appendChild(blurb);
       }
 
-      if (!isLink) {
+      if (!href) {
         card.addEventListener('click', () => {
           cardRow.querySelectorAll('.report-card').forEach(el => el.classList.remove('is-active'));
           card.classList.add('is-active');
+          stopReel();          // a hand-picked preview outranks the reel
           show(item.src);
         });
-        // The first card of a chip is what the window shows for that chip.
-        if (index === 0 && activateFirst) {
-          card.classList.add('is-active');
-          show(item.src);
-        }
       }
 
-      // The ↗ opens the real app, full screen, in its own window. It sits in
-      // a wrapper beside the card because a link cannot live inside a button.
-      if (item.app) {
-        const wrap = document.createElement('div');
-        wrap.className = 'report-card-wrap';
-        const open = document.createElement('a');
-        open.className = 'report-card-open';
-        open.href = item.app;
-        open.target = '_blank';
-        open.rel = 'noopener noreferrer';
-        open.textContent = '↗';
-        open.setAttribute('aria-label', item.title || item.app);
-        open.title = item.app;
-        wrap.appendChild(card);
-        wrap.appendChild(open);
-        cardRow.appendChild(wrap);
-      } else {
-        cardRow.appendChild(card);
-      }
+      cardRow.appendChild(card);
     });
   }
 
   // A chip with `from` borrows its cards from the reports page's list
   // (apps/reports/reports.json) so the two stay identical. Each report card
-  // previews its story map in the window; its ↗ opens the report's own
-  // MapLibre map app (/apps/reports/<id>/) in a new window.
+  // opens that report's own MapLibre map app at /apps/reports/<id>/.
   const loaded = new Map();
   function withCards(chip) {
     if (!chip.from) return Promise.resolve(chip);
@@ -126,9 +129,14 @@
         btn.textContent = chip.label;
         const pick = () => {
           buttons.forEach(b => b.classList.toggle('is-active', b === btn));
-          withCards(chip).then(c => renderCards(c, { activateFirst: true }));
-          // A chip with its own src and no cards is a page in itself (News Feed).
-          if (chip.src && !(chip.cards || []).length) show(chip.src);
+          stopReel();
+          withCards(chip).then(c => {
+            renderCards(c);
+            // `cycle` chips play their demos in turn; a chip with its own src
+            // and no cards is a page in itself (News Feed).
+            if (chip.cycle) startReel(c.cards);
+            else if (chip.src && !(c.cards || []).length) show(chip.src);
+          });
         };
         btn.addEventListener('click', pick);
         chipRow.appendChild(btn);

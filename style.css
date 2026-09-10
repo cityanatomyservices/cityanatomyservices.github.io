@@ -17,6 +17,29 @@
   color-scheme: dark;
 }
 
+/* Day. Same tokens, lit: the site's blue goes darker so it holds on white, and
+   the ink/paper roles swap. page.js writes data-theme on <html> and remembers
+   the choice in localStorage; with no choice stored it follows the machine. */
+:root[data-theme="light"] {
+  --background: #f5f7fa;
+  --text: #14181d;
+  --accent: #0067c5;
+  --accent-light: #3f93de;
+  --surface: #ffffff;
+  --muted: #4a545f;
+  --dim: #78838f;
+  --border: #dbe2ea;
+  --shadow: rgba(15, 25, 45, 0.12);
+  --glow: rgba(0, 103, 197, 0.14);
+  color-scheme: light;
+}
+
+/* The map window is always a night map, so on a light page it gets a rim
+   instead of dissolving into the white. */
+:root[data-theme="light"] .storymap-frame {
+  border: 1px solid var(--border);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -278,39 +301,6 @@ main {
 
 /* A card with an app: the card previews in the window, the ↗ beside it opens
    the full-screen app in a new browser window (home.js). */
-.report-cards-inner .report-card-wrap {
-  position: relative;
-  flex: 0 0 280px;
-  max-width: 320px;
-  display: flex;
-}
-.report-cards-inner .report-card-wrap .report-card {
-  flex: 1 1 auto;
-  width: 100%;
-  padding-right: 40px;
-}
-.report-card-open {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  text-decoration: none;
-  font-size: 0.9rem;
-  line-height: 1;
-}
-.report-card-open:hover, .report-card-open:focus-visible {
-  border-color: var(--accent);
-  color: var(--accent);
-  outline: none;
-}
-
 .report-cards-inner .report-card:hover,
 .report-cards-inner .report-card:focus-visible {
   color: var(--text);
@@ -601,8 +591,7 @@ main {
   padding: 1rem 1.1rem;
 }
 
-.theme-toggle { display: none !important; }
-.theme-toggle-unused {
+.theme-toggle {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;

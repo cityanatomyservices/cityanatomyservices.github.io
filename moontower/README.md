@@ -1,5 +1,22 @@
 # moontower/ — COPY of MoonTowerTour/web (source of truth)
 
+**This copy has DIVERGED on purpose (owner, 2026-09-10) — a straight re-copy would undo it.**
+This page is a **demonstration** shown in the anatomy.city home window: it still self-tours and
+still opens its story card on arrival, but **nothing on it responds to a click**. Three deliberate
+differences from the source:
+
+1. `js/main.js` — the `map.on('click')` tower pin/release handler is gone (the map was already
+   `interactive: false`).
+2. `js/card.js` + `index.html` — no "Read more" fold. With nothing clickable the fold could never
+   be opened, so the card always carries `.open` and shows the whole stop; the button, its label
+   and its CSS are removed.
+3. The interactive Moontower is the web app at `/moontowertour/`, which the home page's Moontower
+   card opens in a new window.
+
+Re-copy from the source only if you re-apply those three, or the demo becomes clickable again.
+
+---
+
 Copied 2026-09-09 from `/mnt/c/Dev/projects/atxmapdata/MoonTowerTour/web` so anatomy.city does not depend on austin1885.city. To refresh: re-copy that folder over this one (`cp -r .../MoonTowerTour/web/. moontower/`). Never hand-edit `vendor/` here either.
 
 # web/ — the Moontower page

@@ -63,27 +63,18 @@
   #story-card .label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
                        color: var(--dim); margin-right: 6px; }
   #story-card .dim { color: var(--dim); font-size: 13px; }
-  /* The "Read more" fold. Desktop: no button, everything shown. Phone (below):
-     body hidden until the button is tapped, so the card stops filling the screen. */
-  #story-card .more { display: none; }
-  #story-card .chev { display: inline-block; width: 8px; height: 8px; margin-left: 8px;
-                      border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
-                      transform: translateY(-3px) rotate(45deg); transition: transform .25s ease; }
-  #story-card.open .chev { transform: translateY(1px) rotate(-135deg); }
+  /* No "Read more" fold on this page: it is a demonstration, nothing is
+     clickable, so the card always opens fully (card.js adds .open itself).
+     The fold still lives in the web app at /moontowertour/. */
 
   #fallback { position: absolute; inset: 0; display: grid; place-items: center;
               z-index: 3; color: var(--dim); font-size: 14px; }
 
   @media (max-width: 720px) {
-    #story-card { right: 4vw; left: 4vw; width: auto; max-height: 30vh; }
-    #story-card.open { max-height: 62vh; }
-    #story-card .body { display: none; }
-    #story-card.open .body { display: block; }
-    #story-card .more { display: inline-flex; align-items: center; margin: 2px 0 4px;
-                        padding: 0; border: 0; background: none; color: var(--accent);
-                        font: inherit; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-                        cursor: pointer; }
-    #story-card.open .more-text { display: none; }
+    /* The card is always open here, so it gets the taller phone allowance
+       and its body always shows. */
+    #story-card { right: 4vw; left: 4vw; width: auto; max-height: 62vh; }
+    #story-card .body { display: block; }
   }
 </style>
 </head>

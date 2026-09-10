@@ -9,11 +9,6 @@
  * The .media slot is intentionally left empty: there is no per-tower imagery
  * yet. When images or clips exist, fill that slot and nothing else changes.
  */
-// The one label this file shows on its own. On a phone the card opens
-// folded to the tower's name and corner; this button unfolds the rest.
-// (The owner's phrase, 2026-09-09. Desktop never shows the button.)
-const LABEL_MORE = 'Read more';
-
 export function createCard(el) {
   let currentId = null;
 
@@ -34,23 +29,17 @@ export function createCard(el) {
         <div class="eyebrow">${esc(p.leg)} &middot; ${esc(p.tower_name)}</div>
         <h2>${esc(p.title)}</h2>
         <div class="corner">${esc(p.corner)}</div>
-        <button class="more" type="button" aria-expanded="false">
-          <span class="more-text">${LABEL_MORE}</span><span class="chev" aria-hidden="true"></span>
-        </button>
         <div class="body">
           ${p.erected ? `<p class="dim"><span class="label">Erected</span> ${esc(p.erected)}</p>` : ''}
           ${p.site_1895 ? `<p><span class="label">1895</span> ${esc(p.site_1895)}</p>` : ''}
           ${p.site_today ? `<p><span class="label">Today</span> ${esc(p.site_today)}</p>` : ''}
         </div>
       `;
-      // Every new tower starts folded again; the visitor unfolds the one they
-      // want to read. Nothing here touches the tour.
-      el.classList.remove('open');
-      const more = el.querySelector('.more');
-      more.addEventListener('click', () => {
-        const open = el.classList.toggle('open');
-        more.setAttribute('aria-expanded', String(open));
-      });
+      // DEMO PAGE (owner, 2026-09-10): nothing here is clickable, so there is
+      // no "read more" fold to unfold — the card simply opens fully and shows
+      // everything the tower has. The fold still lives in the web app at
+      // /moontowertour/, which is the interactive one.
+      el.classList.add('open');
       el.classList.add('visible');
     },
     hide() {

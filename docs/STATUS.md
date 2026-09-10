@@ -1,5 +1,66 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 (later still) — day/night button, cards launch the apps, demos go quiet
+
+Four owner changes.
+
+**1. Day / night button, top right of the header.** All the machinery was
+already there and had been switched off on 2026-09-09: the markup existed on
+six pages, `page.js` still ran the toggle and remembered the choice in
+localStorage, and `style.css` killed the button with `display:none !important`.
+Now: the button is back (and added to `index.html`, which never had one — all
+seven header pages carry it), the `.theme-toggle-unused` styles are `.theme-toggle`
+again, and `style.css` has a **day palette** under `:root[data-theme="light"]`
+— the same eleven tokens lit, with the accent darkened to `#0067c5` so it holds
+on white. Night stays the `:root` default. With nothing stored the page follows
+the machine's setting, so a light-mode visitor now lands on the day palette.
+The map window is always a night map, so on the day palette it gets a rim
+instead of dissolving into the white.
+
+**2. App cards open the web apps.** A card is now a link: clicking one opens
+its `app` in a new browser window (`/moontowertour/`, `/1885murdertour/`,
+`/parcels/`, and each report's map app). It no longer swaps the preview in the
+map window, so the small ↗ is gone — the whole card is the ↗ now, and its CSS
+went with it. A card with no `app` still previews in the window, as before.
+
+**3. The window plays a demo reel.** Since cards no longer drive it, a chip
+marked `cycle: true` in `home.json` runs through its `demo: true` cards in
+turn, each holding the window for `demoMs` (60 s each for the two tours) before
+the next. So Apps shows the Moontower animation, then the 1885 lantern, and
+loops. Leaving the chip stops the reel; hand-picking a non-app card stops it too.
+Verified over a real 123 s run: Moontower → 1885 → Moontower, and it stops dead
+when another chip is picked.
+
+**4. Both demos are animations now — nothing in them responds to a click.**
+Owner kept the story cards (they open themselves as part of the show); what
+went is every hand-driven control.
+- `moontower/` — the `map.on('click')` tower pin/release is gone (the map was
+  already `interactive: false`). With nothing clickable the "Read more" fold
+  could never be opened, so the card always carries `.open` and shows the whole
+  stop; the button, its label and its CSS are removed. **This copy has now
+  DIVERGED from `MoonTowerTour/web` on purpose** — `moontower/README.md` says so
+  at the top, because a straight re-copy would undo it.
+- The 1885 lantern is on austin1885.city, a different repo, and it is a live
+  product the Play app links to — so it was NOT made non-interactive. It gained
+  a **`?demo=1` mode** instead (`Austin1885/austin1885.github.io`, commit below):
+  no click-to-pin, no zoom buttons, no wheel zoom; the lantern still tours and
+  the cards still open themselves. `home.json` embeds
+  `https://austin1885.city/annihilatortour/?demo=1`. Plain `/annihilatortour/`
+  is untouched.
+
+Verified headless (Playwright, 1280×800): toggle flips `rgb(11,15,20)` ↔
+`rgb(245,247,250)` and back and writes `data-theme`; all three Apps cards render
+as `<a target="_blank">` to their apps with zero ↗ arrows left; the Moontower
+demo's card opens itself with no fold button and does not change when the map is
+clicked; `?demo=1` hides the lantern's zoom UI while plain `/annihilatortour/`
+still shows it. No console errors on any page.
+
+**Owner to check:** whether landing in day mode (when the machine is set light)
+is what you want, or whether the site should always open at night with the
+button as the only way into day. And 60 s per demo is a dial in `home.json`
+(`demoMs`) — a full Moontower round is about 135 s, so at 60 s the reel moves on
+partway through.
+
 ## 2026-09-10 (later) — the site gets its own palette; Moontower drift cut
 
 Owner: the site had come to look like the Moontower app, and "I have had an
