@@ -12,7 +12,7 @@
 ## Cache-busting the shared CSS/JS
 
 `/style.css`, `/page.js` and `/home.js` are referenced with a version query —
-`?v=20260910c`. GitHub Pages serves them with a long cache lifetime, so without
+`?v=20260910d`. GitHub Pages serves them with a long cache lifetime, so without
 it a visitor keeps the old file after a push and simply does not see the change
 (this bit the owner on 2026-09-10: a restored header button was live but
 invisible to them for exactly this reason).
@@ -20,7 +20,7 @@ invisible to them for exactly this reason).
 **Bump the number on every push that changes one of those three files**, in all
 the HTML that references them:
 
-    grep -rl 'v=20260910c' --include='*.html' . | xargs sed -i 's/v=20260910c/v=<new>/g'
+    grep -rl 'v=20260910d' --include='*.html' . | xargs sed -i 's/v=20260910d/v=<new>/g'
 
 Use the date. Each report folder's own `style.css` carries its own separate
 `?v=` — leave those alone.

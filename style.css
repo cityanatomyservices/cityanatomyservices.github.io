@@ -154,13 +154,24 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  /* Lets the map window below actually shrink. Without it a flex child refuses
+     to go below its content's size and the page grows a scrollbar instead. */
+  min-height: 0;
 }
 
+/* The map window takes whatever is left of the viewport after the header, the
+   chips, the cards and the footer — it is not a fixed 65vh. A fixed height was
+   both bugs at once: on a laptop (800px tall) the parts added up to 816px and
+   the page grew a scrollbar, and on a tall screen they fell short and left a
+   dead band above the footer. Taking the remainder means the page is exactly
+   one screen at every size, with the footer on the bottom edge and nothing to
+   scroll. Below MIN_HERO there is genuinely no room, and the page scrolls
+   rather than squashing the map to a sliver. */
 .map-hero {
   position: relative;
-  flex: 0 0 65vh;
+  flex: 1 1 auto;
   display: flex;
-  height: 65vh;
+  min-height: 220px;
   border-bottom: none;
   overflow: hidden;
 }
@@ -245,7 +256,8 @@ main {
 /* ── Featured report cards ───────────────────────────────── */
 .report-cards {
   background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  /* no bottom border: the footer's own top border sits right under it, and two
+     1px rules together read as one thick smudged line */
   padding: 10px 16px 12px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;

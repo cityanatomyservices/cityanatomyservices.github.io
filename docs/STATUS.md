@@ -1,5 +1,40 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — the home page fits one screen at every size
+
+Owner: "Can you fix the footer, the site is not completely responsive for some
+reason. Should resize without there needing to be a scroll bar on the right."
+
+**One cause, both symptoms.** `.map-hero` had a fixed height — `flex: 0 0 65vh;
+height: 65vh`. The other four bands are whatever they are, so the total never
+matched the viewport:
+
+- On a laptop it was too tall. At 1280×800 the parts came to 816px against
+  800px of screen, so the page grew a **16px scrollbar** (27px at 1024×768,
+  63px at 360×640) — the scrollbar on the right.
+- On a tall screen it was too short. At 820×1180 the bands ended at 992px and
+  the footer sat at 1109px, leaving a **117px dead band** above it — the footer
+  problem.
+
+**Fix:** the map window now takes the remainder instead of a fixed height
+(`flex: 1 1 auto; min-height: 220px`), and `main` got `min-height: 0` so the
+window is actually allowed to shrink — without it a flex child refuses to go
+below its content size and the page grows a scrollbar anyway. Below 220px of
+room there is genuinely no space and the page scrolls rather than squashing the
+map to a sliver.
+
+Also: `.report-cards` lost its `border-bottom`. The footer's own `border-top`
+sits directly beneath it, and the two 1px rules together read as one thick
+smudged line.
+
+Verified headless at twelve sizes from 1600×900 down to 320×568: **zero vertical
+scroll, zero horizontal scroll, and the footer's bottom edge exactly on the
+viewport's bottom edge in every one.** `/apps/`, `/services/`, `/contact.html`
+and `/apps/reports/` were checked for sideways overflow at the same twelve
+widths — none.
+
+Cache version `?v=20260910d`.
+
 ## 2026-09-10 — the original day design is back; the theme button was backwards
 
 Owner: "The buttons seem backward and now the whole page has a glow. I just want
