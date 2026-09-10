@@ -1,10 +1,10 @@
 // news.js — the map-based news feed. Reads feed.geojson (written daily by the
-// Action), pins every placed story on the Moontower night basemap, lists all
+// Action), pins every placed story on the news basemap, lists all
 // stories newest first, and links the two: click a pin, the story lights up;
 // click a story, the map flies there. Every word on screen comes from the
 // news outlets' own feeds.
 (function () {
-  const style = window.ARCLIGHT_1895_STYLE;
+  const style = window.NEWS_BASEMAP_STYLE;
   const list = document.getElementById('list');
   const empty = document.getElementById('empty');
 
@@ -47,7 +47,7 @@
     map.addLayer({ id: 'news-halo', type: 'circle', source: 'news',
       paint: { 'circle-radius': 14, 'circle-color': ['get', 'color'], 'circle-opacity': 0.18, 'circle-blur': 0.6 } });
     map.addLayer({ id: 'news-dot', type: 'circle', source: 'news',
-      paint: { 'circle-radius': 5, 'circle-color': ['get', 'color'], 'circle-stroke-color': '#070a12', 'circle-stroke-width': 1.5 } });
+      paint: { 'circle-radius': 5, 'circle-color': ['get', 'color'], 'circle-stroke-color': '#0b0f14', 'circle-stroke-width': 1.5 } });
 
     map.on('click', 'news-dot', (e) => {
       const f = e.features[0];

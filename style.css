@@ -1,16 +1,19 @@
 :root {
-  /* Night palette, copied from moontower/index.html so the map window and
-     the page around it are the same city at the same hour. */
-  --background: #070a12;   /* ink — the night the city sits on */
-  --text: #e9e6ff;         /* bright — lit */
-  --accent: #b9a8f0;       /* arc light */
-  --accent-light: #e9e6ff;
-  --surface: #0c1020;
-  --muted: #c6c4dd;        /* paper — body text */
-  --dim: #6e6d89;
-  --border: #2b354c;       /* edge */
+  /* The City Anatomy site palette. This is the SITE's own — it is not taken
+     from any app, and no app should take it from here. Night-toned because the
+     home page window always has a dark map in it; the accent is the site's own
+     blue, the one it used before 2026-09-09. Change any line here and the whole
+     site follows: everything below is written in these tokens. */
+  --background: #0b0f14;   /* ink — the ground the whole site sits on */
+  --text: #eef2f6;         /* bright — headings and lit text */
+  --accent: #4cc3ff;       /* the site's blue */
+  --accent-light: #8ad7ff;
+  --surface: #121821;      /* cards, popups, anything raised off the ground */
+  --muted: #b9c2cc;        /* body text */
+  --dim: #6b7683;          /* captions, inactive icons */
+  --border: #26303c;
   --shadow: rgba(0, 0, 0, 0.55);
-  --glow: rgba(185, 168, 240, 0.28);
+  --glow: rgba(76, 195, 255, 0.22);
   color-scheme: dark;
 }
 

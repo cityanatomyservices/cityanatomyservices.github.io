@@ -1,5 +1,56 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 (later) — the site gets its own palette; Moontower drift cut
+
+Owner: the site had come to look like the Moontower app, and "I have had an
+issue with drift from that project ... that seems like too much of an
+influence." Investigated where the pull came from and fixed three things.
+
+**Where it came from.** Nothing instructed it. Moontower is simply the oldest
+and most finished product in the workspace, so every session reaching for
+"what should this look like" found it first — and each copy got written into a
+STATUS file as precedent, which made the next session do it again. On
+2026-09-09 the home window was set to play the Moontower map; because that map
+is dark, the page around it was made dark too, and `style.css` was given the
+Moontower tokens verbatim (the old comment said so). From there the palette
+reached every page on the site.
+
+**1. The rule, so it stops recurring.** `C:\Dev\CLAUDE.md` now carries
+"Moontower is one module, not the house style": what is shared is the engine
+and only the engine (`webtour/`, the kit / container-app code) — no palette,
+no basemap style, no typography, no product identity travels with an engine,
+and no non-Moontower surface reads files out of a `moontower*` folder.
+
+**2. The News Feed is decoupled.** `news/index.html` was loading
+`../moontower/vendor/arclight-1895.style.js` — an Austin news map wearing the
+Moontower tour's 1895 cartography, carrying the tour's `towers`,
+`illumination` and `routes` sources and their 13 layers. The news map now has
+its own `news/vendor/basemap.style.js` (`window.NEWS_BASEMAP_STYLE`, 99
+layers, 2 sources): started as a copy of that cartography with the tour layers
+stripped and the ground set to the site ink, and it is the news map's to
+change from here. Nothing outside `moontower/` reads `moontower/vendor/` now.
+
+**3. The site palette is the site's own.** `style.css` `:root` is no longer
+the Moontower tokens. It stays night-toned (the home window always holds a
+dark map) but the hue is the site's own blue — `--accent: #4cc3ff`, the accent
+anatomy.city used before 2026-09-09 — on a neutral ink `#0b0f14`. Every colour
+on the site still flows from those 11 tokens, so the accent is one line to
+change if the owner wants a different one; there is no City Anatomy brand
+colour written down anywhere (`CityAnatomyAustin/docs/BRAND.md` is links only),
+so this is a restoration, not an invented brand.
+
+The tour apps were already clean — `moontowertour/vendor/` and
+`1885murdertour/vendor/` each carry their own day/night styles and keep their
+own looks. Only the site chrome and the news map changed.
+
+Verified headless (Playwright, 1280x800): `/`, `/news/` and `/apps/` load with
+zero console errors, body ground `rgb(11,15,20)` on all three; the generated
+news style parses, 99 layers, no layer pointing at a missing source.
+
+**Owner to decide:** whether `#4cc3ff` is the accent they want, and whether the
+news basemap should stay this dark night cartography at all now that it is
+free to diverge from the tour.
+
 ## 2026-09-10 — anatomy.city IS the app for now: tour web apps + home rewire
 
 Owner: "Until we get the react native app tested and approved I want to
