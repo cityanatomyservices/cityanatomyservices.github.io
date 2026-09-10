@@ -1,0 +1,36 @@
+name: Build news map feed
+
+# Reads the four Austin outlets' RSS feeds, pins stories on known places, and
+# commits news/feed.geojson. No secrets needed. See news/README.md.
+
+on:
+  schedule:
+    - cron: "0 11 * * *"        # 11:00 UTC = 06:00 Austin (CDT), once a day
+  workflow_dispatch:            # also runnable from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-news-feed
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build feed.geojson
+        run: node tools/news/build-feed.js
+      - name: Commit if changed
+        run: |
+          git config user.name "news-feed bot"
+          git config user.email "cityanatomyservices@users.noreply.github.com"
+          git add news/feed.geojson
+          git diff --cached --quiet && echo "no change" && exit 0
+          git commit -m "News feed: $(date -u +%Y-%m-%d)"
+          git push

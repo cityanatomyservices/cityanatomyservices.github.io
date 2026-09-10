@@ -17,7 +17,7 @@
 
   function renderCards(chip) {
     cardRow.innerHTML = '';
-    chip.cards.forEach((item, index) => {
+    (chip.cards || []).forEach((item, index) => {
       const isLink = !!item.link;
       const card = document.createElement(isLink ? 'a' : 'button');
       if (isLink) {
@@ -77,6 +77,8 @@
         btn.addEventListener('click', () => {
           buttons.forEach(b => b.classList.toggle('is-active', b === btn));
           renderCards(chip);
+          // A chip with its own src and no cards is a page in itself (News Feed).
+          if (chip.src && !(chip.cards || []).length) show(chip.src);
         });
         chipRow.appendChild(btn);
         buttons.push(btn);

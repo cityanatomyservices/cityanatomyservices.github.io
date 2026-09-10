@@ -1,0 +1,9 @@
+{
+  "_comment": "Austin Monitor RSS has been stale since 2025-11 at every URL tried (2026-09-09); kept so it comes back on its own if they fix it. The RSS feeds the news map reads (owner's four, 2026-09-09). color is the pin/card color on the night palette. max = most stories kept per outlet per build.",
+  "outlets": [
+    { "name": "KUT",              "url": "https://www.kut.org/news.rss",                    "color": "#b9a8f0", "max": 20 },
+    { "name": "KXAN",             "url": "https://www.kxan.com/feed/",                       "color": "#f0c27a", "max": 20 },
+    { "name": "Austin Monitor",   "url": "https://www.austinmonitor.com/feed/",              "color": "#7ad4c8", "max": 20 },
+    { "name": "Community Impact", "url": "https://communityimpact.com/rss/austin/",     "color": "#f08aa8", "max": 20 }
+  ]
+}

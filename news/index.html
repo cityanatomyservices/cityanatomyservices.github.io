@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News Feed — City Anatomy</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
+<style>
+  /* Same night palette as the Moontower page and the site. */
+  :root { --ink:#070a12; --paper:#c6c4dd; --bright:#e9e6ff; --accent:#b9a8f0; --dim:#6e6d89; --edge:#2b354c; }
+  html, body { margin:0; height:100%; background:var(--ink); color:var(--paper);
+               font-family: Georgia, 'Times New Roman', serif; overflow:hidden; }
+  #wrap { display:flex; height:100%; }
+  #map { flex:1; min-width:0; }
+  /* The story list. Beside the map on wide screens, under it on phones. */
+  #list { width:min(380px, 38vw); overflow:auto; border-left:1px solid var(--edge); background:var(--ink); }
+  .story { display:block; padding:12px 14px; border-bottom:1px solid var(--edge); color:inherit;
+           text-decoration:none; cursor:pointer; border-left:3px solid transparent; }
+  .story:hover, .story.active { background:#0c1020; border-left-color: var(--c, var(--accent)); }
+  .story .meta { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--c, var(--accent)); }
+  .story .meta .when { color:var(--dim); letter-spacing:0; text-transform:none; margin-left:8px; }
+  .story h3 { margin:4px 0 2px; font-size:15px; font-weight:400; color:var(--bright); line-height:1.3; }
+  .story .place { font-size:12px; color:var(--dim); }
+  .story .place::before { content:'◉ '; color:var(--c, var(--accent)); }
+  .maplibregl-popup-content { background:#0c1020; color:var(--paper); border:1px solid var(--edge);
+                              font-family:inherit; padding:10px 12px; max-width:260px; }
+  .maplibregl-popup-content a { color:var(--bright); text-decoration:none; }
+  .maplibregl-popup-tip { border-top-color:#0c1020 !important; }
+  .maplibregl-popup-close-button { color:var(--dim); }
+  #empty { padding:16px; color:var(--dim); font-size:13px; display:none; }
+  @media (max-width: 720px) {
+    #wrap { flex-direction:column; }
+    #map { flex:0 0 46%; }
+    #list { width:auto; flex:1; border-left:0; border-top:1px solid var(--edge); }
+  }
+</style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="map"></div>
+    <div id="list"><div id="empty"></div></div>
+  </div>
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="../moontower/vendor/arclight-1895.style.js"></script>
+  <script src="news.js"></script>
+</body>
+</html>

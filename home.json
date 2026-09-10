@@ -1,16 +1,38 @@
 {
-  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is loaded into the map window. (The YouTube playlist embed under Media was removed 2026-09-09 - owner: not really working.)",
+  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is loaded into the map window. (The YouTube playlist embed under Media was removed 2026-09-09 - owner: not really working.) A chip may carry its own src (News Feed -> /news/): with no cards, picking the chip loads that page in the window.",
   "chips": [
     {
       "label": "Apps",
       "cards": [
-        { "title": "Moontower", "blurb": "Austin, 1895 — light them all", "src": "/moontower/" },
-        { "title": "The 1885 Murder Tour", "blurb": "Austin, 1885 — The Servant Girl Murders", "src": "https://austin1885.city/annihilatortour/" },
-        { "title": "What can I build here?", "blurb": "", "src": "/parcels/" }
+        {
+          "title": "Moontower",
+          "blurb": "Austin, 1895 — light them all",
+          "src": "/moontower/"
+        },
+        {
+          "title": "The 1885 Murder Tour",
+          "blurb": "Austin, 1885 — The Servant Girl Murders",
+          "src": "https://austin1885.city/annihilatortour/"
+        },
+        {
+          "title": "What can I build here?",
+          "blurb": "",
+          "src": "/parcels/"
+        }
       ]
     },
-    { "label": "Media",     "cards": [] },
-    { "label": "News Feed", "cards": [] },
-    { "label": "Services",  "cards": [] }
+    {
+      "label": "Media",
+      "cards": []
+    },
+    {
+      "label": "News Feed",
+      "cards": [],
+      "src": "/news/"
+    },
+    {
+      "label": "Services",
+      "cards": []
+    }
   ]
 }
