@@ -1,5 +1,35 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 (fix) — day is the default, and the button is findable
+
+Owner: "I'm not seeing the light/dark button, I do want it to default to light
+but also want a dark option." The button WAS live and rendering — checked
+against anatomy.city directly, all three files deployed. Two real causes:
+
+1. **The browser was serving the previous `style.css`,** the one that still
+   carried `display:none !important` on `.theme-toggle`. GitHub Pages caches
+   these files hard. **Fixed properly: `/style.css`, `/page.js` and `/home.js`
+   are now referenced with `?v=20260910` on all eight pages that use them, and
+   `CLAUDE.md` says to bump that number on every push that touches them.** Each
+   report folder's own `style.css` keeps its separate `?v=` — untouched.
+2. **At night the button was nearly invisible** — `var(--surface)` on a bar
+   painted from the same `--surface`, with a faint `--border`. It now carries
+   the accent on its edge, its label and a 12% tint of its background, becomes
+   solid accent on hover, and is a pill in small caps. Reads on either ground.
+
+**Day is now the default.** The palette blocks were swapped rather than
+patched: the day tokens live on bare `:root` (so the first painted frame is
+already light — no flash) and night is `:root[data-theme="dark"]`, restating
+the same eleven tokens. `page.js` no longer consults
+`prefers-color-scheme` at all: `storedTheme === 'dark' ? 'dark' : 'light'`, so
+an unvisited page is always day whatever the machine says, and night is only
+ever a choice the visitor made. The choice is still remembered in localStorage.
+
+Verified headless with the browser set to dark: first visit lands
+`data-theme="light"`, `rgb(245,247,250)`; the button flips it to
+`rgb(11,15,20)`; the choice survives a reload both ways and carries to
+`/apps/`. No console errors.
+
 ## 2026-09-10 (later still) — day/night button, cards launch the apps, demos go quiet
 
 Four owner changes.

@@ -1,42 +1,47 @@
-:root {
-  /* The City Anatomy site palette. This is the SITE's own — it is not taken
-     from any app, and no app should take it from here. Night-toned because the
-     home page window always has a dark map in it; the accent is the site's own
-     blue, the one it used before 2026-09-09. Change any line here and the whole
-     site follows: everything below is written in these tokens. */
-  --background: #0b0f14;   /* ink — the ground the whole site sits on */
-  --text: #eef2f6;         /* bright — headings and lit text */
-  --accent: #4cc3ff;       /* the site's blue */
-  --accent-light: #8ad7ff;
-  --surface: #121821;      /* cards, popups, anything raised off the ground */
-  --muted: #b9c2cc;        /* body text */
-  --dim: #6b7683;          /* captions, inactive icons */
-  --border: #26303c;
-  --shadow: rgba(0, 0, 0, 0.55);
-  --glow: rgba(76, 195, 255, 0.22);
-  color-scheme: dark;
-}
+/* The City Anatomy site palette. This is the SITE's own — it is not taken from
+   any app, and no app should take it from here.
 
-/* Day. Same tokens, lit: the site's blue goes darker so it holds on white, and
-   the ink/paper roles swap. page.js writes data-theme on <html> and remembers
-   the choice in localStorage; with no choice stored it follows the machine. */
-:root[data-theme="light"] {
-  --background: #f5f7fa;
-  --text: #14181d;
-  --accent: #0067c5;
+   DAY IS THE DEFAULT (owner, 2026-09-10) and lives on bare :root, so the page
+   paints light on the very first frame with no flash. Night is the option, and
+   only the tokens that change are restated below. The accent is the site's own
+   blue, the one it used before 2026-09-09.
+
+   Change a line here and the whole site follows: everything below is written in
+   these eleven tokens. */
+:root {
+  --background: #f5f7fa;   /* paper — the ground the whole site sits on */
+  --text: #14181d;         /* headings and body */
+  --accent: #0067c5;       /* the site's blue */
   --accent-light: #3f93de;
-  --surface: #ffffff;
-  --muted: #4a545f;
-  --dim: #78838f;
+  --surface: #ffffff;      /* cards, popups, anything raised off the ground */
+  --muted: #4a545f;        /* body text */
+  --dim: #78838f;          /* captions, inactive icons */
   --border: #dbe2ea;
   --shadow: rgba(15, 25, 45, 0.12);
   --glow: rgba(0, 103, 197, 0.14);
   color-scheme: light;
 }
 
-/* The map window is always a night map, so on a light page it gets a rim
+/* Night. The same eleven tokens, unlit. page.js writes data-theme="dark" on
+   <html> when the visitor picks it and remembers the choice in localStorage;
+   nothing else turns it on, so an unvisited page is always day. */
+:root[data-theme="dark"] {
+  --background: #0b0f14;   /* ink */
+  --text: #eef2f6;
+  --accent: #4cc3ff;
+  --accent-light: #8ad7ff;
+  --surface: #121821;
+  --muted: #b9c2cc;
+  --dim: #6b7683;
+  --border: #26303c;
+  --shadow: rgba(0, 0, 0, 0.55);
+  --glow: rgba(76, 195, 255, 0.22);
+  color-scheme: dark;
+}
+
+/* The map window is always a night map, so on the day page it gets a rim
    instead of dissolving into the white. */
-:root[data-theme="light"] .storymap-frame {
+:root:not([data-theme="dark"]) .storymap-frame {
   border: 1px solid var(--border);
 }
 
@@ -591,26 +596,38 @@ main {
   padding: 1rem 1.1rem;
 }
 
+/* The day/night button. It sits on a bar painted from the same --surface it
+   used to use, which made it nearly invisible at night — so it carries the
+   accent on its edge and its label, and that reads on either ground. */
 .theme-toggle {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   padding: 0.55rem 0.9rem;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--background));
+  color: var(--accent);
   font-weight: 700;
-  letter-spacing: 0.01em;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.15s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
 }
 
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 10px 20px var(--shadow);
-  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--background);
+  box-shadow: 0 0 16px var(--glow);
+  outline: none;
+}
+
+.theme-toggle .toggle-icon {
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .nav-toggle {

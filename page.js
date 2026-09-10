@@ -1,7 +1,9 @@
 (() => {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // Day is the default (owner, 2026-09-10): the site opens light for everyone,
+  // whatever their machine is set to, and night is a choice the visitor makes
+  // with the button in the header. Once made, it is remembered for next time.
   const storedTheme = localStorage.getItem('theme');
-  const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+  const initialTheme = storedTheme === 'dark' ? 'dark' : 'light';
   document.documentElement.dataset.theme = initialTheme;
 
   const themeToggle = document.querySelector('.theme-toggle');
