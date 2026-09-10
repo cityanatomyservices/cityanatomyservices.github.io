@@ -1,5 +1,44 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — the original day design is back; the theme button was backwards
+
+Owner: "The buttons seem backward and now the whole page has a glow. I just want
+the day to look like it did before you changed it to the dark (which I didn't
+ask for...)."
+
+Both correct, and the second one was bigger than a palette. **`c6046fc`
+(2026-09-09, "night palette") changed the whole design, not just the colours** —
+it also swapped the typography to Georgia serif throughout, dropped every font
+weight to 400, replaced the topbar's drop shadow with a glow, put a
+`text-shadow: 0 0 18px` glow on the wordmark, turned the map window's 6px top
+gradient into a page-wide `inset 0 0 80px 20px` vignette, and added glows to the
+active chip, the active card and the social icons. Restoring the tokens alone
+(my earlier fix) left all of that in place, which is the glow the owner saw.
+
+**`style.css` is now `git show c6046fc^:style.css` verbatim** — the stylesheet
+as it was before that commit — plus exactly two additions: `color-scheme` on
+each palette block (so scrollbars and form controls follow the theme), and the
+comment at the top saying why. Nothing else. That was safe because only three
+selectors had been added to the file since, and all three belonged to the night
+styling being removed. So the day page is the **exact** design it was: Helvetica
+body, Poppins headings at weight 700, real drop shadows, no glow anywhere, and
+the original `#0067c5` blue.
+
+The dark option is the site's OWN original dark theme, which was already in that
+file (`:root[data-theme='dark']`, `#0e1117` / `#4cc3ff`) — not the Moontower
+one. Day is still the default; night is only ever chosen.
+
+**The button was backwards.** It showed the theme you were already in, so the
+day page said "Light" and clicking it gave you dark. It now says where a click
+will take you: 🌙 Dark on the day page, ☀️ Light on the night page.
+
+Cache version bumped to `?v=20260910c`.
+
+Verified headless with the browser set to dark: day loads by default at
+`rgb(245,247,250)` with Helvetica, no wordmark text-shadow and no vignette on
+`.map-hero::after`, offering "🌙 Dark"; the click gives `rgb(14,17,23)` offering
+"☀️ Light"; back again. No console errors.
+
 ## 2026-09-10 — News Feed off the home page; the site is a holder for the web apps
 
 Owner: "Lets remove the news feed button and that page in the carrosel, I want

@@ -10,10 +10,14 @@
   const toggleIcon = themeToggle?.querySelector('.toggle-icon');
   const toggleLabel = themeToggle?.querySelector('.toggle-label');
 
+  // The button says WHERE A CLICK WILL TAKE YOU, not where you already are
+  // (owner, 2026-09-10: "the buttons seem backward"). On the day page it offers
+  // 🌙 Dark; on the night page it offers ☀️ Light.
   const updateToggleUI = (theme) => {
     if (!toggleIcon || !toggleLabel) return;
-    toggleIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-    toggleLabel.textContent = theme === 'dark' ? 'Dark' : 'Light';
+    const offering = theme === 'dark' ? 'light' : 'dark';
+    toggleIcon.textContent = offering === 'dark' ? '🌙' : '☀️';
+    toggleLabel.textContent = offering === 'dark' ? 'Dark' : 'Light';
   };
 
   updateToggleUI(initialTheme);
