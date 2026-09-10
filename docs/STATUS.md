@@ -1,5 +1,35 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — the Moontower WebApp link was dead: an invisible overlay ate the click
+
+Owner: "can you have the card on the animation map link to
+https://anatomy.city/moontowertour/". It already did — the `href`, `target` and
+text were all correct from the previous commit. **The link was simply not
+clickable**, and the owner was reading the symptom exactly right.
+
+**Cause: `#fallback`.** It is the "map data did not load" message, an
+`inset: 0` overlay at `z-index: 3`, carrying the `hidden` attribute so it only
+appears on failure. But the stylesheet said `#fallback { ... display: grid; }`,
+and **a `display` rule in a stylesheet outranks what the `hidden` attribute
+does**. So the overlay was never hidden at all — an empty, invisible, full-page
+box sitting on top of everything and swallowing every click on the page.
+`elementFromPoint` at the middle of the pill returned `DIV#fallback`, not the
+link.
+
+Fix: `[hidden] { display: none !important; }` — the same one-liner
+`moontowertour/` and `1885murdertour/` already carry, which is why those two
+were never affected. Checked all four map pages; `/moontower/` was the only one
+with the bug.
+
+This was not new. That overlay has been swallowing clicks on the demo page the
+whole time, which is probably why nothing there ever seemed to respond.
+
+Verified headless with real clicks: the pill opens
+`https://anatomy.city/moontowertour/` in a new tab **both** from `/moontower/`
+directly **and** from inside the home page's window — the case that matters,
+since that is where the owner sees it. The home page's own Moontower card still
+opens `/moontowertour/` too.
+
 ## 2026-09-10 — the Moontower demo loses its popups and gains the app link
 
 Owner: "Remove all of the popups from the moontower animation and make the card

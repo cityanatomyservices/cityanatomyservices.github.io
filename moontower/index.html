@@ -49,8 +49,16 @@
              background: rgba(7,10,18,.72); }
   #title a:hover { border-color: var(--accent); }
 
+  /* The error message, shown only if the map data fails to load. It is an
+     inset:0 overlay at z-index 3, so while it is up it covers the page — which
+     is fine when it IS the page, and a bug otherwise. `hidden` alone could not
+     hide it: the `display: grid` below outranks what the hidden attribute does,
+     so the empty overlay stayed on top and swallowed every click, including the
+     one on the Moontower WebApp link. The rule after it is what makes `hidden`
+     actually mean hidden. Same one-liner the web apps use. */
   #fallback { position: absolute; inset: 0; display: grid; place-items: center;
               z-index: 3; color: var(--dim); font-size: 14px; }
+  [hidden] { display: none !important; }
 
 </style>
 </head>
