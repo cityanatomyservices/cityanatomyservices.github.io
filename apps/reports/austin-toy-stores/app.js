@@ -492,51 +492,6 @@ async function initOverlay() {
 
 // --- Theme toggle ---
 
-// --- Side panel open/close ---
-//
-// The panel slides shut and the map takes the space.
-function initPanelToggle() {
-  const btn = document.getElementById("panelToggle");
-  const body = document.querySelector(".app-body");
-  if (!btn || !body) return;
-
-  // MapLibre sizes its canvas once and does not watch its container, so it has
-  // to be told whenever the box changes — otherwise it keeps the old width and
-  // leaves a blank strip where the panel was.
-  //
-  // Two attempts failed before this one, both for the same reason: they resized
-  // ONCE, at a moment that turned out to be wrong. `transitionend` fired early
-  // coming back open, and a ResizeObserver that calls resize() inside its own
-  // callback trips the browser's resize-loop guard and stops being delivered
-  // mid-slide — both left the canvas ~400px too wide. So follow the whole
-  // animation instead: resize on every frame until it is over.
-  const SLIDE_MS = 380;   // a little longer than the CSS transition
-  function followTheSlide() {
-    const until = performance.now() + SLIDE_MS;
-    (function frame() {
-      map.resize();
-      if (performance.now() < until) requestAnimationFrame(frame);
-    }());
-  }
-
-  btn.addEventListener("click", function () {
-    const closing = !body.classList.contains("panel-closed");
-    body.classList.toggle("panel-closed", closing);
-    btn.setAttribute("aria-expanded", String(!closing));
-    btn.setAttribute("aria-label", closing ? "Show the list" : "Hide the list");
-    followTheSlide();
-  });
-
-  // The window itself resizing, or this page being resized inside the home
-  // page's window. Deferred to the next frame for the loop-guard reason above.
-  const mapBox = document.getElementById("map");
-  if (mapBox && window.ResizeObserver) {
-    new ResizeObserver(function () {
-      requestAnimationFrame(function () { map.resize(); });
-    }).observe(mapBox);
-  }
-}
-
 function initTheme() {
   const btn = document.getElementById("themeToggle");
   const saved = localStorage.getItem("theme") || "light";
@@ -620,7 +575,6 @@ async function init() {
     buildFilters();
     buildTableHead();
     applyFilters();
-    initPanelToggle();
   });
 }
 
@@ -851,7 +805,11 @@ function showPopup(feature) {
 // --- Filters (built dynamically from CONFIG.filters) ---
 
 function buildFilters() {
+  // No filter UI on this page yet (owner, 2026-09-10: "once we have those done
+  // we will consider how to filter it"). With nothing to build, every feature
+  // stays visible — applyFilters() finds no selects and filters nothing.
   const container = document.getElementById("filters");
+  if (!container) return;
   container.innerHTML = "";
 
   CONFIG.filters.forEach(f => {
@@ -925,6 +883,7 @@ function updateMap(features) {
 
 function buildTableHead() {
   const thead = document.getElementById("tableHead");
+  if (!thead) return;   // no table on this page
   const tr = document.createElement("tr");
 
   CONFIG.columns.forEach(col => {
@@ -939,6 +898,7 @@ function buildTableHead() {
 
 function updateTable(features) {
   const tableBody = document.getElementById("tableBody");
+  if (!tableBody) return;   // no table on this page
   tableBody.innerHTML = "";
 
   features.forEach(feature => {
@@ -990,7 +950,9 @@ function updateTable(features) {
 // --- Count ---
 
 function updateCount(features) {
-  document.getElementById("resultCount").textContent = `${features.length} results`;
+  const el = document.getElementById("resultCount");
+  if (!el) return;   // no count on this page
+  el.textContent = `${features.length} results`;
 }
 
 // --- Fit bounds ---
@@ -1013,6 +975,7 @@ function fitMapToFeatures(features) {
 // --- Report modal ---
 
 function initReportModal() {
+  if (!document.getElementById("reportModal")) return;   // no report UI here
   var list = document.getElementById("reportFieldList");
   CONFIG.columns.forEach(function(col) {
     var label = document.createElement("label");

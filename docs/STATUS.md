@@ -1,5 +1,50 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — each report becomes just a map of its data
+
+Owner, after two wrong turns of mine: "I don't want the reports recreated in the
+middle I mispoke, I want the maps made of the data with the same mapping controls
+once we have those done we will consider how to filter it" — and "you don't have
+to rebuild them ... just make a map of the data that they are based on and add
+the same map controls."
+
+**`/apps/reports/<slug>/` is now a map and nothing else.** The map fills the page
+and everything that remains floats on top of it:
+
+- the data — every location plotted, nothing filtered out;
+- the map controls, unchanged: Satellite, Layers, zoom / compass / geolocate,
+  Topo, Buildings, 2D-3D, dark mode, and the ⓘ panel;
+- the map tools: Draw, Clear, Measure, Map PNG, in a floating pill;
+- a small title, so you can tell which map you are looking at in the carousel.
+
+**Gone:** the block header, the footer, the side panel, its collapse handle, the
+filters, the location table, Export CSV, and the Report modal. No page chrome
+survives — nothing to scroll past.
+
+**Filtering is deliberately not here yet** ("once we have those done we will
+consider how to filter it"). The code that built it is not deleted, just
+guarded: `buildFilters`, `buildTableHead`, `updateTable` and `updateCount` each
+return early when their element is missing, so `applyFilters()` still does its
+map-side work — it finds no filter selects, filters nothing, and every feature
+stays on the map. Putting a filter UI back is adding markup, not rewriting logic.
+
+`app.js`, `style.css` and `index.html` remain byte-identical across all nine
+report folders (`index.html` differs only by its `<title>`).
+
+Positioning bugs found and fixed along the way: `.toolbar` was never actually
+positioned, so it sat as a static block across the top overlapping the title;
+the draw bar's rail is `pointer-events: none` so the map keeps the gaps, which
+left the buttons themselves dead until the pill took clicks back; a stale
+`#map { height: 46vh }` in the phone block fought `inset: 0` and left the map
+388px tall on a phone.
+
+Verified at 1280×800 and 390×844 across all nine: the map fills the viewport,
+six map controls present, the four map tools present, **no** table / filters /
+count / panel / handle / report modal in the DOM, no page scroll in either
+direction, no console errors. Golf's twenty course pins render as before.
+
+Cache version `?v=20260910h`.
+
 ## 2026-09-10 — the report panel opens and closes; the header is just a title
 
 Owner, clarifying the earlier ask: the side panel should "be opened and closed

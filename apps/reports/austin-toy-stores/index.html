@@ -13,84 +13,42 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
+  <!-- A MAP AND NOTHING ELSE (owner, 2026-09-10): "make each a map first with
+       those controls and the data on the map and no html around it, just the
+       container". So the map fills the page and every other thing on this
+       screen floats on top of it — the title, the toolbar, the draw bar, and
+       the data panel that slides in from the right. There is no page chrome
+       left to scroll past, which is what this needed to be when it plays inside
+       the small window on the home page. -->
   <div class="page">
 
-    <!-- A title and the controls, nothing else (owner, 2026-09-10: "there
-         shouldn't be a header and stuff ... just the map and the controls and a
-         title at top"). The old block header and the social footer are gone. -->
-    <header class="page-header">
-      <div class="header-left">
-        <h1 id="pageTitle"></h1>
-      </div>
-      <div class="toolbar">
-        <div class="info-btn-wrap">
-          <button class="toolbar-btn info-btn" onclick="toggleInfoPanel()" aria-label="About this map">ⓘ</button>
-          <div class="info-panel" id="infoPanel">
-            <p id="infoPanelText"></p>
-          </div>
+    <div id="map"></div>
+
+    <h1 class="map-title" id="pageTitle"></h1>
+
+    <div class="toolbar">
+      <div class="info-btn-wrap">
+        <button class="toolbar-btn info-btn" onclick="toggleInfoPanel()" aria-label="About this map">&#9432;</button>
+        <div class="info-panel" id="infoPanel">
+          <p id="infoPanelText"></p>
         </div>
-        <button class="toolbar-btn" id="viewToggle" aria-label="Toggle 2D/3D view">2D</button>
-        <button class="toolbar-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
       </div>
-    </header>
-
-    <!-- Map on the left, data on the right (owner, 2026-09-10). The table and
-         its filters used to sit UNDER the map, so you scrolled away from the map
-         to read them; now they are a panel beside it and both are on screen at
-         once. Below 900px there is no room for two columns and the panel goes
-         back under the map. -->
-    <div class="app-body">
-
-      <div class="map-column">
-        <section class="map-card">
-          <div id="map"></div>
-        </section>
-
-        <section class="draw-bar">
-          <button class="draw-tb-btn" data-draw-mode="linestring">Draw</button>
-          <button class="draw-tb-btn" id="clearDrawBtn">Clear</button>
-          <button class="draw-tb-btn" id="measureBtn">Measure</button>
-          <button class="draw-tb-btn" id="exportMapBtn" onclick="exportMap()">Map PNG</button>
-          <button class="draw-tb-btn" onclick="openReportModal()">Report</button>
-        </section>
-      </div>
-
-      <!-- The handle that opens and closes the panel. It rides on the panel's
-           edge, so it slides with it and is always the thing you reach for. -->
-      <button class="panel-toggle" id="panelToggle" type="button"
-              aria-expanded="true" aria-controls="sidePanel" aria-label="Hide the list">
-        <span class="panel-toggle-arrow" aria-hidden="true"></span>
-      </button>
-
-      <aside class="side-panel" id="sidePanel">
-        <div class="table-header">
-          <h2>Locations</h2>
-          <div class="table-header-right">
-            <div id="resultCount">0 results</div>
-            <button class="export-btn" onclick="exportCSV()">Export CSV</button>
-          </div>
-        </div>
-        <div class="filters" id="filters"></div>
-        <div class="table-wrap">
-          <table>
-            <thead id="tableHead"></thead>
-            <tbody id="tableBody"></tbody>
-          </table>
-        </div>
-      </aside>
-
+      <button class="toolbar-btn" id="viewToggle" aria-label="Toggle 2D/3D view">2D</button>
+      <button class="toolbar-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
     </div>
 
-    <!-- Overlay, not part of the two-column row. -->
-    <div id="reportModal" class="report-modal-overlay">
-      <div class="report-modal">
-        <h3 class="report-modal-title">Select up to 3 fields for report</h3>
-        <div id="reportFieldList" class="report-field-list"></div>
-        <div class="report-modal-actions">
-          <button class="draw-tb-btn" id="reportCancelBtn">Cancel</button>
-          <button class="draw-tb-btn active" id="reportGenerateBtn" disabled>Generate</button>
-        </div>
-      </div>
+    <!-- Map tools only. The data's table, filters and Export CSV are NOT here
+         (owner, 2026-09-10: "I don't want the reports recreated in the middle
+         ... I want the maps made of the data with the same mapping controls
+         once we have those done we will consider how to filter it"). Every
+         location is on the map; nothing is filtered out. -->
+    <div class="draw-bar-rail">
+      <section class="draw-bar">
+        <button class="draw-tb-btn" data-draw-mode="linestring">Draw</button>
+        <button class="draw-tb-btn" id="clearDrawBtn">Clear</button>
+        <button class="draw-tb-btn" id="measureBtn">Measure</button>
+        <button class="draw-tb-btn" id="exportMapBtn" onclick="exportMap()">Map PNG</button>
+      </section>
     </div>
 
   </div>
