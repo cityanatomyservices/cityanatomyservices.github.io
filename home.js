@@ -1,60 +1,121 @@
-// home.js — the home page's chip row.
+// home.js — the home page's chip row and card row.
 //
-// Picking a chip shows that product's cards. A card OPENS ITS WEB APP in a new
-// browser window (owner, 2026-09-10) — it no longer swaps the preview in the
-// map window. The window instead plays a demo reel: a chip marked `cycle` runs
-// through its `demo` cards on a timer, so both animations get seen without
-// anyone clicking. Everything shown comes from home.json, so adding a product
-// or a page is a data edit, not a code edit.
+// THE CARD ROW IS THE CONTROL FOR THE WINDOW (owner, 2026-09-10). Whichever
+// card is snapped to the LEFT EDGE of the row is what plays in the window above
+// it. Swipe the row (or two-finger scroll, or roll the wheel over it) and the
+// window follows. Clicking a card still opens its real web app in a new browser
+// window — a swipe is not a click, so the two never collide.
+//
+// A chip marked `cycle` advances the row on a timer so both demos get seen on
+// their own; the moment a visitor moves the row themselves, that stops and the
+// row is theirs. Everything shown comes from home.json, so adding a product is
+// a data edit, not a code edit.
 (function () {
   const frame = document.getElementById('storymap-frame');
   const chipRow = document.getElementById('category-nav');
   const cardRow = document.getElementById('report-cards');
-  if (!frame || !chipRow || !cardRow) return;
+  const scroller = document.querySelector('.report-cards');   // the thing that scrolls
+  if (!frame || !chipRow || !cardRow || !scroller) return;
 
-  // How long each demo holds the window before the reel moves on. A card can
-  // override it with its own `demoMs` in home.json.
+  // How long a demo holds the window before the row advances by itself. A card
+  // can override it with its own `demoMs` in home.json.
   const DEMO_MS = 60000;
 
+  // The card data for the chip on screen, index-aligned with cardRow's children.
+  let cards = [];
+
   function show(src) {
-    // Only touch the iframe when the page actually changes, so a re-pick does
-    // not restart the demo that is already running.
-    if (frame.getAttribute('src') !== src) frame.setAttribute('src', src);
+    // Only touch the iframe when the page actually changes, so scrolling past a
+    // card and back does not restart the demo that is already running.
+    if (src && frame.getAttribute('src') !== src) frame.setAttribute('src', src);
   }
 
-  // The demo reel. One timer, always cleared before a new one starts, so a
-  // visitor hopping between chips can never leave two reels running.
+  // ── which card is at the left edge ───────────────────────────────────────
+  // Measured, not calculated: comparing each card's left edge against the
+  // scroller's own left edge works whatever the padding, gap or card width is,
+  // and keeps working when they change.
+  function leftmostIndex() {
+    const els = Array.from(cardRow.children);
+    if (!els.length) return -1;
+    const edge = scroller.getBoundingClientRect().left;
+    let best = 0;
+    let bestGap = Infinity;
+    els.forEach((el, i) => {
+      const gap = Math.abs(el.getBoundingClientRect().left - edge);
+      if (gap < bestGap) { bestGap = gap; best = i; }
+    });
+    return best;
+  }
+
+  function syncWindowToRow() {
+    const i = leftmostIndex();
+    if (i < 0) return;
+    Array.from(cardRow.children).forEach((el, n) => el.classList.toggle('is-active', n === i));
+    if (cards[i]) show(cards[i].src);
+  }
+
+  function scrollToCard(i) {
+    const el = cardRow.children[i];
+    if (!el) return;
+    const delta = el.getBoundingClientRect().left - scroller.getBoundingClientRect().left;
+    scroller.scrollTo({ left: scroller.scrollLeft + delta, behavior: 'smooth' });
+  }
+
+  // Settle first, then act: a swipe fires dozens of scroll events, and swapping
+  // the iframe on every one of them would reload the demo over and over.
+  let settle = null;
+  scroller.addEventListener('scroll', () => {
+    clearTimeout(settle);
+    settle = setTimeout(syncWindowToRow, 120);
+  });
+
+  // ── the demo reel ────────────────────────────────────────────────────────
+  // It advances the ROW, not the window — so there is only ever one thing
+  // deciding what plays, and the row never disagrees with the window.
   let reelTimer = null;
   function stopReel() {
     if (reelTimer) { clearTimeout(reelTimer); reelTimer = null; }
   }
-  function startReel(cards) {
+  function startReel() {
     stopReel();
-    const reel = (cards || []).filter(c => c.demo && c.src);
-    if (!reel.length) return;
-    let i = 0;
+    const reel = cards.map((c, i) => ({ c, i })).filter(({ c }) => c.demo && c.src);
+    if (reel.length < 2) return;          // nothing to cycle between
+    let k = 0;
+    const wait = () => reel[k].c.demoMs || DEMO_MS;
     const step = () => {
-      const card = reel[i];
-      show(card.src);
-      i = (i + 1) % reel.length;
-      reelTimer = setTimeout(step, card.demoMs || DEMO_MS);
+      k = (k + 1) % reel.length;
+      scrollToCard(reel[k].i);
+      reelTimer = setTimeout(step, wait());
     };
-    step();
+    reelTimer = setTimeout(step, wait());
   }
 
+  // The moment the visitor moves the row themselves, the row is theirs.
+  ['pointerdown', 'touchstart', 'keydown'].forEach((ev) =>
+    scroller.addEventListener(ev, stopReel, { passive: true }));
+
+  // The page never scrolls vertically, so a wheel over the row would otherwise
+  // do nothing at all. Spend it sideways instead, so a plain mouse can move the
+  // row the same way a finger can.
+  scroller.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;   // already sideways
+    stopReel();
+    scroller.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }, { passive: false });
+
+  // ── rendering ────────────────────────────────────────────────────────────
   function renderCards(chip) {
+    cards = chip.cards || [];
     cardRow.innerHTML = '';
-    (chip.cards || []).forEach((item) => {
-      // Where the card goes: its web app, else an explicit external link. A
-      // card with neither is the old kind and still previews in the window.
+    cards.forEach((item) => {
+      // Where the card goes when clicked: its web app, else an explicit link.
       const href = item.app || item.link || '';
-      const card = document.createElement(href ? 'a' : 'button');
+      const card = document.createElement(href ? 'a' : 'div');
       if (href) {
         card.href = href;
         card.target = '_blank';
         card.rel = 'noopener noreferrer';
-      } else {
-        card.type = 'button';
       }
       card.className = 'report-card';
       if (item.accent) card.style.setProperty('--card-accent', item.accent);
@@ -75,23 +136,15 @@
         blurb.textContent = item.blurb;
         card.appendChild(blurb);
       }
-
-      if (!href) {
-        card.addEventListener('click', () => {
-          cardRow.querySelectorAll('.report-card').forEach(el => el.classList.remove('is-active'));
-          card.classList.add('is-active');
-          stopReel();          // a hand-picked preview outranks the reel
-          show(item.src);
-        });
-      }
-
       cardRow.appendChild(card);
     });
+    scroller.scrollLeft = 0;      // a new chip always starts on its first card
+    syncWindowToRow();
   }
 
   // A chip with `from` borrows its cards from the reports page's list
   // (apps/reports/reports.json) so the two stay identical. Each report card
-  // opens that report's own MapLibre map app at /apps/reports/<id>/.
+  // previews its story map in the window and opens its own MapLibre map app.
   const loaded = new Map();
   function withCards(chip) {
     if (!chip.from) return Promise.resolve(chip);
@@ -119,7 +172,7 @@
     .then(data => {
       const chips = (data && data.chips) || [];
       if (!chips.length) return;
-      // The page opens on the chip marked `open` (Apps, so the demo reel starts), else the first.
+      // The page opens on the chip marked `open` (Apps), else the first.
       const openIndex = Math.max(0, chips.findIndex(chip => chip.open));
       const buttons = [];
       chips.forEach((chip, index) => {
@@ -132,10 +185,9 @@
           stopReel();
           withCards(chip).then(c => {
             renderCards(c);
-            // `cycle` chips play their demos in turn; a chip with its own src
-            // and no cards is a page in itself loaded into the window.
-            if (chip.cycle) startReel(c.cards);
-            else if (chip.src && !(c.cards || []).length) show(chip.src);
+            if (chip.cycle) startReel();
+            // A chip with its own src and no cards is a page in itself.
+            else if (chip.src && !cards.length) show(chip.src);
           });
         };
         btn.addEventListener('click', pick);

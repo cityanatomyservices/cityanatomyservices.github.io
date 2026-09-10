@@ -1,5 +1,57 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — the card row is now the control for the window
+
+Owner: "can we have the middle section change by swiping the card? so whatever
+card is in the 1st left position is what the middle section will be."
+
+**One rule now governs the home page: whichever card is snapped to the LEFT EDGE
+of the row is what plays in the window.** Swipe the row, two-finger scroll it, or
+roll a wheel over it and the window follows. The leftmost card also takes the
+`is-active` accent fill, so it is obvious which one is driving.
+
+Clicking a card still opens its real web app in a new browser window. A swipe is
+not a click, so the two never collide.
+
+Three things had to change for "leftmost" to mean anything:
+
+1. **Snapping.** `scroll-snap-type: x mandatory` on the row, `scroll-snap-align:
+   start` on the cards, plus `scroll-padding-left: 16px` so a resting card keeps
+   the row's gutter instead of sitting flush against the window edge. Snapping is
+   what makes "leftmost" a definite answer rather than wherever a swipe stopped.
+2. **The row has to actually overflow.** It didn't. Three 280px cards on a
+   1280px screen fit with room to spare, so nothing could ever be swiped and the
+   feature was dead on the desktop — the first test showed `scrollLeft` stuck at
+   0. Cards are now `clamp(240px, 44%, 420px)`, a share of the row, so a slice of
+   the next card always shows — that peek is what says "this swipes".
+3. **Runway.** Even overflowing, three cards only gave a few dozen pixels of
+   scroll — not enough for the last card to ever reach the left edge. The row now
+   carries a trailing `::after` spacer of `100% - card - gap`, which is what lets
+   the last card sit at the left and take the window.
+
+**The demo reel now advances the ROW instead of the window** (`scrollToCard`, not
+`show`). One thing decides what plays, so the row can never disagree with what is
+on screen. The moment a visitor touches the row — pointer, touch, key or wheel —
+the reel stops and the row is theirs.
+
+The page never scrolls vertically, so a wheel over the card row would otherwise
+be dead input; it is spent sideways instead, which is how a plain mouse moves the
+row the way a finger does.
+
+**Side effect worth knowing:** picking **Reports** now loads the first report's
+story map into the window, where before it left the window alone. That follows
+from the same rule and makes the Reports chip do something again — but say so if
+you'd rather it stayed put.
+
+Verified headless: leftmost card and window agree in both directions across all
+three cards; clicking card 2 still opens `/1885murdertour/`; a wheel over the row
+moved it 16 → 446 and the window followed; the reel advanced the row at 62s and
+stopped dead after a touch. Re-ran the responsive sweep — twelve sizes from
+1600×900 to 320×568, still zero vertical and zero horizontal scroll with the
+footer on the bottom edge.
+
+Cache version `?v=20260910e`.
+
 ## 2026-09-10 — the Moontower WebApp link was dead: an invisible overlay ate the click
 
 Owner: "can you have the card on the animation map link to

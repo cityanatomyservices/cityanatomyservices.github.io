@@ -262,6 +262,14 @@ main {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  /* The row is the control for the window above it: whichever card is snapped
+     to the left edge is what plays up there (home.js). Snapping is what makes
+     "leftmost" a definite answer instead of wherever a swipe happened to stop. */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  /* Snap to the row's gutter, not to its border — without this the resting card
+     sits flush against the window edge with its 16px of breathing room lost. */
+  scroll-padding-left: 16px;
 }
 .report-cards::-webkit-scrollbar { display: none; }
 
@@ -269,12 +277,25 @@ main {
   display: flex;
   gap: 10px;
   align-items: stretch;
+  /* One dial for the carousel. Cards are a share of the row so a slice of the
+     next one always shows — that peek is what says "this swipes". */
+  --card-w: clamp(240px, 44%, 420px);
+}
+
+/* Runway. Without it the row only scrolls by its own overflow, which with three
+   cards on a wide screen is a few dozen pixels — not enough for the second or
+   third card to ever reach the left edge, so they could never take the window.
+   This trailing space is what lets the LAST card sit at the left. */
+.report-cards-inner::after {
+  content: '';
+  flex: 0 0 calc(100% - var(--card-w) - 10px);
 }
 
 .report-cards-inner .report-card {
   --card-accent: var(--accent);
-  flex: 0 0 280px;
-  max-width: 320px;
+  scroll-snap-align: start;
+  flex: 0 0 var(--card-w);
+  max-width: none;
   padding: 9px 13px 11px;
   background: color-mix(in srgb, var(--surface) 94%, var(--card-accent) 6%);
   border: 1px solid var(--border);
