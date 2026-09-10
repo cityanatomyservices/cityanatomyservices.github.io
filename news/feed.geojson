@@ -1,9 +1,111 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-09-10T00:25:32.672Z",
- "placed": 48,
- "total": 116,
+ "generated": "2026-09-10T14:41:53.729Z",
+ "placed": 45,
+ "total": 102,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "El Niño ramping up, but here's when it could end",
+    "link": "https://www.kxan.com/weather/weather-blog/el-nino-ramping-up-but-heres-when-it-could-end/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-10T13:00:00.000Z",
+    "summary": "Prior to this update, no previous El Niño outlooks had favored any other phase of ENSO other than El Niño over the coming months.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "'Curveball:' Lake Austin to lower 10 feet this fall, businesses say the notice came too late",
+    "link": "https://www.kxan.com/news/local/austin/curveball-lake-austin-to-lower-10-feet-this-fall-businesses-say-the-notice-came-too-late/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-10T12:12:04.000Z",
+    "summary": "The plan to temporarily lower Lake Austin is not sitting well with lakeside business owners and employees",
+    "place": "Lake Austin",
+    "placeKind": "lake"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Handful of afternoon showers and more triple digit heat",
+    "link": "https://www.kxan.com/weather/forecast/handful-of-afternoon-showers-and-more-triple-digit-heat/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-10T10:59:49.000Z",
+    "summary": "Like Wednesday, today will feature a whole lot of heat and humidity with a few showers in the mix. -Meteorologist Kristen Currie",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Student News Now: Texas State expands free tuition program for incoming fresh",
+    "link": "https://www.kxan.com/news/local/studentnewsnow/student-news-now-texas-state-expands-free-tuition-program-for-incoming-fresh/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-10T10:00:00.000Z",
+    "summary": "In this week’s episode of Student News Now on KXAN+, Texas State is expanding it’s Bobcat Promise program, extending free tuition beginning with the incoming Fall 2027 first-year student class. First-time freshman students in Fall 2027, who graduate in the top 25% of their high school class and have a family adjusted gross income of $100,000 or less, will qualify for free tuition and mandatory fee",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "City of Austin Council Message Board • Central Health Approved Budget with Mental Health Investments",
+    "link": "https://austincouncilforum.org/viewtopic.php?p=4977#p4977",
+    "outlet": "Council Message Board",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-10T02:28:42.000Z",
+    "summary": "Colleagues – Tonight, the Central Health Board of Managers adopted their FY27 budget with a historic investment in mental and behavioral health in Austin-Travis County. The Managers approved a $630 million budget with $127.5 million going towards essential brain health. Of significance, $54 million is new money for the most fragile in our community, including: •$33.1 million for inpatient psychiat",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Liberty Hill to remove Flock cameras",
+    "link": "https://communityimpact.com/leander-liberty-hill/government/liberty-hill-to-remove-flock-cameras/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-10T02:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
@@ -17,6 +119,27 @@
     "summary": "Smart fiscal policy says no.",
     "place": null,
     "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77989,
+     30.23767
+    ]
+   },
+   "properties": {
+    "title": "Traffic Advisory: Del Curto Flood Risk Reduction - Thorton Road to be Closed beginning August 17, 2026",
+    "link": "https://www.austintexas.gov/capital-delivery/news/traffic-advisory-del-curto-flood-risk-reduction-thorton-road-be-closed",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-10T00:00:00.000Z",
+    "summary": "<p><strong>Thornton Road will be closed to through traffic starting the week of August 17. Work hours are 7 a.m. to 7 p.m. The road will reopen daily.</strong></p><p>This project will improve the storm drain system in the South Lamar area and will help protect the area from flooding.</p><p><strong>Thornton Road to be Closed</strong></p><p>There will temporarily be no access to and from the neighbo",
+    "place": "South Lamar",
+    "placeKind": "neighborhood"
    }
   },
   {
@@ -252,42 +375,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "1998 murder convict may have chance to get out of prison",
-    "link": "https://www.kxan.com/news/local/austin/1998-murder-convict-may-have-chance-to-get-out-of-prison/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-09T17:50:36.000Z",
-    "summary": "On Wednesday, attorneys will argue their positions on the case of Michael Highfill, who, in 2000, was convicted of capital murder for the 1998 death of Luis Flores in northeast Travis County.",
-    "place": "Travis County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "From caregivers to advocates: An Austin family's experience became a lifeline for caregivers",
-    "link": "https://www.kxan.com/news/simplehealth/from-caregivers-to-advocates-an-austin-familys-experience-became-a-lifeline-for-caregivers/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-09T17:26:36.000Z",
-    "summary": "Navigating care for parents can be overwhelming.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Guzman Automotive to open in Hutto",
@@ -305,42 +392,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Driver seriously injured in crash involving dump truck near Tesla Road",
-    "link": "https://www.kxan.com/news/local/travis-county/driver-seriously-injured-in-crash-involving-dump-truck-near-tesla-road/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-09T16:51:44.000Z",
-    "summary": "DPS said the crash occurred on Farm-to-Market Road 973 near Tesla Road.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "Defense firm Aeon Industrial triples Cedar Park space in midst of large expansion",
-    "link": "https://therealdeal.com/texas/2026/09/09/aeon-industrial-triples-cedar-park-space/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-09-09T16:43:51.000Z",
-    "summary": "Defense tech company Aeon Industrial Incorporated is tripling its square footage in Cedar Park after selecting the city as its new headquarters. The company is expanding its square footage at 2305 Scottsdale Drive from 48,000 square feet to 138,000 square feet, according to the Austin Business Journal. The expansion is set to be made with a splash of public cash: Aeon Industrial received $2 millio",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Mayor Kirk Watson wants parents to close two Austin schools to head off state takeover",
     "link": "https://austincurrent.org/2026/09/09/austin-austinisd-takeover-mayor-burnet-webb/",
     "outlet": "Austin Current",
@@ -348,21 +399,6 @@
     "color": "#b9a8f0",
     "published": "2026-09-09T15:50:43.000Z",
     "summary": "The Austin city leader says intervention is inevitable, but a parent petition to TEA could stop a district-wide intervention. The post Mayor Kirk Watson wants parents to close two Austin schools to head off state takeover appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Temperatures, rain totals, severe storms: Explore Austin's 2026 weather data",
-    "link": "https://www.kxan.com/weather/austin-2026-weather-data/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-09T15:07:26.000Z",
-    "summary": "KXAN has created charts and graphics to help you keep track of whatever weather 2026 brings.",
     "place": null,
     "placeKind": null
    }
@@ -750,21 +786,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "From Forney to Corpus Christi, inside the Texas cities cracking down on data centers",
-    "link": "https://therealdeal.com/texas/2026/09/08/data-center-moratoriums-restrictions-bans-throughout-texas/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-09-08T12:00:00.000Z",
-    "summary": "Just as Texas claims the title of the country’s top data center market, local municipalities are trying to stem the tide of development. The Lone Star State recently superseded Virginia, with more than 335 operating data centers and 247 proposals, according to the Environmental Defense Fund. However, residents’ mounting concerns about water usage, noise pollution and tax incentives have pushed Tex",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -861,42 +882,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.747,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "Test of Longhorn Dam Floodgate Warning Sirens Scheduled for September 15",
-    "link": "https://www.austintexas.gov/water/news/test-longhorn-dam-floodgate-warning-sirens-scheduled-september-15",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-08T05:00:00.000Z",
-    "summary": "<p><span><strong>AUSTIN –</strong>&nbsp;Austin Water will conduct a test of the floodgate warning sirens at Longhorn Dam on Tuesday, September 15, 2026, at&nbsp;10 a.m.&nbsp;Residents and visitors in the surrounding area may hear the siren during the test. No emergency is occurring and no action is&nbsp;required&nbsp;from the public. The siren&nbsp;test&nbsp;will sound,&nbsp;one time,&nbsp;continu",
-    "place": "Austin Water",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas Chapter of American Planning Association Awards Gold to Equity-Based Preservation Plan",
-    "link": "https://www.austintexas.gov/planning/news/texas-chapter-american-planning-association-awards-gold-equity-based-preservation",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-08T05:00:00.000Z",
-    "summary": "<p><span>The American Planning Association Texas Chapter has recognized the City of Austin’s </span><a href=\"https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fus.list-manage.com%2FeGPMcUjeV7b%3Fe%3D31c1f17024%26c2id%3D75ddfe5c56e9672ead9b8f00912a8743&amp;data=05%7C02%7CCaleb.Pritchard%40austintexas.gov%7C0ef461f96b5c44044a9e08df0de0e3b7%7C5c5e19f6a6ab4b45b1d0be4608a9a67f%7C0%7C0%7C",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.78,
      30.33
     ]
@@ -911,6 +896,42 @@
     "summary": "Update: The Texas Democratic Party’s Disciplinary Committee on September 9th notified Jacob Cortés that it had upheld the complaint against him. “Accordingly, effective September 8, 2026, you are hereby removed from all positions…including your positions as Travis County Democratic Party Precinct Chair for Precinct 113 and Super Precinct Chair for Windsor Park.” Cortés supplied a […]",
     "place": "Travis County",
     "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.747,
+     30.265
+    ]
+   },
+   "properties": {
+    "title": "Test of Longhorn Dam Floodgate Warning Sirens Scheduled for September 15",
+    "link": "https://www.austintexas.gov/water/news/test-longhorn-dam-floodgate-warning-sirens-scheduled-september-15",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-08T00:00:00.000Z",
+    "summary": "<p><span><strong>AUSTIN –</strong>&nbsp;Austin Water will conduct a test of the floodgate warning sirens at Longhorn Dam on Tuesday, September 15, 2026, at&nbsp;10 a.m.&nbsp;Residents and visitors in the surrounding area may hear the siren during the test. No emergency is occurring and no action is&nbsp;required&nbsp;from the public. The siren&nbsp;test&nbsp;will sound,&nbsp;one time,&nbsp;continu",
+    "place": "Austin Water",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas Chapter of American Planning Association Awards Gold to Equity-Based Preservation Plan",
+    "link": "https://www.austintexas.gov/planning/news/texas-chapter-american-planning-association-awards-gold-equity-based-preservation",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-08T00:00:00.000Z",
+    "summary": "<p><span>The American Planning Association Texas Chapter has recognized the City of Austin’s </span><a href=\"https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fus.list-manage.com%2FeGPMcUjeV7b%3Fe%3D31c1f17024%26c2id%3D75ddfe5c56e9672ead9b8f00912a8743&amp;data=05%7C02%7CCaleb.Pritchard%40austintexas.gov%7C0ef461f96b5c44044a9e08df0de0e3b7%7C5c5e19f6a6ab4b45b1d0be4608a9a67f%7C0%7C0%7C",
+    "place": null,
+    "placeKind": null
    }
   },
   {
@@ -974,36 +995,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Dallas Cowboys legend Emmitt Smith sued over failed solar project",
-    "link": "https://therealdeal.com/texas/2026/09/05/texas-real-estate-scams-crop-up-in-development-homebuilding/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-09-05T14:00:00.000Z",
-    "summary": "Modern American life seems to increasingly involve dodging scams; from phishing texts to fake merchandise sold online, expensive traps are everywhere, and real estate is not exempt. This week in Texas real estate news featured two such stories, the first of which featured a familiar face: Dallas Cowboys SuperBowl 28 MVP Emmitt Smith. Smith and his partner David Mosley were sued on Monday in Delawa",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin reports on new homeless encampment management program's early results",
-    "link": "https://communityimpact.com/central-austin/government/austin-reports-on-new-homeless-encampment-management-programs-early-results/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-04T20:43:01.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Austin is ramping up enforcement of e-motorcycle rules on roads, sidewalks, trails",
     "link": "https://www.kut.org/austin/2026-09-04/austin-tx-electric-motorcycle-emoto-police-enforcement",
     "outlet": "KUT",
@@ -1049,21 +1040,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Data Center Operator to Begin Work on 192K-SF Hutto Project in December",
-    "link": "https://www.connectcre.com/stories/data-center-operator-to-begin-work-on-192k-sf-hutt0-project-in-december/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-09-04T15:14:55.000Z",
-    "summary": "Colovore is planning to start construction on the 192,000-square-foot data center project at 2401 Innovation Blvd. in December. The project will be complete by December 2028. The price was pegged at $280 million. The Austin Business Journal reports Colovore, which develops data centers that use liquid cooling, acquired the 30-acre tract in Hutto in July 2025. The ... The post Data Center Operator ",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "School librarians hesitant to discuss books, order more amid Texas battles to restrict titles, they say",
     "link": "https://www.texastribune.org/2026/09/04/texas-school-library-books-student-reading-dan-patrick/",
     "outlet": "Texas Tribune",
@@ -1071,42 +1047,6 @@
     "color": "#d9a95a",
     "published": "2026-09-04T10:00:00.000Z",
     "summary": "Lt. Gov. Dan Patrick’s latest push to restrict what students can access adds to Texas school librarians’ angst, the educators said. The post School librarians hesitant to discuss books, order more amid Texas battles to restrict titles, they say appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Labor Day Personal Watercraft Ban on Lake Austin",
-    "link": "https://www.austintexas.gov/police/news/labor-day-personal-watercraft-ban-lake-austin",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-04T05:00:00.000Z",
-    "summary": "<p><span>The Austin Police Department (APD) Lake Patrol Unit will be enforcing the City Ordinance that prohibits the use and operation of personal watercraft, wet bikes, motorized surfboards, and similar devices (designed to be operated by a person sitting, standing, or kneeling on the vessel), on Lake Austin. This ban will go into effect beginning at sunset on Friday, September 4, 2026, and endin",
-    "place": "Austin Police",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "City of Austin Closures for Labor Day 2026",
-    "link": "https://www.austintexas.gov/communications/news/city-austin-closures-labor-day-2026",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-04T05:00:00.000Z",
-    "summary": "<p paraeid=\"{0b2787bb-ce4f-42fa-96ff-fa94ab320249}{243}\" paraid=\"198579086\">City of Austin administrative offices and other municipal facilities will be closed Monday, September 7, in observance of Labor Day. This includes the Municipal and Community courts, Austin Animal Shelter, libraries, museums, and cultural, recreation and senior centers. Normal business hours will resume Tuesday, September ",
     "place": null,
     "placeKind": null
    }
@@ -1137,6 +1077,42 @@
     "color": "#e8b35e",
     "published": "2026-09-04T00:37:34.000Z",
     "summary": "The Board of Directors of Travis Central Appraisal District’s main order of business at its September 3rd meeting was to adopt the 2027-2028 Reappraisal Plan, as required by the Texas Property Tax Code, Section 6.05(i). After opening and closing a public hearing about the plan, for which no one signed up to speak, the board […]",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "Labor Day Personal Watercraft Ban on Lake Austin",
+    "link": "https://www.austintexas.gov/police/news/labor-day-personal-watercraft-ban-lake-austin",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-04T00:00:00.000Z",
+    "summary": "<p><span>The Austin Police Department (APD) Lake Patrol Unit will be enforcing the City Ordinance that prohibits the use and operation of personal watercraft, wet bikes, motorized surfboards, and similar devices (designed to be operated by a person sitting, standing, or kneeling on the vessel), on Lake Austin. This ban will go into effect beginning at sunset on Friday, September 4, 2026, and endin",
+    "place": "Austin Police",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "City of Austin Closures for Labor Day 2026",
+    "link": "https://www.austintexas.gov/communications/news/city-austin-closures-labor-day-2026",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-04T00:00:00.000Z",
+    "summary": "<p paraeid=\"{0b2787bb-ce4f-42fa-96ff-fa94ab320249}{243}\" paraid=\"198579086\">City of Austin administrative offices and other municipal facilities will be closed Monday, September 7, in observance of Labor Day. This includes the Municipal and Community courts, Austin Animal Shelter, libraries, museums, and cultural, recreation and senior centers. Normal business hours will resume Tuesday, September ",
     "place": null,
     "placeKind": null
    }
@@ -1217,21 +1193,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "SB Energy reneges on data center promise to Austin neighborhood group",
-    "link": "https://therealdeal.com/texas/2026/09/03/sb-energy-reneges-on-data-center-promise-to-austin-neighbors/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-09-03T17:01:58.000Z",
-    "summary": "SB Energy, an affiliate of Japan-based SoftBank Group, bought the Highpoint 2222 campus earlier this year for $286 million and appears poised to turn it into an R&D hub and data center operations facility. The property at 6801 River Place Boulevard, just west of Vandegrift High School and south of a fire station, was bought from California-based Karlin Real Estate in March. SB Energy already has a",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "After backlash, Austin will outsource — not cancel — adult sports leagues. Players are still worried",
     "link": "https://www.kut.org/austin/2026-09-03/austin-tx-adult-indoor-basketball-volleyball-outsourced-parks-and-recreation",
     "outlet": "KUT",
@@ -1269,19 +1230,19 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -98.0867,
-     30.1902
+     -97.6789,
+     30.5083
     ]
    },
    "properties": {
-    "title": "ORIX Acquires Two Texas Rental Assets",
-    "link": "https://www.connectcre.com/stories/orix-acquires-two-texas-rental-assets/",
-    "outlet": "Connect CRE",
+    "title": "Round Rock-area median home sales prices decline year over year in July",
+    "link": "https://communityimpact.com/round-rock/real-estate/round-rock-area-median-home-sales-prices-decline-year-over-year-in-july/",
+    "outlet": "Community Impact",
     "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-09-03T15:46:08.000Z",
-    "summary": "An ORIX Corporation USA affiliate acquired three multifamily properties totaling 1,029 units in Texas (two) and Georgia (one). The transactions, representing approximately $200 million in aggregate value, expand ORIX USA’s multifamily equity portfolio and reflect the firm’s continued investment in residential real estate across the United States. Lookout – Dripping Springs, Texas: ORIX USA acquire",
-    "place": "Dripping Springs",
+    "color": "#f08aa8",
+    "published": "2026-09-03T01:19:26.000Z",
+    "summary": "",
+    "place": "Round Rock",
     "placeKind": "city"
    }
   },
@@ -1300,31 +1261,10 @@
     "outlet": "City of Austin",
     "group": "government",
     "color": "#f0c27a",
-    "published": "2026-09-03T05:00:00.000Z",
+    "published": "2026-09-03T00:00:00.000Z",
     "summary": "<p><strong data-olk-copy-source=\"MessageBody\">Case:</strong><span>&nbsp;26-2420692</span><br><span>&nbsp;</span><br><strong>Date:&nbsp;</strong><span>August 29, 2026</span><br><span>&nbsp;</span><br><strong>Location: </strong><span>2300 block of Carson Ridge</span><br><br><span>The Austin Police (APD) Auto Theft Unit is requesting assistance in identifying a suspect involved in an auto theft that ",
     "place": "Austin Police",
     "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Round Rock-area median home sales prices decline year over year in July",
-    "link": "https://communityimpact.com/round-rock/real-estate/round-rock-area-median-home-sales-prices-decline-year-over-year-in-july/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-03T01:19:26.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
    }
   },
   {
@@ -1355,27 +1295,6 @@
     "summary": "APD wants to ticket driverless cars.",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8772,
-     29.9891
-    ]
-   },
-   "properties": {
-    "title": "Mormon Church’s nearly 3K-acre development site in Austin-San Antonio corridor back on track following settlement",
-    "link": "https://therealdeal.com/texas/2026/09/02/mormon-churchs-nearly-3k-acre-development-site-in-kyle/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-09-02T18:50:06.000Z",
-    "summary": "The Kyle City Council voted to give the thumbs-up to a settlement agreement relating to a six-yearlong lawsuit regarding the potential annexation and development of the Nance-Bradshaw Ranch property. If settled, the land’s new owners, the Utah-based real estate investment arm of the Church of Jesus Christ of Latter-day Saints will be in the clear to develop the 2,898 acre site. Following adjustmen",
-    "place": "Kyle",
-    "placeKind": "city"
    }
   },
   {
@@ -1450,7 +1369,7 @@
     "outlet": "City of Austin",
     "group": "government",
     "color": "#f0c27a",
-    "published": "2026-09-02T05:00:00.000Z",
+    "published": "2026-09-02T00:00:00.000Z",
     "summary": "<p><span>The Austin Police (APD) has closed two sexual assault investigations dating back more than 25 years after DNA evidence identified the same suspect in both cases and ultimately led to his arrest and conviction.</span><br><br><span>On September 9, 1999, a woman was at the Capital Metro Pavilion Park and Ride in the 12400 block of Research Boulevard after arriving on a northbound Leander bus",
     "place": "Capital Metro",
     "placeKind": "landmark"
@@ -1465,7 +1384,7 @@
     "outlet": "City of Austin",
     "group": "government",
     "color": "#f0c27a",
-    "published": "2026-09-02T05:00:00.000Z",
+    "published": "2026-09-02T00:00:00.000Z",
     "summary": "<p paraid=\"51679548\" paraeid=\"{282f4e84-6389-48a5-b182-99c0673125be}{12}\"><em><span data-contrast=\"auto\" xml:lang=\"EN-US\" lang=\"EN-US\">Public Health Fair Attendance Increases from Past Years.</span><span data-ccp-props=\"{}\">&nbsp;</span></em></p><p paraid=\"51679548\" paraeid=\"{282f4e84-6389-48a5-b182-99c0673125be}{12}\"><span data-contrast=\"auto\" xml:lang=\"EN-US\" lang=\"EN-US\">The City of Austin and ",
     "place": null,
     "placeKind": null
@@ -1480,7 +1399,7 @@
     "outlet": "City of Austin",
     "group": "government",
     "color": "#f0c27a",
-    "published": "2026-09-02T05:00:00.000Z",
+    "published": "2026-09-02T00:00:00.000Z",
     "summary": "<p><span>Austin Arts, Culture, Music and Entertainment’s (ACME) <strong>“Absolute Equality: Unity Tunnel,”</strong> an iconic Art in Public Places (AIPP) work by Texas artist <strong>Reginald Adams</strong>, has been selected as the </span><a href=\"https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fus.list-manage.com%2F14rxjyw5YJA%3Fe%3De70aa4c24c%26c2id%3Dff4227888f0dfd05153fcefbfc",
     "place": null,
     "placeKind": null
@@ -1541,42 +1460,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Work Wraps Up on 74-Story Austin Mixed-Use Tower",
-    "link": "https://www.connectcre.com/stories/work-wraps-up-on-74-story-austin-mixed-use-tower/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-09-01T18:15:48.000Z",
-    "summary": "Lincoln Property Co. and Kairoi Residential wrapped up construction on Waterline, the Lone Star State’s tallest tower, rising 74 stories in downtown Austin, Texas. The mixed-use property features 352 multifamily units across 33 levels, 703,000 square feet of office space spanning 24 floors and 252 hotel keys taking up 13 stories. Multihousing New reports Waterline ... The post Work Wraps Up on 74-",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.5567,
-     30.3405
-    ]
-   },
-   "properties": {
-    "title": "Eastwood Ventures snags 458 acres in Austin suburb for sweeping mixed-use development",
-    "link": "https://therealdeal.com/texas/2026/09/01/eastwood-ventures-snags-458-acres-in-manor-for-mixed-use-dev/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-09-01T18:15:15.000Z",
-    "summary": "Foxgate Capital and Cole Klein Builders’ joint development group, Eastwood Ventures, just picked up 458 acres of land around the Austin suburb of Manor to build its massive mixed-use development called Eastwood. Development plans call for 1,335 home lots with 97 acres earmarked for commercial and retail usage, according to the Austin Business Journal. The joint venture won the deal for the land ov",
-    "place": "Manor",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "City of Austin Council Message Board • September 8th Work Session Cancellation",
     "link": "https://austincouncilforum.org/viewtopic.php?p=4974#p4974",
     "outlet": "Council Message Board",
@@ -1584,42 +1467,6 @@
     "color": "#f0c27a",
     "published": "2026-09-01T18:01:23.000Z",
     "summary": "Council Members-- The work session scheduled for Tuesday, September 8th will be cancelled since there are no prepared staff briefings, and nothing has been pulled by members of the Council. Thanks, Kirk On Behalf of Mayor Watson Statistics: Posted by Max Lars — Tue Sep 01, 2026 1:01 pm",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.5567,
-     30.3405
-    ]
-   },
-   "properties": {
-    "title": "Broadstone Inks Hobby Lobby, Academy Sports as Manor Tenants",
-    "link": "https://www.connectcre.com/stories/broadstone-inks-hobby-lobby-academy-sports-as-manor-tenants/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-09-01T15:46:53.000Z",
-    "summary": "Broadstone Net Lease (BNL) secured land in Manor and started construction on build-to-suit developments for Hobby Lobby and Academy Sports, both of which were directly sourced, off-market transactions, and are expected to deliver in the second quarter of 2027. Hobby Lobby and Academy will be 55,000 square feet, and each is on a 15-year lease. ... The post Broadstone Inks Hobby Lobby, Academy Sport",
-    "place": "Manor",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas distress report: Multifamily foreclosures dominate September auction blocks",
-    "link": "https://therealdeal.com/texas/2026/09/01/texas-biggest-loans-head-to-foreclosure-auctions-in-september/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-09-01T15:00:00.000Z",
-    "summary": "Texas multifamily distress is showing no signs of a slowdown. The darling asset class for real estate investors in the early 2020s continues to fuel foreclosures across the Lone Star State. The value of multifamily loans flagged for foreclosure in the Texas Triangle totals $562 million in September — amounting to over 70 percent of the commercial properties headed to auction Tuesday, according to ",
     "place": null,
     "placeKind": null
    }
@@ -1658,21 +1505,6 @@
     "summary": "Garza was one of multiple University of Texas at Austin students injured in the March 1 shooting on West Sixth Street. Since then, he and his family have been focused on follow-up surgeries and rehabilitation.",
     "place": "University of Texas",
     "placeKind": "campus"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Commons Ford Parking Operations Will Change During Labor Day Holiday Weekend",
-    "link": "https://www.austintexas.gov/parks/news/commons-ford-parking-operations-will-change-during-labor-day-holiday-weekend",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-01T05:00:00.000Z",
-    "summary": "<p>To address Labor Day Holiday Weekend public safety concerns at Commons Ford Ranch Metropolitan Park, Austin Parks and Recreation will limit vehicle capacity during this high-use holiday weekend. This adjustment helps ensure that emergency and staff vehicles can safely enter and exit the area.</p><p>Beginning on Saturday, September 5, parking at Commons Ford Ranch Metropolitan Park will be limit",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1851,21 +1683,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Growing Taylor Lands Mixed-Use Project",
-    "link": "https://www.connectcre.com/stories/growing-taylor-lands-mixed-use-project/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-08-28T16:07:31.000Z",
-    "summary": "Metropolitan Development Company (MDC) started construction on The Ferguson, a mixed-use residential and retail community space in the rapidly expanding city of Taylor. Located at 1300 W. Second St., The Ferguson is the first and only condominium project in town, anchoring the city’s historic downtown at the heart of one of Central Texas’s fastest-growing markets. The Ferguson ... The post Growing",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -1976,21 +1793,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Trademark Acquires 116K-SF Austin Shopping Center",
-    "link": "https://www.connectcre.com/stories/trademark-acquires-116k-sf-austin-shopping-center/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-08-27T18:32:53.000Z",
-    "summary": "Trademark Property Company and Cohen & Steers purchased Oak Hill Plaza, located at the northwest corner of US 290 and SH 71. Trademark will manage and lease the 116,000-square-foot neighborhood shopping center and lead a plan to upgrade the property and its tenancy. Partners Capital—the investment platform of Partners Real Estate Company was the seller. The ... The post Trademark Acquires 116K-SF ",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "New 65,000-square-foot Austin music venue finds name",
     "link": "https://communityimpact.com/southwest-austin-dripping-springs/development/new-65000-square-foot-austin-music-venue-finds-name/",
     "outlet": "Community Impact",
@@ -1998,36 +1800,6 @@
     "color": "#5fc4b6",
     "published": "2026-08-27T18:19:43.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Eviction filings spiked at this tiny home village for homeless Austinites. Why?",
-    "link": "https://www.kut.org/housing/2026-08-27/evictions-community-first-village-homeless-austin-tx",
-    "outlet": "KUT",
-    "group": "planning",
-    "color": "#7ad4c8",
-    "published": "2026-08-27T10:00:00.000Z",
-    "summary": "The Community First Village has been praised for its unique model and its success in keeping people housed and off the street. But some wonder why the nonprofit running the community is filing so many evictions.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "City of Austin Council Message Board • Item 50 - parkland condemnations",
-    "link": "https://austincouncilforum.org/viewtopic.php?p=4973#p4973",
-    "outlet": "Council Message Board",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-08-27T01:17:49.000Z",
-    "summary": "Colleagues, Tomorrow I am bringing an amendment to Item 50 (parkland condemnations) to strengthen transparency and council oversight over this process. Specifically, my amendment would: - strengthen council oversight overall, - change the duration an impacted park would be governed by this policy from 5 years to 1 year, - change the required deadline for notifying relevant boards and commissions f",
     "place": null,
     "placeKind": null
    }
