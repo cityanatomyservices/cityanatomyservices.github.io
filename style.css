@@ -273,6 +273,41 @@ main {
 
 .report-cards-inner a.report-card { text-decoration: none; }
 
+/* A card with an app: the card previews in the window, the ↗ beside it opens
+   the full-screen app in a new browser window (home.js). */
+.report-cards-inner .report-card-wrap {
+  position: relative;
+  flex: 0 0 280px;
+  max-width: 320px;
+  display: flex;
+}
+.report-cards-inner .report-card-wrap .report-card {
+  flex: 1 1 auto;
+  width: 100%;
+  padding-right: 40px;
+}
+.report-card-open {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+.report-card-open:hover, .report-card-open:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: none;
+}
+
 .report-cards-inner .report-card:hover,
 .report-cards-inner .report-card:focus-visible {
   color: var(--text);

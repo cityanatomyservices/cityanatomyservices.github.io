@@ -1,5 +1,5 @@
 {
-  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is loaded into the map window. (The YouTube playlist embed under Media was removed 2026-09-09 - owner: not really working.) A chip may carry its own src (News Feed -> /news/): with no cards, picking the chip loads that page in the window. A chip may carry from: a URL of apps/reports/reports.json shape; home.js turns each report into a card that opens /apps/reports/<id>/storymap/ (the same page the reports page opens).",
+  "_comment": "Home page chips and cards (owner-named chips, 2026-09-09). A chip with no cards shows an empty card row and leaves the window on whatever was playing. Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. src is the PREVIEW loaded into the map window; app (optional) is the full-screen web app, which opens in a NEW browser window from the small ↗ on the card (owner 2026-09-10: nobody uses the apps from the front page; the window keeps the animated Moontower and Austin1885 maps as previews). A chip may carry its own src (News Feed -> /news/): with no cards, picking the chip loads that page in the window. The chip with open: true is what the page opens on (owner 2026-09-10: the News Feed map loads first). A chip may carry from: a URL of apps/reports/reports.json shape; home.js turns each report into a card whose preview is its story map and whose app is its MapLibre map app at /apps/reports/<id>/.",
   "chips": [
     {
       "label": "Apps",
@@ -7,17 +7,20 @@
         {
           "title": "Moontower",
           "blurb": "Austin, 1895 — light them all",
-          "src": "/moontower/"
+          "src": "/moontower/",
+          "app": "/moontowertour/"
         },
         {
           "title": "The 1885 Murder Tour",
           "blurb": "Austin, 1885 — The Servant Girl Murders",
-          "src": "https://austin1885.city/annihilatortour/"
+          "src": "https://austin1885.city/annihilatortour/",
+          "app": "/1885murdertour/"
         },
         {
           "title": "What can I build here?",
           "blurb": "",
-          "src": "/parcels/"
+          "src": "/parcels/embed.html",
+          "app": "/parcels/"
         }
       ]
     },
@@ -33,7 +36,8 @@
     {
       "label": "News Feed",
       "cards": [],
-      "src": "/news/"
+      "src": "/news/",
+      "open": true
     },
     {
       "label": "Services",

@@ -1,8 +1,11 @@
 // home.js — the home page's chip row.
 //
-// Picking a chip shows that product's cards; picking a card loads its page in
-// the map window above. Everything shown comes from home.json, so adding a
-// product or a page is a data edit, not a code edit.
+// Picking a chip shows that product's cards; picking a card loads its
+// PREVIEW in the map window above. A card with an `app` also gets a small ↗
+// that opens the full-screen web app in a new browser window — the apps are
+// never used inside the front page (owner, 2026-09-10). Everything shown
+// comes from home.json, so adding a product or a page is a data edit, not a
+// code edit.
 (function () {
   const frame = document.getElementById('storymap-frame');
   const chipRow = document.getElementById('category-nav');
@@ -15,7 +18,7 @@
     if (frame.getAttribute('src') !== src) frame.setAttribute('src', src);
   }
 
-  function renderCards(chip) {
+  function renderCards(chip, { activateFirst }) {
     cardRow.innerHTML = '';
     (chip.cards || []).forEach((item, index) => {
       const isLink = !!item.link;
@@ -54,18 +57,38 @@
           show(item.src);
         });
         // The first card of a chip is what the window shows for that chip.
-        if (index === 0) {
+        if (index === 0 && activateFirst) {
           card.classList.add('is-active');
           show(item.src);
         }
       }
-      cardRow.appendChild(card);
+
+      // The ↗ opens the real app, full screen, in its own window. It sits in
+      // a wrapper beside the card because a link cannot live inside a button.
+      if (item.app) {
+        const wrap = document.createElement('div');
+        wrap.className = 'report-card-wrap';
+        const open = document.createElement('a');
+        open.className = 'report-card-open';
+        open.href = item.app;
+        open.target = '_blank';
+        open.rel = 'noopener noreferrer';
+        open.textContent = '↗';
+        open.setAttribute('aria-label', item.title || item.app);
+        open.title = item.app;
+        wrap.appendChild(card);
+        wrap.appendChild(open);
+        cardRow.appendChild(wrap);
+      } else {
+        cardRow.appendChild(card);
+      }
     });
   }
 
   // A chip with `from` borrows its cards from the reports page's list
   // (apps/reports/reports.json) so the two stay identical. Each report card
-  // opens its story map, exactly what clicking it on the reports page does.
+  // previews its story map in the window; its ↗ opens the report's own
+  // MapLibre map app (/apps/reports/<id>/) in a new window.
   const loaded = new Map();
   function withCards(chip) {
     if (!chip.from) return Promise.resolve(chip);
@@ -79,7 +102,8 @@
           title: item.title || '',
           blurb: item.blurb || '',
           accent: item.accent,
-          src: '/apps/reports/' + item.id + '/storymap/'
+          src: '/apps/reports/' + item.id + '/storymap/',
+          app: '/apps/reports/' + item.id + '/'
         }))
       }))
       .catch(() => ({ ...chip, cards: [] }));
@@ -92,24 +116,24 @@
     .then(data => {
       const chips = (data && data.chips) || [];
       if (!chips.length) return;
+      // The page opens on the chip marked `open` (the News Feed map), else the first.
+      const openIndex = Math.max(0, chips.findIndex(chip => chip.open));
       const buttons = [];
       chips.forEach((chip, index) => {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'sm-nav-btn';
         btn.textContent = chip.label;
-        btn.addEventListener('click', () => {
+        const pick = () => {
           buttons.forEach(b => b.classList.toggle('is-active', b === btn));
-          withCards(chip).then(renderCards);
+          withCards(chip).then(c => renderCards(c, { activateFirst: true }));
           // A chip with its own src and no cards is a page in itself (News Feed).
           if (chip.src && !(chip.cards || []).length) show(chip.src);
-        });
+        };
+        btn.addEventListener('click', pick);
         chipRow.appendChild(btn);
         buttons.push(btn);
-        if (index === 0) {
-          btn.classList.add('is-active');
-          withCards(chip).then(renderCards);
-        }
+        if (index === openIndex) pick();
       });
     })
     .catch(() => {

@@ -1,5 +1,49 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — anatomy.city IS the app for now: tour web apps + home rewire
+
+Owner: "Until we get the react native app tested and approved I want to
+treat anatomy.city like a webapp version of what the react native app will
+eventually be." Apps open in their own browser window, full screen, with
+only what an app would show (no site header/footer); nobody uses them from
+the front page. Built today:
+
+- **`/1885murdertour/`** — the Servant Girl Murder tour module as a web app
+  (map, geofences, verified "I'm here", card, story page, picker, distance,
+  credits). **`/moontowertour/`** — the Moontower module as a web app (pools
+  of light, the carbon-arc strike, honest ✦ visits, follow-me camera,
+  hold-to-reset). Both: plain ES modules, no build, MapLibre GL JS 5 from
+  unpkg, the app's own style JSON verbatim over OpenFreeMap tiles (no key).
+  Each folder has a README; the shared engine is **`webtour/`** (its README
+  is the overview). Every label is lifted verbatim from the phone app's
+  screens into each app's `js/copy.js`; no copy was written.
+- **Data**: `node tools/sync-webapps.js` copies the app's generated module
+  data (`CityAnatomyAustin/src/modules/<id>/data/*`) into each app's
+  `vendor/` as window globals. Re-run after any data or style change in the
+  app, then commit. Never hand-edit `vendor/`.
+- **Home page**: the window opens on the **News Feed** map (`open: true` on
+  the chip in `home.json`; iframe default `/news/`). The Apps carousel
+  keeps the animated Moontower (`/moontower/`) and the austin1885.city
+  lantern map as window previews; each card now has a small **↗** that opens
+  the real app (`app` field) in a new window. Reports cards preview the
+  story map and their ↗ opens the report's own MapLibre map app at
+  `/apps/reports/<id>/` — those map apps existed for every report but were
+  linked from nowhere on the home page. `PoolOpenings` was missing from
+  `apps/reports/reports.json`; added (strings taken from `apps/index.html`;
+  its eyebrow "Austin Parks · Report" follows the pattern of the others —
+  owner may change). `/apps/index.html` still omits the toy-store map app and
+  the vintage-guitar map app; not touched.
+- Cleanup: 45 `*.out` fetch dumps committed by accident with the news-feed
+  research on 2026-09-09 removed; `*.out` ignored.
+- Verified headless (Playwright, phone + desktop): both apps load without
+  errors, picker flight → card → I'm here / strike → progress persisted;
+  home opens on the news map, Apps/Reports cards carry the right ↗ links.
+  Screenshots in `C:\Dev\temp\webapps\`. Real-phone GPS is untested
+  (needs the live https site).
+
+Owner to check on a phone: geolocation prompt on ◎, the strike on
+`/moontowertour/`, "I'm here" at a real site on `/1885murdertour/`.
+
 ## 2026-09-09 — site moved here from loraatx/loraatx.github.io
 
 The City Anatomy site (anatomy.city) now lives in this repo under the
@@ -115,7 +159,13 @@ Impact topic feeds, CRE trade press). Build: 116 stories, 48 pinned.
 Next step if wanted: an exact-pin layer from the geolocated city datasets
 listed in NEWS-SOURCES.md §3 (zoning cases first).
 
-## PICK UP HERE — 2026-09-09, owner shut down mid-session
+## PICK UP HERE — 2026-09-10 (older items from 2026-09-09 below)
+
+0. Phone test of `/moontowertour/` and `/1885murdertour/` on the live site
+   (see the 2026-09-10 section at the top). Then: should the tour web apps
+   also link from `/apps/`? Not done — owner call.
+
+## Older — 2026-09-09, owner shut down mid-session
 
 1. **Moontower story card on phones: owner says the "Read more" fold "doesn't
    work well"** (no detail yet — ask what they saw before touching it).
