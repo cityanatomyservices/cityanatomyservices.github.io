@@ -12,3 +12,6 @@ scripts/parcels.geojsonl
 .DS_Store
 Thumbs.db
 *.swp
+
+# Fetch dumps left behind by research agents (45 were committed by accident 2026-09-09)
+*.out
