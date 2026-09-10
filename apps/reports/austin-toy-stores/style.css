@@ -10,15 +10,55 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
   background: var(--color-page-bg);
   color: #1a2e12;
+  height: 100%;
 }
 
+/* The app is exactly one screen: header, then the map/panel row, then the
+   footer. Nothing here scrolls except the side panel's own table — which is
+   the point, since this page is also shown inside the small window on the
+   home page, where a whole-page scroll would be unusable. */
 .page {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Map beside data ─────────────────────────────── */
+
+.app-body {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-height: 0;          /* lets both columns actually shrink */
+}
+
+.map-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.side-panel {
+  flex: 0 0 clamp(300px, 30%, 460px);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 18px 18px 20px;
+  background: var(--color-page-bg);
+  border-left: 1px solid #c4d8bb;
+  overflow-y: auto;       /* the table scrolls here, not the page */
 }
 
 /* ── Header (compact — above map) ────────────────── */
@@ -107,9 +147,91 @@ body {
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
   align-items: flex-end;
   margin-bottom: 14px;
+}
+
+/* In the panel there is no room for a row of filters — each one takes the
+   full width and stacks. */
+.side-panel .filters .filter-group {
+  flex: 1 1 100%;
+}
+
+.side-panel .filters .filter-group select,
+.side-panel .filters .filter-group input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* The list is the only thing that scrolls. */
+.side-panel .table-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* A four-column table does not fit a 380px panel — it just gets sliced off at
+   the edge. So in the panel each row STACKS into a labelled record instead:
+   the first column is the name, the rest are label/value lines. Same rows, same
+   click-to-fly behaviour, nothing cut off and nothing to scroll sideways. */
+.side-panel thead {
+  display: none;
+}
+
+.side-panel table,
+.side-panel tbody,
+.side-panel tr,
+.side-panel td {
+  display: block;
+  width: 100%;
+}
+
+.side-panel tr {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e0eeda;
+  cursor: pointer;
+}
+
+.side-panel tr:hover {
+  background: #f4faf1;
+}
+
+.side-panel td {
+  border: 0;
+  padding: 2px 0;
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.side-panel td::before {
+  content: attr(data-label);
+  flex: 0 0 34%;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5c7a4d;
+}
+
+/* the first column is the record's name, not a labelled field */
+.side-panel td:first-child {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 5px;
+}
+
+.side-panel td:first-child::before {
+  display: none;
+}
+
+.side-panel td:empty {
+  display: none;
 }
 
 .filter-group {
@@ -162,6 +284,8 @@ body {
   background: #c8d8c0;
   border-bottom: 1px solid #b4c8aa;
   position: relative;
+  flex: 1;
+  min-height: 0;
 }
 
 .map-card::after {
@@ -178,15 +302,10 @@ body {
 
 #map {
   width: 100%;
-  height: 660px;
+  height: 100%;
 }
 
 /* ── Table ───────────────────────────────────────── */
-
-.table-section {
-  padding: 22px 24px;
-  background: var(--color-page-bg);
-}
 
 .table-header {
   display: flex;
@@ -633,6 +752,49 @@ tbody tr:last-child td {
 
 /* ── Responsive ──────────────────────────────────── */
 
+/* Below 900px two columns will not fit: the panel goes back under the map, the
+   page becomes a normal scrolling page again, and the map takes a fixed slice
+   of the screen instead of the rest of a row. */
+@media (max-width: 900px) {
+  html,
+  body,
+  .page {
+    height: auto;
+  }
+
+  .app-body {
+    flex-direction: column;
+  }
+
+  .map-column {
+    flex: none;
+  }
+
+  .map-card {
+    flex: none;
+  }
+
+  #map {
+    height: 52vh;
+    min-height: 320px;
+  }
+
+  .side-panel {
+    flex: none;
+    border-left: 0;
+    border-top: 1px solid #c4d8bb;
+    overflow-y: visible;
+  }
+
+  .side-panel .table-wrap {
+    overflow-x: auto;
+  }
+
+  .side-panel .filters .filter-group {
+    flex: 1 1 160px;
+  }
+}
+
 @media (max-width: 700px) {
   .page-header {
     padding: 12px 18px 10px;
@@ -660,11 +822,11 @@ tbody tr:last-child td {
   }
 
   #map {
-    height: 460px;
+    height: 46vh;
   }
 
-  .table-section {
-    padding: 16px;
+  .side-panel {
+    padding: 14px 14px 18px;
   }
 
   th,

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reports • City Anatomy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
-  <link href="/style.css?v=20260910e" rel="stylesheet" />
+  <link href="/style.css?v=20260910f" rel="stylesheet" />
   <style>
     .apps-page {
       max-width: 1120px;
@@ -182,7 +182,7 @@
 
   </main>
 
-  <script src="/page.js?v=20260910e"></script>
+  <script src="/page.js?v=20260910f"></script>
   <script>
     (function () {
       const CATEGORY_ORDER = ['Shopping', 'Recreation', 'City Government'];
@@ -221,7 +221,7 @@
             list.forEach(item => {
               const card = document.createElement('a');
               card.className = 'app-card';
-              card.href = item.id + '/storymap/';
+              card.href = item.id + '/';
               if (item.accent) card.style.setProperty('--card-accent', item.accent);
               card.innerHTML = `
                 <div class="card-stripe"></div>

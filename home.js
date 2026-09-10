@@ -11,7 +11,7 @@
 // row is theirs. Everything shown comes from home.json, so adding a product is
 // a data edit, not a code edit.
 (function () {
-  const frame = document.getElementById('storymap-frame');
+  const frame = document.getElementById('app-window');
   const chipRow = document.getElementById('category-nav');
   const cardRow = document.getElementById('report-cards');
   const scroller = document.querySelector('.report-cards');   // the thing that scrolls
@@ -144,7 +144,8 @@
 
   // A chip with `from` borrows its cards from the reports page's list
   // (apps/reports/reports.json) so the two stay identical. Each report card
-  // previews its story map in the window and opens its own MapLibre map app.
+  // plays its own map app in the window and opens the same app in a new window
+  // when clicked (owner, 2026-09-10: the story maps are gone).
   const loaded = new Map();
   function withCards(chip) {
     if (!chip.from) return Promise.resolve(chip);
@@ -158,7 +159,7 @@
           title: item.title || '',
           blurb: item.blurb || '',
           accent: item.accent,
-          src: '/apps/reports/' + item.id + '/storymap/',
+          src: '/apps/reports/' + item.id + '/',
           app: '/apps/reports/' + item.id + '/'
         }))
       }))

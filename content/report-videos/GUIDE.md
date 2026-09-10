@@ -1,7 +1,7 @@
 # Report Promo Video Guide
 
 Videos are 1280×720, 10 seconds, rendered by GitHub Actions via HeyGen Hyperframes.
-One video per report — stored at `apps/reports/{slug}/storymap/promo.mp4`.
+One video per report — stored at `apps/reports/{slug}/promo.mp4`.
 
 ---
 
@@ -16,7 +16,7 @@ template/promo-template.html  ←  you edit this (design, animations)
         ↓
   npx hyperframes render      ←  Chromium + GSAP → mp4
         ↓
-apps/reports/{slug}/storymap/promo.mp4
+apps/reports/{slug}/promo.mp4
 ```
 
 Pushing any file inside `content/report-videos/` auto-triggers a re-render of all 9 videos via GitHub Actions (~20–30 min). To render just one report, go to **Actions → Render Report Promo Videos → Run workflow → pick a slug**.
@@ -150,7 +150,7 @@ const template = fs.readFileSync(templateFile, 'utf-8');
 1. Create `content/report-videos/reports/{new-slug}.json` with the 5 fields above
 2. Add `"render:{new-slug}": "node build.js {new-slug} --render"` to `package.json` scripts
 3. Add `{new-slug}` to the `workflow_dispatch` options list in `.github/workflows/render-report-videos.yml`
-4. Push — Actions renders it; the mp4 lands at `apps/reports/{new-slug}/storymap/promo.mp4`
+4. Push — Actions renders it; the mp4 lands at `apps/reports/{new-slug}/promo.mp4`
 
 ---
 

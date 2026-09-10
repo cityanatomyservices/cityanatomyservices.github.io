@@ -1,5 +1,73 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — story maps removed; report map apps get a side panel
+
+Owner: "I like for the cards to advance the reports like that but I want to
+change story maps that each shows to be more like the reports and get rid of the
+story maps completely, I like the map and controls on the reports but want them
+to have a side panel that has table data and filters there instead of being
+underneath and I want those there instead of the story map."
+
+### The map app is now two columns
+
+The table and its filters used to sit **underneath** the map, so you scrolled
+away from the map to read them. They are now a **side panel beside it** and both
+are on screen at once. The map, its draw bar and every control are unchanged.
+
+- `.page` is a flex column and `.app-body` the row, so the app is exactly one
+  screen tall and **only the panel's list scrolls**. That matters because the app
+  is now what plays inside the small window on the home page.
+- **In the panel the table is not a table.** Four columns will not fit 380px —
+  the first attempt sliced the last column clean off the edge. Each row now
+  **stacks into a labelled record**: first column as the name, the rest as
+  label/value lines. `app.js` puts the column header on each cell
+  (`td.dataset.label`, a one-line change) and `style.css` draws it. Rows still
+  click to fly the map. Nothing is cut off and nothing scrolls sideways. Fields
+  that were invisible before — golf's PRICE, for one — are readable now.
+- Below 900px the panel goes back under the map and the page scrolls normally.
+
+`app.js`, `style.css` and `index.html` stay byte-identical across all nine report
+folders (`index.html` differs only by its `<title>`); `template/` was edited and
+copied out, and each title was preserved on the way.
+
+### The story maps are gone, the writing is not
+
+Deleted from all nine reports and the template: `storymap/index.html`,
+`engine.js`, `ui.js`, `story.json`, `data/` — the cinematic scene player.
+
+**Kept and moved up one level**, because the written reports are real work and
+were only ever stored in that folder:
+`{slug}/report.html` (8 of them, 1,310–6,267 words each), the toy-store report's
+three images, and every `promo.mp4`. `template/report-template.html` was pulled
+back out of the deleted folder too — the written-report build still needs it.
+
+Everything that pointed into `storymap/` was repointed: `reports.json` hrefs →
+`{slug}/report.html`; the eight reports' own "Story map →" nav links removed
+(they had nowhere to go); `apps/reports/index.html` cards and seven hard-coded
+links in `apps/index.html` → the map app; `content/report-videos/build.js` and
+`GUIDE.md` → the new `promo.mp4` path; `apps/reports/CLAUDE.md` rewritten.
+
+### The home page
+
+Report cards now **play the map app in the window** instead of the story map;
+clicking still opens the same app in its own window. The carousel behaviour from
+earlier today is untouched — swipe the row, leftmost card drives the window.
+
+Renamed while the story maps were going: `#storymap-frame` → `#app-window`,
+`.storymap-nav-bar` → `.chip-bar`, `.storymap-nav` → `.chip-row`. Those names
+described a thing that no longer exists.
+
+### Verified headless
+
+All nine map apps: 200, side panel on the right at x=896, rows populated
+(5–46), no horizontal scroll, no console errors. All eight written reports: 200,
+full word counts intact, zero remaining story-map links. Home page: Reports chip
+renders 9 cards and previews `/apps/reports/austin-chambers/`; the swipe test
+still walks the Apps row both directions. Responsive sweep re-run at twelve
+sizes — still no scrollbars, footer on the bottom edge.
+
+Cache version `?v=20260910f`.
+
 ## 2026-09-10 — the card row is now the control for the window
 
 Owner: "can we have the middle section change by swiping the card? so whatever

@@ -13,11 +13,11 @@ const GSAP_SRC = path.join(ROOT, 'node_modules', 'gsap', 'dist', 'gsap.min.js');
 
 // pool-openings maps to a non-standard output path (capital P/O)
 const OUTPUT_PATHS = {
-  'pool-openings': '../../apps/reports/PoolOpenings/storymap/promo.mp4',
+  'pool-openings': '../../apps/reports/PoolOpenings/promo.mp4',
 };
 
 function outputPath(slug) {
-  return OUTPUT_PATHS[slug] || `../../apps/reports/${slug}/storymap/promo.mp4`;
+  return OUTPUT_PATHS[slug] || `../../apps/reports/${slug}/promo.mp4`;
 }
 
 const args = process.argv.slice(2);

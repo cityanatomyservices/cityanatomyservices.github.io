@@ -10,20 +10,23 @@ apps/reports/
     index.html      ← interactive map app (copied from template/)
     config.js       ← only file that changes per topic (map config)
     data.geojson    ← only file that changes per topic (location data)
-    app.js, style.css, favicon.*, siteimage.png  ← copied unchanged
-    storymap/       ← narrative story map for this topic
-      index.html, engine.js, ui.js, style.css  ← copied unchanged
-      story.json    ← only file that changes (scenes, camera, popups)
-      report.html   ← written HTML report
-      data/         ← GeoJSON files for the storymap layers
-  reports.json      ← registry that drives homepage cards
+    report.html     ← the written HTML report
+    promo.mp4       ← promo clip, rendered by content/report-videos/
+    app.js, style.css, favicon.*  ← copied unchanged
+  reports.json      ← registry that drives the cards
   staging/          ← drop files here to trigger a new report build (see staging/PROMPT.md)
   template/         ← canonical source files (never edit directly)
-    storymap/       ← canonical storymap source files
-      report-template.html  ← HTML shell with {{TOKEN}} placeholders; filled in at build time
+    report-template.html  ← HTML shell with {{TOKEN}} placeholders; filled in at build time
 ```
 
-**To create a new report:** copy any existing `{slug}/` folder, rename it, then edit only `config.js`, `data.geojson`, and `storymap/story.json`. Everything else is drop-in identical.
+**The story maps were REMOVED on 2026-09-10** (owner: "get rid of the story maps
+completely"). The cinematic scene player — `storymap/index.html`, `engine.js`,
+`ui.js`, `story.json`, `data/` — is gone from every report and from the template.
+The written reports were NOT deleted: each `report.html` moved up one level to
+`{slug}/report.html`, along with its images and `promo.mp4`. Everywhere that
+linked into `storymap/` now points at the map app or the report.
+
+**To create a new report:** copy any existing `{slug}/` folder, rename it, then edit only `config.js` and `data.geojson`. Everything else is drop-in identical.
 
 ## Files that differ per app
 
@@ -34,50 +37,27 @@ Everything else is copied unchanged from `template/`. Only these two files are c
 | `config.js` | Title, theme, map center, filters, columns, popup fields |
 | `data.geojson` | Location data for the topic |
 
-For each storymap, only `story.json` is customized (slide content and map stops).
 
 ---
 
-## Storymap standard — 3 scenes, always
+## The map app's layout (changed 2026-09-10)
 
-Every storymap follows the same 3-scene structure. Only the camera coordinates and popup content change between reports.
+The map app is **two columns**: the map and its draw bar on the left, a **side
+panel** on the right holding the result count, Export CSV, the filters and the
+location list. The table used to sit *underneath* the map, so you scrolled away
+from the map to read it.
 
-### Scene 1 — Opening overview (promo video)
-- `duration`: 11000, `loop`: true, `speed`: 0.55
-- Camera: city-wide overview (zoom ~10.5, pitch 30, bearing -10)
-- Popup: **local video only** — exactly this shape, nothing else:
-  ```json
-  "popup": {
-    "lngLat": [LNG, LAT],
-    "anchor": "bottom",
-    "video": { "src": "promo.mp4" }
-  }
-  ```
-  Do NOT add `title`, `subtitle`, `body`, `stats`, `youtube`, or `link` to scene 1 — the engine only plays one popup type per scene and extra keys cause a black-box error.
+- The page is exactly one screen tall (`.page` is a flex column, `.app-body` the
+  row). Only the panel's list scrolls. That matters because the app is also
+  shown inside the small window on the home page.
+- **In the panel the table is not a table.** Four columns will not fit 380px, so
+  each row stacks into a labelled record — first column as the name, the rest as
+  label/value lines. `app.js` puts the column header on each cell
+  (`td.dataset.label`) and `style.css` draws it. Rows still click to fly the map.
+- Below 900px the panel goes back under the map and the page scrolls normally.
 
-### Scene 2 — Location highlight
-- Camera: fly close to a featured location (zoom 14–16, pitch 50–55)
-- Popup: title, subtitle (address), **`image`: always `{ "src": "image2.png", "alt": "<location name>", "caption": "<one-line description>" }`**, `body` (3 sentences of context), `stats` table, `link` back to report
-- `image2.png` is always the photo of `featured_location_1` (scene 2 subject) — copy it from staging alongside the other images
-
-### Scene 3 — Closing CTA
-- Camera: fly back to city-wide overview (same coords as scene 1)
-- Popup `image`: use `../../template/siteimage.png` as a placeholder until a custom preview image is ready
-- Popup `links`: report + map links
-
-### story.json popup field reference
-
-| Field | Renders as |
-|-------|----------|
-| `video` | `{ src }` — plays local mp4 fullscreen in popup; **scene 1 only, no other fields** |
-| `nav` | `{ name, city }` — renders Google / Apple / Waze / Reddit buttons; add to scene 2 location popup |
-| `body` | Up to 3 bullet points (split by sentence-ending punctuation) |
-| `image` | `{ src, alt, caption }` — full-width image above body |
-| `stats` | `[{ label, value }]` — two-column table |
-| `link` | `{ href, text }` — single CTA button at the bottom |
-| `links` | `[{ href, text }]` — multiple CTA buttons (closing scene) |
-
----
+`app.js`, `style.css` and `index.html` are identical in every report folder
+(`index.html` differs only by its `<title>`). Edit `template/`, then copy out.
 
 ## Staging workflow — creating a new Product Report
 
@@ -101,13 +81,12 @@ Then tell Claude: *"Build the new Product Report from staging."*
 2. **Convert** Markdown body → HTML mechanically (h2→`<h2>`, `[n]`→`<sup>`, tables→`<table>`, etc.) — **no rewording**
 3. **Insert images** into converted HTML: `image1.png` goes in hero; `image2.png` / `image3.png` are inserted as floated figures inside the `<h3>` sections matching `featured_location_1` / `featured_location_2`
 4. **Build scoreboard HTML** from the `stats:` front-matter list
-5. **Fill** `template/storymap/report-template.html` — substitute `{{TITLE}}`, `{{SUBTITLE}}`, `{{ACCENT}}`, `{{SLUG}}`, `{{SCOREBOARD_HTML}}`, `{{BODY_HTML}}`, `{{REFS_HTML}}`
-6. **Copy images** `image1.png`, `image2.png`, `image3.png` → `apps/reports/{slug}/storymap/`
-7. **Write** `apps/reports/{slug}/storymap/report.html`
+5. **Fill** `template/report-template.html` — substitute `{{TITLE}}`, `{{SUBTITLE}}`, `{{ACCENT}}`, `{{SLUG}}`, `{{SCOREBOARD_HTML}}`, `{{BODY_HTML}}`, `{{REFS_HTML}}`
+6. **Copy images** `image1.png`, `image2.png`, `image3.png` → `apps/reports/{slug}/`
+7. **Write** `apps/reports/{slug}/report.html`
 8. **Convert** CSV → GeoJSON (lat/lng → Point geometry; all other columns → properties)
 9. **Copy** `template/` → `apps/reports/{slug}/`; write `data.geojson`
 10. **Write** `config.js` using the GeoJSON property profile rubric (see rules below)
-11. **Write** `story.json` (3-scene standard: intro video → location highlight → closing CTA)
 12. **Add** entry to `reports.json`
 13. **Clear** staging — delete `report.md`, `data.csv`, `image1.png`, `image2.png`, `image3.png`
 14. **Commit and push** to main
@@ -125,7 +104,7 @@ Use lowercase kebab-case matching the topic, e.g. `austin-coffee-shops`, `austin
   "title": "Full report title",
   "eyebrow": "Austin Metro · Report",
   "blurb": "One-sentence description for the homepage card.",
-  "href": "/apps/reports/{slug}/storymap/report.html",
+  "href": "/apps/reports/{slug}/report.html",
   "accent": "#hexcolor"
 }
 ```

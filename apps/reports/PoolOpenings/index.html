@@ -29,22 +29,50 @@
         </div>
         <button class="toolbar-btn" id="viewToggle" aria-label="Toggle 2D/3D view">2D</button>
         <button class="toolbar-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
-        <img src="./siteimage.png" alt="" style="height:64px;width:auto;display:block;margin-left:6px;" />
       </div>
     </header>
 
-    <section class="map-card">
-      <div id="map"></div>
-    </section>
+    <!-- Map on the left, data on the right (owner, 2026-09-10). The table and
+         its filters used to sit UNDER the map, so you scrolled away from the map
+         to read them; now they are a panel beside it and both are on screen at
+         once. Below 900px there is no room for two columns and the panel goes
+         back under the map. -->
+    <div class="app-body">
 
-    <section class="draw-bar">
-      <button class="draw-tb-btn" data-draw-mode="linestring">Draw</button>
-      <button class="draw-tb-btn" id="clearDrawBtn">Clear</button>
-      <button class="draw-tb-btn" id="measureBtn">Measure</button>
-      <button class="draw-tb-btn" id="exportMapBtn" onclick="exportMap()">Map PNG</button>
-      <button class="draw-tb-btn" onclick="openReportModal()">Report</button>
-    </section>
+      <div class="map-column">
+        <section class="map-card">
+          <div id="map"></div>
+        </section>
 
+        <section class="draw-bar">
+          <button class="draw-tb-btn" data-draw-mode="linestring">Draw</button>
+          <button class="draw-tb-btn" id="clearDrawBtn">Clear</button>
+          <button class="draw-tb-btn" id="measureBtn">Measure</button>
+          <button class="draw-tb-btn" id="exportMapBtn" onclick="exportMap()">Map PNG</button>
+          <button class="draw-tb-btn" onclick="openReportModal()">Report</button>
+        </section>
+      </div>
+
+      <aside class="side-panel">
+        <div class="table-header">
+          <h2>Locations</h2>
+          <div class="table-header-right">
+            <div id="resultCount">0 results</div>
+            <button class="export-btn" onclick="exportCSV()">Export CSV</button>
+          </div>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="table-wrap">
+          <table>
+            <thead id="tableHead"></thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- Overlay, not part of the two-column row. -->
     <div id="reportModal" class="report-modal-overlay">
       <div class="report-modal">
         <h3 class="report-modal-title">Select up to 3 fields for report</h3>
@@ -55,23 +83,6 @@
         </div>
       </div>
     </div>
-
-    <section class="table-section">
-      <div class="table-header">
-        <h2>Locations</h2>
-        <div class="table-header-right">
-          <div id="resultCount">0 results</div>
-          <button class="export-btn" onclick="exportCSV()">Export CSV</button>
-        </div>
-      </div>
-      <div class="filters" id="filters"></div>
-      <div class="table-wrap">
-        <table>
-          <thead id="tableHead"></thead>
-          <tbody id="tableBody"></tbody>
-        </table>
-      </div>
-    </section>
 
     <footer class="page-footer">
       <div class="social-icons" id="socialIcons"></div>
@@ -84,7 +95,7 @@
   <script src="https://unpkg.com/maplibre-contour@0.0.5/dist/index.min.js"></script>
   <script src="https://unpkg.com/terra-draw/dist/terra-draw.umd.js"></script>
   <script src="https://unpkg.com/terra-draw-maplibre-gl-adapter/dist/terra-draw-maplibre-gl-adapter.umd.js"></script>
-<script src="./config.js"></script>
+  <script src="./config.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

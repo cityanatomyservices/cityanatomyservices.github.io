@@ -195,7 +195,7 @@ main {
 }
 
 /* ── Story map iframe ────────────────────────────────────── */
-.storymap-frame {
+.app-window {
   width: 100%;
   height: 100%;
   border: 0;
@@ -203,7 +203,7 @@ main {
 }
 
 /* ── Story map selector bar ──────────────────────────────── */
-.storymap-nav-bar {
+.chip-bar {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   padding: 10px 16px;
@@ -213,7 +213,7 @@ main {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
-.storymap-nav-bar::-webkit-scrollbar { display: none; }
+.chip-bar::-webkit-scrollbar { display: none; }
 
 .reports-label {
   font-size: 0.75rem;
@@ -225,7 +225,7 @@ main {
   margin-right: 12px;
 }
 
-.storymap-nav {
+.chip-row {
   display: flex;
   gap: 8px;
   flex-shrink: 0;
@@ -729,7 +729,7 @@ main {
     padding: 2rem 1.25rem;
   }
 
-  .storymap-nav-bar {
+  .chip-bar {
     padding: 8px 12px;
   }
 }

@@ -925,6 +925,9 @@ function updateTable(features) {
 
     CONFIG.columns.forEach(col => {
       const td = document.createElement("td");
+      // The side panel is too narrow for a real table, so it stacks each row
+      // into a labelled record (style.css). The label comes from here.
+      td.dataset.label = col.header;
       const val = p[col.property] ?? "";
       if (col.property === "instagram" && val) {
         const a = document.createElement("a");
