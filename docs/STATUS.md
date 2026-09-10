@@ -115,6 +115,21 @@ Impact topic feeds, CRE trade press). Build: 116 stories, 48 pinned.
 Next step if wanted: an exact-pin layer from the geolocated city datasets
 listed in NEWS-SOURCES.md §3 (zoning cases first).
 
+## PICK UP HERE — 2026-09-09, owner shut down mid-session
+
+1. **Moontower story card on phones: owner says the "Read more" fold "doesn't
+   work well"** (no detail yet — ask what they saw before touching it).
+   The fold lives in `moontower/js/card.js` + the phone media query in
+   `moontower/index.html`; source of truth is `MoonTowerTour/web/`, and the
+   same copy is deployed at `austin1885.github.io/moontowertour/`. Fix in
+   the source, then re-copy to both.
+2. Owner to check in a real browser: News Feed chip (/news/), Reports chip
+   (story maps in the window), Media and Services chips still empty.
+3. Free Supabase account: owner may keep it (free) or delete it; nothing
+   depends on it.
+4. Optional next for the news map: an exact-pin layer from the geolocated
+   city datasets in `docs/NEWS-SOURCES.md` §3 (zoning cases first).
+
 ## Push token — fixed 2026-09-09
 
 The `cityanatomyservices` gh login now has the `workflow` scope, and the full
