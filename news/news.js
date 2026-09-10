@@ -42,10 +42,7 @@
       .addTo(map);
   }
 
-  function render(fc) {
-    const placed = fc.features.filter((f) => f.geometry);
-
-    // Pins: one circle per placed story, coloured by outlet, with a soft halo.
+  function addPins(placed) {
     map.addSource('news', { type: 'geojson', data: { type: 'FeatureCollection', features: placed } });
     map.addLayer({ id: 'news-halo', type: 'circle', source: 'news',
       paint: { 'circle-radius': 14, 'circle-color': ['get', 'color'], 'circle-opacity': 0.18, 'circle-blur': 0.6 } });
@@ -55,14 +52,15 @@
     map.on('click', 'news-dot', (e) => {
       const f = e.features[0];
       // Layer features lose their original geometry object; rebuild it.
-      const feat = { geometry: { coordinates: f.geometry.coordinates }, properties: f.properties };
-      showPopup(feat);
+      showPopup({ geometry: { coordinates: f.geometry.coordinates }, properties: f.properties });
       highlight(f.properties.link);
     });
     map.on('mouseenter', 'news-dot', () => { map.getCanvas().style.cursor = 'pointer'; });
     map.on('mouseleave', 'news-dot', () => { map.getCanvas().style.cursor = ''; });
+  }
 
-    // The list: every story, newest first, placed or not.
+  function addList(fc) {
+    // Every story, newest first, placed or not.
     fc.features.forEach((f) => {
       const p = f.properties;
       const el = document.createElement(f.geometry ? 'div' : 'a');
@@ -82,7 +80,6 @@
       cards.set(p.link, el);
       list.appendChild(el);
     });
-
     if (!fc.features.length) { empty.style.display = 'block'; }
   }
 
@@ -91,10 +88,11 @@
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   }
 
-  map.on('load', () => {
-    fetch('feed.geojson', { cache: 'no-cache' })
-      .then((r) => (r.ok ? r.json() : { type: 'FeatureCollection', features: [] }))
-      .then(render)
-      .catch(() => { empty.style.display = 'block'; });
-  });
+  // The list does not wait for the map: fetch now, show the stories as soon as
+  // they arrive, and add the pins once the basemap is up.
+  const feed = fetch('feed.geojson', { cache: 'no-cache' })
+    .then((r) => (r.ok ? r.json() : { type: 'FeatureCollection', features: [] }))
+    .catch(() => ({ type: 'FeatureCollection', features: [] }));
+  feed.then(addList);
+  map.on('load', () => { feed.then((fc) => addPins(fc.features.filter((f) => f.geometry))); });
 }());
