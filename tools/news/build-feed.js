@@ -12,11 +12,15 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const OUTLETS = JSON.parse(fs.readFileSync(path.join(__dirname, 'outlets.json'), 'utf8')).outlets;
 const GAZ = JSON.parse(fs.readFileSync(path.join(__dirname, 'gazetteer.json'), 'utf8')).places;
 const OUT = path.join(ROOT, 'news', 'feed.geojson');
+// Some outlets (Connect CRE, The Real Deal) answer 403 to anything that does
+// not look like a browser, so the request identifies as one.
+const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36 anatomy.city-news';
 const MAX_AGE_DAYS = 14;   // KUT's feed is sparse; a week left it with one story
 
 // ── tiny RSS 2.0 / Atom reader ─────────────────────────────────────────────
@@ -70,9 +74,17 @@ async function main() {
   for (const o of OUTLETS) {
     let xml = '';
     try {
-      const r = await fetch(o.url, { headers: { 'user-agent': 'anatomy.city news map (github actions)' }, signal: AbortSignal.timeout(20000) });
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      xml = await r.text();
+      const r = await fetch(o.url, { headers: { 'user-agent': UA, 'accept': 'application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8' }, signal: AbortSignal.timeout(20000) });
+      if (r.status === 403) {
+        // Cloudflare challenges Node's TLS fingerprint on a few sites (Connect
+        // CRE) but lets curl through with the same user-agent. Same request,
+        // different client; curl is on every GitHub runner.
+        xml = execFileSync('curl', ['-sL', '--max-time', '20', '-A', UA, o.url], { encoding: 'utf8', maxBuffer: 16e6 });
+        if (!xml.trim()) throw new Error('HTTP 403 (curl fallback empty too)');
+      } else {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        xml = await r.text();
+      }
     } catch (e) {
       console.log(`  ${o.name}: skipped (${e.message})`);   // fail-soft: one dead feed drops one outlet
       continue;
@@ -80,7 +92,7 @@ async function main() {
     let n = 0;
     for (const it of parseFeed(xml)) {
       if (!it.title || !it.link || seen.has(it.link)) continue;
-      const when = Date.parse(it.published);
+      const when = Date.parse(String(it.published).trim());
       if (Number.isFinite(when) && when < cutoff) continue;
       if (n >= o.max) break;
       seen.add(it.link); n++;
@@ -89,7 +101,7 @@ async function main() {
         type: 'Feature',
         geometry: hit ? { type: 'Point', coordinates: [hit.lng, hit.lat] } : null,
         properties: {
-          title: it.title, link: it.link, outlet: o.name, color: o.color,
+          title: it.title, link: it.link, outlet: o.name, group: o.group || 'news', color: o.color,
           published: Number.isFinite(when) ? new Date(when).toISOString() : null,
           summary: it.summary,
           place: hit ? hit.name : null, placeKind: hit ? hit.kind : null,

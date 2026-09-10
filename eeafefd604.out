@@ -1,0 +1,270 @@
+[ {
+  "id" : "8rrk-9juz",
+  "name" : "Urban Forestry Requests",
+  "attribution" : "City of Austin, Texas - data.austintexas.gov",
+  "attributionLink" : "https://atd.knack.com/urban-forestry#api-views/urban-forestry-requests2/",
+  "category" : "Environment",
+  "createdAt" : "2026-09-01T20:31:35+0000",
+  "dataUpdatedAt" : "2026-09-01T20:52:35+0000",
+  "dataUri" : "https://datahub.austintexas.gov/resource/8rrk-9juz",
+  "description" : "This dataset consists of service requests received by the Urban Forestry division of Austin Transportation and Public Works department.",
+  "domain" : "datahub.austintexas.gov",
+  "externalId" : null,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "license" : "Public Domain",
+  "metadataUpdatedAt" : "2026-09-01T20:52:51+0000",
+  "provenance" : "OFFICIAL",
+  "updatedAt" : "2026-09-01T20:52:52+0000",
+  "webUri" : "https://datahub.austintexas.gov/d/8rrk-9juz",
+  "approvals" : [ {
+    "reviewedAt" : 1788295972,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7656739,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1788295972,
+    "targetAudience" : "public",
+    "workflowId" : 3284,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1788295972,
+      "failureCount" : 0,
+      "startedAt" : 1788295972,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "8t3r-wq64",
+      "displayName" : "transportation.data@austintexas.gov"
+    }
+  } ],
+  "customFields" : {
+    "Ownership" : {
+      "Program Name" : "Urban Forestry / Data & Technology Services",
+      "Department name" : "Austin Transportation and Public Works"
+    },
+    "Publishing Information" : {
+      "Update Frequency" : "As Needed",
+      "Time range of data" : "April 2026 to present"
+    },
+    "Citywide Strategic Plan" : {
+      "Strategic Priority" : "Mobility & Critical Infrastructure"
+    }
+  },
+  "tags" : [ "urban forestry" ]
+}, {
+  "id" : "ecwf-je9z",
+  "name" : "State Issuance Fee By Year",
+  "attribution" : "Texas Bond Review Board",
+  "attributionLink" : null,
+  "category" : "See Category Tile",
+  "createdAt" : "2026-08-26T22:13:57+0000",
+  "dataUpdatedAt" : "2026-08-27T17:05:56+0000",
+  "dataUri" : "https://data.texas.gov/resource/ecwf-je9z",
+  "description" : "This data set contains fee data for State of Texas Issuers, including State agencies, Institutions of Higher Education and Conduit Borrowers.",
+  "domain" : "data.texas.gov",
+  "externalId" : null,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "license" : "Public Domain",
+  "metadataUpdatedAt" : "2026-08-27T17:34:41+0000",
+  "provenance" : "OFFICIAL",
+  "updatedAt" : "2026-08-27T17:34:41+0000",
+  "webUri" : "https://data.texas.gov/d/ecwf-je9z",
+  "approvals" : [ {
+    "reviewedAt" : 1787782768,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7646800,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1787782768,
+    "targetAudience" : "public",
+    "workflowId" : 1858,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1787782768,
+      "failureCount" : 0,
+      "startedAt" : 1787782768,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "g2zx-jzxy",
+      "displayName" : "Bond Review Board"
+    }
+  } ],
+  "customFields" : {
+    "Dataset Category" : {
+      "Agency" : "Texas Bond Review Board",
+      "Category Tile" : "Government and Taxes"
+    },
+    "Publishing Information" : {
+      "Update Frequency" : "Daily"
+    }
+  },
+  "tags" : null
+}, {
+  "id" : "9gzb-2s7j",
+  "name" : "Local Issuance Fee By Year",
+  "attribution" : "Texas Bond Review Board",
+  "attributionLink" : null,
+  "category" : "See Category Tile",
+  "createdAt" : "2026-08-26T22:05:47+0000",
+  "dataUpdatedAt" : "2026-08-26T22:50:16+0000",
+  "dataUri" : "https://data.texas.gov/resource/9gzb-2s7j",
+  "description" : "This data set contains fee data for local government Issuers, including cities, community college districts, counties, hospital districts, independent school districts, other special districts and water districts.",
+  "domain" : "data.texas.gov",
+  "externalId" : null,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "license" : "Public Domain",
+  "metadataUpdatedAt" : "2026-08-26T22:37:28+0000",
+  "provenance" : "OFFICIAL",
+  "updatedAt" : "2026-08-26T22:37:28+0000",
+  "webUri" : "https://data.texas.gov/d/9gzb-2s7j",
+  "approvals" : [ {
+    "reviewedAt" : 1787782233,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7646808,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1787782233,
+    "targetAudience" : "public",
+    "workflowId" : 1858,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1787782233,
+      "failureCount" : 0,
+      "startedAt" : 1787782233,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "g2zx-jzxy",
+      "displayName" : "Bond Review Board"
+    }
+  } ],
+  "customFields" : {
+    "Dataset Category" : {
+      "Agency" : "Texas Bond Review Board",
+      "Category Tile" : "Government and Taxes"
+    },
+    "Publishing Information" : {
+      "Update Frequency" : "Daily"
+    }
+  },
+  "tags" : null
+}, {
+  "id" : "3qmf-seku",
+  "name" : "Debt Outstanding By Issuance Local By Year",
+  "attribution" : "Texas Bond Review Board",
+  "attributionLink" : "http://brb.texas.gov/",
+  "category" : "See Category Tile",
+  "createdAt" : "2026-08-26T21:42:34+0000",
+  "dataUpdatedAt" : "2026-08-26T22:48:06+0000",
+  "dataUri" : "https://data.texas.gov/resource/3qmf-seku",
+  "description" : "To view the full data set please click the Export link above. This data set contains debt outstanding for local government Issuers, including cities, community college districts, counties, hospital districts, independent school districts, other special districts and water districts by issuance. Tax-supported GO debt includes debt secured by a combination of ad valorem taxes and other revenue sources. Not included are obligations of less than one-year maturity and special obligations not requiring Attorney General Approval. Excludes conduit debt. Data includes pledge, total principal, total interest and total debt service.",
+  "domain" : "data.texas.gov",
+  "externalId" : null,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "license" : "Public Domain",
+  "metadataUpdatedAt" : "2026-08-26T22:52:44+0000",
+  "provenance" : "OFFICIAL",
+  "updatedAt" : "2026-08-26T22:52:44+0000",
+  "webUri" : "https://data.texas.gov/d/3qmf-seku",
+  "approvals" : [ {
+    "reviewedAt" : 1787781656,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7646804,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1787781656,
+    "targetAudience" : "public",
+    "workflowId" : 1858,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1787781656,
+      "failureCount" : 0,
+      "startedAt" : 1787781656,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "g2zx-jzxy",
+      "displayName" : "Bond Review Board"
+    }
+  } ],
+  "customFields" : {
+    "Dataset Category" : {
+      "Agency" : "Texas Bond Review Board",
+      "Category Tile" : "Government and Taxes"
+    },
+    "Publishing Information" : {
+      "Update Frequency" : "Daily"
+    }
+  },
+  "tags" : [ "local government debt", "local debt issuance", "bonds", "principal", "interest", "debt" ]
+}, {
+  "id" : "f9ph-sura",
+  "name" : "Debt Outstanding By Issuance State By Year",
+  "attribution" : "Texas Bond Review Board",
+  "attributionLink" : "http://brb.texas.gov",
+  "category" : "See Category Tile",
+  "createdAt" : "2026-08-25T20:48:26+0000",
+  "dataUpdatedAt" : "2026-08-26T18:53:21+0000",
+  "dataUri" : "https://data.texas.gov/resource/f9ph-sura",
+  "description" : "To view the full data set please click the Export link above. This data set contains debt outstanding for state government Issuers by issuance. Data includes pledge, total principal, total interest and total debt service.",
+  "domain" : "data.texas.gov",
+  "externalId" : null,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "license" : "Public Domain",
+  "metadataUpdatedAt" : "2026-08-27T17:11:30+0000",
+  "provenance" : "OFFICIAL",
+  "updatedAt" : "2026-08-27T17:11:30+0000",
+  "webUri" : "https://data.texas.gov/d/f9ph-sura",
+  "approvals" : [ {
+    "reviewedAt" : 1787692055,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7643532,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1787692055,
+    "targetAudience" : "public",
+    "workflowId" : 1858,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1787692055,
+      "failureCount" : 0,
+      "startedAt" : 1787692055,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "g2zx-jzxy",
+      "displayName" : "Bond Review Board"
+    }
+  } ],
+  "customFields" : {
+    "Dataset Category" : {
+      "Agency" : "Texas Bond Review Board",
+      "Category Tile" : "Government and Taxes"
+    },
+    "Publishing Information" : {
+      "Update Frequency" : "Daily"
+    }
+  },
+  "tags" : [ "state debt outstanding", "bonds", "state debt", "interest", "principal", "debt" ]
+} ]

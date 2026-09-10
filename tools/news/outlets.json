@@ -1,9 +1,27 @@
 {
-  "_comment": "Austin Monitor RSS has been stale since 2025-11 at every URL tried (2026-09-09); kept so it comes back on its own if they fix it. The RSS feeds the news map reads (owner's four, 2026-09-09). color is the pin/card color on the night palette. max = most stories kept per outlet per build.",
+  "_comment": "The feeds the news map reads. Started 2026-09-09 with the owner's four (KUT, KXAN, Austin Monitor, Community Impact); the top sources from the 2026-09-09 research (docs/NEWS-SOURCES.md) were added the same day. Austin Monitor moved to austincurrent.org in Nov 2025, so that entry replaced the dead Monitor RSS. Order matters: a story seen in an earlier feed is not repeated from a later one, so topic feeds come before general ones. group colours the pin (news / government / planning / realestate); max = most stories kept per feed per build.",
   "outlets": [
-    { "name": "KUT",              "url": "https://www.kut.org/news.rss",                    "color": "#b9a8f0", "max": 20 },
-    { "name": "KXAN",             "url": "https://www.kxan.com/feed/",                       "color": "#f0c27a", "max": 20 },
-    { "name": "Austin Monitor",   "url": "https://www.austinmonitor.com/feed/",              "color": "#7ad4c8", "max": 20 },
-    { "name": "Community Impact", "url": "https://communityimpact.com/rss/austin/",     "color": "#f08aa8", "max": 20 }
+    { "name": "Austin Current",   "group": "planning",   "url": "https://austincurrent.org/category/growth-development/feed/", "color": "#7ad4c8", "max": 15 },
+    { "name": "Austin Current",   "group": "news",       "url": "https://austincurrent.org/feed/",                             "color": "#b9a8f0", "max": 15 },
+    { "name": "City of Austin",   "group": "government", "url": "https://www.austintexas.gov/site/news/rss.xml",               "color": "#f0c27a", "max": 10 },
+    { "name": "Council Message Board", "group": "government", "url": "https://austincouncilforum.org/app.php/feed",           "color": "#f0c27a", "max": 10 },
+    { "name": "Austin Politics",  "group": "government", "url": "https://www.austinpolitics.net/rss/",                         "color": "#e8b35e", "max": 10 },
+    { "name": "The Austin Bulldog", "group": "government", "url": "https://theaustinbulldog.org/feed/",                        "color": "#e8b35e", "max": 10 },
+    { "name": "Texas Tribune",    "group": "government", "url": "https://www.texastribune.org/tag/austin/feed/",               "color": "#d9a95a", "max": 10 },
+    { "name": "KUT",              "group": "news",       "url": "https://www.kut.org/austin.rss",                              "color": "#b9a8f0", "max": 15 },
+    { "name": "KUT",              "group": "planning",   "url": "https://www.kut.org/housing.rss",                             "color": "#7ad4c8", "max": 10 },
+    { "name": "KUT",              "group": "planning",   "url": "https://www.kut.org/transportation.rss",                      "color": "#7ad4c8", "max": 10 },
+    { "name": "KXAN",             "group": "news",       "url": "https://www.kxan.com/news/local/austin/feed/",                "color": "#a394e0", "max": 10 },
+    { "name": "Community Impact", "group": "planning",   "url": "https://communityimpact.com/rss/austin/development/",         "color": "#5fc4b6", "max": 15 },
+    { "name": "Community Impact", "group": "government", "url": "https://communityimpact.com/rss/austin/government/",          "color": "#f0c27a", "max": 10 },
+    { "name": "Community Impact", "group": "realestate", "url": "https://communityimpact.com/rss/austin/real-estate/",         "color": "#f08aa8", "max": 10 },
+    { "name": "Community Impact", "group": "realestate", "url": "https://communityimpact.com/rss/austin/business/",            "color": "#f08aa8", "max": 10 },
+    { "name": "Connect CRE",      "group": "realestate", "url": "https://www.connectcre.com/story-market/austin/feed/",        "color": "#e07a99", "max": 10 },
+    { "name": "CultureMap",       "group": "realestate", "url": "https://austin.culturemap.com/feeds/news/real-estate.rss",    "color": "#e07a99", "max": 10 },
+    { "name": "The Real Deal",    "group": "realestate", "url": "https://therealdeal.com/tag/austin/feed/",                    "color": "#d06a8a", "max": 10 },
+    { "name": "REjournals",       "group": "realestate", "url": "https://rejournals.com/tag/austin/feed/",                     "color": "#d06a8a", "max": 10 },
+    { "name": "Austin Towers",    "group": "realestate", "url": "https://austin.towers.net/feed/",                             "color": "#f08aa8", "max": 10 },
+    { "name": "Downtown Austin Alliance", "group": "planning", "url": "https://downtownaustin.com/feed/",                      "color": "#5fc4b6", "max": 10 },
+    { "name": "habitavit",        "group": "planning",   "url": "https://habitavit.substack.com/feed",                         "color": "#5fc4b6", "max": 10 }
   ]
 }
