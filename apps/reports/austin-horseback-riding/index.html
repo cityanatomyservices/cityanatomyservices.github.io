@@ -15,9 +15,11 @@
 <body>
   <div class="page">
 
+    <!-- A title and the controls, nothing else (owner, 2026-09-10: "there
+         shouldn't be a header and stuff ... just the map and the controls and a
+         title at top"). The old block header and the social footer are gone. -->
     <header class="page-header">
       <div class="header-left">
-        <div class="eyebrow" id="pageEyebrow"></div>
         <h1 id="pageTitle"></h1>
       </div>
       <div class="toolbar">
@@ -53,7 +55,14 @@
         </section>
       </div>
 
-      <aside class="side-panel">
+      <!-- The handle that opens and closes the panel. It rides on the panel's
+           edge, so it slides with it and is always the thing you reach for. -->
+      <button class="panel-toggle" id="panelToggle" type="button"
+              aria-expanded="true" aria-controls="sidePanel" aria-label="Hide the list">
+        <span class="panel-toggle-arrow" aria-hidden="true"></span>
+      </button>
+
+      <aside class="side-panel" id="sidePanel">
         <div class="table-header">
           <h2>Locations</h2>
           <div class="table-header-right">
@@ -83,10 +92,6 @@
         </div>
       </div>
     </div>
-
-    <footer class="page-footer">
-      <div class="social-icons" id="socialIcons"></div>
-    </footer>
 
   </div>
 

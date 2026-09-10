@@ -492,6 +492,51 @@ async function initOverlay() {
 
 // --- Theme toggle ---
 
+// --- Side panel open/close ---
+//
+// The panel slides shut and the map takes the space.
+function initPanelToggle() {
+  const btn = document.getElementById("panelToggle");
+  const body = document.querySelector(".app-body");
+  if (!btn || !body) return;
+
+  // MapLibre sizes its canvas once and does not watch its container, so it has
+  // to be told whenever the box changes — otherwise it keeps the old width and
+  // leaves a blank strip where the panel was.
+  //
+  // Two attempts failed before this one, both for the same reason: they resized
+  // ONCE, at a moment that turned out to be wrong. `transitionend` fired early
+  // coming back open, and a ResizeObserver that calls resize() inside its own
+  // callback trips the browser's resize-loop guard and stops being delivered
+  // mid-slide — both left the canvas ~400px too wide. So follow the whole
+  // animation instead: resize on every frame until it is over.
+  const SLIDE_MS = 380;   // a little longer than the CSS transition
+  function followTheSlide() {
+    const until = performance.now() + SLIDE_MS;
+    (function frame() {
+      map.resize();
+      if (performance.now() < until) requestAnimationFrame(frame);
+    }());
+  }
+
+  btn.addEventListener("click", function () {
+    const closing = !body.classList.contains("panel-closed");
+    body.classList.toggle("panel-closed", closing);
+    btn.setAttribute("aria-expanded", String(!closing));
+    btn.setAttribute("aria-label", closing ? "Show the list" : "Hide the list");
+    followTheSlide();
+  });
+
+  // The window itself resizing, or this page being resized inside the home
+  // page's window. Deferred to the next frame for the loop-guard reason above.
+  const mapBox = document.getElementById("map");
+  if (mapBox && window.ResizeObserver) {
+    new ResizeObserver(function () {
+      requestAnimationFrame(function () { map.resize(); });
+    }).observe(mapBox);
+  }
+}
+
 function initTheme() {
   const btn = document.getElementById("themeToggle");
   const saved = localStorage.getItem("theme") || "light";
@@ -515,36 +560,12 @@ async function init() {
   initReportModal();
 
   // Set page text from config
-  document.getElementById("pageEyebrow").textContent = CONFIG.eyebrow;
   document.getElementById("pageTitle").textContent = CONFIG.title;
   document.title = CONFIG.title;
 
   // Info panel text from config
   const infoEl = document.getElementById("infoPanelText");
   if (infoEl && CONFIG.infoPanelText) infoEl.textContent = CONFIG.infoPanelText;
-
-  // Social footer links from config (SVGs kept here; empty url = icon hidden)
-  const svgMap = {
-    youtube:   `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>`,
-    x:         `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2.25h3.5l-7.7 8.8L23 21.75h-7.1l-5.5-7.2-6.3 7.2H.6l8.2-9.4L.4 2.25H7.7l5 6.6 5.5-6.6zm-1.2 17.5h2L7.1 4.3H5L17 19.75z"/></svg>`,
-    facebook:  `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>`,
-    instagram: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9c-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2-.1-1.3-.1-1.6-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4 1.3-.1 1.6-.1 4.9-.1zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4A6 6 0 0 0 .6 4.1C.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.2.6 2.9.3.8.7 1.5 1.4 2.2.7.7 1.3 1.1 2.2 1.4.8.3 1.6.5 2.9.6 1.2.1 1.6.1 4.8.1s3.7 0 4.9-.1c1.3-.1 2.2-.2 2.9-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.3 1.4-2.2.3-.8.5-1.6.6-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.2-.6-2.9-.3-.8-.7-1.5-1.4-2.2A6 6 0 0 0 19.9.6C19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.9a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>`,
-    reddit:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.1 13.8c0 .2.1.3.1.5 0 2.6-3 4.7-6.7 4.7-3.7 0-6.7-2.1-6.7-4.7 0-.2 0-.3.1-.5a1.6 1.6 0 0 1-.6-1.3 1.6 1.6 0 0 1 2.7-1.2 8.2 8.2 0 0 1 4.3-1.4l.8-3.8a.3.3 0 0 1 .4-.3l2.7.6a1.1 1.1 0 1 1-.1.6l-2.5-.5-.7 3.4a8.1 8.1 0 0 1 4.2 1.4 1.6 1.6 0 0 1 2.7 1.2c0 .5-.2 1-.7 1.3zM9.3 13a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm5.4 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm-5.1 4.5c-.1-.1 0-.3.1-.3a6.4 6.4 0 0 0 4.6 0c.2-.1.3 0 .3.2s-.1.2-.2.3a6.7 6.7 0 0 1-4.6 0c-.1 0-.2-.1-.2-.2z"/></svg>`,
-    patreon:   `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.4.5a8.1 8.1 0 1 0 0 16.2 8.1 8.1 0 0 0 0-16.2zM.5.5h3.8v23H.5z"/></svg>`,
-    discord:   `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A18.5 18.5 0 0 0 15.7 3a13 13 0 0 0-.6 1.2 17.2 17.2 0 0 0-5.1 0A12 12 0 0 0 9.4 3a18.5 18.5 0 0 0-4.6 1.4A19.5 19.5 0 0 0 1.5 19a18.7 18.7 0 0 0 5.7 2.9 14 14 0 0 0 1.2-2 12 12 0 0 1-1.9-.9l.5-.4a13.3 13.3 0 0 0 11.4 0l.5.4a12 12 0 0 1-1.9.9 14 14 0 0 0 1.2 2 18.6 18.6 0 0 0 5.7-2.9A19.4 19.4 0 0 0 20.3 4.4zM8.3 16c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3zm7.4 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3z"/></svg>`
-  };
-  const socialContainer = document.getElementById("socialIcons");
-  if (socialContainer && CONFIG.socialLinks) {
-    CONFIG.socialLinks.filter(s => s.url).forEach(s => {
-      const a = document.createElement("a");
-      a.href = s.url;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.setAttribute("aria-label", s.platform.charAt(0).toUpperCase() + s.platform.slice(1));
-      a.innerHTML = svgMap[s.platform] || "";
-      socialContainer.appendChild(a);
-    });
-  }
 
   // Set up maplibre-contour DEM source (registers custom protocol)
   if (window.mlcontour && !contourDemSource) {
@@ -599,6 +620,7 @@ async function init() {
     buildFilters();
     buildTableHead();
     applyFilters();
+    initPanelToggle();
   });
 }
 

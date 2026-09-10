@@ -40,6 +40,7 @@ body {
   display: flex;
   align-items: stretch;
   min-height: 0;          /* lets both columns actually shrink */
+  position: relative;     /* the panel handle is positioned against this */
 }
 
 .map-column {
@@ -51,25 +52,87 @@ body {
 }
 
 .side-panel {
-  flex: 0 0 clamp(300px, 30%, 460px);
+  flex: 0 0 clamp(300px, 32%, 460px);
   display: flex;
   flex-direction: column;
   min-height: 0;
   padding: 18px 18px 20px;
   background: var(--color-page-bg);
   border-left: 1px solid #c4d8bb;
-  overflow-y: auto;       /* the table scrolls here, not the page */
+  overflow-y: auto;       /* the list scrolls here, not the page */
+  transition: flex-basis 0.28s ease, padding 0.28s ease;
+}
+
+/* Closed: the panel folds to nothing and the map takes the whole row.
+   app.js calls map.resize() when this transition ends. */
+.app-body.panel-closed .side-panel {
+  flex-basis: 0;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+}
+
+/* ── The panel handle ────────────────────────────── */
+
+.panel-toggle {
+  position: absolute;
+  top: 50%;
+  right: clamp(300px, 32%, 460px);
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 22px;
+  height: 62px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: var(--color-page-bg);
+  border: 1px solid #c4d8bb;
+  border-right: 0;
+  border-radius: 7px 0 0 7px;
+  transition: right 0.28s ease, background 0.15s ease;
+}
+
+.panel-toggle:hover {
+  background: #dfeed7;
+}
+
+.app-body.panel-closed .panel-toggle {
+  right: 0;
+}
+
+/* A chevron drawn from two borders — no icon font, no image. It points the way
+   the panel will go: into the edge when open, back out when closed. */
+.panel-toggle-arrow {
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid #3c6b28;
+  border-right: 2px solid #3c6b28;
+  transform: rotate(45deg);
+  margin-left: -3px;
+  transition: transform 0.28s ease;
+}
+
+.app-body.panel-closed .panel-toggle-arrow {
+  transform: rotate(-135deg);
+  margin-left: 3px;
 }
 
 /* ── Header (compact — above map) ────────────────── */
 
+/* A title and the controls, nothing more (owner, 2026-09-10). It was a block
+   header — eyebrow line above a 30px title, 3px rule under it — and there is no
+   footer any more either. What is left is a slim bar, which is what the map
+   wants when this page is also playing inside the small window on the home
+   page: every pixel it gives up is map. */
 .page-header {
   background: var(--color-header-bg);
-  border-bottom: 3px solid #122f08;
-  padding: 14px 28px 12px;
+  border-bottom: 1px solid #122f08;
+  padding: 7px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
 
 /* ── Toolbar (top-right buttons) ─────────────────── */
@@ -115,10 +178,11 @@ body {
 .page-header h1 {
   font-family: var(--font-heading);
   margin: 0;
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 600;
   color: #ffffff;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
 }
 
 /* ── Sub-header (below map — description + filters) ── */
@@ -784,6 +848,37 @@ tbody tr:last-child td {
     border-left: 0;
     border-top: 1px solid #c4d8bb;
     overflow-y: visible;
+    transition: none;
+  }
+
+  /* Stacked, the panel closes upward instead of sideways. */
+  .app-body.panel-closed .side-panel {
+    display: none;
+  }
+
+  .panel-toggle {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: 30px;
+    border: 0;
+    border-top: 1px solid #c4d8bb;
+    border-radius: 0;
+    order: 2;             /* between the map column and the panel */
+  }
+
+  .panel-toggle-arrow,
+  .app-body.panel-closed .panel-toggle-arrow {
+    margin: -3px 0 0 0;
+    transform: rotate(-45deg);
+  }
+
+  .app-body.panel-closed .panel-toggle-arrow {
+    transform: rotate(135deg);
+  }
+
+  .side-panel {
+    order: 3;
   }
 
   .side-panel .table-wrap {
@@ -797,7 +892,11 @@ tbody tr:last-child td {
 
 @media (max-width: 700px) {
   .page-header {
-    padding: 12px 18px 10px;
+    padding: 7px 12px;
+  }
+
+  .page-header h1 {
+    font-size: 15px;
   }
 
   .sub-header {

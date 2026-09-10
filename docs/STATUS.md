@@ -1,5 +1,56 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — the report panel opens and closes; the header is just a title
+
+Owner, clarifying the earlier ask: the side panel should "be opened and closed
+with an arrow on the side"; and separately, "there shouldn't be a header and
+stuff like in the reports, just the map and the controls and a title at top".
+
+**The panel now collapses.** A handle rides on the panel's edge — a chevron in a
+small tab, vertically centred — and slides with it, so it is always the thing
+you reach for. Closed, the panel folds to nothing and the map takes the whole
+row; the arrow flips to point back out. Below 900px the panel is stacked under
+the map, so the handle becomes a full-width strip between them and the panel
+closes upward instead of sideways. Filters, list and click-to-fly are unchanged.
+
+**Getting MapLibre to follow it took three tries** and is worth writing down.
+MapLibre sizes its canvas once and does not watch its container, so it has to be
+told the box changed. Both obvious hooks resize exactly ONCE, at a moment that
+turns out to be wrong:
+1. `transitionend` — fired early on the way back OPEN; canvas stayed ~400px too
+   wide with a blank strip down the side.
+2. A `ResizeObserver` calling `map.resize()` inside its own callback — that trips
+   the browser's resize-loop guard and notifications stop being delivered
+   mid-slide. Same symptom: measured 1263px against an 870px box.
+
+What works is following the whole animation: `map.resize()` on every animation
+frame for 380ms after the click. A ResizeObserver is still there, deferred to the
+next frame, for the window resizing and for this page being resized inside the
+home page's window.
+
+**The header is a title bar now.** It was a block: an eyebrow line above a 30px
+title with a 3px rule under it, and a social-icon footer below everything. Both
+are gone — what is left is the title and the ⓘ / 2D / theme controls in a 7px-tall
+strip. The map gained 84px of height on a 800px screen, which matters most in the
+small home-page window where every pixel it gives up is map.
+
+`CONFIG.eyebrow` and `CONFIG.socialLinks` are no longer read; the config keys are
+left alone.
+
+**One near-miss worth recording:** the first attempt at removing the social-icon
+code walked back from the `socialIcons` line to find its enclosing function and
+found `init()` — deleting the app's entire startup routine, 94 lines, in every
+report. Caught by reading the diff before committing. Restored from git and
+redone as an exact-string removal of just that block.
+
+Verified headless at 1280×800 and 390×844: the panel closes and reopens, the
+canvas width matches the map box exactly both ways, aria-expanded and the label
+flip, and there are no console errors. Full sweep re-run: nine map apps 200 with
+rows populated, eight written reports 200 with word counts intact, home Reports
+chip previewing the map app.
+
+Cache version `?v=20260910g`.
+
 ## 2026-09-10 — story maps removed; report map apps get a side panel
 
 Owner: "I like for the cards to advance the reports like that but I want to
