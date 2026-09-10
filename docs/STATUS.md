@@ -108,10 +108,12 @@ is the page (Moontower basemap, pins + story list); the News Feed chip
 loads it in the window (a chip can carry its own `src` in `home.json`).
 Details in `news/README.md`. First build: 41 stories, 25 pinned.
 
-Known: Austin Monitor's RSS is stale since 2025-11 (kept, fail-soft);
-KUT's news.rss only carries ~10 items. Research into more sources
-(city government, planning, real estate, geolocated open data) was run
-2026-09-09 — see `docs/NEWS-SOURCES.md` once written.
+Same day, later: the source research (4 agents) is in `docs/NEWS-SOURCES.md`
+and its top feeds went into `outlets.json` — 22 feeds now (Austin Monitor
+became austincurrent.org; City of Austin, council, KUT Austin, Community
+Impact topic feeds, CRE trade press). Build: 116 stories, 48 pinned.
+Next step if wanted: an exact-pin layer from the geolocated city datasets
+listed in NEWS-SOURCES.md §3 (zoning cases first).
 
 ## Push token — fixed 2026-09-09
 
