@@ -108,3 +108,21 @@ Use lowercase kebab-case matching the topic, e.g. `austin-coffee-shops`, `austin
   "accent": "#hexcolor"
 }
 ```
+
+## Cache-busting the report apps
+
+Each report's `index.html` loads its own `style.css`, `config.js` and `app.js`
+with a `?v=` query. GitHub Pages caches those files hard, and without the query
+a push is invisible — the CDN keeps serving the old `app.js` at the same URL.
+This bit us on 2026-09-10: the simplified popups deployed, but the live app.js
+was still the old one.
+
+**Bump the version in `template/index.html` whenever `app.js` or `style.css`
+changes, then copy the template out to every report** (preserving each
+`<title>`). One line:
+
+    grep -rl 'v=20260910k' --include='index.html' apps/reports \
+      | xargs sed -i 's/v=20260910k/v=<new>/g'
+
+Use the date. The site-wide `/style.css`, `/page.js` and `/home.js` carry their
+own separate version — see the repo root `CLAUDE.md`.
