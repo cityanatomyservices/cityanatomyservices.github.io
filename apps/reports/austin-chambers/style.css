@@ -41,84 +41,42 @@ body {
 
 /* ── Floating: the title ─────────────────────────── */
 
+/* Plain text laid across the top of the map — no bar, no panel, no box. The
+   halo is a text-shadow rather than a background so the map still shows through
+   behind it, and so the title stays readable over a pale street map, a dark
+   satellite tile, or anything in between. */
 .map-title {
   position: absolute;
-  top: var(--edge);
-  left: var(--edge);
+  top: 14px;
+  left: 0;
+  right: 0;
   z-index: 3;
   margin: 0;
-  max-width: min(46%, 420px);
-  padding: 6px 12px;
+  padding: 0 16px;
+  text-align: center;
+  pointer-events: none;        /* the map keeps the whole of itself */
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: clamp(17px, 2.2vw, 26px);
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: 0.3px;
-  color: #ffffff;
-  background: var(--color-header-bg);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-}
-
-/* MapLibre's own controls live in all four corners, so the two things that
-   float in the top corners push them down out of the way. */
-.maplibregl-ctrl-top-left,
-.maplibregl-ctrl-top-right {
-  margin-top: 46px;
+  letter-spacing: 0.4px;
+  /* Dark ink with a white halo, not white with a dark one: the satellite and
+     dark-mode toggles are gone, so this pale street map is the ONLY ground the
+     title ever sits on, and white on pale grey was barely readable. */
+  color: #16290f;
+  text-shadow:
+    0 0 3px #ffffff,
+    0 0 7px #ffffff,
+    0 0 14px rgba(255, 255, 255, 0.9);
 }
 
 /* ── Floating: the draw bar ──────────────────────── */
 /* A rail across the bottom of whatever map is still visible, so the buttons
    stay centred on the map rather than under the panel. */
-.draw-bar-rail {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: var(--edge);
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  pointer-events: none;      /* the map keeps the gaps around the buttons */
-  transition: right var(--slide);
-}
-
 /* Right-hand map furniture steps aside for the panel. */
 /* A chevron drawn from two borders — no icon font, no image. It points the way
    the panel will go: into the edge when open, back out when closed. */
 /* ── Toolbar (top-right buttons) ─────────────────── */
-
-.toolbar {
-  position: absolute;
-  top: var(--edge);
-  right: var(--edge);
-  z-index: 3;
-  display: flex;
-  gap: 6px;
-  transition: right var(--slide);
-}
-
-.toolbar-btn {
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border: 1.5px solid rgba(255,255,255,0.3);
-  border-radius: 7px;
-  background: rgba(255,255,255,0.12);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.toolbar-btn:hover {
-  border-color: rgba(255,255,255,0.6);
-  background: rgba(255,255,255,0.22);
-}
 
 /* ── Sub-header (below map — description + filters) ── */
 
@@ -401,37 +359,7 @@ tbody tr:last-child td {
 
 /* ── Info button & flyout ────────────────────────── */
 
-.info-btn-wrap {
-  position: relative;
-}
-
-.info-btn {
-  width: 32px;
-  height: 32px;
-  font-size: 15px;
-  font-weight: 400;
-}
-
-.info-panel {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  width: 260px;
-  background: #fff;
-  border: 1px solid #c4d8bb;
-  border-radius: 10px;
-  padding: 14px 16px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
-  z-index: 200;
-  font-size: 13px;
-  line-height: 1.65;
-  color: #3a5a30;
-}
-
 .info-panel p { margin: 0; }
-
-.info-panel.open { display: block; }
 
 [data-theme="dark"] .info-panel {
   background: #112e0a;
@@ -704,20 +632,6 @@ tbody tr:last-child td {
 /* A floating pill on the map. The rail around it is pointer-events:none so the
    map keeps the gaps; the pill itself has to take clicks back or its buttons
    are dead. */
-.draw-bar {
-  pointer-events: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-  max-width: 100%;
-  padding: 6px 8px;
-  background: rgba(240, 247, 235, 0.94);
-  border: 1px solid #c4d8bb;
-  border-radius: 10px;
-  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.18);
-}
-
 #exportMapBtn {
   padding: 6px 8px;
 }

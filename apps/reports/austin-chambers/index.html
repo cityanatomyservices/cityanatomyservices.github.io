@@ -13,44 +13,15 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <!-- A MAP AND NOTHING ELSE (owner, 2026-09-10): "make each a map first with
-       those controls and the data on the map and no html around it, just the
-       container". So the map fills the page and every other thing on this
-       screen floats on top of it — the title, the toolbar, the draw bar, and
-       the data panel that slides in from the right. There is no page chrome
-       left to scroll past, which is what this needed to be when it plays inside
-       the small window on the home page. -->
+  <!-- A MAP, ITS DATA, AND A TITLE (owner, 2026-09-10: "remove all of the
+       controls and have the title just as text on the map along the top
+       centered and the data from the geojson in the map"). Nothing else is on
+       this page. The map still pans and zooms by hand — what went is the
+       BUTTONS, not the map. The attribution notice in the corner stays: it is
+       OpenStreetMap's licence requirement, not a control. -->
   <div class="page">
-
     <div id="map"></div>
-
     <h1 class="map-title" id="pageTitle"></h1>
-
-    <div class="toolbar">
-      <div class="info-btn-wrap">
-        <button class="toolbar-btn info-btn" onclick="toggleInfoPanel()" aria-label="About this map">&#9432;</button>
-        <div class="info-panel" id="infoPanel">
-          <p id="infoPanelText"></p>
-        </div>
-      </div>
-      <button class="toolbar-btn" id="viewToggle" aria-label="Toggle 2D/3D view">2D</button>
-      <button class="toolbar-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
-    </div>
-
-    <!-- Map tools only. The data's table, filters and Export CSV are NOT here
-         (owner, 2026-09-10: "I don't want the reports recreated in the middle
-         ... I want the maps made of the data with the same mapping controls
-         once we have those done we will consider how to filter it"). Every
-         location is on the map; nothing is filtered out. -->
-    <div class="draw-bar-rail">
-      <section class="draw-bar">
-        <button class="draw-tb-btn" data-draw-mode="linestring">Draw</button>
-        <button class="draw-tb-btn" id="clearDrawBtn">Clear</button>
-        <button class="draw-tb-btn" id="measureBtn">Measure</button>
-        <button class="draw-tb-btn" id="exportMapBtn" onclick="exportMap()">Map PNG</button>
-      </section>
-    </div>
-
   </div>
 
   <script src="https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>

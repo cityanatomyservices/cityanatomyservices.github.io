@@ -1,5 +1,46 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — a map, its data, and a title. Nothing else.
+
+Owner: "let's remove all of the controls and have the title just as text on the
+map along the top centered and the data from the geojson in the map."
+
+`/apps/reports/<slug>/` is now three things. The whole page body is:
+
+```html
+<div class="page">
+  <div id="map"></div>
+  <h1 class="map-title" id="pageTitle"></h1>
+</div>
+```
+
+**Every control is gone** — zoom, compass, geolocate, Satellite, Layers, Topo,
+Buildings, 2D/3D, dark mode, ⓘ, Draw, Clear, Measure, Map PNG. Zero `<button>`
+elements on the page.
+
+**What went is the BUTTONS, not the map.** It still pans and zooms by hand, and
+`data.geojson` is still on it: `addPlacesLayers()` and `applyFilters()` still run,
+so every feature is plotted and the camera still fits to them.
+
+**The attribution notice in the corner stays.** It is OpenStreetMap's licence
+requirement, not a control.
+
+Their initialisers are still in `app.js`, just not called — with a comment saying
+so. Turning any one back on is one line in the init sequence, not a rewrite.
+
+**The title** is plain text across the top, centred, no bar and no box, with
+`pointer-events: none` so the map keeps the whole of itself. It is **dark ink
+with a white halo, not white with a dark one**: the satellite and dark-mode
+toggles are gone, so the pale street map is the only ground it ever sits on, and
+white-on-pale was barely readable.
+
+Verified across all nine at 1280×800: features plotted (12–103 each), title
+centred to the pixel at the same top offset, **zero buttons**, attribution
+present, map fills the viewport, no scroll in either direction, no console
+errors.
+
+Cache version `?v=20260910i`.
+
 ## 2026-09-10 — each report becomes just a map of its data
 
 Owner, after two wrong turns of mine: "I don't want the reports recreated in the

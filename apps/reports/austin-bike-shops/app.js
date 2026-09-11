@@ -511,8 +511,8 @@ function applyTheme(theme) {
 }
 
 async function init() {
-  initTheme();
-  initReportModal();
+  // initTheme() and initReportModal() are not called: the dark-mode button and
+  // the report modal are both gone from the page.
 
   // Set page text from config
   document.getElementById("pageTitle").textContent = CONFIG.title;
@@ -546,12 +546,6 @@ async function init() {
     preserveDrawingBuffer: true
   });
 
-  map.addControl(new maplibregl.NavigationControl(), "top-right");
-  map.addControl(new maplibregl.GeolocateControl({
-    positionOptions: { enableHighAccuracy: true },
-    trackUserLocation: false,
-    showUserLocation: true
-  }), "top-right");
 
   // Load GeoJSON
   const response = await fetch("./data.geojson");
@@ -560,21 +554,17 @@ async function init() {
 
   map.on("load", () => {
     add3DBuildings();
+    // Map content only. Every control initialiser is deliberately NOT called
+    // (owner, 2026-09-10) — no satellite, layers, buildings, topo, 2D/3D,
+    // draw, measure or overlay buttons. Their functions are still in this file,
+    // so turning one back on is one line here, not a rewrite.
     initSkyAndLighting();
     applyStandardColors();
     initDefaultTerrain();
-    initViewToggle();
-    initSatellite();
-    initLayersPanel();
-    try { initDraw(); } catch (e) { console.error("Draw init failed:", e); }
-    initMeasure();
-    addPlacesLayers();
-    initBuildingsToggle();
-    initTopoOverlay();
-    initOverlay();
-    buildFilters();
-    buildTableHead();
-    applyFilters();
+    addPlacesLayers();     // puts data.geojson on the map
+    buildFilters();        // no filter UI on the page: returns immediately
+    buildTableHead();      // no table on the page: returns immediately
+    applyFilters();        // nothing to filter, so this plots every feature
   });
 }
 
