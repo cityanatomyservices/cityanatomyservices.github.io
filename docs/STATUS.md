@@ -1,5 +1,40 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — popups cut back to a name, two fields and two links
+
+Owner: "let's make the pop-ups for all the maps much simpler, less formatting and
+just the name, and 2 more fields on it so it is smaller, and add the links just
+for Google and apple maps on the bottom and small buttons."
+
+Done across all nine report maps — they share one `app.js`, so one edit covers
+every one of them.
+
+**What a popup is now:** the name, the first **two** populated fields from
+`CONFIG.popupFields`, and small **Google** and **Apple** buttons. That is the
+whole thing. It measures 127–230px wide and about 110px tall, against roughly
+300×300 before.
+
+**What went:**
+- the **Info / Course App tab bar** — two tabs, one of which had nothing in it
+  (`svContent` was an empty string, so the second tab opened a blank pane);
+- every field past the second;
+- the coloured **score badge** for `inspection_score`;
+- the **Waze** and **Reddit** links;
+- the rule under the title, the flexed label/value rows, and the full-width
+  coloured link bar. A row now reads as one line — a small grey label in front of
+  the value — and the links are small pills rather than four stretched buttons.
+
+`switchPopupTab()` had nothing left to switch and is gone, along with the CSS for
+the tabs, the panes and the badges.
+
+Nothing is lost from the map: the rest of a place's detail is a row away in the
+left panel, which shows every column.
+
+Verified across all nine: exactly 2 field rows, exactly the two links in the
+order Google then Apple, zero tabs, zero badges, no console errors.
+
+Cache version `?v=20260910k`.
+
 ## 2026-09-10 — a data table on the left, one row per feature, click to fly
 
 Owner: "add a data table on the left side for the data from the geojson with 1

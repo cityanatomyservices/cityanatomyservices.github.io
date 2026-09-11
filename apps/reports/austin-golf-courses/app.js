@@ -734,19 +734,6 @@ function addPlacesLayers() {
 
 // --- Popup (shared between map click and table click) ---
 
-function switchPopupTab(btn, paneId) {
-  const content = btn.closest(".maplibregl-popup-content");
-  content.querySelectorAll(".popup-tab-btn").forEach(b => b.classList.remove("active"));
-  content.querySelectorAll(".popup-tab-pane").forEach(p => p.classList.remove("active"));
-  btn.classList.add("active");
-  content.querySelector("#" + paneId).classList.add("active");
-  // Lazy-load the Street View iframe on first click to avoid wasting API quota
-  if (paneId === "popup-pane-sv") {
-    const iframe = content.querySelector(".sv-iframe");
-    if (iframe && !iframe.src) iframe.src = iframe.dataset.src;
-  }
-}
-
 function renderValue(val, property) {
   if (property === "instagram" && val) {
     return `<a href="https://instagram.com/${val}" target="_blank" rel="noopener">@${val}</a>`;
@@ -762,49 +749,32 @@ function showPopup(feature) {
   const [lng, lat] = feature.geometry.coordinates;
   const name = props[CONFIG.nameField] || "";
 
-  // --- Info tab ---
+  // SMALL AND PLAIN (owner, 2026-09-10): the name, TWO fields, and two small
+  // links. What went: the Info / Course App tab bar, the coloured score badge,
+  // every field past the second, and the Waze and Reddit links. The rest of a
+  // place's detail is a row away in the panel.
+  const POPUP_FIELDS = 2;
+
   const rows = CONFIG.popupFields
-    .filter(f => props[f.property] !== null && props[f.property] !== undefined && props[f.property] !== "")
-    .map(f => {
-      let val = props[f.property];
-      if (f.property === "inspection_score") {
-        const n = Number(val);
-        const cls = n >= 90 ? "score-badge-green" : n >= 70 ? "score-badge-yellow" : "score-badge-red";
-        val = `<span class="score-badge ${cls}">${n}/100</span>`;
-      } else {
-        val = renderValue(val, f.property);
-      }
-      return `<div class="popup-row"><strong>${f.label}:</strong>&nbsp;${val}</div>`;
+    .filter(f => {
+      const v = props[f.property];
+      return v !== null && v !== undefined && v !== "";
     })
+    .slice(0, POPUP_FIELDS)
+    .map(f => `<div class="popup-row"><span class="popup-label">${f.label}</span>${renderValue(props[f.property], f.property)}</div>`)
     .join("");
-
-  const navHtml = `
-    <div class="popup-nav">
-      <a class="popup-nav-google" href="https://www.google.com/maps/search/?api=1&query=${lat},${lng}" target="_blank" rel="noopener">Google</a>
-      <a class="popup-nav-apple" href="https://maps.apple.com/?q=${lat},${lng}" target="_blank" rel="noopener">Apple</a>
-      <a class="popup-nav-waze" href="https://waze.com/ul?ll=${lat},${lng}&navigate=yes" target="_blank" rel="noopener">Waze</a>
-      <a class="popup-nav-reddit" href="https://www.reddit.com/search/?q=${encodeURIComponent(name + (CONFIG.redditCity ? ' ' + CONFIG.redditCity : ''))}" target="_blank" rel="noopener">Reddit</a>
-    </div>`;
-
-  // --- Course App tab ---
-  const svContent = ``;
 
   const html = `
     <div class="popup-title">${name}</div>
-    <div class="popup-tab-bar">
-      <button class="popup-tab-btn active" onclick="switchPopupTab(this,'popup-pane-info')">Info</button>
-      <button class="popup-tab-btn" onclick="switchPopupTab(this,'popup-pane-sv')">Course App</button>
-    </div>
-    <div id="popup-pane-info" class="popup-tab-pane active">
-      ${rows}${navHtml}
-    </div>
-    <div id="popup-pane-sv" class="popup-tab-pane">
-      ${svContent}
+    ${rows}
+    <div class="popup-nav">
+      <a class="popup-nav-google" href="https://www.google.com/maps/search/?api=1&query=${lat},${lng}" target="_blank" rel="noopener">Google</a>
+      <a class="popup-nav-apple" href="https://maps.apple.com/?q=${lat},${lng}" target="_blank" rel="noopener">Apple</a>
     </div>`;
 
   if (currentPopup) currentPopup.remove();
 
-  currentPopup = new maplibregl.Popup({ maxWidth: "300px" })
+  currentPopup = new maplibregl.Popup({ maxWidth: "230px" })
     .setLngLat([lng, lat])
     .setHTML(html)
     .addTo(map);
