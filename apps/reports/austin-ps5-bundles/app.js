@@ -783,11 +783,8 @@ function showPopup(feature) {
 // --- Filters (built dynamically from CONFIG.filters) ---
 
 function buildFilters() {
-  // No filter UI on this page yet (owner, 2026-09-10: "once we have those done
-  // we will consider how to filter it"). With nothing to build, every feature
-  // stays visible — applyFilters() finds no selects and filters nothing.
   const container = document.getElementById("filters");
-  if (!container) return;
+  if (!container) return;          // no filter UI on this page
   container.innerHTML = "";
 
   CONFIG.filters.forEach(f => {
@@ -821,8 +818,18 @@ function buildFilters() {
 }
 
 function getUniqueValues(property) {
-  const values = allFeatures.map(f => f.properties[property]);
-  return [...new Set(values)].sort();
+  // Blanks are dropped: a feature with no value for this field would otherwise
+  // put an empty, unselectable-looking option at the top of the dropdown.
+  const values = allFeatures
+    .map(f => f.properties[property])
+    .filter(v => v !== null && v !== undefined && v !== "");
+  // Numbers sort as numbers; everything else alphabetically. Without this the
+  // Holes dropdown read 18, 9 rather than 9, 18.
+  const unique = [...new Set(values)];
+  const allNumeric = unique.every(v => v !== "" && !isNaN(Number(v)));
+  return allNumeric
+    ? unique.sort((a, b) => Number(a) - Number(b))
+    : unique.sort();
 }
 
 // --- Filter logic ---
@@ -839,7 +846,10 @@ function applyFilters() {
 
   const filtered = allFeatures.filter(feature => {
     const p = feature.properties;
-    return activeFilters.every(f => p[f.property] === f.value);
+    // Compare as strings. A <select> value is ALWAYS a string, so a numeric
+    // property like Holes (18, not "18") never matched and the golf map filtered
+    // itself down to nothing.
+    return activeFilters.every(f => String(p[f.property]) === f.value);
   });
 
   filteredFeatures = filtered;

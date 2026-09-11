@@ -73,9 +73,8 @@ const CONFIG = {
 
   // ── Filters ───────────────────────────────────────────────
   filters: [
-    { property: "type",         label: "Type"           },
-    { property: "sells_ebikes", label: "Sells E-Bikes"  },
-    { property: "city",         label: "City"           },
+    { property: "type",         label: "Type" },
+    { property: "sells_ebikes", label: "Sells E-Bikes" },
   ],
 
   // ── Table columns ─────────────────────────────────────────

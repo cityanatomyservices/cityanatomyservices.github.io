@@ -72,7 +72,8 @@ const CONFIG = {
   googleMapsApiKey: "",
 
   // ── Filters ───────────────────────────────────────────────
-  filters: [],
+  filters: [],   // nothing in this data set groups: every field has one
+                 // distinct value per row, so a dropdown would just list them all
 
   // ── Table columns ─────────────────────────────────────────
   columns: [

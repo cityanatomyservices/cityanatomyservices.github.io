@@ -73,7 +73,8 @@ const CONFIG = {
 
   // ── Filters ───────────────────────────────────────────────
   filters: [
-    { property: "focus_type", label: "Focus" },
+    { property: "focus_type",     label: "Focus" },
+    { property: "city_state_zip", label: "City" },
   ],
 
   // ── Table columns ─────────────────────────────────────────

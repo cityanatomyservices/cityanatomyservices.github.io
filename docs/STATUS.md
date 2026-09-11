@@ -1,5 +1,67 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — filter dropdowns in the sidebars
+
+Owner: "now give each of the sidebars 2 different drop downs each that will
+filter the data, pick any 2 but types are better than locations, something with a
+discreet number of items to select so dropdown isn't too long. I just want to get
+the basics working."
+
+**The basics work.** Changing a dropdown re-filters the map and the table
+together — verified by counting rendered markers, not just rows: toy stores go
+8 → 2 markers with 2 rows, golf 20 → 3 with 3 rows.
+
+Almost nothing new was written. `buildFilters()`, `getUniqueValues()` and
+`applyFilters()` were all already there and already wired (`change` →
+`applyFilters` → `updateMap` + `updateTable` + `updateCount`). It needed the
+`<div id="filters">` back in the panel and a sane choice of field per report.
+
+**Two real bugs came out of switching it on:**
+
+1. **Numeric fields filtered to nothing.** A `<select>` value is always a string,
+   and `applyFilters` compared with `===`, so golf's `Holes` (the number 18, not
+   `"18"`) never matched and picking a value emptied the map. Now compared as
+   strings.
+2. **Numbers sorted as text** — the Holes dropdown read 18, 9. Now numeric when
+   every value is a number, alphabetical otherwise.
+
+Also: blank values are dropped from a dropdown, so a feature missing that field
+no longer puts an empty option at the top.
+
+**What each report got** — labels are the owner's own, taken from the config's
+existing `filters` or `columns`, nothing invented:
+
+| Report | Dropdowns |
+|---|---|
+| PoolOpenings | Status (3) + Pool Type (5) |
+| austin-bike-shops | Type (3) + Sells E-Bikes (3) |
+| austin-chambers | Focus (5) + City (4) |
+| austin-golf-courses | Holes (2) + Type (12) |
+| austin-toy-stores | Type (3) + Age Range (3) |
+| austin-neighborhoods | Area (6) — **one only** |
+| austin-ps5-bundles | Retailer (7) — **one only** |
+| austin-vintage-guitar | Shop Type (6) — **one only** |
+| austin-horseback-riding | **none** |
+
+**Four reports could not have two, and inventing one would have been worse than
+saying so.** A filter is only useful if its values GROUP the rows. In those four,
+every remaining field has one distinct value per row — `austin-horseback-riding`
+has no grouping field at all (17 features, and `area` alone has 16 distinct
+values), so a dropdown there would list every item one by one, which is exactly
+the "too long" the owner asked to avoid. The empty filter bar hides itself
+(`.filters:empty`). Say the word and any of them can take a second dropdown on a
+derived field — the data would have to be reshaped first.
+
+Types were preferred over locations wherever the data offered a choice. Chambers
+is the one exception: `Focus` is its only type-ish field, so `City` is the honest
+second.
+
+Verified across all nine: dropdown option counts as above, zero blank options,
+selecting a value drops the row count and the marker count together and the
+result line matches, no console errors.
+
+Cache version `?v=20260910l`.
+
 ## 2026-09-10 — popups cut back to a name, two fields and two links
 
 Owner: "let's make the pop-ups for all the maps much simpler, less formatting and

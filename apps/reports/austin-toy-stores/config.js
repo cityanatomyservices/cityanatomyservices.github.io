@@ -71,9 +71,8 @@ const CONFIG = {
 
   // ── Filters ───────────────────────────────────────────────
   filters: [
-    { property: "type",      label: "Type"      },
+    { property: "type",      label: "Type" },
     { property: "age_range", label: "Age Range" },
-    { property: "specialty", label: "Specialty" },
   ],
 
   // ── Table columns ─────────────────────────────────────────

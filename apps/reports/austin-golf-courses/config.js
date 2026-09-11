@@ -73,9 +73,8 @@ const CONFIG = {
 
   // ── Filters ───────────────────────────────────────────────
   filters: [
-    { property: "SourceSheet", label: "Category" },
-    { property: "Holes",       label: "Holes"    },
-    { property: "Type",        label: "Type"     },
+    { property: "Holes", label: "Holes" },
+    { property: "Type",  label: "Type" },
   ],
 
   // ── Table columns ─────────────────────────────────────────

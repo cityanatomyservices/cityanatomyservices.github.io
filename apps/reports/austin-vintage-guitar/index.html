@@ -13,7 +13,7 @@
   <!-- ?v= so a push is actually seen: GitHub Pages caches these hard, and the
        report apps had no version query at all, so the CDN kept serving the old
        app.js after a deploy. Bump it whenever app.js or style.css changes. -->
-  <link rel="stylesheet" href="./style.css?v=20260910k" />
+  <link rel="stylesheet" href="./style.css?v=20260910l" />
 </head>
 <body>
   <!-- A MAP, ITS DATA, AND A TITLE (owner, 2026-09-10: "remove all of the
@@ -34,6 +34,10 @@
         <h2>Locations</h2>
         <div id="resultCount">0 results</div>
       </div>
+      <!-- Two dropdowns, built from CONFIG.filters. Changing one re-filters the
+           map AND the table together (app.js, applyFilters). -->
+      <div class="filters" id="filters"></div>
+
       <div class="table-wrap">
         <table>
           <thead id="tableHead"></thead>
@@ -53,7 +57,7 @@
   <script src="https://unpkg.com/maplibre-contour@0.0.5/dist/index.min.js"></script>
   <script src="https://unpkg.com/terra-draw/dist/terra-draw.umd.js"></script>
   <script src="https://unpkg.com/terra-draw-maplibre-gl-adapter/dist/terra-draw-maplibre-gl-adapter.umd.js"></script>
-  <script src="./config.js?v=20260910k"></script>
-  <script src="./app.js?v=20260910k"></script>
+  <script src="./config.js?v=20260910l"></script>
+  <script src="./app.js?v=20260910l"></script>
 </body>
 </html>

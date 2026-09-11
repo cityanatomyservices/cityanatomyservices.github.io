@@ -72,9 +72,8 @@ const CONFIG = {
 
   // ── Filters ───────────────────────────────────────────────
   filters: [
-    { property: "Status",    label: "Status"    },
+    { property: "Status",    label: "Status" },
     { property: "Pool Type", label: "Pool Type" },
-    { property: "Open Date", label: "Open Date" },
   ],
 
   // ── Table columns ─────────────────────────────────────────
