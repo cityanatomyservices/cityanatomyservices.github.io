@@ -5,10 +5,8 @@
   "scripts": {
     "build": "node build.js",
     "render:bike-shops":       "node build.js austin-bike-shops --render",
-    "render:chambers":         "node build.js austin-chambers --render",
     "render:golf-courses":     "node build.js austin-golf-courses --render",
     "render:horseback-riding": "node build.js austin-horseback-riding --render",
-    "render:neighborhoods":    "node build.js austin-neighborhoods --render",
     "render:toy-stores":       "node build.js austin-toy-stores --render",
     "render:vintage-guitar":   "node build.js austin-vintage-guitar --render",
     "render:pool-openings":    "node build.js pool-openings --render",

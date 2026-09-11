@@ -121,8 +121,8 @@ was still the old one.
 changes, then copy the template out to every report** (preserving each
 `<title>`). One line:
 
-    grep -rl 'v=20260910p' --include='index.html' apps/reports \
-      | xargs sed -i 's/v=20260910p/v=<new>/g'
+    grep -rl 'v=20260911a' --include='index.html' apps/reports \
+      | xargs sed -i 's/v=20260911a/v=<new>/g'
 
 Use the date. The site-wide `/style.css`, `/page.js` and `/home.js` carry their
 own separate version — see the repo root `CLAUDE.md`.

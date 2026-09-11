@@ -133,7 +133,6 @@ If you want a different look for a specific report (e.g. a light theme or a vide
 
 ```js
 const TEMPLATE_MAP = {
-  'austin-neighborhoods': path.join(ROOT, 'template', 'promo-light.html'),
 };
 
 // Then replace the template read line:

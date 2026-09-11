@@ -13,7 +13,7 @@
   <!-- ?v= so a push is actually seen: GitHub Pages caches these hard, and the
        report apps had no version query at all, so the CDN kept serving the old
        app.js after a deploy. Bump it whenever app.js or style.css changes. -->
-  <link rel="stylesheet" href="./style.css?v=20260910p" />
+  <link rel="stylesheet" href="./style.css?v=20260911a" />
 </head>
 <body>
   <!-- A MAP, ITS DATA, AND A TITLE (owner, 2026-09-10: "remove all of the
@@ -22,7 +22,9 @@
        this page. The map still pans and zooms by hand — what went is the
        BUTTONS, not the map. The attribution notice in the corner stays: it is
        OpenStreetMap's licence requirement, not a control. -->
-  <div class="page">
+  <!-- panel-closed from the start (owner, 2026-09-11): the map is what you came
+       for, so the list stays out of the way until the handle is pulled. -->
+  <div class="page panel-closed">
     <div id="map"></div>
     <h1 class="map-title" id="pageTitle"></h1>
 
@@ -70,7 +72,7 @@
     </aside>
 
     <button class="panel-toggle" id="panelToggle" type="button"
-            aria-expanded="true" aria-controls="dataPanel" aria-label="Hide the list">
+            aria-expanded="false" aria-controls="dataPanel" aria-label="Show the list">
       <span class="panel-toggle-arrow" aria-hidden="true"></span>
     </button>
   </div>
@@ -80,7 +82,7 @@
   <script src="https://unpkg.com/maplibre-contour@0.0.5/dist/index.min.js"></script>
   <script src="https://unpkg.com/terra-draw/dist/terra-draw.umd.js"></script>
   <script src="https://unpkg.com/terra-draw-maplibre-gl-adapter/dist/terra-draw-maplibre-gl-adapter.umd.js"></script>
-  <script src="./config.js?v=20260910p"></script>
-  <script src="./app.js?v=20260910p"></script>
+  <script src="./config.js?v=20260911a"></script>
+  <script src="./app.js?v=20260911a"></script>
 </body>
 </html>

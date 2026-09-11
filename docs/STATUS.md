@@ -1,5 +1,47 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-11 — two reports deleted; the data panel starts closed
+
+Owner: "please delete everything from the city councils map and delete the
+neighbors map the first 2 cards of the reports" — and "right now the tables that
+open from the side are open by default, have them be closed by default."
+
+### Deleted: cards 1 and 2
+
+Confirmed against `reports.json` before touching anything: card 1 was
+`austin-chambers` (Austin-Area Chambers of Commerce — the "city councils" one)
+and card 2 was `austin-neighborhoods`. Both are gone, 4.1 MB in total, along
+with every reference:
+
+- **`apps/index.html`** — **four** cards, two per report. Each still appeared in
+  both the "Map Apps" section and the duplicate "Shopping Reports" section
+  below it.
+- `apps/reports/reports.json` and `apps/reports/index.json`.
+- `content/report-videos/` — the `render:chambers` and `render:neighborhoods`
+  scripts, both `reports/*.json` video configs, and the `promo-light.html`
+  template mapping for neighborhoods in `GUIDE.md`.
+
+**Six reports remain:** horseback riding, golf courses, bike shops, vintage
+guitar, toy stores, pool openings. The home page's Reports carousel now opens on
+horseback riding.
+
+### The data panel starts closed
+
+`.page` carries `panel-closed` from the start, and the handle's `aria-expanded`
+and label start at "Show the list" to match. The map is what the page is for; the
+list waits until the handle is pulled.
+
+The table is still **built** on load — only hidden — so pulling the handle is
+instant rather than a wait while rows render.
+
+Verified across the six survivors: all four deleted URLs 404; the panel is off
+screen on load with `aria-expanded="false"` and its rows already built (46, 5,
+20, 17, 8, 9); the Satellite button sits at x=12 with the panel shut and steps
+clear of it when opened; the title is centred to the pixel; `/apps/` is 9 cards
+with every link resolving 200; the reports listing is 6; no console errors.
+
+Cache version `?v=20260911a`.
+
 ## 2026-09-10 — map controls, a GPS button, satellite, and a cage around the data
 
 Owner, across four messages: a zoom +/− on the right with a simple north arrow
