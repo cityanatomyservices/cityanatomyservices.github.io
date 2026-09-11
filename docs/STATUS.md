@@ -1,5 +1,41 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — the PS5 Slim Bundles report is deleted
+
+Owner: "let's delete the PS5 bundles report and maps, it is very dated."
+
+Removed `apps/reports/austin-ps5-bundles/` (2.0 MB — map app, `data.geojson`,
+the written `report.html`, `promo.mp4`, favicons) and every reference to it:
+
+- **`apps/index.html`** — two cards, not one. The second lived in the "Shopping
+  Reports / 8 story maps" section and had been pointing at the same map app since
+  the story maps came out, so it was a duplicate of the first.
+- **`apps/reports/reports.json`** — the entry that drives the home page's Reports
+  carousel and the reports listing.
+- **`apps/reports/index.json`** — its entry (see the note below).
+- **`content/report-videos/`** — the `render:ps5-bundles` script in
+  `package.json` and the `reports/austin-ps5-bundles.json` video config.
+
+Verified: both old URLs now 404; the home Reports carousel is 8 cards with no
+PS5; `/apps/` is 13 cards with no PS5 and **every one of its links resolves 200**;
+the reports listing is 8; no console errors.
+
+**Two things for the owner, both pre-existing and both on-screen text, so left
+alone:**
+
+1. `/apps/` still says **"7 apps"** and **"8 story maps"** above its two sections.
+   Neither count was right before this deletion and neither is right now. More to
+   the point, the whole "Shopping Reports / 8 story maps" section is now a
+   **duplicate** — since the story maps were removed, every card in it links to
+   the same map app as the card above it in "Map Apps". That section probably
+   wants deleting outright rather than recounting.
+2. `apps/reports/index.json` is **dead** — nothing on the site reads it. It was
+   already stale before today: it lists `template` as if it were a report and is
+   missing `austin-toy-stores` and `austin-vintage-guitar`. It can be deleted
+   whenever; I only took the PS5 line out rather than make that call.
+
+Cache version `?v=20260910m`.
+
 ## 2026-09-10 — filter dropdowns in the sidebars
 
 Owner: "now give each of the sidebars 2 different drop downs each that will
