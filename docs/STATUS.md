@@ -1,5 +1,45 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — a data table on the left, one row per feature, click to fly
+
+Owner: "add a data table on the left side for the data from the geojson with 1
+row for each item with a marker, and when that line is clicked the map zooms to
+that marker. the table is a panel that opens from the left."
+
+**The panel slides in from the left over the map**, with the same chevron handle
+riding on its edge. One row per feature in `data.geojson` — row counts match the
+files exactly (46 / 5 / 5 / 20 / 17 / 8 / 18 / 8 / 9). Clicking a row flies the
+map to that marker at zoom 15.5 and opens its popup.
+
+**Almost none of this was new code.** `updateTable()` already built the rows and
+already had the fly-to-and-popup click handler — it has been sitting there
+guarded, returning early because there was no `#tableBody` on the page. Adding
+the markup back switched it on. Two real changes:
+
+1. **The marker no longer lands under the panel.** The click now passes
+   `padding: { left: <panel width> }` to `flyTo`, so the place you picked ends up
+   in the part of the map you can actually see. Without it, clicking a row flew
+   the marker to a spot hidden behind the panel you clicked it in.
+2. **Rows are one line, clipped with an ellipsis.** Letting the text wrap made a
+   five-column row 200px tall — the panel showed three courses and you scrolled
+   for the rest. All twenty fit on screen now. A row is a way *in* to a place,
+   not the place itself: the full value is in the popup the row opens, and in the
+   cell's tooltip (`td.title`).
+
+The title still centres itself on whatever map is left beside the panel and
+slides back when it closes. On a phone the panel takes 84% and the title stays
+put behind it.
+
+Still no filtering, as agreed — `buildFilters()` returns immediately because
+there is no filter UI, so nothing is filtered out and every feature has a row.
+
+Verified across all nine at 1280×800: rows match each `data.geojson` feature
+count, headers built from `CONFIG.columns`, panel flush to the left edge, a row
+click moves the centre and takes zoom from ~10.6 to 15.5 with a popup, no page
+scroll in either direction, no console errors.
+
+Cache version `?v=20260910j`.
+
 ## 2026-09-10 — a map, its data, and a title. Nothing else.
 
 Owner: "let's remove all of the controls and have the title just as text on the

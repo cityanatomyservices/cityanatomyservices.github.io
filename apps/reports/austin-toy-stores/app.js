@@ -492,6 +492,23 @@ async function initOverlay() {
 
 // --- Theme toggle ---
 
+// --- The data panel's open/close handle ---
+//
+// The map does not resize when the panel moves: the map fills the page and the
+// panel floats over it, so there is nothing to tell MapLibre about.
+function initPanelToggle() {
+  const btn = document.getElementById("panelToggle");
+  const page = document.querySelector(".page");
+  if (!btn || !page) return;
+
+  btn.addEventListener("click", function () {
+    const closing = !page.classList.contains("panel-closed");
+    page.classList.toggle("panel-closed", closing);
+    btn.setAttribute("aria-expanded", String(!closing));
+    btn.setAttribute("aria-label", closing ? "Show the list" : "Hide the list");
+  });
+}
+
 function initTheme() {
   const btn = document.getElementById("themeToggle");
   const saved = localStorage.getItem("theme") || "light";
@@ -562,9 +579,10 @@ async function init() {
     applyStandardColors();
     initDefaultTerrain();
     addPlacesLayers();     // puts data.geojson on the map
-    buildFilters();        // no filter UI on the page: returns immediately
-    buildTableHead();      // no table on the page: returns immediately
+    buildFilters();        // no filter UI on the page yet: returns immediately
+    buildTableHead();      // column headers for the panel's table
     applyFilters();        // nothing to filter, so this plots every feature
+    initPanelToggle();     // the panel's open/close handle
   });
 }
 
@@ -901,6 +919,8 @@ function updateTable(features) {
       // into a labelled record (style.css). The label comes from here.
       td.dataset.label = col.header;
       const val = p[col.property] ?? "";
+      // Cells are clipped to one line in the panel, so hovering shows the rest.
+      if (val !== "") td.title = String(val);
       if (col.property === "instagram" && val) {
         const a = document.createElement("a");
         a.href = `https://instagram.com/${val}`;
@@ -922,12 +942,20 @@ function updateTable(features) {
     });
 
     row.addEventListener("click", () => {
+      // The panel covers the left of the map, so steer the marker into the part
+      // that is actually visible — otherwise clicking a row flies it to a spot
+      // hidden behind the panel you clicked it in.
+      const panel = document.getElementById("dataPanel");
+      const hidden = panel && !document.querySelector(".page").classList.contains("panel-closed")
+        ? Math.round(panel.getBoundingClientRect().width)
+        : 0;
       map.flyTo({
         center: feature.geometry.coordinates,
         zoom: 15.5,
         pitch: 50,
         bearing: -10,
         duration: 1500,
+        padding: { left: hidden, top: 0, right: 0, bottom: 0 },
         essential: true
       });
       showPopup(feature);

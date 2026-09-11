@@ -39,6 +39,166 @@ body {
   inset: 0;
 }
 
+/* ── The data panel ──────────────────────────────────
+   Slides in from the LEFT over the map, one row per feature in data.geojson.
+   Its width is the one dial; the title centres itself on whatever map is left
+   beside it. */
+.page {
+  --panel-w: clamp(260px, 28%, 400px);
+}
+
+.data-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--panel-w);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-page-bg);
+  border-right: 1px solid #c4d8bb;
+  box-shadow: 4px 0 18px rgba(0, 0, 0, 0.16);
+  transition: transform var(--slide);
+}
+
+.page.panel-closed .data-panel {
+  transform: translateX(-100%);
+}
+
+.data-panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px 10px;
+  border-bottom: 1px solid #c4d8bb;
+}
+
+.data-panel-head h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.data-panel #resultCount {
+  font-size: 12px;
+  color: #4a6b3a;
+}
+
+/* The table scrolls inside the panel; the page never does. Cells WRAP rather
+   than push the table sideways, so four columns fit a 380px panel instead of
+   the last one being sliced off at the edge. */
+.data-panel .table-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.data-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.data-panel thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #eef6ea;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #3c6b28;
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #c4d8bb;
+}
+
+/* One line per cell, clipped with an ellipsis. Letting the text wrap made a
+   five-column row 200px tall — the panel showed three courses and you scrolled
+   for the rest. A row is a way IN to a place, not the place itself: the full
+   value is in the popup the row opens, and in the cell's tooltip. */
+.data-panel td {
+  padding: 7px 8px;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #e0eeda;
+}
+
+/* The name earns the room; the rest share what is left. */
+.data-panel th:first-child,
+.data-panel td:first-child {
+  width: 44%;
+}
+
+/* Every row goes somewhere — say so, and make the one under the pointer obvious */
+.data-panel tbody tr {
+  cursor: pointer;
+}
+
+.data-panel tbody tr:hover {
+  background: #e7f3e0;
+}
+
+.data-panel tbody td:first-child {
+  font-weight: 600;
+  color: #1a4d0e;
+}
+
+/* ── The panel handle ────────────────────────────── */
+
+.panel-toggle {
+  position: absolute;
+  top: 50%;
+  left: var(--panel-w);
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 22px;
+  height: 62px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: var(--color-page-bg);
+  border: 1px solid #c4d8bb;
+  border-left: 0;
+  border-radius: 0 7px 7px 0;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.12);
+  transition: left var(--slide), background 0.15s ease;
+}
+
+.panel-toggle:hover {
+  background: #dfeed7;
+}
+
+.page.panel-closed .panel-toggle {
+  left: 0;
+}
+
+/* A chevron drawn from two borders — no icon font, no image. It points the way
+   the panel will go: back into the edge when open, out again when closed. */
+.panel-toggle-arrow {
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid #3c6b28;
+  border-right: 2px solid #3c6b28;
+  transform: rotate(-135deg);
+  margin-left: 3px;
+  transition: transform var(--slide);
+}
+
+.page.panel-closed .panel-toggle-arrow {
+  transform: rotate(45deg);
+  margin-left: -3px;
+}
+
 /* ── Floating: the title ─────────────────────────── */
 
 /* Plain text laid across the top of the map — no bar, no panel, no box. The
@@ -48,8 +208,9 @@ body {
 .map-title {
   position: absolute;
   top: 14px;
-  left: 0;
+  left: var(--panel-w);
   right: 0;
+  transition: left var(--slide);
   z-index: 3;
   margin: 0;
   padding: 0 16px;
@@ -68,6 +229,10 @@ body {
     0 0 3px #ffffff,
     0 0 7px #ffffff,
     0 0 14px rgba(255, 255, 255, 0.9);
+}
+
+.page.panel-closed .map-title {
+  left: 0;
 }
 
 /* ── Floating: the draw bar ──────────────────────── */
@@ -512,6 +677,14 @@ tbody tr:last-child td {
 @media (max-width: 900px) {
   .page {
     --edge: 8px;
+    --panel-w: 84%;
+  }
+
+  /* With the panel over most of the screen there is no map left to centre the
+     title on, so it stays where it is and the panel covers it. */
+  .map-title,
+  .page.panel-closed .map-title {
+    left: 0;
   }
 }
 

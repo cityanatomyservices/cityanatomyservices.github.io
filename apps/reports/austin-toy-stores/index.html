@@ -22,6 +22,27 @@
   <div class="page">
     <div id="map"></div>
     <h1 class="map-title" id="pageTitle"></h1>
+
+    <!-- The data, one row per feature in data.geojson. Clicking a row flies the
+         map to that marker (app.js, updateTable). The panel slides in from the
+         left; the handle rides on its edge so it moves with it. -->
+    <aside class="data-panel" id="dataPanel">
+      <div class="data-panel-head">
+        <h2>Locations</h2>
+        <div id="resultCount">0 results</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </aside>
+
+    <button class="panel-toggle" id="panelToggle" type="button"
+            aria-expanded="true" aria-controls="dataPanel" aria-label="Hide the list">
+      <span class="panel-toggle-arrow" aria-hidden="true"></span>
+    </button>
   </div>
 
   <script src="https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
