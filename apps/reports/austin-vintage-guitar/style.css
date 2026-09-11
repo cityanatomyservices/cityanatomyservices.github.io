@@ -39,6 +39,112 @@ body {
   inset: 0;
 }
 
+/* ── Map controls (right-hand stack) ──────────────
+   One column down the right: home, north, zoom in, zoom out, extents, tilt. */
+.map-controls {
+  position: absolute;
+  top: var(--edge);
+  right: var(--edge);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.map-ctrl {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #c4d8bb;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.18);
+  color: #1a4d0e;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.map-ctrl:hover {
+  background: #e7f3e0;
+}
+
+/* MapLibre's GeolocateControl is added for its behaviour only — the blue dot,
+   the accuracy circle, the permission prompt. Its own button is hidden; the GPS
+   button in the stack triggers it (app.js). */
+.maplibregl-ctrl-top-right {
+  display: none;
+}
+
+/* The Satellite button sits in the top-left corner — but the data panel is ALSO
+   on the left, and at z-index 4 it was sitting straight on top of it. So the
+   button steps aside for the panel, the same way the title does, and slides back
+   when the panel closes. */
+.maplibregl-ctrl-top-left {
+  margin: 2px 0 0 2px;
+  /* --panel-px is the panel's measured width, published by app.js. See the note
+     there: a percentage inside translateX() would be measured against this tiny
+     button instead of the page. */
+  transform: translateX(var(--panel-px, 0px));
+  transition: transform var(--slide);
+}
+
+.page.panel-closed .maplibregl-ctrl-top-left {
+  transform: translateX(0);
+}
+
+.map-ctrl svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+/* the tilt button says 3D / 2D, so it needs room for two characters */
+.map-ctrl-text {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* Zoom in and out read as one pair rather than two loose buttons. */
+#ctrlZoomIn {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#ctrlZoomOut {
+  margin-top: -6px;
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* A triangle, drawn from borders. It turns with the map (app.js) so it always
+   points at true north; the red half is the north end, as on a compass. */
+.north-arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 15px solid #c0392b;
+  position: relative;
+}
+
+.north-arrow::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid #8a9a82;
+}
+
 /* ── The data panel ──────────────────────────────────
    Slides in from the LEFT over the map, one row per feature in data.geojson.
    Its width is the one dial; the title centres itself on whatever map is left
@@ -264,7 +370,7 @@ body {
   transition: left var(--slide);
   z-index: 3;
   margin: 0;
-  padding: 0 16px;
+  padding: 0 54px;          /* clear of the control stack on the right */
   text-align: center;
   pointer-events: none;        /* the map keeps the whole of itself */
   font-family: var(--font-heading);
@@ -682,11 +788,15 @@ tbody tr:last-child td {
     --panel-w: 84%;
   }
 
-  /* With the panel over most of the screen there is no map left to centre the
-     title on, so it stays where it is and the panel covers it. */
+  /* With the panel over most of the screen there is no map left to move on to,
+     so the title and the Satellite button stay put and the panel covers them. */
   .map-title,
   .page.panel-closed .map-title {
     left: 0;
+  }
+
+  .maplibregl-ctrl-top-left {
+    transform: translateX(0);
   }
 }
 

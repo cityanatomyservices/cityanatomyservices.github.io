@@ -13,7 +13,7 @@
   <!-- ?v= so a push is actually seen: GitHub Pages caches these hard, and the
        report apps had no version query at all, so the CDN kept serving the old
        app.js after a deploy. Bump it whenever app.js or style.css changes. -->
-  <link rel="stylesheet" href="./style.css?v=20260910m" />
+  <link rel="stylesheet" href="./style.css?v=20260910p" />
 </head>
 <body>
   <!-- A MAP, ITS DATA, AND A TITLE (owner, 2026-09-10: "remove all of the
@@ -25,6 +25,29 @@
   <div class="page">
     <div id="map"></div>
     <h1 class="map-title" id="pageTitle"></h1>
+
+    <!-- The map controls, top to bottom down the right-hand side. The home link
+         is an <a target="_top"> rather than a button: this page also plays
+         inside the window on anatomy.city, and without _top it would load the
+         whole site into that little frame. -->
+    <div class="map-controls">
+      <a class="map-ctrl" id="ctrlHome" href="https://anatomy.city" target="_top"
+         aria-label="Back to anatomy.city" title="anatomy.city">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 3 10.6h2.4V20h4.3v-5.4h4.6V20h4.3v-9.4H21z"/></svg>
+      </a>
+      <button class="map-ctrl" id="ctrlNorth" type="button" aria-label="Point the map north" title="North">
+        <span class="north-arrow" aria-hidden="true"></span>
+      </button>
+      <button class="map-ctrl" id="ctrlZoomIn" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+      <button class="map-ctrl" id="ctrlZoomOut" type="button" aria-label="Zoom out" title="Zoom out">&minus;</button>
+      <button class="map-ctrl" id="ctrlExtent" type="button" aria-label="Fit the map to every location" title="Fit to data">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
+      </button>
+      <button class="map-ctrl map-ctrl-text" id="ctrlTilt" type="button" aria-label="Tilt the map" title="Tilt">3D</button>
+      <button class="map-ctrl" id="ctrlGps" type="button" aria-label="Show where I am" title="Where I am">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm9 3h-2.06A7 7 0 0 0 13 5.06V3h-2v2.06A7 7 0 0 0 5.06 11H3v2h2.06A7 7 0 0 0 11 18.94V21h2v-2.06A7 7 0 0 0 18.94 13H21zm-9 6a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+      </button>
+    </div>
 
     <!-- The data, one row per feature in data.geojson. Clicking a row flies the
          map to that marker (app.js, updateTable). The panel slides in from the
@@ -57,7 +80,7 @@
   <script src="https://unpkg.com/maplibre-contour@0.0.5/dist/index.min.js"></script>
   <script src="https://unpkg.com/terra-draw/dist/terra-draw.umd.js"></script>
   <script src="https://unpkg.com/terra-draw-maplibre-gl-adapter/dist/terra-draw-maplibre-gl-adapter.umd.js"></script>
-  <script src="./config.js?v=20260910m"></script>
-  <script src="./app.js?v=20260910m"></script>
+  <script src="./config.js?v=20260910p"></script>
+  <script src="./app.js?v=20260910p"></script>
 </body>
 </html>

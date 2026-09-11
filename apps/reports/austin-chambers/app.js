@@ -492,6 +492,132 @@ async function initOverlay() {
 
 // --- Theme toggle ---
 
+// --- Map controls (right-hand stack) ---
+//
+// Home is a plain link and needs no code. The rest are here. The tilt button
+// ONLY changes pitch — it does not touch 3D buildings, satellite or anything
+// else (owner, 2026-09-10: "a 3d,2d button ... that just adjusts the tilt").
+function initMapControls() {
+  const TILTED = 55;          // degrees of pitch when tilted
+  const LABEL_TILT = "3D";    // what the button offers when the map is flat
+  const LABEL_FLAT = "2D";    // ...and when it is already tilted
+
+  const zoomIn  = document.getElementById("ctrlZoomIn");
+  const zoomOut = document.getElementById("ctrlZoomOut");
+  const north   = document.getElementById("ctrlNorth");
+  const extent  = document.getElementById("ctrlExtent");
+  const tilt    = document.getElementById("ctrlTilt");
+  if (!zoomIn || !zoomOut || !north || !extent || !tilt) return;
+
+  zoomIn.addEventListener("click", () => map.zoomIn({ duration: 300 }));
+  zoomOut.addEventListener("click", () => map.zoomOut({ duration: 300 }));
+
+  // Point the map north again, leaving the tilt where it is.
+  north.addEventListener("click", () => map.easeTo({ bearing: 0, duration: 500 }));
+
+  // The arrow turns with the map, so it always points at true north.
+  const arrow = north.querySelector(".north-arrow");
+  const turnArrow = () => {
+    if (arrow) arrow.style.transform = `rotate(${-map.getBearing()}deg)`;
+  };
+  map.on("rotate", turnArrow);
+  turnArrow();
+
+  // Everything on the map, framed. The padding is deliberately small and EVEN:
+  // an earlier version pushed the frame right by the whole width of the data
+  // panel so nothing hid behind it, but that asks for a view about 1.6x the
+  // width of the data — wider than the cage below allows — so MapLibre clamped
+  // the fit and quietly cropped the outermost pins (five of golf's twenty).
+  // Showing everything matters more than clearing the panel, and the owner is
+  // happy for this to sit "a little further out" than strictly needed.
+  extent.addEventListener("click", () => {
+    const features = filteredFeatures.length ? filteredFeatures : allFeatures;
+    if (!features.length) return;
+    const bounds = new maplibregl.LngLatBounds();
+    features.forEach(f => bounds.extend(f.geometry.coordinates));
+    map.fitBounds(bounds, { padding: 40, maxZoom: 15, duration: 800 });
+  });
+
+  // Tilt only. Pitch up, pitch flat, nothing else changes.
+  tilt.addEventListener("click", () => {
+    const flat = map.getPitch() < 1;
+    map.easeTo({ pitch: flat ? TILTED : 0, duration: 600 });
+    tilt.textContent = flat ? LABEL_FLAT : LABEL_TILT;
+  });
+  tilt.textContent = map.getPitch() < 1 ? LABEL_TILT : LABEL_FLAT;
+
+  // GPS. MapLibre's own GeolocateControl does the real work — the permission
+  // prompt, the blue dot, the accuracy circle — but it draws its own button in
+  // the corner. So it is added, its button is hidden by CSS, and the one in this
+  // stack triggers it. That way the behaviour is MapLibre's and the look is ours.
+  const gps = document.getElementById("ctrlGps");
+  if (gps) {
+    const geolocate = new maplibregl.GeolocateControl({
+      positionOptions: { enableHighAccuracy: true },
+      trackUserLocation: false,
+      showUserLocation: true
+    });
+    map.addControl(geolocate, "top-right");
+    gps.addEventListener("click", () => geolocate.trigger());
+  }
+}
+
+// --- Keep the map on its data ---
+//
+// Owner, 2026-09-10: the map should "only zoom out to the extents as a limit,
+// and not go anywhere past the extents of the data". So the data's own bounding
+// box becomes the edge of the world: maxBounds stops the panning, and a minZoom
+// worked out from those same bounds stops the zooming out. Both are recomputed
+// on resize, because how far you must zoom out to see everything depends on how
+// big the window is.
+function lockToData() {
+  if (!allFeatures.length) return;
+
+  const raw = new maplibregl.LngLatBounds();
+  allFeatures.forEach(f => raw.extend(f.geometry.coordinates));
+
+  const apply = () => {
+    // Work out the camera that shows EVERYTHING, with the cage off so nothing
+    // clamps the answer.
+    const was = { center: map.getCenter(), zoom: map.getZoom(),
+                  bearing: map.getBearing(), pitch: map.getPitch() };
+    map.setMaxBounds(null);
+    map.setMinZoom(0);
+    const cam = map.cameraForBounds(raw, { padding: 40 });
+    if (!cam) return;
+
+    // THE CAGE IS BUILT FROM THAT VIEWPORT, NOT FROM THE DATA BOX. This is the
+    // whole trick. These data sets are tall and narrow while the screen is wide,
+    // so showing every pin needs a view several times wider than the data's own
+    // bounding box — vintage guitar is 0.09° wide and needs 0.66° of screen. A
+    // cage cut to the data box is therefore far NARROWER than the view that
+    // shows the data, and MapLibre, keeping the viewport inside it, answered by
+    // zooming IN: the extents button ended up cropping four of nine shops.
+    //
+    // So: jump to the "everything visible" camera, flat and north-up, read what
+    // the screen actually covers, grow it a little, and cage that. Then zooming
+    // out stops exactly where everything is visible, panning stops just past it,
+    // and the extents button can always do its job.
+    map.jumpTo({ center: cam.center, zoom: cam.zoom, bearing: 0, pitch: 0 });
+    const view = map.getBounds();
+    const airX = (view.getEast() - view.getWest()) * 0.10;
+    const airY = (view.getNorth() - view.getSouth()) * 0.10;
+    const cage = new maplibregl.LngLatBounds(
+      [view.getWest() - airX, view.getSouth() - airY],
+      [view.getEast() + airX, view.getNorth() + airY]
+    );
+    map.jumpTo(was);
+
+    map.setMinZoom(cam.zoom);
+    map.setMaxBounds(cage);
+  };
+
+  apply();
+  // How far out you must go to see everything depends on the size of the window,
+  // so both limits are worked out again whenever it changes.
+  map.on("resize", apply);
+}
+
 // --- The data panel's open/close handle ---
 //
 // The map does not resize when the panel moves: the map fills the page and the
@@ -507,6 +633,20 @@ function initPanelToggle() {
     btn.setAttribute("aria-expanded", String(!closing));
     btn.setAttribute("aria-label", closing ? "Show the list" : "Hide the list");
   });
+
+  // --panel-w is clamp(260px, 28%, 400px). That works for the panel itself,
+  // where the 28% is measured against the page — but MapLibre's Satellite button
+  // has to step aside by the same amount, and a percentage inside translateX()
+  // is measured against THE ELEMENT'S OWN WIDTH. On that little button 28% came
+  // to a few pixels, the clamp floor of 260px won, and it shifted too little and
+  // stayed under the panel. So the real measured width is published here as a
+  // plain pixel value for anything that needs to move by it.
+  const panel = document.getElementById("dataPanel");
+  const publishWidth = () => {
+    if (panel) page.style.setProperty("--panel-px", Math.round(panel.getBoundingClientRect().width) + "px");
+  };
+  publishWidth();
+  window.addEventListener("resize", publishWidth);
 }
 
 function initTheme() {
@@ -582,7 +722,10 @@ async function init() {
     buildFilters();        // no filter UI on the page yet: returns immediately
     buildTableHead();      // column headers for the panel's table
     applyFilters();        // nothing to filter, so this plots every feature
+    initSatellite();       // the Satellite button, top-left corner
     initPanelToggle();     // the panel's open/close handle
+    initMapControls();     // home / north / zoom / extents / tilt / GPS
+    lockToData();          // you cannot pan or zoom away from the data
   });
 }
 
@@ -961,11 +1104,14 @@ function fitMapToFeatures(features) {
   const bounds = new maplibregl.LngLatBounds();
   features.forEach(f => bounds.extend(f.geometry.coordinates));
 
+  // No pitch or bearing here on purpose. They used to be forced back to
+  // CONFIG's values, so changing a filter yanked the map out of whatever tilt
+  // the visitor had chosen with the 2D/3D button. The opening view still gets
+  // CONFIG.pitch — from the map's own constructor — and after that the camera
+  // angle belongs to the visitor.
   map.fitBounds(bounds, {
     padding: 60,
     maxZoom: 15,
-    pitch: CONFIG.pitch,
-    bearing: CONFIG.bearing,
     duration: 800
   });
 }

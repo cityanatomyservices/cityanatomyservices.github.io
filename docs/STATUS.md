@@ -1,5 +1,74 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-10 — map controls, a GPS button, satellite, and a cage around the data
+
+Owner, across four messages: a zoom +/− on the right with a simple north arrow
+above it, an extents button below, a 2D/3D button below that "that just adjusts
+the tilt", a home button above the zoom that returns to anatomy.city; the maps
+should "only zoom out to the extents as a limit, and not go anywhere past the
+extents of the data"; a GPS button; a satellite button in the left corner. And
+later: "the extents doesn't have to be exact you can do a little further out."
+
+**The stack, top to bottom on the right:** home, north, zoom in, zoom out,
+extents, 2D/3D, GPS. **Satellite** sits on its own in the top-left corner.
+
+- **Home** is a plain `<a href="https://anatomy.city" target="_top">`. The
+  `_top` matters: this page also plays inside the window on the home page, and
+  without it the whole site would load into that small frame.
+- **North** turns with the map — the arrow is rotated by the live bearing — and
+  clicking it eases the bearing to 0 while leaving the tilt alone.
+- **2D/3D** changes pitch and nothing else, as asked: 0 ↔ 55°. It does not touch
+  3D buildings, satellite or terrain.
+- **GPS** uses MapLibre's own `GeolocateControl` for the permission prompt, the
+  blue dot and the accuracy ring; that control's own button is hidden by CSS and
+  the one in the stack triggers it, so the behaviour is MapLibre's and the look
+  is ours.
+- **Satellite** is the control that was already in `app.js` — `initSatellite()`
+  is simply called again.
+
+### The cage, and the two bugs behind it
+
+`lockToData()` sets `maxBounds` and a `minZoom` so you can neither pan off the
+data nor zoom out past it. Getting it right took three goes, and the reason is
+worth keeping:
+
+1. First attempt caged the **data's own bounding box**. The extents button then
+   fitted 15 of golf's 20 courses — MapLibre keeps the viewport inside
+   `maxBounds`, and a fit that wanted more room than the cage got clamped.
+2. Widening the cage to 40% barely helped, which was the clue: **these data sets
+   are tall and narrow and the screen is wide.** Vintage guitar spans 0.09° of
+   longitude but needs 0.66° of screen to show. A cage cut to the data box is
+   therefore far *narrower* than the view that shows the data, so MapLibre
+   answered by zooming **in** — cropping four of its nine shops.
+3. The fix: **build the cage from the viewport, not the data.** Turn the cage
+   off, ask `cameraForBounds` what shows everything, jump there flat and
+   north-up, read what the screen actually covers, grow it 10%, and cage *that*.
+   `minZoom` is that same camera's zoom. Both are recomputed on resize, since
+   how far out you must go depends on the size of the window.
+
+Also fixed on the way: `fitMapToFeatures()` was forcing `pitch` and `bearing`
+back to CONFIG's values, so changing a filter yanked the map out of whatever
+tilt the visitor had chosen. Those two lines are gone; the opening view still
+gets `CONFIG.pitch` from the map's constructor, and after that the camera angle
+belongs to the visitor.
+
+And a CSS trap worth remembering: `--panel-w` is `clamp(260px, 28%, 400px)`,
+which is right for the panel, where the 28% is measured against the page. But
+the Satellite button had to step aside by the same amount, and **a percentage
+inside `translateX()` is measured against the element's own width** — on that
+little button the clamp floor won and it shifted 260px instead of 358, staying
+under the panel. `app.js` now publishes the panel's measured width as
+`--panel-px` for anything that needs to move by it.
+
+Verified across all eight maps: extents now frames **every** point (46/46, 5/5,
+5/5, 20/20, 17/17, 8/8, 8/8, 9/9), the cage holds both zoom and pan against a
+deliberate escape attempt, the stack is in the right order with the right home
+link, satellite toggles its layer and clears the panel on desktop, and there are
+no console errors. On a phone the panel covers 84% so the Satellite button stays
+put behind it, by design.
+
+Cache version `?v=20260910p`.
+
 ## 2026-09-10 — the PS5 Slim Bundles report is deleted
 
 Owner: "let's delete the PS5 bundles report and maps, it is very dated."
