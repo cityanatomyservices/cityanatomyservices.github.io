@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
   <!-- ?v= so a push is actually seen (GitHub Pages caches hard). Bump when
        app.js, style.css, config.js or copy.js change. -->
-  <link rel="stylesheet" href="./style.css?v=20260912f" />
+  <link rel="stylesheet" href="./style.css?v=20260912g" />
 </head>
 <body>
   <!-- A MAP, A TOPIC DROPDOWN, A LEGEND. Seven maps of the FY 2026-27 budget
@@ -37,6 +37,8 @@
         <button class="map-ctrl" id="ctrlExtent" type="button">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
         </button>
+        <!-- 2D/3D only changes the tilt, nothing else (owner 2026-09-12) -->
+        <button class="map-ctrl map-ctrl-text" id="ctrlTilt" type="button"></button>
       </div>
     </div>
     <h1 class="title" id="title"></h1>
@@ -69,9 +71,9 @@
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/pmtiles@3/dist/pmtiles.js"></script>
-  <script src="./copy.js?v=20260912f"></script>
-  <script src="./explain.js?v=20260912f"></script>
-  <script src="./config.js?v=20260912f"></script>
-  <script src="./app.js?v=20260912f"></script>
+  <script src="./copy.js?v=20260912g"></script>
+  <script src="./explain.js?v=20260912g"></script>
+  <script src="./config.js?v=20260912g"></script>
+  <script src="./app.js?v=20260912g"></script>
 </body>
 </html>

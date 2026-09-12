@@ -60,6 +60,13 @@
   $('ctrlZoomIn').addEventListener('click', () => map.zoomIn());
   $('ctrlZoomOut').addEventListener('click', () => map.zoomOut());
   $('ctrlExtent').addEventListener('click', () => map.fitBounds(CFG.austin, { padding: 20, pitch: 0, bearing: 0 }));
+  // 2D/3D: pitch 0 or 55 degrees, and nothing else changes
+  const tiltBtn = $('ctrlTilt');
+  tiltBtn.title = COPY.ui.tiltTitle;
+  const syncTilt = () => { tiltBtn.textContent = map.getPitch() > 0 ? COPY.ui.tilt2d : COPY.ui.tilt3d; };
+  tiltBtn.addEventListener('click', () => map.easeTo({ pitch: map.getPitch() > 0 ? 0 : 55, duration: 500 }));
+  map.on('pitchend', syncTilt);
+  syncTilt();
   let satelliteOn = false;
   $('ctrlSatellite').addEventListener('click', () => {
     satelliteOn = !satelliteOn;
