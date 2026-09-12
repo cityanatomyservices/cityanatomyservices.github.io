@@ -1,5 +1,42 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-12 — the FY 2026-27 budget map at /budget/
+
+Owner: "Can we make a maplibre map of this QGIS project and put it online on a
+page on the anatomy.city site?" and, on data: "We have a parcel database on
+Supabase ... it's better to not make that database larger."
+
+`/budget/` is a MapLibre page with the seven maps built in
+`projects/atxmapdata/Austin2026Budget` (tax base change, city tax bill change,
+drainage charge, building permits by month, capital projects, Atlas 14 flood
+study areas, landmark exemptions). One theme at a time, chosen from a row of
+buttons along the bottom; the legend sits top-right; the permits theme has a
+month slider with a play button. Clicking a feature opens a popup.
+
+**Data, and where it lives.** Everything the map draws is three PMTiles files
+(`budget_fy27.pmtiles` for the small layers, `budget_fy27_tax_bill.pmtiles`
+and `budget_fy27_drainage.pmtiles` for the two parcel layers, zoom 11-14) in
+the public `tiles` Storage bucket of the cityanatomyservices Supabase project
+— the same bucket the parcels app's tiles live in, chosen because it already
+serves the range requests PMTiles needs and because it keeps the tiles off
+GitHub Pages. Three files rather than one because the project's storage
+setting caps uploads at 50 MB each and that setting was left alone. **Nothing was added to
+the parcel database.** The one thing the page reads from the database is
+`parcel_appraisal_history` (2021-2026 taxable values, already there, keyed by
+the same TCAD property id the roll uses), shown in the popup on the two tax
+themes. The parcel layers are only in the tiles from zoom 11, so a hint shows
+when zoomed out on those themes.
+
+**Files:** `budget/index.html`, `app.js` (map, themes, legend, popups),
+`config.js` (tile URL, colours, breaks), `style.css`, and `copy.js` — **every
+word on the page is in copy.js**; the strings there are Claude's working
+placeholders for the owner to replace. The build scripts (`92_export_pmtiles.py`,
+`93_upload_tiles.sh`) are in the budget repo, not here.
+
+Not done: no home-page card yet (card copy is the owner's), and the page has
+not been through a phone check. Cache version for `/budget/` assets:
+`?v=20260912a` (its own, separate from the site-wide one).
+
 ## 2026-09-11 — two reports deleted; the data panel starts closed
 
 Owner: "please delete everything from the city councils map and delete the
