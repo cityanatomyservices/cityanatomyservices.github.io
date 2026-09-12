@@ -15,8 +15,20 @@
             position: sticky; top: 0; z-index: 2; }
     .top a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; }
     .top h1 { font-size: 16px; margin: 0 0 0 auto; font-weight: 600; }
-    .wrap { display: grid; grid-template-columns: 260px 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 16px; }
-    nav.toc { position: sticky; top: 56px; align-self: start; max-height: calc(100vh - 72px); overflow-y: auto; font-size: 13px; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 16px 16px 16px 40px; }
+    /* the contents panel slides in from the left; its handle rides on its edge
+       and is always visible, so the panel can be opened or closed at any point */
+    nav.toc { position: fixed; top: 49px; left: 0; bottom: 0; width: 280px; max-width: 85vw; overflow-y: auto; z-index: 3;
+               background: var(--paper); border-right: 1px solid var(--line); padding: 12px 16px; font-size: 13px; box-sizing: border-box;
+               transition: transform 0.2s ease; }
+    body.toc-closed nav.toc { transform: translateX(-100%); }
+    .toc-toggle { position: fixed; top: 60px; left: 280px; z-index: 4; width: 26px; height: 44px; border: 1px solid var(--line); border-left: none;
+                   border-radius: 0 6px 6px 0; background: var(--paper); cursor: pointer; padding: 0; transition: left 0.2s ease; }
+    body.toc-closed .toc-toggle { left: 0; }
+    .toc-toggle::before { content: ""; display: block; width: 8px; height: 8px; margin: auto; border-top: 2px solid var(--ink); border-right: 2px solid var(--ink);
+                           transform: translateX(2px) rotate(-135deg); }
+    body.toc-closed .toc-toggle::before { transform: translateX(-2px) rotate(45deg); }
+    body:not(.toc-closed) .wrap { padding-left: 300px; }
     nav.toc ul { list-style: none; padding-left: 10px; margin: 4px 0; }
     nav.toc > ul { padding-left: 0; }
     nav.toc a { color: var(--muted); text-decoration: none; }
@@ -32,7 +44,7 @@
     th { background: #f0f2f4; }
     code { font-size: 90%; background: #f0f2f4; padding: 0 3px; border-radius: 3px; }
     .part { margin-bottom: 40px; }
-    @media (max-width: 800px) { .wrap { grid-template-columns: 1fr; } nav.toc { position: static; max-height: none; } main { padding: 8px 16px 20px; } }
+    @media (max-width: 800px) { body:not(.toc-closed) .wrap { padding-left: 40px; } main { padding: 8px 16px 20px; } }
   </style>
 </head>
 <body>
@@ -41,8 +53,9 @@
     <a href="./">Map</a>
     <h1>CityAnatomy Budget Summary</h1>
   </div>
+  <nav class="toc" id="toc"><ul><li><a href="#adopted-part">What changed at adoption</a><ul><li><a href="#adopted-council-amendments-from-the-press-release">Council amendments (from the press release)</a></li><li><a href="#adopted-overlapping-tax-rates-for-the-full-bill-table">Overlapping tax rates (for the full-bill table)</a></li><li><a href="#adopted-sources">Sources</a></li></ul></li><li><a href="#v1-part">Volume I</a><ul><li><a href="#v1-1-the-headline-numbers">1. The headline numbers</a></li><li><a href="#v1-2-where-the-money-goes-all-funds-6-6-b">2. Where the money goes (all funds, $6.6 B)</a></li><li><a href="#v1-3-general-fund-what-changed">3. General Fund: what changed</a></li><li><a href="#v1-4-the-structural-problem-in-the-city-s-own-words">4. The structural problem, in the City&#x27;s own words</a></li><li><a href="#v1-5-pay-benefits-pensions">5. Pay, benefits, pensions</a></li><li><a href="#v1-6-utility-rates-and-fees-typical-household">6. Utility rates and fees, typical household</a></li><li><a href="#v1-7-the-development-slowdown-shows-up-everywhere">7. The development slowdown shows up everywhere</a></li><li><a href="#v1-8-capital">8. Capital</a></li><li><a href="#v1-9-departments-most-relevant-to-planning-and-mapping-work">9. Departments most relevant to planning and mapping work</a></li><li><a href="#v1-10-things-to-be-careful-about">10. Things to be careful about</a></li><li><a href="#v1-possible-follow-ups-not-started">Possible follow-ups (not started)</a></li></ul></li><li><a href="#v2-part">Volume II</a><ul><li><a href="#v2-1-what-volume-ii-adds-to-the-volume-i-story">1. What Volume II adds to the Volume I story</a></li><li><a href="#v2-2-grants-90-1-m-286-positions-and-a-5-9-m-drop-planned">2. Grants: $90.1 M, 286 positions, and a $5.9 M drop planned</a></li><li><a href="#v2-3-one-time-money-from-the-reserve-4-25-m-p-155">3. One-time money from the reserve: $4.25 M (p. 155)</a></li><li><a href="#v2-4-the-five-year-capital-plan-15-1-b-by-department">4. The five-year capital plan: $15.1 B, by department</a></li><li><a href="#v2-5-transportation-and-public-works-the-bond-pipeline-ends-in-fy-2028">5. Transportation and Public Works: the bond pipeline ends in FY 2028</a></li><li><a href="#v2-6-watershed-protection-321-m-87-from-the-drainage-charge">6. Watershed Protection: $321 M, 87% from the drainage charge</a></li><li><a href="#v2-7-housing-planning-and-parks-capital">7. Housing, Planning and Parks capital</a></li><li><a href="#v2-8-personnel-table-highlights-pp-344-345">8. Personnel table highlights (pp. 344-345)</a></li><li><a href="#v2-9-debt-pp-363-381">9. Debt (pp. 363-381)</a></li><li><a href="#v2-10-ordinances-and-calendar-pp-382-389">10. Ordinances and calendar (pp. 382-389)</a></li><li><a href="#v2-11-fee-schedule-development-fees-go-up-hard-residential-is-shielded">11. Fee schedule: development fees go up hard, residential is shielded</a></li><li><a href="#v2-12-handle-with-care">12. Handle with care</a></li><li><a href="#v2-possible-follow-ups-not-started">Possible follow-ups (not started)</a></li></ul></li></ul></nav>
+  <button class="toc-toggle" id="tocToggle" type="button" aria-controls="toc" aria-expanded="true" aria-label="Contents"></button>
   <div class="wrap">
-    <nav class="toc"><ul><li><a href="#adopted-part">What changed at adoption</a><ul><li><a href="#adopted-council-amendments-from-the-press-release">Council amendments (from the press release)</a></li><li><a href="#adopted-overlapping-tax-rates-for-the-full-bill-table">Overlapping tax rates (for the full-bill table)</a></li><li><a href="#adopted-sources">Sources</a></li></ul></li><li><a href="#v1-part">Volume I</a><ul><li><a href="#v1-1-the-headline-numbers">1. The headline numbers</a></li><li><a href="#v1-2-where-the-money-goes-all-funds-6-6-b">2. Where the money goes (all funds, $6.6 B)</a></li><li><a href="#v1-3-general-fund-what-changed">3. General Fund: what changed</a></li><li><a href="#v1-4-the-structural-problem-in-the-city-s-own-words">4. The structural problem, in the City&#x27;s own words</a></li><li><a href="#v1-5-pay-benefits-pensions">5. Pay, benefits, pensions</a></li><li><a href="#v1-6-utility-rates-and-fees-typical-household">6. Utility rates and fees, typical household</a></li><li><a href="#v1-7-the-development-slowdown-shows-up-everywhere">7. The development slowdown shows up everywhere</a></li><li><a href="#v1-8-capital">8. Capital</a></li><li><a href="#v1-9-departments-most-relevant-to-planning-and-mapping-work">9. Departments most relevant to planning and mapping work</a></li><li><a href="#v1-10-things-to-be-careful-about">10. Things to be careful about</a></li><li><a href="#v1-possible-follow-ups-not-started">Possible follow-ups (not started)</a></li></ul></li><li><a href="#v2-part">Volume II</a><ul><li><a href="#v2-1-what-volume-ii-adds-to-the-volume-i-story">1. What Volume II adds to the Volume I story</a></li><li><a href="#v2-2-grants-90-1-m-286-positions-and-a-5-9-m-drop-planned">2. Grants: $90.1 M, 286 positions, and a $5.9 M drop planned</a></li><li><a href="#v2-3-one-time-money-from-the-reserve-4-25-m-p-155">3. One-time money from the reserve: $4.25 M (p. 155)</a></li><li><a href="#v2-4-the-five-year-capital-plan-15-1-b-by-department">4. The five-year capital plan: $15.1 B, by department</a></li><li><a href="#v2-5-transportation-and-public-works-the-bond-pipeline-ends-in-fy-2028">5. Transportation and Public Works: the bond pipeline ends in FY 2028</a></li><li><a href="#v2-6-watershed-protection-321-m-87-from-the-drainage-charge">6. Watershed Protection: $321 M, 87% from the drainage charge</a></li><li><a href="#v2-7-housing-planning-and-parks-capital">7. Housing, Planning and Parks capital</a></li><li><a href="#v2-8-personnel-table-highlights-pp-344-345">8. Personnel table highlights (pp. 344-345)</a></li><li><a href="#v2-9-debt-pp-363-381">9. Debt (pp. 363-381)</a></li><li><a href="#v2-10-ordinances-and-calendar-pp-382-389">10. Ordinances and calendar (pp. 382-389)</a></li><li><a href="#v2-11-fee-schedule-development-fees-go-up-hard-residential-is-shielded">11. Fee schedule: development fees go up hard, residential is shielded</a></li><li><a href="#v2-12-handle-with-care">12. Handle with care</a></li><li><a href="#v2-possible-follow-ups-not-started">Possible follow-ups (not started)</a></li></ul></li></ul></nav>
     <main>
       <section class="part" id="adopted-part"><h2 id="adopted-what-changed-between-the-proposed-and-the-adopted-budget">What changed between the proposed and the adopted budget</h2>
 <p>Council adopted the FY 2026-27 budget on August 12, 2026 (9-2; Mayor Watson and CM Duchen against). The two analysis files describe the July PROPOSED budget. This note records what moved, from the City's adoption press release and Community Impact's coverage, so the video uses adopted figures. Checked 2026-09-12. The adopted budget document itself was not yet posted.</p>
@@ -135,5 +148,20 @@
 <ul><li>Geocode the FY27-31 Transportation and Watershed project list (about 250 named subprojects with street or creek names) and map spend by council district or watershed.</li><li>Overlay the Atlas 14 floodplain mapping study areas and the Cap and Stitch, Bergstrom Spur and Walnut Creek Trail alignments on the parcel layer in <code>C:\GISData</code>.</li><li>Build a small table of the ~130 historic landmarks receiving the tax exemption (p. 634-649) with addresses, for the Austin 1885 work.</li></ul></section>
     </main>
   </div>
+  <script>
+    // The contents panel: open on a desktop, closed on a phone, and the handle
+    // is always there to flip it. Picking a heading closes it on a phone.
+    (function () {
+      var btn = document.getElementById('tocToggle');
+      var narrow = window.matchMedia('(max-width: 800px)').matches;
+      if (narrow) document.body.classList.add('toc-closed');
+      function sync() { btn.setAttribute('aria-expanded', String(!document.body.classList.contains('toc-closed'))); }
+      btn.addEventListener('click', function () { document.body.classList.toggle('toc-closed'); sync(); });
+      document.querySelectorAll('nav.toc a').forEach(function (a) {
+        a.addEventListener('click', function () { if (window.matchMedia('(max-width: 800px)').matches) { document.body.classList.add('toc-closed'); sync(); } });
+      });
+      sync();
+    })();
+  </script>
 </body>
 </html>
