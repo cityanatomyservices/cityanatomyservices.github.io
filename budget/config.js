@@ -19,7 +19,7 @@ window.BUDGET_CONFIG = {
   },
   basemap: 'https://tiles.openfreemap.org/styles/positron',
   center: [-97.7431, 30.2672],   // downtown
-  zoom: 10.3,                     // a step further out than the parcel zoom (owner 2026-09-12)
+  zoom: 13,                       // close in on downtown so the parcels draw at once (owner 2026-09-12)
   minZoom: 9,
   maxBounds: [[-98.25, 29.95], [-97.30, 30.70]],
   parcelMinZoom: 11,          // the two parcel layers are only in the tiles from here
