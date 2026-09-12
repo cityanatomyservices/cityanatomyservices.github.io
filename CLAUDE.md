@@ -24,3 +24,9 @@ the HTML that references them:
 
 Use the date. Each report folder's own `style.css` carries its own separate
 `?v=` — leave those alone.
+
+**Do not fetch a new `?v=` URL until the Pages deploy has finished.** GitHub's
+CDN caches whatever it serves for a query string for four hours, so a probe
+that lands before the deploy pins the OLD file under the NEW version (this
+bit `/datacenters/` on 2026-09-12 and cost another bump). Wait for the HTML
+page itself to show the new version string first, then check the assets once.
