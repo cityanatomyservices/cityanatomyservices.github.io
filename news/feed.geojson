@@ -1,9 +1,345 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-09-11T14:41:06.569Z",
- "placed": 44,
- "total": 100,
+ "generated": "2026-09-12T13:48:08.836Z",
+ "placed": 43,
+ "total": 102,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas vs. Ohio State preview: What to watch for in top-five showdown",
+    "link": "https://www.kxan.com/sports-general/horns-report/ut-ohio-state-what-to-watch/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-12T13:00:00.000Z",
+    "summary": "No. 4 Texas hosts No. 1 Ohio State in a top-five showdown Saturday night at DKR. Here's what to watch as the Longhorns look to avenge last season's loss in Columbus.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Heat Advisory in effect as highs near records",
+    "link": "https://www.kxan.com/weather/forecast/heat-advisory-in-effect-as-highs-near-records/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-12T12:35:58.000Z",
+    "summary": "Dangerous heat this weekend as highs near record temperatures, with even hotter heat index values. - Meteorologist Hannah Gard",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "'Anyone can be a conservationist': How Austin's hidden wildlife sanctuary is educating the next generation",
+    "link": "https://www.kxan.com/central-texas/anyone-can-be-a-conservationist-how-austins-hidden-wildlife-sanctuary-is-educating-the-next-generation/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-12T12:00:00.000Z",
+    "summary": "Did you know that Austin has a wildlife sanctuary? Alveus Sanctuary was founded in 2021 by Twitch streamer and content creator Maya Higa and expanded from 10 acres at its opening to 40 acres as of 2026.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Week 3 Texas high school football scores",
+    "link": "https://www.kxan.com/sports-general/week-3-texas-high-school-football-scores/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-12T04:34:46.000Z",
+    "summary": "Check out high school football scores from across Texas for Week 3 of the 2026 season.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "Longhorns prepare battle against extreme heat at Texas-Ohio State showdown",
+    "link": "https://www.kxan.com/news/local/longhorn-student-section-line/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-12T04:04:35.000Z",
+    "summary": "Austin-Travis County EMS plans to increase resources and services around the anticipated game.",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Stony Point rolls past Waco University 45-21 for first win",
+    "link": "https://www.kxan.com/sports-general/watch-waco-university-stony-point-football-live/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-11T23:03:13.000Z",
+    "summary": "Stony Point picked up its first win of the season Friday night, rolling past previously unbeaten Waco University 45-21 at Kelly Reeves Athletic Complex.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Who has the edge in Texas hosting Ohio State?",
+    "link": "https://www.kxan.com/sports/who-has-the-edge-in-texas-hosting-ohio-state/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-11T23:01:48.000Z",
+    "summary": "AUSTIN (KXAN) -- Looking through the college football slate for Week 2, one matchup sticks out like a thumb that's beyond sore. That is the showdown between two iconic programs ranked in the top five with Ohio State traveling to Texas. The game appears to most experts as a toss-up with plenty of NFL talent [...]",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas-Ohio State match up drives high ticket prices, boosts Austin's economy",
+    "link": "https://www.kxan.com/news/local/austin/texas-ohio-state-match-up-drives-high-ticket-prices-boosts-austins-economy/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-11T22:27:39.000Z",
+    "summary": "While ticket prices rise for Texas OSU game some businesses are gearing up for big crowds",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Vandegrift rolls past Liberty Hill 45-14 in Week 3",
+    "link": "https://www.kxan.com/sports-general/watch-vandegrift-vs-liberty-hill-football-live/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-11T21:31:02.000Z",
+    "summary": "Vandegrift bounced back from its Week 2 loss in a big way, handing previously unbeaten Liberty Hill its first loss of the season with a 45-14 win Friday night.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Central Texas honors 9/11 victims with stair climbing events",
+    "link": "https://www.kxan.com/central-texas/central-texas-honors-9-11-victims-with-stair-climbing-events/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-11T21:20:11.000Z",
+    "summary": "September 11, 2026, marks the 25th anniversary of the 9/11 terrorist attack on the World Trade Center in New York City.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8203,
+     30.5052
+    ]
+   },
+   "properties": {
+    "title": "Cedar Park approves $216 million budget, sets higher tax rate",
+    "link": "https://communityimpact.com/cedar-park/government/cedar-park-approves-216-million-budget-sets-higher-tax-rate/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-11T21:15:00.000Z",
+    "summary": "",
+    "place": "Cedar Park",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Wine, flowers and film: 5 North Central Austin business updates",
+    "link": "https://communityimpact.com/central-austin/business/wine-flowers-and-film-5-north-central-austin-business-updates/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-11T21:15:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.91,
+     30.4
+    ]
+   },
+   "properties": {
+    "title": "Indoor hitting facility, Infinite Hitting - Lake Travis coming to Spicewood",
+    "link": "https://communityimpact.com/lake-travis-westlake/business/indoor-hitting-facility-infinite-hitting-lake-travis-coming-to-spicewood/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-11T20:31:00.000Z",
+    "summary": "",
+    "place": "Lake Travis",
+    "placeKind": "lake"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "The Empress offers magic and mysticism in New Braunfels",
+    "link": "https://communityimpact.com/new-braunfels/business/the-empress-offers-magic-and-mysticism-in-new-braunfels/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-11T20:30:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "25 years on, Austin firefighters honor 9/11 responders with tower climb",
+    "link": "https://www.kut.org/austin/2026-09-11/austin-tx-firefighters-stair-climb-9-11-tribute",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-09-11T20:17:55.000Z",
+    "summary": "The Austin Fire Department said the annual stair climb is the longest-running tradition of its kind in the nation. It began the day after the 9/11 attacks.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6789,
+     30.5083
+    ]
+   },
+   "properties": {
+    "title": "Round Rock City Council passes higher tax rate to fund 52 new positions",
+    "link": "https://communityimpact.com/round-rock/government/round-rock-city-council-passes-higher-tax-rate-to-fund-52-new-positions/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-11T20:04:39.000Z",
+    "summary": "",
+    "place": "Round Rock",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74582,
+     30.31602
+    ]
+   },
+   "properties": {
+    "title": "Austin City Council postpones Rosedale School rezoning vote to Sept. 24",
+    "link": "https://communityimpact.com/central-austin/development/austin-city-council-postpones-rosedale-school-rezoning-vote-to-sept-24/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-09-11T18:28:36.000Z",
+    "summary": "",
+    "place": "Rosedale",
+    "placeKind": "neighborhood"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "$280M data center coming to Hutto",
+    "link": "https://communityimpact.com/pflugerville-hutto/development/280m-data-center-coming-to-hutto/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-09-11T17:02:29.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "New Braunfels' bankrupt Whitewater Amphitheater listed for sale",
+    "link": "https://austin.culturemap.com/news/entertainment/whitewater-ampitheater-bankruptcy-listing/",
+    "outlet": "CultureMap",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-09-11T16:01:05.000Z",
+    "summary": "Since debuting in 2007, the riverfront Whitewater Amphitheater outside New Braunfels has hosted some of music’s biggest stars. Among them are Willie Nelson, Bob Dylan, Miranda Lambert, Zach Bryan, Chance the Rapper, Halsey, Neil Young, and ZZ Top. Today, however, the venue’s website lists no upcoming shows . In July, the outdoor venue’s operating company filed for Chapter 11 bankruptcy protection ",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6789,
+     30.5083
+    ]
+   },
+   "properties": {
+    "title": "Cosmic Egg Wellness to relocate within Round Rock in October",
+    "link": "https://communityimpact.com/round-rock/business/cosmic-egg-wellness-to-relocate-within-round-rock-in-october/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-11T15:00:00.000Z",
+    "summary": "",
+    "place": "Round Rock",
+    "placeKind": "city"
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
@@ -15,129 +351,6 @@
     "color": "#f08aa8",
     "published": "2026-09-11T14:15:00.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Pedestrian killed in N. FM 620 crash",
-    "link": "https://www.kxan.com/news/local/austin/pedestrian-killed-in-n-fm-620-crash/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T13:28:12.000Z",
-    "summary": "Austin Police on Friday said a pedestrian succumbed to his injuries after being involved in a crash involving a vehicle on Sept. 5.",
-    "place": "Austin Police",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Police ID motorcyclist killed after crashing into guardrail",
-    "link": "https://www.kxan.com/news/local/austin/police-id-motorcyclist-killed-after-crashing-into-guardrail/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T12:53:00.000Z",
-    "summary": "A motorcyclist died Sept. 4 after crashing into a guardrail in southwest Austin, according to Austin Police.",
-    "place": "Austin Police",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7394,
-     30.285
-    ]
-   },
-   "properties": {
-    "title": "UT Austin launches $30 million effort to study what happens when robots move into everyday life",
-    "link": "https://www.kxan.com/news/local/ut-austin-launches-30-million-effort-to-study-what-happens-when-robots-move-into-everyday-life/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T12:00:00.000Z",
-    "summary": "Robots are increasingly moving from labs into the real world. A new UT Austin-led research center will place robots in dorms, hospitals and other everyday environments to study how humans and machines learn to live and work alongside one another over time.",
-    "place": "UT Austin",
-    "placeKind": "campus"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Longhorns ready to host Ohio State for third meeting in three seasons",
-    "link": "https://www.kxan.com/sports-general/horns-report/longhorns-ready-to-host-ohio-state-for-third-meeting-in-three-seasons/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T12:00:00.000Z",
-    "summary": "No. 4 Texas welcomes No. 1 Ohio State to Austin as the Longhorns look to flip the script after back-to-back losses to the Buckeyes.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Book-shaped Ayn Rand Center under construction, set to open in 2028",
-    "link": "https://www.kxan.com/news/local/austin/book-shaped-ayn-rand-center-under-construction-set-to-open-in-2028/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T11:40:13.000Z",
-    "summary": "Austin residents may have noticed the construction project at the intersection of West Martin Luther King Jr. Boulevard and San Gabriel Street.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Burned by solar? New Texas rules target bad sales practices",
-    "link": "https://www.kxan.com/cause-and-effect/burned-by-solar-new-texas-rules-target-bad-sales-practices/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T11:30:00.000Z",
-    "summary": "A new Texas law now protects homeowners purchasing solar panels by requiring businesses and salespeople to register with the Texas Department of Licensing and Regulation. The state agency will provide oversight, investigate complaints, and take enforcement action, if violations occur.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Rain chances slim with triple-digits dominant this weekend",
-    "link": "https://www.kxan.com/weather/forecast/rain-chances-slim-with-triple-digits-dominant-this-weekend/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T11:25:44.000Z",
-    "summary": "We are so close to finally moving away from 100°+ temperatures, but this weekend will continue the heat trend alive with very little rain chances. - Freddy Vela",
     "place": null,
     "placeKind": null
    }
@@ -197,21 +410,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Sarkisian embraces spotlight as No. 4 Texas hosts No. 1 Ohio State",
-    "link": "https://www.kxan.com/sports-general/horns-report/ut-longhorns-coach-ohio-state/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T02:55:19.000Z",
-    "summary": "Steve Sarkisian says No. 4 Texas has “earned the right to be on this stage” as the Longhorns prepare to host No. 1 Ohio State in a primetime showdown Saturday.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Major problem",
     "link": "https://www.austinpolitics.net/major-prob/",
     "outlet": "Austin Politics",
@@ -225,15 +423,36 @@
   },
   {
    "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.747,
+     30.265
+    ]
+   },
+   "properties": {
+    "title": "Austin Water Responds to a Reclaimed Water Main Break Near Stassney Lane",
+    "link": "https://www.austintexas.gov/water/news/austin-water-responds-reclaimed-water-main-break-near-stassney-lane",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-11T00:00:00.000Z",
+    "summary": "<p dir=\"ltr\"><strong>AUSTIN – </strong>Austin Water responded to a reclaimed water main break on Thursday, Sept. 10, near 5951 E. Stassney Lane. Crews completed repairs at approximately 3 a.m. this morning on Friday, Sept. 11. The community's drinking water supply is not affected and remains safe.</p><p dir=\"ltr\">Approximately 574,000 gallons of reclaimed water leaked from a reclaimed water main i",
+    "place": "Austin Water",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Rasheem Biles working to change narrative around mental health",
-    "link": "https://www.kxan.com/sports-general/horns-report/rasheem-biles-working-to-change-narrative-around-mental-health/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-11T01:17:30.000Z",
-    "summary": "Texas linebacker Rasheem Biles is using his platform to advocate for mental health awareness through his Dr3am Foundation after losing a friend to suicide.",
+    "title": "Mayor’s Health & Well-Being Council Announces New Partnerships & Award Recipients",
+    "link": "https://www.austintexas.gov/health/news/mayors-health-well-being-council-announces-new-partnerships-award-recipients",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-11T00:00:00.000Z",
+    "summary": "<p style=\"text-align:left;\" lang=\"EN-US\" paraeid=\"{27059714-53dc-48b9-863a-83d94e92e282}{180}\" paraid=\"1261731992\" xml:lang=\"EN-US\"><strong>AUSTIN, Texas —&nbsp;</strong>The Mayor’s Health &amp; Well-Being Council (MHWC) recognized certified partners and announced the winners of the Moving the Needle Workplace Awards and the Mayor’s Healthiest Workplace Awards during a ceremony held at Austin City",
     "place": null,
     "placeKind": null
    }
@@ -257,21 +476,6 @@
     "summary": "Officials expect the owner of a median-valued home in Bastrop to pay about $36 less in city taxes despite a higher proposed rate",
     "place": "Bastrop",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Cedar Ridge rolls past Vista Ridge in KBVO Game of the Week",
-    "link": "https://www.kxan.com/sports-general/cedar-ridge-vista-ridge-meet-in-week-3-kbvo-game-of-the-week/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-10T22:44:57.000Z",
-    "summary": "Cedar Ridge improved to 3-0 with a dominant 70-23 win over Vista Ridge in KBVO's Week 3 Game of the Week.",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -527,7 +731,7 @@
     "group": "government",
     "color": "#f0c27a",
     "published": "2026-09-10T00:00:00.000Z",
-    "summary": "<p><strong>Case: </strong><span>26-2480069</span><br><span>&nbsp;</span><br><strong>Time: </strong><span>12:43 a.m.</span><br><span>&nbsp;</span><br><strong>Date: </strong><span>Saturday, September 5, 2026&nbsp;&nbsp;</span><br><span>&nbsp;</span><br><strong>Location: </strong><span>13300 block N. FM 620 Road SB</span><br><span>&nbsp;</span><br><strong>Deceased:</strong><span> John Michael Filley,",
+    "summary": "<p><span><strong>Case:&nbsp;</strong>26-2480069</span><br><span>&nbsp;</span><br><span><strong>Time:&nbsp;</strong>12:43 a.m.</span><br><span>&nbsp;</span><br><span><strong>Date:&nbsp;</strong>Saturday, September 5, 2026&nbsp;&nbsp;</span><br><span>&nbsp;</span><br><span><strong>Location:&nbsp;</strong>13300 block N. FM 620 Road SB</span><br><span>&nbsp;</span><br><span><strong>Deceased:</strong>&",
     "place": null,
     "placeKind": null
    }
@@ -678,48 +882,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Shake Shack now open in Georgetown",
-    "link": "https://communityimpact.com/georgetown/business/shake-shack-now-open-in-georgetown/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-09T22:30:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.9414,
-     29.8833
-    ]
-   },
-   "properties": {
-    "title": "From running gear to dirty sodas: Check out 8 businesses now open in San Marcos",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/from-running-gear-to-dirty-sodas-check-out-8-businesses-now-open-in-san-marcos/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-09T22:00:00.000Z",
-    "summary": "",
-    "place": "San Marcos",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "DAA Advances Five Positions on Homelessness, Mental Health & Safety",
@@ -794,21 +956,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Guzman Automotive to open in Hutto",
-    "link": "https://communityimpact.com/pflugerville-hutto/business/guzman-automotive-to-open-in-hutto/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-09T17:05:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Mayor Kirk Watson wants parents to close two Austin schools to head off state takeover",
     "link": "https://austincurrent.org/2026/09/09/austin-austinisd-takeover-mayor-burnet-webb/",
     "outlet": "Austin Current",
@@ -854,27 +1001,6 @@
     "summary": "Dear colleagues, I requested that item #6 be pulled from the consent agenda tomorrow and wanted to share my thoughts in advance of the meeting. My overall ask is that we vote down this item and ask for it to be brought back in smaller pieces with more specific information. Item #6 would authorize 17 contracts for up to $5 million over three years. I’ve met with staff and am informed that the prima",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Rush Bowls now serving smoothie drinks, bowls in Round Rock",
-    "link": "https://communityimpact.com/round-rock/business/rush-bowls-now-serving-smoothie-drinks-bowls-in-round-rock/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-09T13:00:00.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
    }
   },
   {
@@ -954,27 +1080,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "Budgets and bonds: 3 key Cedar Park-area local government stories in September",
-    "link": "https://communityimpact.com/cedar-park/government/budgets-and-bonds-3-key-cedar-park-area-local-government-stories-in-september/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-08T21:30:20.000Z",
-    "summary": "",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.736,
      30.268
     ]
@@ -989,21 +1094,6 @@
     "summary": "The district released an open letter Tuesday urging the city and community stakeholders to prioritize zoning rules designed to protect live music spaces.",
     "place": "Red River",
     "placeKind": "street"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Liberty Hill leaders build $138M budget to to keep pace with growth",
-    "link": "https://communityimpact.com/leander-liberty-hill/government/liberty-hill-leaders-build-138m-budget-to-to-keep-pace-with-growth/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-08T21:19:50.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1127,42 +1217,6 @@
     "summary": "Update: The Texas Democratic Party’s Disciplinary Committee on September 9th notified Jacob Cortés that it had upheld the complaint against him. “Accordingly, effective September 8, 2026, you are hereby removed from all positions…including your positions as Travis County Democratic Party Precinct Chair for Precinct 113 and Super Precinct Chair for Windsor Park.” Cortés supplied a […]",
     "place": "Travis County",
     "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.747,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "Test of Longhorn Dam Floodgate Warning Sirens Scheduled for September 15",
-    "link": "https://www.austintexas.gov/water/news/test-longhorn-dam-floodgate-warning-sirens-scheduled-september-15",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-08T00:00:00.000Z",
-    "summary": "<p><span><strong>AUSTIN –</strong>&nbsp;Austin Water will conduct a test of the floodgate warning sirens at Longhorn Dam on Tuesday, September 15, 2026, at&nbsp;10 a.m.&nbsp;Residents and visitors in the surrounding area may hear the siren during the test. No emergency is occurring and no action is&nbsp;required&nbsp;from the public. The siren&nbsp;test&nbsp;will sound,&nbsp;one time,&nbsp;continu",
-    "place": "Austin Water",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas Chapter of American Planning Association Awards Gold to Equity-Based Preservation Plan",
-    "link": "https://www.austintexas.gov/planning/news/texas-chapter-american-planning-association-awards-gold-equity-based-preservation",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-08T00:00:00.000Z",
-    "summary": "<p><span>The American Planning Association Texas Chapter has recognized the City of Austin’s </span><a href=\"https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fus.list-manage.com%2FeGPMcUjeV7b%3Fe%3D31c1f17024%26c2id%3D75ddfe5c56e9672ead9b8f00912a8743&amp;data=05%7C02%7CCaleb.Pritchard%40austintexas.gov%7C0ef461f96b5c44044a9e08df0de0e3b7%7C5c5e19f6a6ab4b45b1d0be4608a9a67f%7C0%7C0%7C",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1734,36 +1788,6 @@
     "color": "#e8b35e",
     "published": "2026-08-30T19:02:06.000Z",
     "summary": "The overhead panels evenly bathed the room with fluorescent lighting at the United Association of Journeymen Plumbers & Steamfitters Local 286 building on Airport Boulevard, as five city council forums were held August 22nd, one for each place on the November 3rd ballot. Moderated by KUT Senior Correspondent on Energy and Environment Mose Buchele, the […]",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin rents are falling. So why are eviction filings still at record highs?",
-    "link": "https://austincurrent.org/2026/08/28/texas-austin-affordability-rent-eviction/",
-    "outlet": "Austin Current",
-    "group": "planning",
-    "color": "#7ad4c8",
-    "published": "2026-08-28T23:05:11.000Z",
-    "summary": "The city wants to explore ways to help tenants avoid evictions, as the number of filings continues to reach record highs The post Austin rents are falling. So why are eviction filings still at record highs? appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Art Village brings hands-on approach to Hill Country home building",
-    "link": "https://communityimpact.com/lake-travis-westlake/development/art-village-brings-hands-on-approach-to-hill-country-home-building/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-08-28T16:18:51.000Z",
-    "summary": "",
     "place": null,
     "placeKind": null
    }
