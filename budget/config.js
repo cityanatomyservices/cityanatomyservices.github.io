@@ -39,10 +39,15 @@ window.BUDGET_CONFIG = {
 
   permitMonths: { first: '2021-01', last: '2026-07' },
 
-  // reference overlays: GeoJSON files next to the page (budget repo script 96),
-  // drawn as outlines with a label, both off until the viewer ticks them
+  // reference overlays: GeoJSON files next to the page (budget repo script 96).
+  // Each polygon gets a see-through tint from the palette below, picked by its
+  // number modulo 10 so neighbours differ; outline and bold haloed label use
+  // the layer's own colour. Both off until the viewer ticks them. The same
+  // palette is in the budget repo's script 90 for the QGIS project.
   overlays: {
     zip:     { file: './data/zipcodes.geojson?v=20260912h',          label: 'zipcode',         color: '#6b4c9a' },
     council: { file: './data/council_districts.geojson?v=20260912h', label: 'district_number', color: '#1f6f8b' }
-  }
+  },
+  overlayPalette: ['#4e79a7', '#f28e2b', '#e15759', '#76b7b2', '#59a14f', '#edc948', '#b07aa1', '#ff9da7', '#9c755f', '#bab0ac'],
+  overlayFillOpacity: 0.25
 };

@@ -317,21 +317,29 @@
   $('ovZipLabel').textContent = COPY.ui.overlayZip;
   $('ovCouncilLabel').textContent = COPY.ui.overlayCouncil;
   const OVERLAY_BOX = { zip: 'ovZip', council: 'ovCouncil' };
+  // tint by number: palette[number % 10]
+  function overlayTint(field) {
+    const m = ['match', ['%', ['to-number', ['get', field]], 10]];
+    CFG.overlayPalette.forEach((c, i) => m.push(i, c));
+    m.push(CFG.overlayPalette[0]);
+    return m;
+  }
   function addOverlays() {
     Object.entries(CFG.overlays).forEach(([key, o]) => {
       map.addSource('overlay-' + key, { type: 'geojson', data: o.file });
-      map.addLayer({ id: 'overlay-' + key + '-line', type: 'line', source: 'overlay-' + key, layout: { visibility: 'none' },
-        paint: { 'line-color': o.color, 'line-width': 1.5, 'line-dasharray': [4, 2] } });
-      map.addLayer({ id: 'overlay-' + key + '-label', type: 'symbol', source: 'overlay-' + key,
+      const ids = ['fill', 'line', 'label'].map((k) => 'overlay-' + key + '-' + k);
+      map.addLayer({ id: ids[0], type: 'fill', source: 'overlay-' + key, layout: { visibility: 'none' },
+        paint: { 'fill-color': overlayTint(o.label), 'fill-opacity': CFG.overlayFillOpacity } });
+      map.addLayer({ id: ids[1], type: 'line', source: 'overlay-' + key, layout: { visibility: 'none' },
+        paint: { 'line-color': o.color, 'line-width': 1.5 } });
+      map.addLayer({ id: ids[2], type: 'symbol', source: 'overlay-' + key,
         layout: { visibility: 'none', 'symbol-placement': 'point', 'text-field': ['get', o.label],
-                  'text-font': ['Noto Sans Regular'], 'text-size': 12 },
-        paint: { 'text-color': o.color, 'text-halo-color': '#fff', 'text-halo-width': 1.5 } });
+                  'text-font': ['Noto Sans Bold'], 'text-size': 13 },
+        paint: { 'text-color': o.color, 'text-halo-color': '#fff', 'text-halo-width': 2.5 } });
       const box = $(OVERLAY_BOX[key]);
       box.checked = false;
       box.addEventListener('change', () => {
-        const v = box.checked ? 'visible' : 'none';
-        map.setLayoutProperty('overlay-' + key + '-line', 'visibility', v);
-        map.setLayoutProperty('overlay-' + key + '-label', 'visibility', v);
+        ids.forEach((id) => map.setLayoutProperty(id, 'visibility', box.checked ? 'visible' : 'none'));
       });
     });
   }

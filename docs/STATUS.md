@@ -2,7 +2,7 @@
 
 ## 2026-09-12 (evening) — budget map: Layers box with two overlays
 
-`/budget/` has a "Layers" box under the map controls with two checkboxes, ZIP codes and council districts, both OFF by default (owner's ask). They are plain GeoJSON files in `budget/data/` (0.85 MB and 0.58 MB), exported from the GIS library by the budget repo's `scripts/96_export_overlays_geojson.py`, drawn as dashed outlines with a number label. The council outline that used to draw automatically on the two tax themes is gone; the checkbox owns it now. Wording for the box is placeholder in `copy.js` (`ui.overlays`, `ui.overlayZip`, `ui.overlayCouncil`). Cache key bumped to `v=20260912h`. The tiles were also re-uploaded earlier today with the drainage parcels filtered to the city limits.
+`/budget/` has a "Layers" box under the map controls with two checkboxes, ZIP codes and council districts, both OFF by default (owner's ask). They are plain GeoJSON files in `budget/data/` (0.85 MB and 0.58 MB), exported from the GIS library by the budget repo's `scripts/96_export_overlays_geojson.py`, drawn as dashed outlines with a number label. The council outline that used to draw automatically on the two tax themes is gone; the checkbox owns it now. Wording for the box is placeholder in `copy.js` (`ui.overlays`, `ui.overlayZip`, `ui.overlayCouncil`). Styled the same evening: each polygon tinted at 25% from a ten-colour palette (`config.js` `overlayPalette`, number modulo 10), solid coloured outline, bold label with a 2.5 px white halo. Cache key bumped to `v=20260912i`. The tiles were also re-uploaded earlier today with the drainage parcels filtered to the city limits.
 
 ## 2026-09-12 — the FY 2026-27 budget map at /budget/
 
