@@ -10,28 +10,26 @@ html, body { margin: 0; height: 100%; }
 .page { position: relative; width: 100%; height: 100vh; overflow: hidden; }
 #map { position: absolute; inset: 0; }
 
+/* top-left stack: home link, topic dropdown, summary card */
+.topleft { position: absolute; top: 12px; left: 12px; z-index: 5; display: flex; flex-direction: column; gap: 8px; width: 220px; max-width: calc(100% - 24px); }
 .home {
-  position: absolute; top: 12px; left: 12px; z-index: 5;
-  padding: 6px 10px; background: var(--paper); color: var(--ink);
+  align-self: flex-start; padding: 6px 10px; background: var(--paper); color: var(--ink);
   border: 1px solid var(--line); border-radius: 6px; text-decoration: none;
   font-size: 13px; font-weight: 600;
 }
+.topic { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; }
+.topic label { display: block; font-size: 12px; color: #52606d; margin-bottom: 4px; }
+.topic select { width: 100%; font: inherit; font-size: 13px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--ink); }
+.summary-card {
+  display: block; padding: 10px; background: var(--paper); color: var(--ink); text-decoration: none;
+  border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 13px; font-weight: 600;
+}
+.summary-card:hover { background: #fdf3f3; }
 .title {
   position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 5;
   margin: 0; padding: 6px 14px; background: var(--paper); border: 1px solid var(--line);
   border-radius: 6px; font-size: 16px; font-weight: 600; color: var(--ink); white-space: nowrap;
 }
-
-/* theme buttons, a row along the bottom that wraps on a phone */
-.themes {
-  position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 5;
-  display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
-}
-.themes button {
-  background: var(--paper); color: var(--ink); border: 1px solid var(--line);
-  border-radius: 999px; padding: 7px 12px; font: inherit; font-size: 13px; cursor: pointer;
-}
-.themes button.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
 
 /* legend, top right */
 .legend {
@@ -73,6 +71,7 @@ html, body { margin: 0; height: 100%; }
 .maplibregl-popup-content .history { margin-top: 6px; border-top: 1px solid var(--line); padding-top: 4px; }
 
 @media (max-width: 640px) {
-  .title { font-size: 13px; top: 52px; }
+  .title { display: none; }
+  .topleft { width: 180px; }
   .legend { top: auto; bottom: 64px; right: 8px; width: 200px; font-size: 12px; }
 }

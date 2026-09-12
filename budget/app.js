@@ -157,19 +157,21 @@
     }
   };
 
-  // ── theme buttons ─────────────────────────────────────────────────────────
-  const nav = $('themes');
+  // ── topic dropdown (top left, under the home link) ────────────────────────
+  $('topicLabel').textContent = COPY.topicLabel;
+  $('summaryCard').textContent = COPY.summaryCard;
+  const select = $('topic');
   Object.keys(THEMES).forEach((key) => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.dataset.theme = key; b.textContent = COPY.themes[key].name;
-    b.addEventListener('click', () => showTheme(key));
-    nav.appendChild(b);
+    const o = document.createElement('option');
+    o.value = key; o.textContent = COPY.themes[key].name;
+    select.appendChild(o);
   });
+  select.addEventListener('change', () => showTheme(select.value));
 
   let current = null;
   function showTheme(key) {
     current = key;
-    nav.querySelectorAll('button').forEach((b) => b.classList.toggle('is-active', b.dataset.theme === key));
+    select.value = key;
     Object.entries(THEMES).forEach(([k, t]) => {
       t.layers.forEach((l) => map.setLayoutProperty(l.id, 'visibility', k === key ? 'visible' : 'none'));
     });

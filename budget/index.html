@@ -8,21 +8,28 @@
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
   <!-- ?v= so a push is actually seen (GitHub Pages caches hard). Bump when
        app.js, style.css, config.js or copy.js change. -->
-  <link rel="stylesheet" href="./style.css?v=20260912a" />
+  <link rel="stylesheet" href="./style.css?v=20260912b" />
 </head>
 <body>
-  <!-- A MAP, A ROW OF THEME BUTTONS, A LEGEND. Seven maps of the FY 2026-27
-       budget share one page; picking a theme shows that map's layers and its
-       legend. Parcels only draw from zoom 11 (the tiles stop below that), so a
+  <!-- A MAP, A TOPIC DROPDOWN, A LEGEND. Seven maps of the FY 2026-27 budget
+       share one page; picking a topic from the dropdown (top left, under the
+       home link; owner 2026-09-12) shows that map's layers and its legend. The
+       card under the dropdown opens summary.html, the written summary. Parcels only draw from zoom 11 (the tiles stop below that), so a
        hint shows when zoomed out on a parcel theme. Every word on screen comes
        from copy.js. -->
   <div class="page">
     <div id="map"></div>
 
-    <a class="home" id="home" href="https://anatomy.city" target="_top"></a>
+    <!-- top-left stack: home link, the topic dropdown, the summary card -->
+    <div class="topleft">
+      <a class="home" id="home" href="https://anatomy.city" target="_top"></a>
+      <div class="topic">
+        <label for="topic" id="topicLabel"></label>
+        <select id="topic"></select>
+      </div>
+      <a class="summary-card" id="summaryCard" href="./summary.html"></a>
+    </div>
     <h1 class="title" id="title"></h1>
-
-    <nav class="themes" id="themes" aria-label="Maps"></nav>
 
     <aside class="legend" id="legend">
       <div class="legend-title" id="legendTitle"></div>
@@ -52,9 +59,9 @@
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/pmtiles@3/dist/pmtiles.js"></script>
-  <script src="./copy.js?v=20260912a"></script>
-  <script src="./explain.js?v=20260912a"></script>
-  <script src="./config.js?v=20260912a"></script>
-  <script src="./app.js?v=20260912a"></script>
+  <script src="./copy.js?v=20260912b"></script>
+  <script src="./explain.js?v=20260912b"></script>
+  <script src="./config.js?v=20260912b"></script>
+  <script src="./app.js?v=20260912b"></script>
 </body>
 </html>

@@ -7,7 +7,11 @@ window.BUDGET_COPY = {
   pageTitle: 'Austin FY 2026-27 Budget Map',
   home: 'anatomy.city',
 
-  // the seven maps, in the order the buttons appear
+  // owner's own wording (2026-09-12) for the dropdown label and the summary card
+  topicLabel: '2027 Budget Topic',
+  summaryCard: 'CityAnatomy Budget Summary:',
+
+  // the seven maps, in the order they appear in the dropdown
   themes: {
     value:    { name: 'Tax base',            sub: 'Taxable value, 2025 to 2026' },
     bill:     { name: 'City tax bill',       sub: 'FY26 to FY27, adopted rate' },
