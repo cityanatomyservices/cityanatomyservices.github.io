@@ -6,7 +6,7 @@
       "cards": [
         {
           "title": "Moontower",
-          "blurb": "Austin, 1895 — light them all",
+          "blurb": "Austin, 1895 \u2014 light them all",
           "src": "/moontower/",
           "app": "/moontowertour/",
           "demo": true,
@@ -14,7 +14,7 @@
         },
         {
           "title": "The 1885 Murder Tour",
-          "blurb": "Austin, 1885 — The Servant Girl Murders",
+          "blurb": "Austin, 1885 \u2014 The Servant Girl Murders",
           "src": "https://austin1885.city/annihilatortour/?demo=1",
           "app": "/1885murdertour/",
           "demo": true,
@@ -31,6 +31,12 @@
           "blurb": "",
           "src": "/budget/#bill",
           "app": "/budget/"
+        },
+        {
+          "title": "Datacenter Map",
+          "blurb": "",
+          "src": "/datacenters/",
+          "app": "/datacenters/"
         }
       ],
       "cycle": true,

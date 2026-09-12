@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Data Centers</title>
+  <link rel="icon" href="data:," />
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+  <!-- ?v= so a push is actually seen (GitHub Pages caches hard). Bump when
+       app.js, style.css, config.js or copy.js change. -->
+  <link rel="stylesheet" href="./style.css?v=20260912a" />
+</head>
+<body>
+  <!-- ONE MAP OF THE DATA CENTERS IN AND AROUND AUSTIN. The 47 sites are a
+       GeoJSON file in ./data/ (exported from the GIS library's data_centers
+       layer, research snapshot 2026-09-12). Each dot is coloured by status
+       and sized by its planned or built power in MW; the number on the dot
+       is the row id in the research note. Clicking a dot opens a popup with
+       the facts and the source links. The Austin Energy service area draws
+       as a dashed outline so the reader can see that the big campuses sit
+       outside it. Every word on screen comes from copy.js. -->
+  <div class="page">
+    <div id="map"></div>
+
+    <!-- top-left stack: home link, then the map controls -->
+    <div class="topleft">
+      <a class="home" id="home" href="https://anatomy.city" target="_top"></a>
+      <div class="map-controls">
+        <button class="map-ctrl map-ctrl-text" id="ctrlSatellite" type="button" aria-pressed="false"></button>
+        <button class="map-ctrl" id="ctrlZoomIn" type="button">+</button>
+        <button class="map-ctrl" id="ctrlZoomOut" type="button">&minus;</button>
+        <button class="map-ctrl" id="ctrlExtent" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
+        </button>
+      </div>
+      <!-- the Austin Energy service area, on by default -->
+      <div class="overlays">
+        <div class="overlays-title" id="overlaysTitle"></div>
+        <label><input type="checkbox" id="ovService" checked /> <span id="ovServiceLabel"></span></label>
+      </div>
+    </div>
+    <h1 class="title" id="title"></h1>
+
+    <!-- legend, top right: one row per status; ticking a row off hides those dots -->
+    <aside class="legend" id="legend">
+      <div class="legend-title" id="legendTitle"></div>
+      <div class="legend-sub" id="legendSub"></div>
+      <ul class="legend-rows" id="legendRows"></ul>
+      <div class="legend-size" id="legendSize"></div>
+      <button class="about-toggle" id="aboutToggle" type="button" aria-expanded="false" aria-controls="about"></button>
+      <div class="about" id="about" hidden>
+        <p id="aboutWhat"></p>
+        <p><strong id="aboutSourcesLabel"></strong> <span id="aboutSources"></span></p>
+        <p><strong id="aboutCaveatsLabel"></strong> <span id="aboutCaveats"></span></p>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="./copy.js?v=20260912a"></script>
+  <script src="./config.js?v=20260912a"></script>
+  <script src="./app.js?v=20260912a"></script>
+</body>
+</html>

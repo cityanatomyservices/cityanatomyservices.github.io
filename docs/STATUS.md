@@ -1,5 +1,40 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-12 (late) — data centers map at /datacenters/
+
+Owner: "can you make a maplibre map of this datacenter map and put it up at
+anatomy.city/datacenters". `/datacenters/` is a MapLibre page built on the
+same bones as `/budget/` (home link and control column top-left, legend
+top-right, every word in `copy.js` as Claude's placeholders for the owner).
+It shows the 47 current and planned data centers researched the same day
+(two-agent web research pass; the source note with 134 links is in the
+private `atxmapdata/qgis-lab` repo, `notes/austin-datacenters-2026.md`).
+
+**Data.** Two plain GeoJSON files in `datacenters/data/` (about 80 KB
+together, no tiles, no database): `datacenters.geojson` exported from
+`C:\GISData\austin\planning.gpkg` layer `data_centers`, and
+`austin_energy_service_area.geojson` from `boundaries.gpkg` (City of Austin
+open data w5fd-ctq4). Re-export with ogr2ogr from the library if the
+research is refreshed.
+
+**What the page does.** Dots coloured by status (six classes, same palette
+as the QGIS project), sized by MW, numbered by the research-note row id.
+The legend has a checkbox per status with a count; unticking hides those
+dots. The Austin Energy service area draws as a purple dashed outline (on by
+default, Layers box) so the reader sees that every Williamson County campus
+sits outside it. Clicking a dot opens a popup: operator, status, address,
+place, MW, size, year, point precision, the research notes, and the source
+links. Satellite, zoom and extents buttons as on the budget page; the map
+is caged to a box from New Braunfels to Temple and Rockdale. A "Datacenter
+Map" card (title from the owner's words, blurb empty) is on the home page's
+Apps chip. Asset version `?v=20260912a` (its own).
+
+**Not verified in a browser.** Headless Chrome on this machine renders a
+blank MapLibre canvas for `/budget/` too (WebGL in headless), so only the
+page chrome and the JS syntax were checked; the owner should open the page
+and click a dot. Every word on the page is a placeholder in
+`datacenters/copy.js`.
+
 ## 2026-09-12 (evening) — budget map: Layers box with two overlays
 
 `/budget/` has a "Layers" box under the map controls with two checkboxes, ZIP codes and council districts, both OFF by default (owner's ask). They are plain GeoJSON files in `budget/data/` (0.85 MB and 0.58 MB), exported from the GIS library by the budget repo's `scripts/96_export_overlays_geojson.py`, drawn as dashed outlines with a number label. The council outline that used to draw automatically on the two tax themes is gone; the checkbox owns it now. Wording for the box is placeholder in `copy.js` (`ui.overlays`, `ui.overlayZip`, `ui.overlayCouncil`). Styled the same evening: each polygon tinted at 25% from a ten-colour palette (`config.js` `overlayPalette`, number modulo 10), solid coloured outline, bold label with a 2.5 px white halo. Cache key bumped to `v=20260912i`. The tiles were also re-uploaded earlier today with the drainage parcels filtered to the city limits.
