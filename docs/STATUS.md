@@ -1,5 +1,37 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-12 (night) — AISD school closures map at /AISD/
+
+Owner: "do the AISD school closures one, same 2 agent limit" then "put the
+school closures map up at anatomy.city/AISD too". Same two-agent research
+pattern as the data centers (researcher → fact-checker, 209 tool calls),
+source note with every link in the private `atxmapdata/qgis-lab` repo,
+`notes/aisd-school-changes-2026.md`; QGIS project there too.
+
+`/AISD/` (folder name as the owner wrote it; Pages is case-sensitive) is a
+MapLibre page on the same bones as `/datacenters/`: 60 campuses touched by
+the district's 2025 closure and consolidation plan as dots coloured by role
+(closing, closing-and-receiving, receiving, program moves, boundary change,
+taken off the list, other), the pre-plan attendance zones of the closing and
+receiving schools tinted by the same colour, and a dashed line from each
+closing school to where its students go. Legend checkboxes per role hide
+dots and zones; Layers box has zones, links, city limits, council districts.
+Popups: type, role, address, effective year, enrollment, capacity (district
+figure if published, else the city campus layer's), linked schools, future
+use, district reason, plan history, community response, who attends, source
+links. About panel carries the plan timeline (`data/timeline.json`). Map
+opens fitted to the campuses.
+
+**Data.** `AISD/data/`: `campuses.geojson`, `zones.geojson`, `links.geojson`,
+`timeline.json` exported from `C:\GISData\austin\boundaries.gpkg` layers
+`aisd_changes_campuses` / `_zones` / `_links` (built 2026-09-12 from the
+research joined to the city's AISD campus and attendance layers); city
+limits and council districts are copies of the data centers page's files.
+An "AISD School Closures" card (blurb empty) is on the home page's Apps
+chip. Asset version `?v=20260912a` (its own). Every word on the page is a
+placeholder in `AISD/copy.js`. Not verified in a browser (see the data
+centers note on headless WebGL); the owner should open it and click a dot.
+
 ## 2026-09-12 (late) — data centers map at /datacenters/
 
 Owner: "can you make a maplibre map of this datacenter map and put it up at

@@ -1,0 +1,2045 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69593,
+     30.3605
+    ]
+   },
+   "properties": {
+    "id": 1,
+    "name": "Barrington Elementary School",
+    "name_short": "Barrington",
+    "library_name": "Barrington Elementary",
+    "school_type": "elementary",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "400 Cooper Dr, Austin, TX 78753",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 307,
+    "enrollment_prior": "",
+    "capacity": 556,
+    "capacity_source": "city campus data",
+    "percent_utilization": 55,
+    "linked_campuses": "Guerrero Thompson Elementary (75% of students, by address; inherits turnaround plan); Wooldridge Elementary (25%, by address)",
+    "future_use": "Swing campus for Wooldridge ES during modernization, then repurposing (ground lease scored highest; staff recommendation and board action still pending as of Sept 2026).",
+    "reason": "Chronically failing TEA ratings (closure/reassignment chosen as the state-approved turnaround option), declining enrollment and district budget deficit.",
+    "plan_history": "On the Oct 3, 2025 draft list of 13; retained Oct 31 (slice of Wooldridge zone returned to Wooldridge); on the Nov 4 phase-one list of 10; approved for closure Nov 20, 2025 on the 7-2 vote covering the seven F-rated campuses (Gonzales, de Urioste opposed). Last day May 28, 2026. Not declared surplus: building is swing space while Wooldridge ES is modernized (2022 bond); repurposing evaluation begun (long-term ground lease scored highest, 80/100; adaptive reuse w/ improvements 75, w/o 70, sale 60; survey open to Sept 15, 2026; staff recommendation pending). ~$4.9M of 2022 bond money already spent/committed (Austin Current, Jan 2026).",
+    "community_response": "Community meetings July 29 and August 2026; families cited the school as a hub for immigrant families (ballet folklorico, parent involvement).",
+    "demographics_note": "North Austin, opened 1969; 75%+ of students in bilingual education; large immigrant-family community (Statesman/Yahoo, May 2026). Three consecutive unacceptable TEA ratings; one of the 12 turnaround-plan campuses.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.kut.org/education/2026-07-17/austin-tx-aisd-future-of-closed-campuses | https://www.austinisd.org/repurposing/barrington | https://www.yahoo.com/news/articles/austin-isd-closing-10-schools-110000006.html | https://austincurrent.org/2026/01/12/aisd-school-closures-bond-renovations/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7598,
+     30.25046
+    ]
+   },
+   "properties": {
+    "id": 2,
+    "name": "Becker Elementary School",
+    "name_short": "Becker",
+    "library_name": "Becker Elementary",
+    "school_type": "elementary",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "906 W Milton St, Austin, TX 78704",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 528,
+    "enrollment_prior": "",
+    "capacity": 449,
+    "capacity_source": "city campus data",
+    "percent_utilization": 118,
+    "linked_campuses": "Galindo Elementary or Zilker Elementary (neighborhood students, by address); Sanchez Elementary (dual language program relocates as a two-way strand; Becker DL students get priority transfer)",
+    "future_use": "Adaptive reuse with improvements under district ownership; district to identify community/nonprofit partners in fall 2026.",
+    "reason": "Dual language program relocation to campuses with higher emergent-bilingual populations, declining enrollment and budget deficit.",
+    "plan_history": "Oct 3 draft: close, neighborhood to Zilker, DL program to Sanchez (Sanchez to become non-zoned). Oct 31: administration floated Galindo instead of Zilker. Final (Nov 14): students to Galindo or Zilker by address; Sanchez stays a neighborhood school with a DL strand. Closure approved Nov 20, 2025 on the 6-3 dual-language vote (Whitley Chu, Gonzales, de Urioste opposed). Last day May 28, 2026. Declared surplus June 18, 2026; board approved 'Adaptive Reuse with Improvements' (90/100; w/o improvements 80, ground lease 65, sale 50). Partner identification targeted for fall 2026.",
+    "community_response": "Parents wore protest shirts and testified against closure; dual-language advocates said the changes amounted to program elimination; the 1989 Green Classroom was cited as a loss.",
+    "demographics_note": "Bouldin Creek, South Austin; opened 1936, one of the district's oldest operating elementaries; school-wide (wall-to-wall) Spanish dual language program; volunteer-run Green Classroom since 1989. Not a turnaround campus.",
+    "sources": "https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs | https://communityimpact.com/austin/south-central-austin/education/2025/11/21/austin-isd-board-votes-to-close-10-schools-intervene-at-failing-campuses/ | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinisd.org/announcements/2026/05/14/austin-isd-releases-repurposing-scores-and-next-steps-surplus-campus-sites | https://www.austinisd.org/announcements/2026/06/18/austin-isd-trustees-deem-six-properties-surplus-en-espanol | https://www.kut.org/education/2026-07-17/austin-tx-aisd-future-of-closed-campuses | https://www.yahoo.com/news/articles/austin-isd-closing-10-schools-110000006.html | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76361,
+     30.2341
+    ]
+   },
+   "properties": {
+    "id": 3,
+    "name": "Dawson Elementary School",
+    "name_short": "Dawson",
+    "library_name": "Dawson Elementary",
+    "school_type": "elementary",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "3001 S 1st St, Austin, TX 78704",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 152,
+    "enrollment_prior": "224 in 2023-24 (Texas Tribune campus page)",
+    "capacity": 524,
+    "capacity_source": "city campus data",
+    "percent_utilization": 29,
+    "linked_campuses": "Galindo Elementary (100% of students; Galindo inherits Dawson's turnaround plan)",
+    "future_use": "To be sold (fee simple sale approved June 18, 2026; RFP issued).",
+    "reason": "Chronically failing TEA ratings (closure chosen as turnaround option), low enrollment, budget deficit.",
+    "plan_history": "Oct 3 draft: close and merge with Galindo; unchanged through Oct 31 and Nov 14. Approved Nov 20, 2025 (7-2). Last day May 28, 2026. Declared surplus June 18, 2026; district campus page says board approved 'Fee Simple Sale' (announcement wording: 'Fee Simple Sale or Long-Term Ground Lease'; both scored 85, adaptive reuse w/ improvements 75, w/o 65). RFP for the property has been released. Proceeds count toward the ~$60M one-time real-estate revenue assumed in the 2026-27 budget.",
+    "community_response": "Community described the school as a public/community space with intergenerational traditions; March 9 and May 13, 2026 repurposing meetings.",
+    "demographics_note": "South Austin, opened 1950s; ~80% economically disadvantaged (78.3% per state data), 26% English learners, 77% Hispanic; three consecutive unacceptable TEA ratings (turnaround campus). Laura Bush was its librarian in the 1970s.",
+    "sources": "https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/repurposing/dawson | https://www.austinisd.org/announcements/2026/06/18/austin-isd-trustees-deem-six-properties-surplus-en-espanol | https://www.austinisd.org/announcements/2026/05/14/austin-isd-releases-repurposing-scores-and-next-steps-surplus-campus-sites | https://www.kut.org/education/2026-07-17/austin-tx-aisd-future-of-closed-campuses | https://www.yahoo.com/news/articles/austin-isd-closing-10-schools-110000006.html | https://schools.texastribune.org/districts/austin-isd/dawson-elementary-school/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7046,
+     30.2718
+    ]
+   },
+   "properties": {
+    "id": 4,
+    "name": "Oak Springs Elementary School",
+    "name_short": "Oak Springs",
+    "library_name": "Oak Springs Elementary",
+    "school_type": "elementary",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "3601 Webberville Rd, Austin, TX 78721",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 213,
+    "enrollment_prior": "",
+    "capacity": 411,
+    "capacity_source": "city campus data",
+    "percent_utilization": 52,
+    "linked_campuses": "Blackshear Elementary (100% of students for 2026-27 and fall 2027 while Oak Springs is rebuilt; Blackshear inherits the turnaround plan)",
+    "future_use": "Rebuilt $47.6M campus reopens January 2028 as the combined Oak Springs/Blackshear school with a 'new shared identity'.",
+    "reason": "Chronically failing TEA ratings (closure/reassignment as turnaround option); building closes while the bond-funded rebuild continues.",
+    "plan_history": "Oct 3 draft: close and merge into Blackshear. Nov 14: district said Oak Springs/Blackshear construction continuation still under consideration. Approved for closure Nov 20, 2025 (7-2). Mid-Dec 2025: superintendent to decide by late January whether the merged school stays at Blackshear or moves to a rebuilt Oak Springs. March 30, 2026: announced Blackshear will close and both communities move into the modernized Oak Springs campus in January 2028. Last day May 28, 2026.",
+    "community_response": "Alumni nostalgia mixed with acceptance ('I hate to see it being closed but I know it is going to be rebuilt' - Constable Tonya Nixon); Blackshear parents raised concerns about a mid-year 2028 move under turnaround requirements.",
+    "demographics_note": "East Austin, opened 1958, serves the Booker T. Washington housing complex; three consecutive unacceptable TEA ratings (turnaround campus). $47.6M 2022-bond modernization (about $48M spent/committed per Austin Current).",
+    "sources": "https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.kut.org/education/2026-03-30/austin-independent-school-district-tx-aisd-closing-blackshear-elementary-school | https://communityimpact.com/austin/south-central-austin/education/2026/01/12/austin-isd-weighs-future-of-blackshear-oak-springs-elementaries-ahead-of-school-closures/ | https://austincurrent.org/2026/05/28/austinisd-closures-schools-goodbye-budget/ | https://austincurrent.org/2026/01/12/aisd-school-closures-bond-renovations/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7163,
+     30.31199
+    ]
+   },
+   "properties": {
+    "id": 5,
+    "name": "Ridgetop Elementary School",
+    "name_short": "Ridgetop",
+    "library_name": "Ridgetop Elementary",
+    "school_type": "elementary",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "5005 Caswell Ave, Austin, TX 78751",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 375,
+    "enrollment_prior": "",
+    "capacity": 224,
+    "capacity_source": "city campus data",
+    "percent_utilization": 167,
+    "linked_campuses": "Reilly Elementary (all neighborhood students); Pickle Elementary (dual language program relocates as a two-way strand; priority transfers)",
+    "future_use": "Adaptive reuse under district ownership with community partners; parents proposed a walkable community center keeping the playground open.",
+    "reason": "Dual language program consolidation, declining enrollment, budget deficit.",
+    "plan_history": "Oct 3 draft: close, neighborhood to Reilly, DL to Pickle (Pickle to go non-zoned). Final Nov 14: Pickle stays a neighborhood school with a DL strand. Approved Nov 20, 2025 on the 6-3 dual-language vote. Last day May 28, 2026. Declared surplus June 18, 2026; board approved 'Adaptive Reuse with or without Improvements' (both 85/100; ground lease 65, sale 45). Partner identification targeted for fall 2026.",
+    "community_response": "Parents proposed a community center; school traditions and a 30-year principal were cited; March 24 and May 19, 2026 repurposing meetings.",
+    "demographics_note": "North Loop; small, high-performing school with a pioneering wall-to-wall Spanish-English dual language program. Not a turnaround campus.",
+    "sources": "https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/repurposing/ridgetop | https://www.austinisd.org/announcements/2026/06/18/austin-isd-trustees-deem-six-properties-surplus-en-espanol | https://www.kut.org/education/2026-07-17/austin-tx-aisd-future-of-closed-campuses | https://www.austinchronicle.com/news/what-does-the-future-hold-for-six-closing-aisd-campuses/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.80695,
+     30.22785
+    ]
+   },
+   "properties": {
+    "id": 6,
+    "name": "Sunset Valley Elementary School",
+    "name_short": "Sunset Valley",
+    "library_name": "Sunset Valley Elementary",
+    "school_type": "elementary",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "3000 Jones Rd, Austin (City of Sunset Valley), TX 78745",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 444,
+    "enrollment_prior": "",
+    "capacity": 561,
+    "capacity_source": "city campus data",
+    "percent_utilization": 79,
+    "linked_campuses": "Boone Elementary or Cunningham Elementary (neighborhood students, by address); Odom Elementary (dual language program relocates; Odom becomes the district's only non-zoned school-wide DL campus)",
+    "future_use": "To be sold outright (fee simple sale approved June 18, 2026); prioritized for monetization toward the ~$60M real-estate revenue target.",
+    "reason": "Dual language program consolidation, declining enrollment, budget deficit.",
+    "plan_history": "Oct 3 draft: close, DL to Odom, neighborhood mostly to Cunningham. Oct 31: larger share reassigned to Boone. Final: Boone or Cunningham by address. Approved Nov 20, 2025 (6-3). Last day May 28, 2026. Declared surplus June 18, 2026; Fee Simple Sale approved (95/100; ground lease 80, adaptive reuse 75/75).",
+    "community_response": "Teachers reported students 'very sad, very worried'; parent Zoe Trieff: 'this is the first domino that is falling.'",
+    "demographics_note": "Opened 1971; the only school inside the City of Sunset Valley; school-wide dual language program. Not a turnaround campus.",
+    "sources": "https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2026/05/14/austin-isd-releases-repurposing-scores-and-next-steps-surplus-campus-sites | https://www.austinisd.org/announcements/2026/06/18/austin-isd-trustees-deem-six-properties-surplus-en-espanol | https://austincurrent.org/2026/05/28/austinisd-closures-schools-goodbye-budget/ | https://www.yahoo.com/news/articles/austin-isd-closing-10-schools-110000006.html | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74021,
+     30.18868
+    ]
+   },
+   "properties": {
+    "id": 7,
+    "name": "Wid\u00e9n Elementary School",
+    "name_short": "Wid\u00e9n",
+    "library_name": "Widen Elementary",
+    "school_type": "elementary",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "5605 Nuckols Crossing Rd, Austin, TX 78744",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 339,
+    "enrollment_prior": "",
+    "capacity": 655,
+    "capacity_source": "city campus data",
+    "percent_utilization": 52,
+    "linked_campuses": "Rodriguez Elementary (100% of students; inherits turnaround plan)",
+    "future_use": "Adaptive reuse under district ownership; partner identification targeted for fall 2026; city exploring public-benefit partnership.",
+    "reason": "Chronically failing TEA ratings (closure as turnaround option), budget deficit.",
+    "plan_history": "Oct 3/Oct 31 drafts: split between Rodriguez and Houston by address. Final (Nov 14): all students to Rodriguez, to avoid placing students in another failing school. Approved Nov 20, 2025 (7-2; Winn/Wid\u00e9n turnaround plans passed 5-4). Last day May 28, 2026. Declared surplus June 18, 2026; 'Adaptive Reuse Without Improvements' approved (85/100; w/ improvements 75, ground lease 70, sale 50). Council Member Fuentes's March 2026 resolution named Wid\u00e9n for a possible city partnership.",
+    "community_response": "Community emphasized the school as a basic-needs hub; City Council directed the city manager to develop a land policy on closing sites by June 1, 2026.",
+    "demographics_note": "Dove Springs; ~83% economically disadvantaged; anchors a cluster of library, recreation and health centers; three consecutive unacceptable TEA ratings (turnaround campus). ~$2.8M bond money spent/committed.",
+    "sources": "https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2026/06/18/austin-isd-trustees-deem-six-properties-surplus-en-espanol | https://www.austinisd.org/announcements/2026/05/14/austin-isd-releases-repurposing-scores-and-next-steps-surplus-campus-sites | https://austincurrent.org/2026/04/15/austin-land-closing-schools-housing/ | https://austincurrent.org/2026/01/12/aisd-school-closures-bond-renovations/ | https://www.yahoo.com/news/articles/austin-isd-closing-10-schools-110000006.html | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.66528,
+     30.31388
+    ]
+   },
+   "properties": {
+    "id": 8,
+    "name": "Winn Montessori School",
+    "name_short": "Winn",
+    "library_name": "Winn Elementary",
+    "school_type": "elementary",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "3500 Susquehanna Ln, Austin, TX 78723",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 370,
+    "enrollment_prior": "",
+    "capacity": 524,
+    "capacity_source": "city campus data",
+    "percent_utilization": 71,
+    "linked_campuses": "Andrews Elementary (80% of neighborhood students, by address; inherits turnaround plan); Pecan Springs Elementary (20%, by address); Reilly Elementary (Montessori program relocates as a strand; priority transfers)",
+    "future_use": "Swing campus during the Andrews ES rebuild, then repurposing (recommendation pending).",
+    "reason": "Chronically failing TEA ratings (closure as turnaround option), budget deficit.",
+    "plan_history": "Oct 3 draft: close; neighborhood to Andrews/Hart/Pecan Springs; Montessori to Govalle as a non-zoned campus. Oct 29 workshop: trustees asked for alternatives (Zavala/Ortega floated). Final (Nov 14): Montessori moves to Reilly; students to Andrews or Pecan Springs. Approved Nov 20, 2025 (7-2; turnaround plan 5-4). Last day May 28, 2026. Building is now the swing campus while Andrews ES is modernized (2022 bond); repurposing evaluation under way (ground lease scored highest 75/100; adaptive reuse 70/65, sale 70; survey to Sept 15, 2026; staff recommendation pending).",
+    "community_response": "Families called the Reilly move 'geographically prohibitive'; community meeting July 28, 2026 and a second in August.",
+    "demographics_note": "Northeast Austin; the district's only Montessori school; three consecutive unacceptable TEA ratings (turnaround campus).",
+    "sources": "https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinisd.org/repurposing/winn | https://www.kut.org/education/2026-07-17/austin-tx-aisd-future-of-closed-campuses | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78673,
+     30.19442
+    ]
+   },
+   "properties": {
+    "id": 9,
+    "name": "Bedichek Middle School",
+    "name_short": "Bedichek",
+    "library_name": "Bedichek Middle School",
+    "school_type": "middle",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "6800 Bill Hughes Rd, Austin, TX 78745",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 607,
+    "enrollment_prior": "",
+    "capacity": 941,
+    "capacity_source": "city campus data",
+    "percent_utilization": 65,
+    "linked_campuses": "Covington Middle School (58% of students; inherits turnaround plan); Paredes Middle School (23%; Paredes itself closed July 30, 2026, so those students were re-routed to Bailey or Mendez); Mendez Middle School (13%)",
+    "future_use": "Building kept as a district facility (SpEd offices, training, 18+ program, community partners); surplus land to be ground-leased via RFP.",
+    "reason": "Chronically failing TEA ratings (closure as turnaround option), budget deficit.",
+    "plan_history": "Oct 3 draft: 'temporary' closure, students to Covington/Paredes/Lively/Mendez. Oct 31: Lively share redirected to Mendez; PK-8 or 6-12 DL reopening floated. Final: Covington, Paredes or Mendez by address. Approved Nov 20, 2025 (7-2). Last day May 28, 2026. Building 'land banked' (kept): Special Education Dept offices, districtwide professional learning, 18+ special-education programming, community partners. Adjacent surplus land declared surplus June 18, 2026 with a long-term ground lease approved (90/100; sale 85); RFP process under way. The July 2026 Paredes closure re-routed former Bedichek students who had been zoned to Paredes.",
+    "community_response": "Alumni loyalty; community meetings April 7 and June 4, 2026.",
+    "demographics_note": "Opened 1972; only middle-school JROTC in the district; top AVID program; 'Dazed and Confused' filming site; three consecutive unacceptable TEA ratings (turnaround campus). ~$1.2M bond money spent.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/repurposing/land-bank/bedichek | https://www.austinisd.org/repurposing/bedichek | https://communityimpact.com/austin/south-central-austin/education/2026/03/06/austin-isd-to-discuss-future-of-6-closing-campuses-for-lease-or-sale/ | https://www.austinisd.org/press-releases/2026/07/30/austin-isd-trustees-vote-close-paredes-middle-school-prioritize-student | https://austincurrent.org/2026/01/12/aisd-school-closures-bond-renovations/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7299,
+     30.25305
+    ]
+   },
+   "properties": {
+    "id": 10,
+    "name": "Martin Middle School",
+    "name_short": "Martin",
+    "library_name": "Martin Middle School",
+    "school_type": "middle",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "1601 Haskell St, Austin, TX 78702",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 308,
+    "enrollment_prior": "More than 500 students in 2018-19; 240 in April 2025 (KXAN)",
+    "capacity": 804,
+    "capacity_source": "city campus data",
+    "percent_utilization": 38,
+    "linked_campuses": "Kealing Middle School (61% of students; inherits turnaround plan); Lively Middle School (26%); Dr. General Marshall Middle School (13%)",
+    "future_use": "Kept by district for a to-be-determined educational use (land bank); community floated a multipurpose school-plus-community-center model with adult education.",
+    "reason": "Chronically failing TEA ratings (closure as turnaround option), low enrollment, budget deficit.",
+    "plan_history": "Oct 3 draft: 'temporary' closure, students to Kealing/Lively/Marshall; Garza Independence HS proposed to move into the building as a 6-12 school (removed from the final draft after outcry, though the Nov 14 plan still said Garza relocation could be considered 'not before 2026-27'). Approved Nov 20, 2025 (7-2). Last day May 28, 2026. Retained as a 'land bank' property; the 2022 bond modernization was suspended mid-project and is resuming at a limited scope for preservation; community meeting July 14, 2026 and survey; future use tied to a districtwide academic visioning process.",
+    "community_response": "East Austin neighbors want it to stay a community hub; public meeting and survey.",
+    "demographics_note": "East Austin on Lady Bird Lake; opened 1967; first fully integrated AISD campus; three consecutive unacceptable TEA ratings (turnaround campus). $36.5M of 2022 bond modernization already spent/committed.",
+    "sources": "https://www.austinisd.org/repurposing/land-bank/martin | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.yahoo.com/news/articles/austin-isd-plans-envision-martin-225709326.html | https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.kut.org/education/2026-07-17/austin-tx-aisd-future-of-closed-campuses | https://austincurrent.org/2026/01/12/aisd-school-closures-bond-renovations/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.68124,
+     30.25779
+    ]
+   },
+   "properties": {
+    "id": 11,
+    "name": "International High School",
+    "name_short": "International",
+    "library_name": "International High School",
+    "school_type": "high",
+    "role": "closing",
+    "role_label": "Closing",
+    "address": "7104 Berkman Dr, Austin, TX 78752 (co-located at Northeast Early College HS)",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 90,
+    "enrollment_prior": "213 (2024-25) to 95 (2025-26) per Statesman; only 9 freshmen enrolled in Aug 2025 (~90% drop)",
+    "capacity": 392,
+    "capacity_source": "city campus data",
+    "percent_utilization": 23,
+    "linked_campuses": "Northeast Early College High School (host campus; current students may stay through graduation with district transportation); Zoned home high schools (new students, with 'specialized newcomer support')",
+    "future_use": "",
+    "reason": "Low enrollment.",
+    "plan_history": "Oct 3 draft: close the stand-alone campus and continue as a program at Navarro ECHS. Final (Nov 14): Navarro program dropped; school closes, students return to zoned campuses with newcomer support. Approved Nov 20, 2025. December 2025 letter to families: current students may remain at Northeast through graduation with transportation, or enroll at their zoned campus.",
+    "community_response": "",
+    "demographics_note": "Serves 9th-10th grade newcomer/multilingual immigrant students; enrollment collapse attributed to immigration-related fears.",
+    "sources": "https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs | https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.statesman.com/news/education/article/austin-isd-international-high-closure-21266450.php | https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2025/10/06/austin-isd-proposes-school-consolidations-and-closures-for-2026-27-school-year- | https://austincurrent.org/2026/04/01/aisd-enrollment-drop-budget-deficit/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.81146,
+     30.16707
+    ]
+   },
+   "properties": {
+    "id": 12,
+    "name": "Paredes Middle School",
+    "name_short": "Paredes",
+    "library_name": "Paredes Middle School",
+    "school_type": "middle",
+    "role": "closing_and_receiving",
+    "role_label": "Closing, and taking students",
+    "address": "10100 S Mary Moore Searight Dr, Austin, TX 78748",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 593,
+    "enrollment_prior": "353 incoming 7th/8th graders were slated for 2026-27 (FOX 7)",
+    "capacity": 1156,
+    "capacity_source": "city campus data",
+    "percent_utilization": 51,
+    "linked_campuses": "Bedichek Middle School (was designated to receive 23% of Bedichek's zone in 2026-27); Bailey Middle School (about 55% of students; inherits the TEA-approved turnaround plan); Mendez Middle School (about 45%; students east of Bluff Springs Rd and north of Slaughter Ln)",
+    "future_use": "Not a school in 2026-27; landmark/repurpose evaluation pending.",
+    "reason": "Anticipated (later confirmed) fourth consecutive F rating and staffing vacancies; district amended its turnaround plan from 'restart' to 'reassignment' to give students stronger environments and avoid further state intervention.",
+    "plan_history": "Nov 20, 2025: designated a Bedichek receiving school and an ACE restart campus; interim principal Jordan Curtin confirmed Dec 10, 2025. July 22, 2026: superintendent proposed immediate closure; community sessions July 28-30; board voted 7-2 on July 30, 2026 (de Urioste, Quintana opposed) to close before the Aug 18 first day; no layoffs (staff reassigned, including to Bailey and Mendez); TEA approved the closure as a turnaround-plan amendment (reported Aug 13, 2026 alongside the fourth F). Bailey needs portable classrooms to absorb the students (Austin Current, Aug 28). Building to be evaluated for landmarking or repurposing.",
+    "community_response": "Parents criticized the abrupt timeline weeks before school started and asked whether east-of-I-35 demographics drove the decision.",
+    "demographics_note": "Southeast Austin; three consecutive F ratings then a fourth (preliminary Aug 2026); 'district-managed restart' (ACE model) campus in the Nov 2025 plan, turnaround plan approved by TEA January 2026; most staff vacancies of any AISD school (superintendent).",
+    "sources": "https://austincurrent.org/2026/07/22/austin-austinisd-school-closure-paredes-middle-school/ | https://www.austinisd.org/press-releases/2026/07/30/austin-isd-trustees-vote-close-paredes-middle-school-prioritize-student | https://www.kut.org/education/2026-07-31/austin-isd-trustees-vote-to-close-paredes-middle-school-just-weeks-before-school-starts | https://www.fox7austin.com/news/austin-isd-board-votes-close-paredes-middle-school | https://austincurrent.org/2026/08/13/austin-austinisd-tea-takeover-ratings-dobie-webb-burnet/ | https://austincurrent.org/2026/08/28/austin-austinisd-budget-cuts-deficit-grew/ | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72194,
+     30.267
+    ]
+   },
+   "properties": {
+    "id": 13,
+    "name": "Blackshear Elementary School (Fine Arts Academy)",
+    "name_short": "Blackshear",
+    "library_name": "Blackshear Elementary",
+    "school_type": "elementary",
+    "role": "closing_and_receiving",
+    "role_label": "Closing, and taking students",
+    "address": "1712 E 11th St, Austin, TX 78702",
+    "effective_school_year": "2026-27 (receiving); closes January 2028",
+    "enrollment_current": 204,
+    "enrollment_prior": "",
+    "capacity": 561,
+    "capacity_source": "city campus data",
+    "percent_utilization": 36,
+    "linked_campuses": "Oak Springs Elementary (receives 100% of Oak Springs students for 2026-27 and fall 2027; merged school moves to new Oak Springs campus January 2028)",
+    "future_use": "Closes January 2028; historic designation sought; district retains the building and will seek monetization/community options with community input.",
+    "reason": "Receives all Oak Springs students while Oak Springs is rebuilt; then consolidates into the new $47.6M Oak Springs building (district decision March 30, 2026).",
+    "plan_history": "Oct 3 draft: receiving campus for Oak Springs with boundary changes (dropped). Nov 14/20: Oak Springs students to Blackshear; district said Blackshear would 'likely close' when the new building opens. Mid-Dec 2025: decision promised by late January. March 30, 2026: superintendent announced Blackshear closes and both communities move to the modernized Oak Springs in January 2028; district to pursue historic designation and keep ownership while exploring monetization/community use. Community meeting on the building postponed to fall 2026 as 'insensitive' during the merger.",
+    "community_response": "Parents objected that a 'campus move' had become an acknowledged closure ('It is now officially a closure') and worried about capacity, the fine arts program, and a mid-year move under turnaround requirements.",
+    "demographics_note": "Opened 1891; historically Black East Austin school; fine arts academy; inherits Oak Springs's turnaround plan; required Targeted Improvement Plan.",
+    "sources": "https://www.kut.org/education/2026-03-30/austin-independent-school-district-tx-aisd-closing-blackshear-elementary-school | https://communityimpact.com/austin/south-central-austin/education/2026/01/12/austin-isd-weighs-future-of-blackshear-oak-springs-elementaries-ahead-of-school-closures/ | https://www.kut.org/education/2026-07-17/austin-tx-aisd-future-of-closed-campuses | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.yahoo.com/news/articles/austin-isd-closing-10-schools-110000006.html | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77182,
+     30.22953
+    ]
+   },
+   "properties": {
+    "id": 14,
+    "name": "Galindo Elementary School",
+    "name_short": "Galindo",
+    "library_name": "Galindo Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "3800 S 2nd St, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 369,
+    "enrollment_prior": "",
+    "capacity": 711,
+    "capacity_source": "city campus data",
+    "percent_utilization": 52,
+    "linked_campuses": "Dawson Elementary (100% of students); Becker Elementary (part, by address)",
+    "future_use": "",
+    "reason": "Receives all Dawson students and part of the Becker zone.",
+    "plan_history": "Oct 3: receive Dawson plus some Joslin students with boundary changes. Oct 29-31: proposal to send Becker zone to Galindo instead of Zilker. Final: receives Dawson and part of Becker; Joslin changes dropped. Principal Natascha Barreto-Romero confirmed Dec 10, 2025. Phase-1 boundary relief for receiving campuses planned for 2027-28.",
+    "community_response": "Trustees questioned moving students from F-rated to lower-rated campuses.",
+    "demographics_note": "Inherits Dawson's turnaround plan as the receiving campus.",
+    "sources": "https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77413,
+     30.25276
+    ]
+   },
+   "properties": {
+    "id": 15,
+    "name": "Zilker Elementary School",
+    "name_short": "Zilker",
+    "library_name": "Zilker Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "1900 Bluebonnet Ln, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 537,
+    "enrollment_prior": "",
+    "capacity": 460,
+    "capacity_source": "city campus data",
+    "percent_utilization": 117,
+    "linked_campuses": "Becker Elementary (part, by address)",
+    "future_use": "",
+    "reason": "Receives part of the Becker attendance zone.",
+    "plan_history": "Oct 3: all Becker neighborhood students to Zilker. Oct 31: district floated shifting Becker zone to Galindo. Final: Becker split between Galindo and Zilker by address.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69322,
+     30.36093
+    ]
+   },
+   "properties": {
+    "id": 16,
+    "name": "Guerrero Thompson Elementary School",
+    "name_short": "Guerrero Thompson",
+    "library_name": "Guerrero Thompson Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "102 E Rundberg Ln, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 520,
+    "enrollment_prior": "",
+    "capacity": 748,
+    "capacity_source": "city campus data",
+    "percent_utilization": 70,
+    "linked_campuses": "Barrington Elementary (75%)",
+    "future_use": "",
+    "reason": "Receives 75% of Barrington students.",
+    "plan_history": "Oct 3: receive Barrington plus a slice of Wooldridge; Oct 31: Wooldridge slice returned to Wooldridge due to building constraints. Final unchanged; principal Briana Garcia confirmed Dec 10, 2025.",
+    "community_response": "Barrington families raised staffing and program concerns.",
+    "demographics_note": "Inherits Barrington's turnaround plan; feeds Dobie MS.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70972,
+     30.36496
+    ]
+   },
+   "properties": {
+    "id": 17,
+    "name": "Wooldridge Elementary School",
+    "name_short": "Wooldridge",
+    "library_name": "Wooldridge Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "1412 Norseman Ter, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 348,
+    "enrollment_prior": "",
+    "capacity": 655,
+    "capacity_source": "city campus data",
+    "percent_utilization": 53,
+    "linked_campuses": "Barrington Elementary (25%)",
+    "future_use": "",
+    "reason": "Receives 25% of Barrington students.",
+    "plan_history": "Oct 3: receive some Barrington students with boundary changes; Oct 31: part of zone returned from Guerrero-Thompson (boundary changes later dropped). Restart plan approved Nov 20, 2025; new principal Nick Martinez (from Wooten) appointed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Own three-F turnaround campus: 'district-managed restart' (ACE model) in 2026-27; campus being modernized with 2022 bond, using the Barrington building as swing space.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://www.kut.org/education/2026-07-17/austin-tx-aisd-future-of-closed-campuses | https://www.austinisd.org/school-improvement/restart-reassign | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74735,
+     30.2007
+    ]
+   },
+   "properties": {
+    "id": 18,
+    "name": "Rodriguez Elementary School",
+    "name_short": "Rodriguez",
+    "library_name": "Rodriguez Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "4400 Franklin Park Rd, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 341,
+    "enrollment_prior": "",
+    "capacity": 711,
+    "capacity_source": "city campus data",
+    "percent_utilization": 48,
+    "linked_campuses": "Wid\u00e9n Elementary (100% of students)",
+    "future_use": "",
+    "reason": "Receives all Wid\u00e9n students.",
+    "plan_history": "Oct 3/31: receive part of Wid\u00e9n (rest to Houston). Final Nov 14: receives all Wid\u00e9n students. Principal Monica Mills confirmed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Inherits Wid\u00e9n's turnaround plan.",
+    "sources": "https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.71997,
+     30.32824
+    ]
+   },
+   "properties": {
+    "id": 19,
+    "name": "Reilly Elementary School",
+    "name_short": "Reilly",
+    "library_name": "Reilly Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "405 Denson Dr, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 318,
+    "enrollment_prior": "",
+    "capacity": 318,
+    "capacity_source": "city campus data",
+    "percent_utilization": 100,
+    "linked_campuses": "Ridgetop Elementary (all neighborhood students); Winn Montessori (Montessori program moves here); Wooten Elementary (Reilly dual language and Mandarin programs move there)",
+    "future_use": "",
+    "reason": "Program reshuffle: its school-wide dual language program ends (moves to Wooten), it absorbs Ridgetop's neighborhood and hosts the relocated Montessori program.",
+    "plan_history": "Oct 3: DL program to Wooten; receives Ridgetop neighborhood. Final Nov 14: same plus Montessori strand from Winn (instead of Govalle); Reilly DL students get priority transfers to other DL campuses. Approved Nov 20, 2025 (dual-language vote 6-3). Principal Leyla Olano moved to Wooten (Dec 10, 2025).",
+    "community_response": "Reilly DL families said the change amounted to program closure.",
+    "demographics_note": "Formerly a school-wide Spanish dual language campus with a Mandarin strand; becomes a neighborhood school with a Montessori strand. The building stays open; only the program 'closes'.",
+    "sources": "https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs | https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8407,
+     30.20401
+    ]
+   },
+   "properties": {
+    "id": 20,
+    "name": "Boone Elementary School",
+    "name_short": "Boone",
+    "library_name": "Boone Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "8101 Croftwood Dr, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 389,
+    "enrollment_prior": "",
+    "capacity": 752,
+    "capacity_source": "city campus data",
+    "percent_utilization": 52,
+    "linked_campuses": "Sunset Valley Elementary (part, by address)",
+    "future_use": "",
+    "reason": "Receives part of Sunset Valley's attendance zone.",
+    "plan_history": "Oct 3: boundary changes only; Oct 31: larger share of Sunset Valley reassigned to Boone instead of Cunningham. Final: Sunset Valley students to Boone or Cunningham by address.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.80598,
+     30.21029
+    ]
+   },
+   "properties": {
+    "id": 21,
+    "name": "Cunningham Elementary School",
+    "name_short": "Cunningham",
+    "library_name": "Cunningham Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "2200 Berkeley Ave, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 334,
+    "enrollment_prior": "",
+    "capacity": 606,
+    "capacity_source": "city campus data",
+    "percent_utilization": 55,
+    "linked_campuses": "Sunset Valley Elementary (part, by address)",
+    "future_use": "",
+    "reason": "Receives part of Sunset Valley's attendance zone.",
+    "plan_history": "Oct 3: receive most Sunset Valley and some Joslin students; Oct 31: share reduced in favor of Boone; Joslin changes dropped. Final: Sunset Valley students to Boone or Cunningham.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.67979,
+     30.31772
+    ]
+   },
+   "properties": {
+    "id": 22,
+    "name": "Andrews Elementary School",
+    "name_short": "Andrews",
+    "library_name": "Andrews Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "6801 Northeast Dr, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 294,
+    "enrollment_prior": "",
+    "capacity": 636,
+    "capacity_source": "city campus data",
+    "percent_utilization": 46,
+    "linked_campuses": "Winn Montessori (80%, by address)",
+    "future_use": "",
+    "reason": "Receives 80% of Winn Montessori's neighborhood students.",
+    "plan_history": "Oct 3: receive Winn students plus boundary changes (dropped Nov 4). Final: Winn students to Andrews or Pecan Springs. Principal Audrey Guerrero confirmed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Inherits Winn's turnaround plan; campus being modernized (2022 bond) with the Winn building as swing space.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinisd.org/repurposing/winn | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.67682,
+     30.30303
+    ]
+   },
+   "properties": {
+    "id": 23,
+    "name": "Pecan Springs Elementary School",
+    "name_short": "Pecan Springs",
+    "library_name": "Pecan Springs Elementary",
+    "school_type": "elementary",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "3100 Rogge Ln, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 240,
+    "enrollment_prior": "",
+    "capacity": 524,
+    "capacity_source": "city campus data",
+    "percent_utilization": 46,
+    "linked_campuses": "Winn Montessori (20%, by address)",
+    "future_use": "",
+    "reason": "Receives 20% of Winn Montessori's neighborhood students.",
+    "plan_history": "Oct 3: receive Winn students with small boundary changes (dropped). Restart plan approved Nov 20, 2025; new principal Paula Noe (from Maplewood) appointed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Own three-F turnaround campus: district-managed restart (ACE model) 2026-27.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://www.austinisd.org/school-improvement/restart-reassign | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72187,
+     30.2709
+    ]
+   },
+   "properties": {
+    "id": 24,
+    "name": "Kealing Middle School",
+    "name_short": "Kealing",
+    "library_name": "Kealing Middle School",
+    "school_type": "middle",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "1607 Pennsylvania Ave, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 1232,
+    "enrollment_prior": "",
+    "capacity": 1333,
+    "capacity_source": "city campus data",
+    "percent_utilization": 92,
+    "linked_campuses": "Martin Middle School (61%, by address)",
+    "future_use": "",
+    "reason": "Receives 61% of Martin's attendance zone.",
+    "plan_history": "Oct 3/31: receive Martin students plus boundary changes (dropped). Principal Tim Estes confirmed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Inherits Martin's turnaround plan.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75028,
+     30.24368
+    ]
+   },
+   "properties": {
+    "id": 25,
+    "name": "Lively Middle School",
+    "name_short": "Lively",
+    "library_name": "Fulmore Middle School",
+    "school_type": "middle",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "201 E Mary St, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 919,
+    "enrollment_prior": "",
+    "capacity": 1078,
+    "capacity_source": "city campus data",
+    "percent_utilization": 85,
+    "linked_campuses": "Martin Middle School (26%, by address)",
+    "future_use": "",
+    "reason": "Receives 26% of Martin's attendance zone.",
+    "plan_history": "Oct 3: receive students from both Bedichek and Martin; Oct 31: Bedichek share redirected to Mendez. Final: receives Martin students only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6945088,
+     30.2965367
+    ]
+   },
+   "properties": {
+    "id": 26,
+    "name": "Dr. General Marshall Middle School",
+    "name_short": "Dr. General Marshall",
+    "library_name": "",
+    "school_type": "middle",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "4401 Tilley St, Austin, TX 78723",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 638,
+    "enrollment_prior": "Opened 2023-24 with a single 6th-grade cohort drawn from eight elementary schools",
+    "capacity": 0,
+    "capacity_source": "",
+    "percent_utilization": 0,
+    "linked_campuses": "Martin Middle School (13%, by address)",
+    "future_use": "",
+    "reason": "Receives 13% of Martin's attendance zone; Phase 1 of the boundary realignment (vote expected Oct 2026) will define its first attendance area for 2027-28.",
+    "plan_history": "Oct 3/31: new boundary drawn (districtwide boundaries dropped Nov 4). Final: receives Martin students. Boundary Phase 1 narrowed in Aug 2026 to Marshall MS and Linder ES: open houses Aug 29, Sept 14 and Sept 16, 2026; recommendations September; board vote October 2026; effective 2027-28.",
+    "community_response": "",
+    "demographics_note": "Mueller-area campus opened Oct 2023 (2017 bond); has never had a formal attendance boundary. Not in the GIS library.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2026/08/11/austin-isd-refines-boundary-realignment-timeline-amidst-district-updates | https://www.austinisd.org/boundaries | https://communityimpact.com/austin/north-northwest-austin/education/2023/10/04/austin-isd-community-celebrates-opening-of-dr-general-marshall-middle-school/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.83456,
+     30.21257
+    ]
+   },
+   "properties": {
+    "id": 27,
+    "name": "Covington Middle School",
+    "name_short": "Covington",
+    "library_name": "Covington Middle School",
+    "school_type": "middle",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "3700 Convict Hill Rd, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 625,
+    "enrollment_prior": "",
+    "capacity": 1125,
+    "capacity_source": "city campus data",
+    "percent_utilization": 56,
+    "linked_campuses": "Bedichek Middle School (58%, by address)",
+    "future_use": "",
+    "reason": "Receives 58% of Bedichek's attendance zone.",
+    "plan_history": "Oct 3/31: receive Bedichek students plus boundary changes (dropped). Principal Cedric Maddox confirmed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Inherits Bedichek's turnaround plan.",
+    "sources": "https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74288,
+     30.18884
+    ]
+   },
+   "properties": {
+    "id": 28,
+    "name": "Mendez Middle School",
+    "name_short": "Mendez",
+    "library_name": "Mendez Middle School",
+    "school_type": "middle",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "5106 Village Square Dr, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 283,
+    "enrollment_prior": "",
+    "capacity": 1215,
+    "capacity_source": "city campus data",
+    "percent_utilization": 23,
+    "linked_campuses": "Bedichek Middle School (13%, by address); Paredes Middle School (about 45% of students, from Aug 2026)",
+    "future_use": "",
+    "reason": "Receives 13% of Bedichek's zone (2026-27) and, after the July 2026 Paredes closure, about 45% of Paredes students (east of Bluff Springs Rd and north of Slaughter Ln).",
+    "plan_history": "Oct 3: receive some Bedichek students; Oct 31: share increased (fewer to Lively). Final: Covington/Paredes/Mendez by address. July 30, 2026: designated receiver for Paredes students east of Bluff Springs Rd/north of Slaughter Ln.",
+    "community_response": "",
+    "demographics_note": "SB 1882 partnership campus; Oct 31 draft floated a possible future PK-8 at Mendez.",
+    "sources": "https://www.austinisd.org/press-releases/2026/07/30/austin-isd-trustees-vote-close-paredes-middle-school-prioritize-student | https://www.austinchronicle.com/news/aisd-board-approves-school-closures-and-turnaround-plans/ | https://www.fox7austin.com/news/austin-isd-board-votes-close-paredes-middle-school | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.87237,
+     30.16429
+    ]
+   },
+   "properties": {
+    "id": 29,
+    "name": "Bailey Middle School",
+    "name_short": "Bailey",
+    "library_name": "Bailey Middle School",
+    "school_type": "middle",
+    "role": "receiving",
+    "role_label": "Receiving students",
+    "address": "4020 Lost Oasis Holw, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 759,
+    "enrollment_prior": "",
+    "capacity": 1176,
+    "capacity_source": "city campus data",
+    "percent_utilization": 65,
+    "linked_campuses": "Paredes Middle School (about 55% of students; includes former Bedichek-zone students who had been assigned to Paredes)",
+    "future_use": "",
+    "reason": "Receives about 55% of Paredes students (all Paredes-zoned students not assigned to Mendez) after the July 2026 Paredes closure.",
+    "plan_history": "Not in the Nov 2025 closure plan (only boundary tweaks in the Oct drafts, dropped). Added July 30, 2026 as Paredes receiver; took on Paredes' turnaround plan; first day Aug 18, 2026.",
+    "community_response": "",
+    "demographics_note": "Inherited Paredes's TEA-approved turnaround plan in August 2026; needs portable classrooms to absorb the students (Austin Current, Aug 28, 2026).",
+    "sources": "https://www.kut.org/education/2026-07-31/austin-isd-trustees-vote-to-close-paredes-middle-school-just-weeks-before-school-starts | https://www.austinisd.org/press-releases/2026/07/30/austin-isd-trustees-vote-close-paredes-middle-school-prioritize-student | https://austincurrent.org/2026/08/18/austin-austinisd-back-to-school-takeover-closures-bus-hubs/ | https://austincurrent.org/2026/08/28/austin-austinisd-budget-cuts-deficit-grew/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7352,
+     30.25808
+    ]
+   },
+   "properties": {
+    "id": 30,
+    "name": "S\u00e1nchez Elementary School",
+    "name_short": "S\u00e1nchez",
+    "library_name": "Sanchez Elementary",
+    "school_type": "elementary",
+    "role": "program_move",
+    "role_label": "Program moves",
+    "address": "73 San Marcos St, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 348,
+    "enrollment_prior": "",
+    "capacity": 580,
+    "capacity_source": "city campus data",
+    "percent_utilization": 60,
+    "linked_campuses": "Becker Elementary (dual language program and priority transfers)",
+    "future_use": "",
+    "reason": "Receives Becker's dual language program as a two-way strand (stays a neighborhood school).",
+    "plan_history": "Oct 3: become non-zoned school-wide Spanish DL campus, neighborhood to Allison/Zavala/Travis Heights. Final Nov 14: remains a neighborhood campus with a two-way DL strand. Restart plan approved Nov 20, 2025; principal Travis Barrett (from Becker) appointed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Own three-F turnaround campus: district-managed restart (ACE model) 2026-27; higher emergent-bilingual population.",
+    "sources": "https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2025/10/06/austin-isd-proposes-school-consolidations-and-closures-for-2026-27-school-year- | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69383,
+     30.33309
+    ]
+   },
+   "properties": {
+    "id": 31,
+    "name": "Pickle Elementary School",
+    "name_short": "Pickle",
+    "library_name": "Pickle Elementary",
+    "school_type": "elementary",
+    "role": "program_move",
+    "role_label": "Program moves",
+    "address": "1101 Wheatley Ave, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 349,
+    "enrollment_prior": "",
+    "capacity": 561,
+    "capacity_source": "city campus data",
+    "percent_utilization": 62,
+    "linked_campuses": "Ridgetop Elementary (dual language program and priority transfers)",
+    "future_use": "",
+    "reason": "Receives Ridgetop's dual language program as a two-way strand (stays a neighborhood school).",
+    "plan_history": "Oct 3: become non-zoned school-wide DL, neighborhood to Hart. Final: neighborhood school with DL strand. Principal Kara Schultz (from Ridgetop) appointed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.71919,
+     30.35361
+    ]
+   },
+   "properties": {
+    "id": 32,
+    "name": "Wooten Elementary School",
+    "name_short": "Wooten",
+    "library_name": "Wooten Elementary",
+    "school_type": "elementary",
+    "role": "program_move",
+    "role_label": "Program moves",
+    "address": "1406 Dale Dr, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 236,
+    "enrollment_prior": "",
+    "capacity": 468,
+    "capacity_source": "city campus data",
+    "percent_utilization": 50,
+    "linked_campuses": "Reilly Elementary (dual language and Mandarin programs)",
+    "future_use": "",
+    "reason": "Receives Reilly's Spanish dual language program (two-way strand) and Reilly's Mandarin dual-language program.",
+    "plan_history": "Oct 3: become non-zoned school-wide DL, neighborhood to Pillow. Oct 31: Mandarin continuation added. Final: neighborhood school with DL strand plus Mandarin. Principal Leyla Olano (from Reilly) appointed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Recently modernized (2022 bond) campus.",
+    "sources": "https://communityimpact.com/austin/north-central-austin/education/2025/11/18/austin-isd-shares-final-school-consolidation-plan-vote-on-nov-20/ | https://communityimpact.com/austin/south-central-austin/education/2025/11/21/austin-isd-board-votes-to-close-10-schools-intervene-at-failing-campuses/ | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78933,
+     30.2059
+    ]
+   },
+   "properties": {
+    "id": 33,
+    "name": "Odom Elementary School",
+    "name_short": "Odom",
+    "library_name": "Odom Elementary",
+    "school_type": "elementary",
+    "role": "program_move",
+    "role_label": "Program moves",
+    "address": "1010 Turtle Creek Blvd, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 271,
+    "enrollment_prior": "",
+    "capacity": 542,
+    "capacity_source": "city campus data",
+    "percent_utilization": 50,
+    "linked_campuses": "Sunset Valley Elementary (dual language program and priority transfers); Pleasant Hill Elementary (receives Odom's neighborhood students)",
+    "future_use": "",
+    "reason": "Receives Sunset Valley's school-wide dual language program; converts to a non-zoned DL campus; Odom's neighborhood (English/ESL) students are reassigned to Pleasant Hill, with current 3rd/4th graders allowed to finish at Odom.",
+    "plan_history": "Oct 3/31: non-zoned school-wide DL, neighborhood to Pleasant Hill. Final Nov 14: confirmed as the one non-zoned DL campus; neighborhood reassignment to Pleasant Hill retained (KXAN/KVUE final-plan coverage). Approved Nov 20, 2025. Principal Elaine Navarro (from Sunset Valley) appointed Dec 10, 2025.",
+    "community_response": "",
+    "demographics_note": "Becomes the district's only campus-wide, non-zoned (open citywide) Spanish dual language school.",
+    "sources": "https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.kxan.com/austin-isd-school-closure-plans/austin-isd-final-consolidation-plan-release/ | https://www.kvue.com/article/news/education/schools/austin-isd-proposed-consolidation-plan-final-version/269-5b7edae6-c36a-45ac-bddb-701e4b31bca3 | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7762,
+     30.19639
+    ]
+   },
+   "properties": {
+    "id": 34,
+    "name": "Pleasant Hill Elementary School",
+    "name_short": "Pleasant Hill",
+    "library_name": "Pleasant Hill Elementary",
+    "school_type": "elementary",
+    "role": "boundary_change",
+    "role_label": "Boundary change only",
+    "address": "6405 Circle S Rd, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 0,
+    "enrollment_prior": "",
+    "capacity": 505,
+    "capacity_source": "city campus data",
+    "percent_utilization": 0,
+    "linked_campuses": "Odom Elementary (neighborhood students reassigned here; Odom 3rd/4th graders in English/ESL classrooms may finish at Odom)",
+    "future_use": "",
+    "reason": "Receives Odom's neighborhood (non-dual-language) students when Odom becomes a non-zoned dual language campus.",
+    "plan_history": "In the Oct 3/Oct 31 drafts and retained in the Nov 14 final plan approved Nov 20, 2025.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.kxan.com/austin-isd-school-closure-plans/austin-isd-final-consolidation-plan-release/ | https://www.kvue.com/article/news/education/schools/austin-isd-proposed-consolidation-plan-final-version/269-5b7edae6-c36a-45ac-bddb-701e4b31bca3 | https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75164,
+     30.15622
+    ]
+   },
+   "properties": {
+    "id": 35,
+    "name": "Blazier Elementary School",
+    "name_short": "Blazier",
+    "library_name": "Blazier Elementary",
+    "school_type": "elementary",
+    "role": "program_move",
+    "role_label": "Program moves",
+    "address": "8601 Vertex Blvd, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 701,
+    "enrollment_prior": "",
+    "capacity": 598,
+    "capacity_source": "city campus data",
+    "percent_utilization": 117,
+    "linked_campuses": "",
+    "future_use": "",
+    "reason": "Sixth grade discontinued; rising 6th graders attend their zoned middle school.",
+    "plan_history": "In Oct 3 draft (no boundary change, drop 6th grade); retained in final plan and approved Nov 20, 2025.",
+    "community_response": "",
+    "demographics_note": "Blazier ES / Blazier Intermediate; feeds Paredes MS (now Bailey/Mendez after the Paredes closure).",
+    "sources": "https://communityimpact.com/austin/south-central-austin/education/2025/11/21/austin-isd-board-votes-to-close-10-schools-intervene-at-failing-campuses/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76092,
+     30.27834
+    ]
+   },
+   "properties": {
+    "id": 36,
+    "name": "Mathews Elementary School",
+    "name_short": "Mathews",
+    "library_name": "Mathews Elementary",
+    "school_type": "elementary",
+    "role": "program_move",
+    "role_label": "Program moves",
+    "address": "906 West Lynn St, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 377,
+    "enrollment_prior": "",
+    "capacity": 397,
+    "capacity_source": "city campus data",
+    "percent_utilization": 95,
+    "linked_campuses": "",
+    "future_use": "",
+    "reason": "Sixth grade discontinued.",
+    "plan_history": "Oct 3: drop 6th grade and receive Bryker Woods students with boundary changes; Oct 31: Bryker Woods receivers shifted toward Brentwood/Casis; Nov 4: Bryker Woods closure and boundaries deferred. Final: 6th-grade removal only; approved Nov 20, 2025.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://communityimpact.com/austin/south-central-austin/education/2025/11/21/austin-isd-board-votes-to-close-10-schools-intervene-at-failing-campuses/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72741,
+     30.29339
+    ]
+   },
+   "properties": {
+    "id": 37,
+    "name": "Russell Lee Elementary School",
+    "name_short": "Russell Lee",
+    "library_name": "Lee Elementary",
+    "school_type": "elementary",
+    "role": "program_move",
+    "role_label": "Program moves",
+    "address": "3308 Hampton Rd, Austin, TX",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 416,
+    "enrollment_prior": "",
+    "capacity": 418,
+    "capacity_source": "city campus data",
+    "percent_utilization": 100,
+    "linked_campuses": "",
+    "future_use": "",
+    "reason": "Sixth grade discontinued.",
+    "plan_history": "In Oct 3 draft (no boundary change, drop 6th grade); retained in final plan; approved Nov 20, 2025.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://communityimpact.com/austin/south-central-austin/education/2025/11/21/austin-isd-board-votes-to-close-10-schools-intervene-at-failing-campuses/ | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74389,
+     30.16486
+    ]
+   },
+   "properties": {
+    "id": 38,
+    "name": "Palm Elementary School",
+    "name_short": "Palm",
+    "library_name": "Palm Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "7601 Dixie Dr, Austin, TX",
+    "effective_school_year": "deferred (was 2026-27)",
+    "enrollment_current": 302,
+    "enrollment_prior": "",
+    "capacity": 636,
+    "capacity_source": "city campus data",
+    "percent_utilization": 47,
+    "linked_campuses": "Perez Elementary (proposed receiver in Oct 3/Oct 31 drafts)",
+    "future_use": "",
+    "reason": "Original reason: under-enrollment/boundary balancing; removed Nov 4, 2025 because it was 'not impacted by turnaround plans or the district's efforts to move its dual language programs'.",
+    "plan_history": "Oct 3 draft: close and merge into Perez. Nov 4, 2025: removed from the Nov 20 vote; to be reconsidered fall 2026. June/July 2026: district said it is 'suspending any additional school closures' and moved districtwide consolidation review to Phase 2 (planning from spring 2027, vote fall 2027, effective 2028-29), though the superintendent said Phase 2 'could also include more school closures'.",
+    "community_response": "Parents relieved but split on whether the delay was trustworthy.",
+    "demographics_note": "Southeast Austin; not a turnaround campus.",
+    "sources": "https://www.kut.org/education/2025-11-04/austin-tx-aisd-school-closures-plan-budget | https://www.austinisd.org/announcements/2025/11/04/superintendent-introduces-new-timeline-program-consolidation-and-boundary | https://www.austinisd.org/boundaries | https://austincurrent.org/2026/06/29/austin-isd-boundary-changes-school-closures/ | https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2025/10/06/austin-isd-proposes-school-consolidations-and-closures-for-2026-27-school-year- | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75093,
+     30.30537
+    ]
+   },
+   "properties": {
+    "id": 39,
+    "name": "Bryker Woods Elementary School",
+    "name_short": "Bryker Woods",
+    "library_name": "Bryker Woods Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "3309 Kerbey Ln, Austin, TX",
+    "effective_school_year": "deferred (was 2026-27)",
+    "enrollment_current": 273,
+    "enrollment_prior": "",
+    "capacity": 418,
+    "capacity_source": "city campus data",
+    "percent_utilization": 65,
+    "linked_campuses": "Mathews Elementary, Casis Elementary, Brentwood Elementary (proposed receivers by address, Oct 3/Oct 31 drafts)",
+    "future_use": "",
+    "reason": "Original reason: under-enrollment/boundary balancing; removed Nov 4, 2025 pending more engagement.",
+    "plan_history": "Oct 3 draft: close, students to Mathews/Casis/Brentwood. Oct 31: more students shifted to Brentwood and Casis. Nov 4: removed from vote; district later suspended additional closures pending Phase 2 (2028-29).",
+    "community_response": "",
+    "demographics_note": "Central/West Austin; not a turnaround campus.",
+    "sources": "https://www.kut.org/education/2025-11-04/austin-tx-aisd-school-closures-plan-budget | https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2025/10/06/austin-isd-proposes-school-consolidations-and-closures-for-2026-27-school-year- | https://www.austinisd.org/boundaries | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7144,
+     30.29318
+    ]
+   },
+   "properties": {
+    "id": 40,
+    "name": "Maplewood Elementary School",
+    "name_short": "Maplewood",
+    "library_name": "Maplewood Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "3808 Maplewood Ave, Austin, TX",
+    "effective_school_year": "deferred (was 2026-27)",
+    "enrollment_current": 426,
+    "enrollment_prior": "",
+    "capacity": 355,
+    "capacity_source": "city campus data",
+    "percent_utilization": 120,
+    "linked_campuses": "Campbell Elementary (proposed receiver in Oct 3/Oct 31 drafts)",
+    "future_use": "",
+    "reason": "Original reason: under-enrollment/boundary balancing; removed Nov 4, 2025.",
+    "plan_history": "Oct 3 draft: close and merge into Campbell. Nov 4: removed from vote; district later suspended additional closures pending Phase 2. Principal Paula Noe moved to Pecan Springs (Dec 10, 2025).",
+    "community_response": "Maplewood parents questioned the process.",
+    "demographics_note": "East/Central Austin; not a turnaround campus.",
+    "sources": "https://www.kut.org/education/2025-11-04/austin-tx-aisd-school-closures-plan-budget | https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2025/10/06/austin-isd-proposes-school-consolidations-and-closures-for-2026-27-school-year- | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69859,
+     30.26416
+    ]
+   },
+   "properties": {
+    "id": 41,
+    "name": "Govalle Elementary School",
+    "name_short": "Govalle",
+    "library_name": "Govalle Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "3601 Govalle Ave, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 373,
+    "enrollment_prior": "",
+    "capacity": 598,
+    "capacity_source": "city campus data",
+    "percent_utilization": 62,
+    "linked_campuses": "Winn Montessori (proposed program receiver, dropped); Ortega Elementary and Zavala Elementary (proposed receivers of Govalle neighborhood, dropped)",
+    "future_use": "",
+    "reason": "Oct 3 draft proposed converting Govalle into the district's non-zoned Montessori campus (neighborhood students to Ortega/Zavala); dropped after community protest; Montessori went to Reilly instead.",
+    "plan_history": "Oct 3: become non-zoned Montessori campus. Oct 29 workshop: trustees requested alternatives. Nov 14 final: Montessori to Reilly; Govalle unchanged.",
+    "community_response": "Govalle families protested the program transfer.",
+    "demographics_note": "Recently modernized building.",
+    "sources": "https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2025/10/06/austin-isd-proposes-school-consolidations-and-closures-for-2026-27-school-year- | https://communityimpact.com/austin/southwest-austin-dripping-springs/education/2025/10/03/austin-isd-unveils-plans-to-close-13-schools-in-2026-27-school-year/ | https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79022,
+     30.22799
+    ]
+   },
+   "properties": {
+    "id": 42,
+    "name": "Joslin Elementary School",
+    "name_short": "Joslin",
+    "library_name": "Joslin Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "4500 Manchaca Rd, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 245,
+    "enrollment_prior": "",
+    "capacity": 374,
+    "capacity_source": "city campus data",
+    "percent_utilization": 66,
+    "linked_campuses": "Cunningham Elementary, Galindo Elementary, Zilker Elementary (proposed receivers of Joslin neighborhood, dropped)",
+    "future_use": "",
+    "reason": "Oct 3 draft proposed converting Joslin to a non-zoned Spanish and Mandarin immersion campus; the Nov 14 final plan left the idea 'under consideration' with no 2026-27 implementation, so it was not part of the Nov 20 vote.",
+    "plan_history": "Oct 3: non-zoned immersion program; Nov 14: decision pending, remains a neighborhood school for 2026-27.",
+    "community_response": "",
+    "demographics_note": "Has an existing Mandarin dual-language program.",
+    "sources": "https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://communityimpact.com/austin/southwest-austin-dripping-springs/education/2025/10/03/austin-isd-unveils-plans-to-close-13-schools-in-2026-27-school-year/ | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72101,
+     30.27744
+    ]
+   },
+   "properties": {
+    "id": 43,
+    "name": "Garza Independence High School",
+    "name_short": "Garza",
+    "library_name": "Garza High School",
+    "school_type": "high",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "1600 Chicon St, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 161,
+    "enrollment_prior": "",
+    "capacity": 321,
+    "capacity_source": "city campus data",
+    "percent_utilization": 50,
+    "linked_campuses": "Martin Middle School (proposed destination, dropped); Alternative Learning Center (proposed to take Garza's building, dropped)",
+    "future_use": "",
+    "reason": "Oct 3/Oct 31 drafts proposed relocating Garza into the Martin MS building as a 6-12 program (with the Alternative Learning Center moving into Garza's building); after protests the idea was removed from the final draft (KXAN), though the Nov 14 plan said relocation could still be considered 'not before 2026-27' (KUT). Not part of the Nov 20 approved actions; Martin was later land-banked with use TBD.",
+    "plan_history": "Proposal surfaced Oct 3, discussed Oct 29 workshop, protests early November; absent from the Nov 21, 2025 approved actions.",
+    "community_response": "Protest rally outside Garza; teachers petitioned against the move.",
+    "demographics_note": "Self-paced diploma-completion high school for at-risk students.",
+    "sources": "https://www.yahoo.com/news/articles/austin-isd-plans-envision-martin-225709326.html | https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://www.austinisd.org/announcements/2025/11/04/board-bulletin-trustees-discuss-draft-school-consolidation-and-boundary | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70907,
+     30.26975
+    ]
+   },
+   "properties": {
+    "id": 44,
+    "name": "Alternative Learning Center",
+    "name_short": "Alternative Learning Center",
+    "library_name": "Alternative Learning Center",
+    "school_type": "other",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "901 Neal St, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 0,
+    "enrollment_prior": "",
+    "capacity": 250,
+    "capacity_source": "city campus data",
+    "percent_utilization": 0,
+    "linked_campuses": "Garza Independence High School (proposed building swap, dropped)",
+    "future_use": "",
+    "reason": "Oct drafts considered moving ALC into the Garza building; not carried into the approved plan.",
+    "plan_history": "Exploratory note in Oct 3/Oct 31 plan pages; absent from approved Nov 20, 2025 actions.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://www.austinisd.org/announcements/2025/11/04/board-bulletin-trustees-discuss-draft-school-consolidation-and-boundary",
+    "n_sources": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75508,
+     30.19776
+    ]
+   },
+   "properties": {
+    "id": 45,
+    "name": "Houston Elementary School",
+    "name_short": "Houston",
+    "library_name": "Houston Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "5409 Ponciana Dr, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 443,
+    "enrollment_prior": "",
+    "capacity": 692,
+    "capacity_source": "city campus data",
+    "percent_utilization": 64,
+    "linked_campuses": "Wid\u00e9n Elementary (proposed partial receiver, dropped)",
+    "future_use": "",
+    "reason": "Was to receive part of Wid\u00e9n's zone in the Oct 3/Oct 31 drafts; the final plan sent all Wid\u00e9n students to Rodriguez to avoid placing them in another failing school.",
+    "plan_history": "Oct 3/31: receive some Wid\u00e9n students; Nov 14: removed.",
+    "community_response": "",
+    "demographics_note": "Failing-rated campus with a school-improvement plan.",
+    "sources": "https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75631,
+     30.17049
+    ]
+   },
+   "properties": {
+    "id": 46,
+    "name": "Perez Elementary School",
+    "name_short": "Perez",
+    "library_name": "Perez Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "7500 S Pleasant Valley Rd, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 436,
+    "enrollment_prior": "",
+    "capacity": 617,
+    "capacity_source": "city campus data",
+    "percent_utilization": 71,
+    "linked_campuses": "Palm Elementary (proposed feeder, deferred)",
+    "future_use": "",
+    "reason": "Proposed receiver for Palm Elementary in the Oct drafts; Palm closure deferred Nov 4, 2025.",
+    "plan_history": "Oct 3/31 drafts only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://www.kut.org/education/2025-11-04/austin-tx-aisd-school-closures-plan-budget | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.71386,
+     30.28252
+    ]
+   },
+   "properties": {
+    "id": 47,
+    "name": "Campbell Elementary School",
+    "name_short": "Campbell",
+    "library_name": "Campbell Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "2613 Rogers Ave, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 178,
+    "enrollment_prior": "",
+    "capacity": 524,
+    "capacity_source": "city campus data",
+    "percent_utilization": 34,
+    "linked_campuses": "Maplewood Elementary (proposed feeder, deferred)",
+    "future_use": "",
+    "reason": "Proposed receiver for Maplewood Elementary in the Oct drafts; Maplewood closure deferred Nov 4, 2025.",
+    "plan_history": "Oct 3/31 drafts only (also boundary changes with Blackshear, dropped).",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://www.kut.org/education/2025-11-04/austin-tx-aisd-school-closures-plan-budget | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73146,
+     30.33981
+    ]
+   },
+   "properties": {
+    "id": 48,
+    "name": "Brentwood Elementary School",
+    "name_short": "Brentwood",
+    "library_name": "Brentwood Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "6700 Arroyo Seco, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 694,
+    "enrollment_prior": "",
+    "capacity": 585,
+    "capacity_source": "city campus data",
+    "percent_utilization": 119,
+    "linked_campuses": "Bryker Woods Elementary (proposed feeder, deferred)",
+    "future_use": "",
+    "reason": "Proposed receiver for Bryker Woods students (share increased Oct 31); Bryker Woods closure deferred Nov 4, 2025.",
+    "plan_history": "Oct 3/31 drafts only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76552,
+     30.30436
+    ]
+   },
+   "properties": {
+    "id": 49,
+    "name": "Casis Elementary School",
+    "name_short": "Casis",
+    "library_name": "Casis Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "2710 Exposition Blvd, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 645,
+    "enrollment_prior": "",
+    "capacity": 669,
+    "capacity_source": "city campus data",
+    "percent_utilization": 96,
+    "linked_campuses": "Bryker Woods Elementary (proposed feeder, deferred)",
+    "future_use": "",
+    "reason": "Proposed receiver for Bryker Woods students; Bryker Woods closure deferred Nov 4, 2025.",
+    "plan_history": "Oct 3/31 drafts only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.68864,
+     30.34247
+    ]
+   },
+   "properties": {
+    "id": 50,
+    "name": "Hart Elementary School",
+    "name_short": "Hart",
+    "library_name": "Hart Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "8301 Furness Dr, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 531,
+    "enrollment_prior": "",
+    "capacity": 711,
+    "capacity_source": "city campus data",
+    "percent_utilization": 75,
+    "linked_campuses": "Pickle Elementary (proposed feeder, dropped); Winn Montessori (proposed small feeder, dropped)",
+    "future_use": "",
+    "reason": "Oct drafts had Hart receive Pickle's whole neighborhood (Pickle to go non-zoned) and a small group from Winn; final plan kept Pickle zoned and sent Winn students to Andrews/Pecan Springs only.",
+    "plan_history": "Oct 3/31 drafts only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://www.fox7austin.com/news/austin-isd-latest-version-closure-consolidation-plan | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73315,
+     30.36916
+    ]
+   },
+   "properties": {
+    "id": 51,
+    "name": "Pillow Elementary School",
+    "name_short": "Pillow",
+    "library_name": "Pillow Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "3025 Cross Creek Dr, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 276,
+    "enrollment_prior": "",
+    "capacity": 502,
+    "capacity_source": "city campus data",
+    "percent_utilization": 55,
+    "linked_campuses": "Wooten Elementary (proposed feeder, dropped)",
+    "future_use": "",
+    "reason": "Oct drafts had Pillow absorb Wooten's neighborhood (Wooten to go non-zoned); final plan kept Wooten as a neighborhood school.",
+    "plan_history": "Oct 3/31 drafts only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6916,
+     30.23604
+    ]
+   },
+   "properties": {
+    "id": 52,
+    "name": "Allison Elementary School",
+    "name_short": "Allison",
+    "library_name": "Allison Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "515 Vargas Rd, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 290,
+    "enrollment_prior": "",
+    "capacity": 486,
+    "capacity_source": "city campus data",
+    "percent_utilization": 60,
+    "linked_campuses": "S\u00e1nchez Elementary (proposed feeder, dropped)",
+    "future_use": "",
+    "reason": "Oct drafts had Allison absorb most S\u00e1nchez neighborhood students (S\u00e1nchez to go non-zoned); final plan kept S\u00e1nchez zoned.",
+    "plan_history": "Oct 3/31 drafts only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.68433,
+     30.27002
+    ]
+   },
+   "properties": {
+    "id": 53,
+    "name": "Ortega Elementary School",
+    "name_short": "Ortega",
+    "library_name": "Ortega Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "1135 Garland Ave, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 211,
+    "enrollment_prior": "",
+    "capacity": 355,
+    "capacity_source": "city campus data",
+    "percent_utilization": 59,
+    "linked_campuses": "Govalle Elementary (proposed feeder, dropped)",
+    "future_use": "",
+    "reason": "Oct drafts: receive Govalle neighborhood students and considered as an alternative Montessori site; dropped when Montessori went to Reilly.",
+    "plan_history": "Oct 3/31 drafts only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72,
+     30.25804
+    ]
+   },
+   "properties": {
+    "id": 54,
+    "name": "Zavala Elementary School",
+    "name_short": "Zavala",
+    "library_name": "Zavala Elementary",
+    "school_type": "elementary",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "310 Robert T Martinez Jr St, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 202,
+    "enrollment_prior": "",
+    "capacity": 561,
+    "capacity_source": "city campus data",
+    "percent_utilization": 36,
+    "linked_campuses": "Govalle Elementary and S\u00e1nchez Elementary (proposed feeders, dropped)",
+    "future_use": "",
+    "reason": "Oct drafts: receive S\u00e1nchez and Govalle neighborhood students, boundary changes with Blackshear, and considered as an alternative Montessori site; all dropped.",
+    "plan_history": "Oct 3/31 drafts only; interim principal Tamsyn Michaels appointed Dec 2025 for January 2026.",
+    "community_response": "Some Zavala parents objected to insufficient response time on the Montessori idea.",
+    "demographics_note": "",
+    "sources": "https://www.austinisd.org/sites/default/files/dept/consolidation/docs/drafts/AustinISD_Consolidation_And_Boundary_Change_Plan_Oct3_Eng.pdf | https://www.austinisd.org/announcements/2025/12/10/superintendent-appoints-principals-campuses-impacted-school-consolidations | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70826,
+     30.36044
+    ]
+   },
+   "properties": {
+    "id": 55,
+    "name": "Navarro Early College High School",
+    "name_short": "Navarro",
+    "library_name": "Lanier High School",
+    "school_type": "high",
+    "role": "removed_from_plan",
+    "role_label": "Taken off the list",
+    "address": "1201 Payton Gin Rd, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 1391,
+    "enrollment_prior": "",
+    "capacity": 1548,
+    "capacity_source": "city campus data",
+    "percent_utilization": 90,
+    "linked_campuses": "International High School (proposed program destination, dropped)",
+    "future_use": "",
+    "reason": "Oct 3 draft would have moved International High School to Navarro as a program; final plan closed International HS outright and dropped the Navarro program.",
+    "plan_history": "Oct 3/31 drafts only.",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2025/10/06/austin-isd-proposes-school-consolidations-and-closures-for-2026-27-school-year- | https://www.kut.org/education/2025-11-14/austin-tx-isd-school-consolidation-plan | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69117,
+     30.32415
+    ]
+   },
+   "properties": {
+    "id": 56,
+    "name": "Northeast Early College High School",
+    "name_short": "Northeast",
+    "library_name": "Reagan High School",
+    "school_type": "high",
+    "role": "other",
+    "role_label": "Other",
+    "address": "7104 Berkman Dr, Austin, TX 78752",
+    "effective_school_year": "2026-27",
+    "enrollment_current": 952,
+    "enrollment_prior": "",
+    "capacity": 1588,
+    "capacity_source": "city campus data",
+    "percent_utilization": 60,
+    "linked_campuses": "International High School (co-located; closing)",
+    "future_use": "",
+    "reason": "Host campus of International High School; current International students may finish at Northeast through graduation with district transportation (December 2025 letter).",
+    "plan_history": "Oct drafts also proposed boundary changes with LBJ/McCallum/Navarro (dropped Nov 4).",
+    "community_response": "",
+    "demographics_note": "",
+    "sources": "https://www.statesman.com/news/education/article/austin-isd-international-high-closure-21266450.php | https://www.kut.org/education/2025-11-21/austin-isd-board-vote-schools-closing-tx-dual-language-programs | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73769,
+     30.22445
+    ]
+   },
+   "properties": {
+    "id": 57,
+    "name": "Linder Elementary School",
+    "name_short": "Linder",
+    "library_name": "Linder Elementary",
+    "school_type": "elementary",
+    "role": "boundary_change",
+    "role_label": "Boundary change only",
+    "address": "2800 Metcalfe Rd, Austin, TX",
+    "effective_school_year": "2027-28",
+    "enrollment_current": 619,
+    "enrollment_prior": "",
+    "capacity": 588,
+    "capacity_source": "city campus data",
+    "percent_utilization": 105,
+    "linked_campuses": "",
+    "future_use": "",
+    "reason": "Named with Marshall MS as the only campuses in Phase 1 of the post-consolidation boundary realignment (overcrowding relief); open houses Sept 14 and 16, 2026; board vote expected October 2026, effective 2027-28.",
+    "plan_history": "Oct 3 draft: boundary change with Travis Heights (dropped). Restart plan approved Nov 20, 2025. Aug 2026: Phase 1 boundary scope narrowed to Marshall MS and Linder ES.",
+    "community_response": "",
+    "demographics_note": "Three-F turnaround campus: district-managed restart (ACE model) 2026-27.",
+    "sources": "https://www.austinisd.org/boundaries | https://www.austinisd.org/announcements/2026/08/11/austin-isd-refines-boundary-realignment-timeline-amidst-district-updates | https://www.austinisd.org/school-improvement/restart-reassign | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72549,
+     30.36383
+    ]
+   },
+   "properties": {
+    "id": 58,
+    "name": "Burnet Middle School",
+    "name_short": "Burnet",
+    "library_name": "Burnet Middle School",
+    "school_type": "middle",
+    "role": "other",
+    "role_label": "Other",
+    "address": "8401 Hathaway Dr, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 688,
+    "enrollment_prior": "",
+    "capacity": 1039,
+    "capacity_source": "city campus data",
+    "percent_utilization": 66,
+    "linked_campuses": "",
+    "future_use": "",
+    "reason": "Not in the consolidation plan (TEA rules barred closing Burnet, Webb and Dobie while their June 2025 turnaround plans were active). Its fifth F triggers state law requiring the commissioner to close the campus or appoint a board of managers; Mayor Watson (Sept 9, 2026) proposed parent petitions to close Burnet and Webb and open a replacement school in the new $158M building.",
+    "plan_history": "June 26, 2025 ACE restart turnaround plan; excluded from Oct 2025 closure list; Aug 13, 2026 preliminary fifth F; appeal deadline Sept 11, 2026 (district said it would 'likely' appeal, no filing confirmed publicly as of Sept 12); parent-petition deadlines Oct 15 (to superintendent) and Dec 1 (to commissioner); final ratings/decision expected by about Dec 11, 2026.",
+    "community_response": "",
+    "demographics_note": "Five consecutive F ratings (preliminary, Aug 13, 2026; 'one point away' from a D); $158M bond modernization under way on the site.",
+    "sources": "https://austincurrent.org/2026/08/13/austin-austinisd-tea-takeover-ratings-dobie-webb-burnet/ | https://www.kut.org/education/2026-08-17/austin-mayor-kirk-watson-avoid-aisd-takeover | https://www.kut.org/education/2026-09-09/austin-tx-isd-failing-schools-tea-takeover-kirk-watson | https://www.texastribune.org/2026/09/09/austin-isd-school-takeover-texas-education-agency/ | https://www.kut.org/education/2025-06-26/austin-tx-school-district-burnet-dobie-webb-turnaround-plans-tea-state-intervention | https://www.austinisd.org/announcements/2025/09/24/how-austin-isds-turnaround-plans-intersect-consolidation-boundary-change | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70646,
+     30.33342
+    ]
+   },
+   "properties": {
+    "id": 59,
+    "name": "Webb Middle School",
+    "name_short": "Webb",
+    "library_name": "Webb Middle School",
+    "school_type": "middle",
+    "role": "other",
+    "role_label": "Other",
+    "address": "601 E St Johns Ave, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 429,
+    "enrollment_prior": "",
+    "capacity": 804,
+    "capacity_source": "city campus data",
+    "percent_utilization": 53,
+    "linked_campuses": "",
+    "future_use": "",
+    "reason": "Not in the consolidation plan (protected by active turnaround plan); fifth F triggers possible state closure or district takeover; closure via parent petition floated by the mayor in Sept 2026.",
+    "plan_history": "June 26, 2025 ACE restart turnaround plan; excluded from Oct 2025 closure list; Aug 13, 2026 preliminary fifth F; appeal deadline Sept 11, 2026; petition deadlines Oct 15/Dec 1; decision expected December 2026.",
+    "community_response": "",
+    "demographics_note": "Five consecutive F ratings (preliminary, Aug 13, 2026).",
+    "sources": "https://austincurrent.org/2026/09/09/austin-austinisd-takeover-mayor-burnet-webb/ | https://austincurrent.org/2026/09/08/austin-austinisd-takeover-superintendent-mayor/ | https://austincurrent.org/2026/08/18/austin-austinisd-back-to-school-takeover-closures-bus-hubs/ | https://www.kut.org/education/2025-06-26/austin-tx-school-district-burnet-dobie-webb-turnaround-plans-tea-state-intervention | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.68037,
+     30.35427
+    ]
+   },
+   "properties": {
+    "id": 60,
+    "name": "Dobie Middle School",
+    "name_short": "Dobie",
+    "library_name": "Dobie Middle School",
+    "school_type": "middle",
+    "role": "other",
+    "role_label": "Other",
+    "address": "1200 E Rundberg Ln, Austin, TX",
+    "effective_school_year": "n/a",
+    "enrollment_current": 392,
+    "enrollment_prior": "",
+    "capacity": 902,
+    "capacity_source": "city campus data",
+    "percent_utilization": 43,
+    "linked_campuses": "",
+    "future_use": "",
+    "reason": "Not in the consolidation plan (protected by active turnaround plan); receives the Guerrero Thompson feeder (which absorbs most of Barrington).",
+    "plan_history": "June 26, 2025 ACE restart turnaround plan; excluded from closure list; D rating Aug 13, 2026 paused its accountability clock.",
+    "community_response": "",
+    "demographics_note": "Broke its four-year F streak with a D in the Aug 2026 preliminary ratings.",
+    "sources": "https://austincurrent.org/2026/08/13/austin-austinisd-tea-takeover-ratings-dobie-webb-burnet/ | https://www.kut.org/education/2025-06-26/austin-tx-school-district-burnet-dobie-webb-turnaround-plans-tea-state-intervention | https://schools.texastribune.org/districts/austin-isd/",
+    "n_sources": 3
+   }
+  }
+ ]
+}

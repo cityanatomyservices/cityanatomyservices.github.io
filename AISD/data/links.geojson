@@ -1,0 +1,605 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.69593,
+      30.3605
+     ],
+     [
+      -97.69322,
+      30.36093
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 1,
+    "from": "Barrington",
+    "to_id": 16,
+    "to": "Guerrero Thompson",
+    "share_pct": 75,
+    "detail": "Guerrero Thompson Elementary (75% of students, by address; inherits turnaround plan)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.69593,
+      30.3605
+     ],
+     [
+      -97.70972,
+      30.36496
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 1,
+    "from": "Barrington",
+    "to_id": 17,
+    "to": "Wooldridge",
+    "share_pct": 25,
+    "detail": "Wooldridge Elementary (25%, by address)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7598,
+      30.25046
+     ],
+     [
+      -97.77182,
+      30.22953
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 2,
+    "from": "Becker",
+    "to_id": 14,
+    "to": "Galindo",
+    "share_pct": 0,
+    "detail": "Galindo Elementary or Zilker Elementary (neighborhood students, by address)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7598,
+      30.25046
+     ],
+     [
+      -97.77413,
+      30.25276
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 2,
+    "from": "Becker",
+    "to_id": 15,
+    "to": "Zilker",
+    "share_pct": 0,
+    "detail": "Galindo Elementary or Zilker Elementary (neighborhood students, by address)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7598,
+      30.25046
+     ],
+     [
+      -97.7352,
+      30.25808
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 2,
+    "from": "Becker",
+    "to_id": 30,
+    "to": "S\u00e1nchez",
+    "share_pct": 0,
+    "detail": "Sanchez Elementary (dual language program relocates as a two-way strand; Becker DL students get priority transfer)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.76361,
+      30.2341
+     ],
+     [
+      -97.77182,
+      30.22953
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 3,
+    "from": "Dawson",
+    "to_id": 14,
+    "to": "Galindo",
+    "share_pct": 100,
+    "detail": "Galindo Elementary (100% of students; Galindo inherits Dawson's turnaround plan)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7046,
+      30.2718
+     ],
+     [
+      -97.72194,
+      30.267
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 4,
+    "from": "Oak Springs",
+    "to_id": 13,
+    "to": "Blackshear",
+    "share_pct": 100,
+    "detail": "Blackshear Elementary (100% of students for 2026-27 and fall 2027 while Oak Springs is rebuilt; Blackshear inherits the turnaround plan)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7163,
+      30.31199
+     ],
+     [
+      -97.71997,
+      30.32824
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 5,
+    "from": "Ridgetop",
+    "to_id": 19,
+    "to": "Reilly",
+    "share_pct": 0,
+    "detail": "Reilly Elementary (all neighborhood students)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7163,
+      30.31199
+     ],
+     [
+      -97.69383,
+      30.33309
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 5,
+    "from": "Ridgetop",
+    "to_id": 31,
+    "to": "Pickle",
+    "share_pct": 0,
+    "detail": "Pickle Elementary (dual language program relocates as a two-way strand; priority transfers)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.80695,
+      30.22785
+     ],
+     [
+      -97.8407,
+      30.20401
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 6,
+    "from": "Sunset Valley",
+    "to_id": 20,
+    "to": "Boone",
+    "share_pct": 0,
+    "detail": "Boone Elementary or Cunningham Elementary (neighborhood students, by address)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.80695,
+      30.22785
+     ],
+     [
+      -97.80598,
+      30.21029
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 6,
+    "from": "Sunset Valley",
+    "to_id": 21,
+    "to": "Cunningham",
+    "share_pct": 0,
+    "detail": "Boone Elementary or Cunningham Elementary (neighborhood students, by address)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.80695,
+      30.22785
+     ],
+     [
+      -97.78933,
+      30.2059
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 6,
+    "from": "Sunset Valley",
+    "to_id": 33,
+    "to": "Odom",
+    "share_pct": 0,
+    "detail": "Odom Elementary (dual language program relocates; Odom becomes the district's only non-zoned school-wide DL campus)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.74021,
+      30.18868
+     ],
+     [
+      -97.74735,
+      30.2007
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 7,
+    "from": "Wid\u00e9n",
+    "to_id": 18,
+    "to": "Rodriguez",
+    "share_pct": 100,
+    "detail": "Rodriguez Elementary (100% of students; inherits turnaround plan)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.66528,
+      30.31388
+     ],
+     [
+      -97.67979,
+      30.31772
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 8,
+    "from": "Winn",
+    "to_id": 22,
+    "to": "Andrews",
+    "share_pct": 80,
+    "detail": "Andrews Elementary (80% of neighborhood students, by address; inherits turnaround plan)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.66528,
+      30.31388
+     ],
+     [
+      -97.67682,
+      30.30303
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 8,
+    "from": "Winn",
+    "to_id": 23,
+    "to": "Pecan Springs",
+    "share_pct": 20,
+    "detail": "Pecan Springs Elementary (20%, by address)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.66528,
+      30.31388
+     ],
+     [
+      -97.71997,
+      30.32824
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 8,
+    "from": "Winn",
+    "to_id": 19,
+    "to": "Reilly",
+    "share_pct": 0,
+    "detail": "Reilly Elementary (Montessori program relocates as a strand; priority transfers)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.78673,
+      30.19442
+     ],
+     [
+      -97.83456,
+      30.21257
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 9,
+    "from": "Bedichek",
+    "to_id": 27,
+    "to": "Covington",
+    "share_pct": 58,
+    "detail": "Covington Middle School (58% of students; inherits turnaround plan)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.78673,
+      30.19442
+     ],
+     [
+      -97.81146,
+      30.16707
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 9,
+    "from": "Bedichek",
+    "to_id": 12,
+    "to": "Paredes",
+    "share_pct": 23,
+    "detail": "Paredes Middle School (23%; Paredes itself closed July 30, 2026, so those students were re-routed to Bailey or Mendez)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.78673,
+      30.19442
+     ],
+     [
+      -97.74288,
+      30.18884
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 9,
+    "from": "Bedichek",
+    "to_id": 28,
+    "to": "Mendez",
+    "share_pct": 13,
+    "detail": "Mendez Middle School (13%)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7299,
+      30.25305
+     ],
+     [
+      -97.72187,
+      30.2709
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 10,
+    "from": "Martin",
+    "to_id": 24,
+    "to": "Kealing",
+    "share_pct": 61,
+    "detail": "Kealing Middle School (61% of students; inherits turnaround plan)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7299,
+      30.25305
+     ],
+     [
+      -97.75028,
+      30.24368
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 10,
+    "from": "Martin",
+    "to_id": 25,
+    "to": "Lively",
+    "share_pct": 26,
+    "detail": "Lively Middle School (26%)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.7299,
+      30.25305
+     ],
+     [
+      -97.6945088,
+      30.2965367
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 10,
+    "from": "Martin",
+    "to_id": 26,
+    "to": "Dr. General Marshall",
+    "share_pct": 13,
+    "detail": "Dr. General Marshall Middle School (13%)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.68124,
+      30.25779
+     ],
+     [
+      -97.69117,
+      30.32415
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 11,
+    "from": "International",
+    "to_id": 56,
+    "to": "Northeast",
+    "share_pct": 0,
+    "detail": "Northeast Early College High School (host campus; current students may stay through graduation with district transportation)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.81146,
+      30.16707
+     ],
+     [
+      -97.87237,
+      30.16429
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 12,
+    "from": "Paredes",
+    "to_id": 29,
+    "to": "Bailey",
+    "share_pct": 55,
+    "detail": "Bailey Middle School (about 55% of students; inherits the TEA-approved turnaround plan)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -97.81146,
+      30.16707
+     ],
+     [
+      -97.74288,
+      30.18884
+     ]
+    ]
+   },
+   "properties": {
+    "from_id": 12,
+    "from": "Paredes",
+    "to_id": 28,
+    "to": "Mendez",
+    "share_pct": 45,
+    "detail": "Mendez Middle School (about 45%; students east of Bluff Springs Rd and north of Slaughter Ln)"
+   }
+  }
+ ]
+}
