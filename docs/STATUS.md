@@ -22,7 +22,16 @@ as the QGIS project), sized by MW, numbered by the research-note row id.
 The legend has a checkbox per status with a count; unticking hides those
 dots. The Austin Energy service area draws as a purple dashed outline (on by
 default, Layers box) so the reader sees that every Williamson County campus
-sits outside it. Clicking a dot opens a popup: operator, status, address,
+sits outside it. Later the same evening (owner): the Layers box grew three
+more overlays — Austin city limits (full + limited purpose, from
+`boundaries.gpkg` `austin_jurisdictions`), council districts and ZIP codes
+(103 Central Texas ZIPs) — all OFF by default, Austin Energy still on; each
+is a GeoJSON in `datacenters/data/` (ZIPs 0.56 MB, the rest small), drawn as
+a tinted fill, dashed outline and a haloed number label. And the map now
+opens fitted to the sites' bounding box, the extents button refits it, and
+the pan cage is that box grown half a degree (`config.js` `fitPadding`,
+`cagePad`); app.js reads the sites file before building the map. Version
+`?v=20260912b`. Clicking a dot opens a popup: operator, status, address,
 place, MW, size, year, point precision, the research notes, and the source
 links. Satellite, zoom and extents buttons as on the budget page; the map
 is caged to a box from New Braunfels to Temple and Rockdale. A "Datacenter

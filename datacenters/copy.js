@@ -23,9 +23,14 @@ window.DC_COPY = {
   sizeLegend: 'Dot size is the planned or built power in MW',
   mwUnknown: 'not reported',
 
-  // the Layers box
+  // the Layers box: title, then one label per overlay (keys match config.js)
   overlays: 'Layers',
-  serviceArea: 'Austin Energy service area',
+  overlay: {
+    service: 'Austin Energy service area',
+    city:    'Austin city limits',
+    council: 'Council districts',
+    zip:     'ZIP codes'
+  },
 
   // popup labels
   popup: {

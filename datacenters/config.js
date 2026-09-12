@@ -11,17 +11,28 @@
 // tiles and no database are involved.
 window.DC_CONFIG = {
   sites: './data/datacenters.geojson?v=20260912a',
-  serviceArea: { file: './data/austin_energy_service_area.geojson?v=20260912a', color: '#7b3294' },
+
+  // reference overlays in the Layers box, in this order. Each is a GeoJSON
+  // file next to the page, exported from C:\GISData\austin\boundaries.gpkg
+  // with ogr2ogr (see docs/STATUS.md). `on` is the starting state (owner
+  // 2026-09-12: Austin Energy on, the rest off). `label` names the field
+  // written in the middle of each polygon; leave it out for no labels.
+  overlays: {
+    service: { file: './data/austin_energy_service_area.geojson?v=20260912a', color: '#7b3294', on: true,  fill: 0.06 },
+    city:    { file: './data/city_limits.geojson?v=20260912b',                color: '#1f6f8b', on: false, fill: 0.10 },
+    council: { file: './data/council_districts.geojson?v=20260912b',          color: '#d95f02', on: false, fill: 0.08, label: 'district_number' },
+    zip:     { file: './data/zipcodes.geojson?v=20260912b',                   color: '#6b4c9a', on: false, fill: 0.05, label: 'zipcode' }
+  },
 
   basemap: 'https://tiles.openfreemap.org/styles/positron',
   satellite: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
 
-  // opens on the five-county ring; the box is both the pan limit and what the
-  // extents button fits. Wide enough to keep Temple and Rockdale in view.
-  center: [-97.62, 30.28],
-  zoom: 8.6,
-  region: [[-98.35, 29.55], [-96.85, 31.35]],
-  minZoom: 7.5,
+  // the map opens fitted to the mapped sites and the extents button refits
+  // them (owner 2026-09-12); app.js works the box out from the data. The pan
+  // cage is that box grown by `cagePad` degrees on each side.
+  fitPadding: 40,
+  cagePad: 0.5,
+  minZoom: 7,
 
   // one colour per status, in legend order (same palette as the QGIS project)
   status: {
