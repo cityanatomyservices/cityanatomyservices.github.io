@@ -31,9 +31,21 @@ html, body { margin: 0; height: 100%; }
   border-radius: 6px; font-size: 16px; font-weight: 600; color: var(--ink); white-space: nowrap;
 }
 
-/* legend, top right */
+/* the control stack, top right */
+.map-controls { position: absolute; top: 12px; right: 12px; z-index: 6; display: flex; flex-direction: column; gap: 6px; }
+.map-ctrl {
+  width: 34px; height: 34px; padding: 0; display: grid; place-items: center; cursor: pointer;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; font: inherit; font-size: 18px;
+}
+.map-ctrl:hover { background: #f0f2f4; }
+.map-ctrl svg { width: 17px; height: 17px; fill: currentColor; }
+.map-ctrl-text { width: auto; padding: 0 8px; font-size: 12px; }
+.map-ctrl.is-on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* legend, bottom right, under the control stack */
 .legend {
-  position: absolute; top: 56px; right: 12px; z-index: 5; width: 240px; max-width: calc(100% - 24px);
+  position: absolute; bottom: 12px; right: 12px; z-index: 5; width: 240px; max-width: calc(100% - 24px);
+  max-height: calc(100vh - 220px); overflow-y: auto;
   background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
   font-size: 13px; color: var(--ink);
 }
@@ -73,5 +85,5 @@ html, body { margin: 0; height: 100%; }
 @media (max-width: 640px) {
   .title { display: none; }
   .topleft { width: 180px; }
-  .legend { top: auto; bottom: 64px; right: 8px; width: 200px; font-size: 12px; }
+  .legend { bottom: 8px; right: 8px; width: 200px; font-size: 12px; max-height: 45vh; }
 }

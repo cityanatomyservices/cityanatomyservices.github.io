@@ -18,10 +18,14 @@ window.BUDGET_CONFIG = {
     anonKey: 'sb_publishable_QMWSj0CLYe3k3XSGCsWOhw_5RsI-nmN'
   },
   basemap: 'https://tiles.openfreemap.org/styles/positron',
+  // the same satellite imagery the report maps use
+  satellite: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   center: [-97.7431, 30.2672],   // downtown
   zoom: 13,                       // close in on downtown so the parcels draw at once (owner 2026-09-12)
-  minZoom: 9,
-  maxBounds: [[-98.25, 29.95], [-97.30, 30.70]],
+  // the map cannot leave the Austin area: this box, a little wider than the
+  // full-purpose city, is both the pan limit and what the extents button fits
+  austin: [[-98.05, 30.02], [-97.45, 30.56]],
+  minZoom: 9.5,
   parcelMinZoom: 11,          // the two parcel layers are only in the tiles from here
 
   // colour ramps; blue = down, red = up

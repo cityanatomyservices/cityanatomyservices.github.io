@@ -44,6 +44,7 @@ window.BUDGET_COPY = {
   },
 
   ui: {
+    satellite: 'Satellite', zoomInBtn: 'Zoom in', zoomOutBtn: 'Zoom out', extents: 'Fit to Austin',
     about: 'About this map', aboutClose: 'Hide',
     how: 'How it is calculated.', sources: 'Sources.', caveats: 'Caveats.',
     zoomIn: 'Zoom in the map to see parcels',

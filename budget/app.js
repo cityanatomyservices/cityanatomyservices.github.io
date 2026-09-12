@@ -46,11 +46,27 @@
     center: CFG.center,
     zoom: CFG.zoom,
     minZoom: CFG.minZoom,
-    maxBounds: CFG.maxBounds,
+    maxBounds: CFG.austin,          // cannot pan away from Austin
     attributionControl: false
   });
   map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
-  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+  // ── the control stack: satellite, zoom in, zoom out, extents ──────────────
+  $('ctrlSatellite').textContent = COPY.ui.satellite;
+  $('ctrlSatellite').title = COPY.ui.satellite;
+  $('ctrlZoomIn').title = COPY.ui.zoomInBtn;
+  $('ctrlZoomOut').title = COPY.ui.zoomOutBtn;
+  $('ctrlExtent').title = COPY.ui.extents;
+  $('ctrlZoomIn').addEventListener('click', () => map.zoomIn());
+  $('ctrlZoomOut').addEventListener('click', () => map.zoomOut());
+  $('ctrlExtent').addEventListener('click', () => map.fitBounds(CFG.austin, { padding: 20, pitch: 0, bearing: 0 }));
+  let satelliteOn = false;
+  $('ctrlSatellite').addEventListener('click', () => {
+    satelliteOn = !satelliteOn;
+    map.setLayoutProperty('satellite', 'visibility', satelliteOn ? 'visible' : 'none');
+    $('ctrlSatellite').setAttribute('aria-pressed', String(satelliteOn));
+    $('ctrlSatellite').classList.toggle('is-on', satelliteOn);
+  });
 
   // ── colour helpers ────────────────────────────────────────────────────────
   // step(value, breaks, colors): colors[0] below breaks[0], ... colors[n] above breaks[n-1]
@@ -293,6 +309,9 @@
 
   // ── load ──────────────────────────────────────────────────────────────────
   map.on('load', () => {
+    // satellite imagery sits above the basemap and below every data layer
+    map.addSource('satellite', { type: 'raster', tiles: [CFG.satellite], tileSize: 256, attribution: 'Tiles &copy; Esri' });
+    map.addLayer({ id: 'satellite', type: 'raster', source: 'satellite', layout: { visibility: 'none' } });
     Object.entries(CFG.tiles).forEach(([name, url]) => map.addSource(name, { type: 'vector', url }));
     const added = new Set();
     Object.values(THEMES).forEach((t) => t.layers.forEach((l) => {
