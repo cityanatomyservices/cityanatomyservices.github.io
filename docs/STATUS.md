@@ -31,7 +31,9 @@ a tinted fill, dashed outline and a haloed number label. And the map now
 opens fitted to the sites' bounding box, the extents button refits it, and
 the pan cage is that box grown half a degree (`config.js` `fitPadding`,
 `cagePad`); app.js reads the sites file before building the map. Version
-`?v=20260912b`. Clicking a dot opens a popup: operator, status, address,
+`?v=20260912c` (b was poisoned: a curl probe hit the new query string before
+the Pages deploy finished and the CDN cached the old file under it for four
+hours — never probe a new `?v=` until the deploy is done). Clicking a dot opens a popup: operator, status, address,
 place, MW, size, year, point precision, the research notes, and the source
 links. Satellite, zoom and extents buttons as on the budget page; the map
 is caged to a box from New Braunfels to Temple and Rockdale. A "Datacenter
