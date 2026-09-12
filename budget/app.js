@@ -104,7 +104,6 @@
   // which tile file a layer reads from: the parcel layers have their own
   const sourceFor = (l) => (l['source-layer'] === 'tax_bill' || l['source-layer'] === 'drainage') ? l['source-layer'] : 'budget';
   const outline = { id: 'city-limits', type: 'line', 'source-layer': 'city_limits', paint: { 'line-color': '#555', 'line-width': 1.2 } };
-  const council = { id: 'council-lines', type: 'line', 'source-layer': 'council', paint: { 'line-color': '#777', 'line-width': 0.8, 'line-dasharray': [3, 2] } };
 
   const THEMES = {
     value: {
@@ -114,7 +113,7 @@
           paint: { 'fill-color': step('value_pct', CFG.pctBreaks, CFG.diverging), 'fill-opacity': 0.75 } },
         { id: 'parcel-value', type: 'fill', 'source-layer': 'tax_bill', minzoom: CFG.parcelMinZoom,
           paint: { 'fill-color': step('value_pct', CFG.pctBreaks, CFG.diverging), 'fill-opacity': 0.85 } },
-        council, outline
+        outline
       ],
       legend: CFG.diverging.map((c, i) => ({ color: c, label: COPY.legend.pct[i] }))
     },
@@ -125,7 +124,7 @@
           paint: { 'fill-color': step('median_homestead_bill_pct', CFG.pctBreaks, CFG.diverging), 'fill-opacity': 0.75 } },
         { id: 'parcel-bill', type: 'fill', 'source-layer': 'tax_bill', minzoom: CFG.parcelMinZoom,
           paint: { 'fill-color': step('bill_pct', CFG.pctBreaks, CFG.diverging), 'fill-opacity': 0.85 } },
-        council, outline
+        outline
       ],
       legend: CFG.diverging.map((c, i) => ({ color: c, label: COPY.legend.pct[i] }))
     },
@@ -198,11 +197,8 @@
     Object.entries(THEMES).forEach(([k, t]) => {
       t.layers.forEach((l) => map.setLayoutProperty(l.id, 'visibility', k === key ? 'visible' : 'none'));
     });
-    // the outline and council layers are shared; make sure they follow the theme
-    ['city-limits', 'council-lines'].forEach((id) => {
-      const used = THEMES[key].layers.some((l) => l.id === id);
-      map.setLayoutProperty(id, 'visibility', used ? 'visible' : 'none');
-    });
+    // the city outline is shared by every theme; keep it visible
+    map.setLayoutProperty('city-limits', 'visibility', 'visible');
     $('legendTitle').textContent = COPY.themes[key].name;
     $('legendSub').textContent = COPY.themes[key].sub;
     const rows = $('legendRows'); rows.innerHTML = '';
@@ -314,6 +310,32 @@
     map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
   });
 
+  // ── reference overlays: ZIP codes and council districts ──────────────────
+  // Two GeoJSON files (config.js overlays), each drawn as an outline plus a
+  // label. Off by default; the checkboxes in the Layers box switch them on.
+  $('overlaysTitle').textContent = COPY.ui.overlays;
+  $('ovZipLabel').textContent = COPY.ui.overlayZip;
+  $('ovCouncilLabel').textContent = COPY.ui.overlayCouncil;
+  const OVERLAY_BOX = { zip: 'ovZip', council: 'ovCouncil' };
+  function addOverlays() {
+    Object.entries(CFG.overlays).forEach(([key, o]) => {
+      map.addSource('overlay-' + key, { type: 'geojson', data: o.file });
+      map.addLayer({ id: 'overlay-' + key + '-line', type: 'line', source: 'overlay-' + key, layout: { visibility: 'none' },
+        paint: { 'line-color': o.color, 'line-width': 1.5, 'line-dasharray': [4, 2] } });
+      map.addLayer({ id: 'overlay-' + key + '-label', type: 'symbol', source: 'overlay-' + key,
+        layout: { visibility: 'none', 'symbol-placement': 'point', 'text-field': ['get', o.label],
+                  'text-font': ['Noto Sans Regular'], 'text-size': 12 },
+        paint: { 'text-color': o.color, 'text-halo-color': '#fff', 'text-halo-width': 1.5 } });
+      const box = $(OVERLAY_BOX[key]);
+      box.checked = false;
+      box.addEventListener('change', () => {
+        const v = box.checked ? 'visible' : 'none';
+        map.setLayoutProperty('overlay-' + key + '-line', 'visibility', v);
+        map.setLayoutProperty('overlay-' + key + '-label', 'visibility', v);
+      });
+    });
+  }
+
   // ── load ──────────────────────────────────────────────────────────────────
   map.on('load', () => {
     // satellite imagery sits above the basemap and below every data layer
@@ -326,6 +348,7 @@
       added.add(l.id);
       map.addLayer(Object.assign({ source: sourceFor(l), layout: { visibility: 'none' } }, l));
     }));
+    addOverlays();                 // added last so they draw above every theme
     const fromHash = location.hash.replace('#', '');
     showTheme(THEMES[fromHash] ? fromHash : 'bill');
   });

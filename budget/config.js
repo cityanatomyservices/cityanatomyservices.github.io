@@ -37,5 +37,12 @@ window.BUDGET_CONFIG = {
   permitBreaks: [2, 5, 10, 20],
   cipColors: { bond: '#b2182b', current: '#2166ac', grant: '#1b7837', othergo: '#762a83', debt: '#e08214', other: '#555555' },
 
-  permitMonths: { first: '2021-01', last: '2026-07' }
+  permitMonths: { first: '2021-01', last: '2026-07' },
+
+  // reference overlays: GeoJSON files next to the page (budget repo script 96),
+  // drawn as outlines with a label, both off until the viewer ticks them
+  overlays: {
+    zip:     { file: './data/zipcodes.geojson?v=20260912h',          label: 'zipcode',         color: '#6b4c9a' },
+    council: { file: './data/council_districts.geojson?v=20260912h', label: 'district_number', color: '#1f6f8b' }
+  }
 };

@@ -51,7 +51,9 @@ window.BUDGET_COPY = {
     zoomIn: 'Zoom in the map to see parcels',
     month: 'Month',
     play: 'Play', pause: 'Pause',
-    loading: 'Loading'
+    loading: 'Loading',
+    // the Layers box (placeholders, 2026-09-12)
+    overlays: 'Layers', overlayZip: 'ZIP codes', overlayCouncil: 'Council districts'
   },
 
   attribution: 'City of Austin FY 2026-27 budget, Travis CAD rolls, City open data'
