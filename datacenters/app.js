@@ -25,16 +25,20 @@
   $('legendSub').textContent = COPY.legendSub;
   $('overlaysTitle').textContent = COPY.overlays;
 
-  // Each card opens expanded; hiding its body preserves all filter selections.
-  ['overlaysTitle', 'legendTitle'].forEach((id) => {
+  // The two cards (Layers, Data centers) fold with the arrow in their title.
+  // Hiding a body keeps its checkbox states. Both start closed (owner
+  // 2026-09-13); the timeline opens and closes them as the story needs.
+  const setCard = (id, open) => {
     const toggle = $(id);
     const body = $(toggle.getAttribute('aria-controls'));
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') !== 'true';
-      toggle.setAttribute('aria-expanded', String(expanded));
-      body.hidden = !expanded;
-      toggle.parentElement.classList.toggle('is-collapsed', !expanded);
-    });
+    toggle.setAttribute('aria-expanded', String(open));
+    body.hidden = !open;
+    toggle.parentElement.classList.toggle('is-collapsed', !open);
+  };
+  window.DC_SET_CARD = setCard;
+  ['overlaysTitle', 'legendTitle'].forEach((id) => {
+    setCard(id, false);
+    $(id).addEventListener('click', () => setCard(id, $(id).getAttribute('aria-expanded') !== 'true'));
   });
 
   // ── "About this map" ──────────────────────────────────────────────────────
@@ -301,7 +305,7 @@
           if (!overviewCamera) overviewCamera = { center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() };
           const wide = map.getContainer().clientWidth >= 1000;
           map.fitBounds(boundsOf(corridorSites), {
-            padding: wide ? { left: 310, right: 370, top: 70, bottom: 70 } : 50,
+            padding: wide ? { left: 310, right: 40, top: 240, bottom: 70 } : { left: 20, right: 20, top: 220, bottom: 60 },   // the story card sits centred at the top
             bearing: 0, pitch: 0, duration: 1000
           });
         } else if (!step.done && overviewCamera) {

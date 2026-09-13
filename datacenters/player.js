@@ -17,12 +17,13 @@ window.DC_PLAYER = {
     // legend away for room, switch on the Austin Energy area and zoom back out,
     // then the transmission lines and substations, then the water layers.
     // show / hide name overlays (config.js keys) to turn on or off from that
-    // step onward; collapseLegend folds the data centers card from then on.
+    // step onward; cards: { legend, layers } opens (true) or folds (false) a
+    // card from that step on. Text steps hold 5 s longer than the others.
     const steps = [
       { title: words.ready },
-      ...statuses.map(status => ({ title: copy.status[status], status })),
+      ...statuses.map((status, i) => ({ title: copy.status[status], status, ...(i === 0 ? { cards: { legend: true } } : {}) })),
       { title: words.corridor, camera: 'round-rock-taylor', text: words.corridorText },
-      { title: words.serviceArea, camera: 'overview', collapseLegend: true, show: ['service'], text: words.serviceAreaText },
+      { title: words.serviceArea, camera: 'overview', cards: { legend: false, layers: true }, show: ['service'], text: words.serviceAreaText },
       { title: words.electric, show: ['transmission', 'substations'], text: words.electricText },
       { title: words.water, hide: ['transmission', 'substations'], show: ['aquifers', 'gcd', 'intakes'], text: words.waterText },
       { title: words.done, done: true }
@@ -123,18 +124,20 @@ window.DC_PLAYER = {
     function go(target, run = false) {
       clearTimeout(timer); timer = null; playing = false;
       index = Math.max(0, Math.min(target, steps.length - 1));
-      remaining = 3000;
+      remaining = steps[index].text ? 8000 : 3000;   // 3 s per step, plus a 5 s pause to read a text box
       active = !steps[index].done;
       const revealed = new Set(steps.slice(0, index + 1).map(s => s.status).filter(Boolean));
       const overlaysOn = new Set();                 // every overlay off until a step shows it
-      let legendCollapsed = false;
+      const cards = { legend: false, layers: false };   // both cards start folded
       steps.slice(0, index + 1).forEach(s => {
         (s.show || []).forEach(k => overlaysOn.add(k));
         (s.hide || []).forEach(k => overlaysOn.delete(k));
-        if (s.collapseLegend) legendCollapsed = true;
+        Object.assign(cards, s.cards || {});
       });
-      const legendToggle = document.getElementById('legendTitle');
-      if (legendToggle && (legendToggle.getAttribute('aria-expanded') === 'true') === legendCollapsed) legendToggle.click();
+      if (window.DC_SET_CARD) {
+        window.DC_SET_CARD('legendTitle', cards.legend);
+        window.DC_SET_CARD('overlaysTitle', cards.layers);
+      }
       inputs.forEach(el => {
         const checked = el.dataset.status ? revealed.has(el.dataset.status) : overlaysOn.has(el.dataset.overlay);
         setBox(el, checked);

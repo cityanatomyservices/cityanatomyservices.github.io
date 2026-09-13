@@ -32,6 +32,18 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-13 (latest) — story card centred, cards fold, text halved
+
+Owner: the draft copy is acceptable ("copy is fine here ... I just don't want
+you to write ad copy or creative writing"); cut the four paragraphs in half;
+centre the text box and enlarge the font; add a 5 s pause after a text box;
+both arrow cards start closed, the data centers card opens when the timeline
+starts, and at the Austin Energy step it closes and the Layers box opens.
+Done: paragraphs 62–79 words each; `.sequence-card` centred at the top
+(560 px, 15 px body, 20 px heading); text steps hold 8 s instead of 3 s;
+`app.js` exposes `DC_SET_CARD` and folds both cards on load; `player.js`
+steps carry `cards: { legend, layers }`. Assets at `?v=20260913p`.
+
 ## 2026-09-13 (later) — timeline resequenced, draft story text
 
 Owner (after reviewing the live map): the steps should show the status
