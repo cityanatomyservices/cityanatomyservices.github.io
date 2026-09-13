@@ -32,6 +32,34 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-13 (later) — timeline resequenced, draft story text
+
+Owner (after reviewing the live map): the steps should show the status
+categories, zoom to the Hutto area with text on why it attracts data centers,
+fold the data centers card away for room, switch on the Austin Energy area and
+zoom out, then the transmission lines and substations with their significance,
+then close those and do the same with the most important water layers; and the
+timeline should have tick lines without numbers.
+
+Sequence now (`player.js`): Ready → six status reveals → "Round Rock to
+Taylor" (corridor camera, paragraph) → "Austin Energy service area" (legend
+collapsed from here on, `service` on, camera back to overview) →
+"Transmission and substations" (`transmission` + `substations` on) → "Water
+resources" (electric off; `aquifers`, `gcd`, `intakes` on) → Complete. The
+"Austin city limits" and "Regional overview" steps were dropped. Overlays start
+OFF inside the sequence (the plain map still opens with Austin Energy on).
+Steps support `collapseLegend`; ticks are bare bars (`style.css`).
+
+**Text.** At the owner's explicit request this session, Claude DRAFTED the
+four paragraphs in `copy.js` (`corridorText`, `serviceAreaText`,
+`electricText`, `waterText`) from the research note and the layers
+themselves — no new web research. They are marked as drafts; the owner edits
+every word. Facts to double-check before publishing as final: the 345 kV path
+names come from HIFLD's SUB_1/SUB_2 fields and OSM; "the corridor lies in no
+groundwater district" is from the TWDB layer at three test points; water-use
+figures are the tracker's estimates quoted in the note. Assets bumped to
+`?v=20260913n` (copy, player, style).
+
 ## 2026-09-13 — electric and water context layers on /datacenters/
 
 Owner: no new Supabase project for the TX-31 "District Anatomy" spec

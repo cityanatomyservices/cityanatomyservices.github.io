@@ -10,16 +10,19 @@ window.DC_COPY = {
     name: 'Name', location: 'City / Area', zoomTo: 'Zoom to this site',
     play: 'Play', pause: 'Pause', back: 'Back', next: 'Next', stop: 'Finish',
     autoplay: 'Autoplay', timeline: 'Map animation', ready: 'Ready', done: 'Complete',
-    city: 'Austin city limits', cityText: 'Austin city limits are now shown.',
-    overview: 'Regional overview', corridor: 'Round Rock to Taylor',
-    corridorText: 'This is placeholder text for the Round Rock to Taylor area. This paragraph will be replaced with the story you want to tell about the locations shown on the map. Use this space to introduce the area, explain the pattern of development, and describe the details viewers should notice.',
-    // The electric and water steps (added 2026-09-13). Each turns on the layers
-    // named in player.js and shows the paragraph below. PLACEHOLDER TEXT: the
-    // owner writes what viewers should understand about power and water here.
-    electric: 'Electric grid',
-    electricText: 'Placeholder for the electric grid step. This paragraph will explain what the transmission lines, substations and power plants now on the map mean for the data centers: which utility serves each campus, where the 345 kV backbone runs, how much generation sits nearby, and what the important considerations are.',
+    corridor: 'Round Rock to Taylor',
+    // ── the four story paragraphs ─────────────────────────────────────────
+    // DRAFTS written by Claude on 2026-09-13 at the owner's request ("put text
+    // there about why that area is attractive ... mention the significance").
+    // Facts come from the research note (qgis-lab notes/austin-datacenters-2026.md)
+    // and the map's own layers. The owner edits or replaces every word.
+    corridorText: 'The Round Rock, Hutto and Taylor corridor holds the biggest campuses in the region: Skybox PowerCampus in Hutto, with two buildings running and 600 MW planned, Sabey and Switch in Round Rock, and the KDC, Blueprint and Iron Mountain proposals around Taylor. It lies entirely outside Austin Energy, in Oncor territory, where power is bought from competitive ERCOT retailers rather than a city utility. Samsung\u2019s Taylor fab brought a 345 kV transmission build-out along US 79 and SH 130. Large flat tracts are still cheap compared with Travis County, and the cities compete for projects with tax incentives: Hutto\u2019s Chapter 312 abatement, Round Rock\u2019s Chapter 380 agreements, and rebates in Taylor and Georgetown.',
+    serviceArea: 'Austin Energy service area',
+    serviceAreaText: 'The purple outline is Austin Energy, the city-owned utility. Inside it, data centers such as the MetCenter campuses, Digital Realty and Tesla\u2019s Cortex cluster buy power from the city, which sets the rates, approves large loads and answers to the city council. Every campus in Williamson County sits outside the line, in Oncor\u2019s part of the ERCOT market, where the wires company only delivers and the customer signs its own supply contract. That boundary is one reason the largest projects cluster to the north and east.',
+    electric: 'Transmission and substations',
+    electricText: 'Lines are drawn thicker at higher voltage. The 345 kV backbone, Oncor\u2019s Round Rock Northeast to Hutto Switching Station to Taylor and Elgin corridor, is what makes gigawatt-scale campuses possible; the 138 kV lines, mostly Oncor and LCRA here, feed the local substations. The corridor campuses line up along it, and the biggest are building their own substations: two 300 MW units at Skybox Hutto, two more in KDC\u2019s Taylor plan. Where the grid connection is slow, developers propose gas generation on site instead: a 477 MW plant for Project Mustang near Taylor and a 1.2 GW plant for CloudBurst in San Marcos.',
     water: 'Water resources',
-    waterText: 'Placeholder for the water step. This paragraph will explain what the aquifers, groundwater districts, planning regions, intakes and outfalls now on the map mean for the data centers: where their water would come from, who regulates it, and what the important considerations are.',
+    waterText: 'Water is the harder constraint. The blue shading is the major aquifers: the Edwards (Balcones Fault Zone) and Trinity under the west side, the Carrizo-Wilcox to the east. Green outlines are groundwater conservation districts, which permit and limit pumping; the Round Rock to Taylor corridor lies in none, so groundwater there is governed only by the rule of capture. The dots are public surface-water intakes: Round Rock, Georgetown and Brushy Creek MUD draw on Lake Georgetown, Brushy Creek Regional Utility Authority on Lake Travis, Austin on Lake Austin. Hutto\u2019s campuses run on city water blended from wells and surface supply; the tracker estimates 5 to 8 million gallons a day for Skybox at full build with evaporative cooling, while newer projects promise closed-loop or liquid cooling that uses a fraction of that. In Hays County, opposition over the Edwards recharge zone led the county to pause high-water-use projects in June 2026.',
     empty: 'No sites in this category.', unknownCity: 'City not reported'
   },
   home: 'anatomy.city',
