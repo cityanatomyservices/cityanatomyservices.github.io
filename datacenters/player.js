@@ -50,7 +50,7 @@ window.DC_PLAYER = {
       const table = document.createElement('table');
       const head = document.createElement('thead');
       const headerRow = document.createElement('tr');
-      for (const [field, text] of [['name', words.name], ['location', words.location]]) {
+      for (const [field, text] of [['location', words.location], ['name', words.name]]) {
         const th = document.createElement('th'); th.scope = 'col';
         th.setAttribute('aria-sort', sortField === field ? (sortDirection === 1 ? 'ascending' : 'descending') : 'none');
         const sort = document.createElement('button'); sort.type = 'button';
@@ -77,7 +77,7 @@ window.DC_PLAYER = {
         row.addEventListener('keydown', event => {
           if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); select(); }
         });
-        row.append(name, location); rows.append(row);
+        row.append(location, name); rows.append(row);
       });
       table.append(head, rows);
       if (matches.length) body.append(table); else body.textContent = words.empty;
