@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
   <!-- ?v= so a push is actually seen (GitHub Pages caches hard). Bump when
        app.js, style.css, config.js or copy.js change. -->
-  <link rel="stylesheet" href="./style.css?v=20260912c" />
+  <link rel="stylesheet" href="./style.css?v=20260913a" />
 </head>
 <body>
   <!-- ONE MAP OF THE DATA CENTERS IN AND AROUND AUSTIN. The 47 sites are a
@@ -22,9 +22,9 @@
   <div class="page">
     <div id="map"></div>
 
-    <!-- top-left stack: home link, then the map controls -->
+    <a class="home" id="home" href="https://anatomy.city" target="_top"></a>
+    <!-- top-left stack: map controls and layers -->
     <div class="topleft">
-      <a class="home" id="home" href="https://anatomy.city" target="_top"></a>
       <div class="map-controls">
         <button class="map-ctrl map-ctrl-text" id="ctrlSatellite" type="button" aria-pressed="false"></button>
         <button class="map-ctrl" id="ctrlZoomIn" type="button">+</button>
@@ -42,7 +42,7 @@
     </div>
     <h1 class="title" id="title"></h1>
 
-    <!-- legend, top right: one row per status; ticking a row off hides those dots -->
+    <!-- legend, bottom left: one row per status; ticking a row off hides those dots -->
     <aside class="legend" id="legend">
       <div class="legend-title" id="legendTitle"></div>
       <div class="legend-sub" id="legendSub"></div>
@@ -60,6 +60,6 @@
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="./copy.js?v=20260912c"></script>
   <script src="./config.js?v=20260912c"></script>
-  <script src="./app.js?v=20260912c"></script>
+  <script src="./app.js?v=20260913a"></script>
 </body>
 </html>

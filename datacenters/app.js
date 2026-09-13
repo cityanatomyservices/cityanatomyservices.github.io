@@ -57,7 +57,7 @@
   const P = COPY.popup;
 
   function popupHtml(p) {
-    const mw = Number(p.size_mw) > 0 ? num(p.size_mw) + ' ' + P.mw : P.mwUnknown;
+    const mw = Number(p.size_mw) > 0 ? num(p.size_mw) + ' ' + P.mw : COPY.mwUnknown;
     const size = [Number(p.size_sqft) > 0 ? num(p.size_sqft) + ' ' + P.sqft : '', Number(p.acres) > 0 ? num(p.acres) + ' ' + P.acres.toLowerCase() : '']
       .filter(Boolean).join(', ');
     let html = `<h3>${esc(p.id)}. ${esc(p.name)}</h3>`;
