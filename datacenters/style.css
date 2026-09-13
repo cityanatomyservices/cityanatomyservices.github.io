@@ -38,6 +38,23 @@ html, body { margin: 0; height: 100%; }
 
 .overlays { width: 100%; box-sizing: border-box; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; font-size: 13px; color: var(--ink); }
 .overlays-title { font-size: 12px; color: #52606d; margin-bottom: 4px; }
+/* Collapsed cards rise above expanded cards in the top-left stack. */
+.topleft > .overlays, .topleft > .legend { order: 2; }
+.topleft > .is-collapsed { order: 1; }
+.card-toggle {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  width: 100%; min-height: 28px; padding: 0; border: 0; background: transparent;
+  font-family: inherit; font-size: inherit; color: inherit; text-align: left; cursor: pointer;
+}
+.card-toggle::after {
+  content: ''; width: 7px; height: 7px; margin: 0 3px 4px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); flex-shrink: 0;
+}
+.card-toggle[aria-expanded="false"]::after { transform: rotate(-45deg); margin-bottom: 0; }
+.card-toggle:hover { color: var(--accent); }
+.card-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.is-collapsed .card-toggle { margin-bottom: 0; }
 .overlays label { display: grid; grid-template-columns: 14px minmax(0, 1fr); align-items: start; gap: 6px; padding: 2px 0; cursor: pointer; }
 .overlays input { margin: 3px 0 0; width: 13px; height: 13px; }
 

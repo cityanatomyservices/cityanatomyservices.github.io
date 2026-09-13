@@ -22,6 +22,18 @@
   $('legendSub').textContent = COPY.legendSub;
   $('overlaysTitle').textContent = COPY.overlays;
 
+  // Each card opens expanded; hiding its body preserves all filter selections.
+  ['overlaysTitle', 'legendTitle'].forEach((id) => {
+    const toggle = $(id);
+    const body = $(toggle.getAttribute('aria-controls'));
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(expanded));
+      body.hidden = !expanded;
+      toggle.parentElement.classList.toggle('is-collapsed', !expanded);
+    });
+  });
+
   // ── "About this map" ──────────────────────────────────────────────────────
   $('aboutToggle').textContent = COPY.ui.about;
   $('aboutWhat').textContent = COPY.about.what;

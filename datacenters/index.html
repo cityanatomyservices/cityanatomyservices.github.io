@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
   <!-- ?v= so a push is actually seen (GitHub Pages caches hard). Bump when
        app.js, style.css, config.js or copy.js change. -->
-  <link rel="stylesheet" href="./style.css?v=20260913i" />
+  <link rel="stylesheet" href="./style.css?v=20260913l" />
 </head>
 <body>
   <!-- ONE MAP OF THE DATA CENTERS IN AND AROUND AUSTIN. The 47 sites are a
@@ -37,13 +37,14 @@
       <!-- the Layers box: one checkbox per overlay in config.js, built by
            app.js. Austin Energy starts on, the others off (owner 2026-09-12). -->
       <div class="overlays">
-        <div class="overlays-title" id="overlaysTitle"></div>
+        <button class="card-toggle overlays-title" id="overlaysTitle" type="button" aria-expanded="true" aria-controls="overlayRows"></button>
         <div id="overlayRows"></div>
       </div>
 
     <!-- legend, below the top-left buttons: one row per status; ticking a row off hides those dots -->
     <aside class="legend" id="legend">
-      <div class="legend-title" id="legendTitle"></div>
+      <button class="card-toggle legend-title" id="legendTitle" type="button" aria-expanded="true" aria-controls="legendBody"></button>
+      <div id="legendBody">
       <div class="legend-sub" id="legendSub"></div>
       <ul class="legend-rows" id="legendRows"></ul>
       <div class="legend-size" id="legendSize"></div>
@@ -53,6 +54,7 @@
         <p><strong id="aboutSourcesLabel"></strong> <span id="aboutSources"></span></p>
         <p><strong id="aboutCaveatsLabel"></strong> <span id="aboutCaveats"></span></p>
       </div>
+      </div>
     </aside>
     </div>
   </div>
@@ -61,6 +63,6 @@
   <script src="./copy.js?v=20260913k"></script>
   <script src="./config.js?v=20260913f"></script>
   <script src="./player.js?v=20260913k"></script>
-  <script src="./app.js?v=20260913k"></script>
+  <script src="./app.js?v=20260913l"></script>
 </body>
 </html>
