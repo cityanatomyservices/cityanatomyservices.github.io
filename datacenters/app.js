@@ -179,6 +179,12 @@
       attributionControl: false
     });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
+    // Compact mode initially opens in MapLibre; start with only the info button.
+    const attribution = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
+    if (attribution) {
+      attribution.classList.remove('maplibregl-compact-show');
+      attribution.removeAttribute('open');
+    }
 
     // the control stack: satellite, zoom in, zoom out, extents
     $('ctrlSatellite').textContent = COPY.ui.satellite;
