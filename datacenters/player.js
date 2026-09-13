@@ -18,7 +18,10 @@ window.DC_PLAYER = {
     controls.className = 'player-controls';
     const button = (text, action) => {
       const el = document.createElement('button');
-      el.type = 'button'; el.textContent = text;
+      const symbols = { [words.back]: '\u23ee', [words.play]: '\u25b6', [words.pause]: '\u23f8', [words.next]: '\u23ed', [words.stop]: '\u23f9' };
+      el.type = 'button'; el.textContent = symbols[text];
+      el.title = text; el.setAttribute('aria-label', text);
+      el.className = text === words.next || text === words.stop ? 'player-right' : 'player-left';
       el.addEventListener('click', action); controls.append(el); return el;
     };
     const card = document.createElement('aside');
@@ -84,9 +87,8 @@ window.DC_PLAYER = {
           .sort((a, b) => Number(a.properties.id) - Number(b.properties.id));
         matches.forEach(({ properties: p }) => {
           const li = document.createElement('li');
-          const name = document.createElement('strong'); name.textContent = `${p.id}. ${p.name}`;
-          const city = document.createElement('span'); city.textContent = p.city || words.unknownCity;
-          li.append(name, city); list.append(li);
+          li.textContent = `${p.name || ''} \u2014 ${p.city || words.unknownCity}`;
+          list.append(li);
         });
         if (matches.length) body.append(list); else body.textContent = words.empty;
       } else if (step.overlay) body.textContent = words.cityText;
