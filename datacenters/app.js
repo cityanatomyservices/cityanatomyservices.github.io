@@ -223,8 +223,22 @@
         paint: { 'text-color': '#111111', 'text-halo-color': '#ffffff', 'text-halo-width': 1.2 } });
 
       buildLegend(map, counts);
+      let overviewCamera = null;
+      const corridorSites = { features: sites.features.filter(f => /Round Rock|Hutto|Taylor/i.test(f.properties.city || '')) };
       window.DC_PLAYER.init(sites, (feature) => {
         map.easeTo({ center: feature.geometry.coordinates, zoom: Math.max(map.getZoom(), 13), duration: 700 });
+      }, (step) => {
+        if (step.camera === 'round-rock-taylor' && corridorSites.features.length) {
+          if (!overviewCamera) overviewCamera = { center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() };
+          const wide = map.getContainer().clientWidth >= 1000;
+          map.fitBounds(boundsOf(corridorSites), {
+            padding: wide ? { left: 310, right: 370, top: 70, bottom: 70 } : 50,
+            bearing: 0, pitch: 0, duration: 1000
+          });
+        } else if (!step.done && overviewCamera) {
+          map.easeTo({ ...overviewCamera, duration: 700 });
+          overviewCamera = null;
+        }
       });
 
       map.on('click', 'dc-points', (e) => {

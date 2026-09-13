@@ -8,7 +8,7 @@ window.DC_PLAYER = {
       && !(city === 'Cedar Creek' && county === 'Bastrop')) return city;
     return county ? (/\bcounty\b/i.test(county) ? county : `${county} County`) : window.DC_COPY.player.unknownCity;
   },
-  init(sites, onSelect = () => {}) {
+  init(sites, onSelect = () => {}, onStep = () => {}) {
     const copy = window.DC_COPY;
     const words = copy.player;
     const statuses = Object.keys(window.DC_CONFIG.status);
@@ -16,6 +16,8 @@ window.DC_PLAYER = {
       { title: words.ready },
       ...statuses.map(status => ({ title: copy.status[status], status })),
       { title: words.city, overlay: 'city' },
+      { title: words.overview },
+      { title: words.corridor, camera: 'round-rock-taylor', text: words.corridorText },
       { title: words.done, done: true }
     ];
     const page = document.querySelector('.page');
@@ -123,13 +125,18 @@ window.DC_PLAYER = {
         setBox(el, checked);
         el.disabled = active;
       });
-      card.hidden = !active || index === 0;
+      card.hidden = !active || !(steps[index].status || steps[index].overlay || steps[index].text);
       body.replaceChildren(); body.scrollTop = 0;
       const step = steps[index];
       heading.textContent = step.title;
       if (step.status) {
         renderSites(step.status);
       } else if (step.overlay) body.textContent = words.cityText;
+      else if (step.text) {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = step.text; body.append(paragraph);
+      }
+      onStep(step);
       update();
       if (run && active) schedule();
     }

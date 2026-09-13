@@ -11,6 +11,8 @@ window.DC_COPY = {
     play: 'Play', pause: 'Pause', back: 'Back', next: 'Next', stop: 'Finish',
     autoplay: 'Autoplay', timeline: 'Map animation', ready: 'Ready', done: 'Complete',
     city: 'Austin city limits', cityText: 'Austin city limits are now shown.',
+    overview: 'Regional overview', corridor: 'Round Rock to Taylor',
+    corridorText: 'This is placeholder text for the Round Rock to Taylor area. This paragraph will be replaced with the story you want to tell about the locations shown on the map. Use this space to introduce the area, explain the pattern of development, and describe the details viewers should notice.',
     empty: 'No sites in this category.', unknownCity: 'City not reported'
   },
   home: 'anatomy.city',
