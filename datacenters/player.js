@@ -17,7 +17,11 @@ window.DC_PLAYER = {
       ...statuses.map(status => ({ title: copy.status[status], status })),
       { title: words.city, overlay: 'city' },
       { title: words.overview },
-      { title: words.corridor, camera: 'round-rock-taylor', text: words.corridorText },
+      // context steps (2026-09-13): each switches layers on (show) or off (hide)
+      // from that point in the sequence onward and shows its paragraph.
+      { title: words.electric, show: ['transmission', 'plants', 'substations'], text: words.electricText },
+      { title: words.water, show: ['aquifers', 'gcd', 'intakes', 'outfalls'], hide: ['transmission', 'plants', 'substations'], text: words.waterText },
+      { title: words.corridor, camera: 'round-rock-taylor', hide: ['aquifers', 'gcd', 'intakes', 'outfalls'], text: words.corridorText },
       { title: words.done, done: true }
     ];
     const page = document.querySelector('.page');
@@ -119,9 +123,14 @@ window.DC_PLAYER = {
       remaining = 3000;
       active = !steps[index].done;
       const revealed = new Set(steps.slice(0, index + 1).map(s => s.status).filter(Boolean));
+      const overlaysOn = new Set(['service']);      // Austin Energy is on from the start
+      steps.slice(0, index + 1).forEach(s => {
+        if (s.overlay) overlaysOn.add(s.overlay);
+        (s.show || []).forEach(k => overlaysOn.add(k));
+        (s.hide || []).forEach(k => overlaysOn.delete(k));
+      });
       inputs.forEach(el => {
-        const checked = el.dataset.status ? revealed.has(el.dataset.status)
-          : el.dataset.overlay === 'service' || steps.slice(0, index + 1).some(s => s.overlay === el.dataset.overlay);
+        const checked = el.dataset.status ? revealed.has(el.dataset.status) : overlaysOn.has(el.dataset.overlay);
         setBox(el, checked);
         el.disabled = active;
       });

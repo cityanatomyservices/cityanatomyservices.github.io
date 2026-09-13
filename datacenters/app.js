@@ -3,9 +3,12 @@
 // One GeoJSON of 47 sites (config.js) drawn as circles: colour = status,
 // size = MW, label = the site's row number. The legend has a checkbox per
 // status that hides or shows those dots. The Layers box has a checkbox per
-// reference overlay (Austin Energy service area, city limits, council
-// districts, ZIP codes); only Austin Energy starts on. Clicking a dot opens
-// a popup with the facts and the source links for that site.
+// reference overlay, grouped as Electric (Austin Energy service area,
+// transmission lines, power plants, substations), Water (aquifers,
+// groundwater districts, planning areas, watersheds, intakes, outfalls) and
+// Boundaries (city limits, council districts); only Austin Energy starts on.
+// Clicking a dot opens a popup with the facts and the source links for that
+// site; clicking a context line or point opens a small popup of its fields.
 //
 // The sites file is read first so the map can open fitted to the dots
 // (owner 2026-09-12: "have the extent of the map be the mapped datacenters").
@@ -132,35 +135,89 @@
     size.appendChild(dots);
   }
 
-  // ── the Layers box: one checkbox per overlay in config.js ─────────────────
+  // ── the Layers box: one checkbox per overlay in config.js, under group headings ──
+  // Polygons are added to the map first, then lines, then points, so a point
+  // layer is never hidden under a polygon whatever order config.js lists them.
+  const stepExpr = (steps) => {                 // [field, v1, px1, v2, px2...] -> MapLibre interpolate
+    if (!Array.isArray(steps)) return steps;
+    return ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', steps[0]]], 0]].concat(steps.slice(1));
+  };
+  const overlayLayerIds = (key) => ['fill', 'line', 'label', 'point'].map((k) => 'overlay-' + key + '-' + k);
+
+  function contextPopupHtml(o, p) {
+    const F = COPY.fields || {};
+    const pairs = o.popup.map((f) => [F[f] || f, typeof p[f] === 'number' ? num(p[f]) : esc(p[f])]);
+    return rowsHtml(pairs);
+  }
+
   function buildOverlays(map) {
+    const vis = (on) => on ? 'visible' : 'none';
+    const entries = Object.entries(CFG.overlays);
+    const order = { polygon: 0, line: 1, point: 2 };
+    const kindOf = (o) => o.kind || 'polygon';
+    entries.slice().sort((a, b) => order[kindOf(a[1])] - order[kindOf(b[1])]).forEach(([key, o]) => {
+      const src = 'overlay-' + key;
+      map.addSource(src, { type: 'geojson', data: o.file });
+      const kind = kindOf(o);
+      if (kind === 'polygon') {
+        map.addLayer({ id: src + '-fill', type: 'fill', source: src, layout: { visibility: vis(o.on) },
+          paint: { 'fill-color': o.color, 'fill-opacity': o.fill } });
+        map.addLayer({ id: src + '-line', type: 'line', source: src, layout: { visibility: vis(o.on) },
+          paint: { 'line-color': o.color, 'line-width': 1.6, 'line-dasharray': [3, 2] } });
+        if (o.label) {
+          map.addLayer({ id: src + '-label', type: 'symbol', source: src,
+            layout: { visibility: vis(o.on), 'symbol-placement': 'point', 'text-field': ['get', o.label], 'text-font': ['Noto Sans Bold'], 'text-size': 12 },
+            paint: { 'text-color': o.color, 'text-halo-color': '#ffffff', 'text-halo-width': 2 } });
+        }
+      } else if (kind === 'line') {
+        map.addLayer({ id: src + '-line', type: 'line', source: src, layout: { visibility: vis(o.on), 'line-cap': 'round', 'line-join': 'round' },
+          paint: { 'line-color': o.color, 'line-width': stepExpr(o.width || 1.5), 'line-opacity': 0.85 } });
+      } else {
+        // hollow: [field, value] draws features whose field equals value as rings (e.g. planned plants)
+        const hollow = o.hollow ? ['==', ['get', o.hollow[0]], o.hollow[1]] : false;
+        map.addLayer({ id: src + '-point', type: 'circle', source: src, layout: { visibility: vis(o.on) },
+          paint: { 'circle-color': o.color, 'circle-radius': stepExpr(o.radius || 4),
+                   'circle-opacity': hollow ? ['case', hollow, 0, 0.85] : 0.85,
+                   'circle-stroke-color': o.color, 'circle-stroke-width': hollow ? ['case', hollow, 2, 0.8] : 0.8,
+                   'circle-stroke-opacity': 1 } });
+      }
+      if (o.popup && kind !== 'polygon') {      // click a line or point for its facts
+        const id = src + (kind === 'line' ? '-line' : '-point');
+        map.on('click', id, (e) => {
+          const f = e.features && e.features[0];
+          if (!f) return;
+          new maplibregl.Popup({ maxWidth: '300px' }).setLngLat(e.lngLat).setHTML(contextPopupHtml(o, f.properties)).addTo(map);
+        });
+        map.on('mouseenter', id, () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
+      }
+    });
+
+    // the checkboxes, grouped in config.js order
     const rows = $('overlayRows');
     rows.innerHTML = '';
-    Object.entries(CFG.overlays).forEach(([key, o]) => {
-      const vis = (on) => on ? 'visible' : 'none';
-      map.addSource('overlay-' + key, { type: 'geojson', data: o.file });
-      map.addLayer({ id: 'overlay-' + key + '-fill', type: 'fill', source: 'overlay-' + key, layout: { visibility: vis(o.on) },
-        paint: { 'fill-color': o.color, 'fill-opacity': o.fill } });
-      map.addLayer({ id: 'overlay-' + key + '-line', type: 'line', source: 'overlay-' + key, layout: { visibility: vis(o.on) },
-        paint: { 'line-color': o.color, 'line-width': 1.6, 'line-dasharray': [3, 2] } });
-      if (o.label) {
-        map.addLayer({ id: 'overlay-' + key + '-label', type: 'symbol', source: 'overlay-' + key,
-          layout: { visibility: vis(o.on), 'symbol-placement': 'point', 'text-field': ['get', o.label], 'text-font': ['Noto Sans Bold'], 'text-size': 12 },
-          paint: { 'text-color': o.color, 'text-halo-color': '#ffffff', 'text-halo-width': 2 } });
+    const groups = CFG.groups || [''];
+    groups.forEach((g) => {
+      const mine = entries.filter(([, o]) => (o.group || '') === g);
+      if (!mine.length) return;
+      if (g) {
+        const h = document.createElement('div'); h.className = 'overlay-group';
+        h.textContent = (COPY.overlayGroup || {})[g] || g;
+        rows.appendChild(h);
       }
-      const label = document.createElement('label');
-      const box = document.createElement('input');
-      box.type = 'checkbox'; box.checked = !!o.on;
-      box.dataset.overlay = key;
-      box.addEventListener('change', () => {
-        ['fill', 'line', 'label'].forEach((k) => {
-          const id = 'overlay-' + key + '-' + k;
-          if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', vis(box.checked));
+      mine.forEach(([key, o]) => {
+        const label = document.createElement('label');
+        const box = document.createElement('input');
+        box.type = 'checkbox'; box.checked = !!o.on;
+        box.dataset.overlay = key;
+        box.addEventListener('change', () => {
+          overlayLayerIds(key).forEach((id) => { if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', vis(box.checked)); });
         });
+        const sw = document.createElement('span'); sw.className = 'overlay-swatch is-' + kindOf(o); sw.style.color = o.color;
+        const txt = document.createElement('span'); txt.textContent = COPY.overlay[key] || key;
+        label.append(box, sw, txt);
+        rows.appendChild(label);
       });
-      const txt = document.createElement('span'); txt.textContent = COPY.overlay[key] || key;
-      label.append(box, txt);
-      rows.appendChild(label);
     });
   }
 

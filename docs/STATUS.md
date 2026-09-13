@@ -32,6 +32,59 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-13 — electric and water context layers on /datacenters/
+
+Owner: no new Supabase project for the TX-31 "District Anatomy" spec
+(`C:\Dev\DataCenters`), parcels skipped; instead "add the water and electric
+resources as geojsons held on github and put them on the map ... as part of
+the map timeline animation that will explain the important considerations".
+The map covers all data centers around Austin now, not only TX-31, so the
+layers are clipped to a region box around the mapped sites
+(lon -99.0..-96.2, lat 29.2..31.7). NOT PUSHED: committed locally only, on
+the owner's instruction.
+
+**Data pipeline (two scripts, both plain and re-runnable).**
+1. `C:\GISData\scripts\fetch_energy_water.py` (run with
+   `C:\OSGeo4W\bin\python-qgis-ltr.bat`) pulls twelve public layers into two
+   new GeoPackages and records each in `catalog.json`:
+   - `austin\energy.gpkg`: `transmission_lines` (HIFLD, 855 lines, 115–345 kV),
+     `power_plants` (EIA-860M July 2026, 185 plants, 135 operating, summed per
+     plant from the generator rows), `substations_osm` (OpenStreetMap, 814,
+     ODbL — community data, attributed on the map).
+   - `austin\water.gpkg`: TWDB `major_aquifers`, `minor_aquifers`,
+     `groundwater_districts`, `water_planning_areas`; USGS `watersheds_huc8`;
+     TCEQ `surface_water_intakes`, `pws_reservoirs`, `wastewater_outfalls`,
+     `water_rights_points` (3,383 diversion points, library only).
+   Gotchas met: the Overpass mirrors 406/504 at random (the script now
+   retries across two mirrors); ArcGIS paging is by `resultOffset`; QGIS
+   keeps the downloaded page files open until it shuts down, so the temp
+   cleanup runs twice.
+2. `scripts/build-datacenters-layers.sh` (WSL, ogr2ogr) exports nine of them
+   to `datacenters/data/*.geojson`: WGS84, 4-decimal coordinates, simplified
+   (tolerances are in FEET because ogr2ogr simplifies in the source CRS),
+   clipped to the region box, trimmed fields. About 2.8 MB in all; the
+   biggest is major_aquifers at 650 KB. Substations are exported only at
+   69 kV and up; intakes only with TCEQ status O. Re-run it after the fetch
+   script, then bump the `?v=` in `config.js` for the files that changed.
+
+**Map changes.** `config.js` overlays now carry `group` (electric / water /
+boundaries — headings in the Layers box), `kind` (polygon / line / point),
+and per-kind style: line width or point radius stepped by a field, `hollow`
+for planned plants, `popup` field list. `app.js` draws polygons under lines
+under points, gives lines and points a small popup (labels from
+`copy.js.fields`), and shows a swatch per row. `player.js` steps can now
+`show` and `hide` lists of overlays; two new steps — "Electric grid" (lines,
+plants, substations on) and "Water resources" (aquifers, districts, intakes,
+outfalls on; electric off) — sit before "Round Rock to Taylor", each with a
+PLACEHOLDER paragraph in `copy.js` for the owner to replace. Assets bumped
+to `?v=20260913m`. Checked headless: no console errors, every file loads,
+steps 9–11 switch the expected layers.
+
+**Left for the owner.** All copy (step paragraphs, layer labels, the About
+sources sentence). Styling is a first pass: aquifer fill 0.14, GCD outlines,
+labels per polygon part. Not exported (library only): minor aquifers, PWS
+reservoirs, water-rights points, planning-area labels beyond names.
+
 ## 2026-09-12 (late) — data centers map at /datacenters/
 
 Owner: "can you make a maplibre map of this datacenter map and put it up at

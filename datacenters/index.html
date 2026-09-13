@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
   <!-- ?v= so a push is actually seen (GitHub Pages caches hard). Bump when
        app.js, style.css, config.js or copy.js change. -->
-  <link rel="stylesheet" href="./style.css?v=20260913l" />
+  <link rel="stylesheet" href="./style.css?v=20260913m" />
 </head>
 <body>
   <!-- ONE MAP OF THE DATA CENTERS IN AND AROUND AUSTIN. The 47 sites are a
@@ -18,7 +18,11 @@
        is the row id in the research note. Clicking a dot opens a popup with
        the facts and the source links. The Austin Energy service area draws
        as a dashed outline so the reader can see that the big campuses sit
-       outside it. Every word on screen comes from copy.js. -->
+       outside it. The Layers box also carries electric (transmission,
+       plants, substations) and water (aquifers, districts, intakes,
+       outfalls) context layers, added 2026-09-13, that the timeline
+       switches on with a paragraph of explanation. Every word on screen
+       comes from copy.js. -->
   <div class="page">
     <div id="map"></div>
 
@@ -60,9 +64,9 @@
   </div>
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
-  <script src="./copy.js?v=20260913k"></script>
-  <script src="./config.js?v=20260913f"></script>
-  <script src="./player.js?v=20260913k"></script>
-  <script src="./app.js?v=20260913l"></script>
+  <script src="./copy.js?v=20260913m"></script>
+  <script src="./config.js?v=20260913m"></script>
+  <script src="./player.js?v=20260913m"></script>
+  <script src="./app.js?v=20260913m"></script>
 </body>
 </html>

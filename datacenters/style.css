@@ -55,8 +55,16 @@ html, body { margin: 0; height: 100%; }
 .card-toggle:hover { color: var(--accent); }
 .card-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 .is-collapsed .card-toggle { margin-bottom: 0; }
-.overlays label { display: grid; grid-template-columns: 14px minmax(0, 1fr); align-items: start; gap: 6px; padding: 2px 0; cursor: pointer; }
+.overlays label { display: grid; grid-template-columns: 14px 16px minmax(0, 1fr); align-items: start; gap: 6px; padding: 2px 0; cursor: pointer; }
 .overlays input { margin: 3px 0 0; width: 13px; height: 13px; }
+/* group headings in the Layers box (Electric, Water, Boundaries) */
+.overlay-group { margin: 6px 0 2px; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #52606d; }
+.overlay-group:first-child { margin-top: 0; }
+/* a small sample of how each overlay draws: dashed box for polygons, a bar for lines, a dot for points */
+.overlay-swatch { display: inline-block; width: 14px; height: 14px; margin-top: 2px; box-sizing: border-box; }
+.overlay-swatch.is-polygon { border: 1.5px dashed currentColor; background: color-mix(in srgb, currentColor 12%, transparent); }
+.overlay-swatch.is-line { height: 3px; margin-top: 8px; background: currentColor; border-radius: 2px; }
+.overlay-swatch.is-point { width: 10px; height: 10px; margin: 4px 2px 0; border-radius: 50%; background: currentColor; }
 
 /* legend follows the buttons and Layers box in the left stack */
 .legend {
