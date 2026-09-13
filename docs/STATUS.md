@@ -32,6 +32,16 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-13 (evening) — site list back right, 10 s steps, countdown ring
+
+Owner: only the TEXT boxes were meant to be centred; the site list returns
+to the top-right. Every tick now holds 10 s on autoplay (was 3 s, text 8 s),
+and a small countdown ring sits to the right of the ticks: an SVG circle
+whose accent stroke drains over the step and freezes on pause
+(`player.js` drawClock/runClock, `.player-clock` in `style.css`). The card
+gets class `is-text` on text steps, which is what centres and enlarges it.
+Assets at `?v=20260913q`.
+
 ## 2026-09-13 (latest) — story card centred, cards fold, text halved
 
 Owner: the draft copy is acceptable ("copy is fine here ... I just don't want

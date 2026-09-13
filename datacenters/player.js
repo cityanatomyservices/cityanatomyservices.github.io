@@ -18,7 +18,7 @@ window.DC_PLAYER = {
     // then the transmission lines and substations, then the water layers.
     // show / hide name overlays (config.js keys) to turn on or off from that
     // step onward; cards: { legend, layers } opens (true) or folds (false) a
-    // card from that step on. Text steps hold 5 s longer than the others.
+    // card from that step on.
     const steps = [
       { title: words.ready },
       ...statuses.map((status, i) => ({ title: copy.status[status], status, ...(i === 0 ? { cards: { legend: true } } : {}) })),
@@ -50,10 +50,27 @@ window.DC_PLAYER = {
     card.append(heading, body);
     const ticks = document.createElement('div');
     ticks.className = 'player-ticks';
+    // the countdown ring to the right of the ticks: a circle whose stroke
+    // drains over the 10 s of each step and freezes on pause
+    const clock = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    clock.setAttribute('class', 'player-clock'); clock.setAttribute('viewBox', '0 0 24 24'); clock.setAttribute('aria-hidden', 'true');
+    const ring = (cls) => { const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); c.setAttribute('cx', 12); c.setAttribute('cy', 12); c.setAttribute('r', 9); c.setAttribute('class', cls); clock.append(c); return c; };
+    ring('player-clock-track');
+    const hand = ring('player-clock-left');
+    const RING = 2 * Math.PI * 9;
+    hand.style.strokeDasharray = String(RING);
+    const drawClock = (fraction) => { hand.style.strokeDashoffset = String(RING * (1 - Math.max(0, Math.min(1, fraction)))); };
+    let clockFrame = null;
+    const runClock = () => {
+      if (!playing) return;
+      drawClock((deadline - performance.now()) / STEP_MS);
+      clockFrame = requestAnimationFrame(runClock);
+    };
     const label = document.createElement('span');
     label.className = 'player-step'; label.setAttribute('aria-live', 'polite');
     let index = 0, active = false, playing = false, timer = null;
-    let remaining = 3000, deadline = 0;
+    const STEP_MS = 10000;                       // every step holds 10 s on autoplay (owner 2026-09-13)
+    let remaining = STEP_MS, deadline = 0;
     let sortField = 'name', sortDirection = 1;
     function renderSites(status) {
       body.replaceChildren();
@@ -101,12 +118,15 @@ window.DC_PLAYER = {
     };
     function pause() {
       if (playing) remaining = Math.max(0, deadline - performance.now());
-      clearTimeout(timer); timer = null; playing = false; update();
+      clearTimeout(timer); timer = null; playing = false;
+      cancelAnimationFrame(clockFrame); drawClock(remaining / STEP_MS);
+      update();
     }
     function schedule() {
       clearTimeout(timer);
       playing = true; deadline = performance.now() + remaining;
       timer = setTimeout(() => go(index + 1, true), remaining);
+      cancelAnimationFrame(clockFrame); runClock();
       update();
     }
     function update() {
@@ -124,7 +144,8 @@ window.DC_PLAYER = {
     function go(target, run = false) {
       clearTimeout(timer); timer = null; playing = false;
       index = Math.max(0, Math.min(target, steps.length - 1));
-      remaining = steps[index].text ? 8000 : 3000;   // 3 s per step, plus a 5 s pause to read a text box
+      remaining = STEP_MS;
+      cancelAnimationFrame(clockFrame); drawClock(steps[index].done ? 0 : 1);
       active = !steps[index].done;
       const revealed = new Set(steps.slice(0, index + 1).map(s => s.status).filter(Boolean));
       const overlaysOn = new Set();                 // every overlay off until a step shows it
@@ -144,6 +165,7 @@ window.DC_PLAYER = {
         el.disabled = active;
       });
       card.hidden = !active || !(steps[index].status || steps[index].text);
+      card.classList.toggle('is-text', !steps[index].status && !!steps[index].text);   // text boxes sit centred; the site list stays right
       body.replaceChildren(); body.scrollTop = 0;
       const step = steps[index];
       heading.textContent = step.title;
@@ -178,7 +200,7 @@ window.DC_PLAYER = {
       tick.addEventListener('click', () => go(i));
       ticks.append(tick);
     });
-    panel.append(controls, ticks, label); page.append(card, panel);
+    panel.append(controls, ticks, clock, label); page.append(card, panel);
     page.classList.add('has-player');
     // Keep the ordinary map intact until the viewer starts or seeks the sequence.
     update();
