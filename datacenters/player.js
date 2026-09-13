@@ -1,6 +1,14 @@
 // A cumulative reveal. Add steps here as the recording sequence develops.
 window.DC_PLAYER = {
-  init(sites) {
+  location(properties) {
+    const city = String(properties.city || '').trim();
+    const county = String(properties.county || '').trim();
+    // Cedar Creek is unincorporated: tshaonline.org/handbook/entries/cedar-creek-tx-bastrop-county
+    if (city && !/unincorporated|\bETJ\b|^unknown$|^n\/?a$/i.test(city)
+      && !(city === 'Cedar Creek' && county === 'Bastrop')) return city;
+    return county ? (/\bcounty\b/i.test(county) ? county : `${county} County`) : window.DC_COPY.player.unknownCity;
+  },
+  init(sites, onSelect = () => {}) {
     const copy = window.DC_COPY;
     const words = copy.player;
     const statuses = Object.keys(window.DC_CONFIG.status);
@@ -36,6 +44,44 @@ window.DC_PLAYER = {
     label.className = 'player-step'; label.setAttribute('aria-live', 'polite');
     let index = 0, active = false, playing = false, timer = null;
     let remaining = 3000, deadline = 0;
+    let sortField = 'name', sortDirection = 1;
+    function renderSites(status) {
+      body.replaceChildren();
+      const table = document.createElement('table');
+      const head = document.createElement('thead');
+      const headerRow = document.createElement('tr');
+      for (const [field, text] of [['name', words.name], ['location', words.location]]) {
+        const th = document.createElement('th'); th.scope = 'col';
+        th.setAttribute('aria-sort', sortField === field ? (sortDirection === 1 ? 'ascending' : 'descending') : 'none');
+        const sort = document.createElement('button'); sort.type = 'button';
+        sort.textContent = text + (sortField === field ? (sortDirection === 1 ? ' \u2191' : ' \u2193') : '');
+        sort.addEventListener('click', () => {
+          pause();
+          sortDirection = sortField === field ? -sortDirection : 1;
+          sortField = field; renderSites(status);
+        });
+        th.append(sort); headerRow.append(th);
+      }
+      head.append(headerRow);
+      const rows = document.createElement('tbody');
+      const value = f => sortField === 'name' ? String(f.properties.name || '') : window.DC_PLAYER.location(f.properties);
+      const matches = sites.features.filter(f => f.properties.status === status)
+        .sort((a, b) => sortDirection * value(a).localeCompare(value(b), undefined, { numeric: true, sensitivity: 'base' }));
+      matches.forEach(feature => {
+        const row = document.createElement('tr'); row.tabIndex = 0;
+        const name = document.createElement('td'); name.textContent = feature.properties.name || '';
+        const location = document.createElement('td'); location.textContent = window.DC_PLAYER.location(feature.properties);
+        row.title = words.zoomTo;
+        const select = () => { pause(); onSelect(feature); };
+        row.addEventListener('click', select);
+        row.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); select(); }
+        });
+        row.append(name, location); rows.append(row);
+      });
+      table.append(head, rows);
+      if (matches.length) body.append(table); else body.textContent = words.empty;
+    }
     const inputs = [...document.querySelectorAll('[data-status], [data-overlay]')];
     const setBox = (el, checked) => {
       if (el.checked !== checked) {
@@ -82,15 +128,7 @@ window.DC_PLAYER = {
       const step = steps[index];
       heading.textContent = step.title;
       if (step.status) {
-        const list = document.createElement('ul');
-        const matches = sites.features.filter(f => f.properties.status === step.status)
-          .sort((a, b) => Number(a.properties.id) - Number(b.properties.id));
-        matches.forEach(({ properties: p }) => {
-          const li = document.createElement('li');
-          li.textContent = `${p.name || ''} \u2014 ${p.city || words.unknownCity}`;
-          list.append(li);
-        });
-        if (matches.length) body.append(list); else body.textContent = words.empty;
+        renderSites(step.status);
       } else if (step.overlay) body.textContent = words.cityText;
       update();
       if (run && active) schedule();

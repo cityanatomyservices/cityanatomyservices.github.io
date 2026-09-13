@@ -223,7 +223,9 @@
         paint: { 'text-color': '#111111', 'text-halo-color': '#ffffff', 'text-halo-width': 1.2 } });
 
       buildLegend(map, counts);
-      window.DC_PLAYER.init(sites);
+      window.DC_PLAYER.init(sites, (feature) => {
+        map.easeTo({ center: feature.geometry.coordinates, zoom: Math.max(map.getZoom(), 13), duration: 700 });
+      });
 
       map.on('click', 'dc-points', (e) => {
         const f = e.features && e.features[0];

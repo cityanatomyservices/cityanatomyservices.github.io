@@ -7,6 +7,7 @@
 window.DC_COPY = {
   pageTitle: 'Austin Data Centers',
   player: {
+    name: 'Name', location: 'City / Area', zoomTo: 'Zoom to this site',
     play: 'Play', pause: 'Pause', back: 'Back', next: 'Next', stop: 'Finish',
     autoplay: 'Autoplay', timeline: 'Map animation', ready: 'Ready', done: 'Complete',
     city: 'Austin city limits', cityText: 'Austin city limits are now shown.',
