@@ -165,7 +165,8 @@
   fetch(CFG.sites).then((r) => r.json()).then((sites) => {
     const box = boundsOf(sites);
     const pad = CFG.cagePad;
-    const cage = [[box[0][0] - pad, box[0][1] - pad], [box[1][0] + pad, box[1][1] + pad]];
+    const padLng = CFG.cagePadLng ?? pad;
+    const cage = [[box[0][0] - padLng, box[0][1] - pad], [box[1][0] + padLng, box[1][1] + pad]];
     const counts = {};
     sites.features.forEach((f) => { counts[f.properties.status] = (counts[f.properties.status] || 0) + 1; });
 

@@ -28,9 +28,10 @@ window.DC_CONFIG = {
 
   // the map opens fitted to the mapped sites and the extents button refits
   // them (owner 2026-09-12); app.js works the box out from the data. The pan
-  // cage is that box grown by `cagePad` degrees on each side.
+  // cage adds separate horizontal and vertical margins for recording frames.
   fitPadding: 40,
   cagePad: 0.75,
+  cagePadLng: 2,
   minZoom: 6.5,
 
   // one colour per status, in legend order (same palette as the QGIS project)
