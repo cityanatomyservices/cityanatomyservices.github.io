@@ -20,8 +20,7 @@ window.DC_CONFIG = {
   overlays: {
     service: { file: './data/austin_energy_service_area.geojson?v=20260912a', color: '#7b3294', on: true,  fill: 0.06 },
     city:    { file: './data/city_limits.geojson?v=20260912b',                color: '#1f6f8b', on: false, fill: 0.10 },
-    council: { file: './data/council_districts.geojson?v=20260912b',          color: '#d95f02', on: false, fill: 0.08, label: 'district_number' },
-    zip:     { file: './data/zipcodes.geojson?v=20260912b',                   color: '#6b4c9a', on: false, fill: 0.05, label: 'zipcode' }
+    council: { file: './data/council_districts.geojson?v=20260912b',          color: '#d95f02', on: false, fill: 0.08, label: 'district_number' }
   },
 
   basemap: 'https://tiles.openfreemap.org/styles/positron',
@@ -31,8 +30,8 @@ window.DC_CONFIG = {
   // them (owner 2026-09-12); app.js works the box out from the data. The pan
   // cage is that box grown by `cagePad` degrees on each side.
   fitPadding: 40,
-  cagePad: 0.5,
-  minZoom: 7,
+  cagePad: 0.75,
+  minZoom: 6.5,
 
   // one colour per status, in legend order (same palette as the QGIS project)
   status: {
