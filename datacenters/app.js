@@ -98,6 +98,7 @@
       const label = document.createElement('label');
       const box = document.createElement('input');
       box.type = 'checkbox'; box.checked = true;
+      box.dataset.status = s;
       box.addEventListener('change', () => { box.checked ? shown.add(s) : shown.delete(s); applyFilter(); });
       const sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = CFG.status[s];
       const txt = document.createElement('span'); txt.textContent = COPY.status[s];
@@ -138,6 +139,7 @@
       const label = document.createElement('label');
       const box = document.createElement('input');
       box.type = 'checkbox'; box.checked = !!o.on;
+      box.dataset.overlay = key;
       box.addEventListener('change', () => {
         ['fill', 'line', 'label'].forEach((k) => {
           const id = 'overlay-' + key + '-' + k;
@@ -221,6 +223,7 @@
         paint: { 'text-color': '#111111', 'text-halo-color': '#ffffff', 'text-halo-width': 1.2 } });
 
       buildLegend(map, counts);
+      window.DC_PLAYER.init(sites);
 
       map.on('click', 'dc-points', (e) => {
         const f = e.features && e.features[0];
