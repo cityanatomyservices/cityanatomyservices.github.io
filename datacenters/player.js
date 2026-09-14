@@ -236,7 +236,8 @@ window.DC_PLAYER = {
     // ?play in the address starts the sequence by itself a few seconds after
     // load, for screen recordings where nobody clicks (2026-09-14).
     if (new URLSearchParams(location.search).has('play')) {
-      setTimeout(() => { intro.remove(); go(1, true); }, 4000);
+      intro.remove();                                 // the intro is for visitors, not recordings (owner 2026-09-14)
+      setTimeout(() => go(1, true), 3000);
     }
     document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
   }

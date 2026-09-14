@@ -21,15 +21,22 @@ window.AISD_PLAYER = {
     // cards: { legend, layers } opens or folds a card from that step on;
     // cardsAfter changes them again after a delay; focus names a config.js
     // focus key the map zooms to.
+    // `only` names the roles shown from that step on (the story cards show
+    // just the closing and receiving schools, owner 2026-09-14); `hold` is a
+    // step length in ms when it should differ from the 5 s / 15 s default.
+    const storyRoles = ['closing', 'closing_and_receiving', 'receiving'];
     const steps = [
       { title: words.ready },
+      // the legend, open over the full map, for 10 s before the reveals start
+      { title: copy.legendTitle, only: statuses, show: ['city'], cards: { legend: true }, hold: 10000 },
       ...statuses.map((status, i) => ({ title: copy.role[status], status,
-        ...(i === 0 ? { show: ['city'], cards: { legend: false } } : {}) })),
-      { title: words.why, show: ['zones'], cards: { layers: true }, cardsAfter: { delay: 2000, cards: { layers: false } }, text: words.whyText },
+        ...(i === 0 ? { only: [status], cards: { legend: false } } : {}) })),
+      { title: words.why, only: storyRoles, show: ['zones'], cards: { layers: true }, cardsAfter: { delay: 2000, cards: { layers: false } }, text: words.whyText },
       { title: words.where, show: ['links'], text: words.whereText },
       { title: words.south, focus: 'south', text: words.southText },
-      { title: words.removed, camera: 'overview', hide: ['zones', 'links'], text: words.removedText },
-      { title: words.buildings, text: words.buildingsText },
+      // this card is about the grey dots, so they show here as well
+      { title: words.removed, only: storyRoles.concat('removed_from_plan'), camera: 'overview', hide: ['zones', 'links'], text: words.removedText },
+      { title: words.buildings, only: storyRoles, text: words.buildingsText },
       { title: words.done, done: true }
     ];
     const page = document.querySelector('.page');
@@ -74,7 +81,7 @@ window.AISD_PLAYER = {
     label.className = 'player-step'; label.setAttribute('aria-live', 'polite');
     let index = 0, active = false, playing = false, timer = null;
     // autoplay timing (owner 2026-09-14): 5 s per data center reveal, 15 s per text card
-    const stepMs = (step) => step.text ? 15000 : 5000;
+    const stepMs = (step) => step.hold || (step.text ? 15000 : 5000);   // hold overrides the default length
     let stepLength = 5000, remaining = 5000, deadline = 0, cardsTimer = null;
     let sortField = 'name', sortDirection = 1;
     function renderSites(status) {
@@ -152,7 +159,8 @@ window.AISD_PLAYER = {
       stepLength = remaining = stepMs(steps[index]);
       cancelAnimationFrame(clockFrame); drawClock(steps[index].done ? 0 : 1);
       active = !steps[index].done;
-      const revealed = new Set(steps.slice(0, index + 1).map(s => s.status).filter(Boolean));
+      const revealed = new Set();                   // roles shown: reveals add one each, `only` resets the set
+      steps.slice(0, index + 1).forEach(s => { if (s.only) { revealed.clear(); s.only.forEach(r => revealed.add(r)); } else if (s.status) revealed.add(s.status); });
       const overlaysOn = new Set();                 // every overlay off until a step shows it
       const cards = { legend: true, layers: false };    // as the map loads: data centers open, Layers folded
       steps.slice(0, index + 1).forEach((s, i) => {
@@ -235,7 +243,8 @@ window.AISD_PLAYER = {
     // ?play in the address starts the sequence by itself a few seconds after
     // load, for screen recordings where nobody clicks (2026-09-14).
     if (new URLSearchParams(location.search).has('play')) {
-      setTimeout(() => { intro.remove(); go(1, true); }, 4000);
+      intro.remove();                                 // the intro is for visitors, not recordings (owner 2026-09-14)
+      setTimeout(() => go(1, true), 3000);
     }
     document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
   }

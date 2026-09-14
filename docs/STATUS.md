@@ -32,6 +32,20 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 — AISD sequence tuned after the preview
+
+Owner, after watching the preview: story steps show only the closing and
+receiving schools; no intro card in the recording ("that is really just
+for when the user actually goes to the map"); show the legend card for two
+sections (10 s) before folding it and starting the school lists. Done in
+`AISD/player.js`: steps now take `only` (the roles shown from that step
+on) and `hold` (a step length in ms); a 10 s legend step opens the
+sequence over the full map; the story cards use closing + closing-and-
+receiving + receiving, and the "Taken off the list" card adds the grey
+dots it talks about; `?play` now removes the intro at once and starts
+3 s after load (applied to `datacenters/player.js` too, so the formula
+stays one thing). Sequence: 3 s + 10 s + 7 x 5 s + 5 x 15 s = 123 s.
+
 ## 2026-09-14 — AISD map rebuilt on the data centers formula (owner to review)
 
 Owner: "Lets make that the formula going forward. Can you setup something
