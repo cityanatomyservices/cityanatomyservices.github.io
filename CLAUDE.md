@@ -30,3 +30,11 @@ CDN caches whatever it serves for a query string for four hours, so a probe
 that lands before the deploy pins the OLD file under the NEW version (this
 bit `/datacenters/` on 2026-09-12 and cost another bump). Wait for the HTML
 page itself to show the new version string first, then check the assets once.
+
+## Recording a map page as a 9:16 video
+
+The process is written once, in `docs/datacenters-recording.md`, and applies
+to every map page: give the page `?play` and `?phone` switches and container
+queries (copy from `datacenters/`), then record it with the OBS browser
+source at 1080x1920. Do not record a desktop layout at 1080 wide; the owner
+rejected that as unreadable on 2026-09-14.

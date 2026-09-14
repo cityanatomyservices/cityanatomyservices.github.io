@@ -32,6 +32,15 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 (narration) — script draft, process pinned
+
+Owner: "that looks good, let's record this process for the other videos.
+Can you write a script to narrate this 1:40 min long." Done: the recording
+process is now pointed to from this repo's `CLAUDE.md` (so every future map
+page gets `?play`, `?phone`, container queries, OBS browser source), and a
+timed narration draft is at `docs/datacenters-narration.md` (11 lines, one
+per timeline step, ~250 words; owner edits).
+
 ## 2026-09-14 (recording, second pass) — ?phone mode: the phone look at 1080x1920
 
 Owner, on the first take: "How do we make that easier to see. If I look at
