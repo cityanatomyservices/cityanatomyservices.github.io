@@ -23,9 +23,9 @@ window.DC_PLAYER = {
     // again that many ms into the step.
     const steps = [
       { title: words.ready },
-      // the data centers card is open from load through the first reveal, then folds
+      // the data centers card folds as soon as the first site list appears (owner 2026-09-14)
       ...statuses.map((status, i) => ({ title: copy.status[status], status,
-        ...(i === 0 ? { show: ['city'] } : {}), ...(i === 1 ? { cards: { legend: false } } : {}) })),
+        ...(i === 0 ? { show: ['city'], cards: { legend: false } } : {}) })),
       { title: words.corridor, camera: 'round-rock-taylor', text: words.corridorText },
       // the Layers box opens with this text card and folds again 2 s later (owner 2026-09-14)
       { title: words.serviceArea, camera: 'overview', cards: { layers: true }, cardsAfter: { delay: 2000, cards: { layers: false } }, hide: ['city'], show: ['service'], text: words.serviceAreaText },
@@ -155,7 +155,7 @@ window.DC_PLAYER = {
       active = !steps[index].done;
       const revealed = new Set(steps.slice(0, index + 1).map(s => s.status).filter(Boolean));
       const overlaysOn = new Set();                 // every overlay off until a step shows it
-      const cards = { legend: true, layers: false };    // as the map loads: data centers open, Layers folded
+      const cards = { legend: false, layers: false };   // both folded as the map loads
       steps.slice(0, index + 1).forEach((s, i) => {
         (s.show || []).forEach(k => overlaysOn.add(k));
         (s.hide || []).forEach(k => overlaysOn.delete(k));
@@ -179,6 +179,8 @@ window.DC_PLAYER = {
       });
       card.hidden = !active || !(steps[index].status || steps[index].text);
       card.classList.toggle('is-text', !steps[index].status && !!steps[index].text);   // text boxes sit centred; the site list stays right
+      card.classList.toggle('is-list', !!steps[index].status);                          // site lists show 4 rows, then scroll
+      intro.remove();                                                                   // any move on the timeline dismisses the intro
       body.replaceChildren(); body.scrollTop = 0;
       const step = steps[index];
       heading.textContent = step.title;
@@ -213,7 +215,21 @@ window.DC_PLAYER = {
       tick.addEventListener('click', () => go(i));
       ticks.append(tick);
     });
-    panel.append(controls, ticks, clock, label); page.append(card, panel);
+    // the intro card over the map: Play starts the sequence, Navigate Map opens
+    // both panels for free exploration; either dismisses the card
+    const intro = document.createElement('section');
+    intro.className = 'intro'; intro.setAttribute('aria-label', copy.intro.title);
+    const introTitle = document.createElement('h2'); introTitle.textContent = copy.intro.title;
+    const introText = document.createElement('p'); introText.textContent = copy.intro.text;
+    const introPlay = document.createElement('button'); introPlay.type = 'button'; introPlay.className = 'intro-play'; introPlay.textContent = copy.intro.play;
+    const introNav = document.createElement('button'); introNav.type = 'button'; introNav.className = 'intro-nav'; introNav.textContent = copy.intro.navigate;
+    introPlay.addEventListener('click', () => { intro.remove(); go(1, autoplay.checked); });
+    introNav.addEventListener('click', () => {
+      intro.remove();
+      if (window.DC_SET_CARD) { window.DC_SET_CARD('legendTitle', true); window.DC_SET_CARD('overlaysTitle', true); }
+    });
+    intro.append(introTitle, introText, introPlay, introNav);
+    panel.append(controls, ticks, clock, label); page.append(card, panel, intro);
     page.classList.add('has-player');
     // Keep the ordinary map intact until the viewer starts or seeks the sequence.
     update();

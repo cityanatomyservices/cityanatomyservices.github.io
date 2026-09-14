@@ -26,9 +26,9 @@
   $('overlaysTitle').textContent = COPY.overlays;
 
   // The two cards (Layers, Data centers) fold with the arrow in their title.
-  // Hiding a body keeps its checkbox states. On load the data centers card is
-  // open and the Layers box closed (owner 2026-09-14); the timeline opens and
-  // closes them as the story needs.
+  // Hiding a body keeps its checkbox states. Both start folded behind the
+  // intro card; "Navigate Map" opens them, and the timeline opens and closes
+  // them as the story needs (owner 2026-09-14).
   const setCard = (id, open) => {
     const toggle = $(id);
     const body = $(toggle.getAttribute('aria-controls'));
@@ -37,7 +37,7 @@
     toggle.parentElement.classList.toggle('is-collapsed', !open);
   };
   window.DC_SET_CARD = setCard;
-  [['overlaysTitle', false], ['legendTitle', true]].forEach(([id, open]) => {
+  [['overlaysTitle', false], ['legendTitle', false]].forEach(([id, open]) => {
     setCard(id, open);
     $(id).addEventListener('click', () => setCard(id, $(id).getAttribute('aria-expanded') !== 'true'));
   });

@@ -32,6 +32,18 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 (evening) — intro card, 4-row site lists
+
+Owner: site lists show 4 rows with a scrollbar; the data centers panel folds
+as soon as the first popup appears (no overlap); an intro card centred on
+the map reads "Austin Area Data Center Map" / "Play the animation from here
+or anytime from the timeline on the bottom" with a Play button (card goes,
+sequence starts) and a Navigate Map button (card goes, both panels open).
+Done: `copy.js` `intro` block holds the owner's words verbatim; `player.js`
+builds `.intro` and removes it on either button or any timeline move; step 1
+carries `cards: { legend: false }`; `.is-list .sequence-body` is capped at
+152 px; both panels start folded again (`app.js`). Assets at `?v=20260914c`.
+
 ## 2026-09-14 (later) — card choreography, "the last fix"
 
 Owner: data centers card open when the map loads, folding after the first

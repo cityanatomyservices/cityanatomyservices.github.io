@@ -27,6 +27,14 @@ window.DC_COPY = {
   },
   home: 'anatomy.city',
 
+  // the intro card shown over the map when the page opens (owner's words, 2026-09-14)
+  intro: {
+    title: 'Austin Area Data Center Map',
+    text: 'Play the animation from here or anytime from the timeline on the bottom',
+    play: 'Play',
+    navigate: 'Navigate Map'
+  },
+
   legendTitle: 'Data centers in and around Austin',
   legendSub: 'Snapshot of 2026-09-12. Tick a status off to hide it.',
 
