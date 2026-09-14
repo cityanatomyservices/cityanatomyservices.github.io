@@ -44,7 +44,10 @@ container queries on `.page` so the phone layout follows the zoom; phone
 text cards now sit at the bottom above the timeline (panels stay visible at
 the top, so the Layers flash shows). Verified identical to a 393x699 @ 2.75x
 phone emulation. The general process for future topic maps is written in
-`docs/datacenters-recording.md`. Assets at `?v=20260914f`.
+`docs/datacenters-recording.md`. Assets at `?v=20260914g` (the phone site
+list also moved under the panel bars). Final take of the night:
+`C:\Dev\map-exports\datacenters\2026-09-14 02-37-04.mp4` (1080x1920, 30 fps,
+1:48, silent; trim the first ~4 s of loading and intro card).
 
 ## 2026-09-14 (recording prep) — portrait layout, ?play
 

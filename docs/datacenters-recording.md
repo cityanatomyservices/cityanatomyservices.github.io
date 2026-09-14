@@ -64,8 +64,10 @@ From WSL, in `C:\Dev\tools\obs-control`:
     # 4 s intro + 6 reveals x 5 s + 4 text cards x 15 s = 94 s; record ~108 s
     node obs.js stoprec
 
-The file lands in the record folder named by date and time. First take:
-`2026-09-14 02-03-33.mp4`. Silent; music goes on afterwards.
+The file lands in the record folder named by date and time. Takes of
+2026-09-14: `02-03-33` (desktop layout, rejected as unreadable), `02-28-45`
+(first `?phone` take), `02-37-04` (final, site list under the panel bars).
+Silent; music goes on afterwards.
 
 ## Traps
 
