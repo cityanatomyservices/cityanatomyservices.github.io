@@ -32,6 +32,17 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 — AISD narrated cut
+
+Owner supplied the narrator (`C:\Dev\map-exports\animate_aisd.mp4`, emoji
+face on white, 1:54, narration audio) and asked for it bottom-left like the
+data centers cut. Composited with the same graph (`docs/datacenters-
+recording.md`), re-measured for this take: face crop 486x482 at 269,314,
+circle centre 242,240; bottom text card window 37.25-112.25 s; end card
+"Navigate map / and sources at / anatomy.city/AISD" from 113 s. Narration
+runs 2.0-115.9 s inside the 1:59. Output:
+`C:\Dev\map-exports\aisd\aisd-short-narrated.mp4` (1080x1920, 30 fps, 1:59).
+
 ## 2026-09-14 — AISD take at 1:59, narration draft
 
 Owner: legend card open from the first frame for 2 s, then the schools;
