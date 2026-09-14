@@ -6,9 +6,13 @@
   <title>AISD School Changes</title>
   <link rel="icon" href="data:," />
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
-  <!-- ?v= so a push is actually seen (GitHub Pages caches hard). Bump when
-       app.js, style.css, config.js, copy.js or player.js change. -->
-  <link rel="stylesheet" href="./style.css?v=20260914a" />
+  <!-- The page runs on the shared topic map engine in /topicmap/ (its
+       stylesheet, app.js and player.js); the files in this folder are the
+       data (config.js), the words (copy.js) and what is particular to this
+       map (map.js). ?v= so a push is actually seen (GitHub Pages caches
+       hard): bump it on the file that changed. -->
+  <link rel="stylesheet" href="../topicmap/style.css?v=20260914h" />
+  <link rel="stylesheet" href="./style.css?v=20260914h" />
 </head>
 <body>
   <!-- ONE MAP OF THE AUSTIN ISD SCHOOL CLOSURE AND CONSOLIDATION PLAN, built
@@ -36,7 +40,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
         </button>
       </div>
-      <!-- the Layers box: one checkbox per overlay in config.js, built by app.js -->
+      <!-- the Layers box: one checkbox per overlay in config.js, built by the engine -->
       <div class="overlays">
         <button class="card-toggle overlays-title" id="overlaysTitle" type="button" aria-expanded="true" aria-controls="overlayRows"></button>
         <div id="overlayRows"></div>
@@ -62,9 +66,10 @@
   </div>
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
-  <script src="./copy.js?v=20260914a"></script>
-  <script src="./config.js?v=20260914a"></script>
-  <script src="./player.js?v=20260914c"></script>
-  <script src="./app.js?v=20260914a"></script>
+  <script src="./copy.js?v=20260914h"></script>
+  <script src="./config.js?v=20260914h"></script>
+  <script src="./map.js?v=20260914h"></script>
+  <script src="../topicmap/player.js?v=20260914h"></script>
+  <script src="../topicmap/app.js?v=20260914h"></script>
 </body>
 </html>

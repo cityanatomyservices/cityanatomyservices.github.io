@@ -1,22 +1,33 @@
-// app.js — the data centers map.
+// topicmap/app.js — the map engine every topic map page runs on.
 //
-// One GeoJSON of 47 sites (config.js) drawn as circles: colour = status,
-// size = MW, label = the site's row number. The legend has a checkbox per
-// status that hides or shows those dots. The Layers box has a checkbox per
-// reference overlay, grouped as Electric (Austin Energy service area,
-// transmission lines, power plants, substations), Water (aquifers,
-// groundwater districts, planning areas, watersheds, intakes, outfalls) and
-// Boundaries (city limits, council districts); only Austin Energy starts on.
-// Clicking a dot opens a popup with the facts and the source links for that
-// site; clicking a context line or point opens a small popup of its fields.
+// Shared by /datacenters/ and /AISD/ since 2026-09-14 (each folder had its
+// own copy before). One GeoJSON of points is read first so the map opens
+// fitted to them; the dots are coloured by a category field; the legend has
+// a checkbox per category that hides those dots (and any overlay tinted by
+// category); the Layers box has a checkbox per reference overlay in
+// config.js; clicking a dot opens a popup; the timeline player (player.js)
+// runs the story along the bottom.
 //
-// The sites file is read first so the map can open fitted to the dots
-// (owner 2026-09-12: "have the extent of the map be the mapped datacenters").
+// Each page supplies three files next to its index.html:
+//   config.js  window.MAP_CONFIG  where the data is and how it draws
+//   copy.js    window.MAP_COPY    every word on screen
+//   map.js     window.MAP_PAGE    what is particular to this map: the popup,
+//                                 the timeline steps, how the camera moves
+// MAP_PAGE keys (all but popupHtml and steps are optional):
+//   popupHtml(properties, helpers)   the HTML inside a dot's popup
+//   steps(helpers)                   the timeline steps (see player.js)
+//   column(properties)               first column of the timeline's site list
+//   frame(step, map, helpers)        move the camera when a step changes
+//   legendExtra(helpers)             extra legend rows (e.g. a size key)
+//   playDelay                        ms from load to autoplay under ?play
+// helpers: { CFG, COPY, esc, num, rowsHtml, boundsOf, box, points, categories, layout, radiusPx }
 (function () {
-  const CFG = window.DC_CONFIG;
-  const COPY = window.DC_COPY;
+  const CFG = window.MAP_CONFIG;
+  const COPY = window.MAP_COPY;
+  const PAGE = window.MAP_PAGE;
   const $ = (id) => document.getElementById(id);
-  const STATUSES = Object.keys(CFG.status);
+  const FIELD = CFG.categoryField;
+  const CATEGORIES = Object.keys(CFG.categories);
 
   // ?phone in the address: draw the page the way a phone does, whatever the
   // window size. The page is zoomed so it lays out about 393 CSS px wide
@@ -39,11 +50,11 @@
   $('legendSub').textContent = COPY.legendSub;
   $('overlaysTitle').textContent = COPY.overlays;
 
-  // The two cards (Layers, Data centers) fold with the arrow in their title.
-  // Hiding a body keeps its checkbox states. On load the data centers card is
-  // open and the Layers box folded, behind the intro card; Play folds the
-  // data centers card, Navigate Map keeps it and opens Layers, and the
-  // timeline opens and closes them as the story needs (owner 2026-09-14).
+  // The two cards (Layers, legend) fold with the arrow in their title.
+  // Hiding a body keeps its checkbox states. On load the legend is open and
+  // the Layers box folded, behind the intro card; Play folds the legend,
+  // Navigate Map keeps it and opens Layers, and the timeline opens and
+  // closes them as the story needs (owner 2026-09-14).
   const setCard = (id, open) => {
     const toggle = $(id);
     const body = $(toggle.getAttribute('aria-controls'));
@@ -51,7 +62,6 @@
     body.hidden = !open;
     toggle.parentElement.classList.toggle('is-collapsed', !open);
   };
-  window.DC_SET_CARD = setCard;
   [['overlaysTitle', false], ['legendTitle', true]].forEach(([id, open]) => {
     setCard(id, open);
     $(id).addEventListener('click', () => setCard(id, $(id).getAttribute('aria-expanded') !== 'true'));
@@ -70,16 +80,35 @@
     $('aboutToggle').setAttribute('aria-expanded', String(open));
     $('aboutToggle').textContent = open ? COPY.ui.aboutClose : COPY.ui.about;
   });
+  // an optional dated list inside About (config.js `timeline`, a JSON array
+  // of { date, event }); the page's index.html carries the #timeline list
+  if (CFG.timeline && $('timeline')) {
+    $('timelineLabel').textContent = COPY.ui.timeline;
+    fetch(CFG.timeline).then((r) => r.json()).then((rows) => {
+      const ul = $('timeline');
+      rows.forEach((t) => {
+        const li = document.createElement('li');
+        const d = document.createElement('span'); d.className = 'date'; d.textContent = t.date;
+        const e = document.createElement('span'); e.textContent = t.event;
+        li.append(d, e); ul.appendChild(li);
+      });
+    }).catch(() => { /* the panel still works without the list */ });
+  }
 
   // ── paint expressions ─────────────────────────────────────────────────────
-  const statusColor = ['match', ['get', 'status']];
-  STATUSES.forEach((s) => statusColor.push(s, CFG.status[s]));
-  statusColor.push('#999999');
-  const radius = ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', 'size_mw']], 0]].concat(CFG.radiusByMw);
-  const radiusPx = (mw) => {                      // same curve, for the size legend
-    const r = CFG.radiusByMw;
-    for (let i = 0; i < r.length - 2; i += 2) {
-      if (mw <= r[i + 2]) return r[i + 1] + (mw - r[i]) / (r[i + 2] - r[i]) * (r[i + 3] - r[i + 1]);
+  const categoryColor = ['match', ['get', FIELD]];
+  CATEGORIES.forEach((c) => categoryColor.push(c, CFG.categories[c]));
+  categoryColor.push(CFG.categoryFallback || '#999999');
+  // [field, v1, px1, v2, px2...] -> a MapLibre interpolate on that field; a plain number passes through
+  const stepExpr = (steps) => {
+    if (!Array.isArray(steps)) return steps;
+    return ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', steps[0]]], 0]].concat(steps.slice(1));
+  };
+  const radiusPx = (value) => {                   // the same curve as pointRadius, in plain numbers (for a size key)
+    const r = CFG.pointRadius;
+    if (!Array.isArray(r)) return r;
+    for (let i = 1; i < r.length - 2; i += 2) {
+      if (value <= r[i + 2]) return r[i + 1] + (value - r[i]) / (r[i + 2] - r[i]) * (r[i + 3] - r[i + 1]);
     }
     return r[r.length - 1];
   };
@@ -89,86 +118,51 @@
   const num = (v) => Number(v).toLocaleString();
   const rowsHtml = (pairs) => '<table>' + pairs.filter(([, v]) => v !== '' && v != null && v !== 0)
     .map(([k, v]) => `<tr><td>${esc(k)}</td><td>${v}</td></tr>`).join('') + '</table>';
-  const P = COPY.popup;
-
-  function popupHtml(p) {
-    const mw = Number(p.size_mw) > 0 ? num(p.size_mw) + ' ' + P.mw : COPY.mwUnknown;
-    const size = [Number(p.size_sqft) > 0 ? num(p.size_sqft) + ' ' + P.sqft : '', Number(p.acres) > 0 ? num(p.acres) + ' ' + P.acres.toLowerCase() : '']
-      .filter(Boolean).join(', ');
-    let html = `<h3>${esc(p.id)}. ${esc(p.name)}</h3>`;
-    html += rowsHtml([
-      [P.operator, esc(p.operator)],
-      [P.status, `<span class="swatch" style="display:inline-block;vertical-align:-2px;background:${CFG.status[p.status]}"></span> ${esc(COPY.status[p.status] || p.status_label)}`],
-      [P.address, esc(p.address)],
-      [P.place, esc(p.city) + ', ' + esc(p.county)],
-      [P.power, mw],
-      [P.size, size],
-      [P.year, esc(p.year)],
-      [P.precision, esc(P.precisionWords[p.coord_precision] || p.coord_precision)]
-    ]);
-    if (p.notes) html += `<p class="notes"><strong>${esc(P.notes)}.</strong> ${esc(p.notes)}</p>`;
-    if (p.power_water_notes) html += `<p class="notes"><strong>${esc(P.utility)}.</strong> ${esc(p.power_water_notes)}</p>`;
-    if (p.sources) {
-      const links = String(p.sources).split(' | ').filter(Boolean).map((u) => {
-        let host = u; try { host = new URL(u).hostname.replace(/^www\./, ''); } catch (e) { /* keep the raw text */ }
-        return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(host)}</a>`;
-      });
-      html += `<div class="sources"><strong>${esc(P.sources)}</strong>${links.join('')}</div>`;
-    }
-    return html;
-  }
-
-  // ── legend: one checkbox per status; unticking hides those dots ───────────
-  const shown = new Set(STATUSES);
-  function buildLegend(map, counts) {
-    const applyFilter = () => {
-      const f = ['in', ['get', 'status'], ['literal', Array.from(shown)]];
-      map.setFilter('dc-points', f);
-      map.setFilter('dc-labels', f);
-    };
-    const ul = $('legendRows');
-    ul.innerHTML = '';
-    STATUSES.forEach((s) => {
-      const li = document.createElement('li');
-      const label = document.createElement('label');
-      const box = document.createElement('input');
-      box.type = 'checkbox'; box.checked = true;
-      box.dataset.status = s;
-      box.addEventListener('change', () => { box.checked ? shown.add(s) : shown.delete(s); applyFilter(); });
-      const sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = CFG.status[s];
-      const txt = document.createElement('span'); txt.textContent = COPY.status[s];
-      label.append(box, sw, txt);
-      const n = document.createElement('span'); n.className = 'count'; n.textContent = counts[s] || 0;
-      li.append(label, n);
-      ul.appendChild(li);
-    });
-    const size = $('legendSize');
-    size.textContent = COPY.sizeLegend;
-    const dots = document.createElement('div'); dots.className = 'dots';
-    CFG.sizeLegendMw.forEach((mw) => {
-      const d = radiusPx(mw) * 2;
-      const span = document.createElement('span');
-      const i = document.createElement('i'); i.style.width = d + 'px'; i.style.height = d + 'px';
-      span.append(i, document.createTextNode(mw + ' ' + COPY.popup.mw));
-      dots.appendChild(span);
-    });
-    size.appendChild(dots);
-  }
-
-  // ── the Layers box: one checkbox per overlay in config.js, under group headings ──
-  // Polygons are added to the map first, then lines, then points, so a point
-  // layer is never hidden under a polygon whatever order config.js lists them.
-  const stepExpr = (steps) => {                 // [field, v1, px1, v2, px2...] -> MapLibre interpolate
-    if (!Array.isArray(steps)) return steps;
-    return ['interpolate', ['linear'], ['coalesce', ['to-number', ['get', steps[0]]], 0]].concat(steps.slice(1));
-  };
-  const overlayLayerIds = (key) => ['fill', 'line', 'label', 'point'].map((k) => 'overlay-' + key + '-' + k);
+  const helpers = { CFG, COPY, esc, num, rowsHtml, radiusPx };
 
   function contextPopupHtml(o, p) {
     const F = COPY.fields || {};
     const pairs = o.popup.map((f) => [F[f] || f, typeof p[f] === 'number' ? num(p[f]) : esc(p[f])]);
     return rowsHtml(pairs);
   }
+
+  // ── legend: one checkbox per category; unticking hides those dots ─────────
+  const shown = new Set(CATEGORIES);
+  const tinted = () => Object.entries(CFG.overlays).filter(([, o]) => o.colorBy === 'category').map(([key]) => key);
+  function buildLegend(map, counts) {
+    const applyFilter = () => {
+      const f = ['in', ['get', FIELD], ['literal', Array.from(shown)]];
+      map.setFilter('points', f);
+      map.setFilter('point-labels', f);
+      tinted().forEach((key) => ['fill', 'line', 'label'].forEach((k) => {   // overlays tinted by category follow the boxes too
+        const id = 'overlay-' + key + '-' + k;
+        if (map.getLayer(id)) map.setFilter(id, f);
+      }));
+    };
+    const ul = $('legendRows');
+    ul.innerHTML = '';
+    CATEGORIES.forEach((c) => {
+      if (!counts[c]) return;                       // only categories that occur in the data
+      const li = document.createElement('li');
+      const label = document.createElement('label');
+      const box = document.createElement('input');
+      box.type = 'checkbox'; box.checked = true;
+      box.dataset.category = c;                     // the player reveals categories through these boxes
+      box.addEventListener('change', () => { box.checked ? shown.add(c) : shown.delete(c); applyFilter(); });
+      const sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = CFG.categories[c];
+      const txt = document.createElement('span'); txt.textContent = COPY.category[c];
+      label.append(box, sw, txt);
+      const n = document.createElement('span'); n.className = 'count'; n.textContent = counts[c];
+      li.append(label, n);
+      ul.appendChild(li);
+    });
+    if (PAGE.legendExtra) PAGE.legendExtra(helpers);
+  }
+
+  // ── the Layers box: one checkbox per overlay in config.js, under group headings ──
+  // Polygons are added to the map first, then lines, then points, so a point
+  // layer is never hidden under a polygon whatever order config.js lists them.
+  const overlayLayerIds = (key) => ['fill', 'line', 'label', 'point'].map((k) => 'overlay-' + key + '-' + k);
 
   function buildOverlays(map) {
     const vis = (on) => on ? 'visible' : 'none';
@@ -179,26 +173,30 @@
       const src = 'overlay-' + key;
       map.addSource(src, { type: 'geojson', data: o.file });
       const kind = kindOf(o);
+      const byCategory = o.colorBy === 'category';
+      const color = byCategory ? categoryColor : o.color;   // tint by category, or one colour
       if (kind === 'polygon') {
         map.addLayer({ id: src + '-fill', type: 'fill', source: src, layout: { visibility: vis(o.on) },
-          paint: { 'fill-color': o.color, 'fill-opacity': o.fill } });
+          paint: { 'fill-color': color, 'fill-opacity': o.fill } });
         map.addLayer({ id: src + '-line', type: 'line', source: src, layout: { visibility: vis(o.on) },
-          paint: { 'line-color': o.color, 'line-width': 1.6, 'line-dasharray': [3, 2] } });
+          paint: { 'line-color': color, 'line-width': byCategory ? 1.2 : 1.6, 'line-dasharray': byCategory ? [1, 0] : [3, 2] } });
         if (o.label) {
           map.addLayer({ id: src + '-label', type: 'symbol', source: src,
-            layout: { visibility: vis(o.on), 'symbol-placement': 'point', 'text-field': ['get', o.label], 'text-font': ['Noto Sans Bold'], 'text-size': 12 },
-            paint: { 'text-color': o.color, 'text-halo-color': '#ffffff', 'text-halo-width': 2 } });
+            layout: { visibility: vis(o.on), 'symbol-placement': 'point', 'text-field': ['get', o.label],
+                      'text-font': [byCategory ? 'Noto Sans Regular' : 'Noto Sans Bold'], 'text-size': o.labelSize || 12 },
+            paint: { 'text-color': byCategory ? '#333333' : o.color, 'text-halo-color': '#ffffff', 'text-halo-width': byCategory ? 1.5 : 2 } });
         }
       } else if (kind === 'line') {
-        map.addLayer({ id: src + '-line', type: 'line', source: src, layout: { visibility: vis(o.on), 'line-cap': 'round', 'line-join': 'round' },
-          paint: { 'line-color': o.color, 'line-width': stepExpr(o.width || 1.5), 'line-opacity': 0.85 } });
+        const paint = { 'line-color': color, 'line-width': stepExpr(o.width || 1.5), 'line-opacity': o.opacity ?? 0.85 };
+        if (o.dash) paint['line-dasharray'] = o.dash;
+        map.addLayer({ id: src + '-line', type: 'line', source: src, layout: { visibility: vis(o.on), 'line-cap': 'round', 'line-join': 'round' }, paint });
       } else {
         // hollow: [field, value] draws features whose field equals value as rings (e.g. planned plants)
         const hollow = o.hollow ? ['==', ['get', o.hollow[0]], o.hollow[1]] : false;
         map.addLayer({ id: src + '-point', type: 'circle', source: src, layout: { visibility: vis(o.on) },
-          paint: { 'circle-color': o.color, 'circle-radius': stepExpr(o.radius || 4),
+          paint: { 'circle-color': color, 'circle-radius': stepExpr(o.radius || 4),
                    'circle-opacity': hollow ? ['case', hollow, 0, 0.85] : 0.85,
-                   'circle-stroke-color': o.color, 'circle-stroke-width': hollow ? ['case', hollow, 2, 0.8] : 0.8,
+                   'circle-stroke-color': color, 'circle-stroke-width': hollow ? ['case', hollow, 2, 0.8] : 0.8,
                    'circle-stroke-opacity': 1 } });
       }
       if (o.popup && kind !== 'polygon') {      // click a line or point for its facts
@@ -241,7 +239,7 @@
     });
   }
 
-  // ── the bounding box of the sites: what the map opens on and refits to ────
+  // ── the bounding box of a set of points: what the map opens on and refits to ─
   function boundsOf(gj) {
     const b = [[Infinity, Infinity], [-Infinity, -Infinity]];
     gj.features.forEach((f) => {
@@ -252,14 +250,17 @@
     return b;
   }
 
-  // ── start: read the sites, then build the map fitted to them ──────────────
-  fetch(CFG.sites).then((r) => r.json()).then((sites) => {
-    const box = boundsOf(sites);
+  // ── start: read the points, then build the map fitted to them ─────────────
+  fetch(CFG.points).then((r) => r.json()).then((points) => {
+    const box = boundsOf(points);
     const pad = CFG.cagePad;
     const padLng = CFG.cagePadLng ?? pad;
     const cage = [[box[0][0] - padLng, box[0][1] - pad], [box[1][0] + padLng, box[1][1] + pad]];
     const counts = {};
-    sites.features.forEach((f) => { counts[f.properties.status] = (counts[f.properties.status] || 0) + 1; });
+    points.features.forEach((f) => { counts[f.properties[FIELD]] = (counts[f.properties[FIELD]] || 0) + 1; });
+    // the categories in legend order, only those that occur (the player reveals them one by one)
+    const categories = CATEGORIES.filter((c) => counts[c]);
+    Object.assign(helpers, { boundsOf, box, points, categories });
 
     const map = new maplibregl.Map({
       container: 'map',
@@ -267,7 +268,7 @@
       bounds: box,
       fitBoundsOptions: { padding: CFG.fitPadding },
       minZoom: CFG.minZoom,
-      maxBounds: cage,                // cannot pan far from the sites
+      maxBounds: cage,                // cannot pan far from the points
       pixelRatio: phone ? phoneScale : undefined,   // keep the map sharp under the ?phone zoom
       attributionControl: false
     });
@@ -278,6 +279,12 @@
       attribution.classList.remove('maplibregl-compact-show');
       attribution.removeAttribute('open');
     }
+    // which layout the page is in right now, for camera padding in map.js
+    // (narrow = the phone layout, same break as style.css)
+    helpers.layout = () => {
+      const el = map.getContainer();
+      return { narrow: el.clientWidth <= 640, wide: el.clientWidth >= 1000, portrait: el.clientHeight > el.clientWidth };
+    };
 
     // the control stack: satellite, zoom in, zoom out, extents
     $('ctrlSatellite').textContent = COPY.ui.satellite;
@@ -303,46 +310,50 @@
 
       buildOverlays(map);
 
-      // the sites, on top of every overlay
-      map.addSource('dc', { type: 'geojson', data: sites });
-      map.addLayer({ id: 'dc-points', type: 'circle', source: 'dc',
-        paint: { 'circle-color': statusColor, 'circle-radius': radius, 'circle-opacity': 0.9,
+      // the points, on top of every overlay. pointLabel (config.js): the
+      // field written on or under each dot, its size, `below` to hang it
+      // under the dot, `overlap` to draw it even when labels collide.
+      const L = CFG.pointLabel || {};
+      map.addSource('points', { type: 'geojson', data: points });
+      map.addLayer({ id: 'points', type: 'circle', source: 'points',
+        paint: { 'circle-color': categoryColor, 'circle-radius': stepExpr(CFG.pointRadius), 'circle-opacity': CFG.pointOpacity ?? 0.9,
                  'circle-stroke-color': '#222222', 'circle-stroke-width': 1 } });
-      map.addLayer({ id: 'dc-labels', type: 'symbol', source: 'dc',
-        layout: { 'text-field': ['to-string', ['get', 'id']], 'text-font': ['Noto Sans Bold'], 'text-size': 10, 'text-allow-overlap': true },
-        paint: { 'text-color': '#111111', 'text-halo-color': '#ffffff', 'text-halo-width': 1.2 } });
+      if (L.field) {
+        const layout = { 'text-field': ['to-string', ['get', L.field]], 'text-font': ['Noto Sans Bold'], 'text-size': L.size || 11 };
+        if (L.below) { layout['text-offset'] = [0, 1.1]; layout['text-anchor'] = 'top'; }
+        if (L.overlap) layout['text-allow-overlap'] = true;
+        map.addLayer({ id: 'point-labels', type: 'symbol', source: 'points', layout,
+          paint: { 'text-color': '#111111', 'text-halo-color': '#ffffff', 'text-halo-width': L.below ? 1.5 : 1.2 } });
+      } else {
+        // an empty label layer keeps the legend filter code simple
+        map.addLayer({ id: 'point-labels', type: 'symbol', source: 'points', layout: { 'text-field': '' } });
+      }
 
       buildLegend(map, counts);
-      let overviewCamera = null;
-      const corridorSites = { features: sites.features.filter(f => /Round Rock|Hutto|Taylor/i.test(f.properties.city || '')) };
-      window.DC_PLAYER.init(sites, (feature) => {
-        map.easeTo({ center: feature.geometry.coordinates, zoom: Math.max(map.getZoom(), 13), duration: 700 });
-      }, (step) => {
-        if (step.camera === 'round-rock-taylor' && corridorSites.features.length) {
-          if (!overviewCamera) overviewCamera = { center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() };
-          const el = map.getContainer();
-          const narrow = el.clientWidth <= 640;                // phone layout (same break as style.css)
-          const wide = el.clientWidth >= 1000;
-          const portrait = el.clientHeight > el.clientWidth;   // tall desktop-size viewports: the text card sits lower, leave more headroom
-          map.fitBounds(boundsOf(corridorSites), {
-            padding: narrow ? { left: 20, right: 20, top: 80, bottom: 310 }      // phone: the text card sits at the bottom
-              : portrait ? { left: 40, right: 40, top: 420, bottom: 120 }
-              : wide ? { left: 310, right: 40, top: 240, bottom: 70 } : { left: 20, right: 20, top: 220, bottom: 60 },   // the story card sits centred at the top
-            bearing: 0, pitch: 0, duration: 1000
-          });
-        } else if (!step.done && overviewCamera) {
-          map.easeTo({ ...overviewCamera, duration: 700 });
-          overviewCamera = null;
-        }
+
+      window.MAP_PLAYER.init(points, {
+        copy: COPY,
+        steps: PAGE.steps(helpers),
+        field: FIELD,
+        column: PAGE.column,
+        setCard,
+        playDelay: PAGE.playDelay,
+        onSelect: (feature) => {
+          map.easeTo({ center: feature.geometry.coordinates, zoom: Math.max(map.getZoom(), 13), duration: 700 });
+        },
+        onStep: (step) => { if (PAGE.frame) PAGE.frame(step, map, helpers); }
       });
 
-      map.on('click', 'dc-points', (e) => {
+      map.on('click', 'points', (e) => {
         const f = e.features && e.features[0];
         if (!f) return;
-        new maplibregl.Popup({ maxWidth: '340px' }).setLngLat(f.geometry.coordinates).setHTML(popupHtml(f.properties)).addTo(map);
+        new maplibregl.Popup({ maxWidth: '340px' }).setLngLat(f.geometry.coordinates).setHTML(PAGE.popupHtml(f.properties, helpers)).addTo(map);
       });
-      map.on('mouseenter', 'dc-points', () => { map.getCanvas().style.cursor = 'pointer'; });
-      map.on('mouseleave', 'dc-points', () => { map.getCanvas().style.cursor = ''; });
+      map.on('mouseenter', 'points', () => { map.getCanvas().style.cursor = 'pointer'; });
+      map.on('mouseleave', 'points', () => { map.getCanvas().style.cursor = ''; });
+      // the map object, so it can be poked at from the browser console
+      // (not window.map: the <div id="map"> already takes that name)
+      window.topicMap = map;
     });
   });
 })();

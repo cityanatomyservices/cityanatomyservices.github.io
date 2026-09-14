@@ -12,8 +12,10 @@
 //                                  filled by C:\GISData\scripts\fetch_energy_water.py
 //                                  and exported by scripts/build-datacenters-layers.sh
 // They are small enough to live on GitHub Pages; no tiles and no database.
-window.DC_CONFIG = {
-  sites: './data/datacenters.geojson?v=20260912a',
+window.MAP_CONFIG = {
+  points: './data/datacenters.geojson?v=20260912a',
+  // the property that gives each dot its colour and legend row
+  categoryField: 'status',
 
   // The Layers box shows the overlays in these groups, in this order. The
   // group names come from copy.js (overlayGroup).
@@ -64,7 +66,7 @@ window.DC_CONFIG = {
   minZoom: 6.5,
 
   // one colour per status, in legend order (same palette as the QGIS project)
-  status: {
+  categories: {
     operational:          '#1b7837',
     under_construction:   '#f28e2b',
     approved_planned:     '#edc948',
@@ -73,8 +75,10 @@ window.DC_CONFIG = {
     cancelled_stalled:    '#d62728'
   },
 
-  // dot radius in pixels by planned or built MW; sites with no MW on record
-  // get the smallest dot
-  radiusByMw: [0, 5, 50, 8, 200, 11, 600, 15, 1500, 20],
-  sizeLegendMw: [50, 500, 1500]
+  // dot radius in pixels by planned or built MW ([field, MW, px, MW, px...]);
+  // sites with no MW on record get the smallest dot
+  pointRadius: ['size_mw', 0, 5, 50, 8, 200, 11, 600, 15, 1500, 20],
+  sizeLegendMw: [50, 500, 1500],          // the size key under the legend (map.js)
+  // the number on each dot is the row id in the research note
+  pointLabel: { field: 'id', size: 10, overlap: true }
 };

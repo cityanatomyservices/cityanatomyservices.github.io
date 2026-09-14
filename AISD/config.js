@@ -6,8 +6,10 @@
 // note in the private qgis-lab repo) plus timeline.json for the About panel.
 // City limits and council districts are copies of the data centers page's
 // files. Small enough for GitHub Pages; no tiles, no database.
-window.AISD_CONFIG = {
-  campuses: './data/campuses.geojson?v=20260912a',
+window.MAP_CONFIG = {
+  points: './data/campuses.geojson?v=20260912a',
+  // the property that gives each dot its colour and legend row
+  categoryField: 'role',
   timeline: './data/timeline.json?v=20260912a',
 
   // The Layers box shows the overlays in these groups, in this order. The
@@ -16,14 +18,15 @@ window.AISD_CONFIG = {
 
   // overlays, same shape as the data centers page (kind polygon / line /
   // point, on, color, fill, label, width, popup). Two extras used here:
-  //   colorBy  'role' tints a polygon overlay by the campus role instead of
-  //            one colour, and lets the legend checkboxes hide its shapes too
+  //   colorBy  'category' tints a polygon overlay by the campus role (the
+  //            category field) instead of one colour, and lets the legend
+  //            checkboxes hide its shapes too
   //   dash     dash pattern for a line overlay
   // Polygons draw under lines, lines under points, and everything under the campuses.
   overlays: {
     // ── the plan's own layers ──
-    zones: { group: 'plan', file: './data/zones.geojson?v=20260912a', colorBy: 'role', color: '#555555', on: true, fill: 0.18 },   // no zone labels: the campus dots carry the names
-    links: { group: 'plan', kind: 'line', file: './data/links.geojson?v=20260912a', color: '#d62728', on: true, width: 2.5, dash: [1, 1.5],
+    zones: { group: 'plan', file: './data/zones.geojson?v=20260912a', colorBy: 'category', color: '#555555', on: true, fill: 0.18 },   // no zone labels: the campus dots carry the names
+    links: { group: 'plan', kind: 'line', file: './data/links.geojson?v=20260912a', color: '#d62728', on: true, width: 2.5, dash: [1, 1.5], opacity: 0.9,
              popup: ['from', 'to', 'share_pct', 'detail'] },
     // ── boundaries ──
     city:    { group: 'boundaries', file: './data/city_limits.geojson?v=20260912a',       color: '#1f6f8b', on: false, fill: 0.08 },
@@ -41,7 +44,7 @@ window.AISD_CONFIG = {
   minZoom: 9,
 
   // one colour per role, in legend and reveal order (same palette as the QGIS project)
-  role: {
+  categories: {
     closing:               '#d62728',
     closing_and_receiving: '#ff7f0e',
     receiving:             '#1b7837',
@@ -51,7 +54,11 @@ window.AISD_CONFIG = {
     removed_from_plan:     '#bab0ac',
     other:                 '#7f7f7f'
   },
+  categoryFallback: '#7f7f7f',            // a role not listed above draws grey
   pointRadius: 7,
+  pointOpacity: 0.95,
+  // the short name hangs under each dot
+  pointLabel: { field: 'name_short', size: 11, below: true },
 
   // the timeline's zoom step: the campuses (name_short) it fits the map to
   focus: {

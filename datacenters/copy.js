@@ -4,7 +4,7 @@
 // as working placeholders so the page could be built and tested; the owner
 // replaces them. Nothing else in /datacenters/ contains on-screen text — the
 // popups show the research data itself (names, notes, source links).
-window.DC_COPY = {
+window.MAP_COPY = {
   pageTitle: 'Austin Area Data Centers',
   player: {
     name: 'Name', location: 'City / Area', zoomTo: 'Zoom to this site',
@@ -38,8 +38,8 @@ window.DC_COPY = {
   legendTitle: 'Data centers in and around Austin',
   legendSub: 'Snapshot of 2026-09-12. Tick a status off to hide it.',
 
-  // legend rows, one per status, in this order
-  status: {
+  // legend rows, one per status (the category field), in this order
+  category: {
     operational:          'Operational',
     under_construction:   'Under construction',
     approved_planned:     'Approved / planned',

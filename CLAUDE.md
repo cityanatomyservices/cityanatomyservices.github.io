@@ -33,15 +33,22 @@ page itself to show the new version string first, then check the assets once.
 
 ## Turning a map page into a narrated 9:16 video (the formula, 2026-09-14)
 
-Done twice (`/datacenters/`, `/AISD/`); the full recipe with every command
-is `docs/datacenters-recording.md`. The steps, in order:
+Done twice (`/datacenters/`, `/AISD/`). **The order of work with every
+command and the numbers to measure is `docs/new-map-checklist.md`**; the
+reasons behind the recording setup are in `docs/datacenters-recording.md`.
+The steps, in order:
 
-1. **Page.** Build the map on the `/datacenters/` bones: same controls,
-   fold cards, bottom timeline player (`player.js`) with reveals at 5 s and
-   text cards at 15 s, an intro card for visitors, `?play` (auto-start, no
-   intro) and `?phone` (phone layout at 1080x1920) switches, container
-   queries instead of media queries. Draft the story text from the research
-   note, mark it as a draft in `copy.js`; the owner reviews the live page.
+1. **Page.** Every topic map runs on the shared engine in `/topicmap/`
+   (`app.js`, `player.js`, `style.css`, lifted 2026-09-14): controls, fold
+   cards, bottom timeline player with reveals at 5 s and text cards at 15 s,
+   an intro card for visitors, `?play` (auto-start, no intro) and `?phone`
+   (phone layout at 1080x1920) switches, container queries. A page folder
+   holds only `index.html`, a two-line `style.css` (accent), `config.js`
+   (data), `copy.js` (words), `map.js` (popup, steps, camera) and `data/`.
+   Draft the story text from the research note, mark it as a draft in
+   `copy.js`; the owner reviews the live page. Engine changes go in
+   `/topicmap/` once, never into a page folder; bump `?v=` on
+   `../topicmap/*` in every page's `index.html` when they change.
 2. **Take.** OBS profile `wcibh-phone`, scene `Site portrait`, browser source
    `Site page` at `<page>?play&phone`; refresh, record, trim to the length
    the owner wants (`ffmpeg -t`). Never record a desktop layout at 1080 wide.
@@ -55,5 +62,3 @@ is `docs/datacenters-recording.md`. The steps, in order:
    "Navigate map / and sources at / <page address>" from the last map
    second. Output to `C:\Dev\map-exports\<map>\`.
 
-Before a third map, lift the duplicated `player.js` / `app.js` into one
-shared file instead of copying again.

@@ -1,5 +1,45 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-14 — topic map engine lifted into /topicmap/, new-map checklist
+
+Owner: "do the lift and the checklist" (after a readback that the formula
+was documented but the page step was a copy, not a template). Done:
+
+**The lift.** `/topicmap/app.js`, `/topicmap/player.js` and
+`/topicmap/style.css` are now the one engine both `/datacenters/` and
+`/AISD/` run on; the two folders' `app.js`, `player.js` and full
+`style.css` are deleted. What each page keeps is its own: `config.js`
+(`window.MAP_CONFIG`; `points`, `categoryField`, `categories`,
+`pointRadius`, `pointLabel`, overlays with `colorBy: 'category'`),
+`copy.js` (`window.MAP_COPY`; the legend rows are `category`), a two-line
+`style.css` (the accent colour) and a new `map.js` (`window.MAP_PAGE`:
+`column`, `popupHtml`, `steps`, `frame`, `playDelay`, and for the data
+centers `legendExtra` for the size key). The step keys are documented at
+the top of `topicmap/player.js`; `only` and `hold` (AISD's additions) now
+work on both maps. `window.topicMap` is the map object for the browser
+console. Layer ids are `points` / `point-labels` on both pages. Assets at
+`?v=20260914h`.
+
+**Verified** headless (Playwright + SwiftShader WebGL, local server): the
+DOM state at load and at every timeline tick, desktop and `?phone`, is
+byte-identical before and after the lift on both maps (checkboxes, cards,
+headings, list rows, button states, ticks, zoom); no console errors, no
+failed requests; layer list, dot radius and label expressions as before;
+the legend filter reaches the role-tinted zones; a real click on a dot
+opens the popup; `?play&phone` autoplays with no intro; screenshots of a
+story step on each map look right (own accent, phone layout).
+
+**Found on the way, not fixed:** `datacenters/data/datacenters.geojson`
+has no `id` property, so the row number on each dot and the "N." in the
+popup heading have been empty since the export (the label layer reads
+`id`). Fix in the export, not the page.
+
+**The checklist.** `docs/new-map-checklist.md`: the order of work for the
+third map: page (files to create and what to fill in), take (OBS
+commands), narration (length rules), composite (the four things to
+measure, with the values from both maps, and the ffmpeg command as
+variables), close-out. `CLAUDE.md` now points there first.
+
 ## 2026-09-12 (night) — AISD school closures map at /AISD/
 
 Owner: "do the AISD school closures one, same 2 agent limit" then "put the

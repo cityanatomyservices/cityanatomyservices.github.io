@@ -18,11 +18,12 @@ WebGL, no browser window on screen at all.
   when not visible" and "refresh when scene becomes active" on.
 - Record folder `C:\Dev\map-exports\datacenters`.
 
-Two address switches are page features (see `datacenters/app.js` and
-`player.js`), and the URL in the browser source uses both: `?play&phone`.
+Two address switches are features of the shared engine (`/topicmap/app.js`
+and `/topicmap/player.js`, since the 2026-09-14 lift), and the URL in the
+browser source uses both: `?play&phone`.
 
-- `?play` removes the intro card and starts the timeline 4 s after load, so
-  nobody has to click Play.
+- `?play` removes the intro card and starts the timeline a moment after
+  load (`playDelay` in the page's `map.js`), so nobody has to click Play.
 - `?phone` makes the page draw the way a phone draws it, whatever the window
   size. Without it a 1080x1920 recording lays out as a 1080 px wide desktop
   page: tiny type, tiny dots, unreadable on a phone. With it the page is
@@ -33,14 +34,15 @@ Two address switches are page features (see `datacenters/app.js` and
 
 ## The process for the next topic map (budget, AISD, whatever comes)
 
-Copy these three things into the new page and the recording is the same
-five commands as below:
+Since the engine lift (2026-09-14) every page built on `/topicmap/` has
+these three things already; the list stays here as the explanation of
+what they are and why. The short order of work is `docs/new-map-checklist.md`.
 
 1. **Container queries, not media queries.** `.page { container: page / size; }`
    and every `@media (max-width: 640px)` becomes `@container page (max-width:
    640px)`. Media queries ignore CSS zoom; container queries follow the page's
    own size, which is what `?phone` changes.
-2. **The `?phone` block at the top of app.js**: read the switch, set
+2. **The `?phone` block at the top of `topicmap/app.js`**: read the switch, set
    `document.documentElement.style.zoom = innerWidth / 393`, size `.page` to
    393 x (innerHeight / zoom) by hand (viewport units ignore zoom), and pass
    `pixelRatio: zoom` to the MapLibre map.

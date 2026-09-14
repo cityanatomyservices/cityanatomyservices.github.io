@@ -4,7 +4,7 @@
 // extended on 2026-09-14 with the timeline story; the owner edits or replaces
 // them. Nothing else in /AISD/ contains on-screen text — the popups show the
 // research data itself (names, numbers, notes, source links).
-window.AISD_COPY = {
+window.MAP_COPY = {
   pageTitle: 'AISD School Changes',
   home: 'anatomy.city',
 
@@ -41,8 +41,8 @@ window.AISD_COPY = {
   legendTitle: 'Austin ISD school closures and consolidations',
   legendSub: 'Snapshot of 2026-09-12. Tick a role off to hide it.',
 
-  // legend rows, one per role, in this order
-  role: {
+  // legend rows, one per role (the category field), in this order
+  category: {
     closing:               'Closing',
     closing_and_receiving: 'Closing, and taking students',
     receiving:             'Receiving students',
