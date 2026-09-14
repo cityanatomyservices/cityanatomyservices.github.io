@@ -32,6 +32,20 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 (recording, second pass) — ?phone mode: the phone look at 1080x1920
+
+Owner, on the first take: "How do we make that easier to see. If I look at
+this map on my phone it looks a lot better ... I want to make a lot of these
+for different topics so need to figure out the right process." The first
+take rendered the desktop layout at 1080 px wide. Fix: `?phone` (app.js)
+zooms the page to phone proportions (393 CSS px wide) and draws the map at
+the matching pixel ratio; style.css switched from media queries to
+container queries on `.page` so the phone layout follows the zoom; phone
+text cards now sit at the bottom above the timeline (panels stay visible at
+the top, so the Layers flash shows). Verified identical to a 393x699 @ 2.75x
+phone emulation. The general process for future topic maps is written in
+`docs/datacenters-recording.md`. Assets at `?v=20260914f`.
+
 ## 2026-09-14 (recording prep) — portrait layout, ?play
 
 For the owner's 9:16 OBS recording: in portrait viewports the text card sits

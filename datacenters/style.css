@@ -8,7 +8,11 @@
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 html, body { margin: 0; height: 100%; }
-.page { position: relative; width: 100%; height: 100vh; height: 100dvh; overflow: hidden; }
+/* .page is a size container so the narrow-screen rules below respond to the
+   page's own size. That is what lets ?phone (app.js) zoom the whole page to
+   phone proportions inside a 1080x1920 recording and still get the phone
+   layout: media queries ignore CSS zoom, container queries do not. */
+.page { position: relative; width: 100%; height: 100vh; height: 100dvh; overflow: hidden; container: page / size; }
 #map { position: absolute; inset: 0; }
 
 /* top-left stack: controls and layers box */
@@ -134,7 +138,7 @@ html, body { margin: 0; height: 100%; }
 .intro button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* portrait screens (9:16 recordings, phones held upright): the text card sits
    below the folded panel bars instead of over them */
-@media (orientation: portrait) and (min-width: 700px) {
+@container page (orientation: portrait) and (min-width: 700px) {
   .sequence-card.is-text { top: 172px; }
 }
 /* countdown ring beside the ticks: track circle plus a draining stroke */
@@ -153,13 +157,15 @@ html, body { margin: 0; height: 100%; }
 .sequence-body td { padding: 5px 8px; border-top: 1px solid var(--line); }
 .sequence-body tbody tr { cursor: pointer; }
 .sequence-body tbody tr:hover, .sequence-body tbody tr:focus { background: #eee6f2; outline: 2px solid var(--accent); outline-offset: -2px; }
-@media (max-width: 640px) {
+@container page (max-width: 640px) {
   .player { left: 4px; right: 4px; bottom: 4px; padding: 3px; gap: 3px; flex-wrap: wrap; }
   .player-controls label { font-size: 10px; }
   .player-ticks { min-width: 110px; }
   .has-player .topleft { max-height: calc(100% - 90px); }
   .sequence-card { top: 56px; right: 8px; width: calc((100% - 16px) * 0.8); max-height: calc(100% - 256px); }
-  .sequence-card.is-text { width: calc(100% - 16px); padding: 12px 14px; }
+  /* on phones the text card sits at the bottom, above the timeline, so the
+     panels at the top stay visible (2026-09-14) */
+  .sequence-card.is-text { top: auto; bottom: 62px; width: calc(100% - 16px); max-height: calc(100% - 200px); padding: 12px 14px; }
   .sequence-card.is-text h2 { font-size: 17px; }
   .sequence-card.is-text .sequence-body { font-size: 13px; }
 }
@@ -175,7 +181,7 @@ html, body { margin: 0; height: 100%; }
 .maplibregl-popup-content .sources { margin: 6px 0 0; padding: 6px 0 0; border-top: 1px solid var(--line); font-size: 12px; }
 .maplibregl-popup-content .sources a { display: block; color: #1f6f8b; }
 
-@media (max-width: 640px) {
+@container page (max-width: 640px) {
   .title { display: none; }
   .topleft { width: 260px; }
   .map-controls { flex-direction: row; }

@@ -14,12 +14,41 @@ WebGL, no browser window on screen at all.
 
 - Profile **`wcibh-phone`**: canvas and output 1080x1920, 30 fps.
 - Scene **`Site portrait`** with one source, **`Site page`**, a browser source:
-  URL `https://anatomy.city/datacenters/?play`, 1080x1920, 30 fps, "shutdown
+  URL `https://anatomy.city/datacenters/?play&phone`, 1080x1920, 30 fps, "shutdown
   when not visible" and "refresh when scene becomes active" on.
 - Record folder `C:\Dev\map-exports\datacenters`.
 
-`?play` is a page feature: it removes the intro card and starts the timeline
-4 s after load, so nobody has to click Play (see `datacenters/player.js`).
+Two address switches are page features (see `datacenters/app.js` and
+`player.js`), and the URL in the browser source uses both: `?play&phone`.
+
+- `?play` removes the intro card and starts the timeline 4 s after load, so
+  nobody has to click Play.
+- `?phone` makes the page draw the way a phone draws it, whatever the window
+  size. Without it a 1080x1920 recording lays out as a 1080 px wide desktop
+  page: tiny type, tiny dots, unreadable on a phone. With it the page is
+  zoomed so it lays out 393 CSS px wide (a phone), the map draws at the
+  matching pixel density (MapLibre `pixelRatio`), and the phone layout
+  rules kick in. Compared frame by frame against a real phone emulation
+  (393x699 at 2.75x) the two are identical.
+
+## The process for the next topic map (budget, AISD, whatever comes)
+
+Copy these three things into the new page and the recording is the same
+five commands as below:
+
+1. **Container queries, not media queries.** `.page { container: page / size; }`
+   and every `@media (max-width: 640px)` becomes `@container page (max-width:
+   640px)`. Media queries ignore CSS zoom; container queries follow the page's
+   own size, which is what `?phone` changes.
+2. **The `?phone` block at the top of app.js**: read the switch, set
+   `document.documentElement.style.zoom = innerWidth / 393`, size `.page` to
+   393 x (innerHeight / zoom) by hand (viewport units ignore zoom), and pass
+   `pixelRatio: zoom` to the MapLibre map.
+3. **A `?play` switch** in whatever runs the page's sequence, and phone-layout
+   rules that keep story text at the bottom and panels at the top.
+
+Then in OBS: browser source at 1080x1920 pointing at `<page>?play&phone`,
+profile `wcibh-phone`, record for the sequence length plus a few seconds.
 
 ## The take
 

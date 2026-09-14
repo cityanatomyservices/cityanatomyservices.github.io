@@ -18,6 +18,20 @@
   const $ = (id) => document.getElementById(id);
   const STATUSES = Object.keys(CFG.status);
 
+  // ?phone in the address: draw the page the way a phone does, whatever the
+  // window size. The page is zoomed so it lays out about 393 CSS px wide
+  // (a phone's width) and the map draws at matching pixel density, so a
+  // 1080x1920 recording looks exactly like the phone view (2026-09-14).
+  const phone = new URLSearchParams(location.search).has('phone');
+  const phoneScale = phone ? window.innerWidth / 393 : 1;
+  if (phone) {
+    document.documentElement.style.zoom = phoneScale;
+    // viewport units ignore zoom, so give the page its phone-sized box by hand
+    const pageEl = document.querySelector('.page');
+    pageEl.style.width = '393px';
+    pageEl.style.height = Math.round(window.innerHeight / phoneScale) + 'px';
+  }
+
   document.title = COPY.pageTitle;
   $('title').textContent = COPY.pageTitle;
   $('home').textContent = COPY.home;
@@ -254,6 +268,7 @@
       fitBoundsOptions: { padding: CFG.fitPadding },
       minZoom: CFG.minZoom,
       maxBounds: cage,                // cannot pan far from the sites
+      pixelRatio: phone ? phoneScale : undefined,   // keep the map sharp under the ?phone zoom
       attributionControl: false
     });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
@@ -306,10 +321,12 @@
         if (step.camera === 'round-rock-taylor' && corridorSites.features.length) {
           if (!overviewCamera) overviewCamera = { center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() };
           const el = map.getContainer();
+          const narrow = el.clientWidth <= 640;                // phone layout (same break as style.css)
           const wide = el.clientWidth >= 1000;
-          const portrait = el.clientHeight > el.clientWidth;   // 9:16 recordings: the text card sits lower, so leave more headroom
+          const portrait = el.clientHeight > el.clientWidth;   // tall desktop-size viewports: the text card sits lower, leave more headroom
           map.fitBounds(boundsOf(corridorSites), {
-            padding: portrait ? { left: 40, right: 40, top: 420, bottom: 120 }
+            padding: narrow ? { left: 20, right: 20, top: 80, bottom: 310 }      // phone: the text card sits at the bottom
+              : portrait ? { left: 40, right: 40, top: 420, bottom: 120 }
               : wide ? { left: 310, right: 40, top: 240, bottom: 70 } : { left: 20, right: 20, top: 220, bottom: 60 },   // the story card sits centred at the top
             bearing: 0, pitch: 0, duration: 1000
           });
