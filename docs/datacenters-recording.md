@@ -82,8 +82,16 @@ Silent; music goes on afterwards.
 
 The narrator is `C:\Dev\DataCenters\datacenter_animation.mp4`: a 1080x1080
 emoji face on a plain white background, with the narration as its audio track,
-1:46 long. It goes in the top-left corner of the take, 300 px wide, starting
-at second 2, with its audio, and the take's own length wins.
+1:46 long. It sits in the bottom-left corner above the timeline bar, 300 px
+wide, from second 2 to the end, with its audio. The take's own length wins.
+
+**The text card covers it.** The card is baked into the take, so the face
+cannot go "under" it after the fact. Instead the face keeps playing but only
+its chin (the 60 px below the card's bottom edge at y 1750) is drawn while
+the card is up. The card's window was measured from the take itself: the
+strip of card margin at x 26-52, y 1500-1700 goes from map brightness (~216)
+to paper (~232) at 34.25 s and back at 94.5 s. Re-measure for a new take
+with the `signalstats` line below, and change the two `between()` times.
 
 Keying the white out by colour alone would also cut the white teeth, so the
 alpha is the colour key OR a circle 200 px around the face's centre: white
@@ -93,17 +101,20 @@ whole clip; centre 493,552). If a new animation is framed differently,
 re-measure and change the `crop` and the `hypot` centre.
 
     FF=/mnt/c/Users/clero/AppData/Local/Microsoft/WinGet/Links/ffmpeg.exe
+    # when is the bottom card up? prints brightness of the card's margin strip 4x a second
+    "$FF" -i "<take>.mp4" -vf "fps=4,crop=26:200:26:1500,signalstats,metadata=print:key=lavfi.signalstats.YAVG" -f null - 2>&1 | grep -E "pts_time|YAVG"
     "$FF" -y -i "<take>.mp4" -i "C:\Dev\DataCenters\datacenter_animation.mp4" -filter_complex "
     [1:v]crop=524:488:233:310,format=rgba,colorkey=0xffffff:0.12:0.08,split[k][k2];
     [k2]alphaextract[ka];
     color=c=black:s=524x488:r=30,format=gray,geq=lum='if(lt(hypot(X-260,Y-242),200),255,0)'[circ];
     [ka][circ]blend=all_mode=lighten:shortest=1[a];
-    [k][a]alphamerge,scale=300:-1,tpad=start_duration=2:color=0x00000000[ov];
-    [0:v][ov]overlay=16:16:eof_action=pass:format=auto[v];
+    [k][a]alphamerge,scale=300:-1,tpad=start_duration=2:color=0x00000000,split[full][part];
+    [part]crop=300:60:0:240[chin];
+    [0:v][full]overlay=16:1510:eof_action=pass:format=auto:enable='not(between(t,34.25,94.5))'[v1];
+    [v1][chin]overlay=16:1750:eof_action=pass:format=auto:enable='between(t,34.25,94.5)'[v];
     [1:a]adelay=2000|2000[au]" -map "[v]" -map "[au]" -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest "<out>.mp4"
 
 Output of the night: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`
-(1080x1920, 30 fps, 1:48, narration audio). To move the face, change
-`overlay=16:16`; bottom-left would be `overlay=16:main_h-overlay_h-110`
-(above the timeline bar). Note the animation has a few small yellow
-flecks that drift below the face at times; they are in the source.
+(1080x1920, 30 fps, 1:48, narration audio). First cut had the face top-left;
+the owner moved it bottom-left the same night. The animation has a few small
+yellow flecks that drift below the face at times; they are in the source.

@@ -37,8 +37,10 @@ centers note on headless WebGL); the owner should open it and click a dot.
 Owner supplied `C:\Dev\DataCenters\datacenter_animation.mp4` (emoji face on
 white, narration audio, 1:46) and asked for it in the left corner, background
 transparent, from second 2 to the end. Done with one ffmpeg graph (colour key
-plus a circle mask so the white teeth survive), top-left at 300 px, audio
-delayed 2 s: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
+plus a circle mask so the white teeth survive), bottom-left at 300 px, audio
+delayed 2 s; while the bottom text card is up (34.25-94.5 s, measured from
+the take) only the chin below the card's edge is drawn, so the card "covers"
+the face and it keeps playing: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
 Command and the re-measuring note are in `docs/datacenters-recording.md`.
 The animation file sits untracked in the TX-31 repo folder; media should
 live in `C:\Dev\map-exports`, not a repo.
