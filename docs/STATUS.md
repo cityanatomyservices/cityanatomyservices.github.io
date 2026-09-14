@@ -65,7 +65,10 @@ reuses the owner's data centers wording with the map's name. Assets at
 `?v=20260914a`. Checked headless (desktop and `?phone`): no errors, cards
 and layers switch as designed. NOT recorded yet; the owner reviews first,
 then the OBS recipe in `docs/datacenters-recording.md` applies unchanged
-(browser source URL `https://anatomy.city/AISD/?play&phone`).
+(browser source URL `https://anatomy.city/AISD/?play&phone`). Preview
+take made the same morning for the owner's review, before narration:
+`C:\Dev\map-exports\aisd\2026-09-14 06-45-53.mp4` (1080x1920, 30 fps, 2:04,
+silent; OBS recdir now `C:\Dev\map-exports\aisd`).
 
 Note for a third map: the player and app are now duplicated in two folders.
 When the next map needs them, lift the shared parts into one file under the
