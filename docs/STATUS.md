@@ -32,6 +32,17 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 (narrated cut) — emoji narrator composited
+
+Owner supplied `C:\Dev\DataCenters\datacenter_animation.mp4` (emoji face on
+white, narration audio, 1:46) and asked for it in the left corner, background
+transparent, from second 2 to the end. Done with one ffmpeg graph (colour key
+plus a circle mask so the white teeth survive), top-left at 300 px, audio
+delayed 2 s: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
+Command and the re-measuring note are in `docs/datacenters-recording.md`.
+The animation file sits untracked in the TX-31 repo folder; media should
+live in `C:\Dev\map-exports`, not a repo.
+
 ## 2026-09-14 (narration) — script draft, process pinned
 
 Owner: "that looks good, let's record this process for the other videos.
