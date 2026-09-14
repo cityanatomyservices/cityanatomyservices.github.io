@@ -32,6 +32,45 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 — AISD map rebuilt on the data centers formula (owner to review)
+
+Owner: "Lets make that the formula going forward. Can you setup something
+similar for the AISD map, do the timeline first, paced the same way ...
+Add the same map controls positioned the same way, have the timeline at
+the bottom ... add relevant text boxes explaining everything and I'll
+review it before we move to the OBS portion ... about 2 minutes long."
+
+`/AISD/` now shares the data centers page's bones file for file:
+`style.css` is a copy (accent blue instead of purple, plus the About
+timeline list rules); `index.html` has the same top-left controls, Layers
+and legend cards with fold arrows, title centred, home link top-right;
+`player.js` is the same player with this map's steps; `app.js` is the same
+app with roles instead of statuses, the plan's zones tinted by role
+(`colorBy: 'role'` in `config.js`, and the legend checkboxes filter them
+too), dashed links with a popup (from, to, share, detail), `?phone` mode
+and per-step re-framing: on phones the campuses are fitted below the site
+list during the reveals and above the text card during the story, so
+nothing hides under a card. Zone labels dropped (the dots carry the names).
+
+**Sequence** (4 s intro + 7 reveals x 5 s + 5 cards x 15 s = 114 s, about
+2:00 with the end hold): Closing (11) → Closing and taking students (2) →
+Receiving (16) → Boundary change (2) → Program moves (7) → Taken off the
+list (18) → Other (4) → "Why the plan" (zones on, Layers box flashes) →
+"Where students go" (links on) → "South Austin" (zoom to Becker, Dawson,
+Galindo, Zilker, Sunset Valley, Boone, Cunningham, Odom, Pleasant Hill) →
+"Taken off the list" (zones and links off) → "What happens next" → Complete.
+The five paragraphs are DRAFTS in `AISD/copy.js` (from the research note
+and the data; 55-70 words each) for the owner to edit; the intro card
+reuses the owner's data centers wording with the map's name. Assets at
+`?v=20260914a`. Checked headless (desktop and `?phone`): no errors, cards
+and layers switch as designed. NOT recorded yet; the owner reviews first,
+then the OBS recipe in `docs/datacenters-recording.md` applies unchanged
+(browser source URL `https://anatomy.city/AISD/?play&phone`).
+
+Note for a third map: the player and app are now duplicated in two folders.
+When the next map needs them, lift the shared parts into one file under the
+site root rather than copying a third time.
+
 ## 2026-09-14 (narrated cut) — emoji narrator composited
 
 Owner supplied `C:\Dev\DataCenters\datacenter_animation.mp4` (emoji face on
