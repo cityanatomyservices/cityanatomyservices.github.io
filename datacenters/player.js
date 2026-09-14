@@ -155,7 +155,7 @@ window.DC_PLAYER = {
       active = !steps[index].done;
       const revealed = new Set(steps.slice(0, index + 1).map(s => s.status).filter(Boolean));
       const overlaysOn = new Set();                 // every overlay off until a step shows it
-      const cards = { legend: false, layers: false };   // both folded as the map loads
+      const cards = { legend: true, layers: false };    // as the map loads: data centers open, Layers folded
       steps.slice(0, index + 1).forEach((s, i) => {
         (s.show || []).forEach(k => overlaysOn.add(k));
         (s.hide || []).forEach(k => overlaysOn.delete(k));
@@ -224,7 +224,7 @@ window.DC_PLAYER = {
     const introPlay = document.createElement('button'); introPlay.type = 'button'; introPlay.className = 'intro-play'; introPlay.textContent = copy.intro.play;
     const introNav = document.createElement('button'); introNav.type = 'button'; introNav.className = 'intro-nav'; introNav.textContent = copy.intro.navigate;
     introPlay.addEventListener('click', () => { intro.remove(); go(1, autoplay.checked); });
-    introNav.addEventListener('click', () => {
+    introNav.addEventListener('click', () => {      // keep the data centers card open, open Layers too
       intro.remove();
       if (window.DC_SET_CARD) { window.DC_SET_CARD('legendTitle', true); window.DC_SET_CARD('overlaysTitle', true); }
     });

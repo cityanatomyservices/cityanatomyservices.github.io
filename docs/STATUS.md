@@ -32,6 +32,13 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 (night) — data centers panel open at load
+
+Owner: the "Data centers in and around Austin" panel is open when the map
+loads (behind the intro card), folds when Play is clicked, stays open on
+Navigate Map. Done in `app.js` (load state) and `player.js` (the sequence's
+starting card state; step 1 already folds it). Assets at `?v=20260914d`.
+
 ## 2026-09-14 (evening) — intro card, 4-row site lists
 
 Owner: site lists show 4 rows with a scrollbar; the data centers panel folds
