@@ -27,8 +27,10 @@ window.AISD_PLAYER = {
     const storyRoles = ['closing', 'closing_and_receiving', 'receiving'];
     const steps = [
       { title: words.ready },
-      // the legend, open over the full map, for 10 s before the reveals start
-      { title: copy.legendTitle, only: statuses, show: ['city'], cards: { legend: true }, hold: 10000 },
+      // the legend, open over the full map, for a beat before the reveals start
+      // (3 s here; the recording starts about a second after load, so it
+      // reads as 2 s on the video — owner 2026-09-14)
+      { title: copy.legendTitle, only: statuses, show: ['city'], cards: { legend: true }, hold: 3000 },
       ...statuses.map((status, i) => ({ title: copy.role[status], status,
         ...(i === 0 ? { only: [status], cards: { legend: false } } : {}) })),
       { title: words.why, only: storyRoles, show: ['zones'], cards: { layers: true }, cardsAfter: { delay: 2000, cards: { layers: false } }, text: words.whyText },
@@ -244,7 +246,7 @@ window.AISD_PLAYER = {
     // load, for screen recordings where nobody clicks (2026-09-14).
     if (new URLSearchParams(location.search).has('play')) {
       intro.remove();                                 // the intro is for visitors, not recordings (owner 2026-09-14)
-      setTimeout(() => go(1, true), 3000);
+      setTimeout(() => go(1, true), 500);
     }
     document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
   }
