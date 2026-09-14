@@ -22,7 +22,7 @@ window.DC_CONFIG = {
   // reference overlays. Each is a GeoJSON file next to the page. Fields:
   //   group   which heading it sits under in the Layers box
   //   kind    'polygon' (default), 'line' or 'point' — decides how it draws
-  //   on      the starting state (owner 2026-09-12: Austin Energy on, the rest off)
+  //   on      the starting state (owner 2026-09-14: Austin city limits on, the rest off)
   //   color   the one colour for the layer; `fill` is the polygon fill opacity
   //   label   for polygons: the field written in the middle of each shape
   //   width   for lines: [field, value, px, value, px...] steps, or a number
@@ -31,7 +31,7 @@ window.DC_CONFIG = {
   // Polygons draw under lines, lines under points, and everything under the sites.
   overlays: {
     // ── electric ──
-    service:      { group: 'electric', file: './data/austin_energy_service_area.geojson?v=20260912a', color: '#7b3294', on: true,  fill: 0.06 },
+    service:      { group: 'electric', file: './data/austin_energy_service_area.geojson?v=20260912a', color: '#7b3294', on: false, fill: 0.06 },
     transmission: { group: 'electric', kind: 'line', file: './data/transmission_lines.geojson?v=20260913a', color: '#b30000', on: false,
                     width: ['kv', 115, 1, 138, 1.4, 161, 1.8, 345, 3], popup: ['kv', 'owner', 'status'] },
     plants:       { group: 'electric', kind: 'point', file: './data/power_plants.geojson?v=20260913a', color: '#e6550d', on: false,
@@ -48,7 +48,7 @@ window.DC_CONFIG = {
     outfalls:     { group: 'water', kind: 'point', file: './data/wastewater_outfalls.geojson?v=20260913a', color: '#8c6d31', on: false,
                     radius: 2.5, popup: ['permittee', 'permit', 'outfall', 'county', 'segment', 'status', 'dtype'] },
     // ── boundaries ──
-    city:         { group: 'boundaries', file: './data/city_limits.geojson?v=20260912b', color: '#1f6f8b', on: false, fill: 0.10 },
+    city:         { group: 'boundaries', file: './data/city_limits.geojson?v=20260912b', color: '#1f6f8b', on: true,  fill: 0.10 },
     council:      { group: 'boundaries', file: './data/council_districts.geojson?v=20260912b', color: '#d95f02', on: false, fill: 0.08, label: 'district_number' }
   },
 

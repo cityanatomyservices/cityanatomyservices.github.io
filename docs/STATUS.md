@@ -32,6 +32,16 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 — title, city limits at load, 5 s / 15 s timing
+
+Owner: Austin city limits showing when the map loads; 5 s per data center
+reveal, 15 s per text card; the Austin Energy card turns the city limits off
+and the service area on; title "Austin Area Data Centers". Done in
+`config.js` (city on, service off at load — the service area now first
+appears at its own step), `player.js` (step 1 shows `city`, the service step
+hides it; `stepMs()` per step and the ring drains over that step's length),
+`copy.js` + `index.html` (title). Assets at `?v=20260914a`.
+
 ## 2026-09-13 (evening) — site list back right, 10 s steps, countdown ring
 
 Owner: only the TEXT boxes were meant to be centred; the site list returns

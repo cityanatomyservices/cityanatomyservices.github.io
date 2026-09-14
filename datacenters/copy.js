@@ -5,7 +5,7 @@
 // replaces them. Nothing else in /datacenters/ contains on-screen text — the
 // popups show the research data itself (names, notes, source links).
 window.DC_COPY = {
-  pageTitle: 'Austin Data Centers',
+  pageTitle: 'Austin Area Data Centers',
   player: {
     name: 'Name', location: 'City / Area', zoomTo: 'Zoom to this site',
     play: 'Play', pause: 'Pause', back: 'Back', next: 'Next', stop: 'Finish',

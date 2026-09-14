@@ -12,18 +12,19 @@ window.DC_PLAYER = {
     const copy = window.DC_COPY;
     const words = copy.player;
     const statuses = Object.keys(window.DC_CONFIG.status);
-    // The sequence (owner 2026-09-13): reveal the sites by status, zoom to the
-    // Round Rock-Taylor corridor and say why it attracts data centers, fold the
-    // legend away for room, switch on the Austin Energy area and zoom back out,
-    // then the transmission lines and substations, then the water layers.
+    // The sequence (owner 2026-09-13/14): reveal the sites by status over the
+    // city limits, zoom to the Round Rock-Taylor corridor and say why it
+    // attracts data centers, fold the legend away for room, swap the city
+    // limits for the Austin Energy area and zoom back out, then the
+    // transmission lines and substations, then the water layers.
     // show / hide name overlays (config.js keys) to turn on or off from that
     // step onward; cards: { legend, layers } opens (true) or folds (false) a
     // card from that step on.
     const steps = [
       { title: words.ready },
-      ...statuses.map((status, i) => ({ title: copy.status[status], status, ...(i === 0 ? { cards: { legend: true } } : {}) })),
+      ...statuses.map((status, i) => ({ title: copy.status[status], status, ...(i === 0 ? { cards: { legend: true }, show: ['city'] } : {}) })),
       { title: words.corridor, camera: 'round-rock-taylor', text: words.corridorText },
-      { title: words.serviceArea, camera: 'overview', cards: { legend: false, layers: true }, show: ['service'], text: words.serviceAreaText },
+      { title: words.serviceArea, camera: 'overview', cards: { legend: false, layers: true }, hide: ['city'], show: ['service'], text: words.serviceAreaText },
       { title: words.electric, show: ['transmission', 'substations'], text: words.electricText },
       { title: words.water, hide: ['transmission', 'substations'], show: ['aquifers', 'gcd', 'intakes'], text: words.waterText },
       { title: words.done, done: true }
@@ -63,14 +64,15 @@ window.DC_PLAYER = {
     let clockFrame = null;
     const runClock = () => {
       if (!playing) return;
-      drawClock((deadline - performance.now()) / STEP_MS);
+      drawClock((deadline - performance.now()) / stepLength);
       clockFrame = requestAnimationFrame(runClock);
     };
     const label = document.createElement('span');
     label.className = 'player-step'; label.setAttribute('aria-live', 'polite');
     let index = 0, active = false, playing = false, timer = null;
-    const STEP_MS = 10000;                       // every step holds 10 s on autoplay (owner 2026-09-13)
-    let remaining = STEP_MS, deadline = 0;
+    // autoplay timing (owner 2026-09-14): 5 s per data center reveal, 15 s per text card
+    const stepMs = (step) => step.text ? 15000 : 5000;
+    let stepLength = 5000, remaining = 5000, deadline = 0;
     let sortField = 'name', sortDirection = 1;
     function renderSites(status) {
       body.replaceChildren();
@@ -119,7 +121,7 @@ window.DC_PLAYER = {
     function pause() {
       if (playing) remaining = Math.max(0, deadline - performance.now());
       clearTimeout(timer); timer = null; playing = false;
-      cancelAnimationFrame(clockFrame); drawClock(remaining / STEP_MS);
+      cancelAnimationFrame(clockFrame); drawClock(remaining / stepLength);
       update();
     }
     function schedule() {
@@ -144,7 +146,7 @@ window.DC_PLAYER = {
     function go(target, run = false) {
       clearTimeout(timer); timer = null; playing = false;
       index = Math.max(0, Math.min(target, steps.length - 1));
-      remaining = STEP_MS;
+      stepLength = remaining = stepMs(steps[index]);
       cancelAnimationFrame(clockFrame); drawClock(steps[index].done ? 0 : 1);
       active = !steps[index].done;
       const revealed = new Set(steps.slice(0, index + 1).map(s => s.status).filter(Boolean));
