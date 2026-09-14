@@ -32,6 +32,17 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 (later) — card choreography, "the last fix"
+
+Owner: data centers card open when the map loads, folding after the first
+reveal; the Layers box opens with the Austin Energy text card and folds 2 s
+later while the text stays. Done: `app.js` opens the legend and folds Layers
+on load; `player.js` step 2 carries `cards: { legend: false }`, the service
+step `cards: { layers: true }` plus `cardsAfter: { delay: 2000, cards:
+{ layers: false } }` (a timed second state; the cumulative walk treats earlier
+steps' timed changes as done, and the timer is cleared on every seek).
+Assets at `?v=20260914b`.
+
 ## 2026-09-14 — title, city limits at load, 5 s / 15 s timing
 
 Owner: Austin city limits showing when the map loads; 5 s per data center

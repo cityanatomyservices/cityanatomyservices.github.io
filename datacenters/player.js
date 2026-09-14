@@ -19,12 +19,16 @@ window.DC_PLAYER = {
     // transmission lines and substations, then the water layers.
     // show / hide name overlays (config.js keys) to turn on or off from that
     // step onward; cards: { legend, layers } opens (true) or folds (false) a
-    // card from that step on.
+    // card from that step on, and cardsAfter: { delay, cards } changes them
+    // again that many ms into the step.
     const steps = [
       { title: words.ready },
-      ...statuses.map((status, i) => ({ title: copy.status[status], status, ...(i === 0 ? { cards: { legend: true }, show: ['city'] } : {}) })),
+      // the data centers card is open from load through the first reveal, then folds
+      ...statuses.map((status, i) => ({ title: copy.status[status], status,
+        ...(i === 0 ? { show: ['city'] } : {}), ...(i === 1 ? { cards: { legend: false } } : {}) })),
       { title: words.corridor, camera: 'round-rock-taylor', text: words.corridorText },
-      { title: words.serviceArea, camera: 'overview', cards: { legend: false, layers: true }, hide: ['city'], show: ['service'], text: words.serviceAreaText },
+      // the Layers box opens with this text card and folds again 2 s later (owner 2026-09-14)
+      { title: words.serviceArea, camera: 'overview', cards: { layers: true }, cardsAfter: { delay: 2000, cards: { layers: false } }, hide: ['city'], show: ['service'], text: words.serviceAreaText },
       { title: words.electric, show: ['transmission', 'substations'], text: words.electricText },
       { title: words.water, hide: ['transmission', 'substations'], show: ['aquifers', 'gcd', 'intakes'], text: words.waterText },
       { title: words.done, done: true }
@@ -72,7 +76,7 @@ window.DC_PLAYER = {
     let index = 0, active = false, playing = false, timer = null;
     // autoplay timing (owner 2026-09-14): 5 s per data center reveal, 15 s per text card
     const stepMs = (step) => step.text ? 15000 : 5000;
-    let stepLength = 5000, remaining = 5000, deadline = 0;
+    let stepLength = 5000, remaining = 5000, deadline = 0, cardsTimer = null;
     let sortField = 'name', sortDirection = 1;
     function renderSites(status) {
       body.replaceChildren();
@@ -151,15 +155,22 @@ window.DC_PLAYER = {
       active = !steps[index].done;
       const revealed = new Set(steps.slice(0, index + 1).map(s => s.status).filter(Boolean));
       const overlaysOn = new Set();                 // every overlay off until a step shows it
-      const cards = { legend: false, layers: false };   // both cards start folded
-      steps.slice(0, index + 1).forEach(s => {
+      const cards = { legend: true, layers: false };    // as the map loads: data centers open, Layers folded
+      steps.slice(0, index + 1).forEach((s, i) => {
         (s.show || []).forEach(k => overlaysOn.add(k));
         (s.hide || []).forEach(k => overlaysOn.delete(k));
         Object.assign(cards, s.cards || {});
+        if (s.cardsAfter && i < index) Object.assign(cards, s.cardsAfter.cards);   // earlier steps' timed changes have happened
       });
-      if (window.DC_SET_CARD) {
-        window.DC_SET_CARD('legendTitle', cards.legend);
-        window.DC_SET_CARD('overlaysTitle', cards.layers);
+      const applyCards = (c) => {
+        if (!window.DC_SET_CARD) return;
+        window.DC_SET_CARD('legendTitle', c.legend);
+        window.DC_SET_CARD('overlaysTitle', c.layers);
+      };
+      applyCards(cards);
+      clearTimeout(cardsTimer);
+      if (steps[index].cardsAfter) {
+        cardsTimer = setTimeout(() => applyCards(Object.assign(cards, steps[index].cardsAfter.cards)), steps[index].cardsAfter.delay);
       }
       inputs.forEach(el => {
         const checked = el.dataset.status ? revealed.has(el.dataset.status) : overlaysOn.has(el.dataset.overlay);
