@@ -25,14 +25,20 @@ at every step, no console errors, every file 200; screenshots of a reveal
 and a story step look right (left column 414 px wide ending at y 745, bar
 at y 1018). `?phone` still folds the cards as before.
 
-**Next: the take.** OBS was closed, so nothing was recorded. The order of
-work is `docs/new-map-checklist.md` section 4b: switch the OBS canvas to
-1920x1080, a `Site landscape` scene with a `Site page wide` browser source
-(to be created once), record about 135 s, trim to 119 s from the start of
-the legend beat as the phone take was, then the composite with the same
-narrator file `C:\Dev\map-exports\animate_aisd.mp4`, face 260 px wide at
-16,752, end card as before. Output goes to
-`C:\Dev\map-exports\aisd\aisd-wide-narrated.mp4`.
+**The take and the cut (same day, after the owner opened OBS).** Scene
+`Site landscape` with browser source `Site page wide` (1920x1080) created
+in OBS; canvas switched to 1920x1080 for the take and back to 1080x1920
+after. First take was the page at half size in the corner: the source had
+been created on the portrait canvas and kept that scale (trap now in the
+checklist; fix is `SetSceneItemTransform` to scale 1). Second take
+`C:\Dev\map-exports\aisd\2026-09-14 16-41-15.mp4` (2:17, full frame);
+trimmed from 1.0 s to `aisd-wide-take-119s.mp4` (school list at 0:02.0 as
+in the phone take). Composite with the same narrator file, face 260 px at
+16,752, no chin trick, end card from 114 s (the last story card leaves at
+114.0 s here, measured): `C:\Dev\map-exports\aisd\aisd-wide-narrated.mp4`
+(1920x1080, 30 fps, 1:59, narration audio). Checked by eye at the legend
+beat, a reveal, two story cards, and either side of the end card. Owner to
+watch it before it goes to Substack.
 
 ## 2026-09-14 — budget map on the topic map layout, one timeline per topic
 

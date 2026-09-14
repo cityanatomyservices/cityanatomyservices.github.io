@@ -186,14 +186,26 @@ what differs is the layout and the face's spot.
       node obs.js req SetVideoSettings '{"baseWidth":1080,"baseHeight":1920,"outputWidth":1080,"outputHeight":1920}'
 
   Scene `Site landscape` holds one browser source, `Site page wide`, at
-  1920x1080 (create both once with `CreateScene` / `CreateInput`,
-  `inputKind` `browser_source`). Trim the take the same way as the phone
-  take, to the same length, so the narration timings carry over.
+  1920x1080 (created 2026-09-14 with `CreateScene` / `CreateInput`,
+  `inputKind` `browser_source`). **Trap:** a source created while the
+  canvas is 1080x1920 is scaled down to fit that canvas, and the scale
+  stays after the canvas is switched, so the take shows the page at half
+  size in the top-left corner. Before recording, check with
+  `GetSceneItemTransform` that `scaleX`/`scaleY` are 1 and `width` is
+  1920; if not, `SetSceneItemTransform` with `scaleX:1, scaleY:1,
+  positionX:0, positionY:0, boundsType:"OBS_BOUNDS_NONE"`. Then a
+  `GetSourceScreenshot` of the scene (not the input) shows the actual
+  frame. Trim the take the same way as the phone take, to the same length,
+  so the narration timings carry over (find where the school list appears
+  from a contact sheet of the first frames; it was 3.0 s here).
 - **The composite.** Same command as section 4 with these differences: no
   chin trick (nothing covers the bottom-left corner on a desktop), the face
   scaled to 260 wide so it fits between the legend's bottom edge and the
   timeline bar, placed at `overlay=16:752`; the end card is the same box,
-  centred. AISD: same face crop `486:482:269:314`, HOLD 0, END 113.
+  centred. AISD: same face crop `486:482:269:314`, HOLD 0, END 114 (the
+  desktop take ran a second later than the phone one; measure the last
+  card's exit with the `signalstats` line on a strip inside the top-centre
+  card, e.g. `crop=200:40:600:100`).
 
       "$FF" -y -i "$TAKE" -i "$FACE" -filter_complex "
       [0:v]tpad=stop_mode=clone:stop_duration=$HOLD[base];
