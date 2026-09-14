@@ -29,10 +29,12 @@ the legend filter reaches the role-tinted zones; a real click on a dot
 opens the popup; `?play&phone` autoplays with no intro; screenshots of a
 story step on each map look right (own accent, phone layout).
 
-**Found on the way, not fixed:** `datacenters/data/datacenters.geojson`
-has no `id` property, so the row number on each dot and the "N." in the
-popup heading have been empty since the export (the label layer reads
-`id`). Fix in the export, not the page.
+**Fixed the same day:** `datacenters/data/datacenters.geojson` had no `id`
+property (the id is the GeoPackage's FID column, which ogr2ogr drops), so
+the row number on each dot and the "N." in the popup heading were empty
+since the export. Re-exported with `-sql "SELECT id, * FROM data_centers
+ORDER BY id"`: same 47 sites, same coordinates, ids 1-47. Data at
+`?v=20260914i`. Any future re-export needs that `-sql` clause.
 
 **The checklist.** `docs/new-map-checklist.md`: the order of work for the
 third map: page (files to create and what to fill in), take (OBS

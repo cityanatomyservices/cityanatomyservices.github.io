@@ -13,7 +13,7 @@
 //                                  and exported by scripts/build-datacenters-layers.sh
 // They are small enough to live on GitHub Pages; no tiles and no database.
 window.MAP_CONFIG = {
-  points: './data/datacenters.geojson?v=20260912a',
+  points: './data/datacenters.geojson?v=20260914i',
   // the property that gives each dot its colour and legend row
   categoryField: 'status',
 
