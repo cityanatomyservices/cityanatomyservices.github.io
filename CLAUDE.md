@@ -31,10 +31,29 @@ that lands before the deploy pins the OLD file under the NEW version (this
 bit `/datacenters/` on 2026-09-12 and cost another bump). Wait for the HTML
 page itself to show the new version string first, then check the assets once.
 
-## Recording a map page as a 9:16 video
+## Turning a map page into a narrated 9:16 video (the formula, 2026-09-14)
 
-The process is written once, in `docs/datacenters-recording.md`, and applies
-to every map page: give the page `?play` and `?phone` switches and container
-queries (copy from `datacenters/`), then record it with the OBS browser
-source at 1080x1920. Do not record a desktop layout at 1080 wide; the owner
-rejected that as unreadable on 2026-09-14.
+Done twice (`/datacenters/`, `/AISD/`); the full recipe with every command
+is `docs/datacenters-recording.md`. The steps, in order:
+
+1. **Page.** Build the map on the `/datacenters/` bones: same controls,
+   fold cards, bottom timeline player (`player.js`) with reveals at 5 s and
+   text cards at 15 s, an intro card for visitors, `?play` (auto-start, no
+   intro) and `?phone` (phone layout at 1080x1920) switches, container
+   queries instead of media queries. Draft the story text from the research
+   note, mark it as a draft in `copy.js`; the owner reviews the live page.
+2. **Take.** OBS profile `wcibh-phone`, scene `Site portrait`, browser source
+   `Site page` at `<page>?play&phone`; refresh, record, trim to the length
+   the owner wants (`ffmpeg -t`). Never record a desktop layout at 1080 wide.
+3. **Narration.** Draft a timed narration (`docs/<map>-narration.md`), well
+   under the video length (about 240 words for 1:59); the owner records the
+   voice and makes the emoji narrator animation themselves.
+4. **Composite.** ffmpeg: colour-key the white background with a circle mask
+   so the teeth survive, face bottom-left at 300 px from second 2, chin only
+   while the bottom text card is up (measure the card window from the take
+   with the `signalstats` line), narration audio delayed 2 s, end card
+   "Navigate map / and sources at / <page address>" from the last map
+   second. Output to `C:\Dev\map-exports\<map>\`.
+
+Before a third map, lift the duplicated `player.js` / `app.js` into one
+shared file instead of copying again.
