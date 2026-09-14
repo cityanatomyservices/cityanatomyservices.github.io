@@ -32,6 +32,18 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 — AISD take at 1:59, narration draft
+
+Owner: legend card open from the first frame for 2 s, then the schools;
+trim the end to 1:59; and a narration to match. Done: legend beat 3 s and
+the sequence starts 0.5 s after load in `?play` mode (`AISD/player.js`,
+`?v=20260914c`); recorded and trimmed to exactly 119 s:
+`C:\Dev\map-exports\aisd\aisd-take-119s.mp4` (the school list appears at
+0:02.0, measured from the video). Narration draft with timings at
+`docs/aisd-narration.md` (owner edits; the narrator composite then follows
+`docs/datacenters-recording.md`, re-measuring the card window and the
+face crop for the new animation).
+
 ## 2026-09-14 — AISD sequence tuned after the preview
 
 Owner, after watching the preview: story steps show only the closing and
