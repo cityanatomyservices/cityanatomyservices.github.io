@@ -103,18 +103,33 @@ re-measure and change the `crop` and the `hypot` centre.
     FF=/mnt/c/Users/clero/AppData/Local/Microsoft/WinGet/Links/ffmpeg.exe
     # when is the bottom card up? prints brightness of the card's margin strip 4x a second
     "$FF" -i "<take>.mp4" -vf "fps=4,crop=26:200:26:1500,signalstats,metadata=print:key=lavfi.signalstats.YAVG" -f null - 2>&1 | grep -E "pts_time|YAVG"
+    FONT="C\\:/Windows/Fonts/segoeui.ttf"; FONTB="C\\:/Windows/Fonts/segoeuib.ttf"; SHOW="gte(t,107)"
     "$FF" -y -i "<take>.mp4" -i "C:\Dev\DataCenters\datacenter_animation.mp4" -filter_complex "
+    [0:v]tpad=stop_mode=clone:stop_duration=4[base];
     [1:v]crop=524:488:233:310,format=rgba,colorkey=0xffffff:0.12:0.08,split[k][k2];
     [k2]alphaextract[ka];
     color=c=black:s=524x488:r=30,format=gray,geq=lum='if(lt(hypot(X-260,Y-242),200),255,0)'[circ];
     [ka][circ]blend=all_mode=lighten:shortest=1[a];
-    [k][a]alphamerge,scale=300:-1,tpad=start_duration=2:color=0x00000000,split[full][part];
+    [k][a]alphamerge,scale=300:-1,tpad=start_duration=2:color=0x00000000:stop_mode=clone:stop_duration=6,split[full][part];
     [part]crop=300:60:0:240[chin];
-    [0:v][full]overlay=16:1510:eof_action=pass:format=auto:enable='not(between(t,34.25,94.5))'[v1];
-    [v1][chin]overlay=16:1750:eof_action=pass:format=auto:enable='between(t,34.25,94.5)'[v];
-    [1:a]adelay=2000|2000[au]" -map "[v]" -map "[au]" -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest "<out>.mp4"
+    [base][full]overlay=16:1510:eof_action=pass:format=auto:enable='not(between(t,34.25,94.5))'[v1];
+    [v1][chin]overlay=16:1750:eof_action=pass:format=auto:enable='between(t,34.25,94.5)'[v2];
+    [v2]drawbox=x=(iw-820)/2:y=(ih-360)/2:w=820:h=360:color=white@0.94:t=fill:enable='$SHOW',
+    drawtext=fontfile='$FONTB':text='Navigate map':fontsize=64:fontcolor=0x1f2933:x=(w-text_w)/2:y=(h-360)/2+52:enable='$SHOW',
+    drawtext=fontfile='$FONT':text='and sources at':fontsize=56:fontcolor=0x1f2933:x=(w-text_w)/2:y=(h-360)/2+152:enable='$SHOW',
+    drawtext=fontfile='$FONTB':text='anatomy.city/datacenter':fontsize=56:fontcolor=0x7b3294:x=(w-text_w)/2:y=(h-360)/2+248:enable='$SHOW'[v];
+    [1:a]adelay=2000|2000,apad[au]" -map "[v]" -map "[au]" -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest "<out>.mp4"
+
+What the extra pieces do: the take's last frame is held 4 s (`tpad` on
+`[0:v]`) so the narration, which ends at 108.2 s, finishes with picture
+under it; the face is held too (`stop_mode=clone` on the overlay) so it
+does not vanish before the end; `apad` + `-shortest` make the audio run to
+the video's length. The end card (`drawbox` + three `drawtext` lines,
+Segoe UI from `C:\Windows\Fonts`) is centred and shows from 107 s, the
+last second of the map, to the end. Its three lines are the owner's words
+verbatim; to change them edit the three `text=` values.
 
 Output of the night: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`
-(1080x1920, 30 fps, 1:48, narration audio). First cut had the face top-left;
+(1080x1920, 30 fps, 1:52, narration audio, end card). First cut had the face top-left;
 the owner moved it bottom-left the same night. The animation has a few small
 yellow flecks that drift below the face at times; they are in the source.

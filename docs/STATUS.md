@@ -40,7 +40,11 @@ transparent, from second 2 to the end. Done with one ffmpeg graph (colour key
 plus a circle mask so the white teeth survive), bottom-left at 300 px, audio
 delayed 2 s; while the bottom text card is up (34.25-94.5 s, measured from
 the take) only the chin below the card's edge is drawn, so the card "covers"
-the face and it keeps playing: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
+the face and it keeps playing. Then (owner): hold the end a few seconds so
+the narration finishes, and a centred three-line end card from the last
+second — "Navigate map" / "and sources at" / "anatomy.city/datacenter"
+(owner's text verbatim; NOTE the live page is /datacenters/ with an s —
+flagged, not changed). Output is 1:52: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
 Command and the re-measuring note are in `docs/datacenters-recording.md`.
 The animation file sits untracked in the TX-31 repo folder; media should
 live in `C:\Dev\map-exports`, not a repo.
