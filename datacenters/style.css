@@ -162,9 +162,10 @@ html, body { margin: 0; height: 100%; }
   .player-controls label { font-size: 10px; }
   .player-ticks { min-width: 110px; }
   .has-player .topleft { max-height: calc(100% - 90px); }
-  .sequence-card { top: 56px; right: 8px; width: calc((100% - 16px) * 0.8); max-height: calc(100% - 256px); }
-  /* on phones the text card sits at the bottom, above the timeline, so the
-     panels at the top stay visible (2026-09-14) */
+  /* on phones the site list sits under the two folded panel bars, and the
+     text card at the bottom above the timeline, so the panels stay visible
+     (2026-09-14) */
+  .sequence-card { top: 160px; right: 8px; width: calc(100% - 16px); max-height: calc(100% - 300px); }
   .sequence-card.is-text { top: auto; bottom: 62px; width: calc(100% - 16px); max-height: calc(100% - 200px); padding: 12px 14px; }
   .sequence-card.is-text h2 { font-size: 17px; }
   .sequence-card.is-text .sequence-body { font-size: 13px; }
