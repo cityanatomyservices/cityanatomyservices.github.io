@@ -39,7 +39,10 @@ below the folded panel bars (`style.css` orientation query) and the corridor
 zoom leaves 420 px of headroom (`app.js`); `?play` in the address dismisses
 the intro and starts autoplay 4 s after load (`player.js`), so a browser
 source can run the sequence with nobody clicking. Assets at `?v=20260914e`.
-The recording recipe is in this entry's follow-up once the take is done.
+Recorded the same night: OBS **browser source** at 1080x1920 (a Chrome
+window cannot be taller than the 1080 display), scene `Site portrait`,
+profile `wcibh-phone`; first take `C:\Dev\map-exports\datacenters\2026-09-14
+02-03-33.mp4`. Recipe: `docs/datacenters-recording.md`.
 
 ## 2026-09-14 (night) — data centers panel open at load
 
