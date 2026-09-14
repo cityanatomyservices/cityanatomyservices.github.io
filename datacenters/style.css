@@ -132,6 +132,11 @@ html, body { margin: 0; height: 100%; }
 .intro-nav { background: #fff; color: var(--ink); border: 1px solid var(--line); }
 .intro button:hover { filter: brightness(.95); }
 .intro button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* portrait screens (9:16 recordings, phones held upright): the text card sits
+   below the folded panel bars instead of over them */
+@media (orientation: portrait) and (min-width: 700px) {
+  .sequence-card.is-text { top: 172px; }
+}
 /* countdown ring beside the ticks: track circle plus a draining stroke */
 .player-clock { order: 1; flex: none; width: 24px; height: 24px; transform: rotate(-90deg); }
 .player-clock circle { fill: none; stroke-width: 3; }

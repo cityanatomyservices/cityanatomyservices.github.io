@@ -233,6 +233,11 @@ window.DC_PLAYER = {
     page.classList.add('has-player');
     // Keep the ordinary map intact until the viewer starts or seeks the sequence.
     update();
+    // ?play in the address starts the sequence by itself a few seconds after
+    // load, for screen recordings where nobody clicks (2026-09-14).
+    if (new URLSearchParams(location.search).has('play')) {
+      setTimeout(() => { intro.remove(); go(1, true); }, 4000);
+    }
     document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
   }
 };

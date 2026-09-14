@@ -32,6 +32,15 @@ chip. Asset version `?v=20260912a` (its own). Every word on the page is a
 placeholder in `AISD/copy.js`. Not verified in a browser (see the data
 centers note on headless WebGL); the owner should open it and click a dot.
 
+## 2026-09-14 (recording prep) — portrait layout, ?play
+
+For the owner's 9:16 OBS recording: in portrait viewports the text card sits
+below the folded panel bars (`style.css` orientation query) and the corridor
+zoom leaves 420 px of headroom (`app.js`); `?play` in the address dismisses
+the intro and starts autoplay 4 s after load (`player.js`), so a browser
+source can run the sequence with nobody clicking. Assets at `?v=20260914e`.
+The recording recipe is in this entry's follow-up once the take is done.
+
 ## 2026-09-14 (night) — data centers panel open at load
 
 Owner: the "Data centers in and around Austin" panel is open when the map

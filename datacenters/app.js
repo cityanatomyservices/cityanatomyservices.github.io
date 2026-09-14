@@ -305,9 +305,12 @@
       }, (step) => {
         if (step.camera === 'round-rock-taylor' && corridorSites.features.length) {
           if (!overviewCamera) overviewCamera = { center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() };
-          const wide = map.getContainer().clientWidth >= 1000;
+          const el = map.getContainer();
+          const wide = el.clientWidth >= 1000;
+          const portrait = el.clientHeight > el.clientWidth;   // 9:16 recordings: the text card sits lower, so leave more headroom
           map.fitBounds(boundsOf(corridorSites), {
-            padding: wide ? { left: 310, right: 40, top: 240, bottom: 70 } : { left: 20, right: 20, top: 220, bottom: 60 },   // the story card sits centred at the top
+            padding: portrait ? { left: 40, right: 40, top: 420, bottom: 120 }
+              : wide ? { left: 310, right: 40, top: 240, bottom: 70 } : { left: 20, right: 20, top: 220, bottom: 60 },   // the story card sits centred at the top
             bearing: 0, pitch: 0, duration: 1000
           });
         } else if (!step.done && overviewCamera) {
