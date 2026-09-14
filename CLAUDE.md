@@ -41,8 +41,11 @@ The steps, in order:
 1. **Page.** Every topic map runs on the shared engine in `/topicmap/`
    (`app.js`, `player.js`, `style.css`, lifted 2026-09-14): controls, fold
    cards, bottom timeline player with reveals at 5 s and text cards at 15 s,
-   an intro card for visitors, `?play` (auto-start, no intro) and `?phone`
-   (phone layout at 1080x1920) switches, container queries. A page folder
+   an intro card for visitors, `?play` (auto-start, no intro), `?phone`
+   (phone layout at 1080x1920) and `?width=1280` (desktop layout scaled
+   into 1920x1080, for the 16:9 cut) switches, container queries. On a
+   phone the timeline folds and opens the two panels; on a desktop both
+   stay open for the whole sequence (owner 2026-09-14). A page folder
    holds only `index.html`, a two-line `style.css` (accent), `config.js`
    (data), `copy.js` (words), `map.js` (popup, steps, camera) and `data/`.
    Draft the story text from the research note, mark it as a draft in

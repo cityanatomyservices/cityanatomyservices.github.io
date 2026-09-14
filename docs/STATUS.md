@@ -1,5 +1,39 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-14 — AISD desktop cut: panels open throughout, ?width= switch
+
+Owner: a full-size AISD video for Substack, "mostly the same as the short
+except with the legend panels open for the entire video", and the desktop
+map itself should work that way. Done in the engine, so it holds for every
+topic map:
+
+- `topicmap/player.js`: the `cards` / `cardsAfter` step keys act only on
+  the phone layout (`options.layout().narrow`, passed from app.js). On a
+  desktop the timeline opens the Layers box and the legend at the first
+  step and leaves both open to the end. The budget page's own app.js does
+  not pass `layout`, so its phone behaviour is unchanged there.
+- `topicmap/phone.js`: `?width=1280` lays the page out at 1280 CSS px wide
+  and scales it to the window (the `?phone` mechanism with any width), so
+  a 1920x1080 browser-source take is 1280x720 at 1.5x: readable type and
+  dots, both panels down the left, story card top-centre, site list
+  top-right. Address for the take: `/AISD/?play&width=1280`.
+- `AISD/map.js` and `topicmap/app.js` comments; engine assets at
+  `?v=20260914k` on all three pages.
+
+Checked headless (1920x1080, `?play&width=1280`): both cards report open
+at every step, no console errors, every file 200; screenshots of a reveal
+and a story step look right (left column 414 px wide ending at y 745, bar
+at y 1018). `?phone` still folds the cards as before.
+
+**Next: the take.** OBS was closed, so nothing was recorded. The order of
+work is `docs/new-map-checklist.md` section 4b: switch the OBS canvas to
+1920x1080, a `Site landscape` scene with a `Site page wide` browser source
+(to be created once), record about 135 s, trim to 119 s from the start of
+the legend beat as the phone take was, then the composite with the same
+narrator file `C:\Dev\map-exports\animate_aisd.mp4`, face 260 px wide at
+16,752, end card as before. Output goes to
+`C:\Dev\map-exports\aisd\aisd-wide-narrated.mp4`.
+
 ## 2026-09-14 — budget map on the topic map layout, one timeline per topic
 
 Owner: "do the budget map next ... fix the map to be like the previous ones

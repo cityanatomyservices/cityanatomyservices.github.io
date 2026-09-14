@@ -45,9 +45,11 @@ window.MAP_PAGE = {
   // go (links on), a zoom to South Austin, what came off the list (zones and
   // links off again), and what happens to the buildings. The story cards
   // show only the closing and receiving schools (`only`); the "Taken off the
-  // list" card adds the grey dots it talks about. (step keys are explained
-  // at the top of ../topicmap/player.js; `focus` and `camera` are this
-  // map's own keys, read by frame() below)
+  // list" card adds the grey dots it talks about. The `cards` keys fold and
+  // open the panels on a phone only; the desktop cut keeps both panels open
+  // for the whole video (owner 2026-09-14). (step keys are explained at the
+  // top of ../topicmap/player.js; `focus` and `camera` are this map's own
+  // keys, read by frame() below)
   steps({ categories, COPY }) {
     const words = COPY.player;
     const storyRoles = ['closing', 'closing_and_receiving', 'receiving'];

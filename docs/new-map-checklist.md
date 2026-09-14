@@ -159,6 +159,56 @@ goes to `C:\Dev\map-exports\<topic>\`, never into a repo. Check the result
 once by eye at the card-on, card-off and end-card moments, then hand it
 to the owner.
 
+## 4b. The desktop cut (16:9, for Substack and YouTube)
+
+Added 2026-09-14 for the AISD map. The same page, sequence and narration;
+what differs is the layout and the face's spot.
+
+- **The map.** On a desktop-width layout the engine keeps the Layers box
+  and the legend open through the whole sequence (the `cards` keys in
+  map.js act on phones only), and the story card sits top-centre, the
+  site list top-right, so the left column is always the two panels.
+- **The address.** `<page>?play&width=1280`: the page lays out at
+  1280x720 CSS px and is scaled by 1.5 into a 1920x1080 frame, so type and
+  dots read at video size (`topicmap/phone.js`, the same mechanism as
+  `?phone`). Never record the bare desktop page at 1920 wide.
+- **The take.** OBS is still on profile `wcibh-phone`; switch the canvas
+  for the take and back afterwards:
+
+      node obs.js req SetVideoSettings '{"baseWidth":1920,"baseHeight":1080,"outputWidth":1920,"outputHeight":1080}'
+      node obs.js recdir 'C:\Dev\map-exports\<topic>'
+      node obs.js req SetInputSettings '{"inputName":"Site page wide","inputSettings":{"url":"https://anatomy.city/<topic>/?play&width=1280","width":1920,"height":1080}}'
+      node obs.js setscene 'Site landscape'
+      node obs.js req PressInputPropertiesButton '{"inputName":"Site page wide","propertyName":"refreshnocache"}'
+      node obs.js startrec
+      # wait the sequence length plus about 10 s
+      node obs.js stoprec
+      node obs.js req SetVideoSettings '{"baseWidth":1080,"baseHeight":1920,"outputWidth":1080,"outputHeight":1920}'
+
+  Scene `Site landscape` holds one browser source, `Site page wide`, at
+  1920x1080 (create both once with `CreateScene` / `CreateInput`,
+  `inputKind` `browser_source`). Trim the take the same way as the phone
+  take, to the same length, so the narration timings carry over.
+- **The composite.** Same command as section 4 with these differences: no
+  chin trick (nothing covers the bottom-left corner on a desktop), the face
+  scaled to 260 wide so it fits between the legend's bottom edge and the
+  timeline bar, placed at `overlay=16:752`; the end card is the same box,
+  centred. AISD: same face crop `486:482:269:314`, HOLD 0, END 113.
+
+      "$FF" -y -i "$TAKE" -i "$FACE" -filter_complex "
+      [0:v]tpad=stop_mode=clone:stop_duration=$HOLD[base];
+      [1:v]crop=$CW:$CH:$CX:$CY,format=rgba,colorkey=0xffffff:0.12:0.08,split[k][k2];
+      [k2]alphaextract[ka];
+      color=c=black:s=${CW}x${CH}:r=30,format=gray,geq=lum='if(lt(hypot(X-$CW/2,Y-$CH/2),200),255,0)'[circ];
+      [ka][circ]blend=all_mode=lighten:shortest=1[a];
+      [k][a]alphamerge,scale=260:-1,tpad=start_duration=2:color=0x00000000:stop_mode=clone:stop_duration=6[face];
+      [base][face]overlay=16:752:eof_action=pass:format=auto[v2];
+      [v2]drawbox=x=(iw-820)/2:y=(ih-360)/2:w=820:h=360:color=white@0.94:t=fill:enable='gte(t,$END)',
+      drawtext=fontfile='$FONTB':text='$L1':fontsize=64:fontcolor=0x1f2933:x=(w-text_w)/2:y=(h-360)/2+52:enable='gte(t,$END)',
+      drawtext=fontfile='$FONT':text='$L2':fontsize=56:fontcolor=0x1f2933:x=(w-text_w)/2:y=(h-360)/2+152:enable='gte(t,$END)',
+      drawtext=fontfile='$FONTB':text='$L3':fontsize=56:fontcolor=0x7b3294:x=(w-text_w)/2:y=(h-360)/2+248:enable='gte(t,$END)'[v];
+      [1:a]adelay=2000|2000,apad[au]" -map "[v]" -map "[au]" -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest "<topic>-wide-narrated.mp4"
+
 ## 5. Close out
 
 - `docs/STATUS.md`: the take names, the measured numbers, the output path.

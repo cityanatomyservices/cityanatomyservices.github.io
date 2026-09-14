@@ -14,6 +14,9 @@
 //   show/hide   overlay keys (config.js) to switch on or off from this step on
 //   cards       { legend, layers } opens (true) or folds (false) a card from this step on
 //   cardsAfter  { delay, cards } changes them again that many ms into the step
+//               (cards and cardsAfter act on the phone layout only: on a
+//               desktop both cards stay open through the whole sequence,
+//               there is room for them beside the map; owner 2026-09-14)
 //   hold        the step's length in ms when it should differ from 5 s / 15 s
 //   done        the closing step: everything unlocked, nothing shown
 // Any other key (camera, focus ...) is the page's own; it is passed back to
@@ -26,6 +29,7 @@ window.MAP_PLAYER = {
   //   options.field       the property that holds a point's category ('status', 'role')
   //   options.column      (properties) => text for the first column of the site list
   //   options.setCard     (id, open) => folds or opens the Layers / legend cards
+  //   options.layout      () => { narrow } from app.js; cards fold only when narrow
   //   options.onSelect    (feature) => called when a site list row is clicked
   //   options.onStep      (step) => called on every step change, for camera moves
   //   options.playDelay   ms after load before ?play starts the sequence (default 3000)
@@ -38,6 +42,7 @@ window.MAP_PLAYER = {
     const field = options.field;
     const column = options.column || (() => '');
     const setCard = options.setCard || (() => {});
+    const layout = options.layout || (() => ({ narrow: true }));
     const onSelect = options.onSelect || (() => {});
     const onStep = options.onStep || (() => {});
     const page = document.querySelector('.page');
@@ -173,9 +178,11 @@ window.MAP_PLAYER = {
         if (s.cardsAfter && i < index) Object.assign(cards, s.cardsAfter.cards);   // earlier steps' timed changes have happened
       });
       const applyCards = (c) => { setCard('legendTitle', c.legend); setCard('overlaysTitle', c.layers); };
-      applyCards(cards);
+      // phones fold the cards to make room; a desktop keeps both open throughout
+      const narrow = layout().narrow;
+      applyCards(narrow ? cards : { legend: true, layers: true });
       clearTimeout(cardsTimer);
-      if (steps[index].cardsAfter) {
+      if (narrow && steps[index].cardsAfter) {
         cardsTimer = setTimeout(() => applyCards(Object.assign(cards, steps[index].cardsAfter.cards)), steps[index].cardsAfter.delay);
       }
       inputs.forEach(el => {

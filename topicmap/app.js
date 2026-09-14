@@ -29,8 +29,8 @@
   const FIELD = CFG.categoryField;
   const CATEGORIES = Object.keys(CFG.categories);
 
-  // ?phone (topicmap/phone.js, loaded before this file) zooms the page to
-  // phone proportions; the map draws at the matching pixel density
+  // ?phone or ?width= (topicmap/phone.js, loaded before this file) zooms the
+  // page to another layout width; the map draws at the matching pixel density
   const phoneScale = window.PHONE_SCALE || 1;
   const phone = phoneScale !== 1;
 
@@ -43,9 +43,9 @@
 
   // The two cards (Layers, legend) fold with the arrow in their title.
   // Hiding a body keeps its checkbox states. On load the legend is open and
-  // the Layers box folded, behind the intro card; Play folds the legend,
-  // Navigate Map keeps it and opens Layers, and the timeline opens and
-  // closes them as the story needs (owner 2026-09-14).
+  // the Layers box folded, behind the intro card; Navigate Map opens both.
+  // On a phone the timeline folds and opens them as the story needs; on a
+  // desktop it opens both and leaves them open (owner 2026-09-14).
   const setCard = (id, open) => {
     const toggle = $(id);
     const body = $(toggle.getAttribute('aria-controls'));
@@ -260,7 +260,7 @@
       fitBoundsOptions: { padding: CFG.fitPadding },
       minZoom: CFG.minZoom,
       maxBounds: cage,                // cannot pan far from the points
-      pixelRatio: phone ? phoneScale : undefined,   // keep the map sharp under the ?phone zoom
+      pixelRatio: phone ? phoneScale : undefined,   // keep the map sharp under the ?phone / ?width zoom
       attributionControl: false
     });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
@@ -328,6 +328,7 @@
         field: FIELD,
         column: PAGE.column,
         setCard,
+        layout: helpers.layout,
         playDelay: PAGE.playDelay,
         onSelect: (feature) => {
           map.easeTo({ center: feature.geometry.coordinates, zoom: Math.max(map.getZoom(), 13), duration: 700 });
