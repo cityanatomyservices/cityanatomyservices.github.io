@@ -45,6 +45,8 @@ receiving + receiving, and the "Taken off the list" card adds the grey
 dots it talks about; `?play` now removes the intro at once and starts
 3 s after load (applied to `datacenters/player.js` too, so the formula
 stays one thing). Sequence: 3 s + 10 s + 7 x 5 s + 5 x 15 s = 123 s.
+Re-recorded: `C:\Dev\map-exports\aisd\2026-09-14 07-04-13.mp4` (1080x1920,
+30 fps, 2:12, silent) for the owner's review before narration.
 
 ## 2026-09-14 — AISD map rebuilt on the data centers formula (owner to review)
 
