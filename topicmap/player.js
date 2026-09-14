@@ -29,6 +29,8 @@ window.MAP_PLAYER = {
   //   options.onSelect    (feature) => called when a site list row is clicked
   //   options.onStep      (step) => called on every step change, for camera moves
   //   options.playDelay   ms after load before ?play starts the sequence (default 3000)
+  //   options.intro       false to skip the intro card (a page that swaps timelines)
+  // Returns { destroy } so a page can take the timeline down and build another.
   init(points, options) {
     const copy = options.copy;
     const words = copy.player;
@@ -233,7 +235,8 @@ window.MAP_PLAYER = {
       setCard('legendTitle', true); setCard('overlaysTitle', true);
     });
     intro.append(introTitle, introText, introPlay, introNav);
-    panel.append(controls, ticks, clock, label); page.append(card, panel, intro);
+    panel.append(controls, ticks, clock, label); page.append(card, panel);
+    if (options.intro !== false) page.append(intro);
     page.classList.add('has-player');
     // Keep the ordinary map intact until the viewer starts or seeks the sequence.
     update();
@@ -243,6 +246,17 @@ window.MAP_PLAYER = {
       intro.remove();                                 // the intro is for visitors, not recordings (owner 2026-09-14)
       setTimeout(() => go(1, true), options.playDelay ?? 3000);
     }
-    document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+    const onHide = () => { if (document.hidden) pause(); };
+    document.addEventListener('visibilitychange', onHide);
+    return {
+      // take the timeline down: stop the clocks, remove its elements, unlock the checkboxes
+      destroy() {
+        clearTimeout(timer); clearTimeout(cardsTimer); cancelAnimationFrame(clockFrame); playing = false;
+        document.removeEventListener('visibilitychange', onHide);
+        card.remove(); panel.remove(); intro.remove();
+        page.classList.remove('has-player');
+        inputs.forEach(el => { el.disabled = false; });
+      }
+    };
   }
 };

@@ -56,5 +56,26 @@ window.BUDGET_COPY = {
     overlays: 'Layers', overlayZip: 'ZIP codes', overlayCouncil: 'Council districts'
   },
 
+  // the timeline player (shared engine words) and the intro card
+  player: {
+    name: 'Name', location: 'Place', zoomTo: 'Zoom here',
+    play: 'Play', pause: 'Pause', back: 'Back', next: 'Next', stop: 'Finish',
+    autoplay: 'Autoplay', timeline: 'Map animation', ready: 'Ready', done: 'Complete', empty: '',
+    // step titles and PLACEHOLDER card text for the skeleton timelines (timelines.js); owner replaces
+    how: 'How it is calculated',
+    closeUp: 'Parcel by parcel',
+    closeUpText: 'PLACEHOLDER. Zoomed in, each parcel shows its own change.',
+    byMonth: 'Month by month',
+    byMonthText: 'PLACEHOLDER. The slider runs from January 2021 to July 2026.',
+    byDistrict: 'By council district',
+    byDistrictText: 'PLACEHOLDER. Council districts drawn over the projects.'
+  },
+  intro: {
+    title: 'Austin FY 2026-27 Budget Map',
+    text: 'Play the animation from here or anytime from the timeline on the bottom',
+    play: 'Play',
+    navigate: 'Navigate Map'
+  },
+
   attribution: 'City of Austin FY 2026-27 budget, Travis CAD rolls, City open data'
 };

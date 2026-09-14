@@ -6,30 +6,31 @@
   <title>Austin FY 2026-27 Budget Map</title>
   <link rel="icon" href="data:," />
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
-  <!-- ?v= so a push is actually seen (GitHub Pages caches hard). Bump when
-       app.js, style.css, config.js or copy.js change. -->
-  <link rel="stylesheet" href="./style.css?v=20260912i" />
+  <!-- The look, the ?phone switch and the timeline player come from the
+       shared topic map engine in /topicmap/ (2026-09-14). The map itself is
+       this folder's own app.js: PMTiles themes, not points, so the engine's
+       app.js does not apply. ?v= so a push is actually seen (GitHub Pages
+       caches hard): bump it on the file that changed. -->
+  <link rel="stylesheet" href="../topicmap/style.css?v=20260914j" />
+  <link rel="stylesheet" href="./style.css?v=20260914j" />
 </head>
 <body>
-  <!-- A MAP, A TOPIC DROPDOWN, A LEGEND. Seven maps of the FY 2026-27 budget
-       share one page; picking a topic from the dropdown (top left, under the
-       home link; owner 2026-09-12) shows that map's layers and its legend. The
-       card under the dropdown opens summary.html, the written summary. Parcels only draw from zoom 11 (the tiles stop below that), so a
-       hint shows when zoomed out on a parcel theme. Every word on screen comes
-       from copy.js. -->
+  <!-- A MAP, A TOPIC DROPDOWN, A LEGEND, A TIMELINE PER TOPIC. Seven maps of
+       the FY 2026-27 budget share one page; picking a topic from the dropdown
+       shows that map's layers, its legend and its own timeline along the
+       bottom (timelines.js). Laid out like the other topic maps (owner
+       2026-09-14): controls in a row top-left, then the dropdown, the summary
+       card, the Layers box and the legend, each card folding with the arrow
+       in its title; home link top-right. Parcels only draw from zoom 11 (the
+       tiles stop below that), so a hint shows when zoomed out on a parcel
+       theme. Every word on screen comes from copy.js. -->
   <div class="page">
     <div id="map"></div>
 
-    <!-- top-left stack: home link, the topic dropdown, the summary card -->
+    <a class="home" id="home" href="https://anatomy.city" target="_top"></a>
+    <h1 class="title" id="title"></h1>
+    <!-- top-left stack -->
     <div class="topleft">
-      <a class="home" id="home" href="https://anatomy.city" target="_top"></a>
-      <div class="topic">
-        <label for="topic" id="topicLabel"></label>
-        <select id="topic"></select>
-      </div>
-      <a class="summary-card" id="summaryCard" href="./summary.html"></a>
-        <!-- map controls, under the summary card, top to bottom: satellite, zoom
-             in, zoom out, extents (owner 2026-09-12: "to the left under the existing controls"). -->
       <div class="map-controls">
         <button class="map-ctrl map-ctrl-text" id="ctrlSatellite" type="button" aria-pressed="false"></button>
         <button class="map-ctrl" id="ctrlZoomIn" type="button">+</button>
@@ -40,48 +41,52 @@
         <!-- 2D/3D only changes the tilt, nothing else (owner 2026-09-12) -->
         <button class="map-ctrl map-ctrl-text" id="ctrlTilt" type="button"></button>
       </div>
-      <!-- reference overlays (owner 2026-09-12): ZIP codes and council districts as
-           on/off layers, both OFF by default. Plain GeoJSON files in ./data/,
-           exported by the budget repo's script 96. -->
+      <div class="topic">
+        <label for="topic" id="topicLabel"></label>
+        <select id="topic"></select>
+      </div>
+      <a class="summary-card" id="summaryCard" href="./summary.html"></a>
+      <!-- the Layers box: ZIP codes and council districts, both off until ticked -->
       <div class="overlays">
-        <div class="overlays-title" id="overlaysTitle"></div>
-        <label><input type="checkbox" id="ovZip" /> <span id="ovZipLabel"></span></label>
-        <label><input type="checkbox" id="ovCouncil" /> <span id="ovCouncilLabel"></span></label>
+        <button class="card-toggle overlays-title" id="overlaysTitle" type="button" aria-expanded="true" aria-controls="overlayRows"></button>
+        <div id="overlayRows"></div>
       </div>
+      <!-- the legend of the chosen topic, with the month slider (permits only) and About -->
+      <aside class="legend" id="legend">
+        <button class="card-toggle legend-title" id="legendTitle" type="button" aria-expanded="true" aria-controls="legendBody"></button>
+        <div id="legendBody">
+          <div class="legend-sub" id="legendSub"></div>
+          <ul class="legend-rows" id="legendRows"></ul>
+          <div class="months" id="months" hidden>
+            <button class="play" id="play" type="button"></button>
+            <input type="range" id="month" min="0" max="0" value="0" />
+            <span class="month-label" id="monthLabel"></span>
+          </div>
+          <!-- "About this map": text from explain.js, generated from the budget
+               repo's layer_explanations.json -->
+          <button class="about-toggle" id="aboutToggle" type="button" aria-expanded="false" aria-controls="about"></button>
+          <div class="about" id="about" hidden>
+            <p class="about-what" id="aboutWhat"></p>
+            <p><strong id="aboutHowLabel"></strong> <span id="aboutHow"></span></p>
+            <p><strong id="aboutSourcesLabel"></strong> <span id="aboutSources"></span></p>
+            <p><strong id="aboutCaveatsLabel"></strong> <span id="aboutCaveats"></span></p>
+            <p class="about-general" id="aboutGeneral"></p>
+          </div>
+        </div>
+      </aside>
     </div>
-    <h1 class="title" id="title"></h1>
-
-    <aside class="legend" id="legend">
-      <div class="legend-title" id="legendTitle"></div>
-      <div class="legend-sub" id="legendSub"></div>
-      <ul class="legend-rows" id="legendRows"></ul>
-      <!-- "About this map": what the layer shows, how the values are
-           calculated, sources and caveats. Text comes from explain.js, which
-           is generated from the budget repo's layer_explanations.json. -->
-      <button class="about-toggle" id="aboutToggle" type="button" aria-expanded="false" aria-controls="about"></button>
-      <div class="about" id="about" hidden>
-        <p class="about-what" id="aboutWhat"></p>
-        <p><strong id="aboutHowLabel"></strong> <span id="aboutHow"></span></p>
-        <p><strong id="aboutSourcesLabel"></strong> <span id="aboutSources"></span></p>
-        <p><strong id="aboutCaveatsLabel"></strong> <span id="aboutCaveats"></span></p>
-        <p class="about-general" id="aboutGeneral"></p>
-      </div>
-      <!-- the month slider, only shown on the permits theme -->
-      <div class="months" id="months" hidden>
-        <button class="play" id="play" type="button"></button>
-        <input type="range" id="month" min="0" max="0" value="0" />
-        <span class="month-label" id="monthLabel"></span>
-      </div>
-    </aside>
 
     <div class="zoom-hint" id="zoomHint" hidden></div>
   </div>
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/pmtiles@3/dist/pmtiles.js"></script>
-  <script src="./copy.js?v=20260912i"></script>
+  <script src="./copy.js?v=20260914j"></script>
   <script src="./explain.js?v=20260912i"></script>
   <script src="./config.js?v=20260912i"></script>
-  <script src="./app.js?v=20260912i"></script>
+  <script src="./timelines.js?v=20260914j"></script>
+  <script src="../topicmap/phone.js?v=20260914j"></script>
+  <script src="../topicmap/player.js?v=20260914j"></script>
+  <script src="./app.js?v=20260914j"></script>
 </body>
 </html>

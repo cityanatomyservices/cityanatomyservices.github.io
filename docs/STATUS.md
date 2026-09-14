@@ -1,5 +1,35 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-14 — budget map on the topic map layout, one timeline per topic
+
+Owner: "do the budget map next ... fix the map to be like the previous ones
+where the controls are along the top and the legends have arrows to close
+them, with most things to the left ... a separate timeline for each of the
+topics in the 2027 Budget Topic dropdown."
+
+`/budget/` now uses the shared stylesheet (`../topicmap/style.css`, accent
+`#b2182b` in its own two-line `style.css`), the `?phone` switch
+(`topicmap/phone.js`, split out of the engine's app.js so a page with its
+own map code can use it) and the shared player. Layout: controls in a row
+top-left (satellite, zoom, extents, 3D), then the topic dropdown, the
+summary link, the Layers box and the legend, each folding with the arrow;
+home link top-right; title centred. The map code stays the page's own
+`app.js` (PMTiles themes, not points, so `topicmap/app.js` does not apply).
+
+**Timelines.** `budget/timelines.js` holds one step list per topic; the
+player is rebuilt when the dropdown changes (`MAP_PLAYER.init` now returns
+`destroy()`, and takes `intro: false` so the intro shows once). Step keys
+this page adds: `camera` ('austin' / 'downtown'), `pitch`, `months`
+(plays the permits slider), `show`/`hide` for `zip` / `council`. Address
+`?play&phone#<topic>` records one topic. The step lists are a SKELETON:
+each topic shows its About text (what, how) as two cards plus one
+topic-specific placeholder card; the owner decides what each story walks
+through. Placeholder card text is marked in `copy.js` `player`.
+
+Checked headless (`?phone`): no errors, all seven topics swap their legend
+and timeline, one player at a time, cards fold, phone zoom applied. Assets
+at `?v=20260914j` (topicmap files too, in all three pages). Not recorded.
+
 ## 2026-09-14 — topic map engine lifted into /topicmap/, new-map checklist
 
 Owner: "do the lift and the checklist" (after a readback that the formula

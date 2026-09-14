@@ -6,6 +6,9 @@
 // hides the rest and rebuilds the legend. Clicking a feature opens a popup;
 // on the two tax themes the popup also pulls the parcel's 2021-2026 taxable
 // values from the parcel database that already exists in Supabase.
+// Since 2026-09-14 the page is laid out like the other topic maps (shared
+// stylesheet, folding cards, ?phone) and each theme has its own timeline
+// (timelines.js) run by the shared player.
 (function () {
   const CFG = window.BUDGET_CONFIG;
   const COPY = window.BUDGET_COPY;
@@ -16,6 +19,21 @@
   $('home').textContent = COPY.home;
   $('zoomHint').textContent = COPY.ui.zoomIn;
   $('play').textContent = COPY.ui.play;
+
+  // The Layers box and the legend fold with the arrow in their title (same
+  // as the other topic maps). Both open when the page loads; the timeline
+  // folds and opens them as its steps say.
+  const setCard = (id, open) => {
+    const toggle = $(id);
+    const body = $(toggle.getAttribute('aria-controls'));
+    toggle.setAttribute('aria-expanded', String(open));
+    body.hidden = !open;
+    toggle.parentElement.classList.toggle('is-collapsed', !open);
+  };
+  [['overlaysTitle', true], ['legendTitle', true]].forEach(([id, open]) => {
+    setCard(id, open);
+    $(id).addEventListener('click', () => setCard(id, $(id).getAttribute('aria-expanded') !== 'true'));
+  });
 
   // ── "About this map" panel ────────────────────────────────────────────────
   const EXPLAIN = window.BUDGET_EXPLAIN || { general: {}, themes: {} };
@@ -47,9 +65,13 @@
     zoom: CFG.zoom,
     minZoom: CFG.minZoom,
     maxBounds: CFG.austin,          // cannot pan away from Austin
+    pixelRatio: window.PHONE_SCALE !== 1 ? window.PHONE_SCALE : undefined,   // keep the map sharp under the ?phone zoom
     attributionControl: false
   });
   map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
+  // Compact mode initially opens in MapLibre; start with only the info button.
+  const attribution = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
+  if (attribution) { attribution.classList.remove('maplibregl-compact-show'); attribution.removeAttribute('open'); }
 
   // ── the control stack: satellite, zoom in, zoom out, extents ──────────────
   $('ctrlSatellite').textContent = COPY.ui.satellite;
@@ -212,6 +234,27 @@
     if (THEMES[key].months) applyMonth();
     updateZoomHint();
     history.replaceState(null, '', '#' + key);
+    buildTimeline(key);
+  }
+
+  // ── one timeline per theme ────────────────────────────────────────────────
+  // The shared player draws the bar along the bottom and walks the steps in
+  // timelines.js; swapping the theme takes the old bar down and builds the
+  // new one. The intro card shows once, for the first theme only.
+  let player = null;
+  function buildTimeline(key) {
+    if (player) player.destroy();
+    if (timer) $('play').click();              // stop a running month sweep
+    const steps = window.BUDGET_TIMELINES[key](COPY, EXPLAIN);
+    player = window.MAP_PLAYER.init({ features: [] }, {
+      copy: COPY, steps, setCard, intro: player === null, playDelay: 3000,
+      onStep: (step) => {
+        if (step.camera === 'austin') map.fitBounds(CFG.austin, { padding: 20, pitch: 0, bearing: 0, duration: 1000 });
+        if (step.camera === 'downtown') map.easeTo({ center: CFG.center, zoom: CFG.zoom, duration: 1200 });
+        if (step.pitch != null) map.easeTo({ pitch: step.pitch, duration: 600 });
+        if (step.months && !timer) { slider.value = 0; $('play').click(); }
+      }
+    });
   }
 
   function updateZoomHint() {
@@ -312,11 +355,20 @@
 
   // ── reference overlays: ZIP codes and council districts ──────────────────
   // Two GeoJSON files (config.js overlays), each drawn as an outline plus a
-  // label. Off by default; the checkboxes in the Layers box switch them on.
+  // label. Off by default; the checkboxes in the Layers box switch them on,
+  // and the timeline's show/hide steps tick them through data-overlay.
   $('overlaysTitle').textContent = COPY.ui.overlays;
-  $('ovZipLabel').textContent = COPY.ui.overlayZip;
-  $('ovCouncilLabel').textContent = COPY.ui.overlayCouncil;
-  const OVERLAY_BOX = { zip: 'ovZip', council: 'ovCouncil' };
+  const OVERLAY_LABEL = { zip: COPY.ui.overlayZip, council: COPY.ui.overlayCouncil };
+  const overlayBox = {};
+  Object.keys(CFG.overlays).forEach((key) => {
+    const label = document.createElement('label');
+    const box = document.createElement('input');
+    box.type = 'checkbox'; box.dataset.overlay = key;
+    const sw = document.createElement('span'); sw.className = 'overlay-swatch is-polygon'; sw.style.color = CFG.overlays[key].color;
+    const txt = document.createElement('span'); txt.textContent = OVERLAY_LABEL[key] || key;
+    label.append(box, sw, txt); $('overlayRows').appendChild(label);
+    overlayBox[key] = box;
+  });
   // tint by number: palette[number % 10]
   function overlayTint(field) {
     const m = ['match', ['%', ['to-number', ['get', field]], 10]];
@@ -336,7 +388,7 @@
         layout: { visibility: 'none', 'symbol-placement': 'point', 'text-field': ['get', o.label],
                   'text-font': ['Noto Sans Bold'], 'text-size': 13 },
         paint: { 'text-color': o.color, 'text-halo-color': '#fff', 'text-halo-width': 2.5 } });
-      const box = $(OVERLAY_BOX[key]);
+      const box = overlayBox[key];
       box.checked = false;
       box.addEventListener('change', () => {
         ids.forEach((id) => map.setLayoutProperty(id, 'visibility', box.checked ? 'visible' : 'none'));

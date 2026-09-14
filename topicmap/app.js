@@ -29,19 +29,10 @@
   const FIELD = CFG.categoryField;
   const CATEGORIES = Object.keys(CFG.categories);
 
-  // ?phone in the address: draw the page the way a phone does, whatever the
-  // window size. The page is zoomed so it lays out about 393 CSS px wide
-  // (a phone's width) and the map draws at matching pixel density, so a
-  // 1080x1920 recording looks exactly like the phone view (2026-09-14).
-  const phone = new URLSearchParams(location.search).has('phone');
-  const phoneScale = phone ? window.innerWidth / 393 : 1;
-  if (phone) {
-    document.documentElement.style.zoom = phoneScale;
-    // viewport units ignore zoom, so give the page its phone-sized box by hand
-    const pageEl = document.querySelector('.page');
-    pageEl.style.width = '393px';
-    pageEl.style.height = Math.round(window.innerHeight / phoneScale) + 'px';
-  }
+  // ?phone (topicmap/phone.js, loaded before this file) zooms the page to
+  // phone proportions; the map draws at the matching pixel density
+  const phoneScale = window.PHONE_SCALE || 1;
+  const phone = phoneScale !== 1;
 
   document.title = COPY.pageTitle;
   $('title').textContent = COPY.pageTitle;
