@@ -117,7 +117,7 @@ re-measure and change the `crop` and the `hypot` centre.
     [v2]drawbox=x=(iw-820)/2:y=(ih-360)/2:w=820:h=360:color=white@0.94:t=fill:enable='$SHOW',
     drawtext=fontfile='$FONTB':text='Navigate map':fontsize=64:fontcolor=0x1f2933:x=(w-text_w)/2:y=(h-360)/2+52:enable='$SHOW',
     drawtext=fontfile='$FONT':text='and sources at':fontsize=56:fontcolor=0x1f2933:x=(w-text_w)/2:y=(h-360)/2+152:enable='$SHOW',
-    drawtext=fontfile='$FONTB':text='anatomy.city/datacenter':fontsize=56:fontcolor=0x7b3294:x=(w-text_w)/2:y=(h-360)/2+248:enable='$SHOW'[v];
+    drawtext=fontfile='$FONTB':text='anatomy.city/datacenters':fontsize=56:fontcolor=0x7b3294:x=(w-text_w)/2:y=(h-360)/2+248:enable='$SHOW'[v];
     [1:a]adelay=2000|2000,apad[au]" -map "[v]" -map "[au]" -r 30 -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest "<out>.mp4"
 
 What the extra pieces do: the take's last frame is held 4 s (`tpad` on

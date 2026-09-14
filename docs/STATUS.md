@@ -43,8 +43,8 @@ the take) only the chin below the card's edge is drawn, so the card "covers"
 the face and it keeps playing. Then (owner): hold the end a few seconds so
 the narration finishes, and a centred three-line end card from the last
 second — "Navigate map" / "and sources at" / "anatomy.city/datacenter"
-(owner's text verbatim; NOTE the live page is /datacenters/ with an s —
-flagged, not changed). Output is 1:52: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
+(owner confirmed the missing s was a typo; re-rendered as
+"anatomy.city/datacenters"). Output is 1:52: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
 Command and the re-measuring note are in `docs/datacenters-recording.md`.
 The animation file sits untracked in the TX-31 repo folder; media should
 live in `C:\Dev\map-exports`, not a repo.
