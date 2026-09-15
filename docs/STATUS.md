@@ -1,5 +1,21 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
+## 2026-09-15 — data centers desktop take recorded (not yet trimmed or composited)
+
+Owner: "record the datacenters wide take, with the legends open like
+before." Checklist step 4b run unchanged against `/datacenters/`; the
+engine already keeps both panels open on the desktop layout, so no page
+code changed. Scene item `Site page wide` had picked up the 1.78 scale
+again from the canvas switch (the trap in the checklist); reset to 1
+before the take, scene screenshot confirmed the full frame with the
+Layers box and legend open. Take: `C:\Dev\map-exports\datacenters\
+2026-09-15 10-55-08.mp4` (1920x1080, 30 fps, 2:10, silent). Contact
+sheet checked: site lists from about 3 s, service-area card, water card,
+sequence finished by about 110 s. Canvas and scene put back to portrait.
+NEXT (when the owner asks): trim to the phone take's length so the
+narration timings carry over, then the 4b composite with the owner's
+narrator file, face 260 px at 16,752, end card "anatomy.city/datacenters".
+
 ## 2026-09-14 — AISD desktop cut: panels open throughout, ?width= switch
 
 Owner: a full-size AISD video for Substack, "mostly the same as the short
