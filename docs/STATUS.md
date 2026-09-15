@@ -1,6 +1,6 @@
 # STATUS — cityanatomyservices.github.io (anatomy.city)
 
-## 2026-09-15 — data centers desktop take recorded (not yet trimmed or composited)
+## 2026-09-15 — data centers desktop cut composited (owner to watch)
 
 Owner: "record the datacenters wide take, with the legends open like
 before." Checklist step 4b run unchanged against `/datacenters/`; the
@@ -12,9 +12,25 @@ Layers box and legend open. Take: `C:\Dev\map-exports\datacenters\
 2026-09-15 10-55-08.mp4` (1920x1080, 30 fps, 2:10, silent). Contact
 sheet checked: site lists from about 3 s, service-area card, water card,
 sequence finished by about 110 s. Canvas and scene put back to portrait.
-NEXT (when the owner asks): trim to the phone take's length so the
-narration timings carry over, then the 4b composite with the owner's
-narrator file, face 260 px at 16,752, end card "anatomy.city/datacenters".
+**Trim and composite (same morning, owner: "trim it and do the
+composite").** This take runs EARLIER than the phone take, not later: the
+first site list appears at 2.57 s here against 4.27 s in the phone take
+(measured at 30 fps with `signalstats`: the list card's header strip
+`crop=180:30:1700:80` here, the intro card's Play button strip
+`crop=400:40:300:1030` there). So instead of trimming, the first frame is
+held 1.7 s (`tpad=start_duration=1.7:start_mode=clone`) and the take cut
+at 110.3 s, giving `datacenters-wide-take-112s.mp4` on the phone take's
+clock: the corridor card comes up at 34.45 s against 34.25 s on the phone,
+close enough for the narration. The composite is the 4b command with
+HOLD 0, END 107 and the phone recipe's face crop, with ONE change: the
+face sits bottom-RIGHT (`overlay=1644:752`), because on this map the
+legend is taller than AISD's and the left column scrolls all the way down
+to the timeline bar, so 16,752 would cover the lower legend rows. Nothing
+lives bottom-right but map (the info button at 1887,1045 is below the
+face). Output `C:\Dev\map-exports\datacenters\datacenters-wide-narrated.mp4`
+(1920x1080, 30 fps, 1:52, narration audio). Checked by eye at 4 s, the
+corridor card, the service-area card, the water card, the finished map,
+and either side of the end card. Owner to watch before Substack.
 
 ## 2026-09-14 — AISD desktop cut: panels open throughout, ?width= switch
 
