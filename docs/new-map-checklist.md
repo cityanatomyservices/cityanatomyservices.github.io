@@ -205,7 +205,14 @@ what differs is the layout and the face's spot.
   centred. AISD: same face crop `486:482:269:314`, HOLD 0, END 114 (the
   desktop take ran a second later than the phone one; measure the last
   card's exit with the `signalstats` line on a strip inside the top-centre
-  card, e.g. `crop=200:40:600:100`).
+  card, e.g. `crop=200:40:600:100`). Two things to check on the take
+  first (learned on the data centers cut, 2026-09-15): if the legend runs
+  down to the timeline bar (six status rows plus the dot-size key), the
+  face goes bottom-RIGHT instead, `overlay=1644:752`, where only map
+  sits; and if the desktop take runs EARLIER than the phone take (list at
+  2.57 s against 4.27 s there), hold the first frame with
+  `tpad=start_duration=<gap>:start_mode=clone` and cut at 112 minus the
+  gap rather than trimming, so the phone recipe's numbers still apply.
 
       "$FF" -y -i "$TAKE" -i "$FACE" -filter_complex "
       [0:v]tpad=stop_mode=clone:stop_duration=$HOLD[base];
