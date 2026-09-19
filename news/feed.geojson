@@ -1,73 +1,418 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-09-18T14:41:51.950Z",
- "placed": 42,
- "total": 102,
+ "generated": "2026-09-19T14:02:30.964Z",
+ "placed": 43,
+ "total": 103,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas vs. UTSA preview: What to watch as No. 1 Longhorns wrap up nonconference play",
+    "link": "https://www.kxan.com/sports-general/horns-report/texas-utsa-college-football-game-preview/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-19T14:00:00.000Z",
+    "summary": "After a week filled with off-field storylines, No. 1 Texas returns to the field Saturday against UTSA in its final test before SEC play begins.",
+    "place": null,
+    "placeKind": null
+   }
+  },
   {
    "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.78,
-     30.33
+     -97.6772,
+     30.6333
     ]
    },
    "properties": {
-    "title": "Old San Antonio Road, Puryear Road closure planned",
-    "link": "https://www.kxan.com/traffic/traffic-projects/old-san-antonio-road-puryear-road-closure-planned/",
+    "title": "Gibson & Co. Salon permanently closed in Georgetown",
+    "link": "https://communityimpact.com/georgetown/business/gibson-co-salon-permanently-closed-in-georgetown/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-19T13:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Weekend heat with rain chances holding off for now",
+    "link": "https://www.kxan.com/weather/forecast/weekend-heat-with-rain-chances-holding-off-for-now/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-09-18T14:28:04.000Z",
-    "summary": "Starting Monday, Travis County will begin construction at the intersection of Old San Antonio Road and Puryear Road near the Hays County line. Crews will add a new westbound to northbound right turn lane and widen the southwest corner to improve safety. Officials warn that the intersection may be closed for up to 180 days while work continues.",
-    "place": "Travis County",
+    "published": "2026-09-19T11:45:20.000Z",
+    "summary": "The weekend will be another hot one but rain chances are waiting for us in the new week. - Freddy Vela",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Week 4 Texas high school football scores",
+    "link": "https://www.kxan.com/sports-general/week-4-texas-high-school-football/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-19T04:15:14.000Z",
+    "summary": "Check out final scores from Week 4 of the 2026 Texas high school football season from across the state.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Housing advocates hope City of Austin contract switch builds on affordability momentum",
+    "link": "https://www.kxan.com/news/local/austin/housing-advocates-hope-city-of-austin-contract-switch-builds-on-affordability-momentum/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-19T03:12:34.000Z",
+    "summary": "The possible $60 million change could update how the city handles permitting and land management.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Is a breakout game coming for this Texas WR?",
+    "link": "https://www.kxan.com/sports-general/horns-report/is-a-breakout-game-coming-for-this-texas-wr/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-18T23:02:27.000Z",
+    "summary": "Coming off an emotional win over Ohio State, Texas turns its attention to UTSA. Could a Longhorns receiver be in store for a breakout game?",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.3153,
+     30.1105
+    ]
+   },
+   "properties": {
+    "title": "Dick’s Sporting Goods teased for Bastrop",
+    "link": "https://communityimpact.com/bastrop-cedar-creek/business/dick-s-sporting-goods-teased-for-bastrop/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-18T22:26:33.000Z",
+    "summary": "City manager hints at retailer during Sept. 14 State of the City address",
+    "place": "Bastrop",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.89853,
+     30.4043
+    ]
+   },
+   "properties": {
+    "title": "Four Points-area residents discuss future of former 3M campus",
+    "link": "https://communityimpact.com/lake-travis-westlake/development/four-points-area-residents-discuss-future-of-former-3m-campus/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-09-18T22:11:00.000Z",
+    "summary": "SB Energy purchased the site from Karlin Real Estate earlier this year, and announced an AI company as its first tenant",
+    "place": "Four Points",
+    "placeKind": "neighborhood"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746,
+     30.245
+    ]
+   },
+   "properties": {
+    "title": "Austin ISD releases dashboard to track schools with unacceptable ratings",
+    "link": "https://www.kxan.com/news/local/austin/austin-isd-releases-dashboard-to-track-schools-with-unacceptable-ratings/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-18T21:30:24.000Z",
+    "summary": "Austin Independent School District launched a dashboard to allow the community to track student performance and teacher quality for schools that have received unacceptable ratings.",
+    "place": "Austin ISD",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Cedar Ridge stays unbeaten with 34-16 win over Rouse",
+    "link": "https://www.kxan.com/sports-general/watch-rouse-vs-cedar-ridge-football-live/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-18T21:01:38.000Z",
+    "summary": "Cedar Ridge improved to 4-0 with a 34-16 win over Rouse on Friday night, closing out nondistrict play with a perfect record.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Family of teen hopes 'more awareness' prevents future fentanyl deaths",
+    "link": "https://www.kxan.com/news/local/austin/family-of-teen-hopes-more-awareness-prevents-future-fentanyl-deaths/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-18T20:59:18.000Z",
+    "summary": "\"He gave us 19 incredible years with some amazing moments that I will cherish forever,\" said Naomi Westgard of her 19-year-old son Ethan.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Girl Scouts of Central Texas, WGU launch AI Explorer Patch program",
+    "link": "https://www.kxan.com/news/local/austin/girl-scouts-of-central-texas-wgu-launch-ai-explorer-patch-program/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-18T20:44:46.000Z",
+    "summary": "Girl Scouts of Central Texas and Western Governors University unveiled a new AI Explorer patch designed to teach more than 12,000 local Girl Scouts about artificial intelligence.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6789,
+     30.5083
+    ]
+   },
+   "properties": {
+    "title": "Round Rock holds off Vandegrift 41-38 in Week 4 thriller",
+    "link": "https://www.kxan.com/sports-general/watch-round-rock-vs-vandegrift-football-live/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-18T20:42:50.000Z",
+    "summary": "Round Rock held off Vandegrift 41-38 Friday night, earning its third straight win and avenging last season's overtime loss to the Vipers.",
+    "place": "Round Rock",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Hutto City Council votes to end use of Flock Safety license plate readers",
+    "link": "https://communityimpact.com/pflugerville-hutto/government/hutto-city-council-votes-to-end-use-of-flock-safety-license-plate-readers/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-18T20:01:33.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Issues & Eggs Recap: No Wrong Door — Breaking the Homelessness & Mental Health Cycle",
+    "link": "https://downtownaustin.com/blog/issues-eggs-recap-no-wrong-door-breaking-the-homelessness-mental-health-cycle/",
+    "outlet": "Downtown Austin Alliance",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-09-18T19:50:14.000Z",
+    "summary": "On Tuesday, September 15, the Downtown Austin Alliance hosted a special installment of their educational event series, Issues & Eggs. This event focused on the No Wrong Door initiative and city and county efforts to better address the needs of our community’s... The post Issues & Eggs Recap: No Wrong Door — Breaking the Homelessness & Mental Health Cycle appeared first on Downtown Austin Alliance ",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Doll House Beauty Lounge now open in Hutto",
+    "link": "https://communityimpact.com/pflugerville-hutto/business/doll-house-beauty-lounge-now-open-in-hutto/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-18T19:42:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8772,
+     29.9891
+    ]
+   },
+   "properties": {
+    "title": "Kyle council approves budget addressing $14.2 deficit, maintaining Flock contracts",
+    "link": "https://communityimpact.com/san-marcos-buda-kyle/government/kyle-council-approves-budget-addressing-14-2-deficit-maintaining-flock-contracts/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-18T19:25:00.000Z",
+    "summary": "",
+    "place": "Kyle",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.718,
+     30.265
+    ]
+   },
+   "properties": {
+    "title": "How an East Austin food truck became the go-to taco joint for the city's Muslim community",
+    "link": "https://www.kut.org/austin/2026-09-18/vecinos-taco-truck-austin-tx-halal-tacos-texas-podcast",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-09-18T18:59:46.000Z",
+    "summary": "The food truck Vecinos listened closely enough to one customer that it discovered an entire community waiting outside its door.",
+    "place": "East Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Business news, wave pool, school closures: 6 trending Austin-area stories",
+    "link": "https://communityimpact.com/georgetown/business/business-news-wave-pool-school-closures-6-trending-austin-area-stories/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-18T17:24:56.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79,
+     30.4
+    ]
+   },
+   "properties": {
+    "title": "Theme parks and breweries: 17 Northwest Austin business and dining updates",
+    "link": "https://communityimpact.com/northwest-austin/business/theme-parks-and-breweries-17-northwest-austin-business-and-dining-updates/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-18T17:15:00.000Z",
+    "summary": "",
+    "place": "Northwest Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6,
+     30.65
+    ]
+   },
+   "properties": {
+    "title": "Williamson County seeks applications for Precinct 1 constable",
+    "link": "https://communityimpact.com/georgetown/government/williamson-county-seeks-applications-for-precinct-1-constable/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-18T17:00:00.000Z",
+    "summary": "",
+    "place": "Williamson County",
     "placeKind": "county"
    }
   },
   {
    "type": "Feature",
-   "geometry": null,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6789,
+     30.5083
+    ]
+   },
    "properties": {
-    "title": "Man pleads guilty in fatal crash involving bicyclist",
-    "link": "https://www.kxan.com/news/crime/man-pleads-guilty-in-fatal-crash-involving-bicyclist/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T14:02:15.000Z",
-    "summary": "A man pleaded guilty to driving while intoxicated in connection with a fatal 2024 crash involving a bicyclist.",
-    "place": null,
-    "placeKind": null
+    "title": "Polished Smiles of Round Rock now serving patients",
+    "link": "https://communityimpact.com/round-rock/business/polished-smiles-of-round-rock-now-serving-patients/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-18T16:28:16.000Z",
+    "summary": "",
+    "place": "Round Rock",
+    "placeKind": "city"
    }
   },
   {
    "type": "Feature",
-   "geometry": null,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746,
+     30.245
+    ]
+   },
    "properties": {
-    "title": "Sarkisian wants No. 1 Texas to improve after Ohio State win",
-    "link": "https://www.kxan.com/sports-general/horns-report/sarkisian-wants-no-1-texas-to-improve-after-ohio-state-win/",
-    "outlet": "KXAN",
+    "title": "Austin ISD appeals two failing school ratings in bid to avoid takeover",
+    "link": "https://austincurrent.org/2026/09/18/austin-austinisd-takeover-tea-ratings-burnet-webb/",
+    "outlet": "Austin Current",
     "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T14:00:00.000Z",
-    "summary": "After an emotional win over Ohio State, Steve Sarkisian wants No. 1 Texas to refocus and improve its ball security, third-down defense and starts ahead of Saturday's matchup with UTSA.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Billions at stake as Texas reshapes business contract program",
-    "link": "https://www.kxan.com/cause-and-effect/billions-at-stake-as-texas-reshapes-business-contract-program/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T12:00:00.000Z",
-    "summary": "Texas has dramatically overhauled its Historically Underutilized Business (HUB) program in the past year, shifting eligibility toward service-disabled veterans and leaving thousands of minority- and women-owned businesses without certification.",
-    "place": null,
-    "placeKind": null
+    "color": "#b9a8f0",
+    "published": "2026-09-18T16:20:10.000Z",
+    "summary": "Burnet missed a D by one point and Webb by two, leaving Austin ISD a narrow path to overturn the ratings. If the two schools ratings rise, the district could stave off a state intervention. The post Austin ISD appeals two failing school ratings in bid to avoid takeover appeared first on Austin Current .",
+    "place": "Austin ISD",
+    "placeKind": "landmark"
    }
   },
   {
@@ -93,21 +438,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Lower humidity next 48 hours, but not feeling like fall yet",
-    "link": "https://www.kxan.com/weather/forecast/lower-humidity-next-48-hours-but-not-feeling-like-fall-yet/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T10:59:44.000Z",
-    "summary": "We're in the final stretch of summer but despite the calendar flipping to fall next Tuesday, the weather will be slow to catch up. -Meteorologist Kristen Currie",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -125,36 +455,6 @@
     "summary": "Ostillo Art Foundation includes a gallery, library and performance area. It opens Saturday in the Rosewood neighborhood.",
     "place": "East Austin",
     "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Forecast to end 2026: El Niño rains on the way",
-    "link": "https://www.kxan.com/weather/weather-blog/forecast-to-end-2026-el-nino-rains-on-the-way/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T01:28:27.000Z",
-    "summary": "We may finally get our rain back next month in Central Texas as we start to see the more typical impacts of a very strong El Niño pattern.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Sarkisian challenges No. 1 Texas to avoid letdown against UTSA",
-    "link": "https://www.kxan.com/sports-general/horns-report/no-1-texas-utsa-football-game/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T00:27:18.000Z",
-    "summary": "After an emotional comeback win over Ohio State and an eventful week off the field, Steve Sarkisian wants No. 1 Texas to refocus and show what it's made of Saturday night against UTSA.",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -182,42 +482,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Austin City Council Member Paige Ellis on if she'll endorse in the D8 race",
-    "link": "https://www.kxan.com/inside-austins-agenda/austin-city-council-member-paige-ellis-on-if-shell-endorse-in-the-d8-race/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-17T21:54:31.000Z",
-    "summary": "On this episode of Inside Austin’s Agenda, KXAN Investigator Grace Reader sat down with Austin City Council Member Paige Ellis, who recently learned she will not be able to run for a third term.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "Inmate found dead in Travis County Jail Wednesday",
-    "link": "https://www.kxan.com/news/local/travis-county/inmate-found-dead-in-travis-county-jail-wednesday/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-17T21:47:39.000Z",
-    "summary": "A 43-year-old inmate was found dead in the Travis County Jail on Wednesday morning, according to the sheriff's office.",
-    "place": "Travis County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Houston-area thrift store to open up Austin expansion",
     "link": "https://communityimpact.com/central-austin/business/houston-area-thrift-store-to-open-up-austin-expansion/",
     "outlet": "Community Impact",
@@ -225,21 +489,6 @@
     "color": "#f08aa8",
     "published": "2026-09-17T21:45:00.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Copperas Cove cruises past Westwood 49-15 in Week 4",
-    "link": "https://www.kxan.com/sports-general/watch-copperas-cove-vs-westwood-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-17T21:30:58.000Z",
-    "summary": "Copperas Cove controlled Thursday night's matchup from start to finish, cruising past Westwood 49-15 to snap a two-game losing streak.",
     "place": null,
     "placeKind": null
    }
@@ -389,27 +638,6 @@
     "summary": "In the movie, a hypnotherapy session turns into something surreal. Michael Zumaya planned the film's production schedule around submitting it to Fantastic Fest, because he knew the audience would just get it.",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Once Upon a Child now buying merchandise for resell in Round Rock",
-    "link": "https://communityimpact.com/round-rock/business/once-upon-a-child-now-buying-merchandise-for-resell-in-round-rock/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-17T02:41:11.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
    }
   },
   {
@@ -581,36 +809,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Chipotle Mexican Grill announces opening date for 2nd New Braunfels location",
-    "link": "https://communityimpact.com/new-braunfels/business/chipotle-mexican-grill-announces-opening-date-for-2nd-new-braunfels-location/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-16T21:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Clarksville’s newest neighborhood third space: The Watershed",
-    "link": "https://communityimpact.com/central-austin/business/clarksville-s-newest-neighborhood-third-space-the-watershed/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-16T20:57:07.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "City dedicates $2.55M to Austin Infrastructure Academy workforce training, jobs program",
     "link": "https://communityimpact.com/central-austin/government/city-dedicates-2-55m-to-austin-infrastructure-academy-workforce-training-jobs-program/",
     "outlet": "Community Impact",
@@ -620,69 +818,6 @@
     "summary": "",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -98.0867,
-     30.1902
-    ]
-   },
-   "properties": {
-    "title": "Beauty and BBQ: Check out 6 Dripping Springs business updates",
-    "link": "https://communityimpact.com/southwest-austin-dripping-springs/business/beauty-and-bbq-check-out-6-dripping-springs-business-updates/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-16T20:00:00.000Z",
-    "summary": "",
-    "place": "Dripping Springs",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.62,
-     30.439
-    ]
-   },
-   "properties": {
-    "title": "Daddy Shack Golf Club now open in Pflugerville",
-    "link": "https://communityimpact.com/pflugerville-hutto/business/daddy-shack-golf-club-now-open-in-pflugerville/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-16T19:35:33.000Z",
-    "summary": "",
-    "place": "Pflugerville",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8531,
-     30.5788
-    ]
-   },
-   "properties": {
-    "title": "Impact Family Wellness relocates clinic near Leander-Liberty Hill border",
-    "link": "https://communityimpact.com/leander-liberty-hill/business/impact-family-wellness-relocates-clinic-near-leander-liberty-hill-border/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-16T17:42:04.000Z",
-    "summary": "",
-    "place": "Leander",
-    "placeKind": "city"
    }
   },
   {
@@ -846,27 +981,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8772,
-     29.9891
-    ]
-   },
-   "properties": {
-    "title": "Texas State to improve Lake Kyle water quality with floating wetlands",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/government/texas-state-to-improve-lake-kyle-water-quality-with-floating-wetlands/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-15T23:16:59.000Z",
-    "summary": "",
-    "place": "Kyle",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Construction on RM 620 widening project may begin in early 2029",
@@ -882,27 +996,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "Cedar Park to build wave pool in $10 million Veterans Memorial Pool expansion",
-    "link": "https://communityimpact.com/cedar-park/government/cedar-park-to-build-wave-pool-in-10-million-veterans-memorial-pool-expansion/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-15T21:31:41.000Z",
-    "summary": "",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "GBMC Communities to develop 6.5-acre office, warehouse space in New Braunfels",
@@ -911,21 +1004,6 @@
     "group": "planning",
     "color": "#5fc4b6",
     "published": "2026-09-15T21:19:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Central Health approves $54M for mental healthcare",
-    "link": "https://communityimpact.com/central-austin/government/central-health-approves-54m-for-mental-healthcare/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-15T21:17:00.000Z",
     "summary": "",
     "place": null,
     "placeKind": null
@@ -1602,27 +1680,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.736,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Austin's Red River Cultural District demands city help amid major venue closures",
-    "link": "https://www.kut.org/life-arts/2026-09-08/austin-tx-red-river-cultural-district-letter-city-preservation-music-venue-closures",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-08T21:23:54.000Z",
-    "summary": "The district released an open letter Tuesday urging the city and community stakeholders to prioritize zoning rules designed to protect live music spaces.",
-    "place": "Red River",
-    "placeKind": "street"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Data center, 7 Brew: Check out 5 major Austin-area permits filed this week",
@@ -1670,27 +1727,6 @@
     "summary": "",
     "place": "Georgetown",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "An Austin ISD takeover could reverberate across the city",
-    "link": "https://austincurrent.org/2026/09/08/austin-austinisd-takeover-superintendent-mayor/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-08T10:30:00.000Z",
-    "summary": "Mayor Kirk Watson wants to help keep Austin ISD independent as the state weighs how to intervene. The post An Austin ISD takeover could reverberate across the city appeared first on Austin Current .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
    }
   },
   {
@@ -1769,21 +1805,6 @@
     "summary": "",
     "place": "Pflugerville",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "‘Making private wealth work for public good’: Austin to start imposing new fees for private planes",
-    "link": "https://www.kut.org/transportation/2026-09-04/making-private-wealth-work-for-public-good-austin-to-start-imposing-new-fees-for-private-planes",
-    "outlet": "KUT",
-    "group": "planning",
-    "color": "#7ad4c8",
-    "published": "2026-09-04T16:48:43.000Z",
-    "summary": "Austin is moving forward with new fees for private aircraft that could generate additional revenue amid Austin’s airport expansion.",
-    "place": null,
-    "placeKind": null
    }
   }
  ]
