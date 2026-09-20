@@ -1,9 +1,153 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-09-19T14:02:30.964Z",
- "placed": 43,
- "total": 103,
+ "generated": "2026-09-20T14:23:01.872Z",
+ "placed": 36,
+ "total": 88,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Texas Roadhouse to open next month in Georgetown",
+    "link": "https://communityimpact.com/georgetown/business/texas-roadhouse-to-open-next-month-in-georgetown/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-09-20T13:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Warm end to the week with a few showers today",
+    "link": "https://www.kxan.com/weather/forecast/warm-end-to-the-week-with-a-few-showers-today/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-20T11:46:54.000Z",
+    "summary": "Radar this morning has been a bit more active as a few showers kick off in the Hill Country, but heat is still in the cards for the afternoon. - Freddy Vela",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7,
+     30.21
+    ]
+   },
+   "properties": {
+    "title": "Pedestrian in critical condition after being hit by vehicle in southeast Austin",
+    "link": "https://www.kxan.com/news/local/austin/pedestrian-in-critical-condition-after-being-hit-by-vehicle-in-southeast-austin/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-20T07:06:02.000Z",
+    "summary": "Austin-Travis County EMS said the pedestrian was hit by a vehicle in the 3800 block of Todd Lane.",
+    "place": "Southeast Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "Recovery in the Park spotlights Austinites' journeys to sobriety",
+    "link": "https://www.kxan.com/news/local/austin/recovery-in-the-park-spotlights-austinites-journeys-to-sobriety/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-20T02:32:25.000Z",
+    "summary": "The event arrived the same week and blocks away from where Austin Police responded to a mass overdose off E. 6th Street.",
+    "place": "Austin Police",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "No. 1 Texas handles UTSA 30-6 despite 'choppy' offense",
+    "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-1-texas-hosts-utsa-at-dkr/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-20T00:00:00.000Z",
+    "summary": "No. 1 Texas closed out nonconference play with a 30-6 win over UTSA, leaning on a dominant defensive performance despite an uneven night offensively.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "DAWA celebrates 7 years of 'giving to the givers'",
+    "link": "https://www.kxan.com/news/local/austin/dawa-celebrates-7-years-of-giving-to-the-givers/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-19T21:13:32.000Z",
+    "summary": "Jonathan \"Chaka\" Mahone started DAWA (Diversity and Wellness in Action) in 2019 -- about 10 years after he moved to Austin. He said he started the nonprofit because he started thriving in life rather than just surviving, and he wanted to give back to his community.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7401,
+     30.2569
+    ]
+   },
+   "properties": {
+    "title": "Fiesta de Salud brings free health resources, culture, community to Austin",
+    "link": "https://www.kxan.com/news/local/austin/fiesta-de-salud-brings-free-health-resources-culture-community-to-austin/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-19T18:08:52.000Z",
+    "summary": "Families gathered at the Emma S. Barrientos Mexican American Cultural Center on Saturday for Fiesta de Salud, a free community health fair aimed at helping Central Texans start the school year healthy and informed.",
+    "place": "Emma S. Barrientos Mexican American Cultural Center",
+    "placeKind": "museum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "WilCo OKs $1.1M archival, preservation plan",
+    "link": "https://communityimpact.com/georgetown/government/wilco-oks-1-1m-archival-preservation-plan/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-19T17:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
@@ -38,21 +182,6 @@
     "summary": "",
     "place": "Georgetown",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Weekend heat with rain chances holding off for now",
-    "link": "https://www.kxan.com/weather/forecast/weekend-heat-with-rain-chances-holding-off-for-now/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-19T11:45:20.000Z",
-    "summary": "The weekend will be another hot one but rain chances are waiting for us in the new week. - Freddy Vela",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -118,114 +247,6 @@
     "published": "2026-09-18T22:26:33.000Z",
     "summary": "City manager hints at retailer during Sept. 14 State of the City address",
     "place": "Bastrop",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.89853,
-     30.4043
-    ]
-   },
-   "properties": {
-    "title": "Four Points-area residents discuss future of former 3M campus",
-    "link": "https://communityimpact.com/lake-travis-westlake/development/four-points-area-residents-discuss-future-of-former-3m-campus/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-18T22:11:00.000Z",
-    "summary": "SB Energy purchased the site from Karlin Real Estate earlier this year, and announced an AI company as its first tenant",
-    "place": "Four Points",
-    "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Austin ISD releases dashboard to track schools with unacceptable ratings",
-    "link": "https://www.kxan.com/news/local/austin/austin-isd-releases-dashboard-to-track-schools-with-unacceptable-ratings/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T21:30:24.000Z",
-    "summary": "Austin Independent School District launched a dashboard to allow the community to track student performance and teacher quality for schools that have received unacceptable ratings.",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Cedar Ridge stays unbeaten with 34-16 win over Rouse",
-    "link": "https://www.kxan.com/sports-general/watch-rouse-vs-cedar-ridge-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T21:01:38.000Z",
-    "summary": "Cedar Ridge improved to 4-0 with a 34-16 win over Rouse on Friday night, closing out nondistrict play with a perfect record.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Family of teen hopes 'more awareness' prevents future fentanyl deaths",
-    "link": "https://www.kxan.com/news/local/austin/family-of-teen-hopes-more-awareness-prevents-future-fentanyl-deaths/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T20:59:18.000Z",
-    "summary": "\"He gave us 19 incredible years with some amazing moments that I will cherish forever,\" said Naomi Westgard of her 19-year-old son Ethan.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Girl Scouts of Central Texas, WGU launch AI Explorer Patch program",
-    "link": "https://www.kxan.com/news/local/austin/girl-scouts-of-central-texas-wgu-launch-ai-explorer-patch-program/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T20:44:46.000Z",
-    "summary": "Girl Scouts of Central Texas and Western Governors University unveiled a new AI Explorer patch designed to teach more than 12,000 local Girl Scouts about artificial intelligence.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Round Rock holds off Vandegrift 41-38 in Week 4 thriller",
-    "link": "https://www.kxan.com/sports-general/watch-round-rock-vs-vandegrift-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-18T20:42:50.000Z",
-    "summary": "Round Rock held off Vandegrift 41-38 Friday night, earning its third straight win and avenging last season's overtime loss to the Vipers.",
-    "place": "Round Rock",
     "placeKind": "city"
    }
   },
@@ -527,21 +548,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Hold on tight: COTALAND nears its debut",
-    "link": "https://communityimpact.com/bastrop-cedar-creek/business/hold-on-tight-cotaland-nears-its-debut/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-17T18:39:00.000Z",
-    "summary": "The theme park marks the latest step in COTA’s expansion beyond racing",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Grand Meadow Neighborhood Park gains accessible features, play structures",
     "link": "https://communityimpact.com/southwest-austin-dripping-springs/government/grand-meadow-neighborhood-park-gains-accessible-features-play-structures/",
     "outlet": "Community Impact",
@@ -602,27 +608,6 @@
     "summary": "And can APD just ignore pot laws?",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Aalo Atomics plans $25M advanced manufacturing facility in Georgetown",
-    "link": "https://communityimpact.com/georgetown/development/aalo-atomics-plans-25m-advanced-manufacturing-facility-in-georgetown/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-17T15:00:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
    }
   },
   {
@@ -768,27 +753,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "297-room Cedar Park Marriott Hotel and Conference Center to open in spring 2027",
-    "link": "https://communityimpact.com/cedar-park/development/197-room-cedar-park-marriott-hotel-and-conference-center-to-open-in-spring-2027/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-16T22:17:00.000Z",
-    "summary": "",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -98.03,
      30.06
     ]
@@ -815,21 +779,6 @@
     "group": "government",
     "color": "#f0c27a",
     "published": "2026-09-16T20:49:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Liberty Hill City Council approves $138 million budget",
-    "link": "https://communityimpact.com/leander-liberty-hill/government/liberty-hill-city-council-approves-138-million-budget/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-16T17:27:10.000Z",
     "summary": "",
     "place": null,
     "placeKind": null
@@ -983,51 +932,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Construction on RM 620 widening project may begin in early 2029",
-    "link": "https://communityimpact.com/lake-travis-westlake/development/construction-on-rm-620-widening-project-may-begin-in-early-2029/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-15T22:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "GBMC Communities to develop 6.5-acre office, warehouse space in New Braunfels",
-    "link": "https://communityimpact.com/new-braunfels/development/gbmc-communities-to-develop-6-5-acre-office-warehouse-space-in-new-braunfels/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-15T21:19:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Kia dealership, Walmart: Check out 5 major Austin-area permits filed this week",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/development/kia-dealership-walmart-check-out-5-major-austin-area-permits-filed-this-week/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-15T20:54:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Austin pushes for tougher mold rules for rentals. One family knows what’s at stake",
     "link": "https://austincurrent.org/2026/09/15/austin-pushes-for-tougher-mold-rules-for-rentals-one-family-knows-whats-at-stake/",
     "outlet": "Austin Current",
@@ -1149,42 +1053,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "Cedar Park slated for 2 new aerospace and military manufacturing companies",
-    "link": "https://communityimpact.com/cedar-park/development/cedar-park-slated-for-2-new-aerospace-and-military-manufacturing-companies/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-14T21:41:58.000Z",
-    "summary": "",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Airbnb launches national affordable housing fund with $6.4M Austin investment",
-    "link": "https://communityimpact.com/central-austin/development/airbnb-launches-national-affordable-housing-fund-with-6-4m-austin-investment/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-14T20:52:31.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Watson finds a new pot of money for homeless",
@@ -1263,27 +1131,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "728-acre Yearwood development receives initial approval from Georgetown officials",
-    "link": "https://communityimpact.com/georgetown/development/728-acre-yearwood-development-receives-initial-approval-from-georgetown-officials/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-14T10:55:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.78,
      30.33
     ]
@@ -1332,42 +1179,6 @@
     "color": "#b9a8f0",
     "published": "2026-09-11T20:17:55.000Z",
     "summary": "The Austin Fire Department said the annual stair climb is the longest-running tradition of its kind in the nation. It began the day after the 9/11 attacks.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.74582,
-     30.31602
-    ]
-   },
-   "properties": {
-    "title": "Austin City Council postpones Rosedale School rezoning vote to Sept. 24",
-    "link": "https://communityimpact.com/central-austin/development/austin-city-council-postpones-rosedale-school-rezoning-vote-to-sept-24/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-11T18:28:00.000Z",
-    "summary": "",
-    "place": "Rosedale",
-    "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "$280M data center coming to Hutto",
-    "link": "https://communityimpact.com/pflugerville-hutto/development/280m-data-center-coming-to-hutto/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-11T17:02:29.000Z",
-    "summary": "",
     "place": null,
     "placeKind": null
    }
@@ -1682,21 +1493,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Data center, 7 Brew: Check out 5 major Austin-area permits filed this week",
-    "link": "https://communityimpact.com/pflugerville-hutto/development/data-center-7-brew-check-out-5-major-austin-area-permits-filed-this-week/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-08T20:37:28.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Texas cities say Abbott’s proposal to disband their electric companies won’t lower costs",
     "link": "https://austincurrent.org/2026/09/08/texas-austin-energy-san-antonio-cps-abbott/",
     "outlet": "Austin Current",
@@ -1706,27 +1502,6 @@
     "summary": "On the campaign trail, the governor said dismantling city-owned utilities will save customers money by introducing competition. The post Texas cities say Abbott’s proposal to disband their electric companies won’t lower costs appeared first on Austin Current .",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Reservations now open for 12 new hangars coming to Georgetown Executive Airport",
-    "link": "https://communityimpact.com/georgetown/development/reservations-now-open-for-12-new-hangars-coming-to-georgetown-executive-airport/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-08T11:00:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
    }
   },
   {
@@ -1763,48 +1538,6 @@
     "summary": "Update: The Texas Democratic Party’s Disciplinary Committee on September 9th notified Jacob Cortés that it had upheld the complaint against him. “Accordingly, effective September 8, 2026, you are hereby removed from all positions…including your positions as Travis County Democratic Party Precinct Chair for Precinct 113 and Super Precinct Chair for Windsor Park.” Cortés supplied a […]",
     "place": "Travis County",
     "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "1-acre tract rezoned for future black-box theater in Round Rock",
-    "link": "https://communityimpact.com/round-rock/development/1-acre-tract-rezoned-for-future-black-box-theater-in-round-rock/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-07T11:00:00.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.62,
-     30.439
-    ]
-   },
-   "properties": {
-    "title": "Catch up on the 6 most-read Pflugerville and Hutto stories from August",
-    "link": "https://communityimpact.com/pflugerville-hutto/development/catch-up-on-the-6-most-read-pflugerville-and-hutto-stories-from-august/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-09-05T18:28:40.000Z",
-    "summary": "",
-    "place": "Pflugerville",
-    "placeKind": "city"
    }
   }
  ]
