@@ -1,9 +1,126 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-09-26T14:48:49.855Z",
+ "generated": "2026-09-27T15:26:59.350Z",
  "placed": 40,
- "total": 110,
+ "total": 111,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Cold front brings pattern change, flood risk this week",
+    "link": "https://www.kxan.com/weather/forecast/cold-front-brings-pattern-change-flood-risk-this-week/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-27T12:45:45.000Z",
+    "summary": "Scattered showers are possible throughout Sunday, and warmer temperatures remain for now, but a cold front is on the way later this week.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Candidate for Austin city council arrested following ICE protest",
+    "link": "https://www.kxan.com/news/local/austin/candidate-for-austin-city-council-arrested-following-ice-protest/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-26T20:12:26.000Z",
+    "summary": "The candidate's campaign claims DPS troopers arrested him while he was walking his dog Saturday morning.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Watch: Joaquin Castro, Sigrid Gonzalez and Rochelle Garza discuss Texas’ ICE detention centers",
+    "link": "https://www.texastribune.org/2026/09/26/texas-ice-detention-centers-joaquin-castro-tribfest-2026/",
+    "outlet": "Texas Tribune",
+    "group": "government",
+    "color": "#d9a95a",
+    "published": "2026-09-26T19:05:00.000Z",
+    "summary": "People who have been inside Texas’ ICE detention centers describe what’s happening, who's being held and what it means for communities, families and the rule of law at 2:15 p.m. Saturday. The post Watch: Joaquin Castro, Sigrid Gonzalez and Rochelle Garza discuss Texas’ ICE detention centers appeared first on The Texas Tribune .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "Austin Police Oversight hosts expo, highlights accountability efforts",
+    "link": "https://www.kxan.com/news/local/austin/austin-police-oversight-hosts-expo-highlights-accountability-efforts/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-26T18:15:46.000Z",
+    "summary": "As discussions about police accountability and transparency continue across Austin, city leaders with Austin Police Oversight spent Saturday highlighting the role the office plays in reviewing concerns about policing and engaging with the community.",
+    "place": "Austin Police",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Karl Rove says John Cornyn, not Paxton, could beat Talarico",
+    "link": "https://www.texastribune.org/2026/09/26/karl-rove-republicans-tribfest-2026/",
+    "outlet": "Texas Tribune",
+    "group": "government",
+    "color": "#d9a95a",
+    "published": "2026-09-26T16:08:07.000Z",
+    "summary": "Karl Rove speaks at the 2026 Texas Tribune Festival, focusing on the comments made by Bo French and the U.S. Senate race. The post Karl Rove says John Cornyn, not Paxton, could beat Talarico appeared first on The Texas Tribune .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "No. 1 Texas survives late Tennessee rally, escapes Neyland with 20-17 win",
+    "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-1-texas-travels-to-neyland-for-first-time-to-face-no-14-tennessee/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-26T16:00:00.000Z",
+    "summary": "The Longhorns piled up 10 sacks and survived a late Tennessee rally to beat the No. 14 Volunteers 20-17 in their SEC opener.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.3153,
+     30.1105
+    ]
+   },
+   "properties": {
+    "title": "Benefits this weekend for young mother killed in double homicide",
+    "link": "https://www.kxan.com/news/local/austin/benefits-this-weekend-for-young-mother-killed-in-double-homicide/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-26T14:59:40.000Z",
+    "summary": "This month, police found Desiree Gauna, 27, dead inside her home. Investigators believe Manuel Salgado Vasquez, whom she lived with, shot her, before going to Bastrop, killing another woman, and taking his own life.",
+    "place": "Bastrop",
+    "placeKind": "city"
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
@@ -15,21 +132,6 @@
     "color": "#a394e0",
     "published": "2026-09-26T14:21:18.000Z",
     "summary": "AUSTIN (KXAN) — The City of Taylor is asking the community to help name its newest employees: two autonomous lawn-mowing robots at the Taylor City Cemetery. City officials say the robot mowers will help keep cemetery grounds maintained while allowing Public Works crews to focus on other projects throughout the city. The public is invited [...]",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "A few more hot days; cold front brings rain next week",
-    "link": "https://www.kxan.com/weather/forecast/a-few-more-hot-days-cold-front-brings-rain-next-week/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T12:58:27.000Z",
-    "summary": "Only a few more hot days before a slow-moving cold front brings days of rain chances and cooler temperatures next week. - Meteorologist Hannah Gard",
     "place": null,
     "placeKind": null
    }
@@ -102,57 +204,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "Investigation reveals north Travis County murder-suicide was double homicide, arrest made",
-    "link": "https://www.kxan.com/news/crime/austin-double-homicide-arrest/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T02:24:14.000Z",
-    "summary": "What initially appeared to be a case of a murder-suicide in the Wells Branch area earlier this week was reappraised by investigators and established as a double homicide investigation.",
-    "place": "Travis County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin-funded immigration programs meet city's expectations amid contract increase",
-    "link": "https://www.kxan.com/news/austin-funded-immigration-programs-meet-citys-expectations-amid-contract-increase/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T02:23:58.000Z",
-    "summary": "Staff from the City of Austin analyzed the success of programs from Catholic Charities of Central Texas.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "School choice fight enters new phase as Texas lawmakers debate future of program",
-    "link": "https://www.kxan.com/news/texas-politics/school-choice-fight-enters-new-phase-as-texas-lawmakers-debate-future-of-program/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T00:16:58.000Z",
-    "summary": "Texas Education Freedom Accounts have already launched, but some Democrats are discussing repeal while Republicans are calling for expansion. The program's future could depend on who controls the Texas House after the November election.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Aqua OKs water service for Pacifico development",
@@ -177,21 +228,6 @@
     "color": "#f08aa8",
     "published": "2026-09-25T21:58:47.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Unbeaten Cedar Ridge shuts out Westwood 43-0 in district opener",
-    "link": "https://www.kxan.com/sports-general/high-school-sports/watch-cedar-ridge-vs-westwood-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-25T21:56:43.000Z",
-    "summary": "Cedar Ridge remained unbeaten with a dominant 43-0 win over Westwood, opening district play with a shutout Friday at Kelly Reeves Athletic Complex.",
     "place": null,
     "placeKind": null
    }
@@ -1871,27 +1907,6 @@
     "summary": "The building has offices, a luxury hotel, residential space and Alteño, a Mexican restaurant created by Michelin-starred chef Johnny Curiel.",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Texas Traditions neighborhood features social events, activities in Georgetown area",
-    "link": "https://communityimpact.com/georgetown/real-estate/texas-traditions-neighborhood-features-social-events-activities-in-georgetown-area/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-13T11:00:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
    }
   }
  ]
