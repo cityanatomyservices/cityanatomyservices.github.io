@@ -1,20 +1,41 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-09-27T15:26:59.350Z",
- "placed": 40,
- "total": 111,
+ "generated": "2026-09-28T18:18:28.476Z",
+ "placed": 39,
+ "total": 114,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6411,
+     30.1327
+    ]
+   },
+   "properties": {
+    "title": "Austin's Circuit of the Americas opens theme park with Texas' first tilt roller coaster",
+    "link": "https://www.kut.org/austin/2026-09-28/austin-tx-cotaland-theme-park-rides-tickets-cota",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-09-28T18:07:42.000Z",
+    "summary": "The 30-acre amusement park features a mix of high-intensity and kid-friendly rides. It’s projected to welcome 1.5 million visitors every year, according to COTA.",
+    "place": "Circuit of the Americas",
+    "placeKind": "venue"
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Cold front brings pattern change, flood risk this week",
-    "link": "https://www.kxan.com/weather/forecast/cold-front-brings-pattern-change-flood-risk-this-week/",
-    "outlet": "KXAN",
+    "title": "Austin City Council candidate released after arrest tied to ICE protest",
+    "link": "https://austincurrent.org/2026/09/28/austin-texas-tx-city-council-candidate-arrested-ice-protest/",
+    "outlet": "Austin Current",
     "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-27T12:45:45.000Z",
-    "summary": "Scattered showers are possible throughout Sunday, and warmer temperatures remain for now, but a cold front is on the way later this week.",
+    "color": "#b9a8f0",
+    "published": "2026-09-28T17:57:05.000Z",
+    "summary": "The arrest came after Ramos attended a protest on Sunday, Sept. 20 against the recent shooting of Wilber Garces Perez by a U.S. Immigration and Customs Enforcement officer in Austin. The post Austin City Council candidate released after arrest tied to ICE protest appeared first on Austin Current .",
     "place": null,
     "placeKind": null
    }
@@ -23,15 +44,279 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Candidate for Austin city council arrested following ICE protest",
-    "link": "https://www.kxan.com/news/local/austin/candidate-for-austin-city-council-arrested-following-ice-protest/",
+    "title": "Chip and Joanna Gaines sell $2.7M Waco castle from Fixer Upper",
+    "link": "https://austin.culturemap.com/news/real-estate/chip-joanna-gaines-sell-castle/",
+    "outlet": "CultureMap",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-09-28T16:03:05.000Z",
+    "summary": "Texas' king and queen of home renovations, Chip and Joanna Gaines , are done lording over their 136-year-old castle in Waco. The stars of TV’s Fixer Upper have found a buyer for Cottonland Castle, Mansion Global reported . The sale was pending at the time of the report. The Gaineses listed the 6,176-square-foot castle in Waco's historic and affluent Castle Heights neighborhood at nearly $2.7 milli",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "How often does Austin hit 100°? Here's a breakdown by date, month, year and decade",
+    "link": "https://www.kxan.com/weather/austin-100-degree-stats/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-09-26T20:12:26.000Z",
-    "summary": "The candidate's campaign claims DPS troopers arrested him while he was walking his dog Saturday morning.",
+    "published": "2026-09-28T15:42:55.000Z",
+    "summary": "Complete temperature records for Camp Mabry, Austin's official reporting site, date back to 1898. Since then, Austin has reached 100° more than 2,000 times.",
     "place": null,
     "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Temperatures, rain totals, severe storms: Explore Austin's 2026 weather data",
+    "link": "https://www.kxan.com/weather/austin-2026-weather-data/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-28T15:40:16.000Z",
+    "summary": "KXAN has created charts and graphics to help you keep track of whatever weather 2026 brings.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9797,
+     30.363
+    ]
+   },
+   "properties": {
+    "title": "Lakeway council approves $225,000 in grants to TexARTS",
+    "link": "https://communityimpact.com/lake-travis-westlake/government/lakeway-council-approves-225-000-in-grants-to-texarts/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-28T15:30:00.000Z",
+    "summary": "",
+    "place": "Lakeway",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Despite weather challenges, Texas wineries expect strong 2026 vintage",
+    "link": "https://www.kxan.com/news/texas/a-year-for-quality-despite-weather-challenges-texas-wineries-expect-strong-2026-vintage/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-28T13:54:52.000Z",
+    "summary": "Despite facing extreme weather challenges like a St. Patrick's Day freeze, floods, and drought, the 2026 Texas grape-growing season resulted in a smaller but high-quality crop.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Kristen's Classroom: ACL Music Festival's weather extremes",
+    "link": "https://www.kxan.com/weather-traffic-qas/kristens-classroom-acl-music-festivals-weather-extremes/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-28T13:46:57.000Z",
+    "summary": "With the festival now falling on the first two weekends of October, the weather of year's past has certainly been hit & miss.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73,
+     30.27
+    ]
+   },
+   "properties": {
+    "title": "CapMetro directors consider fare increase Monday",
+    "link": "https://www.kxan.com/traffic/transportation/capmetro-directors-consider-fare-increase-monday/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-28T12:02:20.000Z",
+    "summary": "On Monday, the board of directors is set to vote on its first system-wide fare increase in more than a decade.",
+    "place": "CapMetro",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Q&A: Texas hospital safety. Why the fight isn’t over",
+    "link": "https://www.kxan.com/inside-the-investigation/qa-texas-hospital-safety-why-the-fight-isnt-over/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-28T12:00:00.000Z",
+    "summary": "On this edition of \"Inside the Investigation\" – an extended discussion first featured in the latest episode of our weekly investigative program, \"Cause & Effect\" – KXAN’s Arezow Doost and Matt Grant examine the push for stronger hospital safety measures following a deadly Austin crash.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Big changes this week with flood threat",
+    "link": "https://www.kxan.com/weather/forecast/major-pattern-change-brings-heavy-rain-flood-risk-this-week/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-28T11:15:23.000Z",
+    "summary": "The heat sticks around to start off the week, but heavy rainfall is expected to arrive bringing a flood threat through the weekend. - Freddy Vela",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Paige Ellis needed 3,044 signatures for a third term. She fell 62 short.",
+    "link": "https://austincurrent.org/2026/09/28/austin-citycouncil-paigeellis-government-term-limits/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-09-28T10:30:00.000Z",
+    "summary": "Ellis collected thousands of signatures for a third term serving District 8 on Austin City Council, but her campaign was cut short when that wasn’t enough. The post Paige Ellis needed 3,044 signatures for a third term. She fell 62 short. appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8203,
+     30.5052
+    ]
+   },
+   "properties": {
+    "title": "Cedar Park officials approve $4.8M design contract for art collective",
+    "link": "https://communityimpact.com/cedar-park/government/cedar-park-officials-approve-4-8m-design-contract-for-art-collective/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-09-28T10:27:15.000Z",
+    "summary": "",
+    "place": "Cedar Park",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas lieutenant governor: Who is running and what to know",
+    "link": "https://www.texastribune.org/2026/09/28/texas-lieutenant-governor-dan-patrick-vikki-goodwin/",
+    "outlet": "Texas Tribune",
+    "group": "government",
+    "color": "#d9a95a",
+    "published": "2026-09-28T10:00:00.000Z",
+    "summary": "The lieutenant governor’s office is often described as the most powerful in Texas government. Here's where GOP candidate Dan Patrick and democractic candidate Vikki Goodwin stand. The post Texas lieutenant governor: Who is running and what to know appeared first on The Texas Tribune .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas Icon Katie Van Dyk: Bridging business, creativity and complexity in real estate law",
+    "link": "https://rejournals.com/texas-icon-katie-van-dyk-bridging-business-creativity-and-complexity-in-real-estate-law/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=texas-icon-katie-van-dyk-bridging-business-creativity-and-complexity-in-real-estate-law",
+    "outlet": "REjournals",
+    "group": "realestate",
+    "color": "#d06a8a",
+    "published": "2026-09-28T09:43:00.000Z",
+    "summary": "She might be advising a small bakery on a lease one moment and helping secure a gigawatt-sized data center the next. That range is not... Learn More",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Historically active Hawaiian hurricane season",
+    "link": "https://www.kxan.com/news/historically-active-hawaiian-hurricane-season/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-28T03:26:16.000Z",
+    "summary": "The Atlantic has not had a hurricane this season; however, the Pacific has been plenty active, and Hawaii has seen significant tropical impacts in recent months.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas defense dominates Tennessee as Sarkisian addresses Colin Simmons' controversial celebration",
+    "link": "https://www.kxan.com/sports-general/horns-report/texas-defense-dominates-tennessee-as-sarkisian-addresses-colin-simmons-controversial-celebration/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-27T23:21:34.000Z",
+    "summary": "Texas' defense stole the show in Knoxville with 10 sacks, including five from Colin Simmons, as the Longhorns improved to 4-0 heading into their bye week.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Anderson competing for District 1 Council seat",
+    "link": "https://theaustinbulldog.org/anderson-competing-for-district-1-council-seat/",
+    "outlet": "The Austin Bulldog",
+    "group": "government",
+    "color": "#e8b35e",
+    "published": "2026-09-27T22:02:53.000Z",
+    "summary": "Alexandria Marie Anderson, 39, is one of six candidates running for the City Council position held by Natasha Harper-Madison, who is term-limited and did not petition to get on the ballot again. This is the only district represented by an African-American. In 1971, Berl Handcox was the first African American was elected to the City […]",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72,
+     30.38
+    ]
+   },
+   "properties": {
+    "title": "Protest against ICE held in north Austin Sunday",
+    "link": "https://www.kxan.com/austin-ice-shooting/protest-against-ice-happening-in-north-austin-sunday/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-09-27T19:57:47.000Z",
+    "summary": "People gathered for another protest against Immigration and Customs Enforcement on Sunday in north Austin, one week after a man was shot and injured by an ICE officer.",
+    "place": "North Austin",
+    "placeKind": "district"
    }
   },
   {
@@ -51,27 +336,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Austin Police Oversight hosts expo, highlights accountability efforts",
-    "link": "https://www.kxan.com/news/local/austin/austin-police-oversight-hosts-expo-highlights-accountability-efforts/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T18:15:46.000Z",
-    "summary": "As discussions about police accountability and transparency continue across Austin, city leaders with Austin Police Oversight spent Saturday highlighting the role the office plays in reviewing concerns about policing and engaging with the community.",
-    "place": "Austin Police",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Karl Rove says John Cornyn, not Paxton, could beat Talarico",
@@ -81,123 +345,6 @@
     "color": "#d9a95a",
     "published": "2026-09-26T16:08:07.000Z",
     "summary": "Karl Rove speaks at the 2026 Texas Tribune Festival, focusing on the comments made by Bo French and the U.S. Senate race. The post Karl Rove says John Cornyn, not Paxton, could beat Talarico appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "No. 1 Texas survives late Tennessee rally, escapes Neyland with 20-17 win",
-    "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-1-texas-travels-to-neyland-for-first-time-to-face-no-14-tennessee/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T16:00:00.000Z",
-    "summary": "The Longhorns piled up 10 sacks and survived a late Tennessee rally to beat the No. 14 Volunteers 20-17 in their SEC opener.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.3153,
-     30.1105
-    ]
-   },
-   "properties": {
-    "title": "Benefits this weekend for young mother killed in double homicide",
-    "link": "https://www.kxan.com/news/local/austin/benefits-this-weekend-for-young-mother-killed-in-double-homicide/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T14:59:40.000Z",
-    "summary": "This month, police found Desiree Gauna, 27, dead inside her home. Investigators believe Manuel Salgado Vasquez, whom she lived with, shot her, before going to Bastrop, killing another woman, and taking his own life.",
-    "place": "Bastrop",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "City of Taylor asks the public for help to name cemetery robots",
-    "link": "https://www.kxan.com/news/local/austin/city-of-taylor-asks-the-public-for-help-to-name-cemetery-robots/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T14:21:18.000Z",
-    "summary": "AUSTIN (KXAN) — The City of Taylor is asking the community to help name its newest employees: two autonomous lawn-mowing robots at the Taylor City Cemetery. City officials say the robot mowers will help keep cemetery grounds maintained while allowing Public Works crews to focus on other projects throughout the city. The public is invited [...]",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6,
-     30.65
-    ]
-   },
-   "properties": {
-    "title": "Cedar Park man gets 30 years for cocaine conviction",
-    "link": "https://www.kxan.com/news/cedar-park-man-gets-30-years-for-cocaine-conviction/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T12:05:22.000Z",
-    "summary": "A Williamson County jury has convicted a Cedar Park man on a cocaine possession charge.",
-    "place": "Williamson County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Game Preview: No. 1 Texas makes first trip to Neyland Stadium to face No. 14 Tennessee",
-    "link": "https://www.kxan.com/sports-general/horns-report/texas-longhorns-game-preview-tennessee/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T10:10:00.000Z",
-    "summary": "No. 1 Texas hits the road for the first time this season, opening SEC play against No. 14 Tennessee in the Longhorns' first-ever trip to Neyland Stadium.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Week 5 high school football scores across Texas",
-    "link": "https://www.kxan.com/sports-general/week-5-high-school-football-scores-across-texas/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T03:37:39.000Z",
-    "summary": "Hutto stayed red-hot, Cedar Ridge remained unbeaten and Westlake bounced back with a dominant win as Week 5 of the Texas high school football season continued Friday night.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "New safety steps revealed for COTALAND drop tower ride",
-    "link": "https://www.kxan.com/investigations/new-safety-steps-revealed-for-cotaland-drop-tower-ride/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-09-26T03:13:24.000Z",
-    "summary": "New COTALAND thrill ride introduces safety measures not seen in earlier version of ride not affiliated with COTALAND in Florida.",
     "place": null,
     "placeKind": null
    }
@@ -602,7 +749,7 @@
     "group": "government",
     "color": "#f0c27a",
     "published": "2026-09-25T00:00:00.000Z",
-    "summary": "<p><span>Zilker Botanical Garden, 2220 Barton Springs Rd., is closing Thursday, October 1, for facility abatement, renovation, and maintenance. Zilker Botanical Garden will reopen on Wednesday, October 16, although the Garden's main building may remain closed beyond October 16. Get the latest facilities, pools and park closure information at: </span><a href=\"https://gcc02.safelinks.protection.outl",
+    "summary": "<p><span>Zilker Botanical Garden, 2220 Barton Springs Rd., is closing Thursday, October 1, for facility abatement, renovation, and maintenance. Zilker Botanical Garden will reopen on Friday, October 16, although the Garden's main building may remain closed beyond October 16. Get the latest facilities, pools and park closure information at: </span><a href=\"https://gcc02.safelinks.protection.outlook",
     "place": "Barton Springs",
     "placeKind": "park"
    }
@@ -881,21 +1028,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "WilCo OKs space-saving county facilities plans",
-    "link": "https://communityimpact.com/georgetown/government/wilco-oks-space-saving-county-facilities-plans/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-24T19:45:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Domain Northside marks 10 year anniversary of restaurants and retail",
     "link": "https://communityimpact.com/northwest-austin/business/domain-northside-marks-10-year-anniversary-of-restaurants-and-retail/",
     "outlet": "Community Impact",
@@ -963,21 +1095,6 @@
     "color": "#f0c27a",
     "published": "2026-09-24T15:10:01.000Z",
     "summary": "On behalf of CM Ellis: Colleagues, I want to share information on two items related to District 8’s Circle C Tract 110 on today’s Council agenda: a zoning case (item #92) and a related fourth amendment to the Development Agreement (item #83). Due to the complex history and legal agreements related to Circle C, this case presented unique challenges to navigate, and I’ve upheld a commitment to heari",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Q&A: Get to know the candidates for State Representative District 136",
-    "link": "https://communityimpact.com/round-rock/government/q-a-get-to-know-the-candidates-for-state-representative-district-136/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-09-24T14:57:22.000Z",
-    "summary": "",
     "place": null,
     "placeKind": null
    }
@@ -1527,27 +1644,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Austin ISD faces new state intervention risk with nine schools this school year",
-    "link": "https://austincurrent.org/2026/09/21/austin-austinisd-takeover-school-ratings-paredes-bailey/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-21T10:30:00.000Z",
-    "summary": "Some AISD campuses that earned passing grades now carry the accountability histories of the schools the district closed. The post Austin ISD faces new state intervention risk with nine schools this school year appeared first on Austin Current .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Austin is drafting new rules to address mold in rental housing",
@@ -1593,21 +1689,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "ICE officer shoots, injures man in Austin, officials say",
-    "link": "https://www.texastribune.org/2026/09/20/austin-immigration-shooting-texas/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-09-20T19:57:25.000Z",
-    "summary": "The shooting in Austin, which injured Wilber Rafael Garces Perez, came more than two months after an ICE officer fatally shot a man in Houston. The post ICE officer shoots, injures man in Austin, officials say appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -1640,48 +1721,6 @@
     "summary": "On Tuesday, September 15, the Downtown Austin Alliance hosted a special installment of their educational event series, Issues & Eggs. This event focused on the No Wrong Door initiative and city and county efforts to better address the needs of our community’s... The post Issues & Eggs Recap: No Wrong Door — Breaking the Homelessness & Mental Health Cycle appeared first on Downtown Austin Alliance ",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.718,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "How an East Austin food truck became the go-to taco joint for the city's Muslim community",
-    "link": "https://www.kut.org/austin/2026-09-18/vecinos-taco-truck-austin-tx-halal-tacos-texas-podcast",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-18T18:59:46.000Z",
-    "summary": "The food truck Vecinos listened closely enough to one customer that it discovered an entire community waiting outside its door.",
-    "place": "East Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Austin ISD appeals two failing school ratings in bid to avoid takeover",
-    "link": "https://austincurrent.org/2026/09/18/austin-austinisd-takeover-tea-ratings-burnet-webb/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-18T16:20:10.000Z",
-    "summary": "Burnet missed a D by one point and Webb by two, leaving Austin ISD a narrow path to overturn the ratings. If the two schools ratings rise, the district could stave off a state intervention. The post Austin ISD appeals two failing school ratings in bid to avoid takeover appeared first on Austin Current .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
    }
   },
   {
