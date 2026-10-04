@@ -1,9 +1,123 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-03T14:59:14.197Z",
- "placed": 57,
- "total": 115,
+ "generated": "2026-10-04T15:32:55.966Z",
+ "placed": 60,
+ "total": 116,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Showers linger, dry and seasonable weather this week",
+    "link": "https://www.kxan.com/weather/forecast/showers-linger-dry-and-seasonable-weather-this-week/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-04T12:21:08.000Z",
+    "summary": "Scattered showers linger through Sunday, but peeks of sun break through in the afternoon. Drier, seasonable weather takes over during the week. - Meteorologist Hannah Gard",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Trees, rolling terrain give Woodland Park neighborhood a private feel in Georgetown area",
+    "link": "https://communityimpact.com/georgetown/transportation/trees-rolling-terrain-give-woodland-park-neighborhood-a-private-feel-in-georgetown-area/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-04T11:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.769,
+     30.267
+    ]
+   },
+   "properties": {
+    "title": "ACL Festival's muddy Great Lawn raises concern for Austin park's future",
+    "link": "https://www.kxan.com/acl/acl-festivals-muddy-great-lawn-raises-concern-for-austin-parks-future/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-04T02:43:11.000Z",
+    "summary": "Following a little more than half-an-inch from Friday and Saturday, the \"Great Lawn\" at Zilker Park crumbled into a sludge field. Muddy conditions inspired a doors delay of two hours, pushing festival goers to start at 2 p.m.",
+    "place": "Zilker Park",
+    "placeKind": "park"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7,
+     30.21
+    ]
+   },
+   "properties": {
+    "title": "Person dies in two-vehicle crash in southeast Austin",
+    "link": "https://www.kxan.com/news/local/austin/person-dies-in-two-vehicle-crash-in-southeast-austin/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-04T01:17:14.000Z",
+    "summary": "The crash happened on Pearce Lane and Farm-to-Market Road 973.",
+    "place": "Southeast Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746,
+     30.245
+    ]
+   },
+   "properties": {
+    "title": "Austin ISD hosts hiring fair to fill support staff positions",
+    "link": "https://www.kxan.com/news/local/austin/austin-isd-hosts-hiring-fair-to-fill-support-staff-positions/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-03T17:19:33.000Z",
+    "summary": "AUSTIN (KXAN) — Austin Independent School District leaders said hundreds of job seekers turned out for a district-wide career fair Saturday as the district works to fill about 70 open positions in critical support roles. According to AISD Chief Talent Officer Woodrow Bailey, about 300 people registered for the event. By 10 a.m., roughly 200 [...]",
+    "place": "Austin ISD",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "September was the hottest on record, one of the driest",
+    "link": "https://www.kxan.com/weather/weather-blog/september-was-the-hottest-on-record-one-of-the-driest/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-03T15:34:23.000Z",
+    "summary": "September 2026 was the hottest on record and one of the driest. The weather pattern for the month was dominated by upper-level high pressure creating hot and dry conditions.",
+    "place": null,
+    "placeKind": null
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
@@ -15,21 +129,6 @@
     "color": "#a394e0",
     "published": "2026-10-03T12:47:45.000Z",
     "summary": "A longtime advocate for Austin’s Latino community, Saldaña owns a public relations firm and has spent decades working on issues affecting Mexican-American families across the city. He also served on the Austin Independent School District Board of Trustees.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Weekend showers and downpours, soggy festival weather",
-    "link": "https://www.kxan.com/weather/forecast/weekend-showers-and-downpours-soggy-festival-weather/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-03T12:37:44.000Z",
-    "summary": "Rain continues through the weekend, bringing soggy festival weather. On-and-off showers and downpours could cause isolated instances of flooding where grounds are saturated. - Meteorologist Hannah Gard",
     "place": null,
     "placeKind": null
    }
@@ -104,81 +203,15 @@
     ]
    },
    "properties": {
-    "title": "Photos: ACL Fest Weekend 1 starts off on a rainy and muddy note",
+    "title": "Photos: ACL Fest delays Saturday opening after heavy rain, muddy conditions",
     "link": "https://www.kut.org/austin/2026-10-02/acl-fest-austin-tx-music-festival-rainy-photos",
     "outlet": "KUT",
     "group": "news",
     "color": "#b9a8f0",
     "published": "2026-10-02T21:43:34.000Z",
-    "summary": "Austin City Limits festivalgoers were clad in ponchos as they descended on Zilker Park for an unusually rainy start to Weekend 1.",
+    "summary": "Once attendees entered Zilker Park on Friday, they found festival grounds covered in mud and puddles.",
     "place": "Zilker Park",
     "placeKind": "park"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Watch: McCallum vs. Cedar Creek football live",
-    "link": "https://www.kxan.com/sports-general/watch-mccallum-vs-cedar-creek-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-02T21:23:21.000Z",
-    "summary": "McCallum and Cedar Creek each look to snap their losing skids when the two teams meet in District 13-5A DI action Friday night.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Southwest to launch 7 new routes from Austin in June, including 3 international",
-    "link": "https://www.kxan.com/news/local/austin/austin-airport/southwest-to-launch-7-new-routes-from-austin-in-june-including-3-international/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-02T21:20:00.000Z",
-    "summary": "Southwest Airlines will launch seven new seasonal nonstop routes from Austin in June 2027, including three international routes, the airline announced Friday.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "PHOTOS: How muddy are the ACL Festival grounds?",
-    "link": "https://www.kxan.com/acl/photos-how-muddy-are-the-acl-festival-grounds/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-02T21:12:10.000Z",
-    "summary": "Austin City Limits 2026 kicked off midday Friday, and it's off to a muddy start.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "Texas voter registration deadline coming up on Oct. 5",
-    "link": "https://www.kxan.com/news/local/austin/texas-voter-registration-deadline-coming-up-on-oct-5/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-02T21:12:05.000Z",
-    "summary": "Texans only have a few days left to register to vote and cast their ballot in the November election. That deadline is this Monday, Oct. 5, and the Travis County Tax Office is sending out reminders to help people register on time.",
-    "place": "Travis County",
-    "placeKind": "county"
    }
   },
   {
