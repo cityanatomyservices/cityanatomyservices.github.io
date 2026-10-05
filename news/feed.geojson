@@ -1,20 +1,410 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-04T15:32:55.966Z",
- "placed": 60,
+ "generated": "2026-10-05T19:26:18.824Z",
+ "placed": 59,
  "total": 116,
  "features": [
   {
    "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9467,
+     30.3083
+    ]
+   },
+   "properties": {
+    "title": "First Financial Bank to open near Bee Cave",
+    "link": "https://communityimpact.com/lake-travis-westlake/business/first-financial-bank-to-open-near-bee-cave/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-05T19:00:00.000Z",
+    "summary": "",
+    "place": "Bee Cave",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Showers linger, dry and seasonable weather this week",
-    "link": "https://www.kxan.com/weather/forecast/showers-linger-dry-and-seasonable-weather-this-week/",
+    "title": "Our favorite photos from Weekend 1 at ACL Fest",
+    "link": "https://www.kut.org/austin/2026-10-05/acl-fest-photos-best-muddy-austin-city-limits-tx-texas-music-festival",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-05T18:53:54.000Z",
+    "summary": "The first weekend of ACL Fest started with a downpour. That didn't stop tens of thousands of festivalgoers from reaching their favorite performers.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Leif Johnson Ford opens West Austin dealership after 6 decades in Central Austin",
+    "link": "https://communityimpact.com/lake-travis-westlake/business/leif-johnson-ford-opens-west-austin-dealership-after-6-decades-in-central-austin/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-05T18:30:35.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72841,
+     30.23967
+    ]
+   },
+   "properties": {
+    "title": "Riverside Picks Up 11-Story Austin Office Building",
+    "link": "https://www.connectcre.com/stories/riverside-picks-up-11-story-austin-office-building/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-10-05T18:15:50.000Z",
+    "summary": "Private equity investor Riverside has acquired Lavaca Plaza, an 11-story building with 122,042 square feet of office space in Austin, Texas, for an unspecified price. Unico Properties sold the asset. Commercial Search reports Unico paid $61.4 million for the property in 2015. In the marketing material, JLL suggested the property might be a candidate for ... The post Riverside Picks Up 11-Story Aus",
+    "place": "Riverside",
+    "placeKind": "neighborhood"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "Some Travis County offices open through midnight to register voters before deadline",
+    "link": "https://www.kxan.com/news/your-local-election-hq/some-travis-county-offices-open-through-midnight-to-register-voters-before-deadline/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-10-04T12:21:08.000Z",
-    "summary": "Scattered showers linger through Sunday, but peeks of sun break through in the afternoon. Drier, seasonable weather takes over during the week. - Meteorologist Hannah Gard",
+    "published": "2026-10-05T17:58:07.000Z",
+    "summary": "With the voter registration deadline just hours away on Monday, Travis County officials are making a final push to help residents sign up before time runs out.",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "ACL festivalgoers with disabilities navigate muddy terrain during Weekend 1",
+    "link": "https://www.kut.org/austin/2026-10-05/acl-fest-mud-ada-austin-city-limits-music-festival-disability-accessibility",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-05T17:51:36.000Z",
+    "summary": "The first weekend of the Austin City Limits Music Festival was a wet and muddy few days. Here's how the people using wheelchairs, canes and crutches made it work.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin ICE arrests more than doubled this summer, data shows",
+    "link": "https://www.kxan.com/news/local/austin/ice-arrests-surge-in-austin-amid-increase-in-noncriminal-violations/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T17:37:24.000Z",
+    "summary": "An analysis of ICE data reveals a significant spike in arrests in Austin through mid-2026, with July seeing a peak of 357 arrests and a growing trend of targeting individuals with unclear criminal histories.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "WilCo commissioners cut Somerset Hills Road District bond by $17M",
+    "link": "https://communityimpact.com/georgetown/government/wilco-commissioners-cut-somerset-hills-road-district-bond-by-17m/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-05T17:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "COTA sets sights on water park, resort",
+    "link": "https://communityimpact.com/bastrop-cedar-creek/business/cota-sets-sights-on-water-park-resort/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-05T17:00:00.000Z",
+    "summary": "New financing could support the venue’s next phase of development",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.769,
+     30.267
+    ]
+   },
+   "properties": {
+    "title": "ACL Festival says it's committed to leaving Zilker Park 'better than we found it'",
+    "link": "https://www.kxan.com/acl/acl-festival-says-its-committed-to-leaving-zilker-park-better-than-we-found-it/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T16:03:15.000Z",
+    "summary": "After a muddy first weekend, Austin City Limits Music Festival said on Sunday it plans to \"prioritize rest and recovery\" of Zilker Park this week before its second and final weekend.",
+    "place": "Zilker Park",
+    "placeKind": "park"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8203,
+     30.5052
+    ]
+   },
+   "properties": {
+    "title": "5 Austin neighbors named among best small cities to live in America",
+    "link": "https://austin.culturemap.com/news/real-estate/best-small-cities-america-2026/",
+    "outlet": "CultureMap",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-10-05T16:03:03.000Z",
+    "summary": "Several suburbs that make up the Austin metro are among the best small cities to live in, according to a new WalletHub study. And two perennial favorites lead the way. In total, five Austin neighbors — with Cedar Park and Leander at the top of the pack — have been rated among the best small cities in America for 2026. WalletHub's annual survey compared more than 1,300 U.S. cities with populations ",
+    "place": "Cedar Park",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Advanced Pain Care opens New Braunfels location",
+    "link": "https://communityimpact.com/new-braunfels/business/advanced-pain-care-opens-new-braunfels-location/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-05T15:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Temperatures, rain totals, severe storms: Explore Austin's 2026 weather data",
+    "link": "https://www.kxan.com/weather/austin-2026-weather-data/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T14:49:47.000Z",
+    "summary": "KXAN has created charts and graphics to help you keep track of whatever weather 2026 brings.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin father loses vision after taking Wegovy; questions raised about rare condition",
+    "link": "https://www.kxan.com/news/local/austin/austin-father-loses-vision-after-taking-wegovy-raising-questions-about-rare-condition/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T14:37:12.000Z",
+    "summary": "Jason Horek said he took Wegovy to lose a few pounds. Months later, he was diagnosed with a rare eye condition that left him with permanent vision loss in one eye, a condition researchers are studying for possible ties to GLP-1 medications.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.747,
+     30.265
+    ]
+   },
+   "properties": {
+    "title": "Austin Water seeks public input on large water user policy proposals",
+    "link": "https://www.kxan.com/news/local/austin/austin-water-seeks-public-input-on-large-water-user-policy-proposals/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T13:24:05.000Z",
+    "summary": "Austin Water will hold an \"open house\" Monday night where it intends to present concepts of a policy framework for large water users, and where it hopes to get feedback from the public.",
+    "place": "Austin Water",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72,
+     30.38
+    ]
+   },
+   "properties": {
+    "title": "Q&A: Austin ICE shooting. What we know and what remains unclear",
+    "link": "https://www.kxan.com/inside-the-investigation/qa-austin-ice-shooting-what-we-know-and-what-remains-unclear/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T12:00:00.000Z",
+    "summary": "On this edition of \"Inside the Investigation\" – an extended discussion first featured in the latest episode of our weekly investigative program, \"Cause & Effect\" – KXAN’s Arezow Doost and Grace Reader take an in-depth look at the unanswered details surrounding an ICE officer’s shooting of a man in north Austin.",
+    "place": "North Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Over 35,000 to depart from Austin airport after ACL Fest Weekend 1",
+    "link": "https://www.kxan.com/news/local/austin/austin-airport/over-35000-to-depart-from-austin-airport-after-acl-fest-weekend-1/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T11:26:02.000Z",
+    "summary": "More than 35,000 people are projected to travel through the Austin airport Monday following weekend one of the Austin City Limits (ACL) music festival.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8403,
+     30.0852
+    ]
+   },
+   "properties": {
+    "title": "Roxie's serves up Southern staples with nostalgic style in Buda",
+    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/roxie-s-serves-up-southern-staples-with-nostalgic-style-in-buda/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-05T11:00:00.000Z",
+    "summary": "",
+    "place": "Buda",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "Austin and other local governments raised taxes this year. Will your bill go up?",
+    "link": "https://austincurrent.org/2026/10/05/austin-travis-county-property-taxes-affordability/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-05T10:55:00.000Z",
+    "summary": "Falling home values could mean lower property tax bills for some homeowners despite the Austin City Council and Travis County Commissioners raising rates. The post Austin and other local governments raised taxes this year. Will your bill go up? appeared first on Austin Current .",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Drier, warmer and sunnier to start the week",
+    "link": "https://www.kxan.com/weather/forecast/drier-cooler-and-sunnier-to-start-the-week/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T10:53:32.000Z",
+    "summary": "After a wet and gray weekend, blue sky conditions will return over the next few days, with cool mornings and warm afternoons bringing a pleasant feel. - Meteorologist Hannah Gard",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746,
+     30.245
+    ]
+   },
+   "properties": {
+    "title": "Burnet, Webb families say Austin ISD failed them. Now they’re asked to close their schools.",
+    "link": "https://austincurrent.org/2026/10/05/austin-district-burnet-webb-petition-school-closure/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-05T10:30:00.000Z",
+    "summary": "Parents cite years of turnover and instability before an Oct. 15 deadline that could shape state action. The post Burnet, Webb families say Austin ISD failed them. Now they’re asked to close their schools. appeared first on Austin Current .",
+    "place": "Austin ISD",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Tribune’s sample ballot tool now includes local elections for 16 million Texas voters",
+    "link": "https://www.texastribune.org/2026/10/05/texas-tribune-ballot-tool-2026-election-local/",
+    "outlet": "Texas Tribune",
+    "group": "government",
+    "color": "#d9a95a",
+    "published": "2026-10-05T10:00:00.000Z",
+    "summary": "The updated 2026 election ballot tool is a major expansion and part of The Texas Tribune's mission to help Texans shape the future. The post Tribune’s sample ballot tool now includes local elections for 16 million Texas voters appeared first on The Texas Tribune .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "How do Austin's monthly weather records compare to average?",
+    "link": "https://www.kxan.com/weather/weather-blog/how-do-austins-monthly-weather-records-compare-to-average/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-05T01:45:20.000Z",
+    "summary": "The charts in this story show how hot, cold and wet each month typically is and compares that to the hottest, coldest and wettest on record.",
     "place": null,
     "placeKind": null
    }
@@ -38,159 +428,6 @@
     "summary": "",
     "place": "Georgetown",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.769,
-     30.267
-    ]
-   },
-   "properties": {
-    "title": "ACL Festival's muddy Great Lawn raises concern for Austin park's future",
-    "link": "https://www.kxan.com/acl/acl-festivals-muddy-great-lawn-raises-concern-for-austin-parks-future/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-04T02:43:11.000Z",
-    "summary": "Following a little more than half-an-inch from Friday and Saturday, the \"Great Lawn\" at Zilker Park crumbled into a sludge field. Muddy conditions inspired a doors delay of two hours, pushing festival goers to start at 2 p.m.",
-    "place": "Zilker Park",
-    "placeKind": "park"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7,
-     30.21
-    ]
-   },
-   "properties": {
-    "title": "Person dies in two-vehicle crash in southeast Austin",
-    "link": "https://www.kxan.com/news/local/austin/person-dies-in-two-vehicle-crash-in-southeast-austin/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-04T01:17:14.000Z",
-    "summary": "The crash happened on Pearce Lane and Farm-to-Market Road 973.",
-    "place": "Southeast Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Austin ISD hosts hiring fair to fill support staff positions",
-    "link": "https://www.kxan.com/news/local/austin/austin-isd-hosts-hiring-fair-to-fill-support-staff-positions/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-03T17:19:33.000Z",
-    "summary": "AUSTIN (KXAN) — Austin Independent School District leaders said hundreds of job seekers turned out for a district-wide career fair Saturday as the district works to fill about 70 open positions in critical support roles. According to AISD Chief Talent Officer Woodrow Bailey, about 300 people registered for the event. By 10 a.m., roughly 200 [...]",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "September was the hottest on record, one of the driest",
-    "link": "https://www.kxan.com/weather/weather-blog/september-was-the-hottest-on-record-one-of-the-driest/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-03T15:34:23.000Z",
-    "summary": "September 2026 was the hottest on record and one of the driest. The weather pattern for the month was dominated by upper-level high pressure creating hot and dry conditions.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "'Don't forget our lived experience': Paul Saldaña reflects on Austin's Latino history",
-    "link": "https://www.kxan.com/hidden-history/hispanic-heritage-month/dont-forget-our-lived-experience-paul-saldana-reflects-on-austins-latino-history/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-03T12:47:45.000Z",
-    "summary": "A longtime advocate for Austin’s Latino community, Saldaña owns a public relations firm and has spent decades working on issues affecting Mexican-American families across the city. He also served on the Austin Independent School District Board of Trustees.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Week 6 Texas high school football scores",
-    "link": "https://www.kxan.com/sports-general/week-6-texas-high-school-football-scores-2/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-03T03:47:29.000Z",
-    "summary": "Austin High earned its first win, Cedar Ridge stayed unbeaten and district races continued to take shape across Central Texas in Week 6.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin weather history: The hottest, coolest and wettest ACL festivals",
-    "link": "https://www.kxan.com/weather/austin-weather-history-acl-festival/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-02T23:05:18.000Z",
-    "summary": "KXAN dug through the archives to find the hottest, coolest and wettest ACL festivals in history.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas State opponent dealing with mumps outbreak ahead of Pac-12 opener",
-    "link": "https://www.kxan.com/sports/texas-state-opponent-dealing-with-mumps-outbreak-ahead-of-pac-12-opener/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-02T22:48:56.000Z",
-    "summary": "San Diego State is dealing with a mumps outbreak ahead of Saturday’s Pac-12 matchup with Texas State, with 32 players listed on the Aztecs’ availability report.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin High completes second-half comeback, stuns Hays 35-28",
-    "link": "https://www.kxan.com/sports-general/watch-austin-high-vs-hays-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-02T22:02:22.000Z",
-    "summary": "Austin High completed a second-half comeback with a go-ahead touchdown in the final minute to beat Hays 35-28 for its first win of the season.",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -639,105 +876,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Local wine retailer relocating and rebranding in New Braunfels",
-    "link": "https://communityimpact.com/new-braunfels/business/local-wine-retailer-relocating-and-rebranding-in-new-braunfels/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-01T18:21:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.736,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Mohawk debuts new neon sign amid push to save Red River district venues",
-    "link": "https://communityimpact.com/central-austin/business/mohawk-debuts-new-neon-sign-amid-push-to-save-red-river-district-venues/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-01T18:00:00.000Z",
-    "summary": "",
-    "place": "Red River",
-    "placeKind": "street"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8531,
-     30.5788
-    ]
-   },
-   "properties": {
-    "title": "Leander issues flood watch, moves ArtFest and music festival",
-    "link": "https://communityimpact.com/leander-liberty-hill/government/leander-issues-flood-watch-moves-artfest-and-music-festival/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-01T16:40:47.000Z",
-    "summary": "",
-    "place": "Leander",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.62,
-     30.439
-    ]
-   },
-   "properties": {
-    "title": "Pflugerville to gain 2 restaurants, plus other business news",
-    "link": "https://communityimpact.com/pflugerville-hutto/business/pflugerville-to-gain-2-restaurants-plus-other-business-news/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-01T16:00:00.000Z",
-    "summary": "",
-    "place": "Pflugerville",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Round Rock's Party Chaos fills need, plans expansion",
-    "link": "https://communityimpact.com/round-rock/business/round-rock-s-party-chaos-fills-need-plans-expansion/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-01T16:00:00.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -911,27 +1049,6 @@
     "summary": "A deaf man was mistakenly deemed drunk.",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.9414,
-     29.8833
-    ]
-   },
-   "properties": {
-    "title": "Hill Country vineyard and winery to bring handcrafted wines to San Marcos",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/hill-country-vineyard-and-winery-to-bring-handcrafted-wines-to-san-marcos/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-09-30T22:10:00.000Z",
-    "summary": "",
-    "place": "San Marcos",
-    "placeKind": "city"
    }
   },
   {
@@ -1427,21 +1544,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Here are the Austin artists performing at ACL Fest 2026",
-    "link": "https://www.kut.org/life-arts/2026-09-28/austin-tx-city-limits-festival-acl-fest-2026-local-artists",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-28T20:23:06.000Z",
-    "summary": "Even with the festival's global reach, local musicians remain a vital part of the lineup. Whether they still call the city home or have taken their music elsewhere, these artists put the A in ACL Fest.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "4 parks coming soon to Mayfair in New Braunfels",
     "link": "https://communityimpact.com/new-braunfels/development/4-parks-coming-soon-to-mayfair-in-new-braunfels/",
     "outlet": "Community Impact",
@@ -1472,27 +1574,6 @@
     "summary": "During a meeting on Thursday with families from Webb Middle School, Austin ISD Superintendent Matias Segura explained that parents have a slim window of time to get the state to hear their voices regarding the future of their school. But some parents still have questions on why closing their school is on the table once […] The post Webb parents have weeks left to request school closure, avoid take",
     "place": "Austin ISD",
     "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6411,
-     30.1327
-    ]
-   },
-   "properties": {
-    "title": "Austin's Circuit of the Americas opens theme park with Texas' first tilt roller coaster",
-    "link": "https://www.kut.org/austin/2026-09-28/austin-tx-cotaland-theme-park-rides-tickets-cota",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-28T18:07:42.000Z",
-    "summary": "The tilt coaster, Circuit Breaker, stopped twice with people on board over the weekend. They exited the ride with no injuries, COTALAND said.",
-    "place": "Circuit of the Americas",
-    "placeKind": "venue"
    }
   },
   {
@@ -1697,48 +1778,6 @@
     "summary": "OHT Partners was recently greenlit by the Austin City Council for a zoning change to build a 435-unit apartment complex on the site of a former Austin school. The site under consideration is where the shuttered Rosedale Elementary is located. The Austin Business Journal reports that currently, the property is owned by the school district. The ... The post Austin Developer Greenlit to Build Apartme",
     "place": "Rosedale",
     "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Austin ISD’s budget strains as enrollment dips, transportation spending increases",
-    "link": "https://austincurrent.org/2026/09/24/austin-austinisd-enrollment-transportation-budget/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-25T04:07:27.000Z",
-    "summary": "Lower enrollment and higher transportation costs came into focus during Thursday’s AISD board meeting. The post Austin ISD’s budget strains as enrollment dips, transportation spending increases appeared first on Austin Current .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Austin parents should have say in future of failing schools, state takeover, superintendent says",
-    "link": "https://austincurrent.org/2026/09/24/austin-isd-takeover-burnet-webb-petition-mayor/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-09-24T21:53:42.000Z",
-    "summary": "Segura’s comments came during a candid one-on-one discussion with Austin Current Editor Melissa Taboada at The Texas Tribune Festival, where Segura addressed the threat of a state takeover, the district’s financial crisis, his tenure and other challenges facing Austin ISD. The post Austin parents should have say in future of failing schools, state takeover, superintendent says appeared first on Au",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
    }
   },
   {
@@ -1961,21 +2000,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "After ICE shooting, Venezuelan man’s quick release from Austin hospital raises questions",
-    "link": "https://www.texastribune.org/2026/09/22/texas-austin-ice-shooting-medical-care/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-09-22T23:44:56.000Z",
-    "summary": "Wilber Rafael Garces Perez was discharged after four hours into ICE custody and taken 135 miles to an immigration detention center. The post After ICE shooting, Venezuelan man’s quick release from Austin hospital raises questions appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Who's against the audit referendum?",
     "link": "https://www.austinpolitics.net/whos-against-the-audit-referendum/",
     "outlet": "Austin Politics",
@@ -2070,36 +2094,6 @@
     "color": "#e8b35e",
     "published": "2026-09-21T19:35:31.000Z",
     "summary": "A chance for APD to gain credibility.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Southern Living opens its 'Idea House' in Fredericksburg for tours",
-    "link": "https://austin.culturemap.com/news/home-design/southern-living-idea-house-2026/",
-    "outlet": "CultureMap",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-09-21T16:01:06.000Z",
-    "summary": "The 2026 Southern Living Idea House opens for public tours September 18 in Fredericksburg, bringing the magazine's long-running showcase-home series back to Central Texas. The 4,000-square-foot house is in Friedën , a planned community about three miles from downtown Fredericksburg. The development is expected to include roughly 230 to 250 custom single-family homes when complete, along with comme",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Dog’s Head lawsuit seeks end to development agreement and financing plan",
-    "link": "https://austincurrent.org/2026/09/21/dogs-head-lawsuit-seeks-end-to-development-agreement-and-financing-plan/",
-    "outlet": "Austin Current",
-    "group": "planning",
-    "color": "#7ad4c8",
-    "published": "2026-09-21T15:17:17.000Z",
-    "summary": "Environmental groups and residents fighting the Dog’s Head development have filed suit against the Austin City Council and the City of Austin. The lawsuit, announced Monday, seeks to void both the development agreement and financing mechanism that would allow the city to use more than $1 billion in tax revenue to help pay for infrastructure […] The post Dog’s Head lawsuit seeks end to development ",
     "place": null,
     "placeKind": null
    }
