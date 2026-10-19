@@ -1,20 +1,308 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-18T14:12:17.976Z",
- "placed": 50,
- "total": 120,
+ "generated": "2026-10-19T17:14:29.502Z",
+ "placed": 49,
+ "total": 119,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.91,
+     30.4
+    ]
+   },
+   "properties": {
+    "title": "Ascension Seton Acquires Three Austin-Area Medical Facilities",
+    "link": "https://www.connectcre.com/stories/ascension-seton-acquires-three-austin-area-medical-facilities/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-10-19T16:34:23.000Z",
+    "summary": "Ascension Seton acquired three Texas health care facilities from Family Hospital Systems. The healthcare centers are located in Round Rock, Cedar Park and near Lake Travis. The healthcare system stated the move is planned to expand emergency care access amid growth in the greater Austin area. Family Hospital at Lake Travis (shown), Family Medical Center at Lakeline, ... The post Ascension Seton Ac",
+    "place": "Lake Travis",
+    "placeKind": "lake"
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Cool mornings, warming afternoons on the way this week",
-    "link": "https://www.kxan.com/weather/forecast/cool-mornings-warming-afternoons-on-the-way-this-week/",
+    "title": "Austin hotels could reach 95% occupancy as Formula One returns",
+    "link": "https://www.kxan.com/news/local/austin/austin-hotels-could-reach-95-occupancy-as-formula-one-returns/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-10-18T12:26:36.000Z",
-    "summary": "Chilly mornings stick around but warmer weather is on the way this week as high pressure builds over the region. - Meteorologist Hannah Gard",
+    "published": "2026-10-19T15:51:49.000Z",
+    "summary": "Visit Austin expects Formula One weekend to deliver about $1 billion in economic impact, with hotels across Austin reaching up to 95% occupancy as race fans and football visitors arrive in the city.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Temperatures, rain totals, severe storms: Explore Austin's 2026 weather data",
+    "link": "https://www.kxan.com/weather/austin-2026-weather-data/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-19T14:52:05.000Z",
+    "summary": "KXAN has created charts and graphics to help you keep track of whatever weather 2026 brings.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Crazy Falafels offers Mediterranean fare in Liberty Hill",
+    "link": "https://communityimpact.com/leander-liberty-hill/business/crazy-falafels-offers-mediterranean-fare-in-liberty-hill/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-19T14:50:48.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin wants to be the best place in America for kids. Here's the plan to do it.",
+    "link": "https://www.kxan.com/news/local/austin/austin-wants-to-be-the-best-place-in-america-for-kids-heres-the-plan-to-do-it/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-19T13:42:02.000Z",
+    "summary": "Fran Baylor has been hired as the first executive director of Generation ATX, a privately funded initiative aimed at improving child well-being in Austin following a 9% decline in the city's youth population.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "How much money do Austin City Council candidates have going into early voting?",
+    "link": "https://www.kxan.com/news/your-local-election-hq/how-much-money-do-austin-city-council-candidates-have-going-into-early-voting/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-19T13:00:00.000Z",
+    "summary": "For down-ballot races, like the five Austin City Council seats up for grabs, having money on hand to build name recognition can make all the difference.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77,
+     30.22
+    ]
+   },
+   "properties": {
+    "title": "Who will represent South Austin on the Austin ISD board? Meet the District 6 candidates",
+    "link": "https://austincurrent.org/2026/10/19/austin-austinisd-texas-district6-schoolboard-trustee/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-19T11:09:13.000Z",
+    "summary": "Three hopefuls are competing to lead the South Austin district bringing a variety of experience, including parent advocacy and policy and education expertise. The post Who will represent South Austin on the Austin ISD board? Meet the District 6 candidates appeared first on Austin Current .",
+    "place": "South Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8531,
+     30.5788
+    ]
+   },
+   "properties": {
+    "title": "Leander City Council approves special use permit for The 75 Oaks",
+    "link": "https://communityimpact.com/leander-liberty-hill/government/leander-city-council-approves-special-use-permit-for-the-75-oaks/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-19T11:00:00.000Z",
+    "summary": "",
+    "place": "Leander",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9414,
+     29.8833
+    ]
+   },
+   "properties": {
+    "title": "San Marcos to host open houses on new city hall project",
+    "link": "https://communityimpact.com/san-marcos-buda-kyle/government/san-marcos-to-host-open-houses-on-new-city-hall-project/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-19T11:00:00.000Z",
+    "summary": "",
+    "place": "San Marcos",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8403,
+     30.0852
+    ]
+   },
+   "properties": {
+    "title": "Buda EDC celebrates 25 years of strengthening local economy",
+    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/buda-edc-celebrates-25-years-of-strengthening-local-economy/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-19T11:00:00.000Z",
+    "summary": "",
+    "place": "Buda",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Still Austin Whiskey Co. celebrates Austin artists with new bar and music venue",
+    "link": "https://communityimpact.com/southwest-austin-dripping-springs/business/still-austin-whiskey-co-celebrates-austin-artists-with-new-bar-and-music-venue/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-19T11:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Temperatures slowly heading back up this week",
+    "link": "https://www.kxan.com/weather/forecast/blue-sky-days-ahead-as-warming-trend-gets-underway/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-19T10:53:41.000Z",
+    "summary": "The much colder mornings and below average afternoons are coming to an end as warm air filters back in. - Freddy Vela",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746,
+     30.245
+    ]
+   },
+   "properties": {
+    "title": "Three candidates compete for Austin ISD District 4 board seat",
+    "link": "https://austincurrent.org/2026/10/19/austin-austinisd-candidates-election-board/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-19T10:50:00.000Z",
+    "summary": "Business, legal and advocacy experience shape the candidates' plans for a district facing budget cuts and state scrutiny. The post Three candidates compete for Austin ISD District 4 board seat appeared first on Austin Current .",
+    "place": "Austin ISD",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746,
+     30.245
+    ]
+   },
+   "properties": {
+    "title": "Two former Austin ISD trustees are vying for the District 1 seat they’ve both already held",
+    "link": "https://austincurrent.org/2026/10/19/austin-austinisd-election-candidates-board/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-19T10:39:00.000Z",
+    "summary": "Both candidates have previous experience on the board. One is the incumbent, and the other is a former trustee seeking to return. The post Two former Austin ISD trustees are vying for the District 1 seat they’ve both already held appeared first on Austin Current .",
+    "place": "Austin ISD",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Candidates for Austin City Council District 9 discuss affordability, public safety and homelessness",
+    "link": "https://www.kut.org/politics/2026-10-19/austin-city-council-district-9-candidates-election-2026",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-19T10:00:00.000Z",
+    "summary": "Current City Council member Zo Qadri will face off with four challengers on the ballot in November.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "Travis County leaders weigh in as early voting approaches",
+    "link": "https://www.kxan.com/news/travis-county-leaders-weigh-in-as-early-voting-approaches/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-19T00:41:12.000Z",
+    "summary": "Early voting for the November election begins Monday, Oct. 19, and election officials across Travis County are preparing polling locations as candidates and voter advocacy groups make their final push before Election Day.",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Earlier sunsets in Austin are on the horizon",
+    "link": "https://www.kxan.com/weather/weather-blog/earlier-sunsets-in-austin-are-on-the-horizon/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-18T19:54:28.000Z",
+    "summary": "Texas and most of the country \"falls back\" in a few weeks and gains an extra hour of sleep, but the trade-off is we continue to lose daylight in the evening hours.",
     "place": null,
     "placeKind": null
    }
@@ -87,108 +375,6 @@
     "color": "#a394e0",
     "published": "2026-10-18T00:17:27.000Z",
     "summary": "A hole punch cloud, also known as a fallstreak hole, was seen in the Austin area on Saturday afternoon. This rare cloud formed in altocumulus clouds, leaving behind a \"giant circle in the sky\".",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.72,
-     30.38
-    ]
-   },
-   "properties": {
-    "title": "'Try things they would have never gotten to try'; Inside Asmbly, Austin's nonprofit makerspace",
-    "link": "https://www.kxan.com/news/local/austin/try-things-they-would-have-never-gotten-to-try-inside-asmbly-austins-nonprofit-makerspace/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-17T23:47:30.000Z",
-    "summary": "On a sunny autumn Saturday morning in north Austin, Adam Stow gives what's probably his thousandth tour of Asmbly Makerspace. Stow is the program director for the nonprofit, which is a community makerspace outfitted with several studios and shops dedicated to a range of craft disciplines.",
-    "place": "North Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austinites to vote on $295M bonds, city charter amendments",
-    "link": "https://www.kxan.com/news/your-local-election-hq/austinites-to-vote-on-295m-bonds-city-charter-amendments/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-17T22:11:46.000Z",
-    "summary": "Voters will decide on park and library funding as well as possibly a mandated, independent audit of Austin's budget.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7325,
-     30.2837
-    ]
-   },
-   "properties": {
-    "title": "Stats: How are the Texas Longhorns performing in the 2026 season?",
-    "link": "https://www.kxan.com/sports-general/horns-report/longhorn-football-stats-2026/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-17T20:09:06.000Z",
-    "summary": "Follow along as we track the Longhorns' performance throughout the 2026 season.",
-    "place": "Texas Longhorns",
-    "placeKind": "venue"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Offensive struggles plague No. 7 Texas again in 27-24 loss to Florida",
-    "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-7-texas-vs-florida/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-17T16:00:00.000Z",
-    "summary": "No. 7 Texas squandered an early 14-point lead in a 27-24 loss to Florida, its second straight defeat. Steve Sarkisian says everything will be evaluated as the Longhorns search for answers offensively.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "'Ice Poseidon event' in Austin: What is it?",
-    "link": "https://www.kxan.com/news/local/austin/ice-poseidon-event-in-austin-what-is-it/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-17T12:21:38.000Z",
-    "summary": "Kick streamers could descend upon Austin on Saturday in hopes of winning $50,000—here's why.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "No. 7 Texas vs. Florida: Key storylines to watch",
-    "link": "https://www.kxan.com/sports-general/horns-report/no-7-texas-vs-florida-key-storylines-to-watch/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-17T12:00:00.000Z",
-    "summary": "Coming off its first loss of the season, No. 7 Texas looks to regain momentum against Florida. Here are the key storylines ahead of Saturday's matchup.",
     "place": null,
     "placeKind": null
    }
@@ -465,27 +651,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Get Age Fit celebrates 10 years in Georgetown",
-    "link": "https://communityimpact.com/georgetown/business/get-age-fit-celebrates-10-years-in-georgetown/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-16T16:00:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "City of Austin Council Message Board • Update Regarding AISD",
@@ -497,48 +662,6 @@
     "summary": "Council Members– I want to provide an update regarding the ongoing discussion at AISD. Texas law gives the parents at Webb and Burnet Middle Schools a powerful voice in what happens to their children. Over the past few weeks, those parents used that power, acted, and made their voices heard through the statutory petition process. It’s clear that they want the best for their children. They want the",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.79,
-     30.4
-    ]
-   },
-   "properties": {
-    "title": "Breakfast and Birds Barbershop: 15 Northwest Austin business updates for October",
-    "link": "https://communityimpact.com/northwest-austin/business/breakfast-and-birds-barbershop-15-northwest-austin-business-updates-for-october/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-16T15:17:07.000Z",
-    "summary": "",
-    "place": "Northwest Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.79979,
-     30.41142
-    ]
-   },
-   "properties": {
-    "title": "Pickleball Grove breaks ground on first 4 outdoor pickleball courts in Spicewood",
-    "link": "https://communityimpact.com/lake-travis-westlake/business/pickleball-grove-breaks-ground-on-first-4-outdoor-pickleball-courts-in-spicewood/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-16T14:59:00.000Z",
-    "summary": "",
-    "place": "Spicewood",
-    "placeKind": "neighborhood"
    }
   },
   {
@@ -1014,27 +1137,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.62,
-     30.439
-    ]
-   },
-   "properties": {
-    "title": "Pflugerville City Council selects property for potential new animal shelter",
-    "link": "https://communityimpact.com/pflugerville-hutto/government/pflugerville-city-council-selects-property-for-potential-new-animal-shelter/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-14T21:54:00.000Z",
-    "summary": "",
-    "place": "Pflugerville",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Zo Qadri seeks a second term",
@@ -1046,27 +1148,6 @@
     "summary": "Austin City Council Member Zohaib Ahmad “Zo” Qadri, the son of Pakistani immigrants, was born in 1990 in Secaucus, New Jersey. The family later moved to Schenectady, New York, roughly 18 miles from the capital of Albany. In 2002, just months after the attacks on the World Trade Towers in lower Manhattan, his family moved […]",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8531,
-     30.5788
-    ]
-   },
-   "properties": {
-    "title": "Leander City Council approves request to increase Lakewood Park water levels",
-    "link": "https://communityimpact.com/leander-liberty-hill/government/leander-city-council-approves-request-to-increase-lakewood-park-water-levels/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-14T21:21:03.000Z",
-    "summary": "",
-    "place": "Leander",
-    "placeKind": "city"
    }
   },
   {
@@ -1193,7 +1274,7 @@
     ]
    },
    "properties": {
-    "title": "Early voting starts Monday. Here's what you need to know to vote in Travis County",
+    "title": "Early voting has begun. Here's what you need to know to vote in Travis County",
     "link": "https://www.kut.org/austin/2026-10-14/travis-county-tx-election-early-voting-guide",
     "outlet": "KUT",
     "group": "news",
@@ -1478,21 +1559,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Austin's City Council District 5: Where candidates stand on affordability and public safety",
-    "link": "https://www.kut.org/austin/2026-10-13/austin-tx-district-5-city-council-race-november-election",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-13T10:00:00.000Z",
-    "summary": "Austin City Council Member Ryan Alter is running for a second term, but he'll have to beat out challengers David Weinberg, Liz Brink and Farrah Abraham.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "CenTex developers outline plans for planned 40-acre sports complex",
     "link": "https://communityimpact.com/leander-liberty-hill/development/centex-developers-outline-plans-for-planned-40-acre-sports-complex/",
     "outlet": "Community Impact",
@@ -1587,21 +1653,6 @@
     "color": "#e8b35e",
     "published": "2026-10-11T20:15:11.000Z",
     "summary": "We’re just 24 days from the mid-term elections that will determine which party controls the U.S. Senate and House of Representatives as well as the state’s next U.S. senator and governor. Closer to home, further down the ballot the November 3rd election will permit voters to choose who will win five seats on the Austin […]",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin Council of PTAs joins late push for Burnet, Webb closure petitions",
-    "link": "https://austincurrent.org/2026/10/09/austin-austinisd-burnet-webb-petition-state-takeover/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-09T22:40:52.000Z",
-    "summary": "Organizers of the petition must climb from 11% support at Burnet and 2% at Webb to more than 50% by Oct. 15. The post Austin Council of PTAs joins late push for Burnet, Webb closure petitions appeared first on Austin Current .",
     "place": null,
     "placeKind": null
    }
@@ -1788,27 +1839,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.747,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "Austin’s own DOGE? Debate over how to audit City Hall heats up as election nears",
-    "link": "https://austincurrent.org/2026/10/08/austin-elections-audit-city-hall-proposition-i-save-austin-now/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-08T10:30:00.000Z",
-    "summary": "Austin voters will be asked this fall to consider enshrining an audit mandate in the city’s charter. City Council approved a similar effort earlier this year. The post Austin’s own DOGE? Debate over how to audit City Hall heats up as election nears appeared first on Austin Current .",
-    "place": "City Hall",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "City of Austin Council Message Board • Pull - Item 17",
@@ -1869,21 +1899,6 @@
     "color": "#f0c27a",
     "published": "2026-10-07T01:39:00.000Z",
     "summary": "I appreciated the thorough staff briefing this morning, the council's extensive Q&A, and MPT Vela managing our time. It really is impressive how many organizations and professionals are collaborating to address this issue. I recognize a number of concerns were laid out by speakers and council members and look forward to seeing how staff can address them going forward. And I look forward to the dis",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "New program aimed at breaking cycle of homelessness and jail faces pushback over police involvement",
-    "link": "https://austincurrent.org/2026/10/06/austin-police-department-homelessness/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-06T23:54:02.000Z",
-    "summary": "Austin’s No Wrong Door program aims to break cycles of homelessness and jail, but critics are worried it makes the people it’s seeking to help more vulnerable. The post New program aimed at breaking cycle of homelessness and jail faces pushback over police involvement appeared first on Austin Current .",
     "place": null,
     "placeKind": null
    }
@@ -2066,42 +2081,6 @@
     "summary": "Private equity investor Riverside has acquired Lavaca Plaza, an 11-story building with 122,042 square feet of office space in Austin, Texas, for an unspecified price. Unico Properties sold the asset. Commercial Search reports Unico paid $61.4 million for the property in 2015. In the marketing material, JLL suggested the property might be a candidate for ... The post Riverside Picks Up 11-Story Aus",
     "place": "Riverside",
     "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "5 Austin neighbors named among best small cities to live in America",
-    "link": "https://austin.culturemap.com/news/real-estate/best-small-cities-america-2026/",
-    "outlet": "CultureMap",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-10-05T16:03:03.000Z",
-    "summary": "Several suburbs that make up the Austin metro are among the best small cities to live in, according to a new WalletHub study. And two perennial favorites lead the way. In total, five Austin neighbors — with Cedar Park and Leander at the top of the pack — have been rated among the best small cities in America for 2026. WalletHub's annual survey compared more than 1,300 U.S. cities with populations ",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Tribune’s sample ballot tool now includes local elections for 16 million Texas voters",
-    "link": "https://www.texastribune.org/2026/10/05/texas-tribune-ballot-tool-2026-election-local/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-10-05T10:00:00.000Z",
-    "summary": "The updated 2026 election ballot tool is a major expansion and part of The Texas Tribune's mission to help Texans shape the future. The post Tribune’s sample ballot tool now includes local elections for 16 million Texas voters appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
    }
   }
  ]
