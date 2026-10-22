@@ -37,7 +37,9 @@ lists and what each is called on the card (owner-editable; order = card
 order). `bash`-free: `python3 tools/fetch-places.py` asks the Overpass API
 for every such place inside the neighborhoods' box, sorts each into its
 neighborhood (point in polygon, the same test as `../locate.js`) and writes
-`places/<neighborhood id>.json` — grouped by category, sorted by name, each
+`places/<neighborhood id>.json` — by group (`groups` in categories.json:
+Food & Drink, Groceries & Essentials, Shopping, Health & Beauty, Auto,
+Things to Do), then category, places sorted by name, each
 place `{ id, name, lng, lat, address? }` where `id` is the OSM type letter +
 id (`n…` node, `w…` way, `r…` relation). `places/index.json` records when it
 ran and the count per neighborhood; the page never reads it. Re-run after

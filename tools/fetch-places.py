@@ -10,7 +10,7 @@ such place inside the neighborhoods' bounding box, works out which
 neighborhood each one is in (point in polygon, the same test as
 chat/locate.js), and writes one small file per neighborhood:
 
-    chat/data/places/<neighborhood id>.json   grouped by category, sorted by name
+    chat/data/places/<neighborhood id>.json   by group, then category, places sorted by name
     chat/data/places/index.json               when it ran and how many it kept
 
 The chat map loads a neighborhood's file when you walk into it. Nothing else
@@ -96,6 +96,7 @@ def main():
     with open(CATEGORIES) as f:
         categories = json.load(f)
     categories.pop('_comment', None)
+    groups = categories.pop('groups', {})          # heading -> [label, ...], in card order
 
     # each neighborhood: its rings with a bounding box, so most points are
     # ruled out by four comparisons before the ring test
@@ -169,12 +170,15 @@ def main():
         kept += 1
     print(f'  {kept} places kept inside the neighborhoods')
 
-    # the card's category order is categories.json's order
-    order = []
+    # the card's order: the groups in categories.json order, each with its
+    # labels in the order listed there; a label in no group goes under Other
+    group_of = {label: g for g, labels in groups.items() for label in labels}
+    order = {g: list(labels) for g, labels in groups.items()}
     for key in categories:
         for label in categories[key].values():
-            if label not in order:
-                order.append(label)
+            if label not in group_of:
+                group_of[label] = 'Other'
+                order.setdefault('Other', []).append(label)
 
     # write: one file per neighborhood (every neighborhood gets one, even if empty)
     os.makedirs(OUT, exist_ok=True)
@@ -184,15 +188,19 @@ def main():
     today = date.today().isoformat()
     counts = {}
     for props, _ in areas:
-        groups = by_neighborhood.get(props['id'], {})
-        cats = []
-        for label in order:
-            if label in groups:
-                places = sorted(groups[label], key=lambda p: p['name'].lower())
-                cats.append({'name': label, 'places': places})
-        count = sum(len(c['places']) for c in cats)
+        found = by_neighborhood.get(props['id'], {})
+        out_groups = []
+        for g, labels in order.items():
+            cats = []
+            for label in labels:
+                if label in found:
+                    places = sorted(found[label], key=lambda p: p['name'].lower())
+                    cats.append({'name': label, 'places': places})
+            if cats:
+                out_groups.append({'name': g, 'categories': cats})
+        count = sum(len(c['places']) for g in out_groups for c in g['categories'])
         counts[props['id']] = count
-        out = {'id': props['id'], 'name': props['name'], 'fetched': today, 'count': count, 'categories': cats}
+        out = {'id': props['id'], 'name': props['name'], 'fetched': today, 'count': count, 'groups': out_groups}
         with open(os.path.join(OUT, props['id'] + '.json'), 'w') as f:
             json.dump(out, f, ensure_ascii=False, separators=(',', ':'))
     with open(os.path.join(OUT, 'index.json'), 'w') as f:

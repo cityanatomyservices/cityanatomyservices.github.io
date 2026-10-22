@@ -52,10 +52,13 @@
 .place-list { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); font-size: 12px; }
 .place-list details { margin: 0; }
 .place-list summary { cursor: pointer; padding: 3px 0; list-style: none; color: #52606d; }
+/* the six groups read a little stronger; their categories sit one step in */
+.place-group > summary { color: var(--ink); font-weight: 600; }
+.place-category { padding-left: 12px; }
 .place-list summary::-webkit-details-marker { display: none; }
 .place-list summary::before { content: '\25B8'; display: inline-block; width: 12px; }
 .place-list details[open] summary::before { content: '\25BE'; }
-.place-row { display: flex; width: 100%; padding: 2px 0 2px 12px; border: 0; background: none; font: inherit; color: var(--ink); text-align: left; cursor: pointer; }
+.place-row { display: flex; width: 100%; padding: 2px 0 2px 24px; border: 0; background: none; font: inherit; color: var(--ink); text-align: left; cursor: pointer; }
 .place-row.is-neighborhood { padding-left: 0; font-weight: 600; }
 .place-row .place-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .place-row .here { flex: none; margin-left: 6px; color: #52606d; }

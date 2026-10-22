@@ -46,6 +46,6 @@ are standing in. Visibility starts OFF and is remembered once turned on.
 - Businesses (owner 2026-10-22): anyone standing in the neighborhood may pick
   any of its businesses; a business room opens even when nobody else is
   there (a line stays 30 days); the neighborhood room still needs someone
-  else. The card goes neighborhood → category (fold) → business, with
+  else. The card goes neighborhood → group → category → business, with
   "N here" counts, and the map shows each visible person on the business
   they picked. `?room=<id>&place=<place id>` picks one for testing.

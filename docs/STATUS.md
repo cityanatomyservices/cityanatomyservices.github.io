@@ -1,5 +1,15 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-seventh pass) — businesses under six groups
+
+Owner picked six groups: Food & Drink, Groceries & Essentials, Shopping,
+Health & Beauty, Auto, Things to Do. `categories.json` gained `groups`
+(heading → labels, card order; a label in no group → Other);
+`tools/fetch-places.py` writes `groups → categories → places` per
+neighborhood (re-run); `room.js` builds neighborhood → group fold →
+category fold → business; `map.js` reads the new shape. Chat files
+`?v=20261022x`.
+
 ## 2026-10-22 (twenty-sixth pass) — zoom and pan limits
 
 Owner: no zooming out past the current extents, and the map can be

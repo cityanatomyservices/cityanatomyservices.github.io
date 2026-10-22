@@ -11,7 +11,8 @@
 // PLACES (owner 2026-10-22): inside a neighborhood you can narrow the chat
 // to one business. The neighborhood's businesses come from
 // chat/data/places/<neighborhood id>.json (tools/fetch-places.py, from
-// OpenStreetMap) and are listed on the card by category; tapping one moves
+// OpenStreetMap) and are listed on the card by group, then category
+// (owner 2026-10-22: six groups); tapping one moves
 // you to that business's room. Anyone standing in the neighborhood may pick
 // any of its businesses. A room is named "<neighborhood>" or
 // "<neighborhood>/<place id>"; everyone shares the neighborhood's one
@@ -96,11 +97,12 @@
     // lights up when someone else is visible, and you open it
   }
 
-  // ── the business list on the card ─────────────────────────────────────────
+  // ── the business list on the card: group → category → business ───────────
+  const allPlaces = (data) => (data ? data.groups : []).flatMap((g) => g.categories.flatMap((c) => c.places));
   function showPlaces(data) {
     const list = el.placeList;
     list.innerHTML = '';
-    if (!data || !data.categories.length) return;
+    if (!data || !data.groups.length) return;
     const row = (text, roomString, cls) => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -112,18 +114,28 @@
       return b;
     };
     list.appendChild(row(COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
-    data.categories.forEach((cat) => {
+    const fold = (title, count, cls) => {
       const d = document.createElement('details');
+      d.className = cls;
       const s = document.createElement('summary');
-      s.textContent = cat.name + ' · ' + cat.places.length;
+      s.textContent = title + ' · ' + count;
       d.appendChild(s);
-      cat.places.forEach((p) => {
-        const b = row(p.name, room.properties.id + '/' + p.id, 'place-row');
-        b.title = p.address || p.name;
-        b.dataset.place = JSON.stringify(p);
-        d.appendChild(b);
+      return d;
+    };
+    data.groups.forEach((g) => {
+      const total = g.categories.reduce((n, c) => n + c.places.length, 0);
+      const gd = fold(g.name, total, 'place-group');
+      g.categories.forEach((cat) => {
+        const cd = fold(cat.name, cat.places.length, 'place-category');
+        cat.places.forEach((p) => {
+          const b = row(p.name, room.properties.id + '/' + p.id, 'place-row');
+          b.title = p.address || p.name;
+          b.dataset.place = JSON.stringify(p);
+          cd.appendChild(b);
+        });
+        gd.appendChild(cd);
       });
-      list.appendChild(d);
+      list.appendChild(gd);
     });
     const credit = document.createElement('div');
     credit.className = 'place-credit';
@@ -165,7 +177,7 @@
     showPlaces(data);
     showCounts(window.ChatEngine.people());
     if (testPlace && data) {
-      const found = data.categories.flatMap((c) => c.places).find((p) => p.id === testPlace);
+      const found = allPlaces(data).find((p) => p.id === testPlace);
       if (found) await choose(found);
     }
   }

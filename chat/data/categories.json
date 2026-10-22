@@ -1,5 +1,70 @@
 {
-  "_comment": "The business types the chat map lists in each neighborhood (owner 2026-10-22: shops + food + drink + everyday services). Each key is an OpenStreetMap tag (shop, amenity, leisure); each entry maps the tag's value to the label shown on the card. The order here is the order on the card; two values with the same label merge into one category. Shop values not listed here are dropped by tools/fetch-places.py, which prints a tally of them so this file can grow. Re-run the script after editing. 2026-10-22: the 25 most common dropped types from the first run were added.",
+  "_comment": "The business types the chat map lists in each neighborhood (owner 2026-10-22: shops + food + drink + everyday services). Each key is an OpenStreetMap tag (shop, amenity, leisure); each entry maps the tag's value to the label shown on the card. The order here is the order on the card; two values with the same label merge into one category. Shop values not listed here are dropped by tools/fetch-places.py, which prints a tally of them so this file can grow. Re-run the script after editing. 2026-10-22: the 25 most common dropped types from the first run were added. 2026-10-22: `groups` puts the labels under six headings (owner's choice: Food & Drink, Groceries & Essentials, Shopping, Health & Beauty, Auto, Things to Do); the card goes neighborhood → group → category → business. A label missing from `groups` lands under `Other`.",
+  "groups": {
+    "Food & Drink": [
+      "Restaurants",
+      "Fast food",
+      "Coffee",
+      "Bakeries",
+      "Ice cream",
+      "Bars"
+    ],
+    "Groceries & Essentials": [
+      "Supermarkets",
+      "Corner stores",
+      "Groceries",
+      "Liquor stores",
+      "Drugstores",
+      "Pharmacies",
+      "Smoke shops",
+      "Laundry",
+      "Post offices",
+      "Banks"
+    ],
+    "Shopping": [
+      "Clothing",
+      "Shoe stores",
+      "Bookstores",
+      "Jewelry",
+      "Gift shops",
+      "Toy stores",
+      "Sporting goods",
+      "Department stores",
+      "Variety stores",
+      "Thrift stores",
+      "Furniture",
+      "Home goods",
+      "Electronics",
+      "Phone stores",
+      "Florists",
+      "Pet stores",
+      "Bike shops",
+      "Hardware",
+      "Building supply"
+    ],
+    "Health & Beauty": [
+      "Doctors",
+      "Dentists",
+      "Opticians",
+      "Vets",
+      "Gyms",
+      "Hair salons",
+      "Beauty",
+      "Massage",
+      "Tattoo"
+    ],
+    "Auto": [
+      "Car dealers",
+      "Auto repair",
+      "Auto parts",
+      "Storage"
+    ],
+    "Things to Do": [
+      "Cinemas",
+      "Theatres",
+      "Libraries"
+    ]
+  },
   "shop": {
     "supermarket": "Supermarkets",
     "convenience": "Corner stores",

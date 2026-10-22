@@ -262,7 +262,7 @@
         // the neighborhood's business list arrived: remember where each one is
         onPlaces(data) {
           Object.keys(placePoints).forEach((k) => delete placePoints[k]);
-          (data ? data.categories : []).forEach((c) => c.places.forEach((p) => { placePoints[p.id] = [p.lng, p.lat]; }));
+          (data ? data.groups : []).forEach((g) => g.categories.forEach((c) => c.places.forEach((p) => { placePoints[p.id] = [p.lng, p.lat]; })));
         },
         // the business you picked: the map goes there at street level (flat,
         // like the Street button) and a popup names it with Google Maps,
