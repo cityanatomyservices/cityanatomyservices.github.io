@@ -12,7 +12,10 @@ window.SHOP_WORDS = {
   street: 'Street',
   neighborhood: 'Neighborhood',
   city: 'City',
-  all: 'All',                       // the row above the categories in the list
+  all: 'All',                       // the first choice in every dropdown
+  showList: 'Show the list', hideList: 'Hide the list',
+  results: '{n} results', resultOne: '1 result',
+  name: 'Name', type: 'Type',       // table headers when config.js names no columns
   google: 'Google Maps',
   apple: 'Apple Maps',
   yelp: 'Yelp',

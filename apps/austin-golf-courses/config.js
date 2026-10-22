@@ -4,9 +4,25 @@
 window.SHOP_CONFIG = {
   title: "Golf in the Austin Region",
   subtitle: "Courses, climate, history, and trends",
-  data: './data.geojson?v=20261023f',
+  data: './data.geojson?v=20261023g',
   nameField: "Course",            // the property shown as each place's name
   categoryField: "Type",     // the property that colours the pins and groups the list
+  // the dropdowns in the side panel (owner: at least three), each narrowing
+  // the pins and the table; a dropdown whose property has no values in the
+  // data is left out until the data has it
+  filters: [
+    { property: "Type", label: "Type" },
+    { property: "Holes", label: "Holes" },
+    { property: "Area", label: "Area" },
+    { property: "Approx. price tier", label: "Price" }
+  ],
+  // the table's columns, in this order (the first carries the pin's colour)
+  columns: [
+    { property: "Course", header: "Course" },
+    { property: "Type", header: "Type" },
+    { property: "Holes", header: "Holes" },
+    { property: "Area", header: "Area" }
+  ],
   // the rows in a place's popup, in this order (a value that is a web
   // address becomes a link); empty values are skipped
   popupFields: [

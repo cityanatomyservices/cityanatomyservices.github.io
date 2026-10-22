@@ -101,7 +101,7 @@ stores, golf, horseback riding, pools) is a real page at `/apps/<id>/`
 inside the site frame, run by `/shopmap/app.js` (controls, views, card,
 list, popup — the same look as the home map). Its folder holds only
 `index.html` (copy one from a sibling), `config.js` (title, subtitle,
-`nameField`, `categoryField`, `popupFields`, `credit`) and `data.geojson`
+`nameField`, `categoryField`, `filters` (the side panel's dropdowns, three or more), `columns` (its table), `popupFields`, `credit`) and `data.geojson`
 (Point features; any properties). To refresh an app's data, replace
 `data.geojson` and bump `?v=` on `data:` in its `config.js`. Words on the
 buttons live in `/shopmap/words.js`. The engine's `?v=` is in every

@@ -1,16 +1,63 @@
 /* shopmap/style.css — the look of every shopping app's map: the same
-   surfaces, control stack, view buttons, card and popup as the home map
-   (chat/style.css + topicmap/style.css), scoped under .shopmap so nothing
-   here touches the site frame around it. Fonts come from the site. */
+   surfaces, control stack, view buttons and popup as the home map
+   (chat/style.css + topicmap/style.css), plus the side panel the old
+   reports had (slides out from the left, the arrow rides on its edge).
+   Scoped under .shopmap so nothing here touches the site frame around it.
+   Fonts come from the site. */
 .shopmap {
-  --ink: #1f2933; --paper: rgba(255, 255, 255, 0.94); --line: #d9dee3; --dim: #52606d;
+  --ink: #1f2933; --paper: rgba(255, 255, 255, 0.96); --line: #d9dee3; --dim: #52606d;
   --accent: #0067c5; --control: 44px;
+  --panel-w: clamp(260px, 30%, 400px);
+  --slide: 0.25s ease;
   position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden; container: page / size;
   color: var(--ink);
 }
 .shopmap #map { position: absolute; inset: 0; }
 
-/* the control stack: top right, round buttons */
+/* ── the side panel: title, dropdowns, table ───────────────────────────── */
+.shopmap .data-panel {
+  position: absolute; top: 0; left: 0; bottom: 0; width: var(--panel-w); z-index: 4;
+  display: flex; flex-direction: column;
+  background: var(--paper); border-right: 1px solid var(--line); box-shadow: 4px 0 18px rgba(0,0,0,.16);
+  transition: transform var(--slide);
+}
+.shopmap.panel-closed .data-panel { transform: translateX(-100%); }
+.shopmap .panel-head { padding: 12px 14px 10px; border-bottom: 1px solid var(--line); }
+.shopmap .panel-head h2 { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.25; }
+.shopmap .panel-sub { margin: 3px 0 0; font-size: 12px; color: var(--dim); }
+.shopmap .panel-sub:empty { display: none; }
+.shopmap .result-count { margin-top: 4px; font-size: 11px; color: var(--dim); }
+
+/* the dropdowns: two to a line, each "All" or one value */
+.shopmap .filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.shopmap .filters:empty { display: none; }
+.shopmap .filter-group { flex: 1 1 calc(50% - 4px); min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.shopmap .filter-group span { font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+.shopmap .filter-group select { width: 100%; min-width: 0; padding: 5px 6px; font: inherit; font-size: 12px; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 6px; }
+.shopmap .filter-group select:focus { outline: none; border-color: var(--accent); }
+
+/* the table scrolls inside the panel; one line per cell, clipped */
+.shopmap .table-wrap { flex: 1; min-height: 0; overflow: auto; }
+.shopmap table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.shopmap thead th { position: sticky; top: 0; z-index: 1; background: #f0f2f4; font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); text-align: left; padding: 8px; border-bottom: 1px solid var(--line); }
+.shopmap td { padding: 7px 8px; font-size: 12px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid #eceff2; }
+.shopmap th:first-child, .shopmap td:first-child { width: 44%; }
+.shopmap tbody tr { cursor: pointer; }
+.shopmap tbody tr:hover, .shopmap tbody tr:focus { background: #e6f0fa; outline: none; }
+.shopmap .swatch { display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.3); vertical-align: -1px; }
+
+/* the arrow on the panel's edge: moves with it */
+.shopmap .panel-toggle {
+  position: absolute; top: 50%; left: var(--panel-w); z-index: 5; width: 22px; height: 56px; padding: 0;
+  transform: translateY(-50%); display: grid; place-items: center; cursor: pointer;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-left: 0; border-radius: 0 8px 8px 0;
+  box-shadow: 4px 0 12px rgba(0,0,0,.12); transition: left var(--slide);
+}
+.shopmap.panel-closed .panel-toggle { left: 0; }
+.shopmap .panel-toggle-arrow { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(135deg); margin-left: 3px; }
+.shopmap.panel-closed .panel-toggle-arrow { transform: rotate(-45deg); margin-left: -3px; }
+
+/* ── the control stack: top right, round buttons ───────────────────────── */
 .shopmap .stack { position: absolute; right: 12px; top: 12px; z-index: 5; display: flex; flex-direction: column; gap: 10px; }
 .shopmap .round {
   width: var(--control); height: var(--control); padding: 0; border-radius: 999px;
@@ -31,40 +78,12 @@
 .shopmap .view-btn:hover { background: #f0f2f4; }
 .shopmap .view-btn:active { opacity: .7; }
 
-/* the card: title, legend, list */
-.shopmap .topleft { position: absolute; top: 12px; left: 12px; z-index: 5; width: 300px; max-width: calc(100% - 24px - var(--control) - 12px); max-height: calc(100% - 24px); overflow-y: auto; }
-.shopmap .legend { box-sizing: border-box; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
-.shopmap .card-toggle {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px;
-  width: 100%; min-height: 28px; padding: 0; border: 0; background: transparent;
-  font-family: inherit; font-size: inherit; font-weight: 600; color: inherit; text-align: left; cursor: pointer;
-}
-.shopmap .card-toggle::after { content: ''; width: 7px; height: 7px; margin: 0 3px 4px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); flex-shrink: 0; }
-.shopmap .card-toggle[aria-expanded="false"]::after { transform: rotate(-45deg); margin-bottom: 0; }
-.shopmap .card-toggle:hover { color: var(--accent); }
-.shopmap .legend-sub { color: var(--dim); margin: 2px 0 6px; font-size: 12px; }
-.shopmap .swatch { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.3); flex: none; }
-.shopmap .count { color: var(--dim); font-variant-numeric: tabular-nums; margin-left: auto; }
-
-/* the list: a fold per category, a row per place */
-.shopmap .place-list { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); font-size: 12px; }
-.shopmap .place-list details { margin: 0; }
-.shopmap .place-list summary { display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 3px 0; list-style: none; color: var(--ink); }
-.shopmap .place-list summary::-webkit-details-marker { display: none; }
-.shopmap .place-list summary::before { content: '\25B8'; display: inline-block; width: 10px; color: var(--dim); }
-.shopmap .place-list details[open] summary::before { content: '\25BE'; }
-.shopmap .place-list summary input { margin: 0; width: 13px; height: 13px; }
-.shopmap .place-list .cat-name { flex: 1; min-width: 0; }
-.shopmap .place-list details.is-hidden .cat-name { color: var(--dim); text-decoration: line-through; }
-.shopmap .place-row { display: block; width: 100%; padding: 2px 0 2px 28px; border: 0; background: none; font: inherit; color: var(--ink); text-align: left; cursor: pointer; }
-.shopmap .place-row:hover { color: var(--accent); }
-
-/* the popup: name, the place's rows, the three links */
+/* ── the popup: name, the place's rows, the three links ────────────────── */
 .shopmap .maplibregl-popup-content { font-size: 13px; color: var(--ink); padding: 10px 12px; max-height: 60vh; overflow-y: auto; }
 .shopmap .place-popup h3 { margin: 0 0 6px; font-size: 14px; padding-right: 14px; }
-.shopmap .place-popup table { border-collapse: collapse; margin-bottom: 8px; }
-.shopmap .place-popup td { padding: 1px 6px 1px 0; vertical-align: top; font-size: 12px; }
-.shopmap .place-popup td:first-child { color: var(--dim); white-space: nowrap; }
+.shopmap .place-popup table { border-collapse: collapse; margin-bottom: 8px; width: auto; table-layout: auto; }
+.shopmap .place-popup td { padding: 1px 6px 1px 0; vertical-align: top; font-size: 12px; white-space: normal; border: 0; width: auto; }
+.shopmap .place-popup td:first-child { color: var(--dim); white-space: nowrap; width: auto; }
 .shopmap .place-popup td a { color: var(--accent); }
 .shopmap .place-links { display: flex; gap: 6px; }
 .shopmap .place-links a { flex: 1; padding: 5px 6px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-size: 12px; font-weight: 600; text-align: center; text-decoration: none; white-space: nowrap; }
@@ -74,6 +93,6 @@
 .shopmap .me-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--accent); }
 
 @container page (max-width: 640px) {
-  .shopmap .topleft { width: 260px; }
-  .shopmap .legend { font-size: 12px; }
+  .shopmap { --panel-w: min(300px, calc(100% - 60px)); }
+  .shopmap .filter-group { flex-basis: 100%; }
 }

@@ -1,22 +1,27 @@
 // shopmap/app.js — the engine every shopping app runs on (owner 2026-10-22:
 // the shopping apps live at /apps/<id>/, carry the site's own header and
-// footer, and look like the map on the home page).
+// footer, look like the map on the home page, and keep the old reports'
+// side panel — the list that slides out from the left with the arrow on its
+// edge — with at least three dropdowns to narrow the choice).
 //
 // A shopping app folder holds three files:
 //   index.html   the page: the site frame (shell.js) around this map
 //   config.js    window.SHOP_CONFIG — title, subtitle, the data file, which
-//                property is the name, which one the category, the popup rows
+//                property is the name, which one colours the pins, the
+//                dropdowns (filters), the table columns, the popup rows
 //   data.geojson the places, one Point feature each
 //
 // What the page does: the places are pins coloured by category on the same
 // basemap as the home map, with the same round control stack (find me,
 // 2D/3D, satellite, extents, zoom) and the Street / Neighborhood / City
-// view buttons. The card top-left holds the title and the list: a fold per
-// category with its colour and count (untick its box to hide those pins),
-// a row per place. Tap a row and the map goes there at street level, flat, with a
-// popup: the place's rows from config.js and Google Maps / Apple Maps /
-// Yelp links (plain web addresses). Tapping a pin opens the same popup.
-// Nobody can zoom out past the City view or push the map off the screen.
+// view buttons. The side panel on the left holds the title, the dropdowns
+// (each "All" or one value; changing one narrows the pins AND the table)
+// and the table, one row per place. Tap a row and the map goes there at
+// street level, flat, with a popup: the place's rows from config.js and
+// Google Maps / Apple Maps / Yelp links (plain web addresses); on a phone
+// the panel slides away so the map shows. Tapping a pin opens the same
+// popup. Nobody can zoom out past the City view or push the map off the
+// screen.
 //
 // The control and view code is the same as chat/map.js (the home map), kept
 // as a twin here on purpose so each page can be read on its own.
@@ -42,20 +47,20 @@
   };
 
   document.title = CFG.title;
-  $('legendTitle').textContent = CFG.title;
-  $('legendSub').textContent = CFG.subtitle || '';
+  $('panelTitle').textContent = CFG.title;
+  $('panelSub').textContent = CFG.subtitle || '';
 
-  // the card folds with the arrow in its title; it starts open on a desktop
-  // and closed on a phone, where it would cover the map
-  let placePopup = null;
-  const setCard = (open) => {
-    $('legendTitle').setAttribute('aria-expanded', String(open));
-    $('legendBody').hidden = !open;
-    $('legend').classList.toggle('is-collapsed', !open);
-    if (open && placePopup) { placePopup.remove(); placePopup = null; }
+  // ── the side panel: slides out from the left; the arrow on its edge ─────
+  // opens and closes it. Open on a desktop, closed on a phone (it would
+  // cover the map).
+  const page = document.querySelector('.shopmap');
+  const setPanel = (open) => {
+    page.classList.toggle('panel-closed', !open);
+    $('panelToggle').setAttribute('aria-expanded', String(open));
+    $('panelToggle').title = open ? W.hideList : W.showList;
   };
-  setCard(window.innerWidth > 640);
-  $('legendTitle').addEventListener('click', () => setCard($('legendTitle').getAttribute('aria-expanded') !== 'true'));
+  setPanel(window.innerWidth > 640);
+  $('panelToggle').addEventListener('click', () => setPanel(page.classList.contains('panel-closed')));
 
   function boundsOf(features) {
     const b = [[Infinity, Infinity], [-Infinity, -Infinity]];
@@ -172,6 +177,7 @@
     $('viewCity').addEventListener('click', cityView);
 
     // ── the popup: the place's rows, then the three links ──────────────────
+    let placePopup = null;
     const isUrl = (v) => /^https?:\/\//i.test(String(v));
     function popupHtml(f) {
       const p = f.properties;
@@ -192,45 +198,77 @@
       placePopup = new maplibregl.Popup({ offset: 14, maxWidth: '300px', closeOnClick: false })
         .setLngLat(f.geometry.coordinates).setHTML(popupHtml(f)).addTo(map);
     }
-    // tapping a row: the map goes there at street level, flat, the card folds
+    // tapping a row: the map goes there at street level, flat; on a phone
+    // the panel slides away so the map and popup show
     function goTo(f) {
       setTilt(false);
       map.easeTo({ center: f.geometry.coordinates, zoom: VIEWS.street.zoom, pitch: 0, bearing: 0, duration: 900 });
       showPopup(f);
-      setCard(false);
+      if (window.innerWidth <= 640) setPanel(false);
     }
 
-    // ── the list on the card: a fold per category (its colour, its count, a
-    // box to hide its pins), a row per place ──────────────────────────────
-    const hidden = new Set();
-    const applyFilter = () => {
-      const f = ['!', ['in', ['get', CFG.categoryField], ['literal', Array.from(hidden)]]];
-      map.setFilter('places', f);
-      map.setFilter('place-labels', f);
-    };
-    const list = $('placeList');
-    categories.forEach((c) => {
-      const mine = features.filter((f) => category(f) === c).sort((a, b) => name(a).localeCompare(name(b)));
-      const d = document.createElement('details');
-      const s = document.createElement('summary');
-      const box = document.createElement('input');
-      box.type = 'checkbox'; box.checked = true; box.title = c;
-      box.addEventListener('click', (e) => e.stopPropagation());             // the box must not fold the list
-      box.addEventListener('change', () => { box.checked ? hidden.delete(c) : hidden.add(c); applyFilter(); d.classList.toggle('is-hidden', !box.checked); });
-      const sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = colorOf[c];
-      const txt = document.createElement('span'); txt.className = 'cat-name'; txt.textContent = c;
-      const count = document.createElement('span'); count.className = 'count'; count.textContent = mine.length;
-      s.append(box, sw, txt, count);
-      d.appendChild(s);
-      mine.forEach((f) => {
-        const b = document.createElement('button');
-        b.type = 'button'; b.className = 'place-row';
-        b.textContent = name(f);
-        b.addEventListener('click', () => goTo(f));
-        d.appendChild(b);
-      });
-      list.appendChild(d);
+    // ── the dropdowns: one per entry in config.js `filters`, each "All" or
+    // one of the values found in the data; together they narrow the pins
+    // and the table ──────────────────────────────────────────────────────
+    const selects = [];
+    const filtersEl = $('filters');
+    (CFG.filters || []).forEach(({ property, label }) => {
+      const values = Array.from(new Set(features.map((f) => f.properties[property]).filter((v) => v != null && v !== '').map(String)))
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+      if (!values.length) return;                                        // nothing to choose from
+      const group = document.createElement('label');
+      group.className = 'filter-group';
+      const text = document.createElement('span'); text.textContent = label || property;
+      const select = document.createElement('select');
+      select.dataset.property = property;
+      const all = document.createElement('option'); all.value = ''; all.textContent = W.all;
+      select.appendChild(all);
+      values.forEach((v) => { const o = document.createElement('option'); o.value = v; o.textContent = v; select.appendChild(o); });
+      select.addEventListener('change', applyFilters);
+      group.append(text, select);
+      filtersEl.appendChild(group);
+      selects.push(select);
     });
+    const passes = (f) => selects.every((s) => !s.value || String(f.properties[s.dataset.property] ?? '') === s.value);
+    function applyFilters() {
+      const shown = features.filter(passes);
+      const ids = shown.map((f) => f.id);
+      if (map.getLayer('places')) {
+        map.setFilter('places', ['in', ['id'], ['literal', ids]]);
+        map.setFilter('place-labels', ['in', ['id'], ['literal', ids]]);
+      }
+      fillTable(shown);
+    }
+
+    // ── the table: one row per place, the columns from config.js; the first
+    // cell carries the pin's colour; a tap goes there ────────────────────
+    const columns = (CFG.columns && CFG.columns.length) ? CFG.columns : [{ property: CFG.nameField, header: W.name }, { property: CFG.categoryField, header: W.type }];
+    const head = $('tableHead');
+    head.innerHTML = '<tr>' + columns.map((c) => `<th>${esc(c.header || c.property)}</th>`).join('') + '</tr>';
+    function fillTable(shown) {
+      $('resultCount').textContent = fill(shown.length === 1 ? W.resultOne : W.results, { n: shown.length });
+      const body = $('tableBody');
+      body.innerHTML = '';
+      shown.slice().sort((a, b) => name(a).localeCompare(name(b))).forEach((f) => {
+        const tr = document.createElement('tr');
+        tr.tabIndex = 0;
+        columns.forEach((c, i) => {
+          const td = document.createElement('td');
+          const v = f.properties[c.property];
+          td.textContent = v == null ? '' : String(v);
+          td.title = td.textContent;
+          if (i === 0) {
+            const dot = document.createElement('span'); dot.className = 'swatch'; dot.style.background = f.properties._color;
+            td.prepend(dot);
+          }
+          tr.appendChild(td);
+        });
+        tr.addEventListener('click', () => goTo(f));
+        tr.addEventListener('keydown', (e) => { if (e.key === 'Enter') goTo(f); });
+        body.appendChild(tr);
+      });
+    }
+    fillTable(features);
 
     map.on('load', () => {
       limitZoom();

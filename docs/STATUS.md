@@ -1,5 +1,24 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirty-fourth pass) — shopping apps: the side panel is back, with dropdowns
+
+Owner: keep the old reports' side panel (slides out from the left, arrow
+on its edge) and give it at least three dropdowns that narrow the table
+underneath and the pins (guitar: type, new or used, area). `/shopmap/`:
+the top-left card is gone; `.data-panel` (title, subtitle, result count,
+`filters` from config.js — each "All" or a value found in the data, a
+dropdown with no values in the data is left out — and the table from
+config.js `columns`, first cell with the pin's colour, a tap goes there;
+on a phone the panel slides away after a tap); `.panel-toggle` arrow on
+the panel's edge, open on desktop, closed on phone. Per-app `filters` +
+`columns` set in each `config.js` (guitar: shop_type / sells / city —
+`sells` New|Used|Both is NOT in the data yet; the dropdown appears once
+Codex's table adds it; bike: type / sells_ebikes / city; toy: type /
+age_range / city; golf: Type / Holes / Area / price tier; horseback:
+category / area / primary_activities; pools: Pool Type / Status / Closure
+Days). Engine + pages `?v=20261023g`. Rendered headless: panel, dropdowns
+and table right; the map itself still unseen with WebGL here.
+
 ## 2026-10-22 (thirty-third pass) — shopping apps rebuilt on /shopmap/, at /apps/<id>/
 
 Owner: the guitar report must live at /apps/austin-vintage-guitar/ and

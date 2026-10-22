@@ -4,9 +4,23 @@
 window.SHOP_CONFIG = {
   title: "E-Bike and Bicycle Shops in Greater Austin",
   subtitle: "Independent, chain, and e-bike specialist shops across the metro",
-  data: './data.geojson?v=20261023f',
+  data: './data.geojson?v=20261023g',
   nameField: "shop_name",            // the property shown as each place's name
   categoryField: "type",     // the property that colours the pins and groups the list
+  // the dropdowns in the side panel (owner: at least three), each narrowing
+  // the pins and the table; a dropdown whose property has no values in the
+  // data is left out until the data has it
+  filters: [
+    { property: "type", label: "Type" },
+    { property: "sells_ebikes", label: "E-bikes" },
+    { property: "city", label: "Area" }
+  ],
+  // the table's columns, in this order (the first carries the pin's colour)
+  columns: [
+    { property: "shop_name", header: "Shop" },
+    { property: "type", header: "Type" },
+    { property: "city", header: "Area" }
+  ],
   // the rows in a place's popup, in this order (a value that is a web
   // address becomes a link); empty values are skipped
   popupFields: [

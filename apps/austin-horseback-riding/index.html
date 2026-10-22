@@ -4,31 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recreational Horseback Riding in Greater Austin</title>
-  <link href="/style.css?v=20261023f" rel="stylesheet" />
+  <link href="/style.css?v=20261023g" rel="stylesheet" />
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
-  <link href="/shopmap/style.css?v=20261023f" rel="stylesheet" />
+  <link href="/shopmap/style.css?v=20261023g" rel="stylesheet" />
 </head>
 <body>
   <!-- A SHOPPING APP (owner 2026-10-22): the site's own frame (shell.js draws
        the header and footer) around a map that looks like the home page's,
-       run by the shared engine in /shopmap/. This folder holds only this
-       page, config.js (title, data, fields) and data.geojson (the places).
+       with the side panel (dropdowns + table) the reports always had, run
+       by the shared engine in /shopmap/. This folder holds only this page,
+       config.js (title, data, fields) and data.geojson (the places).
        Not a framed page: tools/make-pages.js leaves this file alone. -->
   <main>
     <section class="map-hero">
       <div class="shopmap">
         <div id="map"></div>
 
-        <!-- top left: the card — title, the list by category -->
-        <div class="topleft">
-          <aside class="legend" id="legend">
-            <button class="card-toggle" id="legendTitle" type="button" aria-expanded="true" aria-controls="legendBody"></button>
-            <div id="legendBody">
-              <div class="legend-sub" id="legendSub"></div>
-              <div class="place-list" id="placeList"></div>
-            </div>
-          </aside>
-        </div>
+        <!-- left: the side panel — title, the dropdowns, the table; the arrow on
+             its edge slides it away and back (app.js setPanel) -->
+        <aside class="data-panel" id="dataPanel">
+          <div class="panel-head">
+            <h2 id="panelTitle"></h2>
+            <p class="panel-sub" id="panelSub"></p>
+            <div class="result-count" id="resultCount"></div>
+          </div>
+          <div class="filters" id="filters"></div>
+          <div class="table-wrap">
+            <table>
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </aside>
+        <button class="panel-toggle" id="panelToggle" type="button" aria-expanded="true" aria-controls="dataPanel">
+          <span class="panel-toggle-arrow" aria-hidden="true"></span>
+        </button>
 
         <!-- right: the round control stack, the same as the home map -->
         <div class="stack">
@@ -53,9 +63,9 @@
   </main>
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
-  <script src="/shopmap/words.js?v=20261023f"></script>
-  <script src="./config.js?v=20261023f"></script>
-  <script src="/shopmap/app.js?v=20261023f"></script>
+  <script src="/shopmap/words.js?v=20261023g"></script>
+  <script src="./config.js?v=20261023g"></script>
+  <script src="/shopmap/app.js?v=20261023g"></script>
   <script src="/shell.js?v=20261023e"></script>
 </body>
 </html>

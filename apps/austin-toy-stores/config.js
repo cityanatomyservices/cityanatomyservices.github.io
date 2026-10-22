@@ -4,9 +4,23 @@
 window.SHOP_CONFIG = {
   title: "Toy Stores & Children's Specialty Retailers in Greater Austin",
   subtitle: "Independent shops, educational toy specialists, and family-favorite destinations",
-  data: './data.geojson?v=20261023f',
+  data: './data.geojson?v=20261023g',
   nameField: "name",            // the property shown as each place's name
   categoryField: "type",     // the property that colours the pins and groups the list
+  // the dropdowns in the side panel (owner: at least three), each narrowing
+  // the pins and the table; a dropdown whose property has no values in the
+  // data is left out until the data has it
+  filters: [
+    { property: "type", label: "Type" },
+    { property: "age_range", label: "Ages" },
+    { property: "city", label: "Area" }
+  ],
+  // the table's columns, in this order (the first carries the pin's colour)
+  columns: [
+    { property: "name", header: "Store" },
+    { property: "type", header: "Type" },
+    { property: "age_range", header: "Ages" }
+  ],
   // the rows in a place's popup, in this order (a value that is a web
   // address becomes a link); empty values are skipped
   popupFields: [
