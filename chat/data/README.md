@@ -15,8 +15,8 @@ neighborhood geojson and store it in GitHub").
   area `neighborhoods` (catalog row verified by row count, 95).
 
 Note for the chat map ("one geofence per neighborhood"): the 95 features
-are 65 distinct planning areas; 16 are split into sub-districts (two rows
-each): Brentwood, Central East Austin, Coronado Hills, Garrison Park, Highland, Mlk, Mlk-183, Pecan Springs-Springdale, South Manchaca, South River City, Sweetbriar, Upper Boggy Creek, West Congress, West University, Windsor Hills, Wooten. Decide whether a split area is one geofence
+are 65 distinct planning areas; 16 are split into sub-districts (two to five rows
+each, e.g. West Congress, Highland and Upper Boggy Creek have five): Brentwood, Central East Austin, Coronado Hills, Garrison Park, Highland, Mlk, Mlk-183, Pecan Springs-Springdale, South Manchaca, South River City, Sweetbriar, Upper Boggy Creek, West Congress, West University, Windsor Hills, Wooten. Decide whether a split area is one geofence
 (merge by `planning_area_name`) or two before wiring the chat rooms.
 
 To refresh: download the same URL again and replace the file; keep this note
