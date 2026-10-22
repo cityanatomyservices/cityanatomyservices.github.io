@@ -1240,3 +1240,48 @@ main {
 }
 
 .menu-pop:hover { color: var(--accent); }
+
+/* Categories inside Apps (owner, 2026-10-22): a second level of headings,
+   each opening to its apps. Indented one step in from "Apps". */
+.menu-groups { padding-bottom: 0.25rem; }
+
+.menu-group summary {
+  padding: 0.45rem 1.5rem 0.45rem 2.25rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.menu-group .menu-links li a:first-child { padding-left: 3rem; }
+
+/* Compact home header and footer (owner, 2026-10-22: "maximize the map
+   space in the middle"). Buttons stay 36px so a thumb can still hit them. */
+.topbar.topbar-home {
+  padding: 0.4rem 0.75rem;
+  gap: 0.5rem;
+}
+
+.topbar-home .brand-center { font-size: 1rem; }
+
+.topbar-home .menu-toggle {
+  width: 36px;
+  height: 36px;
+}
+
+.topbar-home .theme-toggle {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+.page-footer.home-footer { padding: 3px 12px 4px; }
+
+.home-footer .social-icons { gap: 8px; }
+
+.home-footer .social-icons a {
+  width: 36px;      /* thumb-sized tap target */
+  height: 36px;
+}
+
+.home-footer .social-icons svg {
+  width: 18px;
+  height: 18px;
+}

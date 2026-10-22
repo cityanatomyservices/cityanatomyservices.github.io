@@ -1,48 +1,60 @@
 {
-  "_comment": "HOME MENU (owner 2026-10-22): the chip bar and card row are gone; home.js reads the Apps chip below and lists each card as an item in the hamburger menu (title + app URL), and the Reports menu comes from apps/reports/reports.json. The other chips (Media, Services) are unused now; the menu links for Content, Services and Contact are written in index.html. The demo reel still runs: cards marked demo cycle in the window until the visitor picks something. OLDER NOTE, kept for the record: Home page chips and cards (owner-named chips, 2026-09-09). Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. THE SITE IS A HOLDER FOR THE WEB APPS (owner 2026-09-10). A CARD OPENS ITS WEB APP (`app`) in a new browser window - clicking a card does not change what plays in the map window. A card with no `app` but a `src` is the old kind and still previews in the window. THE WINDOW PLAYS A DEMO REEL: a chip marked `cycle: true` runs through its cards marked `demo: true` in order, each holding the window for `demoMs` (default 60000) before the next. The demos are animations only - nothing in them responds to a click. The chip with `open: true` is what the page opens on (Apps, so the reel starts straight away). A chip may still carry its own `src` and no cards, which makes it a page in itself loaded into the window - no chip uses that now (the News Feed chip was removed 2026-09-10), but it is how you would put a page back on the home page without writing code. A chip may carry `from`: a URL of apps/reports/reports.json shape; home.js turns each report into a card that opens the report's MapLibre map app at /apps/reports/<id>/.",
+  "_comment": "HOME MENU (owner 2026-10-22, second pass): the hamburger's Apps section shows CATEGORIES, never bare links. `categories` is the order they appear in. Every card in the Apps chip carries a `category`; home.js groups them under it. Every report in apps/reports/reports.json is listed under `reportsCategory` (owner: all reports go under Shopping Apps). The four civic maps (parcels, budget, datacenters, AISD) were put under Culture Apps by Claude because the owner named only three categories - move them by editing the word. The demo reel still runs: cards marked demo cycle in the window until the visitor picks something. Chips other than Apps are unused. OLDER NOTE, kept for the record: Home page chips and cards (owner-named chips, 2026-09-09). Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. THE SITE IS A HOLDER FOR THE WEB APPS (owner 2026-09-10). A CARD OPENS ITS WEB APP (`app`) in a new browser window - clicking a card does not change what plays in the map window. A card with no `app` but a `src` is the old kind and still previews in the window. THE WINDOW PLAYS A DEMO REEL: a chip marked `cycle: true` runs through its cards marked `demo: true` in order, each holding the window for `demoMs` (default 60000) before the next. The demos are animations only - nothing in them responds to a click. The chip with `open: true` is what the page opens on (Apps, so the reel starts straight away). A chip may still carry its own `src` and no cards, which makes it a page in itself loaded into the window - no chip uses that now (the News Feed chip was removed 2026-09-10), but it is how you would put a page back on the home page without writing code. A chip may carry `from`: a URL of apps/reports/reports.json shape; home.js turns each report into a card that opens the report's MapLibre map app at /apps/reports/<id>/.",
+  "categories": [
+    "Walking/Biking Apps",
+    "Shopping Apps",
+    "Culture Apps"
+  ],
+  "reportsCategory": "Shopping Apps",
   "chips": [
     {
       "label": "Apps",
       "cards": [
         {
           "title": "Moontower",
-          "blurb": "Austin, 1895 \u2014 light them all",
+          "blurb": "Austin, 1895 — light them all",
           "src": "/moontower/",
           "app": "/moontowertour/",
           "demo": true,
-          "demoMs": 60000
+          "demoMs": 60000,
+          "category": "Walking/Biking Apps"
         },
         {
           "title": "The 1885 Murder Tour",
-          "blurb": "Austin, 1885 \u2014 The Servant Girl Murders",
+          "blurb": "Austin, 1885 — The Servant Girl Murders",
           "src": "https://austin1885.city/annihilatortour/?demo=1",
           "app": "/1885murdertour/",
           "demo": true,
-          "demoMs": 60000
+          "demoMs": 60000,
+          "category": "Walking/Biking Apps"
         },
         {
           "title": "What can I build here?",
           "blurb": "",
           "src": "/parcels/embed.html",
-          "app": "/parcels/"
+          "app": "/parcels/",
+          "category": "Culture Apps"
         },
         {
           "title": "Budget Map",
           "blurb": "",
           "src": "/budget/#bill",
-          "app": "/budget/"
+          "app": "/budget/",
+          "category": "Culture Apps"
         },
         {
           "title": "Datacenter Map",
           "blurb": "",
           "src": "/datacenters/",
-          "app": "/datacenters/"
+          "app": "/datacenters/",
+          "category": "Culture Apps"
         },
         {
           "title": "AISD School Closures",
           "blurb": "",
           "src": "/AISD/",
-          "app": "/AISD/"
+          "app": "/AISD/",
+          "category": "Culture Apps"
         }
       ],
       "cycle": true,

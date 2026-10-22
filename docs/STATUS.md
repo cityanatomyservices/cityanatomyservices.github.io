@@ -1,5 +1,21 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (later) — Services and Contact pages deleted; Apps menu is categories
+
+Owner: delete the Services and Contact pages and their menu entries; drop
+the word Reports and file the reports under Apps; Apps shows only
+categories (Walking/Biking Apps, Shopping Apps, Culture Apps) with the
+apps under them, all reports under Shopping Apps; shrink the header and
+social bar but keep them usable on a phone. `services/` (both pages) and
+`contact.html` are gone (git history has them); their links were removed
+from the headers of `apps/`, `apps/reports/` and `content/`.
+`scripts/build-list-csv.py` still prints the old lists URL in CSVs it
+makes. `home.json` now carries `categories`, `reportsCategory` and a
+`category` on each app; Claude put the four civic maps (parcels, budget,
+datacenters, AISD) under Culture Apps because only three categories were
+named - move them by editing the word. Header is 0.4rem padding with 36px
+buttons; footer icons 36px targets with 18px glyphs. `?v=20261022b`.
+
 ## 2026-10-22 — home page: hamburger menu replaces the chip bar and card row
 
 Owner: "remove the entire card menu at the bottom … add them as menu items at

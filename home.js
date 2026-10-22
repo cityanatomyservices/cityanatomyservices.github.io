@@ -1,7 +1,8 @@
 // home.js — the home page's hamburger menu and the demo reel in the window.
 //
 // THE MENU REPLACED THE CARD ROW (owner, 2026-10-22: "more screen real
-// estate"). Every app and report that used to be a card is now a menu item.
+// estate"). Every app and report that used to be a card is now a menu item,
+// grouped under a category heading inside Apps.
 // Picking one loads it in the map window and closes the menu; the small ↗
 // beside it opens the same page in a new tab instead. The list of apps comes
 // from home.json and the list of reports from apps/reports/reports.json, so
@@ -13,9 +14,8 @@
   const frame = document.getElementById('app-window');
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.getElementById('site-menu');
-  const appsList = document.getElementById('menu-apps');
-  const reportsList = document.getElementById('menu-reports');
-  if (!frame || !toggle || !menu || !appsList || !reportsList) return;
+  const appsGroups = document.getElementById('menu-apps');
+  if (!frame || !toggle || !menu || !appsGroups) return;
 
   const DEMO_MS = 60000;
 
@@ -87,26 +87,38 @@
     list.appendChild(li);
   }
 
-  // Apps: the cards of the chip named "Apps" in home.json.
-  fetch('/home.json')
-    .then((r) => (r.ok ? r.json() : null))
-    .then((data) => {
-      const chip = ((data && data.chips) || []).find((c) => c.label === 'Apps');
-      const apps = (chip && chip.cards) || [];
-      apps.forEach((a) => addItem(appsList, a.title, a.app || a.src));
-      startReel(apps);
-    })
-    .catch(() => {
-      // No data: the window still shows whatever src index.html set.
-    });
+  // One category under Apps: a heading that opens to its list of apps.
+  function addGroup(name) {
+    const group = document.createElement('details');
+    group.className = 'menu-group';
+    group.open = true;
+    const heading = document.createElement('summary');
+    heading.textContent = name;
+    const list = document.createElement('ul');
+    list.className = 'menu-links';
+    group.appendChild(heading);
+    group.appendChild(list);
+    appsGroups.appendChild(group);
+    return list;
+  }
 
-  // Reports: each report's map app at /apps/reports/<id>/ (same list the
-  // reports page uses, so the two never disagree).
-  fetch('/apps/reports/reports.json')
-    .then((r) => (r.ok ? r.json() : []))
-    .then((items) => {
-      (items || []).forEach((item) =>
-        addItem(reportsList, item.title, '/apps/reports/' + item.id + '/'));
-    })
-    .catch(() => {});
+  // The Apps section shows CATEGORIES, never bare links (owner, 2026-10-22).
+  // Apps come from home.json, each with a `category`; every report from
+  // apps/reports/reports.json goes under `reportsCategory` (Shopping Apps).
+  // Categories appear in the order home.json lists them.
+  Promise.all([
+    fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    fetch('/apps/reports/reports.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])
+  ]).then(([data, reports]) => {
+    if (!data) return;                  // no data: the window keeps index.html's src
+    const chip = (data.chips || []).find((c) => c.label === 'Apps');
+    const apps = (chip && chip.cards) || [];
+    const lists = new Map();
+    (data.categories || []).forEach((name) => lists.set(name, addGroup(name)));
+    const listFor = (name) => lists.get(name) || addGroup(name);   // unknown category: still shown
+    apps.forEach((a) => addItem(listFor(a.category || 'Apps'), a.title, a.app || a.src));
+    (reports || []).forEach((item) =>
+      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, '/apps/reports/' + item.id + '/'));
+    startReel(apps);
+  });
 }());
