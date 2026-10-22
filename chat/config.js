@@ -47,7 +47,7 @@ window.MAP_CONFIG = {
   // where the map opens (owner's reference picture 2026-10-22): over this
   // neighborhood at this zoom, close enough for the buildings to show, then
   // it flies to your own neighborhood once the phone finds it
-  openView: { room: 'downtown', zoom: 13.4 },
+  openView: { room: 'downtown', zoom: 14.4 },   // one step closer (owner 2026-10-22)
   openTiltMs: 1800,
   buildingColor: '#d6d9dd'
 };

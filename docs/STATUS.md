@@ -1,5 +1,16 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (eighteenth pass) — card closed by default, no auto-open chat, closer
+
+Owner: the chat window must NEVER open by itself; the card starts closed
+on a refresh, showing its title and, directly under it, the "1 other
+person is visible here" line; zoom in one more step. Done in `chat/`:
+`#peopleLine` moved out of `#legendBody` (under the title button, so it
+shows while folded); `setCard(false)` on load; the auto-open in
+`onPeople` removed (the Chat button is the only way in); `openView.zoom`
+13.4 → 14.4 and room / find-me flights `maxZoom` 14 → 15 so they do not
+zoom back out. `chat/*?v=20261022p`.
+
 ## 2026-10-22 (seventeenth pass) — cleaner chat card
 
 Owner: remove the sub line ("See and chat with…"), the "Nobody else is

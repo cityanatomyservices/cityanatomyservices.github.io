@@ -16,8 +16,8 @@
 // Your phone's GPS puts you in one geofence: that polygon tints, the map
 // eases to it, and you join its room. Visible (the default) means the
 // others in the room see your emoji on the neighborhood; Hidden means you
-// only watch. When you are visible and someone else is too, the chat
-// window opens by itself; the Chat button opens and closes it after that.
+// only watch. When you are visible and someone else is too, the Chat
+// button lights up and opens the chat window (it never opens by itself).
 // Leave the geofence and the room changes with you.
 (function () {
   const CFG = window.MAP_CONFIG;
@@ -30,12 +30,15 @@
   $('newName').textContent = COPY.newName;
   $('chatBtn').textContent = COPY.chatButton;
 
-  // the card folds with the arrow in its title (same as the topic maps)
+  // the card folds with the arrow in its title (same as the topic maps);
+  // it starts CLOSED (owner 2026-10-22), showing only the title and the
+  // people line, which sits outside the fold
   const setCard = (open) => {
     $('legendTitle').setAttribute('aria-expanded', String(open));
     $('legendBody').hidden = !open;
     $('legend').classList.toggle('is-collapsed', !open);
   };
+  setCard(false);
   $('legendTitle').addEventListener('click', () => setCard($('legendTitle').getAttribute('aria-expanded') !== 'true'));
 
   // the bounding box of a polygon, or of every polygon: what the map opens
@@ -220,7 +223,6 @@
       // ── the room ──────────────────────────────────────────────────────────
       let room = null;                     // the geofence feature you are in
       let others = [];                     // the visible people who are not you
-      let openedFor = null;                // the room the window opened itself for
       const avatars = new maplibregl.Marker({ element: document.createElement('div'), anchor: 'bottom' });
       avatars.getElement().className = 'avatars';
 
@@ -242,11 +244,8 @@
         others = list.filter((p) => !p.self);
         window.ChatPanel.setPeople(list);
         showPeople();
-        // the connection: you are visible, someone else is, the window opens
-        if (room && visible && others.length && openedFor !== room.properties.id) {
-          openedFor = room.properties.id;
-          window.ChatPanel.open(room.properties[CFG.nameField]);
-        }
+        // the window never opens by itself (owner 2026-10-22): the Chat
+        // button lights up when someone else is visible, and you open it
       };
 
       async function enter(feature) {
@@ -257,7 +256,7 @@
         window.ChatPanel.clear();
         if (!feature) { await window.ChatEngine.leave(); showPeople(); return; }
         map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
-        flyTo(boundsOf([feature]), 60, 14);
+        flyTo(boundsOf([feature]), 60, 15);
         $('roomLine').textContent = fill(COPY.room.inside, { name: feature.properties[CFG.nameField] });
         showPeople();
         await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) });
@@ -272,7 +271,7 @@
 
       // find me: back to your neighborhood (or ask for the location again)
       $('ctrlLocate').addEventListener('click', () => {
-        if (room) flyTo(boundsOf([room]), 60, 14);
+        if (room) flyTo(boundsOf([room]), 60, 15);
         else if (!testRoom) window.ChatLocate.start(geofences, enter, (status) => { if (status !== 'inside') $('roomLine').textContent = COPY.room[status]; });
       });
 

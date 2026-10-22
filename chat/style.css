@@ -28,7 +28,7 @@
 .you .handle { font-weight: 600; }
 .you .small { margin-left: 6px; font: inherit; font-size: 11px; padding: 1px 6px; border: 1px solid var(--line); background: #fff; border-radius: 4px; cursor: pointer; color: #52606d; }
 .room-line { margin: 4px 0 0; font-size: 13px; }
-.people-line { margin: 2px 0 6px; font-size: 12px; color: #52606d; }
+.people-line { margin: 2px 0 4px; font-size: 12px; color: #52606d; }
 /* an empty line takes no room (the card stays tight) */
 .room-line:empty, .people-line:empty { display: none; }
 .chat-btns { display: flex; gap: 6px; margin-bottom: 4px; }

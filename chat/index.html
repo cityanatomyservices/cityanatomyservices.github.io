@@ -23,7 +23,7 @@
        ?v= so a push is actually seen (GitHub Pages caches hard): bump it
        on the file that changed. -->
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
-  <link rel="stylesheet" href="./style.css?v=20261022o" />
+  <link rel="stylesheet" href="./style.css?v=20261022p" />
 </head>
 <body>
   <div class="page">
@@ -32,11 +32,12 @@
     <!-- top-left: the card — you, your neighborhood, who is here, Visible / Chat, About -->
     <div class="topleft">
       <aside class="legend" id="legend">
-        <button class="card-toggle legend-title" id="legendTitle" type="button" aria-expanded="true" aria-controls="legendBody"></button>
-        <div id="legendBody">
+        <button class="card-toggle legend-title" id="legendTitle" type="button" aria-expanded="false" aria-controls="legendBody"></button>
+        <!-- the people line sits outside the fold so it shows while the card is closed (owner 2026-10-22) -->
+        <p class="people-line" id="peopleLine"></p>
+        <div id="legendBody" hidden>
           <p class="you"><span id="youLabel"></span> <span class="handle" id="youHandle"></span><button class="small" id="newName" type="button"></button></p>
           <p class="room-line" id="roomLine"></p>
-          <p class="people-line" id="peopleLine"></p>
           <div class="chat-btns">
             <button id="visibleBtn" type="button" aria-pressed="true"></button>
             <button id="chatBtn" type="button" disabled></button>
@@ -76,12 +77,12 @@
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="./copy.js?v=20261022o"></script>
-  <script src="./config.js?v=20261022o"></script>
-  <script src="./identity.js?v=20261022o"></script>
-  <script src="./locate.js?v=20261022o"></script>
-  <script src="./chat.js?v=20261022o"></script>
-  <script src="./panel.js?v=20261022o"></script>
-  <script src="./map.js?v=20261022o"></script>
+  <script src="./copy.js?v=20261022p"></script>
+  <script src="./config.js?v=20261022p"></script>
+  <script src="./identity.js?v=20261022p"></script>
+  <script src="./locate.js?v=20261022p"></script>
+  <script src="./chat.js?v=20261022p"></script>
+  <script src="./panel.js?v=20261022p"></script>
+  <script src="./map.js?v=20261022p"></script>
 </body>
 </html>
