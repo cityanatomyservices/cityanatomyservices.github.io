@@ -1188,20 +1188,46 @@ main {
 
 .site-menu[hidden] { display: none; }
 
-.site-menu .menu-link {
+.site-menu .menu-link,
+.site-menu summary {
   display: block;
   padding: 0.7rem 1.5rem;
   color: var(--text);
+  cursor: pointer;
+  list-style: none;        /* no default ▸ marker on the summary */
 }
 
-/* a small chevron on every link (owner 2026-10-22: "makes it more obvious
-   there are other items") */
-.site-menu .menu-link::after {
+.site-menu summary::-webkit-details-marker { display: none; }
+
+/* a small chevron on every row (owner 2026-10-22: "makes it more obvious
+   there are other items"); it turns when a section is open */
+.site-menu .menu-link::after,
+.site-menu summary::after {
   content: '›';
   float: right;
+  transition: transform 0.2s ease;
 }
 
-.site-menu .menu-link:hover { color: var(--accent); }
+.site-menu details[open] summary::after { transform: rotate(90deg); }
+
+.site-menu .menu-link:hover,
+.site-menu summary:hover { color: var(--accent); }
+
+/* the second level: one row per app or map, one step in */
+.menu-links {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.35rem;
+}
+
+.menu-links li a {
+  display: block;
+  padding: 0.45rem 1.5rem 0.45rem 2.5rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.menu-links li a:hover { color: var(--accent); }
 
 /* Compact home header and footer (owner, 2026-10-22: "maximize the map
    space in the middle"). Buttons stay 36px so a thumb can still hit them. */

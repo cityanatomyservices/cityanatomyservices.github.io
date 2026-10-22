@@ -8,12 +8,13 @@
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// THE MENU IS FOUR LINKS (owner, 2026-10-22, replacing the fold-out
-// sections): Apps goes to the directory page at /apps/, Maps to /maps/,
-// Content to /content/, Contact to /contact/. The directory pages list
-// everything in their folder (list.js); every app and map has its own
-// framed page at /apps/<slug>/ or /maps/<slug>/ (view.js), a shareable,
-// QR-code friendly address. Nothing here reads home.json any more.
+// THE MENU (owner, 2026-10-22, evening): Apps and Maps open a second
+// level listing every app / every map, so a person can go straight to one
+// item's framed page at /apps/<slug>/ or /maps/<slug>/ (view.js); the
+// first row of each list is the directory page itself (/apps/, /maps/,
+// list.js). Content and Contact are plain links. The lists come from
+// home.json (apps and maps, by `kind`) and apps/reports/reports.json (the
+// reports are maps). Closing the menu folds the levels back up.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────
   // Day is the default (owner, 2026-09-10); night is remembered once chosen.
@@ -37,8 +38,14 @@
     </div>
 
     <nav id="site-menu" class="site-menu" hidden aria-label="Site menu">
-      <a class="menu-link" href="/apps/">Apps</a>
-      <a class="menu-link" href="/maps/">Maps</a>
+      <details class="menu-section">
+        <summary>Apps</summary>
+        <ul id="menu-apps" class="menu-links"><li><a href="/apps/">All apps</a></li></ul>
+      </details>
+      <details class="menu-section">
+        <summary>Maps</summary>
+        <ul id="menu-maps" class="menu-links"><li><a href="/maps/">All maps</a></li></ul>
+      </details>
       <a class="menu-link" href="/content/">Content</a>
       <a class="menu-link" href="/contact/">Contact</a>
     </nav>
@@ -79,6 +86,8 @@
   const menu = document.getElementById('site-menu');
   function setOpen(open) {
     menu.hidden = !open;
+    // Fold the second level back up so the next opening starts at the top.
+    if (!open) menu.querySelectorAll('details').forEach((d) => { d.open = false; });
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
@@ -91,5 +100,27 @@
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !menu.hidden) setOpen(false);
+  });
+
+  // ── the second level: one row per app under Apps, one per map under Maps ──
+  function addItem(list, title, page) {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = page;
+    link.textContent = title;
+    li.appendChild(link);
+    list.appendChild(li);
+  }
+  Promise.all([
+    fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    fetch('/apps/reports/reports.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])
+  ]).then(([data, reports]) => {
+    if (!data) return;
+    const chip = (data.chips || []).find((c) => c.label === 'Apps');
+    ((chip && chip.cards) || []).forEach((a) => {
+      const kind = a.kind || 'apps';
+      addItem(document.getElementById(kind === 'maps' ? 'menu-maps' : 'menu-apps'), a.title, '/' + kind + '/' + a.slug + '/');
+    });
+    (reports || []).forEach((r) => addItem(document.getElementById('menu-maps'), r.title, '/' + (data.reportsKind || 'maps') + '/' + r.id + '/'));
   });
 }());

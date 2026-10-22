@@ -1,5 +1,16 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-fourth pass) — menu: Apps and Maps open a second level
+
+Owner: clicking Apps or Maps in the hamburger should open a second level
+so a person can go to an individual app or map from the menu. `shell.js`:
+Apps and Maps are `<details>` again, each list starting with the
+directory page ("All apps" → /apps/, "All maps" → /maps/) then one row
+per item from `home.json` (by `kind`) and `reports.json` (under Maps);
+Content and Contact stay plain links; closing the menu folds the level
+up. `style.css`: summary + `.menu-links` rules back, chevron turns when
+open. `?v=20261022u`.
+
 ## 2026-10-22 (twenty-third pass) — menu arrows back, smaller chat box, three view buttons
 
 Owner: the chevrons back on the hamburger links; chat box a little
