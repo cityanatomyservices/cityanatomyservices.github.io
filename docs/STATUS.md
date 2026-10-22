@@ -14,7 +14,11 @@ The Visible button's hover text says what it shares. Tour apps: same
 files, so a tour walker who turns Visible on is drawn on the chat map
 too. `?v=20261023b`. Then: the find-me button goes to YOUR position
 (zoom ≥ 16), not the neighborhood; picking a business never moves your
-marker. `?v=20261023c`.
+marker. `?v=20261023c`. Owner saw the marker jump to the business:
+with no GPS reading (desk / `?room=` test) the fallback was the picked
+business. Now a marker is ONLY the shared position, else the neighborhood
+centre; `?room=` test mode also watches the GPS for the position.
+`?v=20261023d`.
 
 ## 2026-10-22 (twenty-ninth pass) — "Users visible" fold on the card
 

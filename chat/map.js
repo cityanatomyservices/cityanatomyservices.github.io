@@ -249,8 +249,6 @@
       // on the neighborhood for the neighborhood room (owner 2026-10-22: see
       // on the map where everyone visible in your neighborhood is)
       const markers = {};                              // handle -> Marker
-      const placePoints = {};                          // place id -> [lng, lat], from the loaded list
-      const rowOf = (roomString) => roomString.split('/')[1];
       let placeMarker = null;                          // the business you picked (its popup: placePopup, above)
       window.ChatRoom.start(geofences, { hooks: {
         // your room: the old one loses its tint, the new one gains it, the map flies there
@@ -259,11 +257,6 @@
           if (!feature) return;
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
           flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
-        },
-        // the neighborhood's business list arrived: remember where each one is
-        onPlaces(data) {
-          Object.keys(placePoints).forEach((k) => delete placePoints[k]);
-          (data ? data.groups : []).forEach((g) => g.categories.forEach((c) => c.places.forEach((p) => { placePoints[p.id] = [p.lng, p.lat]; })));
         },
         // the business you picked: the map goes there at street level (flat,
         // like the Street button) and a popup names it with Google Maps,
@@ -288,12 +281,13 @@
             .addTo(map);
         },
         // everyone visible in the neighborhood, each drawn where they are: at
-        // the position they share, else on the business they picked, else on
-        // the neighborhood (owner 2026-10-22)
+        // the position they share, else on the neighborhood. Picking a
+        // business never moves anyone's marker (owner 2026-10-22); the pick
+        // shows in the users list and the "N here" counts instead.
         onPeople(list, feature) {
           const seen = {};
           if (feature) list.forEach((p) => {
-            const at = p.pos || placePoints[rowOf(p.room)] || centreOf(feature);
+            const at = p.pos || centreOf(feature);
             if (!markers[p.handle]) {
               const m = new maplibregl.Marker({ element: document.createElement('div'), anchor: 'bottom' });
               m.getElement().className = 'avatars';

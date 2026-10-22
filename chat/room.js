@@ -229,10 +229,15 @@
 
   const status = (s) => { if (s !== 'inside' && el.roomLine) el.roomLine.textContent = COPY.room[s]; };
 
-  // where you are: the phone's GPS, or ?room=<id> for testing at a desk
+  // where you are: the phone's GPS, or ?room=<id> for testing at a desk —
+  // the room is then fixed, but your marker still follows the GPS if the
+  // browser has one
+  const sharePosition = (pt) => window.ChatEngine.setPosition(pt);
   function locate() {
-    if (testRoom) enter(geofences.features.find((f) => f.properties.id === testRoom) || null);
-    else window.ChatLocate.start(geofences, enter, status, (pt) => window.ChatEngine.setPosition(pt));
+    if (testRoom) {
+      enter(geofences.features.find((f) => f.properties.id === testRoom) || null);
+      window.ChatLocate.start(geofences, () => {}, () => {}, sharePosition);
+    } else window.ChatLocate.start(geofences, enter, status, sharePosition);
   }
 
   window.ChatRoom = {
