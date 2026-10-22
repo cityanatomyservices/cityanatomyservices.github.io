@@ -1,5 +1,20 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (sixth pass) — menu opens one level at a time; framed page per app
+
+Owner: hamburger → four closed sections → Apps opens to closed categories →
+a category opens to its apps; and every app/report opens "with the same
+menu, header and footer as index.html but with a different address", for
+sharing and QR codes. Done: `shell.js` sections and categories start
+closed and fold up when the menu closes; every menu item now points at
+`/view/<slug>/`. Those are folders holding one identical file
+(`view/template.html`), written by `node tools/make-views.js` from
+`home.json` (new `slug` on each app: moontower, 1885, parcels, budget,
+datacenters, aisd) and `reports.json` (report id). `view.js` reads the
+folder name from the address and loads the app into the window. The hash
+deep links (`/#/budget/`) from the fifth pass are gone; `home.js` is just
+the reel. Owner said they will fix some names/links. `?v=20261022f`.
+
 ## 2026-10-22 (fifth pass) — shell.js: one frame, many pages; deep links
 
 Owner: new Content and Contact pages "based on the homepage", the brand

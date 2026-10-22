@@ -11,7 +11,7 @@
 
 ## Cache-busting the shared CSS/JS
 
-`/style.css`, `/shell.js`, `/home.js` and `/page.js` are referenced with a version query —
+`/style.css`, `/shell.js`, `/home.js`, `/view.js` and `/page.js` are referenced with a version query —
 `?v=20260911a`. GitHub Pages serves them with a long cache lifetime, so without
 it a visitor keeps the old file after a push and simply does not see the change
 (this bit the owner on 2026-09-10: a restored header button was live but
@@ -71,8 +71,14 @@ The steps, in order:
 Every page is a small HTML file holding only its centre (`<main>`), with
 `/shell.js` loaded at the end of `<body>`. That script draws the header
 (hamburger, Austin.Chat, day/night button, the menu) and the social footer,
-so the frame lives in one file and every page looks the same. To add a page:
-copy `contact/index.html`, replace the centre, keep the `shell.js` line.
-Menu items are deep links of the form `/#/budget/`; `home.js` makes the home
-page's map window follow the hash, so those addresses are shareable.
+so the frame lives in one file and every page looks the same. The menu opens
+one level at a time and folds up when closed. To add a plain page: copy
+`contact/index.html`, replace the centre, keep the `shell.js` line.
+
+**Framed app pages.** Every app and report has its own address inside the
+frame, `/view/<slug>/` (slug = the app's `slug` in `home.json`, or a report's
+`id`), for sharing and QR codes. Each folder holds the same file,
+`view/template.html`; `view.js` reads the folder name from the address and
+loads that app into the window. After adding an app or a report, or editing
+the template, run `node tools/make-views.js` and commit the folders it writes.
 `apps/` and `apps/reports/` still carry the older header and `page.js`.

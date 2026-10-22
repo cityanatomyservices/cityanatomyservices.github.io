@@ -8,11 +8,15 @@
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// MENU LINKS ARE DEEP LINKS. Every app and report item points at
-// "/#<path>" — the home page, which reads the hash and loads that path in its
-// map window (home.js). So "https://austin.chat/#/budget/" is a shareable
-// address that opens the Budget Map inside the frame, from any page. The ↗
-// beside an item opens the bare app in a new tab instead.
+// EVERY APP HAS ITS OWN FRAMED PAGE. A menu item points at "/view/<slug>/":
+// a page in this same frame whose centre is that app (view.js). So
+// "https://austin.chat/view/budget/" is a shareable address, QR-code
+// friendly, that opens the Budget Map with the menu, header and footer
+// around it. The ↗ beside an item opens the bare app in a new tab instead.
+//
+// THE MENU OPENS ONE LEVEL AT A TIME (owner, 2026-10-22): the hamburger shows
+// the four sections closed; Apps opens to its categories, closed; a category
+// opens to its apps. Closing the menu folds everything back up.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────
   // Day is the default (owner, 2026-09-10); night is remembered once chosen.
@@ -36,11 +40,11 @@
     </div>
 
     <nav id="site-menu" class="site-menu" hidden aria-label="Site menu">
-      <details class="menu-section" open>
+      <details class="menu-section">
         <summary>Apps</summary>
         <div id="menu-apps" class="menu-groups"></div>
       </details>
-      <details class="menu-section" open>
+      <details class="menu-section">
         <summary>Maps</summary>
         <ul id="menu-maps" class="menu-links"></ul>
       </details>
@@ -84,6 +88,8 @@
   const menu = document.getElementById('site-menu');
   function setOpen(open) {
     menu.hidden = !open;
+    // Fold every section back up so the next opening starts at the top level.
+    if (!open) menu.querySelectorAll('details').forEach((d) => { d.open = false; });
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
@@ -97,19 +103,16 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !menu.hidden) setOpen(false);
   });
-  // home.js closes the menu after a pick; this is the one door it uses.
-  window.siteShell = { closeMenu: () => setOpen(false) };
-
   // ── menu items ───────────────────────────────────────────────────────────
   const appsGroups = document.getElementById('menu-apps');
   const mapsList = document.getElementById('menu-maps');
 
-  // One list row: the name is a deep link into the home page's window, the ↗
-  // opens the bare app in a new tab.
-  function addItem(list, title, path) {
+  // One list row: the name goes to the app's framed page, the ↗ opens the
+  // bare app in a new tab.
+  function addItem(list, title, slug, path) {
     const li = document.createElement('li');
     const link = document.createElement('a');
-    link.href = '/#' + path;
+    link.href = '/view/' + slug + '/';
     link.textContent = title;
     const pop = document.createElement('a');
     pop.className = 'menu-pop';
@@ -128,7 +131,7 @@
   function addGroup(name) {
     const group = document.createElement('details');
     group.className = 'menu-group';
-    group.open = true;
+    group.open = false;
     const heading = document.createElement('summary');
     heading.textContent = name;
     const list = document.createElement('ul');
@@ -155,9 +158,9 @@
     const listFor = (name) => lists.get(name) || addGroup(name);   // unknown category: still shown
     apps.forEach((a) => {
       const list = a.category === 'Maps' ? mapsList : listFor(a.category || 'Apps');
-      addItem(list, a.title, a.app || a.src);
+      addItem(list, a.title, a.slug, a.app || a.src);
     });
     (reports || []).forEach((item) =>
-      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, '/apps/reports/' + item.id + '/'));
+      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, item.id, '/apps/reports/' + item.id + '/'));
   });
 }());

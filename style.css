@@ -1431,3 +1431,12 @@ a.contact-item:hover { color: var(--accent); }
   .contact-divider { margin: 0 auto; }
   .contact-item { justify-content: center; }
 }
+
+/* A framed page whose address names no app (view.js). */
+.view-missing {
+  margin: 3rem auto;
+  padding: 0 1.25rem;
+  max-width: 600px;
+  text-align: center;
+  color: var(--muted);
+}
