@@ -233,6 +233,7 @@
       const placePoints = {};                          // place id -> [lng, lat], from the loaded list
       const rowOf = (roomString) => roomString.split('/')[1];
       let placeMarker = null;                          // the business you picked
+      let placePopup = null;                           // and its popup
       window.ChatRoom.start(geofences, { hooks: {
         // your room: the old one loses its tint, the new one gains it, the map flies there
         onRoom(feature, before) {
@@ -246,10 +247,26 @@
           Object.keys(placePoints).forEach((k) => delete placePoints[k]);
           (data ? data.categories : []).forEach((c) => c.places.forEach((p) => { placePoints[p.id] = [p.lng, p.lat]; }));
         },
-        // the business you picked: a pin on it
+        // the business you picked: the map goes there at street level (flat,
+        // like the Street button) and a popup names it with Google Maps,
+        // Apple Maps and Yelp links (owner 2026-10-22: web addresses only,
+        // no API). Picking the neighborhood row again clears it.
         onPlace(place) {
           if (placeMarker) { placeMarker.remove(); placeMarker = null; }
-          if (place) placeMarker = new maplibregl.Marker({ color: CFG.roomColor }).setLngLat([place.lng, place.lat]).addTo(map);
+          if (placePopup) { placePopup.remove(); placePopup = null; }
+          if (!place) return;
+          const at = [place.lng, place.lat];
+          placeMarker = new maplibregl.Marker({ color: CFG.roomColor }).setLngLat(at).addTo(map);
+          setTilt(false);
+          map.easeTo({ center: at, zoom: V.street.zoom, pitch: 0, bearing: 0, duration: 900 });
+          const vars = { lat: place.lat, lng: place.lng, name: encodeURIComponent(place.name) };
+          const link = (key) => `<a href="${esc(fill(CFG.placeLinks[key], vars))}" target="_blank" rel="noopener">${esc(COPY.places[key])}</a>`;
+          placePopup = new maplibregl.Popup({ offset: 36, maxWidth: '280px', closeOnClick: false })
+            .setLngLat(at)
+            .setHTML(`<div class="place-popup"><h3>${esc(place.name)}</h3>` +
+                     (place.address ? `<p class="addr">${esc(place.address)}</p>` : '') +
+                     `<div class="place-links">${link('google')}${link('apple')}${link('yelp')}</div></div>`)
+            .addTo(map);
         },
         // everyone visible in the neighborhood, grouped by room, drawn where that room is
         onPeople(list, feature) {

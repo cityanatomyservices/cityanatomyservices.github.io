@@ -43,6 +43,14 @@ window.MAP_CONFIG = {
     url: 'https://aqbyxpiwugcvoephsvpm.supabase.co',
     anonKey: 'sb_publishable_QMWSj0CLYe3k3XSGCsWOhw_5RsI-nmN'
   },
+  // the three links in a business's popup (owner 2026-10-22: plain web
+  // addresses, no API keys). {lat} {lng} {name} are filled in by map.js.
+  placeLinks: {
+    google: 'https://www.google.com/maps/search/?api=1&query={lat},{lng}',
+    apple:  'https://maps.apple.com/?ll={lat},{lng}&q={name}',
+    yelp:   'https://www.yelp.com/search?find_desc={name}&find_loc=Austin,+TX'
+  },
+
   // 3D: the map OPENS tilted (owner 2026-10-22), rising to this pitch over
   // the first moment (the walking-tour apps use 57; past that the horizon
   // washes out), with the buildings drawn as blocks from the basemap's own

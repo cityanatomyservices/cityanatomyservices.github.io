@@ -30,7 +30,9 @@ window.MAP_COPY = {
   people: { one: '1 other person is visible here.', many: '{n} other people are visible here.',
             hiddenNote: 'Turn Visible on to be seen and to chat.', atPlace: 'At {place}.' },
   // the business list on the card: the neighborhood row, then one fold per category
-  places: { neighborhoodRow: 'The whole neighborhood', here: '{n} here', credit: 'Businesses \u00a9 OpenStreetMap contributors' },
+  places: { neighborhoodRow: 'The whole neighborhood', here: '{n} here', credit: 'Businesses \u00a9 OpenStreetMap contributors',
+            // the buttons in a business's popup
+            google: 'Google Maps', apple: 'Apple Maps', yelp: 'Yelp' },
   chat: { send: 'Send', close: 'Close', placeholder: 'Say something to the neighborhood\u2026' },
   attribution: 'City of Austin open data · © OpenStreetMap contributors'
 };

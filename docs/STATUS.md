@@ -1,5 +1,20 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-fifth pass) — more shop types; business popup with map + Yelp links
+
+Owner: add the dropped shop types and re-run; tapping a business zooms
+to it at street level (like the Street button) with a popup: name + a
+Google Maps button, an Apple Maps button and a Yelp search button, all
+plain URLs, no API. Done: `categories.json` +25 shop types (car dealers,
+auto parts, storage, phone stores, electronics, furniture, home goods,
+jewelry, department / variety stores, drugstores, gift shops, massage,
+opticians, thrift, tattoo, smoke shops, toys, sporting goods, building
+supply; cosmetics merged into Beauty); `tools/fetch-places.py` re-run
+(counts below). `chat/config.js` `placeLinks` URL templates ({lat} {lng}
+{name}); `map.js` `onPlace`: flat street zoom + MapLibre popup with the
+three links (`.place-popup`, `.place-links` in `chat/style.css`); words in
+`copy.js places.google/apple/yelp`. Chat files `?v=20261022v`.
+
 ## 2026-10-22 (twenty-fourth pass) — menu: Apps and Maps open a second level
 
 Owner: clicking Apps or Maps in the hamburger should open a second level
