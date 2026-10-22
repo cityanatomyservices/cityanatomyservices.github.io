@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Austin.Chat</title>
-  <link href="/style.css?v=20261022b" rel="stylesheet" />
+  <link href="/style.css?v=20261022c" rel="stylesheet" />
 </head>
 <body>
   <!-- Home header (owner, 2026-10-22): hamburger menu on the left, the site
        name in the middle, the day/night button on the right, all kept as
        short as a phone thumb allows so the map window gets the screen.
-       The Apps section of the menu shows categories (from home.json), each
-       opening to its apps; home.js builds that part. Content is a plain link. -->
+       Apps shows categories (from home.json), each opening to its apps; Maps
+       lists the maps directly; home.js fills both. Content and Contact are
+       plain links. -->
   <header id="top" class="topbar topbar-home">
     <div class="topbar-left">
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
@@ -30,6 +31,10 @@
       <details class="menu-section" open>
         <summary>Apps</summary>
         <div id="menu-apps" class="menu-groups"></div>
+      </details>
+      <details class="menu-section" open>
+        <summary>Maps</summary>
+        <ul id="menu-maps" class="menu-links"></ul>
       </details>
       <a class="menu-link" href="/content/">Content</a>
       <a class="menu-link" href="/contact.html">Contact</a>
@@ -60,7 +65,7 @@
     </div>
   </footer>
 
-  <script src="/page.js?v=20261022b"></script>
-  <script src="/home.js?v=20261022b"></script>
+  <script src="/page.js?v=20261022c"></script>
+  <script src="/home.js?v=20261022c"></script>
 </body>
 </html>

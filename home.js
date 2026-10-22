@@ -15,7 +15,8 @@
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.getElementById('site-menu');
   const appsGroups = document.getElementById('menu-apps');
-  if (!frame || !toggle || !menu || !appsGroups) return;
+  const mapsList = document.getElementById('menu-maps');
+  if (!frame || !toggle || !menu || !appsGroups || !mapsList) return;
 
   const DEMO_MS = 60000;
 
@@ -105,7 +106,8 @@
   // The Apps section shows CATEGORIES, never bare links (owner, 2026-10-22).
   // Apps come from home.json, each with a `category`; every report from
   // apps/reports/reports.json goes under `reportsCategory` (Shopping Apps).
-  // Categories appear in the order home.json lists them.
+  // Categories appear in the order home.json lists them; "Maps" is not one
+  // of them, see below.
   Promise.all([
     fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null),
     fetch('/apps/reports/reports.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])
@@ -116,7 +118,13 @@
     const lists = new Map();
     (data.categories || []).forEach((name) => lists.set(name, addGroup(name)));
     const listFor = (name) => lists.get(name) || addGroup(name);   // unknown category: still shown
-    apps.forEach((a) => addItem(listFor(a.category || 'Apps'), a.title, a.app || a.src));
+    // MAPS IS ITS OWN TOP-LEVEL SECTION (owner, 2026-10-22), beside Apps rather
+    // than inside it: an app whose category is "Maps" is listed there directly.
+    // (Sub-headings by type of map can come later, the way addGroup does for Apps.)
+    apps.forEach((a) => {
+      const list = a.category === 'Maps' ? mapsList : listFor(a.category || 'Apps');
+      addItem(list, a.title, a.app || a.src);
+    });
     (reports || []).forEach((item) =>
       addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, '/apps/reports/' + item.id + '/'));
     startReel(apps);

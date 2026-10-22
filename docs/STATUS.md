@@ -1,5 +1,13 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (fourth pass) — Maps is a top-level menu section
+
+Owner: "Maps is top level at the menu", beside Apps, holding the Budget,
+Datacenter and AISD maps directly; sub-headings by type of map may come
+later. `index.html` has the `Maps` section; `home.js` sends any app whose
+`category` is `Maps` there instead of under Apps; `home.json` no longer
+lists Maps among the Apps categories. `?v=20261022c`.
+
 ## 2026-10-22 (third pass) — Maps category; Contact page and menu item back
 
 Owner: add a Maps section under Apps holding the Budget, Datacenter and

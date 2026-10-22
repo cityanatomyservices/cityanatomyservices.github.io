@@ -1285,3 +1285,7 @@ main {
   width: 18px;
   height: 18px;
 }
+
+/* Maps is a top-level section (owner, 2026-10-22); its items sit one step in,
+   like the apps under a category. */
+#menu-maps li a:first-child { padding-left: 2.25rem; }
