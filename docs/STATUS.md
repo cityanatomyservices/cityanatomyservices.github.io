@@ -12,7 +12,9 @@ neighborhood). "Users visible" rows say the business picked, else "near
 <shop>" within 80 m of the shared position, else the whole neighborhood.
 The Visible button's hover text says what it shares. Tour apps: same
 files, so a tour walker who turns Visible on is drawn on the chat map
-too. `?v=20261023b`.
+too. `?v=20261023b`. Then: the find-me button goes to YOUR position
+(zoom ≥ 16), not the neighborhood; picking a business never moves your
+marker. `?v=20261023c`.
 
 ## 2026-10-22 (twenty-ninth pass) — "Users visible" fold on the card
 

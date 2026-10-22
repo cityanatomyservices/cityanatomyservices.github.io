@@ -307,10 +307,15 @@
         }
       } });
 
-      // find me: back to your neighborhood, or ask for the location again
+      // find me: back to where YOU are (picking a business never moves you,
+      // owner 2026-10-22); without a GPS reading, your neighborhood; without
+      // that, ask for the location again
       $('ctrlLocate').addEventListener('click', () => {
+        const here = window.ChatEngine.position;
         const r = window.ChatRoom.room;
-        if (r) flyTo(boundsOf([r]), 60, V.neighborhood.zoom); else window.ChatRoom.locate();
+        if (here) map.easeTo({ center: here, zoom: Math.max(map.getZoom(), V.street.zoom - 1), duration: 900 });
+        else if (r) flyTo(boundsOf([r]), 60, V.neighborhood.zoom);
+        else window.ChatRoom.locate();
       });
 
       // the map object, so it can be poked at from the browser console

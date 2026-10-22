@@ -105,6 +105,7 @@
     },
     people,
     get room() { return roomId; },
+    get position() { return pos; },     // your own last reading (null at a desk)
     maxText: MAX_TEXT
   };
 })();
