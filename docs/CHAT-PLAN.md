@@ -31,12 +31,15 @@
 - **The shared code** is the chat files themselves, loaded by each app:
   `identity.js` (later `auth.js`), `locate.js`, `chat.js`, `panel.js`, plus
   a visibility button. One small file per job; nothing more abstract.
-- **Coming (owner 2026-10-22): many geofences per neighborhood.** A second
-  GeoJSON of smaller places (parks, venues…), each tagged with its
-  neighborhood; locate checks places first, then the neighborhood. The
-  room id is the geofence id, so chat, presence and history already work
-  per place. The archived austin.chat data (1,202 OSM-derived geofences,
-  GISData `places.gpkg`) is the candidate source — check ODbL first.
+- **Businesses per neighborhood (owner 2026-10-22, built the same night).**
+  Not sub-geofences: a categorized list of the neighborhood's businesses
+  on the card (neighborhood → category → business), from OpenStreetMap by
+  `tools/fetch-places.py` into `chat/data/places/<id>.json`. Anyone
+  standing in the neighborhood may pick any of its businesses; the room
+  becomes `<neighborhood>/<place id>` on the same channel; a business room
+  opens even when empty; the map shows each visible person on the business
+  they picked. The archived 1,202 geofences were not used (brand-only
+  categories, no OSM ids).
 - **To do when the domain goes:** `home.json` still embeds the 1885 demo
   from `austin1885.city/annihilatortour/?demo=1`, and the 1885 tour's
   stops link to `austin1885.city` pages (see the Austin1885 repos) — both

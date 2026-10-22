@@ -29,3 +29,18 @@ e.g. `upper-boggy-creek`) and `name`. The sub-district rows above are
 dissolved into their parent; every merge came out as a single Polygon.
 Made by `bash tools/make-geofences.sh` (GDAL from the QGIS install) — run
 it again after refreshing `neighborhoods.geojson`, then commit both. 156 KB.
+
+## categories.json and places/ — the businesses (from OpenStreetMap, 2026-10-22)
+
+`categories.json` says which OpenStreetMap business types the chat map
+lists and what each is called on the card (owner-editable; order = card
+order). `bash`-free: `python3 tools/fetch-places.py` asks the Overpass API
+for every such place inside the neighborhoods' box, sorts each into its
+neighborhood (point in polygon, the same test as `../locate.js`) and writes
+`places/<neighborhood id>.json` — grouped by category, sorted by name, each
+place `{ id, name, lng, lat, address? }` where `id` is the OSM type letter +
+id (`n…` node, `w…` way, `r…` relation). `places/index.json` records when it
+ran and the count per neighborhood; the page never reads it. Re-run after
+editing `categories.json` or to refresh; the script prints the shop types it
+dropped so the file can grow. Data © OpenStreetMap contributors, ODbL 1.0
+(credited on the card).

@@ -42,10 +42,25 @@
 .chat-btns button:disabled { opacity: .45; cursor: default; }
 .chat-btns button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+/* the business list: the neighborhood row, then a fold per category */
+.place-list { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); font-size: 12px; }
+.place-list details { margin: 0; }
+.place-list summary { cursor: pointer; padding: 3px 0; list-style: none; color: #52606d; }
+.place-list summary::-webkit-details-marker { display: none; }
+.place-list summary::before { content: '\25B8'; display: inline-block; width: 12px; }
+.place-list details[open] summary::before { content: '\25BE'; }
+.place-row { display: flex; width: 100%; padding: 2px 0 2px 12px; border: 0; background: none; font: inherit; color: var(--ink); text-align: left; cursor: pointer; }
+.place-row.is-neighborhood { padding-left: 0; font-weight: 600; }
+.place-row .place-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.place-row .here { flex: none; margin-left: 6px; color: #52606d; }
+.place-row.is-current { color: var(--accent); font-weight: 600; }
+.place-row:hover { color: var(--accent); }
+.place-credit { margin-top: 6px; font-size: 10px; color: #52606d; }
+
 /* the people in your room: a row of emoji on the neighborhood. It is a
    MapLibre marker: absolute and only as wide as its emoji, otherwise it
    stretches into a bar across the map (seen 2026-10-22). */
-.avatars { position: absolute; top: 0; left: 0; width: max-content; display: flex; gap: 2px; padding: 3px 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; font-size: 18px; line-height: 1; white-space: nowrap; }
+.avatars { position: absolute; top: 0; left: 0; width: max-content; cursor: default; display: flex; gap: 2px; padding: 3px 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; font-size: 18px; line-height: 1; white-space: nowrap; }
 
 @container page (max-width: 640px) {
   .topleft { width: calc(100% - 24px - var(--control) - 12px); }

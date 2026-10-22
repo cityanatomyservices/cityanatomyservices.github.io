@@ -19,13 +19,14 @@
        name: an anonymous Supabase account), locate.js (GPS to geofence), chat.js (the Supabase channel),
        panel.js + panel.css (the chat window), room.js (the wiring, shared
        with the apps under /apps/ — see chat/README.md), map.js (the map).
-       Test switch: ?room=<geofence id> joins that neighborhood without GPS
-       (ids are in data/geofences.geojson), so two tabs can talk at a desk.
+       Test switches: ?room=<geofence id> joins that neighborhood without GPS
+       (ids are in data/geofences.geojson), so two tabs can talk at a desk;
+       &place=<place id> then picks that business (ids in data/places/).
        ?v= so a push is actually seen (GitHub Pages caches hard): bump it
        on the file that changed. -->
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
-  <link rel="stylesheet" href="./panel.css?v=20261022r" />
-  <link rel="stylesheet" href="./style.css?v=20261022r" />
+  <link rel="stylesheet" href="./panel.css?v=20261022s" />
+  <link rel="stylesheet" href="./style.css?v=20261022s" />
 </head>
 <body>
   <div class="page">
@@ -44,6 +45,8 @@
             <button id="visibleBtn" type="button" aria-pressed="true"></button>
             <button id="chatBtn" type="button" disabled></button>
           </div>
+          <!-- the neighborhood's businesses by category (room.js fills it) -->
+          <div class="place-list" id="placeList"></div>
         </div>
       </aside>
     </div>
@@ -79,13 +82,13 @@
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="./copy.js?v=20261022r"></script>
-  <script src="./config.js?v=20261022r"></script>
-  <script src="./auth.js?v=20261022r"></script>
-  <script src="./locate.js?v=20261022r"></script>
-  <script src="./chat.js?v=20261022r"></script>
-  <script src="./panel.js?v=20261022r"></script>
-  <script src="./room.js?v=20261022r"></script>
-  <script src="./map.js?v=20261022r"></script>
+  <script src="./copy.js?v=20261022s"></script>
+  <script src="./config.js?v=20261022s"></script>
+  <script src="./auth.js?v=20261022s"></script>
+  <script src="./locate.js?v=20261022s"></script>
+  <script src="./chat.js?v=20261022s"></script>
+  <script src="./panel.js?v=20261022s"></script>
+  <script src="./room.js?v=20261022s"></script>
+  <script src="./map.js?v=20261022s"></script>
 </body>
 </html>

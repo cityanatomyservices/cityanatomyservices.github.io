@@ -14,8 +14,9 @@
 // own colour, and flies in over downtown, tilting up, as it loads (the
 // owner's reference view). Tap a neighborhood and its border darkens. Your
 // phone's GPS puts you in one geofence: that polygon tints and the map
-// eases to it. The rest (the room, the Visible button, the Chat button, the
-// window) is room.js.
+// eases to it. The rest (the room, the business list, the Visible button,
+// the Chat button, the window) is room.js; this file draws the people where
+// they are and a pin on the business you picked.
 (function () {
   const CFG = window.MAP_CONFIG;
   const COPY = window.MAP_COPY;
@@ -204,8 +205,13 @@
       });
 
       // ── the room: room.js does the joining; these hooks draw it ───────────
-      const avatars = new maplibregl.Marker({ element: document.createElement('div'), anchor: 'bottom' });
-      avatars.getElement().className = 'avatars';
+      // the people: one emoji row per room — on the business they picked, or
+      // on the neighborhood for the neighborhood room (owner 2026-10-22: see
+      // on the map where everyone visible in your neighborhood is)
+      const markers = {};                              // room string -> Marker
+      const placePoints = {};                          // place id -> [lng, lat], from the loaded list
+      const rowOf = (roomString) => roomString.split('/')[1];
+      let placeMarker = null;                          // the business you picked
       window.ChatRoom.start(geofences, { hooks: {
         // your room: the old one loses its tint, the new one gains it, the map flies there
         onRoom(feature, before) {
@@ -214,12 +220,32 @@
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
           flyTo(boundsOf([feature]), 60, 15);
         },
-        // the emoji row on the neighborhood: everyone visible, you included
+        // the neighborhood's business list arrived: remember where each one is
+        onPlaces(data) {
+          Object.keys(placePoints).forEach((k) => delete placePoints[k]);
+          (data ? data.categories : []).forEach((c) => c.places.forEach((p) => { placePoints[p.id] = [p.lng, p.lat]; }));
+        },
+        // the business you picked: a pin on it
+        onPlace(place) {
+          if (placeMarker) { placeMarker.remove(); placeMarker = null; }
+          if (place) placeMarker = new maplibregl.Marker({ color: CFG.roomColor }).setLngLat([place.lng, place.lat]).addTo(map);
+        },
+        // everyone visible in the neighborhood, grouped by room, drawn where that room is
         onPeople(list, feature) {
-          if (feature && list.length) {
-            avatars.getElement().textContent = list.map((p) => p.emoji).join('');
-            avatars.setLngLat(centreOf(feature)).addTo(map);
-          } else avatars.remove();
+          const groups = {};
+          list.forEach((p) => { (groups[p.room] = groups[p.room] || []).push(p.emoji); });
+          Object.keys(markers).forEach((r) => { if (!groups[r]) { markers[r].remove(); delete markers[r]; } });
+          if (!feature) return;
+          Object.keys(groups).forEach((r) => {
+            const at = placePoints[rowOf(r)] || centreOf(feature);
+            if (!markers[r]) {
+              const m = new maplibregl.Marker({ element: document.createElement('div'), anchor: 'bottom' });
+              m.getElement().className = 'avatars';
+              markers[r] = m;
+            }
+            markers[r].getElement().textContent = groups[r].join('');
+            markers[r].setLngLat(at).addTo(map);
+          });
         }
       } });
 

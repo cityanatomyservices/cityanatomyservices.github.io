@@ -1,0 +1,49 @@
+{
+  "_comment": "The business types the chat map lists in each neighborhood (owner 2026-10-22: shops + food + drink + everyday services). Each key is an OpenStreetMap tag (shop, amenity, leisure); each entry maps the tag's value to the label shown on the card. The order here is the order on the card; two values with the same label merge into one category. Shop values not listed here are dropped by tools/fetch-places.py, which prints a tally of them so this file can grow. Re-run the script after editing.",
+  "shop": {
+    "supermarket": "Supermarkets",
+    "convenience": "Corner stores",
+    "greengrocer": "Groceries",
+    "bakery": "Bakeries",
+    "coffee": "Coffee",
+    "tea": "Coffee",
+    "clothes": "Clothing",
+    "boutique": "Clothing",
+    "shoes": "Shoe stores",
+    "books": "Bookstores",
+    "bicycle": "Bike shops",
+    "hairdresser": "Hair salons",
+    "barber": "Hair salons",
+    "beauty": "Beauty",
+    "alcohol": "Liquor stores",
+    "wine": "Liquor stores",
+    "pet": "Pet stores",
+    "florist": "Florists",
+    "hardware": "Hardware",
+    "doityourself": "Hardware",
+    "car_repair": "Auto repair",
+    "laundry": "Laundry",
+    "dry_cleaning": "Laundry"
+  },
+  "amenity": {
+    "cafe": "Coffee",
+    "restaurant": "Restaurants",
+    "fast_food": "Fast food",
+    "ice_cream": "Ice cream",
+    "bar": "Bars",
+    "pub": "Bars",
+    "biergarten": "Bars",
+    "pharmacy": "Pharmacies",
+    "bank": "Banks",
+    "cinema": "Cinemas",
+    "theatre": "Theatres",
+    "library": "Libraries",
+    "dentist": "Dentists",
+    "doctors": "Doctors",
+    "veterinary": "Vets",
+    "post_office": "Post offices"
+  },
+  "leisure": {
+    "fitness_centre": "Gyms"
+  }
+}

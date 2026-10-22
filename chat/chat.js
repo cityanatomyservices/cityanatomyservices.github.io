@@ -1,7 +1,9 @@
 // chat.js — the connection: one Supabase Realtime channel per neighborhood
 // (`chat:<geofence id>`), the same pattern as the archived austin.chat
-// engine. Presence says who is in the room; Broadcast carries the messages
-// live. Each message is also written to the `messages` table (kept 30 days,
+// engine. Presence says who is in the neighborhood and which room each
+// person is in ("<neighborhood>" or "<neighborhood>/<place id>", see
+// room.js); Broadcast carries the messages live, each tagged with its room,
+// and a page only shows the lines of the room it is in. Each message is also written to the `messages` table (kept 30 days,
 // supabase/migrations/0001_chat.sql), and a room's last lines are read back
 // when you join it, so a room is not empty when you arrive. The Supabase
 // client comes from auth.js, so the reads and writes carry your sign-in.
@@ -9,21 +11,22 @@
   const MAX_TEXT = 240;                 // characters per message
   const MIN_GAP = 1000;                 // ms between two sends
   const HISTORY = 100;                  // lines read back on joining a room
-  let channel = null, roomId = null, ident = null, visible = false, cbs = {}, lastSend = 0;
+  let channel = null, nbhd = null, roomId = null, ident = null, visible = false, cbs = {}, lastSend = 0;
 
   const getClient = () => window.ChatIdentity.client();
 
-  // everyone whose presence is on the channel; one entry per handle even
-  // when the same person has two tabs open
+  // everyone whose presence is on the neighborhood's channel, with the room
+  // each is in; one entry per handle even when the same person has two tabs
+  // open (an entry with no room is an older page: the neighborhood room)
   function people() {
     const state = channel ? channel.presenceState() : {};
     return Object.keys(state).map((key) => {
       const first = state[key][0] || {};
-      return { handle: first.handle || key, emoji: first.emoji || '🙂', self: !!ident && key === ident.handle };
+      return { handle: first.handle || key, emoji: first.emoji || '🙂', room: first.room || nbhd, self: !!ident && key === ident.handle };
     });
   }
   const announce = () => { if (cbs.onPeople) cbs.onPeople(people()); };
-  const track = () => channel.track({ handle: ident.handle, emoji: ident.emoji, joinedAt: Date.now() });
+  const track = () => channel.track({ handle: ident.handle, emoji: ident.emoji, room: roomId, joinedAt: Date.now() });
 
   // the room's recent lines from the table (nothing when signed out or the
   // table is not there yet — the live chat works either way)
@@ -38,21 +41,33 @@
   window.ChatEngine = {
     // join a neighborhood room. Visible = put yourself in Presence so the
     // others see you; hidden = listen only. callbacks: onPeople(list), onMessage(m)
-    async join(room, identity, isVisible, callbacks) {
+    async join(neighborhood, identity, isVisible, callbacks) {
       await this.leave();
-      roomId = room; ident = identity; visible = isVisible; cbs = callbacks || {};
-      channel = getClient().channel('chat:' + room, { config: { broadcast: { self: false }, presence: { key: identity.handle } } });
-      channel.on('broadcast', { event: 'msg' }, (p) => { if (cbs.onMessage && p.payload) cbs.onMessage(p.payload); });
+      nbhd = roomId = neighborhood; ident = identity; visible = isVisible; cbs = callbacks || {};
+      channel = getClient().channel('chat:' + neighborhood, { config: { broadcast: { self: false }, presence: { key: identity.handle } } });
+      channel.on('broadcast', { event: 'msg' }, (p) => {
+        const m = p.payload;
+        if (cbs.onMessage && m && (m.room || nbhd) === roomId) cbs.onMessage(m);   // only your room's lines
+      });
       channel.on('presence', { event: 'sync' }, announce);
-      await history(room);
+      await history(roomId);
       await new Promise((resolve) => channel.subscribe(async (status) => {
         if (status === 'SUBSCRIBED') { if (visible) await track(); resolve(); }
         else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') resolve();
       }));
     },
+    // move to another room in the same neighborhood ("<neighborhood>/<place>"
+    // or back to "<neighborhood>"): tell the others, read that room's lines
+    async setRoom(room) {
+      roomId = room;
+      if (!channel) return;
+      if (visible) await track();
+      announce();
+      await history(roomId);
+    },
     async leave() {
       if (!channel) return;
-      const c = channel; channel = null;
+      const c = channel; channel = null; nbhd = roomId = null;
       try { await c.untrack(); } catch (e) { /* already gone */ }
       try { await getClient().removeChannel(c); } catch (e) { /* already gone */ }
     },
@@ -68,7 +83,7 @@
       const now = Date.now();
       if (!trimmed || !channel || !visible || now - lastSend < MIN_GAP) return false;
       lastSend = now;
-      const payload = { handle: ident.handle, emoji: ident.emoji, text: trimmed, t: now };
+      const payload = { handle: ident.handle, emoji: ident.emoji, text: trimmed, t: now, room: roomId };
       if (cbs.onMessage) cbs.onMessage({ ...payload, self: true });     // your own line shows at once
       try { await channel.send({ type: 'broadcast', event: 'msg', payload }); } catch (e) { return false; }
       // and into the table for the next person; a failure here changes nothing live
@@ -78,6 +93,7 @@
       return true;
     },
     people,
+    get room() { return roomId; },
     maxText: MAX_TEXT
   };
 })();

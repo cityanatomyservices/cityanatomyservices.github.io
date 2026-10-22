@@ -1,5 +1,30 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-second pass) — businesses per neighborhood, business rooms
+
+Owner: a categorized list of businesses per neighborhood on the card
+(neighborhood → category fold → business) so people narrow whom they
+chat with; data from OpenStreetMap; anyone standing in the neighborhood
+may pick any of its businesses; a business room opens even when empty;
+people line says "At <place>."; the map shows where each visible person
+is. Built: `chat/data/categories.json` (OSM shop/amenity/leisure value →
+label, owner-editable, order = card order), `tools/fetch-places.py`
+(plain python3, Overpass with the GISData mirror/retry pattern, point in
+polygon as locate.js) → `chat/data/places/<id>.json` × 65 + `index.json`:
+4,907 OSM elements, 2,969 kept (downtown 459, north-burnet 212, zilker
+123; hyde-park 23), 464 KB total, biggest file 47 KB; the script prints
+the dropped shop types (car 58, storage_rental 52, mobile_phone 40,
+furniture 40, jewelry 34, department_store 31…) to grow the list. Rooms:
+strings `<neighborhood>` / `<neighborhood>/<place id>` on ONE channel per
+neighborhood; presence + broadcast carry `room`; `chat.js setRoom()`;
+`messages.room` holds either (no migration). `room.js`: fetches the
+neighborhood's file (only where a `placeList` element exists — not in the
+tours), builds the list with "N here" counts, `choose()`, `?place=` test
+switch, hooks `onPlaces` / `onPlace`. `map.js`: one emoji row per room at
+the business or the neighborhood centre, a pin on the business you
+picked. Chat files `?v=20261022s`. NOT seen in a browser here — owner
+tests two tabs on `/chat/?room=hyde-park` (second tab private window).
+
 ## 2026-10-22 (twenty-first pass) — accounts and history, waiting on one SQL run
 
 Owner: use the paid project (already paying; "don't want to pay for

@@ -12,9 +12,9 @@ part of the same chat. One small file per job; nothing is abstract.
 | `locate.js` | GPS → which neighborhood polygon you are in (point in polygon, in the browser; coordinates never leave the phone) |
 | `chat.js` | the Supabase Realtime channel per neighborhood: Presence = who is visible, Broadcast = live messages; each message also goes into the `messages` table (30 days) and a room's last lines are read back on joining |
 | `panel.js` + `panel.css` | the chat window (colours from six `--chat-*` variables each page sets) |
-| `room.js` | the wiring: joins your room, keeps the Visible / Chat buttons and lines up to date; shared with the apps |
-| `map.js` | the chat map itself: layers, controls, 3D, and the two hooks that draw your room and the people |
-| `data/` | the geofences (see `data/README.md`) |
+| `room.js` | the wiring: joins your neighborhood, lists its businesses by category on the card, moves you to a business room when you tap one, keeps the Visible / Chat buttons and lines up to date; shared with the apps |
+| `map.js` | the chat map itself: layers, controls, 3D, and the hooks that draw your room, the people (an emoji row on the business they picked, or on the neighborhood) and a pin on the business you picked |
+| `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
 ## How an app joins (what the two tours do)
 
@@ -39,7 +39,13 @@ are standing in. Visibility starts OFF and is remembered once turned on.
 - The tables (`profiles` columns, `messages`, `tour_progress`) are in
   `supabase/migrations/0001_chat.sql`; until it has been run, the pages work
   live-only with browser-side names.
-- Next data step (owner 2026-10-22): many smaller geofences inside each
-  neighborhood — a second GeoJSON of places tagged with their neighborhood;
-  `locate.js` checks the places first and falls back to the neighborhood,
-  and the room id is just the geofence id, so nothing else changes.
+- Rooms are strings: `<neighborhood>` or `<neighborhood>/<place id>`.
+  Everyone in a neighborhood shares its one Realtime channel; presence and
+  every message carry the room, and a page shows only its own room's lines.
+  `messages.room` in Supabase holds either form (no schema change).
+- Businesses (owner 2026-10-22): anyone standing in the neighborhood may pick
+  any of its businesses; a business room opens even when nobody else is
+  there (a line stays 30 days); the neighborhood room still needs someone
+  else. The card goes neighborhood → category (fold) → business, with
+  "N here" counts, and the map shows each visible person on the business
+  they picked. `?room=<id>&place=<place id>` picks one for testing.
