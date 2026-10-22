@@ -6,12 +6,11 @@ window.MAP_COPY = {
   pageTitle: 'Austin neighborhoods',
   ui: {
     satellite: 'Satellite', zoomInBtn: 'Zoom in', zoomOutBtn: 'Zoom out', extents: 'Fit to Austin',
-    locate: 'Go to my neighborhood', to3d: 'Map is flat. Switch to tilted 3D view', to2d: 'Map is tilted 3D. Switch to flat 2D view',
-    about: 'About this map', aboutClose: 'Hide', sources: 'Source.'
+    locate: 'Go to my neighborhood', to3d: 'Map is flat. Switch to tilted 3D view', to2d: 'Map is tilted 3D. Switch to flat 2D view'
   },
-  // the card in the top-left corner
+  // the card in the top-left corner (owner 2026-10-22: no sub line, no
+  // About button, no "nobody here" line — the card stays clean)
   legendTitle: 'Austin neighborhoods',
-  legendSub: 'See and chat with the people in your neighborhood.',
   // the card's chat lines and buttons
   you: 'You are',
   newName: 'New name',
@@ -26,12 +25,8 @@ window.MAP_COPY = {
     inside: 'You are in {name}.'
   },
   // people: how many are visible here. {n} is the count of OTHER people.
-  people: { none: 'Nobody else is visible here yet.', one: '1 other person is visible here.', many: '{n} other people are visible here.',
+  people: { one: '1 other person is visible here.', many: '{n} other people are visible here.',
             hiddenNote: 'Turn Visible on to be seen and to chat.' },
   chat: { send: 'Send', close: 'Close', placeholder: 'Say something to the neighborhood\u2026' },
-  about: {
-    what: 'The City of Austin neighborhood planning areas, one shape per neighborhood (areas the city splits into sub-districts are shown as one).',
-    sources: 'City of Austin Open Data portal, Neighborhoods layer (dataset inrm-c3ee), downloaded 2026-10-22.'
-  },
   attribution: 'City of Austin open data · © OpenStreetMap contributors'
 };

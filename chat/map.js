@@ -26,14 +26,9 @@
 
   document.title = COPY.pageTitle;
   $('legendTitle').textContent = COPY.legendTitle;
-  $('legendSub').textContent = COPY.legendSub;
   $('youLabel').textContent = COPY.you;
   $('newName').textContent = COPY.newName;
   $('chatBtn').textContent = COPY.chatButton;
-  $('aboutToggle').textContent = COPY.ui.about;
-  $('aboutWhat').textContent = COPY.about.what;
-  $('aboutSourcesLabel').textContent = COPY.ui.sources;
-  $('aboutSources').textContent = COPY.about.sources;
 
   // the card folds with the arrow in its title (same as the topic maps)
   const setCard = (open) => {
@@ -42,12 +37,6 @@
     $('legend').classList.toggle('is-collapsed', !open);
   };
   $('legendTitle').addEventListener('click', () => setCard($('legendTitle').getAttribute('aria-expanded') !== 'true'));
-  $('aboutToggle').addEventListener('click', () => {
-    const open = $('about').hidden;
-    $('about').hidden = !open;
-    $('aboutToggle').setAttribute('aria-expanded', String(open));
-    $('aboutToggle').textContent = open ? COPY.ui.aboutClose : COPY.ui.about;
-  });
 
   // the bounding box of a polygon, or of every polygon: what the map opens
   // on, refits to, and eases to when you join a room
@@ -237,8 +226,8 @@
 
       const showPeople = () => {
         const n = others.length;
-        let line = n === 0 ? COPY.people.none : n === 1 ? COPY.people.one : fill(COPY.people.many, { n });
-        if (!visible) line += ' ' + COPY.people.hiddenNote;
+        let line = n === 0 ? '' : n === 1 ? COPY.people.one : fill(COPY.people.many, { n });
+        if (!visible) line = (line + ' ' + COPY.people.hiddenNote).trim();
         $('peopleLine').textContent = room ? line : '';
         $('chatBtn').disabled = !(room && visible && n > 0);
         // the emoji row on the neighborhood: everyone visible, you included

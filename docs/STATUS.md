@@ -1,5 +1,14 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (seventeenth pass) — cleaner chat card
+
+Owner: remove the sub line ("See and chat with…"), the "Nobody else is
+visible here yet." line and the About button. Done in `chat/`: card =
+title, You are …, room line, people line (only when someone else is
+there, or the hidden note), Visible / Chat. The About strings and the
+`about` markup are gone from copy.js / index.html; empty lines collapse
+(`:empty`). `chat/*?v=20261022o`.
+
 ## 2026-10-22 (sixteenth pass) — the menu is four links to the directory pages
 
 Owner: "Apps should go to index.html at austin.chat/apps/ and just open
