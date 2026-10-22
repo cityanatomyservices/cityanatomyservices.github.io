@@ -85,5 +85,5 @@ An app can instead have its framed page AT ITS OWN ADDRESS: rename the
 app's `index.html` to `app.html`, write a framed `index.html` beside it whose
 iframe points at `app.html` (copy `1885murdertour/index.html`), and in
 `home.json` give the app `page` (that address) instead of `slug` and set
-`app` to the `app.html` address. Done for The 1885 Murder Tour (2026-10-22).
+`app` to the `app.html` address. Done for The 1885 Murder Tour and Moontower (2026-10-22).
 `apps/` and `apps/reports/` still carry the older header and `page.js`.

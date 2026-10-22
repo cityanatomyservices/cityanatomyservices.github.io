@@ -1,5 +1,13 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (eighth pass) — /moontowertour/ is the framed page too
+
+Owner: "do the same with https://austin.chat/moontowertour/". Same move
+as the 1885 tour: `moontowertour/index.html` → `app.html`, framed
+`index.html` beside it, `home.json` card has `page` not `slug`,
+`view/moontower/` removed. The home-page demo (`/moontower/`) still links
+to `/moontowertour/`, which is now the framed page. `?v=20261022h`.
+
 ## 2026-10-22 (seventh pass) — /1885murdertour/ is the framed page
 
 Owner: the 1885 tour's framed page must be at its own address,
