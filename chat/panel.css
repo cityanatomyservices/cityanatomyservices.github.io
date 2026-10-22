@@ -1,0 +1,21 @@
+/* panel.css — the chat window's shape, shared by the chat map and the apps.
+   Colours come from six --chat-* variables that each page sets from its
+   own palette (the chat map in chat/style.css, each tour in its app.html),
+   so the window belongs to the page it is on. Markup: see panel.js. */
+.chatwin { position: absolute; z-index: 8; right: 68px; bottom: 12px; width: 320px; max-width: calc(100% - 80px); height: 360px; max-height: calc(100% - 24px); box-sizing: border-box; display: flex; flex-direction: column; background: var(--chat-bg); border: 1px solid var(--chat-line); border-radius: 8px; color: var(--chat-fg); box-shadow: 0 6px 24px rgba(0,0,0,.25); font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.chatwin[hidden] { display: none; }
+.chat-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-bottom: 1px solid var(--chat-line); }
+.chat-head h2 { margin: 0; flex: 1; font-size: 14px; font-family: inherit; }
+.chat-head button { font: inherit; font-size: 18px; line-height: 1; width: 28px; height: 28px; border: 0; background: transparent; cursor: pointer; color: var(--chat-dim); }
+.chat-people { padding: 4px 10px; font-size: 11px; color: var(--chat-dim); border-bottom: 1px solid var(--chat-line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chat-lines { flex: 1; margin: 0; padding: 8px 10px; list-style: none; overflow-y: auto; font-size: 13px; line-height: 1.35; }
+.chat-lines li { margin-bottom: 8px; }
+.chat-lines .who { font-weight: 600; }
+.chat-lines .when { font-size: 11px; color: var(--chat-dim); }
+.chat-lines .is-self .who { color: var(--chat-accent); }
+.chat-form { display: flex; gap: 6px; padding: 8px 10px; border-top: 1px solid var(--chat-line); }
+.chat-form input { flex: 1; min-width: 0; font: inherit; font-size: 13px; padding: 6px 8px; border: 1px solid var(--chat-line); border-radius: 6px; background: var(--chat-input-bg); color: var(--chat-fg); }
+.chat-form button { font: inherit; font-size: 13px; padding: 6px 12px; border: 1px solid var(--chat-accent); background: var(--chat-accent); color: var(--chat-bg); border-radius: 6px; cursor: pointer; }
+@media (max-width: 640px) {
+  .chatwin { right: 8px; left: 8px; bottom: 8px; width: auto; max-width: none; height: 55%; }
+}

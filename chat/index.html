@@ -17,13 +17,15 @@
        their engine (topicmap/app.js draws dots and runs a story timeline).
        Files: config.js (data, Supabase), copy.js (words), identity.js (your
        name), locate.js (GPS to geofence), chat.js (the Supabase channel),
-       panel.js (the chat window), map.js (the map, and the wiring).
+       panel.js + panel.css (the chat window), room.js (the wiring, shared
+       with the apps under /apps/ — see chat/README.md), map.js (the map).
        Test switch: ?room=<geofence id> joins that neighborhood without GPS
        (ids are in data/geofences.geojson), so two tabs can talk at a desk.
        ?v= so a push is actually seen (GitHub Pages caches hard): bump it
        on the file that changed. -->
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
-  <link rel="stylesheet" href="./style.css?v=20261022p" />
+  <link rel="stylesheet" href="./panel.css?v=20261022q" />
+  <link rel="stylesheet" href="./style.css?v=20261022q" />
 </head>
 <body>
   <div class="page">
@@ -77,12 +79,13 @@
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="./copy.js?v=20261022p"></script>
-  <script src="./config.js?v=20261022p"></script>
-  <script src="./identity.js?v=20261022p"></script>
-  <script src="./locate.js?v=20261022p"></script>
-  <script src="./chat.js?v=20261022p"></script>
-  <script src="./panel.js?v=20261022p"></script>
-  <script src="./map.js?v=20261022p"></script>
+  <script src="./copy.js?v=20261022q"></script>
+  <script src="./config.js?v=20261022q"></script>
+  <script src="./identity.js?v=20261022q"></script>
+  <script src="./locate.js?v=20261022q"></script>
+  <script src="./chat.js?v=20261022q"></script>
+  <script src="./panel.js?v=20261022q"></script>
+  <script src="./room.js?v=20261022q"></script>
+  <script src="./map.js?v=20261022q"></script>
 </body>
 </html>

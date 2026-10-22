@@ -1,8 +1,9 @@
 // map.js — the chat map: the neighborhood geofences on a MapLibre map with
 // the same controls as the topic maps (Satellite, zoom in, zoom out, fit)
-// and a fold card; then the wiring that makes it a chat: your identity
-// (identity.js), the neighborhood your phone is in (locate.js), the room's
-// channel (chat.js) and the chat window (panel.js).
+// and a fold card. The chat itself is wired by room.js (shared with the
+// apps): your identity (identity.js), the neighborhood your phone is in
+// (locate.js), the room's channel (chat.js), the chat window (panel.js);
+// this file only draws the room and the people on the map.
 //
 // The controls are the same markup and stylesheet as /datacenters/; their
 // few lines of code are repeated here on purpose, because the topic map
@@ -11,14 +12,10 @@
 //
 // What happens: the map opens on all of Austin, every neighborhood in its
 // own colour, and flies in over downtown, tilting up, as it loads (the
-// owner's reference view). Tap a neighborhood and its border
-// darkens. The card shows your name.
-// Your phone's GPS puts you in one geofence: that polygon tints, the map
-// eases to it, and you join its room. Visible (the default) means the
-// others in the room see your emoji on the neighborhood; Hidden means you
-// only watch. When you are visible and someone else is too, the Chat
-// button lights up and opens the chat window (it never opens by itself).
-// Leave the geofence and the room changes with you.
+// owner's reference view). Tap a neighborhood and its border darkens. Your
+// phone's GPS puts you in one geofence: that polygon tints and the map
+// eases to it. The rest (the room, the Visible button, the Chat button, the
+// window) is room.js.
 (function () {
   const CFG = window.MAP_CONFIG;
   const COPY = window.MAP_COPY;
@@ -57,20 +54,6 @@
   const centreOf = (feature) => { const b = boundsOf([feature]); return [(b[0][0] + b[1][0]) / 2, (b[0][1] + b[1][1]) / 2]; };
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const fill = (text, vars) => text.replace(/\{(\w+)\}/g, (m, k) => vars[k] ?? m);
-
-  // ── you ──────────────────────────────────────────────────────────────────
-  let me = window.ChatIdentity.get();
-  const showMe = () => { $('youHandle').textContent = me.emoji + ' ' + me.handle; };
-  showMe();
-
-  // visibility: remembered per browser, on unless you turned it off
-  let visible = localStorage.getItem('austinchat:visible') !== 'off';
-  const showVisible = () => {
-    $('visibleBtn').textContent = visible ? COPY.visible : COPY.hidden;
-    $('visibleBtn').setAttribute('aria-pressed', String(visible));
-    $('visibleBtn').classList.toggle('is-on', visible);
-  };
-  showVisible();
 
   // a colour per neighborhood: walk the list and give each the first palette
   // colour none of its neighbours has yet (neighbours = polygons whose boxes
@@ -220,79 +203,30 @@
         if (selected !== null) map.setFeatureState({ source: 'geofences', id: selected }, { selected: true });
       });
 
-      // ── the room ──────────────────────────────────────────────────────────
-      let room = null;                     // the geofence feature you are in
-      let others = [];                     // the visible people who are not you
+      // ── the room: room.js does the joining; these hooks draw it ───────────
       const avatars = new maplibregl.Marker({ element: document.createElement('div'), anchor: 'bottom' });
       avatars.getElement().className = 'avatars';
-
-      const showPeople = () => {
-        const n = others.length;
-        let line = n === 0 ? '' : n === 1 ? COPY.people.one : fill(COPY.people.many, { n });
-        if (!visible) line = (line + ' ' + COPY.people.hiddenNote).trim();
-        $('peopleLine').textContent = room ? line : '';
-        $('chatBtn').disabled = !(room && visible && n > 0);
+      window.ChatRoom.start(geofences, { hooks: {
+        // your room: the old one loses its tint, the new one gains it, the map flies there
+        onRoom(feature, before) {
+          if (before) map.setFeatureState({ source: 'geofences', id: before.properties.id }, { room: false });
+          if (!feature) return;
+          map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
+          flyTo(boundsOf([feature]), 60, 15);
+        },
         // the emoji row on the neighborhood: everyone visible, you included
-        const shown = window.ChatEngine.people();
-        if (room && shown.length) {
-          avatars.getElement().textContent = shown.map((p) => p.emoji).join('');
-          avatars.setLngLat(centreOf(room)).addTo(map);
-        } else avatars.remove();
-      };
+        onPeople(list, feature) {
+          if (feature && list.length) {
+            avatars.getElement().textContent = list.map((p) => p.emoji).join('');
+            avatars.setLngLat(centreOf(feature)).addTo(map);
+          } else avatars.remove();
+        }
+      } });
 
-      const onPeople = (list) => {
-        others = list.filter((p) => !p.self);
-        window.ChatPanel.setPeople(list);
-        showPeople();
-        // the window never opens by itself (owner 2026-10-22): the Chat
-        // button lights up when someone else is visible, and you open it
-      };
-
-      async function enter(feature) {
-        if (room) map.setFeatureState({ source: 'geofences', id: room.properties.id }, { room: false });
-        room = feature;
-        others = [];
-        window.ChatPanel.close();
-        window.ChatPanel.clear();
-        if (!feature) { await window.ChatEngine.leave(); showPeople(); return; }
-        map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
-        flyTo(boundsOf([feature]), 60, 15);
-        $('roomLine').textContent = fill(COPY.room.inside, { name: feature.properties[CFG.nameField] });
-        showPeople();
-        await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) });
-      }
-
-      // where you are: the phone's GPS, or ?room=<id> for testing at a desk
-      const testRoom = new URLSearchParams(location.search).get('room');
-      if (testRoom) enter(byId(testRoom));
-      else window.ChatLocate.start(geofences, enter, (status) => {
-        if (status !== 'inside') $('roomLine').textContent = COPY.room[status];
-      });
-
-      // find me: back to your neighborhood (or ask for the location again)
+      // find me: back to your neighborhood, or ask for the location again
       $('ctrlLocate').addEventListener('click', () => {
-        if (room) flyTo(boundsOf([room]), 60, 15);
-        else if (!testRoom) window.ChatLocate.start(geofences, enter, (status) => { if (status !== 'inside') $('roomLine').textContent = COPY.room[status]; });
-      });
-
-      // the buttons
-      window.ChatPanel.init((text) => window.ChatEngine.send(text));
-      $('chatBtn').addEventListener('click', () => {
-        if (window.ChatPanel.isOpen()) window.ChatPanel.close();
-        else window.ChatPanel.open(room.properties[CFG.nameField]);
-      });
-      $('visibleBtn').addEventListener('click', async () => {
-        visible = !visible;
-        localStorage.setItem('austinchat:visible', visible ? 'on' : 'off');
-        showVisible();
-        if (!visible) window.ChatPanel.close();
-        await window.ChatEngine.setVisible(visible);
-        showPeople();
-      });
-      $('newName').addEventListener('click', async () => {
-        me = window.ChatIdentity.regenerate();
-        showMe();
-        if (room) await enter(room);       // rejoin under the new name
+        const r = window.ChatRoom.room;
+        if (r) flyTo(boundsOf([r]), 60, 15); else window.ChatRoom.locate();
       });
 
       // the map object, so it can be poked at from the browser console

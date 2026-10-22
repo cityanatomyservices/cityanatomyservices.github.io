@@ -1,5 +1,23 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twentieth pass) — the tours join the chat; shared room.js
+
+Owner: "code anything that still needs to be done", tests on phone +
+laptop. Done: the chat wiring left `chat/map.js` for `chat/room.js`
+(shared), the chat window's CSS became `chat/panel.css` with six
+`--chat-*` colour variables each page sets from its own palette (engine
+shared, look per product). Both tour apps (`1885murdertour/app.html`,
+`moontowertour/app.html` — hand-kept files, only `vendor/` is synced)
+got a 👁 Visible button and a 💬 Chat button at the bottom of the round
+stack, the chat window, the script tags and a 3-line `js/chat.js`; no
+polygons drawn on the tour maps. Visibility now starts OFF everywhere
+(plan §0) and is remembered once on. `home.json`: the 1885 demo `src`
+is `/1885murdertour/app.html` (austin1885.city is going). `chat/README.md`
+explains the files and how an app joins. Chat files `?v=20261022q`.
+Still linking to austin1885.city: the 1885 stops' "read more" pages
+(`vendor/stops.js`, synced from the app repo) — owner's call where those
+pages move. Supabase: owner is doing the Auth dashboard steps now.
+
 ## 2026-10-22 (nineteenth pass) — the agreed identity model, in the plan
 
 Owner reviewed a long description of the platform; Claude's read: mostly
