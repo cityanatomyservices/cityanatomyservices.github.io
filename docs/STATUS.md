@@ -1,5 +1,20 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 — home page: hamburger menu replaces the chip bar and card row
+
+Owner: "remove the entire card menu at the bottom … add them as menu items at
+the top … Austin.Chat in the middle of the title bar … hamburger menu on the
+top left with a secondary menu … put the social media back." Done in
+`index.html`, `home.js` and a new block at the end of `style.css`
+(`?v=20261022a`). The menu is a panel under the header: Apps (All apps +
+every card from `home.json`), Reports (every report in
+`apps/reports/reports.json`), Content, Services, Contact. Picking an app or
+report loads it in the map window; the ↗ beside it opens a new tab. The
+demo reel still cycles the `demo` apps until the visitor picks. The chip bar
+and card CSS stay in `style.css` because `parcels/index.html` uses them.
+The empty Media chip had no links and is not in the menu. The other pages
+keep their old header.
+
 ## 2026-10-22 — domain is now austin.chat (anatomy.city expired)
 
 The anatomy.city registration lapsed; the owner moved the site to
