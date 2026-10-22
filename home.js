@@ -15,10 +15,20 @@
 
   const DEMO_MS = 60000;
 
+  // What the window is showing now. Tracked here because the window is moved
+  // with location.replace (below), which leaves the src attribute untouched.
+  let current = frame.getAttribute('src');
+
   function show(src) {
     // Only touch the iframe when the page actually changes, so a repeat pick
     // does not reload what is already playing.
-    if (src && frame.getAttribute('src') !== src) frame.setAttribute('src', src);
+    if (!src || src === current) return;
+    current = src;
+    // location.replace, not a new src: setting src adds a browser history
+    // entry for the window, so the back button would step through every reel
+    // change and pick instead of leaving the page. replace adds none.
+    try { frame.contentWindow.location.replace(src); }
+    catch (err) { frame.setAttribute('src', src); }
   }
 
   // ── the demo reel ────────────────────────────────────────────────────────

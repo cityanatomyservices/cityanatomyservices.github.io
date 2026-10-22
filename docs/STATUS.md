@@ -11,7 +11,8 @@ every page's body) around a page that holds only its `<main>`. `index.html`,
 `contact.html` is gone (its styles moved into `style.css`). Menu items are
 deep links `/#<path>`; `home.js` reads the hash and loads it in the window,
 so `https://austin.chat/#/budget/` opens the Budget Map inside the frame
-from anywhere, and the back button steps through picks. The Content text is
+from anywhere. The window is moved with location.replace so the reel and
+picks add no history entries (`?v=20261022e`). The Content text is
 the old page's placeholder copy, marked as such in the file. `apps/` and
 `apps/reports/` keep the old header for now. `?v=20261022d`.
 
