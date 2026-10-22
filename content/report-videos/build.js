@@ -41,7 +41,7 @@ async function main() {
     }
 
     const cfg = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-    const qrUrl = `https://anatomy.city${cfg.appPath}`;
+    const qrUrl = `https://austin.chat${cfg.appPath}`;
 
     // Generate QR code as inline SVG — no CDN needed at render time
     const qrSvgRaw = await QRCode.toString(qrUrl, {

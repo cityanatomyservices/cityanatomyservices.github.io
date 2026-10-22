@@ -33,7 +33,7 @@ The most effective way to change the look is to describe what you want visually,
 - *"Slow the title animation down — it feels too fast"*
 - *"Add a subtle fade-out in the last 2 seconds so the video ends gracefully"*
 - *"Move the QR code to the bottom-right corner instead of top-left"*
-- *"Add a second line below the narrative that always reads 'anatomy.city' in the accent color"*
+- *"Add a second line below the narrative that always reads 'austin.chat' in the accent color"*
 
 Claude edits `template/promo-template.html` and pushes — Actions re-renders everything automatically.
 

@@ -2,7 +2,7 @@
 
 The tour web apps on this site (`/moontowertour/`, `/1885murdertour/`) are
 browser versions of the CityAnatomy - Austin phone app's modules, built so
-anatomy.city works as the app until the phone app is tested and approved
+austin.chat works as the app until the phone app is tested and approved
 (owner, 2026-09-10). They share this folder; each app keeps only what is its
 own (its card, its story page, its copy, its data).
 

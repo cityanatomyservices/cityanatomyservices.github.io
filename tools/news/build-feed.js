@@ -20,7 +20,7 @@ const GAZ = JSON.parse(fs.readFileSync(path.join(__dirname, 'gazetteer.json'), '
 const OUT = path.join(ROOT, 'news', 'feed.geojson');
 // Some outlets (Connect CRE, The Real Deal) answer 403 to anything that does
 // not look like a browser, so the request identifies as one.
-const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36 anatomy.city-news';
+const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36 austin.chat-news';
 const MAX_AGE_DAYS = 14;   // KUT's feed is sparse; a week left it with one story
 
 // ── tiny RSS 2.0 / Atom reader ─────────────────────────────────────────────

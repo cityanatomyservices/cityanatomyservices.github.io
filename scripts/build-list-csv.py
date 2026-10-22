@@ -78,7 +78,7 @@ def export_list(slug: str, out_path: Path, sample_out: Path | None,
             stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
             w.writerow([f"# Sample of {slug} — refreshed {stamp} UTC. "
                         f"Source: data.austintexas.gov + OpenStreetMap. "
-                        f"Full list available at anatomy.city/services/lists/."])
+                        f"Full list available at austin.chat/services/lists/."])
             w.writerows(sample)
         print(f"Wrote {sample_out} ({max(0, len(sample) - 1)} rows)")
 

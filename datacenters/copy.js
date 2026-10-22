@@ -25,7 +25,7 @@ window.MAP_COPY = {
     waterText: 'Water is the harder constraint. Blue shading is the major aquifers: Edwards and Trinity to the west, Carrizo-Wilcox to the east. Green outlines are groundwater conservation districts, which limit pumping; the Round Rock to Taylor corridor lies in none. Dots are public surface-water intakes on Lake Georgetown, Lake Travis and Lake Austin. Hutto\u2019s campuses run on city water; the tracker estimates 5 to 8 million gallons a day for Skybox at full build, while newer projects promise closed-loop cooling.',
     empty: 'No sites in this category.', unknownCity: 'City not reported'
   },
-  home: 'anatomy.city',
+  home: 'austin.chat',
 
   // the intro card shown over the map when the page opens (owner's words, 2026-09-14)
   intro: {

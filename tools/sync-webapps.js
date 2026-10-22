@@ -3,7 +3,7 @@
 // matching web app folder on this site, as plain script files the page can
 // load with a <script> tag.
 //
-// WHY A COPY: anatomy.city is a static site with no build step, and the app
+// WHY A COPY: austin.chat is a static site with no build step, and the app
 // repo is private. Each web app needs the same stops, routes, stories and map
 // styles the phone app ships, so this script writes each JSON file as a
 // global (`window.MT1885_STOPS = {...}`). Nothing in a vendor/ folder is

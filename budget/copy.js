@@ -5,7 +5,7 @@
 // replaces them. Nothing else in /budget/ contains on-screen text.
 window.BUDGET_COPY = {
   pageTitle: 'Austin FY 2026-27 Budget Map',
-  home: 'anatomy.city',
+  home: 'austin.chat',
 
   // owner's own wording (2026-09-12) for the dropdown label and the summary card
   topicLabel: '2027 Budget Topic',

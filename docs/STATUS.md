@@ -1,4 +1,17 @@
-# STATUS — cityanatomyservices.github.io (anatomy.city)
+# STATUS — cityanatomyservices.github.io (austin.chat)
+
+## 2026-10-22 — domain is now austin.chat (anatomy.city expired)
+
+The anatomy.city registration lapsed; the owner moved the site to
+austin.chat (CNAME pushed, Cloudflare updated). This session replaced
+every `anatomy.city` URL in the repo with `austin.chat`: canonical tags,
+home buttons in the map pages and report apps, the webtour copy files,
+the QR URL in the report-video builder, the scripts, and the notes in
+`docs/`. The TikTok handle `@anatomy.city` is a social account name, not
+the domain, so it is unchanged. Older notes that mention austin.chat as
+the former chat product (archived 2026-09-09) are about that product,
+not this site.
+
 
 ## 2026-09-15 — data centers desktop cut composited (owner to watch)
 
@@ -147,7 +160,7 @@ variables), close-out. `CLAUDE.md` now points there first.
 ## 2026-09-12 (night) — AISD school closures map at /AISD/
 
 Owner: "do the AISD school closures one, same 2 agent limit" then "put the
-school closures map up at anatomy.city/AISD too". Same two-agent research
+school closures map up at austin.chat/AISD too". Same two-agent research
 pattern as the data centers (researcher → fact-checker, 209 tool calls),
 source note with every link in the private `atxmapdata/qgis-lab` repo,
 `notes/aisd-school-changes-2026.md`; QGIS project there too.
@@ -183,7 +196,7 @@ face on white, 1:54, narration audio) and asked for it bottom-left like the
 data centers cut. Composited with the same graph (`docs/datacenters-
 recording.md`), re-measured for this take: face crop 486x482 at 269,314,
 circle centre 242,240; bottom text card window 37.25-112.25 s; end card
-"Navigate map / and sources at / anatomy.city/AISD" from 113 s. Narration
+"Navigate map / and sources at / austin.chat/AISD" from 113 s. Narration
 runs 2.0-115.9 s inside the 1:59. Output:
 `C:\Dev\map-exports\aisd\aisd-short-narrated.mp4` (1080x1920, 30 fps, 1:59).
 
@@ -248,7 +261,7 @@ reuses the owner's data centers wording with the map's name. Assets at
 `?v=20260914a`. Checked headless (desktop and `?phone`): no errors, cards
 and layers switch as designed. NOT recorded yet; the owner reviews first,
 then the OBS recipe in `docs/datacenters-recording.md` applies unchanged
-(browser source URL `https://anatomy.city/AISD/?play&phone`). Preview
+(browser source URL `https://austin.chat/AISD/?play&phone`). Preview
 take made the same morning for the owner's review, before narration:
 `C:\Dev\map-exports\aisd\2026-09-14 06-45-53.mp4` (1080x1920, 30 fps, 2:04,
 silent; OBS recdir now `C:\Dev\map-exports\aisd`).
@@ -267,9 +280,9 @@ delayed 2 s; while the bottom text card is up (34.25-94.5 s, measured from
 the take) only the chin below the card's edge is drawn, so the card "covers"
 the face and it keeps playing. Then (owner): hold the end a few seconds so
 the narration finishes, and a centred three-line end card from the last
-second — "Navigate map" / "and sources at" / "anatomy.city/datacenter"
+second — "Navigate map" / "and sources at" / "austin.chat/datacenter"
 (owner confirmed the missing s was a typo; re-rendered as
-"anatomy.city/datacenters"). Output is 1:52: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
+"austin.chat/datacenters"). Output is 1:52: `C:\Dev\map-exports\datacenters\datacenters-short-narrated.mp4`.
 Command and the re-measuring note are in `docs/datacenters-recording.md`.
 The animation file sits untracked in the TX-31 repo folder; media should
 live in `C:\Dev\map-exports`, not a repo.
@@ -458,7 +471,7 @@ reservoirs, water-rights points, planning-area labels beyond names.
 ## 2026-09-12 (late) — data centers map at /datacenters/
 
 Owner: "can you make a maplibre map of this datacenter map and put it up at
-anatomy.city/datacenters". `/datacenters/` is a MapLibre page built on the
+austin.chat/datacenters". `/datacenters/` is a MapLibre page built on the
 same bones as `/budget/` (home link and control column top-left, legend
 top-right, every word in `copy.js` as Claude's placeholders for the owner).
 It shows the 47 current and planned data centers researched the same day
@@ -508,7 +521,7 @@ and click a dot. Every word on the page is a placeholder in
 ## 2026-09-12 — the FY 2026-27 budget map at /budget/
 
 Owner: "Can we make a maplibre map of this QGIS project and put it online on a
-page on the anatomy.city site?" and, on data: "We have a parcel database on
+page on the austin.chat site?" and, on data: "We have a parcel database on
 Supabase ... it's better to not make that database larger."
 
 `/budget/` is a MapLibre page with the seven maps built in
@@ -605,7 +618,7 @@ Cache version `?v=20260911a`.
 
 Owner, across four messages: a zoom +/− on the right with a simple north arrow
 above it, an extents button below, a 2D/3D button below that "that just adjusts
-the tilt", a home button above the zoom that returns to anatomy.city; the maps
+the tilt", a home button above the zoom that returns to austin.chat; the maps
 should "only zoom out to the extents as a limit, and not go anywhere past the
 extents of the data"; a GPS button; a satellite button in the left corner. And
 later: "the extents doesn't have to be exact you can do a little further out."
@@ -613,7 +626,7 @@ later: "the extents doesn't have to be exact you can do a little further out."
 **The stack, top to bottom on the right:** home, north, zoom in, zoom out,
 extents, 2D/3D, GPS. **Satellite** sits on its own in the top-left corner.
 
-- **Home** is a plain `<a href="https://anatomy.city" target="_top">`. The
+- **Home** is a plain `<a href="https://austin.chat" target="_top">`. The
   `_top` matters: this page also plays inside the window on the home page, and
   without it the whole site would load into that small frame.
 - **North** turns with the map — the arrow is rotated by the live bearing — and
@@ -1103,7 +1116,7 @@ Cache version `?v=20260910e`.
 ## 2026-09-10 — the Moontower WebApp link was dead: an invisible overlay ate the click
 
 Owner: "can you have the card on the animation map link to
-https://anatomy.city/moontowertour/". It already did — the `href`, `target` and
+https://austin.chat/moontowertour/". It already did — the `href`, `target` and
 text were all correct from the previous commit. **The link was simply not
 clickable**, and the owner was reading the symptom exactly right.
 
@@ -1125,7 +1138,7 @@ This was not new. That overlay has been swallowing clicks on the demo page the
 whole time, which is probably why nothing there ever seemed to respond.
 
 Verified headless with real clicks: the pill opens
-`https://anatomy.city/moontowertour/` in a new tab **both** from `/moontower/`
+`https://austin.chat/moontowertour/` in a new tab **both** from `/moontower/`
 directly **and** from inside the home page's window — the case that matters,
 since that is where the owner sees it. The home page's own Moontower card still
 opens `/moontowertour/` too.
@@ -1134,7 +1147,7 @@ opens `/moontowertour/` too.
 
 Owner: "Remove all of the popups from the moontower animation and make the card
 on there that says Moontower, change that Moontower WebApp and make it linked to
-the https://anatomy.city/moontowertour/". This supersedes the earlier choice to
+the https://austin.chat/moontowertour/". This supersedes the earlier choice to
 keep the story cards.
 
 **`/moontower/` has no popups at all now.** `js/card.js` is deleted, the
@@ -1145,9 +1158,9 @@ Checked past two arrivals — nothing appears.
 
 **The pill under the tagline is now the way into the real thing.** It was a
 placeholder `href="#"` reading "Moontower"; it now reads **"Moontower WebApp"**
-(the owner's own words) and links to `https://anatomy.city/moontowertour/`.
+(the owner's own words) and links to `https://austin.chat/moontowertour/`.
 It carries `target="_blank"` deliberately — this page is embedded in the
-anatomy.city home window, so without it the app would open inside that small
+austin.chat home window, so without it the app would open inside that small
 frame instead of a real window.
 
 `moontower/index.html` loads its module as `js/main.js?v=20260910d`. That is not
@@ -1256,7 +1269,7 @@ already built."
   demo rather than a news map that then gets replaced.
 - **Nothing about the news feed was deleted.** The daily Action
   (`.github/workflows/build-news-feed.yml`) still rebuilds `news/feed.geojson`
-  every morning and the page is still live at **https://anatomy.city/news/** —
+  every morning and the page is still live at **https://austin.chat/news/** —
   it is just not advertised on the home page. `news/README.md` says so at the
   top, along with how to put the chip back (a `"src": "/news/"` chip with no
   cards — a data edit, no code).
@@ -1278,7 +1291,7 @@ same way the News Feed chip did.
 
 Owner: "I'm not seeing the light/dark button, I do want it to default to light
 but also want a dark option." The button WAS live and rendering — checked
-against anatomy.city directly, all three files deployed. Two real causes:
+against austin.chat directly, all three files deployed. Two real causes:
 
 1. **The browser was serving the previous `style.css`,** the one that still
    carried `display:none !important` on `.theme-toggle`. GitHub Pages caches
@@ -1398,7 +1411,7 @@ change from here. Nothing outside `moontower/` reads `moontower/vendor/` now.
 **3. The site palette is the site's own.** `style.css` `:root` is no longer
 the Moontower tokens. It stays night-toned (the home window always holds a
 dark map) but the hue is the site's own blue — `--accent: #4cc3ff`, the accent
-anatomy.city used before 2026-09-09 — on a neutral ink `#0b0f14`. Every colour
+austin.chat used before 2026-09-09 — on a neutral ink `#0b0f14`. Every colour
 on the site still flows from those 11 tokens, so the accent is one line to
 change if the owner wants a different one; there is no City Anatomy brand
 colour written down anywhere (`CityAnatomyAustin/docs/BRAND.md` is links only),
@@ -1416,10 +1429,10 @@ news style parses, 99 layers, no layer pointing at a missing source.
 news basemap should stay this dark night cartography at all now that it is
 free to diverge from the tour.
 
-## 2026-09-10 — anatomy.city IS the app for now: tour web apps + home rewire
+## 2026-09-10 — austin.chat IS the app for now: tour web apps + home rewire
 
 Owner: "Until we get the react native app tested and approved I want to
-treat anatomy.city like a webapp version of what the react native app will
+treat austin.chat like a webapp version of what the react native app will
 eventually be." Apps open in their own browser window, full screen, with
 only what an app would show (no site header/footer); nobody uses them from
 the front page. Built today:
@@ -1462,7 +1475,7 @@ Owner to check on a phone: geolocation prompt on ◎, the strike on
 
 ## 2026-09-09 — site moved here from loraatx/loraatx.github.io
 
-The City Anatomy site (anatomy.city) now lives in this repo under the
+The City Anatomy site (austin.chat) now lives in this repo under the
 cityanatomyservices GitHub account, with the full git history copied over
 (641 commits). Nothing in the site itself changed.
 
@@ -1477,9 +1490,9 @@ What was done, in order:
    here. Local folder: `C:\Dev\projects\loraatx\loraatx-site-archive`.
    GitHub redirects the old repo URL to the new name.
 3. This repo was created, the site pushed, GitHub Pages enabled from `main`
-   at `/`, custom domain `anatomy.city`.
+   at `/`, custom domain `austin.chat`.
 
-DNS did not change: anatomy.city is proxied by Cloudflare, which forwards to
+DNS did not change: austin.chat is proxied by Cloudflare, which forwards to
 GitHub Pages. GitHub picks the repo by the `CNAME` file, so keep that file.
 
 ## Supabase — the site uses only the paid cityanatomyservices project (2026-09-09)
@@ -1530,7 +1543,7 @@ What changed:
 
 - **The window plays the Moontower map** by default. `moontower/` is a COPY
   of `MoonTowerTour/web` (see `moontower/README.md` for the refresh recipe)
-  so anatomy.city does not depend on austin1885.city. It self-tours; nothing
+  so austin.chat does not depend on austin1885.city. It self-tours; nothing
   waits for the visitor.
 - **Chips = products, cards = their pages**, all from `home.json`
   (`home.js` renders it). Picking a card loads its page in the window. Every
@@ -1546,7 +1559,7 @@ What changed:
   No Play Store button until the listing is live.
 - **Reports are off the home page** (owner: "I don't care about the
   reports"). They still exist: one folder per report under `apps/reports/`,
-  listed at https://anatomy.city/apps/ and https://anatomy.city/apps/reports/.
+  listed at https://austin.chat/apps/ and https://austin.chat/apps/reports/.
   The old home-page loader read `apps/reports/reports.json`.
 
 Owner copy flags: `/apps/` hero lede still mentions "live chat experiences".

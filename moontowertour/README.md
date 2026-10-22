@@ -1,6 +1,6 @@
 # moontowertour/ — Moontower as a web app
 
-https://anatomy.city/moontowertour/ — the browser version of the
+https://austin.chat/moontowertour/ — the browser version of the
 `moontowertour` module of the CityAnatomy - Austin phone app. Full screen,
 no site header or footer, no login: only the map and the app's own controls.
 Built 2026-09-10. Shared engine: `../webtour/` (read its README first).

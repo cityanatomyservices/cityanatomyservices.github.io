@@ -68,7 +68,7 @@ browser source `Site page`. From WSL in `C:\Dev\tools\obs-control`:
 
     node obs.js req GetVideoSettings                       # must say 1080x1920
     node obs.js recdir 'C:\Dev\map-exports\<topic>'
-    node obs.js req SetInputSettings '{"inputName":"Site page","inputSettings":{"url":"https://anatomy.city/<topic>/?play&phone"}}'   # not yet tried; or edit the URL in the source's properties by hand
+    node obs.js req SetInputSettings '{"inputName":"Site page","inputSettings":{"url":"https://austin.chat/<topic>/?play&phone"}}'   # not yet tried; or edit the URL in the source's properties by hand
     node obs.js setscene 'Site portrait'
     node obs.js req PressInputPropertiesButton '{"inputName":"Site page","propertyName":"refreshnocache"}'
     node obs.js startrec
@@ -125,7 +125,7 @@ hold. Data centers: HOLD 4, END 107 on a 108 s take; AISD: HOLD 0, END 113
 on a 119 s take.
 
 **d. The end card's three lines**: the owner's words, verbatim
-("Navigate map" / "and sources at" / "anatomy.city/<topic>").
+("Navigate map" / "and sources at" / "austin.chat/<topic>").
 
 Then:
 
@@ -135,7 +135,7 @@ Then:
     CW=524; CH=488; CX=233; CY=310                  # a. the face: crop W:H:X:Y
     CARD_ON=34.25; CARD_OFF=94.5                    # b. the text card
     HOLD=4; END=107                                 # c. the end
-    L1="Navigate map"; L2="and sources at"; L3="anatomy.city/<topic>"   # d. the card
+    L1="Navigate map"; L2="and sources at"; L3="austin.chat/<topic>"   # d. the card
     "$FF" -y -i "$TAKE" -i "$FACE" -filter_complex "
     [0:v]tpad=stop_mode=clone:stop_duration=$HOLD[base];
     [1:v]crop=$CW:$CH:$CX:$CY,format=rgba,colorkey=0xffffff:0.12:0.08,split[k][k2];
@@ -177,7 +177,7 @@ what differs is the layout and the face's spot.
 
       node obs.js req SetVideoSettings '{"baseWidth":1920,"baseHeight":1080,"outputWidth":1920,"outputHeight":1080}'
       node obs.js recdir 'C:\Dev\map-exports\<topic>'
-      node obs.js req SetInputSettings '{"inputName":"Site page wide","inputSettings":{"url":"https://anatomy.city/<topic>/?play&width=1280","width":1920,"height":1080}}'
+      node obs.js req SetInputSettings '{"inputName":"Site page wide","inputSettings":{"url":"https://austin.chat/<topic>/?play&width=1280","width":1920,"height":1080}}'
       node obs.js setscene 'Site landscape'
       node obs.js req PressInputPropertiesButton '{"inputName":"Site page wide","propertyName":"refreshnocache"}'
       node obs.js startrec

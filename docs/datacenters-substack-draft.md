@@ -12,7 +12,7 @@ the map's story cards. The owner edits or replaces every word.
 Every data center that is running, being built, approved, proposed, rumored
 or cancelled in Travis, Williamson, Hays, Bastrop and Caldwell counties, on
 one map, with the power and water layers underneath. Snapshot of
-September 12, 2026. The map is at anatomy.city/datacenters; every dot
+September 12, 2026. The map is at austin.chat/datacenters; every dot
 carries its sources.
 
 **The count**
@@ -62,7 +62,7 @@ by parcel; each popup says how much to trust the point. Statuses are as
 reported on September 12 and change fast. Sources are company
 announcements, council records and local reporting, listed per site.
 
-Map and sources: anatomy.city/datacenters
+Map and sources: austin.chat/datacenters
 
 ---
 

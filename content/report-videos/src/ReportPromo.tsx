@@ -17,7 +17,7 @@ export interface ReportPromoProps {
   appPath: string;
   /** One narrative paragraph (≤250 chars): Austin context → report scope → store list. */
   narrative: string;
-  /** URL the QR code points to. Defaults to https://anatomy.city{appPath}. */
+  /** URL the QR code points to. Defaults to https://austin.chat{appPath}. */
   reportUrl?: string;
 }
 
@@ -92,7 +92,7 @@ export const ReportPromo: React.FC<ReportPromoProps> = ({
   const paraOp = interpolate(frame, [72, 95], [0, 1],  cl);
   const paraY  = interpolate(frame, [72, 95], [20, 0], cl);
 
-  const qrUrl = reportUrl ?? `https://anatomy.city${appPath}`;
+  const qrUrl = reportUrl ?? `https://austin.chat${appPath}`;
 
   return (
     <AbsoluteFill style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", overflow: "hidden", background: "#f8f9fc" }}>

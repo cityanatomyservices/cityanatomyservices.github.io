@@ -84,7 +84,7 @@ export const CREDITS = [
   { label: 'OpenFreeMap', detail: 'map tiles', url: 'https://openfreemap.org' },
   { label: 'MapLibre', detail: 'map engine', url: 'https://maplibre.org' },
   { label: 'City of Austin Open Data Portal', detail: 'moonlight tower locations', url: 'https://data.austintexas.gov' },
-  { label: 'City Anatomy', detail: 'anatomy.city', url: 'https://anatomy.city' },
+  { label: 'City Anatomy', detail: 'austin.chat', url: 'https://austin.chat' },
   { label: 'TikTok', detail: '@anatomy.city', url: 'https://www.tiktok.com/@anatomy.city' },
   { label: 'X', detail: '@anatomycity', url: 'https://x.com/anatomycity' },
   { label: 'Substack', detail: '@cityanatomy', url: 'https://cityanatomy.substack.com' },

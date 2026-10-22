@@ -1,6 +1,6 @@
 # 1885murdertour/ — The 1885 Murder Tour as a web app
 
-https://anatomy.city/1885murdertour/ — the browser version of the
+https://austin.chat/1885murdertour/ — the browser version of the
 `servantgirlmurdertour` module of the CityAnatomy - Austin phone app. Full
 screen, no site header or footer, no login: only the map and the app's own
 controls, so it can be used on a phone in the street exactly like the app.

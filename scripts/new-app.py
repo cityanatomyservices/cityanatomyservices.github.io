@@ -112,7 +112,7 @@ def main():
     print(f"  1. Tell Claude: 'Build data for apps/{name}/ — topic: {name}'")
     print(f"     Provide: Austin Open Data URL (if any), fields to show, filter dropdowns")
     print(f"  2. Claude will generate data.geojson and fill in config.js")
-    print(f"  3. Claude will commit and push — live at anatomy.city/apps/{name}/")
+    print(f"  3. Claude will commit and push — live at austin.chat/apps/{name}/")
 
 
 if __name__ == "__main__":

@@ -80,7 +80,7 @@ export const CREDITS = [
   { label: 'OpenFreeMap', detail: 'map tiles', url: 'https://openfreemap.org' },
   { label: 'MapLibre', detail: 'map engine', url: 'https://maplibre.org' },
   { label: 'Original historical research', detail: 'stop locations & narratives', url: 'https://atxmapdata.github.io' },
-  { label: 'City Anatomy', detail: 'anatomy.city', url: 'https://anatomy.city' },
+  { label: 'City Anatomy', detail: 'austin.chat', url: 'https://austin.chat' },
   { label: 'TikTok', detail: '@anatomy.city', url: 'https://www.tiktok.com/@anatomy.city' },
   { label: 'X', detail: '@anatomycity', url: 'https://x.com/anatomycity' },
   { label: 'Substack', detail: '@cityanatomy', url: 'https://cityanatomy.substack.com' },

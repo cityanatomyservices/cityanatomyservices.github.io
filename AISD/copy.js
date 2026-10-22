@@ -6,7 +6,7 @@
 // research data itself (names, numbers, notes, source links).
 window.MAP_COPY = {
   pageTitle: 'AISD School Changes',
-  home: 'anatomy.city',
+  home: 'austin.chat',
 
   // the intro card shown over the map when the page opens (mirrors the data
   // centers page; the owner wrote that wording on 2026-09-14)
