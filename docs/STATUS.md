@@ -1,5 +1,35 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirty-third pass) — shopping apps rebuilt on /shopmap/, at /apps/<id>/
+
+Owner: the guitar report must live at /apps/austin-vintage-guitar/ and
+"look like the map on the site home page", header and footer matching
+the homepage; all shopping apps the same; owner will have Codex redo the
+other data tables. Built the shared engine `/shopmap/` (`app.js`,
+`style.css`, `words.js`): a real page in the site frame (shell.js header
++ footer, `<main><section class="map-hero"><div class="shopmap">`), the
+home map's look — positron, round control stack (find me, 2D/3D, Sat,
+extents, +, −), Street / Neighborhood / City views, opens fitted then
+tilts, zoom floor + keep-on-screen — pins coloured by category, labels
+from zoom 12, a card with the title and ONE list (a fold per category
+with swatch, count and a hide box; a row per place), tap a row → street
+level + popup (config rows, URLs become links, Google / Apple / Yelp
+buttons) and the card folds; tap a pin → popup. Six app folders
+`apps/<id>/` (index.html + config.js + data.geojson copied from
+`apps/reports/<id>/`): austin-vintage-guitar, austin-bike-shops,
+austin-toy-stores, austin-golf-courses, austin-horseback-riding,
+PoolOpenings — titles/subtitles are the owner's words from the old
+configs; name/category/popup fields chosen per data. `home.json`
+`reportsKind: apps` (menu + /apps/ list link there); `maps/<id>/` framed
+folders for the six deleted; `tools/make-pages.js` now leaves a folder
+alone when its index.html is a real page (no view.js). The old citywide
+report apps in `apps/reports/<id>/` are untouched (reports.json hrefs
+still reach their report.html). KNOWN: the control/view code is a twin of
+chat/map.js by design (each page readable alone) — if they drift, that is
+the moment to make a shared mapkit. NOT seen with WebGL here: the map's
+`ResizeObserver` re-measure inside the frame is the thing to eyeball
+first. Engine `?v=20261023f`. Data for the other five: owner + Codex.
+
 ## 2026-10-22 (thirty-first pass) — three-level hamburger menu
 
 Owner: Apps → Walking and Biking Apps, Real Estate Apps, Historical Apps,

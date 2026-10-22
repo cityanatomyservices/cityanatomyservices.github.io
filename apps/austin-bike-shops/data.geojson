@@ -1,0 +1,105 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.754525,
+          30.259694
+        ]
+      },
+      "properties": {
+        "shop_name": "Austin Tri Cyclist",
+        "city": "Austin",
+        "address": "923 Barton Springs Rd, Austin, TX 78704",
+        "type": "independent",
+        "sells_ebikes": "limited/unknown",
+        "offers_pro_fit": "yes",
+        "austin_energy_e_ride_rebate": "unknown",
+        "notes": "Tri/road-focused shop; primary inventory is non-e-bike."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7401945,
+          30.3295116
+        ]
+      },
+      "properties": {
+        "shop_name": "Austin Bike Farm",
+        "city": "Austin",
+        "address": "5440 Burnet Rd, Austin, TX 78756",
+        "type": "independent",
+        "sells_ebikes": "yes",
+        "offers_pro_fit": "unknown",
+        "austin_energy_e_ride_rebate": "unknown",
+        "notes": "New/used shop; stocks some Specialized Turbo e-bikes."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7701105,
+          30.4865913
+        ]
+      },
+      "properties": {
+        "shop_name": "Trek Bicycle Parmer",
+        "city": "Austin",
+        "address": "9900 W Parmer Ln, Austin, TX 78717",
+        "type": "chain",
+        "sells_ebikes": "yes",
+        "offers_pro_fit": "unknown",
+        "austin_energy_e_ride_rebate": "unknown",
+        "notes": "Trek/Electra dealer; multiple e-bike models in stock."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.74063,
+          30.3893906
+        ]
+      },
+      "properties": {
+        "shop_name": "REI Austin Gateway",
+        "city": "Austin",
+        "address": "9901 N Capital of Texas Hwy, Austin, TX 78759",
+        "type": "chain",
+        "sells_ebikes": "yes",
+        "offers_pro_fit": "unknown",
+        "austin_energy_e_ride_rebate": "reported participant",
+        "notes": "REI bike shop; stocks Co-op Cycles and other e-bikes; check Austin Energy list directly."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7031094,
+          30.3012038
+        ]
+      },
+      "properties": {
+        "shop_name": "Rocket Electrics (closed)",
+        "city": "Austin",
+        "address": "1910 Aldrich St, Austin, TX 78723",
+        "type": "independent e-bike specialist (closed)",
+        "sells_ebikes": "n/a",
+        "offers_pro_fit": "n/a",
+        "austin_energy_e_ride_rebate": "n/a",
+        "notes": "Historically an all-e-bike shop; appears closed but included for historical planning context."
+      }
+    }
+  ]
+}

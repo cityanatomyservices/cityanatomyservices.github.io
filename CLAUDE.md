@@ -93,3 +93,19 @@ folder name. So a new map can be just `maps/<slug>/<file>.pdf` plus the
 stays at `/moontowertour/app.html` and `/1885murdertour/app.html`; those
 folders' `index.html` only redirect to the `/apps/` pages. `apps/reports/`
 still carries the older header and `page.js`.
+
+## Shopping apps: /apps/<id>/ on the /shopmap/ engine (2026-10-22)
+
+A shopping app (the former "reports": guitar shops, bike shops, toy
+stores, golf, horseback riding, pools) is a real page at `/apps/<id>/`
+inside the site frame, run by `/shopmap/app.js` (controls, views, card,
+list, popup — the same look as the home map). Its folder holds only
+`index.html` (copy one from a sibling), `config.js` (title, subtitle,
+`nameField`, `categoryField`, `popupFields`, `credit`) and `data.geojson`
+(Point features; any properties). To refresh an app's data, replace
+`data.geojson` and bump `?v=` on `data:` in its `config.js`. Words on the
+buttons live in `/shopmap/words.js`. The engine's `?v=` is in every
+shopping app's `index.html`; bump it when `/shopmap/*` changes.
+`apps/reports/reports.json` still names them (menu + /apps/ list titles);
+`home.json` `reportsKind` is `apps`. `tools/make-pages.js` never
+overwrites these pages.

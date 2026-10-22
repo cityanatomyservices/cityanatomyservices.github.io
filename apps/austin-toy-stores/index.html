@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toy Stores & Children's Specialty Retailers in Greater Austin</title>
+  <link href="/style.css?v=20261023f" rel="stylesheet" />
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+  <link href="/shopmap/style.css?v=20261023f" rel="stylesheet" />
+</head>
+<body>
+  <!-- A SHOPPING APP (owner 2026-10-22): the site's own frame (shell.js draws
+       the header and footer) around a map that looks like the home page's,
+       run by the shared engine in /shopmap/. This folder holds only this
+       page, config.js (title, data, fields) and data.geojson (the places).
+       Not a framed page: tools/make-pages.js leaves this file alone. -->
+  <main>
+    <section class="map-hero">
+      <div class="shopmap">
+        <div id="map"></div>
+
+        <!-- top left: the card — title, the list by category -->
+        <div class="topleft">
+          <aside class="legend" id="legend">
+            <button class="card-toggle" id="legendTitle" type="button" aria-expanded="true" aria-controls="legendBody"></button>
+            <div id="legendBody">
+              <div class="legend-sub" id="legendSub"></div>
+              <div class="place-list" id="placeList"></div>
+            </div>
+          </aside>
+        </div>
+
+        <!-- right: the round control stack, the same as the home map -->
+        <div class="stack">
+          <button class="round" id="ctrlLocate" type="button">&#9678;</button>
+          <button class="round" id="ctrlTilt" type="button" aria-pressed="false">3D</button>
+          <button class="round round-text" id="ctrlSatellite" type="button" aria-pressed="false">Sat</button>
+          <button class="round" id="ctrlExtent" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
+          </button>
+          <button class="round" id="ctrlZoomIn" type="button">+</button>
+          <button class="round" id="ctrlZoomOut" type="button">&minus;</button>
+        </div>
+
+        <!-- bottom right: the three views -->
+        <div class="views">
+          <button class="view-btn" id="viewStreet" type="button"></button>
+          <button class="view-btn" id="viewNeighborhood" type="button"></button>
+          <button class="view-btn" id="viewCity" type="button"></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="/shopmap/words.js?v=20261023f"></script>
+  <script src="./config.js?v=20261023f"></script>
+  <script src="/shopmap/app.js?v=20261023f"></script>
+  <script src="/shell.js?v=20261023e"></script>
+</body>
+</html>

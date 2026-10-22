@@ -1,0 +1,405 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7645,
+          30.2903
+        ]
+      },
+      "properties": {
+        "Course": "Lions Municipal Golf Course",
+        "Area": "Central / West Austin (Enfield Rd.)",
+        "Type": "Municipal public",
+        "Holes": 18,
+        "Approx. price tier": "Value–standard city muni (18‑hole rounds roughly mid‑30s to mid‑40s USD under GolfATX schedule)",
+        "Designer / notes": "B.F. Rowe; expanded to 18 holes; city‑operated since 1930s",
+        "SourceSheet": "Sheet1",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7247,
+          30.2995
+        ]
+      },
+      "properties": {
+        "Course": "Hancock Golf Course",
+        "Area": "Central Austin (near 41st & Red River)",
+        "Type": "Municipal public",
+        "Holes": 9,
+        "Approx. price tier": "Budget 9‑hole (flat fee around 20 USD for 9; discounted sunset rates)",
+        "Designer / notes": "Original Austin Country Club site; early sand greens; expanded then reduced to 9 holes; city‑owned since mid‑20th century",
+        "SourceSheet": "Sheet1",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7272,
+          30.1635
+        ]
+      },
+      "properties": {
+        "Course": "Jimmy Clay Golf Course",
+        "Area": "Southeast Austin (McKinney Falls area)",
+        "Type": "Municipal public",
+        "Holes": 18,
+        "Approx. price tier": "Standard muni (rack 35–44 USD for 18 per city schedule)",
+        "Designer / notes": "Joe Finger design; significant renovations improving water features and bunkers",
+        "SourceSheet": "Sheet1",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7215,
+          30.162
+        ]
+      },
+      "properties": {
+        "Course": "Roy Kizer Golf Course",
+        "Area": "Southeast Austin (adjacent to Jimmy Clay)",
+        "Type": "Municipal public",
+        "Holes": 18,
+        "Approx. price tier": "Standard muni (rack 35–44 USD)",
+        "Designer / notes": "Randy Russell; built as companion to Jimmy Clay with 80+ acres of lakes and marsh",
+        "SourceSheet": "Sheet1",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.6994,
+          30.2876
+        ]
+      },
+      "properties": {
+        "Course": "Morris Williams Golf Course",
+        "Area": "East‑central Austin (Manor Rd.)",
+        "Type": "Municipal public",
+        "Holes": 18,
+        "Approx. price tier": "Standard muni (rack 35–44 USD)",
+        "Designer / notes": "Named for Austin golfer Morris Williams Jr.; renovated greens and infrastructure",
+        "SourceSheet": "Sheet1",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.8786,
+          30.1593
+        ]
+      },
+      "properties": {
+        "Course": "Grey Rock Golf Club",
+        "Area": "Southwest Austin / Circle C",
+        "Type": "City owned, managed daily fee",
+        "Holes": 18,
+        "Approx. price tier": "Upper‑mid to premium public (posted 18‑hole green fees roughly 90–105 USD, with resident discounts)",
+        "Designer / notes": "Jay Morrish design; formerly Circle C Golf Club; now part of GolfATX portfolio",
+        "SourceSheet": "Sheet1",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7505,
+          30.2622
+        ]
+      },
+      "properties": {
+        "Course": "Butler Pitch & Putt",
+        "Area": "Downtown south shore (near Lady Bird Lake)",
+        "Type": "Municipal ",
+        "Holes": 9,
+        "Approx. price tier": "Very budget‑friendly short‑course (single‑digit dollar green fees historically, with simple pay station)",
+        "Designer / notes": "Built in late 1940s on former Butler Brick clay mine; simple walk‑up facility",
+        "SourceSheet": "Sheet1",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.6558,
+          30.2805
+        ]
+      },
+      "properties": {
+        "Course": "Harvey Penick Golf Campus",
+        "Area": "East Austin (Ed Bluestein)",
+        "Type": "Nonprofit public short course (First Tee)",
+        "Holes": 9,
+        "Approx. price tier": "Budget 9‑hole facility; 9‑hole walking rounds for roughly mid‑20s USD in 2026",
+        "Designer / notes": "PGA Tour Design Services; owned/operated by The First Tee of Greater Austin; opened to teach life skills via golf",
+        "SourceSheet": "Sheet1",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7212,
+          30.2336
+        ]
+      },
+      "properties": {
+        "Course": "Riverside Golf Course",
+        "Area": "East Austin (Grove Blvd. near ACC Riverside)",
+        "Type": "Public daily",
+        "Holes": 18,
+        "Approx. price tier": "Mid‑tier daily‑fee (typical rack about 45–52 USD riding, less walking in 2026 season)",
+        "Designer / notes": "Originally Austin Country Club’s Riverside course (mid‑20th century); now independent public course",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7846,
+          30.4992
+        ]
+      },
+      "properties": {
+        "Course": "Avery Ranch Golf Club",
+        "Area": "Far northwest Austin",
+        "Type": "Public daily fee (residential community)",
+        "Holes": 18,
+        "Approx. price tier": "Mid‑to‑upper‑mid daily‑fee (average peak weekend rates historically 50–100 USD)",
+        "Designer / notes": "Designed by Andy Raugust (former Nicklaus designer); required extensive rock blasting for several holes",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.5653,
+          30.4542
+        ]
+      },
+      "properties": {
+        "Course": "Blackhawk Golf Club",
+        "Area": "Pflugerville",
+        "Type": "Public daily fee",
+        "Holes": 18,
+        "Approx. price tier": "Value‑to‑mid tier (prices reported roughly high‑20s to around 50 USD)",
+        "Designer / notes": "Daily‑fee course serving Austin’s northeast suburbs",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.886,
+          30.568
+        ]
+      },
+      "properties": {
+        "Course": "Crystal Falls Golf Club",
+        "Area": "Leander",
+        "Type": "Public",
+        "Holes": 18,
+        "Approx. price tier": "Value–mid",
+        "Designer / notes": "Community‑oriented club in northwestern suburbs",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.641,
+          30.5213
+        ]
+      },
+      "properties": {
+        "Course": "Forest Creek Golf Club",
+        "Area": "Round Rock",
+        "Type": "Public",
+        "Holes": 18,
+        "Approx. price tier": "Mid",
+        "Designer / notes": "Serves as key daily‑fee option for Round Rock area",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.5222,
+          30.5515
+        ]
+      },
+      "properties": {
+        "Course": "Golf Club at Star Ranch",
+        "Area": "Hutto (northeast of Austin)",
+        "Type": "Public daily fee",
+        "Holes": 18,
+        "Approx. price tier": "Mid",
+        "Designer / notes": "Popular tournament site northeast of town",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.5632,
+          30.3385
+        ]
+      },
+      "properties": {
+        "Course": "ShadowGlen Golf Club",
+        "Area": "Manor",
+        "Type": "Public (with memberships)",
+        "Holes": 18,
+        "Approx. price tier": "Value mid",
+        "Designer / notes": "Serves rapidly growing Manor/SH‑130 corridor",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.9893,
+          30.4627
+        ]
+      },
+      "properties": {
+        "Course": "Lago Vista Golf Course",
+        "Area": "Lago Vista",
+        "Type": "Public",
+        "Holes": 18,
+        "Approx. price tier": "Value mid",
+        "Designer / notes": "Community course on north shore of Lake Travis",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.8635,
+          30.0164
+        ]
+      },
+      "properties": {
+        "Course": "Plum Creek Golf Course",
+        "Area": "Kyle",
+        "Type": "Public",
+        "Holes": 18,
+        "Approx. price tier": "Value mid",
+        "Designer / notes": "Serves I‑35 corridor south of Austin",
+        "SourceSheet": "Sheet2",
+        "coord_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7531,
+          30.2772
+        ]
+      },
+      "properties": {
+        "Course": "Omni Barton Creek Resort & Spa",
+        "Area": "West Austin Hills",
+        "Type": "Resort/private hybrid (guest or member play)",
+        "Holes": 18,
+        "Approx. price tier": "Resort ",
+        "Designer / notes": "Barton Creek’s four courses form one of Texas’s premier resort complexes, with Foothills and Canyons in particular earning high national and state rankings; Fazio Foothills has been named the number‑3 “course you can play” in Texas by Golf Magazine and is widely lauded for its cliff‑lined fairways, caves, waterfalls, and dramatic elevation changes.golfpass+4",
+        "SourceSheet": "Sheet3",
+        "coord_status": "fake_placeholder"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7631,
+          30.2872
+        ]
+      },
+      "properties": {
+        "Course": "Hyatt Regency Lost Pines Wolfdancer Golf Club",
+        "Area": "East of Austin near Bastrop",
+        "Type": "Resort public",
+        "Holes": 18,
+        "Approx. price tier": "Resort ",
+        "Designer / notes": "Wolfdancer traverses three distinct ecosystems—high prairie, forested ridgeline, and lowlands along the Lower Colorado River—on 300+ acres of countryside with no houses in view, and has been ranked the top Austin‑area course on Golf Advisor/GolfPass user ratings.golfpass+1",
+        "SourceSheet": "Sheet3",
+        "coord_status": "fake_placeholder"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7731,
+          30.2972
+        ]
+      },
+      "properties": {
+        "Course": "Horseshoe Bay Resort",
+        "Area": "Lake LBJ (west/northwest of Austin)",
+        "Type": "Resort",
+        "Holes": 18,
+        "Approx. price tier": "Resort ",
+        "Designer / notes": "Multi‑course resort about an hour west of Austin offering lake views, significant elevation changes, and three highly regarded Robert Trent Jones Sr. designs; frequently appears in lists of top resort destinations in Texas.golfaustin+1",
+        "SourceSheet": "Sheet3",
+        "coord_status": "fake_placeholder"
+      }
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 //   node tools/make-pages.js        (from the repo root)
 //
 // For each app in home.json this writes /<kind>/<slug>/index.html, and for
-// each report in apps/reports/reports.json /maps/<id>/index.html, each a copy
+// each report in apps/reports/reports.json /<reportsKind>/<id>/index.html, each a copy
 // of tools/page-template.html. Run it after adding an app or a report, or
 // after editing the template, then commit the result. It never deletes:
 // remove a folder by hand if something goes away. A folder made by hand
@@ -36,10 +36,16 @@ for (const kind of ['apps', 'maps']) {
   }
 }
 
+// A folder whose index.html is a real page of its own (the shopping apps on
+// /shopmap/, say) is left alone: only a framed page (one that loads view.js)
+// is refreshed.
+const isFramed = (file) => !fs.existsSync(file) || fs.readFileSync(file, 'utf8').includes('view.js');
 for (const page of pages) {
   const dir = path.join(root, page);
+  const file = path.join(dir, 'index.html');
+  if (!isFramed(file)) { console.log(page + '/ (own page, kept)'); continue; }
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), template);
+  fs.writeFileSync(file, template);
   console.log(page + '/');
 }
 console.log(pages.length + ' framed pages');

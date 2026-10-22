@@ -1,0 +1,226 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.7418, 30.1602] },
+      "properties": {
+        "name": "Texas Trail Rides / Lone Star Ranch",
+        "category": "Trail rides & ranch activities",
+        "area": "Southeast Austin, TX",
+        "phone": "(512) 697-9722",
+        "website": "https://www.texastrailrides.com",
+        "primary_activities": "Guided horseback trail rides, lessons, skeet shooting, ATV tours, ranch events",
+        "notes": "Operates out of Lone Star Ranch near Austin; family-friendly group and private rides."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.5661, 30.3289] },
+      "properties": {
+        "name": "Southern Trails",
+        "category": "Trail rides",
+        "area": "Manor (northeast of Austin), TX",
+        "phone": "(512) 649-5558",
+        "website": "https://www.southerntrailrides.com",
+        "primary_activities": "Guided ranch trail rides, sunset rides, kids-focused \"Little Dude\" rides",
+        "notes": "Highly rated trail rides about 15 minutes from downtown Austin on a 100+ acre ranch."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.6703, 29.8857] },
+      "properties": {
+        "name": "Maverick Horseback Riding",
+        "category": "Trail rides & horsemanship experiences",
+        "area": "Lockhart / Central Texas (SE of Austin)",
+        "phone": "(512) 230-8413",
+        "website": "https://maverickhorsebackriding.com",
+        "primary_activities": "Ecology-focused trail rides, horsemanship lessons, BBQ rides, private ranch tours",
+        "notes": "Operates ranch trail rides around Lockhart and other Central Texas sites; emphasizes land and waterway stewardship."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.7560, 30.2699] },
+      "properties": {
+        "name": "Willow Horseback Riding of Austin",
+        "category": "Guided trail rides",
+        "area": "Central Austin, TX",
+        "phone": "(737) 232-7281",
+        "website": "https://www.willowhorseriding.com/austin",
+        "primary_activities": "Scenic guided trail rides, photography add-ons",
+        "notes": "Downtown-based booking for guided rides in the Hill Country; focuses on small-group scenic experiences."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.7897, 30.4093] },
+      "properties": {
+        "name": "Tri-Star Farm (Austin location)",
+        "category": "Lessons, boarding & weekly trail rides",
+        "area": "Northwest Austin, TX",
+        "phone": "(512) 956-1662",
+        "website": "https://www.tristarfarm.com",
+        "primary_activities": "Hunter/jumper and general riding lessons, boarding, weekly trail rides, summer camps",
+        "notes": "Long-running program with Austin and Coupland locations; offers lessons for all levels and organized trail rides."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.9254, 30.3268] },
+      "properties": {
+        "name": "Bee Cave Riding Center",
+        "category": "Lesson barn & camps",
+        "area": "Bee Cave / West Austin, TX",
+        "phone": "(512) 632-7433",
+        "website": "https://www.ridinghorses.com",
+        "primary_activities": "Hunter/jumper, dressage and western lessons, kids and adult programs, camps",
+        "notes": "Hill Country facility west of Austin providing English and Western instruction for all levels."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.5534, 30.3451] },
+      "properties": {
+        "name": "Manor Equestrian Center",
+        "category": "Lessons, boarding & camps",
+        "area": "Manor, TX (NE of Austin)",
+        "phone": "(512) 423-2994",
+        "website": "https://www.manorequestriancentertx.com",
+        "primary_activities": "Riding lessons, horse boarding, training, summer camps",
+        "notes": "Family-oriented barn offering recreational riding programs and boarding just outside northeast Austin."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.5834, 30.3284] },
+      "properties": {
+        "name": "White Fences Equestrian Center",
+        "category": "Dressage & hunter/jumper lesson barn",
+        "area": "Manor, TX (east of Austin)",
+        "phone": "(512) 865-8281",
+        "website": "https://whitefencesaustin.com",
+        "primary_activities": "Dressage-focused training, hunter/jumper lessons, full-care boarding",
+        "notes": "Boutique dressage and hunter/jumper facility offering lessons and training for committed recreational and show riders."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.8134, 30.2907] },
+      "properties": {
+        "name": "Lone Star Stables (Lone Star Equestrian Center)",
+        "category": "Hunter/jumper lesson barn",
+        "area": "Westlake / West Austin, TX",
+        "phone": "(512) 567-4984",
+        "website": "http://www.lonestarstablesaustin.com",
+        "primary_activities": "Hunter/jumper lessons, boarding, instructional camps",
+        "notes": "Westlake hunter/jumper program with year-round lessons and small-group instruction for all ages."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.8406, 30.0850] },
+      "properties": {
+        "name": "Monarch Stables Austin",
+        "category": "Hunter/jumper lessons & boarding",
+        "area": "Buda, TX (south of Austin)",
+        "phone": "(512) 651-0484",
+        "website": "https://www.monarchstablesaustin.com",
+        "primary_activities": "Hunter/jumper instruction, full-service boarding, leasing",
+        "notes": "Large 56-acre facility about 13 miles from downtown Austin with training for child and adult riders."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.7760, 30.1314] },
+      "properties": {
+        "name": "Scissortail Hill Equestrian",
+        "category": "Riding academy & camps",
+        "area": "South Austin, TX",
+        "phone": "(512) 243-2323",
+        "website": "https://www.scissortailhillequestrian.com",
+        "primary_activities": "Eventing and hunter/jumper lessons, schooling shows, camps",
+        "notes": "South Austin riding academy with a focus on safe, confidence-building instruction and local shows."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-98.0866, 30.1904] },
+      "properties": {
+        "name": "Rio Vista Farm",
+        "category": "Hunter/jumper barn & camps",
+        "area": "Dripping Springs, TX (west of Austin)",
+        "phone": "(512) 247-2303",
+        "website": "https://www.riovistafarm.net",
+        "primary_activities": "Hunter/jumper lessons, boarding, camps, show program",
+        "notes": "Leading English riding barn now based in Dripping Springs; accepts riders without owning a horse."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-98.0201, 30.1259] },
+      "properties": {
+        "name": "Lone Star Riding Club",
+        "category": "Lesson barn & kids programs",
+        "area": "Driftwood, TX (southwest of Austin)",
+        "phone": "(512) 697-9818",
+        "website": "https://www.lonestarridingclub.com",
+        "primary_activities": "English and Western lessons, kids horse camps, clinics and events",
+        "notes": "United States Pony Club Riding Center with multiple Austin-area locations and a large school-horse string."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.7671, 30.4178] },
+      "properties": {
+        "name": "Switch Willo Stables",
+        "category": "Hunter/jumper show barn & camp",
+        "area": "Northwest Austin, TX",
+        "phone": "(512) 920-2276",
+        "website": "https://www.switchwillostable.com",
+        "primary_activities": "Hunter/jumper lessons, show program, state-certified kids riding camp",
+        "notes": "Long-established hunter/jumper barn with extensive youth programs and camps near central/north Austin."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.9012, 30.2124] },
+      "properties": {
+        "name": "Coraggio Equestrian",
+        "category": "Boarding barn with lessons & trails",
+        "area": "Southwest Austin, TX",
+        "phone": "(512) 567-9723",
+        "website": "http://coraggio.org",
+        "primary_activities": "Premium horse boarding, individualized training, access to shaded trails",
+        "notes": "Peaceful Hill Country facility with 100+ acres of shaded trails and focus on personalized horse care."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.9812, 30.4837] },
+      "properties": {
+        "name": "Miraval Austin Resort & Spa (Equine Program)",
+        "category": "Wellness resort equine program",
+        "area": "Northwest Austin / Lake Travis, TX",
+        "phone": "855-690-8163",
+        "website": "https://www.miravalresorts.com/austin",
+        "primary_activities": "Rhythmic riding, equine-assisted mindfulness and leadership, private trail rides for resort guests",
+        "notes": "Upscale wellness resort with a dedicated equine center; riding is primarily for overnight and day guests."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-97.7394, 30.2672] },
+      "properties": {
+        "name": "Austin Carriage Rides and Tours (Austin Carriage)",
+        "category": "Horse-drawn carriage rides",
+        "area": "Downtown Austin, TX",
+        "phone": "(512) 243-0044",
+        "website": "http://www.austincarriage.co",
+        "primary_activities": "Horse-drawn carriage rides, downtown tours, event transportation",
+        "notes": "Downtown carriage company offering romantic and historic horse-drawn rides rather than trail riding."
+      }
+    }
+  ]
+}
