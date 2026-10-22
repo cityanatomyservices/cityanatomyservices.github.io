@@ -3,8 +3,9 @@
 // Watches the phone's GPS and tests the point against the 65 polygons in
 // the browser (ray casting on the outer ring; no server sees the position).
 // Reports a room when the point enters a polygon, `null` when it is outside
-// them all, and a status word the card can show. The coordinates never
-// leave the device: the chat only ever learns the geofence id.
+// them all, a status word the card can show, and (onPosition) each reading
+// itself — which chat.js shares with the neighborhood only while you are
+// Visible, rounded to about ten metres (owner 2026-10-22).
 (function () {
   let watchId = null;
 
@@ -27,20 +28,31 @@
     }) || null;
   }
 
+  // metres between two [lng, lat] points (close enough for a city)
+  function metres(a, b) {
+    const R = 6371000, toRad = Math.PI / 180;
+    const dLat = (b[1] - a[1]) * toRad, dLng = (b[0] - a[0]) * toRad;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a[1] * toRad) * Math.cos(b[1] * toRad) * Math.sin(dLng / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+
   window.ChatLocate = {
     find,
+    metres,
     // onRoom(feature or null) each time the answer changes; onStatus('off' |
     // 'asking' | 'denied' | 'outside' | 'inside')
-    start(geofences, onRoom, onStatus) {
+    start(geofences, onRoom, onStatus, onPosition) {
       if (!navigator.geolocation) { onStatus('off'); return; }
       this.stop();                       // one watch at a time
       onStatus('asking');
       let lastId;
       watchId = navigator.geolocation.watchPosition((pos) => {
-        const f = find(geofences, [pos.coords.longitude, pos.coords.latitude]);
+        const pt = [pos.coords.longitude, pos.coords.latitude];
+        const f = find(geofences, pt);
         const id = f ? f.properties.id : null;
         onStatus(f ? 'inside' : 'outside');
         if (id !== lastId) { lastId = id; onRoom(f); }
+        if (onPosition) onPosition(pt);
       }, () => onStatus('denied'), { enableHighAccuracy: false, maximumAge: 30000, timeout: 20000 });
     },
     stop() { if (watchId !== null) navigator.geolocation.clearWatch(watchId); watchId = null; }

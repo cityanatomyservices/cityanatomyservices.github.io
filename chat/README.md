@@ -9,7 +9,7 @@ part of the same chat. One small file per job; nothing is abstract.
 | `config.js` | where the data is, how it draws, the Supabase project (publishable key — public by design) |
 | `copy.js` | every word on screen (owner writes copy; current strings are drafts) |
 | `auth.js` | who you are: an anonymous Supabase account the browser keeps (shared by every app on austin.chat), your handle + emoji in your `profiles` row; falls back to a browser-only random name when offline |
-| `locate.js` | GPS → which neighborhood polygon you are in (point in polygon, in the browser; coordinates never leave the phone) |
+| `locate.js` | GPS → which neighborhood polygon you are in (point in polygon, in the browser) and each reading, which chat.js shares with your neighborhood ONLY while you are Visible, rounded to ~10 m |
 | `chat.js` | the Supabase Realtime channel per neighborhood: Presence = who is visible, Broadcast = live messages; each message also goes into the `messages` table (30 days) and a room's last lines are read back on joining |
 | `panel.js` + `panel.css` | the chat window (colours from six `--chat-*` variables each page sets) |
 | `room.js` | the wiring: joins your neighborhood, lists its businesses by category on the card, moves you to a business room when you tap one, keeps the Visible / Chat buttons and lines up to date; shared with the apps |

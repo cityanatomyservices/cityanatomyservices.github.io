@@ -54,7 +54,7 @@
     const b = el.visibleBtn;
     if (!b) return;
     b.setAttribute('aria-pressed', String(visible));
-    b.title = visible ? COPY.visible : COPY.hidden;
+    b.title = COPY.visibleHint;
     if (!b.dataset.glyph) b.textContent = visible ? COPY.visible : COPY.hidden;
   }
 
@@ -99,9 +99,22 @@
     // lights up when someone else is visible, and you open it
   }
 
+  // the business a person is standing at or next to, from the position
+  // they share while visible (within NEAR metres), else null
+  const NEAR = 80;
+  function nearest(pt) {
+    let best = null, bestD = NEAR;
+    Object.values(placesById).forEach((p) => {
+      const d = window.ChatLocate.metres(pt, [p.lng, p.lat]);
+      if (d < bestD) { best = p; bestD = d; }
+    });
+    return best;
+  }
+
   // ── "Users visible": everyone visible in the neighborhood and where they
-  // are — the business they picked, or the whole neighborhood. Tapping a
-  // person takes you to their room. Rebuilt on every presence change.
+  // are — the business they picked, else the one they are standing near,
+  // else the whole neighborhood. Tapping a person takes you to their room.
+  // Rebuilt on every presence change.
   function showUsers(list) {
     const fold = el.placeList && el.placeList.querySelector('.users-fold');
     if (!fold) return;
@@ -110,13 +123,15 @@
     list.forEach((person) => {
       const placeId = person.room.split('/')[1];
       const at = placeId ? placesById[placeId] : null;
+      const near = !at && person.pos ? nearest(person.pos) : null;
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'place-row user-row';
       b.dataset.room = person.room;
       if (at) b.dataset.place = JSON.stringify(at);
       const name = document.createElement('span'); name.className = 'place-name';
-      name.textContent = person.emoji + ' ' + person.handle + (person.self ? ' ' + COPY.places.you : '') + ' · ' + (at ? at.name : COPY.places.neighborhoodRow);
+      const where = at ? at.name : near ? fill(COPY.places.near, { place: near.name }) : COPY.places.neighborhoodRow;
+      name.textContent = person.emoji + ' ' + person.handle + (person.self ? ' ' + COPY.places.you : '') + ' · ' + where;
       const here = document.createElement('span'); here.className = 'here';   // keeps the row shape; showCounts leaves it empty
       b.append(name, here);
       fold.appendChild(b);
@@ -217,7 +232,7 @@
   // where you are: the phone's GPS, or ?room=<id> for testing at a desk
   function locate() {
     if (testRoom) enter(geofences.features.find((f) => f.properties.id === testRoom) || null);
-    else window.ChatLocate.start(geofences, enter, status);
+    else window.ChatLocate.start(geofences, enter, status, (pt) => window.ChatEngine.setPosition(pt));
   }
 
   window.ChatRoom = {

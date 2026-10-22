@@ -248,7 +248,7 @@
       // the people: one emoji row per room — on the business they picked, or
       // on the neighborhood for the neighborhood room (owner 2026-10-22: see
       // on the map where everyone visible in your neighborhood is)
-      const markers = {};                              // room string -> Marker
+      const markers = {};                              // handle -> Marker
       const placePoints = {};                          // place id -> [lng, lat], from the loaded list
       const rowOf = (roomString) => roomString.split('/')[1];
       let placeMarker = null;                          // the business you picked (its popup: placePopup, above)
@@ -287,22 +287,23 @@
                      `<div class="place-links">${link('google')}${link('apple')}${link('yelp')}</div></div>`)
             .addTo(map);
         },
-        // everyone visible in the neighborhood, grouped by room, drawn where that room is
+        // everyone visible in the neighborhood, each drawn where they are: at
+        // the position they share, else on the business they picked, else on
+        // the neighborhood (owner 2026-10-22)
         onPeople(list, feature) {
-          const groups = {};
-          list.forEach((p) => { (groups[p.room] = groups[p.room] || []).push(p.emoji); });
-          Object.keys(markers).forEach((r) => { if (!groups[r]) { markers[r].remove(); delete markers[r]; } });
-          if (!feature) return;
-          Object.keys(groups).forEach((r) => {
-            const at = placePoints[rowOf(r)] || centreOf(feature);
-            if (!markers[r]) {
+          const seen = {};
+          if (feature) list.forEach((p) => {
+            const at = p.pos || placePoints[rowOf(p.room)] || centreOf(feature);
+            if (!markers[p.handle]) {
               const m = new maplibregl.Marker({ element: document.createElement('div'), anchor: 'bottom' });
               m.getElement().className = 'avatars';
-              markers[r] = m;
+              m.getElement().textContent = p.emoji;
+              markers[p.handle] = m;
             }
-            markers[r].getElement().textContent = groups[r].join('');
-            markers[r].setLngLat(at).addTo(map);
+            markers[p.handle].setLngLat(at).addTo(map);
+            seen[p.handle] = true;
           });
+          Object.keys(markers).forEach((h) => { if (!seen[h]) { markers[h].remove(); delete markers[h]; } });
         }
       } });
 

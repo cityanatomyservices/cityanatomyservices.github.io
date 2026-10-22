@@ -12,6 +12,9 @@
   const MIN_GAP = 1000;                 // ms between two sends
   const HISTORY = 100;                  // lines read back on joining a room
   let channel = null, nbhd = null, roomId = null, ident = null, visible = false, cbs = {}, lastSend = 0;
+  let pos = null;                       // your [lng, lat], rounded; shared only while visible
+  let sentPos = null;                   // the last one the others were told
+  const MOVE = 15;                      // metres you must move before they are told again
 
   const getClient = () => window.ChatIdentity.client();
 
@@ -22,11 +25,11 @@
     const state = channel ? channel.presenceState() : {};
     return Object.keys(state).map((key) => {
       const first = state[key][0] || {};
-      return { handle: first.handle || key, emoji: first.emoji || '🙂', room: first.room || nbhd, self: !!ident && key === ident.handle };
+      return { handle: first.handle || key, emoji: first.emoji || '🙂', room: first.room || nbhd, pos: first.pos || null, self: !!ident && key === ident.handle };
     });
   }
   const announce = () => { if (cbs.onPeople) cbs.onPeople(people()); };
-  const track = () => channel.track({ handle: ident.handle, emoji: ident.emoji, room: roomId, joinedAt: Date.now() });
+  const track = () => { sentPos = pos; return channel.track({ handle: ident.handle, emoji: ident.emoji, room: roomId, pos, joinedAt: Date.now() }); };
 
   // the room's recent lines from the table (nothing when signed out or the
   // table is not there yet — the live chat works either way)
@@ -76,6 +79,14 @@
       if (!channel) return;
       if (on) await track(); else await channel.untrack();
       announce();
+    },
+    // where you are (from locate.js): kept here, and told to the room while
+    // you are visible, once you have moved far enough to matter
+    async setPosition(pt) {
+      pos = [Math.round(pt[0] * 1e4) / 1e4, Math.round(pt[1] * 1e4) / 1e4];   // 4 decimals ≈ 10 m
+      if (!channel || !visible) return;
+      if (sentPos && window.ChatLocate.metres(sentPos, pos) < MOVE) return;
+      await track();
     },
     // send a line to the room; false when it was not sent (empty, too soon, hidden)
     async send(text) {

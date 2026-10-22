@@ -1,5 +1,19 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirtieth pass) — visible people share their position
+
+Owner: "why can't the chat get the location from the map for the users"
+— it could; Claude had kept coordinates on the phone. Now, WHILE
+VISIBLE, your position rides on presence (`chat.js setPosition`, 4
+decimals ≈ 10 m, re-sent after 15 m of movement; `locate.js` hands every
+reading out + `metres()`), hidden shares nothing. `map.js`: one emoji
+marker per person at their position (else their business, else the
+neighborhood). "Users visible" rows say the business picked, else "near
+<shop>" within 80 m of the shared position, else the whole neighborhood.
+The Visible button's hover text says what it shares. Tour apps: same
+files, so a tour walker who turns Visible on is drawn on the chat map
+too. `?v=20261023b`.
+
 ## 2026-10-22 (twenty-ninth pass) — "Users visible" fold on the card
 
 Owner: above "The whole neighborhood", a "Users visible" dropdown listing
