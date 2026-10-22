@@ -1,7 +1,7 @@
 // map.js — the chat map: the neighborhood geofences on a MapLibre map with
 // the same controls as the topic maps (Satellite, zoom in, zoom out, fit)
 // and a fold card. The chat itself is wired by room.js (shared with the
-// apps): your identity (identity.js), the neighborhood your phone is in
+// apps): your identity (auth.js), the neighborhood your phone is in
 // (locate.js), the room's channel (chat.js), the chat window (panel.js);
 // this file only draws the room and the people on the map.
 //
