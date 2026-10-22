@@ -1,5 +1,18 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (eleventh pass) — neighborhood geofences stored for the chat map
+
+Owner is replacing the home page's demo reel with a chat map: one geofence
+per neighborhood, see only the people in yours, visibility on/off, popup
+chat when two or more are visible (revives the shelved austin.chat idea;
+the archive's Supabase Realtime engine is reusable). First step, owner:
+"use the Austin Open Data portal neighborhood geojson and store it in
+GitHub" — `chat/data/neighborhoods.geojson` (portal dataset inrm-c3ee,
+95 features, unchanged) with provenance in `chat/data/README.md`. Open
+decisions before building: Supabase project, where people appear
+(neighborhood not GPS pin recommended), identity (handle+emoji vs
+accounts), popup = private room or neighborhood room, message history.
+
 ## 2026-10-22 (tenth pass) — index pages list whatever is in the folder
 
 Owner: the /apps/ and /maps/ index pages must "read any new files in that
