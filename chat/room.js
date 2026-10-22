@@ -4,8 +4,9 @@
 // chat window markup and a Visible button and a Chat button in its HTML,
 // and calls ChatRoom.start. This file then: finds the neighborhood the
 // phone is in (locate.js), joins its room (chat.js) under your name
-// (identity.js), keeps the buttons and lines up to date, and opens the
-// chat window (panel.js) when you press Chat. The page can pass hooks to
+// (auth.js), keeps the buttons and lines up to date, and opens the
+// chat window (panel.js) when you press Chat. Your name comes from auth.js
+// (an anonymous Supabase account the browser keeps). The page can pass hooks to
 // draw the room and the people on its own map; the tour apps pass none.
 //
 // Elements, by id (any may be missing): visibleBtn, chatBtn, roomLine,
@@ -17,7 +18,7 @@
   const $ = (id) => document.getElementById(id);
   const fill = (text, vars) => text.replace(/\{(\w+)\}/g, (m, k) => vars[k] ?? m);
 
-  let me = window.ChatIdentity.get();
+  let me = null;                // set by start(), once auth.js has signed you in
   // visibility: off until you turn it on (owner 2026-10-22: GPS for a tour
   // must not make you visible by itself), then remembered in this browser
   let visible = localStorage.getItem('austinchat:visible') === 'on';
@@ -30,7 +31,7 @@
 
   const roomName = () => (room ? room.properties[CFG.nameField] : '');
 
-  function showMe() { if (el.youHandle) el.youHandle.textContent = me.emoji + ' ' + me.handle; }
+  function showMe() { if (el.youHandle) el.youHandle.textContent = me ? me.emoji + ' ' + me.handle : '\u2026'; }
 
   function showVisible() {
     const b = el.visibleBtn;
@@ -91,7 +92,7 @@
     load() { return fetch(CFG.geofences).then((r) => r.json()); },
 
     // options: { ids: { visibleBtn, chatBtn, ... }, hooks: { onRoom(feature, before), onPeople(list, room) } }
-    start(gj, options) {
+    async start(gj, options) {
       geofences = gj;
       hooks = (options && options.hooks) || {};
       const ids = Object.assign({ visibleBtn: 'visibleBtn', chatBtn: 'chatBtn', roomLine: 'roomLine', peopleLine: 'peopleLine', youHandle: 'youHandle', newName: 'newName' }, options && options.ids);
@@ -102,6 +103,8 @@
       showVisible();
       showPeople();
       window.ChatPanel.init((text) => window.ChatEngine.send(text));
+      me = await window.ChatIdentity.ready();       // the anonymous account, or the browser-only name
+      showMe();
 
       if (el.chatBtn) el.chatBtn.addEventListener('click', () => {
         if (window.ChatPanel.isOpen()) window.ChatPanel.close();
@@ -116,7 +119,7 @@
         showPeople();
       });
       if (el.newName) el.newName.addEventListener('click', async () => {
-        me = window.ChatIdentity.regenerate();
+        me = await window.ChatIdentity.regenerate();
         showMe();
         if (room) await enter(room);          // rejoin under the new name
       });

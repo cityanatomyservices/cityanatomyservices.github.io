@@ -31,6 +31,12 @@
 - **The shared code** is the chat files themselves, loaded by each app:
   `identity.js` (later `auth.js`), `locate.js`, `chat.js`, `panel.js`, plus
   a visibility button. One small file per job; nothing more abstract.
+- **Coming (owner 2026-10-22): many geofences per neighborhood.** A second
+  GeoJSON of smaller places (parks, venues…), each tagged with its
+  neighborhood; locate checks places first, then the neighborhood. The
+  room id is the geofence id, so chat, presence and history already work
+  per place. The archived austin.chat data (1,202 OSM-derived geofences,
+  GISData `places.gpkg`) is the candidate source — check ODbL first.
 - **To do when the domain goes:** `home.json` still embeds the 1885 demo
   from `austin1885.city/annihilatortour/?demo=1`, and the 1885 tour's
   stops link to `austin1885.city` pages (see the Austin1885 repos) — both
@@ -73,15 +79,16 @@ uniqueness check. The same login works in the walking apps because they talk
 to the same project: a tour app signs the person in with the Supabase JS
 client and reads the same `profiles` row.
 
-What the owner must do once in the Supabase dashboard (paid project):
-1. Authentication → Providers → enable **Anonymous sign-ins**.
-2. Authentication → Providers → Email: on (default). Decide: password, or
-   magic link only. Set the site URL to `https://austin.chat` and add the
-   redirect URLs for the apps.
-3. Authentication → Rate limits: leave defaults; anonymous sign-ins are
-   limited per IP by Supabase already.
-4. Run the migration in SQL Editor: `supabase/migrations/0001_profiles_chat.sql`
-   (to be written once this plan is approved).
+Dashboard state, verified 2026-10-22 through the management API:
+anonymous sign-ins ON, email ON (confirm email on), site URL
+`https://austin.chat`, redirects `https://austin.chat/**` and
+`http://localhost:3000/**` (set by Claude). The `profiles` table already
+existed (container app: id, email, created_at; a trigger makes the row on
+sign-up) — the chat ADDS `handle` and `emoji` to it.
+
+**Owner runs once, in SQL Editor:** `supabase/migrations/0001_chat.sql`
+(Claude's tooling is not allowed to write to the database from the
+terminal). Until then the pages work live-only with browser-side names.
 
 ## 3. Presence and visibility
 

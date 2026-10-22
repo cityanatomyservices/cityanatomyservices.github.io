@@ -1,20 +1,17 @@
 // chat.js — the connection: one Supabase Realtime channel per neighborhood
 // (`chat:<geofence id>`), the same pattern as the archived austin.chat
-// engine. Presence says who is in the room; Broadcast carries the messages.
-// Nothing is stored (docs/CHAT-PLAN.md §4 proposes a 30-day `messages`
-// table later). The anon key is public by design: it opens channels, not
-// tables. Loaded from supabase-js (UMD build, index.html), which puts
-// `supabase.createClient` on the window.
+// engine. Presence says who is in the room; Broadcast carries the messages
+// live. Each message is also written to the `messages` table (kept 30 days,
+// supabase/migrations/0001_chat.sql), and a room's last lines are read back
+// when you join it, so a room is not empty when you arrive. The Supabase
+// client comes from auth.js, so the reads and writes carry your sign-in.
 (function () {
-  const CFG = window.MAP_CONFIG;
   const MAX_TEXT = 240;                 // characters per message
   const MIN_GAP = 1000;                 // ms between two sends
-  let client = null, channel = null, ident = null, visible = false, cbs = {}, lastSend = 0;
+  const HISTORY = 100;                  // lines read back on joining a room
+  let channel = null, roomId = null, ident = null, visible = false, cbs = {}, lastSend = 0;
 
-  function getClient() {
-    if (!client) client = window.supabase.createClient(CFG.supabase.url, CFG.supabase.anonKey, { realtime: { params: { eventsPerSecond: 5 } } });
-    return client;
-  }
+  const getClient = () => window.ChatIdentity.client();
 
   // everyone whose presence is on the channel; one entry per handle even
   // when the same person has two tabs open
@@ -28,15 +25,26 @@
   const announce = () => { if (cbs.onPeople) cbs.onPeople(people()); };
   const track = () => channel.track({ handle: ident.handle, emoji: ident.emoji, joinedAt: Date.now() });
 
+  // the room's recent lines from the table (nothing when signed out or the
+  // table is not there yet — the live chat works either way)
+  async function history(room) {
+    const uid = window.ChatIdentity.userId();
+    if (!uid || !cbs.onMessage) return;
+    const { data } = await getClient().from('messages').select('user_id, handle, emoji, text, created_at')
+      .eq('room', room).order('created_at', { ascending: false }).limit(HISTORY);
+    (data || []).reverse().forEach((r) => cbs.onMessage({ handle: r.handle, emoji: r.emoji, text: r.text, t: Date.parse(r.created_at), self: r.user_id === uid }));
+  }
+
   window.ChatEngine = {
     // join a neighborhood room. Visible = put yourself in Presence so the
     // others see you; hidden = listen only. callbacks: onPeople(list), onMessage(m)
-    async join(roomId, identity, isVisible, callbacks) {
+    async join(room, identity, isVisible, callbacks) {
       await this.leave();
-      ident = identity; visible = isVisible; cbs = callbacks || {};
-      channel = getClient().channel('chat:' + roomId, { config: { broadcast: { self: false }, presence: { key: identity.handle } } });
+      roomId = room; ident = identity; visible = isVisible; cbs = callbacks || {};
+      channel = getClient().channel('chat:' + room, { config: { broadcast: { self: false }, presence: { key: identity.handle } } });
       channel.on('broadcast', { event: 'msg' }, (p) => { if (cbs.onMessage && p.payload) cbs.onMessage(p.payload); });
       channel.on('presence', { event: 'sync' }, announce);
+      await history(room);
       await new Promise((resolve) => channel.subscribe(async (status) => {
         if (status === 'SUBSCRIBED') { if (visible) await track(); resolve(); }
         else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') resolve();
@@ -63,6 +71,10 @@
       const payload = { handle: ident.handle, emoji: ident.emoji, text: trimmed, t: now };
       if (cbs.onMessage) cbs.onMessage({ ...payload, self: true });     // your own line shows at once
       try { await channel.send({ type: 'broadcast', event: 'msg', payload }); } catch (e) { return false; }
+      // and into the table for the next person; a failure here changes nothing live
+      const uid = window.ChatIdentity.userId();
+      if (uid) getClient().from('messages').insert({ room: roomId, user_id: uid, handle: ident.handle, emoji: ident.emoji, text: trimmed })
+        .then(({ error }) => { if (error) console.warn('austin.chat: message not kept', error.message); });
       return true;
     },
     people,

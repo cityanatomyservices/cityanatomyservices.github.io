@@ -1,5 +1,25 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-first pass) — accounts and history, waiting on one SQL run
+
+Owner: use the paid project (already paying; "don't want to pay for
+another"). Auth config verified + completed via the management API
+(anonymous ON, email ON, site URL austin.chat, redirects). Written:
+`supabase/migrations/0001_chat.sql` — `handle` + `emoji` on the existing
+`profiles` (unique handle, own-row insert/update policies), `messages`
+(room, user, text; RLS read-all-signed-in / write-own; 3-per-10 s trigger;
+pg_cron purge at 30 days), `tour_progress` (own rows). **NOT APPLIED:
+the auto-mode classifier blocks SQL writes to the database from the
+terminal — the OWNER runs the file in the SQL Editor.** Client code is
+done and degrades until then: `chat/auth.js` replaces identity.js
+(anonymous sign-in → profiles handle/emoji, unique-handle retry, browser
+fallback when offline); `chat.js` reads a room's last 100 lines on join
+and inserts each sent message; `room.js` awaits the name. Chat files
+`?v=20261022r`. Also: plan §0 notes the coming "many geofences per
+neighborhood" (places GeoJSON, locate checks places first). Test: run the
+SQL, then phone + laptop `?room=hyde-park`; a reload should keep your
+name, and a room should show its earlier lines.
+
 ## 2026-10-22 (twentieth pass) — the tours join the chat; shared room.js
 
 Owner: "code anything that still needs to be done", tests on phone +
