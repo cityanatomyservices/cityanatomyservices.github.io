@@ -1,5 +1,19 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirty-first pass) — three-level hamburger menu
+
+Owner: Apps → Walking and Biking Apps, Real Estate Apps, Historical Apps,
+Shopping Apps; Maps → Animated, Austin News, Historical, Planning;
+Content → YouTube, TikTok, Instagram, X, Substack, Gumroad, Etsy, Ebay.
+`home.json`: `categories` (apps), new `mapCategories`, new `content`
+links; Moontower + 1885 → Walking and Biking, What can I build here →
+Real Estate, Budget / Datacenter / AISD → Planning, reports → Shopping.
+`shell.js`: `addGroup` per category (shown even when empty), `addItem`
+(an empty url renders greyed `.menu-soon`); `style.css` third-level
+indents. EMPTY TODAY: Historical Apps; Animated, Austin News, Historical
+maps. NO ADDRESS YET (greyed): Instagram, Gumroad, Etsy, Ebay — fill the
+`url` in home.json `content`. `?v=20261023e`.
+
 ## 2026-10-22 (thirtieth pass) — visible people share their position
 
 Owner: "why can't the chat get the location from the map for the users"

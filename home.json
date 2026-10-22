@@ -1,9 +1,50 @@
 {
-  "_comment": "FRAMED PAGES (owner 2026-10-22, final shape): every app and map has its own page inside the site frame at /<kind>/<slug>/ - `kind` is `apps` or `maps` (the folder), `slug` the folder name: /apps/moontower/, /maps/budget/ ... `app` is what plays inside it (a page, or a PDF: point `app` at a .pdf in the folder and the window shows it). Every report in apps/reports/reports.json is a map at /maps/<id>/ (`reportsKind`). Run `node tools/make-pages.js` after adding one to create its folder. /apps/ and /maps/ list everything of that kind (list.js). The hamburger menu is separate: `categories` is the order of the Apps section's categories, each app's `category` places it there (category `Maps` = the Maps section), and all reports go under `reportsCategory`. ",
+  "_comment": "FRAMED PAGES (owner 2026-10-22, final shape): every app and map has its own page inside the site frame at /<kind>/<slug>/ - `kind` is `apps` or `maps` (the folder), `slug` the folder name: /apps/moontower/, /maps/budget/ ... `app` is what plays inside it (a page, or a PDF: point `app` at a .pdf in the folder and the window shows it). Every report in apps/reports/reports.json is a map at /maps/<id>/ (`reportsKind`). Run `node tools/make-pages.js` after adding one to create its folder. /apps/ and /maps/ list everything of that kind (list.js). The hamburger menu (owner 2026-10-22, evening): Apps opens to `categories` (in this order), each app's `category` places it there, all reports go under `reportsCategory`; Maps opens to `mapCategories`, each map's `category` places it there (an app is a map when `kind` is `maps`); Content opens to the `content` links (an entry with an empty `url` shows greyed until the address is filled in). Every category listed shows even while empty, so the structure is visible. ",
   "categories": [
-    "Walking/Biking Apps",
-    "Shopping Apps",
-    "Culture Apps"
+    "Walking and Biking Apps",
+    "Real Estate Apps",
+    "Historical Apps",
+    "Shopping Apps"
+  ],
+  "mapCategories": [
+    "Animated",
+    "Austin News",
+    "Historical",
+    "Planning"
+  ],
+  "content": [
+    {
+      "title": "YouTube",
+      "url": "https://www.youtube.com/@AustinLive1885"
+    },
+    {
+      "title": "TikTok",
+      "url": "https://www.tiktok.com/@anatomy.city"
+    },
+    {
+      "title": "Instagram",
+      "url": ""
+    },
+    {
+      "title": "X",
+      "url": "https://x.com/anatomycity"
+    },
+    {
+      "title": "Substack",
+      "url": "https://cityanatomy.substack.com"
+    },
+    {
+      "title": "Gumroad",
+      "url": ""
+    },
+    {
+      "title": "Etsy",
+      "url": ""
+    },
+    {
+      "title": "Ebay",
+      "url": ""
+    }
   ],
   "reportsCategory": "Shopping Apps",
   "reportsKind": "maps",
@@ -18,7 +59,7 @@
           "blurb": "Austin, 1895 — light them all",
           "src": "/moontower/",
           "app": "/moontowertour/app.html",
-                    "category": "Walking/Biking Apps"
+          "category": "Walking and Biking Apps"
         },
         {
           "title": "The 1885 Murder Tour",
@@ -27,7 +68,7 @@
           "blurb": "Austin, 1885 — The Servant Girl Murders",
           "src": "/1885murdertour/app.html",
           "app": "/1885murdertour/app.html",
-                    "category": "Walking/Biking Apps"
+          "category": "Walking and Biking Apps"
         },
         {
           "title": "What can I build here?",
@@ -36,7 +77,7 @@
           "blurb": "",
           "src": "/parcels/embed.html",
           "app": "/parcels/",
-          "category": "Culture Apps"
+          "category": "Real Estate Apps"
         },
         {
           "title": "Budget Map",
@@ -45,7 +86,7 @@
           "blurb": "",
           "src": "/budget/#bill",
           "app": "/budget/",
-          "category": "Maps"
+          "category": "Planning"
         },
         {
           "title": "Datacenter Map",
@@ -54,7 +95,7 @@
           "blurb": "",
           "src": "/datacenters/",
           "app": "/datacenters/",
-          "category": "Maps"
+          "category": "Planning"
         },
         {
           "title": "AISD School Closures",
@@ -63,10 +104,10 @@
           "blurb": "",
           "src": "/AISD/",
           "app": "/AISD/",
-          "category": "Maps"
+          "category": "Planning"
         }
       ],
-            "open": true
+      "open": true
     },
     {
       "label": "Reports",

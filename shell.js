@@ -8,13 +8,16 @@
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// THE MENU (owner, 2026-10-22, evening): Apps and Maps open a second
-// level listing every app / every map, so a person can go straight to one
-// item's framed page at /apps/<slug>/ or /maps/<slug>/ (view.js); the
-// first row of each list is the directory page itself (/apps/, /maps/,
-// list.js). Content and Contact are plain links. The lists come from
-// home.json (apps and maps, by `kind`) and apps/reports/reports.json (the
-// reports are maps). Closing the menu folds the levels back up.
+// THE MENU (owner, 2026-10-22, late): three levels. Apps opens to its
+// categories (home.json `categories`: Walking and Biking, Real Estate,
+// Historical, Shopping), each opening to its apps; Maps opens to
+// `mapCategories` (Animated, Austin News, Historical, Planning), each to
+// its maps; Content opens to the social and shop links (`content`);
+// Contact is a plain link. The first row under Apps and Maps is the
+// directory page (/apps/, /maps/, list.js). Every app and map goes to its
+// framed page at /apps/<slug>/ or /maps/<slug>/ (view.js); the reports
+// (apps/reports/reports.json) are maps filed under `reportsCategory`.
+// A category shows even while empty. Closing the menu folds it all up.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────
   // Day is the default (owner, 2026-09-10); night is remembered once chosen.
@@ -40,13 +43,18 @@
     <nav id="site-menu" class="site-menu" hidden aria-label="Site menu">
       <details class="menu-section">
         <summary>Apps</summary>
-        <ul id="menu-apps" class="menu-links"><li><a href="/apps/">All apps</a></li></ul>
+        <ul class="menu-links"><li><a href="/apps/">All apps</a></li></ul>
+        <div id="menu-apps" class="menu-groups"></div>
       </details>
       <details class="menu-section">
         <summary>Maps</summary>
-        <ul id="menu-maps" class="menu-links"><li><a href="/maps/">All maps</a></li></ul>
+        <ul class="menu-links"><li><a href="/maps/">All maps</a></li></ul>
+        <div id="menu-maps" class="menu-groups"></div>
       </details>
-      <a class="menu-link" href="/content/">Content</a>
+      <details class="menu-section">
+        <summary>Content</summary>
+        <ul id="menu-content" class="menu-links"></ul>
+      </details>
       <a class="menu-link" href="/contact/">Contact</a>
     </nav>
   </header>`);
@@ -102,25 +110,47 @@
     if (e.key === 'Escape' && !menu.hidden) setOpen(false);
   });
 
-  // ── the second level: one row per app under Apps, one per map under Maps ──
-  function addItem(list, title, page) {
+  // ── the second and third levels ──────────────────────────────────────────
+  // one row: a link to a page (an empty url shows the name greyed, for a
+  // shop or social account not set up yet)
+  function addItem(list, title, url, newTab) {
     const li = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = page;
+    const link = document.createElement(url ? 'a' : 'span');
+    if (url) { link.href = url; if (newTab) { link.target = '_blank'; link.rel = 'noopener'; } }
+    else link.className = 'menu-soon';
     link.textContent = title;
     li.appendChild(link);
     list.appendChild(li);
+  }
+  // one category: a heading that opens to its list
+  function addGroup(holder, name) {
+    const group = document.createElement('details');
+    group.className = 'menu-group';
+    const heading = document.createElement('summary');
+    heading.textContent = name;
+    const list = document.createElement('ul');
+    list.className = 'menu-links';
+    group.append(heading, list);
+    holder.appendChild(group);
+    return list;
   }
   Promise.all([
     fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null),
     fetch('/apps/reports/reports.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])
   ]).then(([data, reports]) => {
     if (!data) return;
+    const appLists = new Map();
+    (data.categories || []).forEach((name) => appLists.set(name, addGroup(document.getElementById('menu-apps'), name)));
+    const mapLists = new Map();
+    (data.mapCategories || []).forEach((name) => mapLists.set(name, addGroup(document.getElementById('menu-maps'), name)));
+    const listFor = (lists, holderId, name) => lists.get(name) || (lists.set(name, addGroup(document.getElementById(holderId), name)), lists.get(name));
     const chip = (data.chips || []).find((c) => c.label === 'Apps');
     ((chip && chip.cards) || []).forEach((a) => {
       const kind = a.kind || 'apps';
-      addItem(document.getElementById(kind === 'maps' ? 'menu-maps' : 'menu-apps'), a.title, '/' + kind + '/' + a.slug + '/');
+      const list = kind === 'maps' ? listFor(mapLists, 'menu-maps', a.category || 'Planning') : listFor(appLists, 'menu-apps', a.category || 'Apps');
+      addItem(list, a.title, '/' + kind + '/' + a.slug + '/');
     });
-    (reports || []).forEach((r) => addItem(document.getElementById('menu-maps'), r.title, '/' + (data.reportsKind || 'maps') + '/' + r.id + '/'));
+    (reports || []).forEach((r) => addItem(listFor(appLists, 'menu-apps', data.reportsCategory || 'Shopping Apps'), r.title, '/' + (data.reportsKind || 'maps') + '/' + r.id + '/'));
+    (data.content || []).forEach((c) => addItem(document.getElementById('menu-content'), c.title, c.url, true));
   });
 }());

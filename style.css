@@ -1229,6 +1229,23 @@ main {
 
 .menu-links li a:hover { color: var(--accent); }
 
+/* a link whose address is not set up yet: greyed, not clickable */
+.menu-links li .menu-soon {
+  display: block;
+  padding: 0.45rem 1.5rem 0.45rem 2.5rem;
+  color: var(--muted);
+}
+
+/* the categories under Apps and Maps: a heading one step in, its items one more */
+.menu-groups { padding-bottom: 0.25rem; }
+.menu-group summary {
+  padding: 0.45rem 1.5rem 0.45rem 2.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.menu-group .menu-links li a,
+.menu-group .menu-links li .menu-soon { padding-left: 3.5rem; }
+
 /* Compact home header and footer (owner, 2026-10-22: "maximize the map
    space in the middle"). Buttons stay 36px so a thumb can still hit them. */
 .topbar.topbar-home {
