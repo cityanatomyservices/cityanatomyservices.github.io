@@ -1,5 +1,15 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirty-seventh pass) — bike shops data refreshed
+
+Owner's CSV `C:\Dev\austin-bicycle-shops\greater-austin-bicycle-and-ebike-shops-with-contact-info.csv`
+(40 rows) → `apps/austin-bike-shops/data.geojson` (5 → 40) via
+`apps/austin-bike-shops/build.py` (same pattern as horseback: owner text
+kept whole, dropdown fields sorted from it: `kind`, `ebikes`, `service`).
+config: name field `name`, category `kind`, dropdowns Type / E-bikes /
+Service / Area, popup with type, specialties, area, address, phone,
+website, verification status, notes, source. Data `?v=20261023j`.
+
 ## 2026-10-22 (thirty-sixth pass) — panel arrow on the panel; Export + Reset
 
 Owner: the panel must run all the way to the arrow box; two same-size

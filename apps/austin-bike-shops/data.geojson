@@ -1,105 +1,1047 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.754525,
-          30.259694
-        ]
-      },
-      "properties": {
-        "shop_name": "Austin Tri Cyclist",
-        "city": "Austin",
-        "address": "923 Barton Springs Rd, Austin, TX 78704",
-        "type": "independent",
-        "sells_ebikes": "limited/unknown",
-        "offers_pro_fit": "yes",
-        "austin_energy_e_ride_rebate": "unknown",
-        "notes": "Tri/road-focused shop; primary inventory is non-e-bike."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.7401945,
-          30.3295116
-        ]
-      },
-      "properties": {
-        "shop_name": "Austin Bike Farm",
-        "city": "Austin",
-        "address": "5440 Burnet Rd, Austin, TX 78756",
-        "type": "independent",
-        "sells_ebikes": "yes",
-        "offers_pro_fit": "unknown",
-        "austin_energy_e_ride_rebate": "unknown",
-        "notes": "New/used shop; stocks some Specialized Turbo e-bikes."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.7701105,
-          30.4865913
-        ]
-      },
-      "properties": {
-        "shop_name": "Trek Bicycle Parmer",
-        "city": "Austin",
-        "address": "9900 W Parmer Ln, Austin, TX 78717",
-        "type": "chain",
-        "sells_ebikes": "yes",
-        "offers_pro_fit": "unknown",
-        "austin_energy_e_ride_rebate": "unknown",
-        "notes": "Trek/Electra dealer; multiple e-bike models in stock."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.74063,
-          30.3893906
-        ]
-      },
-      "properties": {
-        "shop_name": "REI Austin Gateway",
-        "city": "Austin",
-        "address": "9901 N Capital of Texas Hwy, Austin, TX 78759",
-        "type": "chain",
-        "sells_ebikes": "yes",
-        "offers_pro_fit": "unknown",
-        "austin_energy_e_ride_rebate": "reported participant",
-        "notes": "REI bike shop; stocks Co-op Cycles and other e-bikes; check Austin Energy list directly."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.7031094,
-          30.3012038
-        ]
-      },
-      "properties": {
-        "shop_name": "Rocket Electrics (closed)",
-        "city": "Austin",
-        "address": "1910 Aldrich St, Austin, TX 78723",
-        "type": "independent e-bike specialist (closed)",
-        "sells_ebikes": "n/a",
-        "offers_pro_fit": "n/a",
-        "austin_energy_e_ride_rebate": "n/a",
-        "notes": "Historically an all-e-bike shop; appears closed but included for historical planning context."
-      }
-    }
-  ]
+ "type": "FeatureCollection",
+ "name": "greater-austin-bicycle-and-ebike-shops",
+ "description": "Greater Austin bicycle and e-bike shops, owner research (C:/Dev/austin-bicycle-shops/...-with-contact-info.csv), built by build.py. `kind`, `ebikes` and `service` are sorted from the owner's type and specialties text (kept whole). Pins: OSM objects or address geocodes, not verified entrances.",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "ATX Bikes",
+    "kind": "Independent",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycles; e-bikes; accessories; service",
+    "general_area": "Southwest Austin / Slaughter Lane",
+    "address": "5701 W Slaughter Ln Ste A110, Austin, TX 78749",
+    "city": "Austin",
+    "phone": "512-282-0400",
+    "website": "https://www.atxbikes.com/storelocator/",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://www.atxbikes.com/storelocator/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8701876,
+     30.2004692
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Austin Bike Farm",
+    "kind": "Independent",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "New and used bicycles; mountain; road; e-bikes; repairs",
+    "general_area": "North Central Austin / Burnet Road",
+    "address": "5440 Burnet Rd, Austin, TX 78756",
+    "city": "Austin",
+    "phone": "512-419-1911",
+    "website": "https://www.austinbikefarm.com/service/",
+    "status": "Listed on current provider page",
+    "notes": "Service department: 512-401-3547.",
+    "source": "https://www.austinbikefarm.com/service/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.739881,
+     30.3292153
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Austin Tri Cyclist",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "No",
+    "type": "Independent bicycle and triathlon shop",
+    "specialties": "Bicycles; triathlon; swimming and running equipment",
+    "general_area": "South Central Austin / Barton Springs",
+    "address": "923 Barton Springs Rd, Austin, TX 78704",
+    "city": "Austin",
+    "phone": "512-494-9252",
+    "website": "https://www.austintricyclist.com/",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://www.austintricyclist.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.754585,
+     30.259603
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bicycle House",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; repairs; fitting",
+    "general_area": "North Central Austin / North Lamar",
+    "address": "6606 N Lamar Blvd, Austin, TX 78752",
+    "city": "Austin",
+    "phone": "512-666-7046",
+    "website": "https://www.bicyclehouseatx.com/contact",
+    "status": "Listed on current provider page",
+    "notes": "Current official address replaces older 6318 Burnet Road listings.",
+    "source": "https://www.bicyclehouseatx.com/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7212382,
+     30.3341221
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "BIKEALOT",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; parts; repairs",
+    "general_area": "South Austin / Menchaca Road",
+    "address": "5330 Menchaca Rd Ste C, Austin, TX 78745",
+    "city": "Austin",
+    "phone": "512-916-8574",
+    "website": "https://www.bikealotaustin.com/contact/our-location-pg141.htm",
+    "status": "Listed on current provider page",
+    "notes": "Provider uses former road spelling Manchaca; same road as Menchaca.",
+    "source": "https://www.bikealotaustin.com/contact/our-location-pg141.htm"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79657,
+     30.2177
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Brooklyn Bike Doctor ATX",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Custom bicycles; repairs; parts",
+    "general_area": "East Austin / Holly",
+    "address": "2709 E 5th St #130A, Austin, TX 78702",
+    "city": "Austin",
+    "phone": "512-537-9632",
+    "website": "https://www.brooklynbikedoctor.com/",
+    "status": "Listed on current provider page",
+    "notes": "Contact details corroborated by Tommasini dealer list and OSM.",
+    "source": "https://www.brooklynbikedoctor.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7119038,
+     30.2567021
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Clown Dog Bikes",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; parts; repairs",
+    "general_area": "Central Austin / North University",
+    "address": "2821 San Jacinto Blvd, Austin, TX 78705",
+    "city": "Austin",
+    "phone": "512-477-4221",
+    "website": "https://www.clowndogbikes.com/clown-dog-website-contact",
+    "status": "Listed on current provider page",
+    "notes": "Text: 512-766-6058.",
+    "source": "https://www.clowndogbikes.com/clown-dog-website-contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.735186,
+     30.291801
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Cycle Progression",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Mountain bicycles; custom builds; repairs",
+    "general_area": "Central Austin / Hyde Park",
+    "address": "4017 Guadalupe St, Austin, TX 78751",
+    "city": "Austin",
+    "phone": "512-447-7764",
+    "website": "https://www.cycleprogression.com/",
+    "status": "Corroborated; call to confirm",
+    "notes": "Website unavailable during research; OSM and current shop-owned Pinkbike profile corroborate listing. Call before visiting.",
+    "source": "https://www.cycleprogression.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.735839,
+     30.305816
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Dogspeed Cycles",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; parts; repairs",
+    "general_area": "East Austin / East Cesar Chavez",
+    "address": "1619 E Cesar Chavez St, Austin, TX 78702",
+    "city": "Austin",
+    "phone": "512-902-2486",
+    "website": "https://dogspeedcycles.com/",
+    "status": "Listed on current provider page",
+    "notes": "Current business at former Cycleast site; not listed separately as Cycleast.",
+    "source": "https://dogspeedcycles.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7271686,
+     30.2577772
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "East Side Pedal Pushers",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; repairs; parts",
+    "general_area": "East Austin / Govalle",
+    "address": "4709 Bolm Rd, Austin, TX 78702",
+    "city": "Austin",
+    "phone": "512-826-3414",
+    "website": "https://eastsidepedalpushers.org/",
+    "status": "Listed on current provider page",
+    "notes": "Behind OMG Squee.",
+    "source": "https://eastsidepedalpushers.org/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6977998,
+     30.2610577
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Electric Avenue - Austin",
+    "kind": "E-bike specialist",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "E-bike specialist; regional chain",
+    "specialties": "Electric bikes; cargo bikes; sales and service",
+    "general_area": "Central Austin / The Triangle",
+    "address": "4616 Triangle Ave #403, Austin, TX 78751",
+    "city": "Austin",
+    "phone": "512-608-4090",
+    "website": "https://www.electricavenuebike.com/pages/contact",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://www.electricavenuebike.com/pages/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7340828,
+     30.3142998
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Electric Surf Co",
+    "kind": "E-bike specialist",
+    "ebikes": "Yes",
+    "service": "No",
+    "type": "E-bike specialist; independent",
+    "specialties": "E-bikes; electric boards; test rides",
+    "general_area": "South Austin / South Lamar",
+    "address": "2300 S Lamar Blvd #108, Austin, TX 78704",
+    "city": "Austin",
+    "phone": "512-501-3688",
+    "website": "https://electricsurf.com/pages/location",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://electricsurf.com/pages/location"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7749274,
+     30.2478999
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Empire BMX",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "No",
+    "type": "Independent BMX specialist",
+    "specialties": "BMX bicycles; frames; parts; accessories",
+    "general_area": "North Central Austin / Burnet Lane",
+    "address": "6709 Burnet Ln, Austin, TX 78757",
+    "city": "Austin",
+    "phone": "512-417-9839",
+    "website": "https://www.empirebmx.com/pages/contact",
+    "status": "Listed on current provider page",
+    "notes": "Local customer phone; general/mail-order phone is 512-474-4269.",
+    "source": "https://www.empirebmx.com/pages/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7374011,
+     30.3419147
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mellow Johnny's Bike Shop",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; repairs; accessories; rentals",
+    "general_area": "Downtown / Seaholm",
+    "address": "115 Sandra Muraida Way Ste 102, Austin, TX 78703",
+    "city": "Austin",
+    "phone": "512-473-0222",
+    "website": "https://www.mellowjohnnys.com/",
+    "status": "Tourism listing and OSM corroborated",
+    "notes": "Current Sandra Muraida Way location; old Nueces Street listings omitted.",
+    "source": "https://www.mellowjohnnys.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.755067,
+     30.2676278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "MOD BIKES",
+    "kind": "E-bike specialist",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "E-bike specialist; local brand",
+    "specialties": "Electric bikes; accessories; MOD bike service",
+    "general_area": "South Austin / St. Elmo",
+    "address": "4510 Terry O Ln #126, Austin, TX 78745",
+    "city": "Austin",
+    "phone": "512-518-3445",
+    "website": "https://mod-bikes.com/pages/book-a-service",
+    "status": "Listed on current provider page",
+    "notes": "Current service-page address used; OSM still lists St. Elmo Road and South 1st Street locations. Service by appointment.",
+    "source": "https://mod-bikes.com/pages/book-a-service"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7604698,
+     30.2132777
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "REI Austin Downtown - Bike Shop",
+    "kind": "Outdoor retailer",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Outdoor retail chain with bike shop",
+    "specialties": "Bicycle sales; accessories; repairs",
+    "general_area": "Downtown / West Sixth",
+    "address": "601 N Lamar Blvd, Austin, TX 78703",
+    "city": "Austin",
+    "phone": "512-482-3357",
+    "website": "https://www.rei.com/stores/austin-downtown",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://www.rei.com/stores/austin-downtown"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7538769,
+     30.2715692
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "REI Austin Gateway - Bike Shop",
+    "kind": "Outdoor retailer",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Outdoor retail chain with bike shop",
+    "specialties": "Bicycle sales; accessories; repairs",
+    "general_area": "Northwest Austin / Gateway",
+    "address": "9901 N Capital of Texas Hwy Ste 200, Austin, TX 78759",
+    "city": "Austin",
+    "phone": "512-343-5550",
+    "website": "https://www.rei.com/stores/austin-gateway",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://www.rei.com/stores/austin-gateway"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740595,
+     30.389364
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Specialized Austin - Domain Northside",
+    "kind": "Chain",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Chain bicycle shop",
+    "specialties": "Bicycles; e-bikes; accessories; service; fitting",
+    "general_area": "North Austin / Domain Northside",
+    "address": "3200 Palm Way #150, Austin, TX 78758",
+    "city": "Austin",
+    "phone": "737-301-3750",
+    "website": "https://www.specialized.com/us/en/store-finder/specialized-austin--domain-northside/6865880",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://www.specialized.com/us/en/store-finder/specialized-austin--domain-northside/6865880"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7220786,
+     30.4027603
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Sun & Ski Sports - Austin",
+    "kind": "Outdoor retailer",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Outdoor retail chain with bike shop",
+    "specialties": "Bicycle sales; accessories; service",
+    "general_area": "North Austin / Anderson Lane",
+    "address": "2438 W Anderson Ln Ste B1A, Austin, TX 78757",
+    "city": "Austin",
+    "phone": "512-467-2782",
+    "website": "https://www.sunandski.com/stores/austin-17",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://www.sunandski.com/stores/austin-17"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7312716,
+     30.3564654
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "The Meteor Bike Shop - Austin",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Regional bicycle shop and cafe",
+    "specialties": "Custom builds; bicycle service; parts; accessories",
+    "general_area": "South Austin / South Congress",
+    "address": "2114 S Congress Ave, Austin, TX 78704",
+    "city": "Austin",
+    "phone": "512-291-7048",
+    "website": "https://themeteorcafe.com/bike",
+    "status": "Listed on current provider page",
+    "notes": "Bike-shop phone from official page overrides older OSM number.",
+    "source": "https://themeteorcafe.com/bike"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7525114,
+     30.2425708
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "The Peddler Bike Shop - Austin",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop; local group",
+    "specialties": "Bicycle sales; parts; repairs",
+    "general_area": "Central Austin / North Loop",
+    "address": "5015 Duval St, Austin, TX 78751",
+    "city": "Austin",
+    "phone": "512-220-6766",
+    "website": "https://www.peddlerbike.com/storelocator/",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://www.peddlerbike.com/storelocator/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7198644,
+     30.3140427
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Trek Bicycle Bee Cave",
+    "kind": "Chain",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Chain bicycle shop",
+    "specialties": "Bicycles; e-bikes; accessories; service",
+    "general_area": "West Austin / Bee Cave area",
+    "address": "12005 Bee Caves Rd, Austin, TX 78738",
+    "city": "Austin",
+    "phone": "512-634-8844",
+    "website": "https://www.trekbikes.com/us/en_US/retail/bee_cave/",
+    "status": "Listed on current provider page",
+    "notes": "OSM postal code differs; address and phone from Trek store roster.",
+    "source": "https://www.trekbikes.com/us/en_US/retail/bee_cave/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9271698,
+     30.3076129
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Trek Bicycle Lamar",
+    "kind": "Chain",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Chain bicycle shop",
+    "specialties": "Bicycles; e-bikes; accessories; service",
+    "general_area": "South Central Austin / South Lamar",
+    "address": "517 S Lamar Blvd, Austin, TX 78704",
+    "city": "Austin",
+    "phone": "512-477-3472",
+    "website": "https://www.trekbikes.com/us/en_US/retail/lamar/",
+    "status": "Listed on current provider page",
+    "notes": "Former Bicycle Sport Shop location.",
+    "source": "https://www.trekbikes.com/us/en_US/retail/lamar/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7582712,
+     30.2597651
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Trek Bicycle Parmer",
+    "kind": "Chain",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Chain bicycle shop",
+    "specialties": "Bicycles; e-bikes; accessories; service",
+    "general_area": "Northwest Austin / Avery Ranch",
+    "address": "9900 W Parmer Ln, Austin, TX 78717",
+    "city": "Austin",
+    "phone": "512-637-6890",
+    "website": "https://www.trekbikes.com/us/en_US/retail/parmer/",
+    "status": "Listed on current provider page",
+    "notes": "Former Bicycle Sport Shop location.",
+    "source": "https://www.trekbikes.com/us/en_US/retail/parmer/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7699559,
+     30.4875567
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Trek Bicycle Research",
+    "kind": "Chain",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Chain bicycle shop",
+    "specialties": "Bicycles; e-bikes; accessories; service",
+    "general_area": "Northwest Austin / Research Boulevard",
+    "address": "10947 Research Blvd, Austin, TX 78759",
+    "city": "Austin",
+    "phone": "512-345-7460",
+    "website": "https://www.trekbikes.com/us/en_US/retail/research/",
+    "status": "Listed on current provider page",
+    "notes": "Former Bicycle Sport Shop location.",
+    "source": "https://www.trekbikes.com/us/en_US/retail/research/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.744759,
+     30.4025871
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Yellow Bike Project",
+    "kind": "Nonprofit",
+    "ebikes": "No",
+    "service": "No",
+    "type": "Nonprofit community bicycle shop",
+    "specialties": "Refurbished bicycles; parts; DIY workshops; donations",
+    "general_area": "East Austin / Webberville Road",
+    "address": "1216 Webberville Rd, Austin, TX 78721",
+    "city": "Austin",
+    "phone": "512-524-5299",
+    "website": "https://austinyellowbike.org/support-us/",
+    "status": "Listed on current provider page",
+    "notes": "Community shop; consult current retail and workshop schedule.",
+    "source": "https://austinyellowbike.org/support-us/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6844522,
+     30.278932
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mike's Bikes - Bastrop",
+    "kind": "Independent",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycles; e-bikes; repairs; rentals",
+    "general_area": "Eastern metro / Bastrop",
+    "address": "400 Farm St Unit B, Bastrop, TX 78602",
+    "city": "Bastrop",
+    "phone": "737-881-5867",
+    "website": "https://www.mikesbikesbtx.com/contact-location",
+    "status": "Listed on current provider page",
+    "notes": "Local Bastrop business; not assumed affiliated with the national Mike's Bikes chain. Store operates from an Airstream trailer at Fisherman's Park.",
+    "source": "https://www.mikesbikesbtx.com/contact-location"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.3229028,
+     30.1129778
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Buda Bike Company",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; parts; repairs",
+    "general_area": "Southern metro / Downtown Buda",
+    "address": "200 S Main St, Buda, TX 78610",
+    "city": "Buda",
+    "phone": "512-312-4780",
+    "website": "https://www.budabikecompany.com/pages/contact",
+    "status": "Conflicting status; call to confirm",
+    "notes": "Official site lists this shop; conflicting closure reports found, so confirm by phone before visiting or publishing. Status not resolved by a phone call.",
+    "source": "https://www.budabikecompany.com/pages/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8443103,
+     30.0799165
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "The Peddler Bike Shop - Cedar Park",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop; local group",
+    "specialties": "Bicycle sales; parts; repairs",
+    "general_area": "Cedar Park / Parmer Lane",
+    "address": "13010 W Parmer Ln #500, Cedar Park, TX 78613",
+    "city": "Cedar Park",
+    "phone": "512-337-7003",
+    "website": "https://www.peddlerbike.com/storelocator/",
+    "status": "Listed on current provider page",
+    "notes": "Official store page phone and mailing city override older OSM details.",
+    "source": "https://www.peddlerbike.com/storelocator/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7810721,
+     30.5337294
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Canyon Cycles",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales and repairs",
+    "general_area": "Western metro / Dripping Springs",
+    "address": "750 Old Fitzhugh Rd, Dripping Springs, TX 78620",
+    "city": "Dripping Springs",
+    "phone": "512-829-4634",
+    "website": "https://canyon-cycles.com/contact-1",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://canyon-cycles.com/contact-1"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -98.0876703,
+     30.2009774
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Georgetown Bikeology",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "New and used bicycles; repairs",
+    "general_area": "Northern metro / South Georgetown",
+    "address": "1209 Leander Rd, Georgetown, TX 78628",
+    "city": "Georgetown",
+    "phone": "512-931-3027",
+    "website": "https://www.gtbikeology.net/home.html",
+    "status": "Listed on current provider page",
+    "notes": "Address corroborated by OSM and Roadtrippers; official page lists phone.",
+    "source": "https://www.gtbikeology.net/home.html"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.694073,
+     30.6191177
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Georgetown CycleWerx",
+    "kind": "Independent",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycles; e-bikes; accessories; repairs",
+    "general_area": "Northern metro / Georgetown",
+    "address": "3010 Williams Dr #118, Georgetown, TX 78628",
+    "city": "Georgetown",
+    "phone": "512-787-6245",
+    "website": "https://www.georgetowncyclewerx.com/",
+    "status": "Listed on current provider page",
+    "notes": "Official phone overrides older OSM number.",
+    "source": "https://www.georgetowncyclewerx.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6930871,
+     30.6626387
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Kyle Cyclery",
+    "kind": "Independent",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle and e-bike sales; repairs; mobile service",
+    "general_area": "Southern metro / Kyle",
+    "address": "5500 FM 2770, Kyle, TX 78640",
+    "city": "Kyle",
+    "phone": "512-900-5815",
+    "website": "https://kylecyclery.com/",
+    "status": "Listed on current provider page",
+    "notes": "Appointments available; phone supports texting.",
+    "source": "https://kylecyclery.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8899707,
+     30.023462
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Velorangutan",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "No",
+    "type": "Independent bicycle shop",
+    "specialties": "Custom high-end bicycles; components",
+    "general_area": "South metro / Manchaca",
+    "address": "12700 Lowden Ln Ste 1B, Manchaca, TX 78652",
+    "city": "Manchaca",
+    "phone": "512-562-0669",
+    "website": "https://velorangutan.com/pages/contact-us",
+    "status": "Listed on current provider page",
+    "notes": "By appointment only. Official location overrides old Woodbury Drive OSM pin.",
+    "source": "https://velorangutan.com/pages/contact-us"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8357245,
+     30.1345002
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Blur Cycleworks",
+    "kind": "Independent",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; repairs; fitting; e-bike service subject to policy",
+    "general_area": "Round Rock / Gattis School Road",
+    "address": "1011 Gattis School Rd, Round Rock, TX 78664",
+    "city": "Round Rock",
+    "phone": "512-296-2696",
+    "website": "https://www.blurcycleworks.com/",
+    "status": "Listed on current provider page",
+    "notes": "Check e-bike service guidelines for compatibility.",
+    "source": "https://www.blurcycleworks.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6675887,
+     30.4957751
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Playtri Round Rock",
+    "kind": "Chain",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Chain bicycle and triathlon shop",
+    "specialties": "Bicycles; triathlon; accessories; repairs; coaching",
+    "general_area": "Round Rock / North Mays",
+    "address": "1830 N Mays St, Round Rock, TX 78664",
+    "city": "Round Rock",
+    "phone": "512-255-8755",
+    "website": "https://playtristore.com/pages/round-rock-texas-store",
+    "status": "Listed on current provider page",
+    "notes": "Former Buck's Bikes location; do not duplicate under former name.",
+    "source": "https://playtristore.com/pages/round-rock-texas-store"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6884283,
+     30.5271647
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Venture Sports eBikes",
+    "kind": "E-bike specialist",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "E-bike specialist; independent",
+    "specialties": "Electric commuter; cargo; mountain; folding bikes; service",
+    "general_area": "Round Rock / South Mays",
+    "address": "1701 S Mays St Ste E, Round Rock, TX 78664",
+    "city": "Round Rock",
+    "phone": "512-540-5045",
+    "website": "https://venturesportstx.com/pages/contact",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://venturesportstx.com/pages/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6756918,
+     30.4943997
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Galaxy Bicycles",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; parts; repairs",
+    "general_area": "Southern metro / San Marcos",
+    "address": "500 S Guadalupe St, San Marcos, TX 78666",
+    "city": "San Marcos",
+    "phone": "512-392-3320",
+    "website": "https://galaxy.bike/about",
+    "status": "Listed on current provider page",
+    "notes": "Formerly The Hub Cyclery; current location opened in 2020.",
+    "source": "https://galaxy.bike/about"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9405072,
+     29.8752412
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Trek Bicycle San Marcos",
+    "kind": "Chain",
+    "ebikes": "Yes",
+    "service": "Yes",
+    "type": "Chain bicycle shop",
+    "specialties": "Bicycles; e-bikes; accessories; service",
+    "general_area": "Southern metro / San Marcos",
+    "address": "2617 S Interstate 35, San Marcos, TX 78666",
+    "city": "San Marcos",
+    "phone": "512-396-7433",
+    "website": "https://electra.trekbikes.com/us/en_US/retail/san_marcos/",
+    "status": "Listed on current provider page",
+    "notes": "",
+    "source": "https://electra.trekbikes.com/us/en_US/retail/san_marcos/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9624063,
+     29.8474911
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Taylor Bike Company",
+    "kind": "Independent",
+    "ebikes": "No",
+    "service": "Yes",
+    "type": "Independent bicycle shop",
+    "specialties": "Bicycle sales; parts; repairs",
+    "general_area": "Northeastern metro / Taylor",
+    "address": "110 N Main St, Taylor, TX 76574",
+    "city": "Taylor",
+    "phone": "512-595-5077",
+    "website": "https://taylorbikecompany.com/",
+    "status": "Listed on current provider page",
+    "notes": "New official address; avoid older 204 N Main St listings. Phone from official policies page.",
+    "source": "https://taylorbikecompany.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.4093212,
+     30.5678651
+    ]
+   }
+  }
+ ]
 }
