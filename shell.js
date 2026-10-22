@@ -8,17 +8,12 @@
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// EVERY APP AND MAP HAS ITS OWN FRAMED PAGE. A menu item points at
-// "/apps/<slug>/" or "/maps/<slug>/" (the app's `kind` and `slug` in
-// home.json; reports are maps named by their id): a page in this same frame
-// whose centre is that app (view.js). So "https://austin.chat/maps/budget/"
-// is a shareable, QR-code friendly address that opens the Budget Map with
-// the menu, header and footer around it. The ↗ beside an item opens the
-// bare app in a new tab instead.
-//
-// THE MENU OPENS ONE LEVEL AT A TIME (owner, 2026-10-22): the hamburger shows
-// the four sections closed; Apps opens to its categories, closed; a category
-// opens to its apps. Closing the menu folds everything back up.
+// THE MENU IS FOUR LINKS (owner, 2026-10-22, replacing the fold-out
+// sections): Apps goes to the directory page at /apps/, Maps to /maps/,
+// Content to /content/, Contact to /contact/. The directory pages list
+// everything in their folder (list.js); every app and map has its own
+// framed page at /apps/<slug>/ or /maps/<slug>/ (view.js), a shareable,
+// QR-code friendly address. Nothing here reads home.json any more.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────
   // Day is the default (owner, 2026-09-10); night is remembered once chosen.
@@ -42,14 +37,8 @@
     </div>
 
     <nav id="site-menu" class="site-menu" hidden aria-label="Site menu">
-      <details class="menu-section">
-        <summary>Apps</summary>
-        <div id="menu-apps" class="menu-groups"></div>
-      </details>
-      <details class="menu-section">
-        <summary>Maps</summary>
-        <ul id="menu-maps" class="menu-links"></ul>
-      </details>
+      <a class="menu-link" href="/apps/">Apps</a>
+      <a class="menu-link" href="/maps/">Maps</a>
       <a class="menu-link" href="/content/">Content</a>
       <a class="menu-link" href="/contact/">Contact</a>
     </nav>
@@ -90,8 +79,6 @@
   const menu = document.getElementById('site-menu');
   function setOpen(open) {
     menu.hidden = !open;
-    // Fold every section back up so the next opening starts at the top level.
-    if (!open) menu.querySelectorAll('details').forEach((d) => { d.open = false; });
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
@@ -104,65 +91,5 @@
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !menu.hidden) setOpen(false);
-  });
-  // ── menu items ───────────────────────────────────────────────────────────
-  const appsGroups = document.getElementById('menu-apps');
-  const mapsList = document.getElementById('menu-maps');
-
-  // One list row: the name goes to the app's framed page, the ↗ opens the
-  // bare app in a new tab.
-  function addItem(list, title, page, path) {
-    const li = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = page;
-    link.textContent = title;
-    const pop = document.createElement('a');
-    pop.className = 'menu-pop';
-    pop.href = path;
-    pop.target = '_blank';
-    pop.rel = 'noopener noreferrer';
-    pop.title = 'Open in a new tab';
-    pop.setAttribute('aria-label', title + ' (new tab)');
-    pop.textContent = '↗';
-    li.appendChild(link);
-    li.appendChild(pop);
-    list.appendChild(li);
-  }
-
-  // One category under Apps: a heading that opens to its list of apps.
-  function addGroup(name) {
-    const group = document.createElement('details');
-    group.className = 'menu-group';
-    group.open = false;
-    const heading = document.createElement('summary');
-    heading.textContent = name;
-    const list = document.createElement('ul');
-    list.className = 'menu-links';
-    group.appendChild(heading);
-    group.appendChild(list);
-    appsGroups.appendChild(group);
-    return list;
-  }
-
-  // Apps shows CATEGORIES, never bare links (owner, 2026-10-22), in the order
-  // home.json lists them; an app whose category is "Maps" goes to the Maps
-  // section beside Apps instead. Every report from apps/reports/reports.json
-  // goes under `reportsCategory` (Shopping Apps).
-  Promise.all([
-    fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null),
-    fetch('/apps/reports/reports.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])
-  ]).then(([data, reports]) => {
-    if (!data) return;
-    const chip = (data.chips || []).find((c) => c.label === 'Apps');
-    const apps = (chip && chip.cards) || [];
-    const lists = new Map();
-    (data.categories || []).forEach((name) => lists.set(name, addGroup(name)));
-    const listFor = (name) => lists.get(name) || addGroup(name);   // unknown category: still shown
-    apps.forEach((a) => {
-      const list = a.category === 'Maps' ? mapsList : listFor(a.category || 'Apps');
-      addItem(list, a.title, '/' + (a.kind || 'apps') + '/' + a.slug + '/', a.app || a.src);
-    });
-    (reports || []).forEach((item) =>
-      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, '/' + (data.reportsKind || 'maps') + '/' + item.id + '/', '/apps/reports/' + item.id + '/'));
   });
 }());

@@ -1,5 +1,18 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (sixteenth pass) — the menu is four links to the directory pages
+
+Owner: "Apps should go to index.html at austin.chat/apps/ and just open
+with the slug for the directory page you built for Apps and Maps and
+Content". `shell.js`: the fold-out sections (categories, per-app rows,
+the ↗ new-tab links, the home.json + reports.json fetch) are gone; the
+hamburger panel is Apps → `/apps/`, Maps → `/maps/`, Content →
+`/content/`, Contact → `/contact/`. The directory pages (`list.js`) and
+the framed pages (`view.js`) are unchanged, so `home.json` still feeds
+them (titles, blurbs, `kind`/`slug`). Dead menu CSS removed from
+`style.css` (summary/chevron/menu-links/menu-pop/menu-group rules).
+`?v=20261022n`.
+
 ## 2026-10-22 (fifteenth pass) — chat map opens tilted over downtown, coloured
 
 Owner: open tilted like the reference picture (their own 3D view over

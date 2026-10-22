@@ -1188,70 +1188,13 @@ main {
 
 .site-menu[hidden] { display: none; }
 
-.site-menu .menu-link,
-.site-menu summary {
+.site-menu .menu-link {
   display: block;
   padding: 0.7rem 1.5rem;
   color: var(--text);
-  cursor: pointer;
-  list-style: none;        /* no default ▸ marker on the summary */
 }
 
-.site-menu summary::-webkit-details-marker { display: none; }
-
-.site-menu .menu-link:hover,
-.site-menu summary:hover {
-  color: var(--accent);
-}
-
-/* The section heading shows a small chevron that turns when it is open. */
-.site-menu summary::after {
-  content: '›';
-  float: right;
-  transition: transform 0.2s ease;
-}
-
-.site-menu details[open] summary::after { transform: rotate(90deg); }
-
-.menu-links {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 0.35rem;
-}
-
-.menu-links li {
-  display: flex;
-  align-items: center;
-}
-
-.menu-links li a:first-child {
-  flex: 1;
-  padding: 0.5rem 1.5rem 0.5rem 2.5rem;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.menu-links li a:first-child:hover { color: var(--accent); }
-
-.menu-pop {
-  padding: 0.5rem 1.25rem;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.menu-pop:hover { color: var(--accent); }
-
-/* Categories inside Apps (owner, 2026-10-22): a second level of headings,
-   each opening to its apps. Indented one step in from "Apps". */
-.menu-groups { padding-bottom: 0.25rem; }
-
-.menu-group summary {
-  padding: 0.45rem 1.5rem 0.45rem 2.25rem;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.menu-group .menu-links li a:first-child { padding-left: 3rem; }
+.site-menu .menu-link:hover { color: var(--accent); }
 
 /* Compact home header and footer (owner, 2026-10-22: "maximize the map
    space in the middle"). Buttons stay 36px so a thumb can still hit them. */
@@ -1285,10 +1228,6 @@ main {
   width: 18px;
   height: 18px;
 }
-
-/* Maps is a top-level section (owner, 2026-10-22); its items sit one step in,
-   like the apps under a category. */
-#menu-maps li a:first-child { padding-left: 2.25rem; }
 
 /* ── Pages inside the frame (owner, 2026-10-22) ─────────────────────────
    shell.js draws the header and footer; the page's own <main class="page-main">
