@@ -1440,3 +1440,10 @@ a.contact-item:hover { color: var(--accent); }
   text-align: center;
   color: var(--muted);
 }
+
+/* The /apps/ and /maps/ index pages: one row per entry (list.js). */
+.page-index { list-style: none; padding: 0; }
+.page-index li { margin-bottom: 1rem; }
+.page-index a { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+.page-index a:hover { color: var(--accent); }
+.page-index p { margin: 0.2rem 0 0; color: var(--muted); }

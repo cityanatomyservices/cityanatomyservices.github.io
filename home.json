@@ -1,18 +1,20 @@
 {
-  "_comment": "FRAMED PAGES (owner 2026-10-22): every app has its own page at /view/<slug>/ with the shared header, menu and footer around it, for sharing and QR codes. `slug` is that address; `app` is what plays inside it. An app with `page` instead of `slug` has its framed page at its OWN address (Moontower and The 1885 Murder Tour: page /moontowertour/ and /1885murdertour/, bare apps at app.html in those folders) and gets no /view/ folder. Reports use their id from apps/reports/reports.json as the slug. Run `node tools/make-views.js` after adding an app to create its folder. HOME MENU (owner 2026-10-22, second pass): the hamburger's Apps section shows CATEGORIES, never bare links. `categories` is the order they appear in. Every card in the Apps chip carries a `category`; home.js groups them under it. Every report in apps/reports/reports.json is listed under `reportsCategory` (owner: all reports go under Shopping Apps). Owner 2026-10-22: `Maps` is a TOP-LEVEL menu section beside Apps, not an Apps category - home.js sends any app whose `category` is `Maps` (Budget, Datacenter, AISD) to that section. What can I build here? stays under Culture Apps. Move any app by editing its `category` word. The demo reel still runs: cards marked demo cycle in the window until the visitor picks something. Chips other than Apps are unused. OLDER NOTE, kept for the record: Home page chips and cards (owner-named chips, 2026-09-09). Card titles/blurbs are copied verbatim from CityAnatomyAustin/src/content/copy.ts; the owner writes all copy. THE SITE IS A HOLDER FOR THE WEB APPS (owner 2026-09-10). A CARD OPENS ITS WEB APP (`app`) in a new browser window - clicking a card does not change what plays in the map window. A card with no `app` but a `src` is the old kind and still previews in the window. THE WINDOW PLAYS A DEMO REEL: a chip marked `cycle: true` runs through its cards marked `demo: true` in order, each holding the window for `demoMs` (default 60000) before the next. The demos are animations only - nothing in them responds to a click. The chip with `open: true` is what the page opens on (Apps, so the reel starts straight away). A chip may still carry its own `src` and no cards, which makes it a page in itself loaded into the window - no chip uses that now (the News Feed chip was removed 2026-09-10), but it is how you would put a page back on the home page without writing code. A chip may carry `from`: a URL of apps/reports/reports.json shape; home.js turns each report into a card that opens the report's MapLibre map app at /apps/reports/<id>/.",
+  "_comment": "FRAMED PAGES (owner 2026-10-22, final shape): every app and map has its own page inside the site frame at /<kind>/<slug>/ - `kind` is `apps` or `maps` (the folder), `slug` the folder name: /apps/moontower/, /maps/budget/ ... `app` is what plays inside it (a page, or a PDF: point `app` at a .pdf in the folder and the window shows it). Every report in apps/reports/reports.json is a map at /maps/<id>/ (`reportsKind`). Run `node tools/make-pages.js` after adding one to create its folder. /apps/ and /maps/ list everything of that kind (list.js). The hamburger menu is separate: `categories` is the order of the Apps section's categories, each app's `category` places it there (category `Maps` = the Maps section), and all reports go under `reportsCategory`. ",
   "categories": [
     "Walking/Biking Apps",
     "Shopping Apps",
     "Culture Apps"
   ],
   "reportsCategory": "Shopping Apps",
+  "reportsKind": "maps",
   "chips": [
     {
       "label": "Apps",
       "cards": [
         {
           "title": "Moontower",
-          "page": "/moontowertour/",
+          "kind": "apps",
+          "slug": "moontower",
           "blurb": "Austin, 1895 — light them all",
           "src": "/moontower/",
           "app": "/moontowertour/app.html",
@@ -22,7 +24,8 @@
         },
         {
           "title": "The 1885 Murder Tour",
-          "page": "/1885murdertour/",
+          "kind": "apps",
+          "slug": "1885",
           "blurb": "Austin, 1885 — The Servant Girl Murders",
           "src": "https://austin1885.city/annihilatortour/?demo=1",
           "app": "/1885murdertour/app.html",
@@ -32,6 +35,7 @@
         },
         {
           "title": "What can I build here?",
+          "kind": "apps",
           "slug": "parcels",
           "blurb": "",
           "src": "/parcels/embed.html",
@@ -40,6 +44,7 @@
         },
         {
           "title": "Budget Map",
+          "kind": "maps",
           "slug": "budget",
           "blurb": "",
           "src": "/budget/#bill",
@@ -48,6 +53,7 @@
         },
         {
           "title": "Datacenter Map",
+          "kind": "maps",
           "slug": "datacenters",
           "blurb": "",
           "src": "/datacenters/",
@@ -56,6 +62,7 @@
         },
         {
           "title": "AISD School Closures",
+          "kind": "maps",
           "slug": "aisd",
           "blurb": "",
           "src": "/AISD/",

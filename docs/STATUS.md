@@ -1,5 +1,22 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (ninth pass) — /apps/<slug>/ and /maps/<slug>/ replace /view/
+
+Owner: framed pages live at `/apps/<slug>/` for apps and `/maps/<slug>/`
+for maps (reports included: `/maps/austin-golf-courses/`), each folder
+with its own `index.html`; `/apps/` and `/maps/` open a page listing all
+of that kind; a map folder may hold a PDF instead of a page. Done:
+`home.json` gives every app `kind` + `slug` (`reportsKind: maps`);
+`tools/make-pages.js` writes the folders from `tools/page-template.html`;
+`view.js` reads folder + name from the address; `list.js` fills the two
+index pages. `/view/` is gone. The old hand-written `apps/index.html`
+(stale "7 apps / 8 story maps" copy) is replaced by the data-driven list;
+its text is in git history. The tours now live at `/apps/moontower/` and
+`/apps/1885/`; `/moontowertour/` and `/1885murdertour/` redirect there
+(tour code still at `app.html` in those folders). The hamburger menu is
+unchanged (reports still under Apps > Shopping Apps; only their ADDRESS
+is under /maps/). `?v=20261022i`.
+
 ## 2026-10-22 (eighth pass) — /moontowertour/ is the framed page too
 
 Owner: "do the same with https://austin.chat/moontowertour/". Same move

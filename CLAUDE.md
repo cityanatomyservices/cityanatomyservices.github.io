@@ -11,7 +11,7 @@
 
 ## Cache-busting the shared CSS/JS
 
-`/style.css`, `/shell.js`, `/home.js`, `/view.js` and `/page.js` are referenced with a version query —
+`/style.css`, `/shell.js`, `/home.js`, `/view.js`, `/list.js` and `/page.js` are referenced with a version query —
 `?v=20260911a`. GitHub Pages serves them with a long cache lifetime, so without
 it a visitor keeps the old file after a push and simply does not see the change
 (this bit the owner on 2026-09-10: a restored header button was live but
@@ -75,15 +75,16 @@ so the frame lives in one file and every page looks the same. The menu opens
 one level at a time and folds up when closed. To add a plain page: copy
 `contact/index.html`, replace the centre, keep the `shell.js` line.
 
-**Framed app pages.** Every app and report has its own address inside the
-frame, `/view/<slug>/` (slug = the app's `slug` in `home.json`, or a report's
-`id`), for sharing and QR codes. Each folder holds the same file,
-`view/template.html`; `view.js` reads the folder name from the address and
-loads that app into the window. After adding an app or a report, or editing
-the template, run `node tools/make-views.js` and commit the folders it writes.
-An app can instead have its framed page AT ITS OWN ADDRESS: rename the
-app's `index.html` to `app.html`, write a framed `index.html` beside it whose
-iframe points at `app.html` (copy `1885murdertour/index.html`), and in
-`home.json` give the app `page` (that address) instead of `slug` and set
-`app` to the `app.html` address. Done for The 1885 Murder Tour and Moontower (2026-10-22).
-`apps/` and `apps/reports/` still carry the older header and `page.js`.
+**Framed pages: `/apps/<slug>/` and `/maps/<slug>/` (owner, 2026-10-22).**
+Every app and map has its own address inside the frame, for sharing and QR
+codes: its `kind` (`apps` or `maps`) is the folder, its `slug` the name
+(`home.json`); reports are maps named by their `id`. Each folder holds the
+same file, `tools/page-template.html`; `view.js` reads the folder and name
+from the address and loads that entry into the window. `/apps/` and `/maps/`
+are index pages listing everything of that kind (`list.js`). After adding an
+app or a report, or editing the template, run `node tools/make-pages.js` and
+commit the folders it writes. A map folder may hold a PDF instead: put the
+file in the folder and point the entry's `app` at it. The two tours' code
+stays at `/moontowertour/app.html` and `/1885murdertour/app.html`; those
+folders' `index.html` only redirect to the `/apps/` pages. `apps/reports/`
+still carries the older header and `page.js`.

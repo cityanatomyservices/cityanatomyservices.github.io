@@ -8,11 +8,13 @@
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// EVERY APP HAS ITS OWN FRAMED PAGE. A menu item points at "/view/<slug>/":
-// a page in this same frame whose centre is that app (view.js). So
-// "https://austin.chat/view/budget/" is a shareable address, QR-code
-// friendly, that opens the Budget Map with the menu, header and footer
-// around it. The ↗ beside an item opens the bare app in a new tab instead.
+// EVERY APP AND MAP HAS ITS OWN FRAMED PAGE. A menu item points at
+// "/apps/<slug>/" or "/maps/<slug>/" (the app's `kind` and `slug` in
+// home.json; reports are maps named by their id): a page in this same frame
+// whose centre is that app (view.js). So "https://austin.chat/maps/budget/"
+// is a shareable, QR-code friendly address that opens the Budget Map with
+// the menu, header and footer around it. The ↗ beside an item opens the
+// bare app in a new tab instead.
 //
 // THE MENU OPENS ONE LEVEL AT A TIME (owner, 2026-10-22): the hamburger shows
 // the four sections closed; Apps opens to its categories, closed; a category
@@ -108,8 +110,7 @@
   const mapsList = document.getElementById('menu-maps');
 
   // One list row: the name goes to the app's framed page, the ↗ opens the
-  // bare app in a new tab. `page` is a framed page at the app's own address
-  // (home.json); otherwise the page is /view/<slug>/.
+  // bare app in a new tab.
   function addItem(list, title, page, path) {
     const li = document.createElement('li');
     const link = document.createElement('a');
@@ -159,9 +160,9 @@
     const listFor = (name) => lists.get(name) || addGroup(name);   // unknown category: still shown
     apps.forEach((a) => {
       const list = a.category === 'Maps' ? mapsList : listFor(a.category || 'Apps');
-      addItem(list, a.title, a.page || '/view/' + a.slug + '/', a.app || a.src);
+      addItem(list, a.title, '/' + (a.kind || 'apps') + '/' + a.slug + '/', a.app || a.src);
     });
     (reports || []).forEach((item) =>
-      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, '/view/' + item.id + '/', '/apps/reports/' + item.id + '/'));
+      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, '/' + (data.reportsKind || 'maps') + '/' + item.id + '/', '/apps/reports/' + item.id + '/'));
   });
 }());
