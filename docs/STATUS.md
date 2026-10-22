@@ -1,5 +1,15 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (third pass) — Maps category; Contact page and menu item back
+
+Owner: add a Maps section under Apps holding the Budget, Datacenter and
+AISD maps, and a Contact item under Content. `home.json` gains the
+category `Maps` (listed last) and those three apps carry it; What can I
+build here? stays under Culture Apps. `contact.html` is restored from
+git exactly as it was (photo, name, phone) with the Services link
+dropped from its header, because a Contact menu item needs a page to
+land on. No CSS/JS changed, so `?v=20261022b` stands.
+
 ## 2026-10-22 (later) — Services and Contact pages deleted; Apps menu is categories
 
 Owner: delete the Services and Contact pages and their menu entries; drop
