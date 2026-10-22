@@ -21,3 +21,11 @@ each, e.g. West Congress, Highland and Upper Boggy Creek have five): Brentwood, 
 
 To refresh: download the same URL again and replace the file; keep this note
 and update the date.
+
+## geofences.geojson — the chat rooms (merged by name, owner 2026-10-22)
+
+One polygon per neighborhood name: 65 features, each with `id` (URL-safe,
+e.g. `upper-boggy-creek`) and `name`. The sub-district rows above are
+dissolved into their parent; every merge came out as a single Polygon.
+Made by `bash tools/make-geofences.sh` (GDAL from the QGIS install) — run
+it again after refreshing `neighborhoods.geojson`, then commit both. 156 KB.

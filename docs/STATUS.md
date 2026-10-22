@@ -1,5 +1,21 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twelfth pass) — geofences merged by name; chat + login plan
+
+Owner: merge by name ("we don't want the area too small or too many
+polygons"); a login/authentication so people use it like an app, same
+name and login in the walking apps, or a randomly assigned name; signing
+in shows a profile and, for the walking apps, a record system. Done:
+`chat/data/geofences.geojson` (65 polygons, `id` + `name`) via
+`tools/make-geofences.sh` (OSGeo4W ogr2ogr, ST_Union by name). Written:
+`docs/CHAT-PLAN.md` — Supabase Auth on the paid project with anonymous
+sign-in (random handle) upgradable to email; `profiles` table; one
+Realtime channel per geofence, visible = joined Presence; people shown on
+their neighborhood, never at GPS; popup = neighborhood room (proposed);
+30-day history (proposed); `tour_progress` table for the walking apps;
+page at `/chat/` in the frame. NEXT: owner does the dashboard steps in
+plan §2 and approves §3–§5; then migration SQL; then the page.
+
 ## 2026-10-22 (eleventh pass) — neighborhood geofences stored for the chat map
 
 Owner is replacing the home page's demo reel with a chat map: one geofence
