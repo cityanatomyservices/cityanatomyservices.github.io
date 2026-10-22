@@ -1,5 +1,17 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (seventh pass) — /1885murdertour/ is the framed page
+
+Owner: the 1885 tour's framed page must be at its own address,
+https://austin.chat/1885murdertour/. The tour's `index.html` is now
+`app.html` (nothing else moved, so its `../../webtour` imports and the
+sync script's `vendor/` output are untouched) and a framed `index.html`
+sits beside it with the window pointed at `app.html` (geolocation and
+wake-lock allowed through). `home.json`: the card has `page` instead of
+`slug`, `app` is `/1885murdertour/app.html`; `view/1885/` removed;
+`shell.js` links to `page` when an app has one. Recipe in CLAUDE.md.
+Same move is available for the other apps on request. `?v=20261022g`.
+
 ## 2026-10-22 (sixth pass) — menu opens one level at a time; framed page per app
 
 Owner: hamburger → four closed sections → Apps opens to closed categories →

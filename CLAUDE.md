@@ -81,4 +81,9 @@ frame, `/view/<slug>/` (slug = the app's `slug` in `home.json`, or a report's
 `view/template.html`; `view.js` reads the folder name from the address and
 loads that app into the window. After adding an app or a report, or editing
 the template, run `node tools/make-views.js` and commit the folders it writes.
+An app can instead have its framed page AT ITS OWN ADDRESS: rename the
+app's `index.html` to `app.html`, write a framed `index.html` beside it whose
+iframe points at `app.html` (copy `1885murdertour/index.html`), and in
+`home.json` give the app `page` (that address) instead of `slug` and set
+`app` to the `app.html` address. Done for The 1885 Murder Tour (2026-10-22).
 `apps/` and `apps/reports/` still carry the older header and `page.js`.

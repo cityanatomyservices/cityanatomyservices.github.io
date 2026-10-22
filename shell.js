@@ -108,11 +108,12 @@
   const mapsList = document.getElementById('menu-maps');
 
   // One list row: the name goes to the app's framed page, the ↗ opens the
-  // bare app in a new tab.
-  function addItem(list, title, slug, path) {
+  // bare app in a new tab. `page` is a framed page at the app's own address
+  // (home.json); otherwise the page is /view/<slug>/.
+  function addItem(list, title, page, path) {
     const li = document.createElement('li');
     const link = document.createElement('a');
-    link.href = '/view/' + slug + '/';
+    link.href = page;
     link.textContent = title;
     const pop = document.createElement('a');
     pop.className = 'menu-pop';
@@ -158,9 +159,9 @@
     const listFor = (name) => lists.get(name) || addGroup(name);   // unknown category: still shown
     apps.forEach((a) => {
       const list = a.category === 'Maps' ? mapsList : listFor(a.category || 'Apps');
-      addItem(list, a.title, a.slug, a.app || a.src);
+      addItem(list, a.title, a.page || '/view/' + a.slug + '/', a.app || a.src);
     });
     (reports || []).forEach((item) =>
-      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, item.id, '/apps/reports/' + item.id + '/'));
+      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, '/view/' + item.id + '/', '/apps/reports/' + item.id + '/'));
   });
 }());
