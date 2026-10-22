@@ -1,7 +1,7 @@
 {
  "type": "FeatureCollection",
  "name": "austin-area-horseback-riding",
- "description": "Austin-area horseback riding, owner research 2026-10-22 (C:\\Dev\\austin-horseback-riding\\austin-area-horseback-riding-with-contact-info.csv). `riding`, `style` and `camps` are sorted from the owner's type_of_riding text (kept whole in `types`) so the page has dropdowns. Pins are approximate (mostly address geocodes), not arena entrances.",
+ "description": "Austin-area horseback riding, owner research (C:\\Dev\\austin-horseback-riding\\...-with-contact-info.csv), built by build.py. `riding`, `style` and `camps` are sorted from the owner's type_of_riding text (kept whole in `types`). Pins are approximate, not arena entrances.",
  "features": [
   {
    "type": "Feature",
