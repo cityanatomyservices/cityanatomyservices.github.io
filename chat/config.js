@@ -11,11 +11,19 @@ window.MAP_CONFIG = {
   basemap: 'https://tiles.openfreemap.org/styles/positron',
   satellite: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
 
-  // how the geofences draw: one colour, a light fill, a stronger fill under
-  // the pointer, the name written in the middle of each polygon
-  color: '#0067c5',
-  fill: 0.08,
-  fillHover: 0.28,
+  // how the geofences draw (owner 2026-10-22: "attractive when someone
+  // visits"): every neighborhood gets its own colour from this palette,
+  // chosen so that no two touching neighborhoods share one (map.js); a
+  // soft fill, stronger under the pointer and strongest for your own room;
+  // thin pale borders, a dark border on the neighborhood you tapped, the
+  // accent border on your room; the name written in the middle.
+  palette: ['#4e79a7', '#f28e2b', '#59a14f', '#e15759', '#76b7b2', '#edc948', '#b07aa1', '#ff9da7', '#9c755f', '#86bcb6', '#d4a6c8', '#a0cbe8'],
+  fill: 0.38,
+  fillHover: 0.55,
+  fillRoom: 0.7,
+  lineColor: '#ffffff',
+  selectedColor: '#1f2933',
+  roomColor: '#0067c5',
   labelSize: 11,
 
   // the map opens fitted to the geofences and the fit button refits them;
@@ -31,12 +39,15 @@ window.MAP_CONFIG = {
     url: 'https://aqbyxpiwugcvoephsvpm.supabase.co',
     anonKey: 'sb_publishable_QMWSj0CLYe3k3XSGCsWOhw_5RsI-nmN'
   },
-  // the room's polygon: a stronger fill while you are in it
-  fillRoom: 0.22,
-
-  // 3D: the tilt the 3D button eases to (the walking-tour apps use 57; past
-  // that the horizon washes out) and the buildings, drawn as blocks from the
-  // basemap's own building data (OpenMapTiles `render_height`) while tilted
+  // 3D: the map OPENS tilted (owner 2026-10-22), rising to this pitch over
+  // the first moment (the walking-tour apps use 57; past that the horizon
+  // washes out), with the buildings drawn as blocks from the basemap's own
+  // building data (OpenMapTiles `render_height`) while tilted
   pitch: 57,
+  // where the map opens (owner's reference picture 2026-10-22): over this
+  // neighborhood at this zoom, close enough for the buildings to show, then
+  // it flies to your own neighborhood once the phone finds it
+  openView: { room: 'downtown', zoom: 13.4 },
+  openTiltMs: 1800,
   buildingColor: '#d6d9dd'
 };

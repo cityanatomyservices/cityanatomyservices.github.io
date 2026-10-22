@@ -1,5 +1,21 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (fifteenth pass) — chat map opens tilted over downtown, coloured
+
+Owner: open tilted like the reference picture (their own 3D view over
+Downtown with the building blocks), "polygons fill different colors",
+tapped border highlights, "attractive when someone visits". Done in
+`chat/`: a 12-colour palette in `config.js`, assigned in `map.js` so no
+two touching neighborhoods share a colour (greedy, bbox overlap);
+fill .38 / hover .55 / room .7; pale white borders, dark border on the
+tapped one (`selected` feature-state, one at a time, tap again to clear;
+the name popup is gone — the name is already written on the polygon),
+accent border on your room. Opening move: the map loads flat on all of
+Austin and in 1.8 s flies in over `downtown` at zoom 13.4, pitch 57,
+buildings on (`openView` in config.js); the tilt button starts as "2D";
+room / find-me flights keep the tilt; extents lays it flat and resets the
+button. `chat/*?v=20261022m`. Not seen in a real browser here.
+
 ## 2026-10-22 (fourteenth pass) — chat map: tour-app controls on the right, bar fixed
 
 Owner (screenshot): a white bar across the map; move the controls to the

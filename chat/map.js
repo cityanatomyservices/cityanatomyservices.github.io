@@ -9,7 +9,10 @@
 // engine (../topicmap/app.js) is built around dots, categories and a story
 // timeline, none of which this map has.
 //
-// What happens: the map opens on all of Austin. The card shows your name.
+// What happens: the map opens on all of Austin, every neighborhood in its
+// own colour, and flies in over downtown, tilting up, as it loads (the
+// owner's reference view). Tap a neighborhood and its border
+// darkens. The card shows your name.
 // Your phone's GPS puts you in one geofence: that polygon tints, the map
 // eases to it, and you join its room. Visible (the default) means the
 // others in the room see your emoji on the neighborhood; Hidden means you
@@ -77,9 +80,23 @@
   };
   showVisible();
 
+  // a colour per neighborhood: walk the list and give each the first palette
+  // colour none of its neighbours has yet (neighbours = polygons whose boxes
+  // overlap, close enough for a map of planning areas)
+  function colourise(features) {
+    const boxes = features.map((f) => boundsOf([f]));
+    const touches = (a, b) => !(a[1][0] < b[0][0] || b[1][0] < a[0][0] || a[1][1] < b[0][1] || b[1][1] < a[0][1]);
+    features.forEach((f, i) => {
+      const taken = new Set(features.filter((g, j) => j < i && touches(boxes[i], boxes[j])).map((g) => g.properties.color));
+      f.properties.color = CFG.palette.find((c) => !taken.has(c)) || CFG.palette[i % CFG.palette.length];
+    });
+  }
+
   // ── start: read the geofences, then build the map fitted to them ─────────
   fetch(CFG.geofences).then((r) => r.json()).then((geofences) => {
+    colourise(geofences.features);
     const box = boundsOf(geofences.features);
+    const byId = (id) => geofences.features.find((f) => f.properties.id === id) || null;
     const pad = CFG.cagePad;
     const cage = [[box[0][0] - pad, box[0][1] - pad], [box[1][0] + pad, box[1][1] + pad]];
 
@@ -110,6 +127,9 @@
     $('ctrlZoomOut').addEventListener('click', () => map.zoomTo(map.getZoom() - 1, { duration: 250 }));
     // extents: all of Austin, flat and north-up (the way back after wandering)
     $('ctrlExtent').addEventListener('click', () => {
+      tilted = false;
+      showTilt();
+      if (map.getLayer('buildings-3d')) map.setLayoutProperty('buildings-3d', 'visibility', 'none');
       const cam = map.cameraForBounds(box, { padding: CFG.fitPadding, bearing: 0 });
       if (cam) map.easeTo({ ...cam, pitch: 0, duration: 700 });
     });
@@ -120,8 +140,9 @@
       $('ctrlSatellite').setAttribute('aria-pressed', String(satelliteOn));
       $('ctrlSatellite').classList.toggle('is-on', satelliteOn);
     });
-    // 3D: tilt the map and raise the buildings; 2D lays it flat again
-    let tilted = false;
+    // 3D: tilt the map and raise the buildings; 2D lays it flat again.
+    // The map opens tilted: it rises to the pitch once the style has loaded.
+    let tilted = true;
     const showTilt = () => {
       $('ctrlTilt').textContent = tilted ? '2D' : '3D';
       $('ctrlTilt').title = tilted ? COPY.ui.to2d : COPY.ui.to3d;
@@ -129,12 +150,17 @@
       $('ctrlTilt').classList.toggle('is-on', tilted);
     };
     showTilt();
-    $('ctrlTilt').addEventListener('click', () => {
-      tilted = !tilted;
+    const applyTilt = (duration) => {
       showTilt();
       if (map.getLayer('buildings-3d')) map.setLayoutProperty('buildings-3d', 'visibility', tilted ? 'visible' : 'none');
-      map.easeTo({ pitch: tilted ? CFG.pitch : 0, duration: 600 });
-    });
+      map.easeTo({ pitch: tilted ? CFG.pitch : 0, duration });
+    };
+    $('ctrlTilt').addEventListener('click', () => { tilted = !tilted; applyTilt(600); });
+    // a flight to a box that keeps the current tilt
+    const flyTo = (b, padding, maxZoom) => {
+      const cam = map.cameraForBounds(b, { padding, maxZoom, bearing: 0 });
+      if (cam) map.easeTo({ ...cam, pitch: tilted ? CFG.pitch : 0, duration: 900 });
+    };
 
     map.on('load', () => {
       // satellite imagery sits above the basemap and below the geofences
@@ -145,24 +171,36 @@
       // (positron carries OpenMapTiles' `building` layer with heights);
       // only shown while the map is tilted
       map.addLayer({ id: 'buildings-3d', type: 'fill-extrusion', source: 'openmaptiles', 'source-layer': 'building', minzoom: 13,
-        layout: { visibility: 'none' },
+        layout: { visibility: 'visible' },
         paint: { 'fill-extrusion-color': CFG.buildingColor, 'fill-extrusion-opacity': 0.8,
                  'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 6],
                  'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0] } });
 
-      // the geofences: fill (stronger under the pointer, strongest for your
-      // room), outline, name. promoteId makes each feature's `id` property
-      // its feature id, which is what feature-state needs.
+      // the geofences: each in its own colour (fill stronger under the
+      // pointer, strongest for your room); pale borders, a dark border on the
+      // one you tapped, the accent border on your room; the name on top.
+      // promoteId makes each feature's `id` property its feature id, which
+      // is what feature-state needs.
+      const state = (key) => ['boolean', ['feature-state', key], false];
       map.addSource('geofences', { type: 'geojson', data: geofences, promoteId: 'id' });
       map.addLayer({ id: 'geofence-fill', type: 'fill', source: 'geofences',
-        paint: { 'fill-color': CFG.color,
-                 'fill-opacity': ['case', ['boolean', ['feature-state', 'room'], false], CFG.fillRoom,
-                                          ['boolean', ['feature-state', 'hover'], false], CFG.fillHover, CFG.fill] } });
+        paint: { 'fill-color': ['get', 'color'],
+                 'fill-opacity': ['case', state('room'), CFG.fillRoom, state('hover'), CFG.fillHover, CFG.fill] } });
       map.addLayer({ id: 'geofence-line', type: 'line', source: 'geofences',
-        paint: { 'line-color': CFG.color, 'line-width': ['case', ['boolean', ['feature-state', 'room'], false], 2.5, 1.2] } });
+        layout: { 'line-join': 'round' },
+        paint: { 'line-color': ['case', state('room'), CFG.roomColor, state('selected'), CFG.selectedColor, CFG.lineColor],
+                 'line-width': ['case', state('room'), 3, state('selected'), 3, 1.5],
+                 'line-opacity': ['case', state('room'), 1, state('selected'), 1, 0.9] } });
       map.addLayer({ id: 'geofence-label', type: 'symbol', source: 'geofences',
         layout: { 'symbol-placement': 'point', 'text-field': ['get', CFG.nameField], 'text-font': ['Noto Sans Bold'], 'text-size': CFG.labelSize },
         paint: { 'text-color': '#333333', 'text-halo-color': '#ffffff', 'text-halo-width': 1.5 } });
+
+      // the opening move: from all of Austin flat, fly in over downtown
+      // and tilt up (the owner's reference view); showTilt keeps the button
+      // reading 2D while the map is tilted
+      const opening = byId(CFG.openView.room);
+      showTilt();
+      map.easeTo({ center: opening ? centreOf(opening) : map.getCenter(), zoom: CFG.openView.zoom, pitch: CFG.pitch, bearing: 0, duration: CFG.openTiltMs });
 
       // hover: tint the polygon under the pointer
       let hovered = null;
@@ -180,12 +218,14 @@
         map.getCanvas().style.cursor = '';
       });
 
-      // click: the neighborhood's name
+      // click: the tapped neighborhood's border darkens (one at a time)
+      let selected = null;
       map.on('click', 'geofence-fill', (e) => {
         const f = e.features && e.features[0];
         if (!f) return;
-        new maplibregl.Popup({ maxWidth: '260px' }).setLngLat(e.lngLat)
-          .setHTML(`<h3>${esc(f.properties[CFG.nameField])}</h3>`).addTo(map);
+        if (selected !== null) map.setFeatureState({ source: 'geofences', id: selected }, { selected: false });
+        selected = f.id === selected ? null : f.id;
+        if (selected !== null) map.setFeatureState({ source: 'geofences', id: selected }, { selected: true });
       });
 
       // ── the room ──────────────────────────────────────────────────────────
@@ -228,7 +268,7 @@
         window.ChatPanel.clear();
         if (!feature) { await window.ChatEngine.leave(); showPeople(); return; }
         map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
-        map.fitBounds(boundsOf([feature]), { padding: 60, maxZoom: 14, duration: 900 });
+        flyTo(boundsOf([feature]), 60, 14);
         $('roomLine').textContent = fill(COPY.room.inside, { name: feature.properties[CFG.nameField] });
         showPeople();
         await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) });
@@ -236,7 +276,6 @@
 
       // where you are: the phone's GPS, or ?room=<id> for testing at a desk
       const testRoom = new URLSearchParams(location.search).get('room');
-      const byId = (id) => geofences.features.find((f) => f.properties.id === id) || null;
       if (testRoom) enter(byId(testRoom));
       else window.ChatLocate.start(geofences, enter, (status) => {
         if (status !== 'inside') $('roomLine').textContent = COPY.room[status];
@@ -244,7 +283,7 @@
 
       // find me: back to your neighborhood (or ask for the location again)
       $('ctrlLocate').addEventListener('click', () => {
-        if (room) map.fitBounds(boundsOf([room]), { padding: 60, maxZoom: 14, duration: 900 });
+        if (room) flyTo(boundsOf([room]), 60, 14);
         else if (!testRoom) window.ChatLocate.start(geofences, enter, (status) => { if (status !== 'inside') $('roomLine').textContent = COPY.room[status]; });
       });
 
