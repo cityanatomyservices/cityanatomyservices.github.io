@@ -1,5 +1,17 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirty-fifth pass) — map height fix; horseback riding data refreshed
+
+The shopping pages' blank band at the bottom: the site `style.css` `#map`
+rule (a fixed height for another page) applied inside `.shopmap`; the
+engine now sets `width/height: 100%` outright (`?v=20261023h`). Then
+owner's CSV `C:\Dev\austin-horseback-riding\austin-area-horseback-riding-with-contact-info.csv`
+(20 rows) → `apps/austin-horseback-riding/data.geojson` (17 → 20).
+Dropdown fields sorted from the owner's free-text `type_of_riding` (kept
+whole as `types`): `riding` (Trail rides / Lessons & training /
+Therapeutic riding), `style` (English / Western / both / not stated),
+`camps` (Yes/No), plus `city`; config filters/columns/popup set.
+
 ## 2026-10-22 (thirty-fourth pass) — shopping apps: the side panel is back, with dropdowns
 
 Owner: keep the old reports' side panel (slides out from the left, arrow

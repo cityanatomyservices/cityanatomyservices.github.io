@@ -1,226 +1,487 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.7418, 30.1602] },
-      "properties": {
-        "name": "Texas Trail Rides / Lone Star Ranch",
-        "category": "Trail rides & ranch activities",
-        "area": "Southeast Austin, TX",
-        "phone": "(512) 697-9722",
-        "website": "https://www.texastrailrides.com",
-        "primary_activities": "Guided horseback trail rides, lessons, skeet shooting, ATV tours, ranch events",
-        "notes": "Operates out of Lone Star Ranch near Austin; family-friendly group and private rides."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.5661, 30.3289] },
-      "properties": {
-        "name": "Southern Trails",
-        "category": "Trail rides",
-        "area": "Manor (northeast of Austin), TX",
-        "phone": "(512) 649-5558",
-        "website": "https://www.southerntrailrides.com",
-        "primary_activities": "Guided ranch trail rides, sunset rides, kids-focused \"Little Dude\" rides",
-        "notes": "Highly rated trail rides about 15 minutes from downtown Austin on a 100+ acre ranch."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.6703, 29.8857] },
-      "properties": {
-        "name": "Maverick Horseback Riding",
-        "category": "Trail rides & horsemanship experiences",
-        "area": "Lockhart / Central Texas (SE of Austin)",
-        "phone": "(512) 230-8413",
-        "website": "https://maverickhorsebackriding.com",
-        "primary_activities": "Ecology-focused trail rides, horsemanship lessons, BBQ rides, private ranch tours",
-        "notes": "Operates ranch trail rides around Lockhart and other Central Texas sites; emphasizes land and waterway stewardship."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.7560, 30.2699] },
-      "properties": {
-        "name": "Willow Horseback Riding of Austin",
-        "category": "Guided trail rides",
-        "area": "Central Austin, TX",
-        "phone": "(737) 232-7281",
-        "website": "https://www.willowhorseriding.com/austin",
-        "primary_activities": "Scenic guided trail rides, photography add-ons",
-        "notes": "Downtown-based booking for guided rides in the Hill Country; focuses on small-group scenic experiences."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.7897, 30.4093] },
-      "properties": {
-        "name": "Tri-Star Farm (Austin location)",
-        "category": "Lessons, boarding & weekly trail rides",
-        "area": "Northwest Austin, TX",
-        "phone": "(512) 956-1662",
-        "website": "https://www.tristarfarm.com",
-        "primary_activities": "Hunter/jumper and general riding lessons, boarding, weekly trail rides, summer camps",
-        "notes": "Long-running program with Austin and Coupland locations; offers lessons for all levels and organized trail rides."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.9254, 30.3268] },
-      "properties": {
-        "name": "Bee Cave Riding Center",
-        "category": "Lesson barn & camps",
-        "area": "Bee Cave / West Austin, TX",
-        "phone": "(512) 632-7433",
-        "website": "https://www.ridinghorses.com",
-        "primary_activities": "Hunter/jumper, dressage and western lessons, kids and adult programs, camps",
-        "notes": "Hill Country facility west of Austin providing English and Western instruction for all levels."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.5534, 30.3451] },
-      "properties": {
-        "name": "Manor Equestrian Center",
-        "category": "Lessons, boarding & camps",
-        "area": "Manor, TX (NE of Austin)",
-        "phone": "(512) 423-2994",
-        "website": "https://www.manorequestriancentertx.com",
-        "primary_activities": "Riding lessons, horse boarding, training, summer camps",
-        "notes": "Family-oriented barn offering recreational riding programs and boarding just outside northeast Austin."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.5834, 30.3284] },
-      "properties": {
-        "name": "White Fences Equestrian Center",
-        "category": "Dressage & hunter/jumper lesson barn",
-        "area": "Manor, TX (east of Austin)",
-        "phone": "(512) 865-8281",
-        "website": "https://whitefencesaustin.com",
-        "primary_activities": "Dressage-focused training, hunter/jumper lessons, full-care boarding",
-        "notes": "Boutique dressage and hunter/jumper facility offering lessons and training for committed recreational and show riders."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.8134, 30.2907] },
-      "properties": {
-        "name": "Lone Star Stables (Lone Star Equestrian Center)",
-        "category": "Hunter/jumper lesson barn",
-        "area": "Westlake / West Austin, TX",
-        "phone": "(512) 567-4984",
-        "website": "http://www.lonestarstablesaustin.com",
-        "primary_activities": "Hunter/jumper lessons, boarding, instructional camps",
-        "notes": "Westlake hunter/jumper program with year-round lessons and small-group instruction for all ages."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.8406, 30.0850] },
-      "properties": {
-        "name": "Monarch Stables Austin",
-        "category": "Hunter/jumper lessons & boarding",
-        "area": "Buda, TX (south of Austin)",
-        "phone": "(512) 651-0484",
-        "website": "https://www.monarchstablesaustin.com",
-        "primary_activities": "Hunter/jumper instruction, full-service boarding, leasing",
-        "notes": "Large 56-acre facility about 13 miles from downtown Austin with training for child and adult riders."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.7760, 30.1314] },
-      "properties": {
-        "name": "Scissortail Hill Equestrian",
-        "category": "Riding academy & camps",
-        "area": "South Austin, TX",
-        "phone": "(512) 243-2323",
-        "website": "https://www.scissortailhillequestrian.com",
-        "primary_activities": "Eventing and hunter/jumper lessons, schooling shows, camps",
-        "notes": "South Austin riding academy with a focus on safe, confidence-building instruction and local shows."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-98.0866, 30.1904] },
-      "properties": {
-        "name": "Rio Vista Farm",
-        "category": "Hunter/jumper barn & camps",
-        "area": "Dripping Springs, TX (west of Austin)",
-        "phone": "(512) 247-2303",
-        "website": "https://www.riovistafarm.net",
-        "primary_activities": "Hunter/jumper lessons, boarding, camps, show program",
-        "notes": "Leading English riding barn now based in Dripping Springs; accepts riders without owning a horse."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-98.0201, 30.1259] },
-      "properties": {
-        "name": "Lone Star Riding Club",
-        "category": "Lesson barn & kids programs",
-        "area": "Driftwood, TX (southwest of Austin)",
-        "phone": "(512) 697-9818",
-        "website": "https://www.lonestarridingclub.com",
-        "primary_activities": "English and Western lessons, kids horse camps, clinics and events",
-        "notes": "United States Pony Club Riding Center with multiple Austin-area locations and a large school-horse string."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.7671, 30.4178] },
-      "properties": {
-        "name": "Switch Willo Stables",
-        "category": "Hunter/jumper show barn & camp",
-        "area": "Northwest Austin, TX",
-        "phone": "(512) 920-2276",
-        "website": "https://www.switchwillostable.com",
-        "primary_activities": "Hunter/jumper lessons, show program, state-certified kids riding camp",
-        "notes": "Long-established hunter/jumper barn with extensive youth programs and camps near central/north Austin."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.9012, 30.2124] },
-      "properties": {
-        "name": "Coraggio Equestrian",
-        "category": "Boarding barn with lessons & trails",
-        "area": "Southwest Austin, TX",
-        "phone": "(512) 567-9723",
-        "website": "http://coraggio.org",
-        "primary_activities": "Premium horse boarding, individualized training, access to shaded trails",
-        "notes": "Peaceful Hill Country facility with 100+ acres of shaded trails and focus on personalized horse care."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.9812, 30.4837] },
-      "properties": {
-        "name": "Miraval Austin Resort & Spa (Equine Program)",
-        "category": "Wellness resort equine program",
-        "area": "Northwest Austin / Lake Travis, TX",
-        "phone": "855-690-8163",
-        "website": "https://www.miravalresorts.com/austin",
-        "primary_activities": "Rhythmic riding, equine-assisted mindfulness and leadership, private trail rides for resort guests",
-        "notes": "Upscale wellness resort with a dedicated equine center; riding is primarily for overnight and day guests."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.7394, 30.2672] },
-      "properties": {
-        "name": "Austin Carriage Rides and Tours (Austin Carriage)",
-        "category": "Horse-drawn carriage rides",
-        "area": "Downtown Austin, TX",
-        "phone": "(512) 243-0044",
-        "website": "http://www.austincarriage.co",
-        "primary_activities": "Horse-drawn carriage rides, downtown tours, event transportation",
-        "notes": "Downtown carriage company offering romantic and historic horse-drawn rides rather than trail riding."
-      }
-    }
-  ]
+ "type": "FeatureCollection",
+ "name": "austin-area-horseback-riding",
+ "description": "Austin-area horseback riding, owner research 2026-10-22 (C:\\Dev\\austin-horseback-riding\\austin-area-horseback-riding-with-contact-info.csv). `riding`, `style` and `camps` are sorted from the owner's type_of_riding text (kept whole in `types`) so the page has dropdowns. Pins are approximate (mostly address geocodes), not arena entrances.",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Lone Star Ranch / Texas Trail Rides",
+    "riding": "Trail rides",
+    "style": "Western",
+    "camps": "No",
+    "types": "Guided trail rides; Western ranch riding",
+    "general_area": "Southeast Austin / Bluff Springs",
+    "address": "8601 Bluff Springs Rd, Austin, TX 78744",
+    "city": "Austin",
+    "phone": "512-697-9722",
+    "website": "https://www.lonestarranchtexas.com/experiences/trail-rides/",
+    "notes": "Reservations required; distinct from Lone Star Stables.",
+    "source": "https://www.lonestarranchtexas.com/modules-2/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.769395,
+     30.165213
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Southern Trails - Austin",
+    "riding": "Trail rides",
+    "style": "Not stated",
+    "camps": "No",
+    "types": "Guided trail rides; sunset rides; introductory family rides",
+    "general_area": "East Austin / Decker Lake",
+    "address": "15701 Decker Lake Rd, Manor, TX 78653",
+    "city": "Manor",
+    "phone": "512-649-5558",
+    "website": "https://www.southerntrailrides.com/",
+    "notes": "Austin-area branch only; book ahead.",
+    "source": "https://www.southerntrailrides.com/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.570271,
+     30.269403
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "SunCrest Farm",
+    "riding": "Trail rides",
+    "style": "English and Western",
+    "camps": "Yes",
+    "types": "English and Western lessons; trail rides; camps",
+    "general_area": "Northeast Austin / Manor",
+    "address": "13915 Suncrest Rd, Manor, TX 78653",
+    "city": "Manor",
+    "phone": "512-797-6220",
+    "website": "https://www.suncrestfarm.net/",
+    "notes": "By appointment only.",
+    "source": "https://www.suncrestfarm.net/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.529223,
+     30.3618
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "White Fences Equestrian Center",
+    "riding": "Lessons & training",
+    "style": "English",
+    "camps": "No",
+    "types": "Dressage lessons; beginner through advanced; school horses",
+    "general_area": "East Austin / Manor",
+    "address": "10908 Jones Rd, Manor, TX 78653",
+    "city": "Manor",
+    "phone": "512-865-8281",
+    "website": "https://whitefencesaustin.com/",
+    "notes": "Contact for lesson availability.",
+    "source": "https://whitefencesaustin.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.487573,
+     30.307797
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Tri-Star Farm - Austin",
+    "riding": "Lessons & training",
+    "style": "Not stated",
+    "camps": "Yes",
+    "types": "Riding lessons; camps",
+    "general_area": "Northwest Austin / Spicewood Springs",
+    "address": "6648 Spicewood Springs Rd, Austin, TX 78759",
+    "city": "Austin",
+    "phone": "512-956-1662",
+    "website": "https://www.tristarfarm.com/",
+    "notes": "Austin lesson location; their trail rides are in Coupland and are outside this list.",
+    "source": "https://www.tristarfarm.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.781394,
+     30.398003
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Switch Willo Stables",
+    "riding": "Lessons & training",
+    "style": "English",
+    "camps": "Yes",
+    "types": "English hunter/jumper lessons; camps; competition training",
+    "general_area": "Northwest Austin",
+    "address": "4829 Switch Willo, Austin, TX 78727",
+    "city": "Austin",
+    "phone": "512-565-5983",
+    "website": "https://www.switchwillostable.com/",
+    "notes": "Phone is the riding-lesson contact.",
+    "source": "https://www.switchwillostable.com/contact-us"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734701,
+     30.415975
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Spicewood Farms",
+    "riding": "Lessons & training",
+    "style": "English and Western",
+    "camps": "No",
+    "types": "English and Western lessons; boarding",
+    "general_area": "Northwest Austin / Spicewood Springs",
+    "address": "6607 Spicewood Springs Rd, Austin, TX 78759",
+    "city": "Austin",
+    "phone": "512-343-6220",
+    "website": "https://spicewoodfarms.com/",
+    "notes": "Lessons primarily for boarders/lessees; basic walk/trot skills required; age 10+; no guided trail rides or horse rentals. Phone/address supported by directory.",
+    "source": "https://spicewoodfarms.com/Spicewood%20Farms%20Lessons.html"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.777838,
+     30.396416
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Scissortail Hill Equestrian",
+    "riding": "Lessons & training",
+    "style": "English",
+    "camps": "Yes",
+    "types": "Riding lessons; eventing; hunter/jumper; cross-country; camps",
+    "general_area": "Southeast Austin / US 183 South",
+    "address": "9513 S Highway 183, Austin, TX 78747",
+    "city": "Austin",
+    "phone": "512-243-2323",
+    "website": "https://www.scissortailhillequestrian.com/",
+    "notes": "Address from provider; phone from Fun4AustinKids listing.",
+    "source": "https://www.scissortailhillequestrian.com/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.694947,
+     30.113557
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Monarch Stables",
+    "riding": "Lessons & training",
+    "style": "English",
+    "camps": "No",
+    "types": "English hunter/jumper lessons; competition training",
+    "general_area": "South Austin / Buda",
+    "address": "14605 Old San Antonio Rd, Buda, TX 78610",
+    "city": "Buda",
+    "phone": "512-651-0484",
+    "website": "https://www.monarchstablesaustin.com/",
+    "notes": "Phone also listed in the 2026 Pin Oak horse-show program.",
+    "source": "https://www.monarchstablesaustin.com/contact-us.html"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.818458,
+     30.097046
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bee Cave Riding Center",
+    "riding": "Lessons & training",
+    "style": "English and Western",
+    "camps": "Yes",
+    "types": "Hunter/jumper; dressage; Western lessons; camps",
+    "general_area": "West Austin / Bee Cave - Hamilton Pool",
+    "address": "15740 Hamilton Pool Rd, Austin, TX 78738",
+    "city": "Austin",
+    "phone": "512-632-7433",
+    "website": "https://www.ridinghorses.com/",
+    "notes": "Provider website unavailable during research; confirm current programs by phone. Address/phone corroborated by horse-show listing.",
+    "source": "https://texasranches.com/directory/bee-cave-riding-center-ccb02625"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.998567,
+     30.302455
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Madrone Ranch Stables",
+    "riding": "Lessons & training",
+    "style": "English",
+    "camps": "No",
+    "types": "Hunter/jumper lessons; lease program; training",
+    "general_area": "Bee Cave / Hamilton Pool area",
+    "address": "8801 Madrone Ranch Trl, Austin, TX 78738",
+    "city": "Austin",
+    "phone": "512-264-7100",
+    "website": "https://www.madroneranchstables.com/",
+    "notes": "Gated community; arrange access ahead of arrival.",
+    "source": "https://www.madroneranchstables.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -98.010761,
+     30.299063
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Hidden Creek Ranch",
+    "riding": "Lessons & training",
+    "style": "Not stated",
+    "camps": "Yes",
+    "types": "Recreational riding lessons; horsemanship; camps",
+    "general_area": "Cedar Park / Shenandoah",
+    "address": "1202 Glen Burnie Dr, Cedar Park, TX 78613",
+    "city": "Cedar Park",
+    "phone": "512-925-1935",
+    "website": "https://www.hidden-creek-ranch.com/",
+    "notes": "Contact for current lesson availability.",
+    "source": "https://www.hidden-creek-ranch.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.818619,
+     30.467758
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Paul Cates Stable",
+    "riding": "Lessons & training",
+    "style": "English",
+    "camps": "Yes",
+    "types": "English saddle-seat lessons; American Saddlebreds; camps",
+    "general_area": "Southeast Round Rock / Gattis School",
+    "address": "2900 Gattis School Rd, Round Rock, TX 78664",
+    "city": "Round Rock",
+    "phone": "512-565-3886",
+    "website": "https://paulcatesstable.com/",
+    "notes": "No trail rides.",
+    "source": "https://paulcatesstable.com/lessons/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.63557,
+     30.49744
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Hearts Therapeutic Riding",
+    "riding": "Therapeutic riding",
+    "style": "English and Western",
+    "camps": "No",
+    "types": "Adaptive/therapeutic riding; English and Western pleasure lessons",
+    "general_area": "Southwest Leander / Lake Travis",
+    "address": "17000 Trails End Cv, Leander, TX 78641",
+    "city": "Leander",
+    "phone": "737-975-4104",
+    "website": "https://www.horsesheartstherapy.com/",
+    "notes": "Official footer lists 737-975-4104; contact page also lists 512-968-5857. Scheduled programs; contact for eligibility and availability.",
+    "source": "https://www.horsesheartstherapy.com/contact-us"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.886684,
+     30.501298
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Little Forest Equestrian",
+    "riding": "Lessons & training",
+    "style": "Not stated",
+    "camps": "No",
+    "types": "Private riding lessons; horsemanship",
+    "general_area": "Leander / Oak Creek Road",
+    "address": "4225 Oak Creek Rd, Leander, TX 78641",
+    "city": "Leander",
+    "phone": "512-799-5502",
+    "website": "https://littleforestequestrian.com/",
+    "notes": "Discipline not specified on reviewed lesson page; contact to arrange lessons.",
+    "source": "https://littleforestequestrian.com/contact-us"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.894946,
+     30.617612
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Miraval Austin - Equine Program",
+    "riding": "Trail rides",
+    "style": "Not stated",
+    "camps": "No",
+    "types": "Resort riding experiences; private arena lessons; equine activities",
+    "general_area": "Northwest Austin / Lake Travis - Volente",
+    "address": "13500 FM 2769, Austin, TX 78726",
+    "city": "Austin",
+    "phone": "855-234-1672",
+    "website": "https://www.miravalresorts.com/austin/experiences/animal-connections",
+    "notes": "Resort arrival address, not exact riding arena; equine center is across the road. Booking/package requirements apply; some equine activities are unmounted.",
+    "source": "https://www.miravalresorts.com/austin/experiences/animal-connections"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.86897,
+     30.44528
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Coraggio Equestrian",
+    "riding": "Lessons & training",
+    "style": "Not stated",
+    "camps": "No",
+    "types": "Individual riding lessons; horse training",
+    "general_area": "Southwest Austin / Oak Hill area",
+    "address": "12901 Trail End, Austin, TX 78737",
+    "city": "Austin",
+    "phone": "512-567-9723",
+    "website": "https://coraggio.org/",
+    "notes": "Confirm lesson-horse availability; no public guided trail ride verified.",
+    "source": "https://coraggio.org/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.999993,
+     30.219081
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Lone Star Stables",
+    "riding": "Lessons & training",
+    "style": "English",
+    "camps": "Yes",
+    "types": "English hunter/jumper lessons; training; camps",
+    "general_area": "West Austin / Westlake",
+    "address": "6400 Liveoak Dr, Austin, TX 78746",
+    "city": "Austin",
+    "phone": "512-567-4984",
+    "website": "https://lonestarstablesaustin.com/",
+    "notes": "Distinct from Lone Star Ranch / Texas Trail Rides.",
+    "source": "https://lonestarstablesaustin.com/facilities/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.805754,
+     30.344849
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Weddle Training Stables",
+    "riding": "Lessons & training",
+    "style": "English and Western",
+    "camps": "Yes",
+    "types": "English; hunter; Western; Arabian show training; lessons; camps",
+    "general_area": "Southwest Austin / FM 1826",
+    "address": "12416 FM 1826, Austin, TX 78737",
+    "city": "Austin",
+    "phone": "512-657-8612",
+    "website": "https://www.weddleshowhorse.com/",
+    "notes": "Offers riding lessons as well as specialized Arabian and Half-Arabian show training.",
+    "source": "https://www.weddleshowhorse.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.929937,
+     30.183429
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Dearth Performance Horses",
+    "riding": "Lessons & training",
+    "style": "Not stated",
+    "camps": "No",
+    "types": "Riding lessons; Arabian performance-horse training",
+    "general_area": "Southwest Austin / FM 1826 area",
+    "address": "12830 Daniel Boone Dr, Austin, TX 78737",
+    "city": "Austin",
+    "phone": "512-790-8628",
+    "website": "https://www.dearthperformance.com/",
+    "notes": "Address corroborated by business directory; confirm arrival details when booking.",
+    "source": "https://www.dearthperformance.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.96585,
+     30.196864
+    ]
+   }
+  }
+ ]
 }
