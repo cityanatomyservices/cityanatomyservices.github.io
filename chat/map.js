@@ -73,18 +73,32 @@
     colourise(geofences.features);
     const box = boundsOf(geofences.features);
     const byId = (id) => geofences.features.find((f) => f.properties.id === id) || null;
-    const pad = CFG.cagePad;
-    const cage = [[box[0][0] - pad, box[0][1] - pad], [box[1][0] + pad, box[1][1] + pad]];
 
     const map = new maplibregl.Map({
       container: 'map',
       style: CFG.basemap,
       bounds: box,
       fitBoundsOptions: { padding: CFG.fitPadding },
-      minZoom: CFG.minZoom,
-      maxBounds: cage,
       attributionControl: false
     });
+
+    // the limits (owner 2026-10-22): no zooming out past the City view, and
+    // the map can be pushed almost off the screen but never all the way —
+    // a tenth of the screen (keepOnScreen) must still show it. The pan
+    // limit is the geofences' box widened by what the screen shows at the
+    // current zoom, so it is worked out again after every zoom or resize.
+    const keepInView = () => {
+      const b = map.getBounds();
+      const w = (b.getEast() - b.getWest()) * (1 - CFG.keepOnScreen);
+      const h = (b.getNorth() - b.getSouth()) * (1 - CFG.keepOnScreen);
+      map.setMaxBounds([[box[0][0] - w, box[0][1] - h], [box[1][0] + w, box[1][1] + h]]);
+    };
+    const limitZoom = () => {
+      const cam = map.cameraForBounds(box, { padding: CFG.fitPadding });
+      if (cam) map.setMinZoom(cam.zoom);
+    };
+    map.on('zoomend', keepInView);
+    map.on('resize', () => { limitZoom(); keepInView(); });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
     const attribution = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
     if (attribution) {                 // start with only the info button, not the open strip
@@ -162,6 +176,9 @@
     };
 
     map.on('load', () => {
+      limitZoom();
+      keepInView();
+
       // satellite imagery sits above the basemap and below the geofences
       map.addSource('satellite', { type: 'raster', tiles: [CFG.satellite], tileSize: 256, attribution: 'Tiles &copy; Esri' });
       map.addLayer({ id: 'satellite', type: 'raster', source: 'satellite', layout: { visibility: 'none' } });

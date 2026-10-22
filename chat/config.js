@@ -30,11 +30,12 @@ window.MAP_CONFIG = {
   roomColor: '#0067c5',
   labelSize: 11,
 
-  // the map opens fitted to the geofences and the fit button refits them;
-  // the pan cage keeps the visitor within a margin of that box (degrees)
+  // the map opens fitted to the geofences and the City button refits them.
+  // Nobody can zoom out past that view, and nobody can push the map off the
+  // screen: this much of the screen (a tenth) must always still show it
+  // (owner 2026-10-22; map.js keepInView)
   fitPadding: 24,
-  cagePad: 0.5,
-  minZoom: 9,
+  keepOnScreen: 0.1,
 
   // the chat's Supabase project (the paid one, the same as /budget/ and
   // /parcels/). The publishable key is public by design: it opens Realtime

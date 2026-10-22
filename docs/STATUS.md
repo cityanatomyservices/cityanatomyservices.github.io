@@ -1,5 +1,15 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-sixth pass) — zoom and pan limits
+
+Owner: no zooming out past the current extents, and the map can be
+pushed almost off the screen but never entirely. `chat/map.js`:
+`limitZoom()` sets minZoom to the City view's zoom (cameraForBounds of
+the geofences' box), `keepInView()` sets maxBounds to that box widened by
+90% of what the screen shows at the current zoom (`keepOnScreen: 0.1` in
+config.js), re-run on zoomend and resize; the fixed `cagePad` / `minZoom`
+are gone. Chat files `?v=20261022w`.
+
 ## 2026-10-22 (twenty-fifth pass) — more shop types; business popup with map + Yelp links
 
 Owner: add the dropped shop types and re-run; tapping a business zooms
