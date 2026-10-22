@@ -11,7 +11,7 @@
 
 ## Cache-busting the shared CSS/JS
 
-`/style.css`, `/shell.js`, `/home.js`, `/view.js`, `/list.js` and `/page.js` are referenced with a version query —
+`/style.css`, `/shell.js`, `/home.js`, `/view.js`, `/list.js`, `/folder.js` and `/page.js` are referenced with a version query —
 `?v=20260911a`. GitHub Pages serves them with a long cache lifetime, so without
 it a visitor keeps the old file after a push and simply does not see the change
 (this bit the owner on 2026-09-10: a restored header button was live but
@@ -83,8 +83,13 @@ same file, `tools/page-template.html`; `view.js` reads the folder and name
 from the address and loads that entry into the window. `/apps/` and `/maps/`
 are index pages listing everything of that kind (`list.js`). After adding an
 app or a report, or editing the template, run `node tools/make-pages.js` and
-commit the folders it writes. A map folder may hold a PDF instead: put the
-file in the folder and point the entry's `app` at it. The two tours' code
+commit the folders it writes. **A folder dropped in by hand needs no data
+entry:** `/apps/` and `/maps/` list every folder that exists (they ask
+GitHub's public API what the folder holds, `folder.js`, about 60 calls an
+hour per visitor, falling back to the data files), and a framed page with no
+data entry shows the PDF or page it finds inside its folder, titled from the
+folder name. So a new map can be just `maps/<slug>/<file>.pdf` plus the
+`index.html` that `make-pages.js` writes. The two tours' code
 stays at `/moontowertour/app.html` and `/1885murdertour/app.html`; those
 folders' `index.html` only redirect to the `/apps/` pages. `apps/reports/`
 still carries the older header and `page.js`.

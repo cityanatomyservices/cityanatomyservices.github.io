@@ -1,5 +1,19 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (tenth pass) — index pages list whatever is in the folder
+
+Owner: the /apps/ and /maps/ index pages must "read any new files in that
+folder and list them", each opening from its slug. A static host cannot
+list a folder, so `folder.js` asks GitHub's public contents API (the repo
+is public; ~60 calls/hour per visitor; failure falls back to the data
+files). `list.js` merges data entries (owner titles/blurbs, first) with
+every other folder GitHub reports (titled from the folder name, then
+alphabetical; `reports` and `shared` under /apps/ skipped). `view.js`,
+for a folder with no data entry, shows the PDF (or non-index page) found
+inside it. `make-pages.js` now also writes `index.html` into hand-made
+folders that lack one. So a new map = drop `maps/<slug>/<file>.pdf`, run
+the script (or copy the template), commit. `?v=20261022j`.
+
 ## 2026-10-22 (ninth pass) — /apps/<slug>/ and /maps/<slug>/ replace /view/
 
 Owner: framed pages live at `/apps/<slug>/` for apps and `/maps/<slug>/`
