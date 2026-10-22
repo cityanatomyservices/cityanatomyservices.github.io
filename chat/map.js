@@ -272,6 +272,7 @@
           if (placeMarker) { placeMarker.remove(); placeMarker = null; }
           if (placePopup) { placePopup.remove(); placePopup = null; }
           if (!place) return;
+          setCard(false);                              // the card folds so the map and popup are in view (owner 2026-10-22)
           const at = [place.lng, place.lat];
           placeMarker = new maplibregl.Marker({ color: CFG.roomColor }).setLngLat(at).addTo(map);
           setTilt(false);

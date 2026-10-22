@@ -1,5 +1,11 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-eighth pass) — the card folds after picking a business
+
+Owner: close the card after a business is picked (map goes there, popup
+opens); the arrow reopens it. `chat/map.js` `onPlace`: `setCard(false)`.
+`chat/*?v=20261022y`.
+
 ## 2026-10-22 (twenty-seventh pass) — businesses under six groups
 
 Owner picked six groups: Food & Drink, Groceries & Essentials, Shopping,
