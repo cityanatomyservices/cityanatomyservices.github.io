@@ -37,6 +37,12 @@
 .shopmap .filter-group select { width: 100%; min-width: 0; padding: 5px 6px; font: inherit; font-size: 12px; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 6px; }
 .shopmap .filter-group select:focus { outline: none; border-color: var(--accent); }
 
+/* the two buttons above the table, the same size */
+.shopmap .panel-actions { display: flex; gap: 8px; padding: 8px 14px; border-bottom: 1px solid var(--line); }
+.shopmap .panel-btn { flex: 1; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.shopmap .panel-btn:hover { color: var(--accent); border-color: var(--accent); }
+.shopmap .panel-btn:active { opacity: .7; }
+
 /* the table scrolls inside the panel; one line per cell, clipped */
 .shopmap .table-wrap { flex: 1; min-height: 0; overflow: auto; }
 .shopmap table { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -47,14 +53,14 @@
 .shopmap tbody tr:hover, .shopmap tbody tr:focus { background: #e6f0fa; outline: none; }
 .shopmap .swatch { display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.3); vertical-align: -1px; }
 
-/* the arrow on the panel's edge: moves with it */
+/* the arrow on the panel's edge: inside the panel, hanging off its right
+   side, so the panel runs all the way to it and the two move as one */
 .shopmap .panel-toggle {
-  position: absolute; top: 50%; left: var(--panel-w); z-index: 5; width: 22px; height: 56px; padding: 0;
+  position: absolute; top: 50%; right: -22px; z-index: 5; width: 22px; height: 56px; padding: 0;
   transform: translateY(-50%); display: grid; place-items: center; cursor: pointer;
   background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-left: 0; border-radius: 0 8px 8px 0;
-  box-shadow: 4px 0 12px rgba(0,0,0,.12); transition: left var(--slide);
+  box-shadow: 4px 0 12px rgba(0,0,0,.12);
 }
-.shopmap.panel-closed .panel-toggle { left: 0; }
 .shopmap .panel-toggle-arrow { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(135deg); margin-left: 3px; }
 .shopmap.panel-closed .panel-toggle-arrow { transform: rotate(-45deg); margin-left: -3px; }
 

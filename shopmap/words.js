@@ -14,6 +14,7 @@ window.SHOP_WORDS = {
   city: 'City',
   all: 'All',                       // the first choice in every dropdown
   showList: 'Show the list', hideList: 'Hide the list',
+  export: 'Export', reset: 'Reset',   // the two buttons above the table
   results: '{n} results', resultOne: '1 result',
   name: 'Name', type: 'Type',       // table headers when config.js names no columns
   google: 'Google Maps',

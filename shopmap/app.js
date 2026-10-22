@@ -15,8 +15,9 @@
 // basemap as the home map, with the same round control stack (find me,
 // 2D/3D, satellite, extents, zoom) and the Street / Neighborhood / City
 // view buttons. The side panel on the left holds the title, the dropdowns
-// (each "All" or one value; changing one narrows the pins AND the table)
-// and the table, one row per place. Tap a row and the map goes there at
+// (each "All" or one value; changing one narrows the pins AND the table),
+// an Export button (the table's rows as a CSV) and a Reset button (every
+// dropdown back to All), and the table, one row per place. Tap a row and the map goes there at
 // street level, flat, with a popup: the place's rows from config.js and
 // Google Maps / Apple Maps / Yelp links (plain web addresses); on a phone
 // the panel slides away so the map shows. Tapping a pin opens the same
@@ -269,6 +270,25 @@
       });
     }
     fillTable(features);
+
+    // ── Export: the rows now in the table as a CSV (every property, plus the
+    // coordinates); Reset: every dropdown back to All ─────────────────────
+    const csvCell = (v) => { const t = v == null ? '' : String(v); return /[",\n]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
+    $('exportBtn').textContent = W.export;
+    $('resetBtn').textContent = W.reset;
+    $('exportBtn').addEventListener('click', () => {
+      const shown = features.filter(passes).sort((a, b) => name(a).localeCompare(name(b)));
+      const keys = Array.from(new Set(shown.flatMap((f) => Object.keys(f.properties)))).filter((k) => !k.startsWith('_'));
+      const lines = [[...keys, 'longitude', 'latitude'].map(csvCell).join(',')];
+      shown.forEach((f) => lines.push([...keys.map((k) => csvCell(f.properties[k])), f.geometry.coordinates[0], f.geometry.coordinates[1]].join(',')));
+      const blob = new Blob(['\ufeff' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = (location.pathname.split('/').filter(Boolean).pop() || 'places') + '.csv';
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(a.href);
+    });
+    $('resetBtn').addEventListener('click', () => { selects.forEach((s) => { s.value = ''; }); applyFilters(); });
 
     map.on('load', () => {
       limitZoom();

@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vintage and Used Guitar Shops in Greater Austin</title>
-  <link href="/style.css?v=20261023h" rel="stylesheet" />
+  <link href="/style.css?v=20261023i" rel="stylesheet" />
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
-  <link href="/shopmap/style.css?v=20261023h" rel="stylesheet" />
+  <link href="/shopmap/style.css?v=20261023i" rel="stylesheet" />
 </head>
 <body>
   <!-- A SHOPPING APP (owner 2026-10-22): the site's own frame (shell.js draws
@@ -29,16 +29,22 @@
             <div class="result-count" id="resultCount"></div>
           </div>
           <div class="filters" id="filters"></div>
+          <!-- Export downloads the rows now in the table as a CSV; Reset puts every dropdown back to All -->
+          <div class="panel-actions">
+            <button class="panel-btn" id="exportBtn" type="button"></button>
+            <button class="panel-btn" id="resetBtn" type="button"></button>
+          </div>
           <div class="table-wrap">
             <table>
               <thead id="tableHead"></thead>
               <tbody id="tableBody"></tbody>
             </table>
           </div>
+          <!-- the arrow on the panel's edge: part of the panel, so it moves with it and the two always meet -->
+          <button class="panel-toggle" id="panelToggle" type="button" aria-expanded="true" aria-controls="dataPanel">
+            <span class="panel-toggle-arrow" aria-hidden="true"></span>
+          </button>
         </aside>
-        <button class="panel-toggle" id="panelToggle" type="button" aria-expanded="true" aria-controls="dataPanel">
-          <span class="panel-toggle-arrow" aria-hidden="true"></span>
-        </button>
 
         <!-- right: the round control stack, the same as the home map -->
         <div class="stack">
@@ -63,9 +69,9 @@
   </main>
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
-  <script src="/shopmap/words.js?v=20261023h"></script>
-  <script src="./config.js?v=20261023h"></script>
-  <script src="/shopmap/app.js?v=20261023h"></script>
+  <script src="/shopmap/words.js?v=20261023i"></script>
+  <script src="./config.js?v=20261023i"></script>
+  <script src="/shopmap/app.js?v=20261023i"></script>
   <script src="/shell.js?v=20261023e"></script>
 </body>
 </html>

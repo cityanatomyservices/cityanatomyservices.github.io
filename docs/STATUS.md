@@ -1,5 +1,15 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirty-sixth pass) — panel arrow on the panel; Export + Reset
+
+Owner: the panel must run all the way to the arrow box; two same-size
+buttons above the table: Export (CSV of the filtered table) and Reset
+(dropdowns back to All). `/shopmap/`: the arrow button now lives INSIDE
+`.data-panel` (right: -22px) so panel and arrow are one piece; `.panel-
+actions` with `exportBtn` / `resetBtn`; Export writes every property of
+the rows now shown (+ longitude, latitude) as `<app id>.csv` with a UTF-8
+BOM; Reset clears the selects and re-filters. `?v=20261023i`.
+
 ## 2026-10-22 (thirty-fifth pass) — map height fix; horseback riding data refreshed
 
 The shopping pages' blank band at the bottom: the site `style.css` `#map`
