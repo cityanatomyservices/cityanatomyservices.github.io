@@ -1,133 +1,917 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.733110, 30.357190] },
-      "properties": {
-        "name": "Terra Toys",
-        "address": "2438 W Anderson Ln",
-        "city": "Austin",
-        "state": "TX",
-        "zip": "78757",
-        "type": "independent",
-        "age_range": "All Ages",
-        "specialty": "general",
-        "website": "https://terratoys.com",
-        "notes": "Locally owned Austin institution founded in 1978 and known for classic toys, learning tools, art supplies, and demos."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.748592, 30.265008] },
-      "properties": {
-        "name": "Toy Joy Downtown",
-        "address": "403 W 2nd St",
-        "city": "Austin",
-        "state": "TX",
-        "zip": "78701",
-        "type": "independent",
-        "age_range": "All Ages",
-        "specialty": "collectible",
-        "website": "https://www.toyjoy.com/service/locations-and-hours/",
-        "notes": "Iconic downtown Toy Joy location known for novelty, nostalgia, and collectible-heavy browsing."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.739504, 30.327483] },
-      "properties": {
-        "name": "Toy Joy Burnet Road",
-        "address": "5501 Burnet Rd",
-        "city": "Austin",
-        "state": "TX",
-        "zip": "78756",
-        "type": "independent",
-        "age_range": "All Ages",
-        "specialty": "collectible",
-        "website": "https://www.toyjoy.com/service/locations-and-hours/",
-        "notes": "North-central Toy Joy branch with late hours and a neighborhood-shopping feel."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.704398, 30.296977] },
-      "properties": {
-        "name": "Toy Joy @ The Thinkery",
-        "address": "1830 Simond Ave",
-        "city": "Austin",
-        "state": "TX",
-        "zip": "78723",
-        "type": "independent",
-        "age_range": "0–10",
-        "specialty": "general",
-        "website": "https://www.toyjoy.com/service/locations-and-hours/",
-        "notes": "Museum-adjacent Toy Joy outpost in Mueller serving family and gift shoppers."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.748778, 30.395509] },
-      "properties": {
-        "name": "Lakeshore Learning",
-        "address": "9828 Great Hills Trail",
-        "city": "Austin",
-        "state": "TX",
-        "zip": "78759",
-        "type": "educational",
-        "age_range": "0–12",
-        "specialty": "STEM",
-        "website": "https://www.lakeshorelearning.com/stores/locator/austin/055/",
-        "notes": "Educational chain specializing in teacher supplies, learning products, and classroom-oriented play."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.785052, 30.238989] },
-      "properties": {
-        "name": "Monkey See Monkey Do",
-        "address": "2810 Menchaca Rd",
-        "city": "Austin",
-        "state": "TX",
-        "zip": "78704",
-        "type": "independent",
-        "age_range": "All Ages",
-        "specialty": "general",
-        "website": "https://www.yelp.com",
-        "notes": "South Austin hybrid toy, gift, and novelty shop with a browse-and-discover format."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.743016, 30.307701] },
-      "properties": {
-        "name": "Over the Rainbow",
-        "address": "1601 W 38th St, Ste 3",
-        "city": "Austin",
-        "state": "TX",
-        "zip": "78731",
-        "type": "closed",
-        "age_range": "0–12",
-        "specialty": "classic",
-        "website": "https://www.yelp.com/biz/over-the-rainbow-austin",
-        "notes": "Historically significant former neighborhood toy store, once identified as Austin's oldest independent toy shop."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-97.812384, 30.269756] },
-      "properties": {
-        "name": "Learning Express Toys",
-        "address": "4025 S Capital of Texas Hwy",
-        "city": "Austin",
-        "state": "TX",
-        "zip": "78746",
-        "type": "closed",
-        "age_range": "0–12",
-        "specialty": "general",
-        "website": "https://www.facebook.com",
-        "notes": "Former Westlake-area family toy store remembered for helpful staff and birthday registry services."
-      }
-    }
-  ]
+ "type": "FeatureCollection",
+ "name": "greater-austin-toy-stores-and-childrens-retailers",
+ "description": "Greater Austin toy stores and children's retailers, owner research (C:/Dev/austin-toy-stores/...-with-contact-info.csv), built by build.py. `kind`, `focus` and `stock` are sorted from the owner's type and specialties text (kept whole). Pins: OSM objects or address geocodes, not verified entrances.",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Terra Toys",
+    "kind": "Independent / local",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Independent toy store",
+    "specialties": "Classic toys; educational toys; science; dolls; plush; games",
+    "general_area": "North Austin / Anderson Lane",
+    "address": "2438 W Anderson Ln Ste C1, Austin, TX 78757",
+    "city": "Austin",
+    "phone": "512-445-4489",
+    "website": "https://terratoys.com/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "",
+    "source": "https://terratoys.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7316272,
+     30.3578425
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Toy Joy - Downtown",
+    "kind": "Independent / local",
+    "focus": "Collectibles",
+    "stock": "New",
+    "type": "Local toy-store group",
+    "specialties": "Toys; plush; collectibles; games; novelty gifts",
+    "general_area": "Downtown / Second Street",
+    "address": "403 W 2nd St, Austin, TX 78701",
+    "city": "Austin",
+    "phone": "512-320-0090",
+    "website": "https://www.toyjoy.com/service/locations-and-hours/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Phone is Toy Joy's published general store contact.",
+    "source": "https://www.toyjoy.com/service/locations-and-hours/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7480632,
+     30.2652372
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Toy Joy - Burnet Road",
+    "kind": "Independent / local",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Local toy-store group",
+    "specialties": "Toys; plush; science kits; collectibles; games",
+    "general_area": "North Central Austin / Allandale",
+    "address": "5501 Burnet Rd, Austin, TX 78756",
+    "city": "Austin",
+    "phone": "512-320-0090",
+    "website": "https://www.toyjoy.com/service/locations-and-hours/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Shared company contact; direct branch number not independently verified.",
+    "source": "https://www.toyjoy.com/service/locations-and-hours/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7397152,
+     30.3307547
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Toy Joy at Thinkery",
+    "kind": "Independent / local",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Museum toy shop; local group",
+    "specialties": "Educational toys; science; creative play; gifts",
+    "general_area": "East Central Austin / Mueller",
+    "address": "1830 Simond Ave, Austin, TX 78723",
+    "city": "Austin",
+    "phone": "512-320-0090",
+    "website": "https://www.toyjoy.com/service/locations-and-hours/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Museum shop; check shop access and museum hours. Shared company phone.",
+    "source": "https://www.toyjoy.com/service/locations-and-hours/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7055385,
+     30.2977711
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Toy Joy - Austin Airport",
+    "kind": "Independent / local",
+    "focus": "Plush",
+    "stock": "New",
+    "type": "Airport toy shop; local group",
+    "specialties": "Travel toys; plush; gifts; games",
+    "general_area": "Southeast Austin / ABIA",
+    "address": "3600 Presidential Blvd, Austin, TX 78719",
+    "city": "Austin",
+    "phone": "512-320-0090",
+    "website": "https://www.toyjoy.com/service/locations-and-hours/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Gate 12 inside the secure terminal; airside access required. Shared company phone.",
+    "source": "https://www.toyjoy.com/service/locations-and-hours/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6640249,
+     30.2022341
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Learning Express Toys & Gifts - Bee Cave",
+    "kind": "Chain",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Locally owned toy-chain franchise",
+    "specialties": "Educational toys; STEM; plush; crafts; games; fidgets",
+    "general_area": "Bee Cave / Hill Country Galleria",
+    "address": "12901 Hill Country Blvd Ste D1-103, Austin, TX 78738",
+    "city": "Austin",
+    "phone": "512-402-0808",
+    "website": "https://beecave.learningexpress.com/pages/bee-cave-store-info",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Bee Cave shop; central Austin Learning Express listings were not carried forward.",
+    "source": "https://beecave.learningexpress.com/pages/bee-cave-store-info"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9420148,
+     30.3092977
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Lakeshore Learning Store - Austin",
+    "kind": "Chain",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Educational toy and teaching-supply chain",
+    "specialties": "Learning toys; STEM; manipulatives; classroom supplies; crafts",
+    "general_area": "Northwest Austin / Great Hills",
+    "address": "9828 Great Hills Trl Ste 500, Austin, TX 78759",
+    "city": "Austin",
+    "phone": "512-241-2885",
+    "website": "https://www.lakeshorelearning.com/stores/locator/austin/055/",
+    "status": "Official locator found; contact corroborated by supplier and local directory",
+    "notes": "Store page blocked automated reading; address and phone corroborated by Teacher Created Resources and local directory.",
+    "source": "https://www.lakeshorelearning.com/stores/locator/austin/055/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7477767,
+     30.3956622
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "LEGO Store - Barton Creek Square",
+    "kind": "Chain",
+    "focus": "LEGO",
+    "stock": "New",
+    "type": "Brand-owned toy chain",
+    "specialties": "LEGO building sets; bricks; minifigures",
+    "general_area": "Southwest Austin / Barton Creek Square",
+    "address": "2901 S Capital of Texas Hwy, Austin, TX 78746",
+    "city": "Austin",
+    "phone": "512-327-7100",
+    "website": "https://www.simon.com/mall/barton-creek-square/stores/lego-store",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Upper level Nordstrom wing; coordinates may locate mall rather than exact shop.",
+    "source": "https://www.simon.com/mall/barton-creek-square/stores/lego-store"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8104956,
+     30.2560748
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bricks & Minifigs - Austin",
+    "kind": "LEGO",
+    "focus": "LEGO",
+    "stock": "New and used",
+    "type": "LEGO resale franchise",
+    "specialties": "New and used LEGO sets; bulk bricks; minifigures; trading",
+    "general_area": "Northwest Austin / Lakeline",
+    "address": "14010 N US Highway 183 Ste 445, Austin, TX 78717",
+    "city": "Austin",
+    "phone": "512-520-8019",
+    "website": "https://bricksandminifigs.com/austin-tx/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Official address differs from OSM's 14040 Research listing; current official address used. Census matched ZIP 78750; provider-published ZIP 78717 retained.",
+    "source": "https://bricksandminifigs.com/austin-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8007925,
+     30.4761464
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bricks & Minifigs - Round Rock",
+    "kind": "LEGO",
+    "focus": "LEGO",
+    "stock": "New and used",
+    "type": "LEGO resale franchise",
+    "specialties": "New and used LEGO; minifigures; trading",
+    "general_area": "Round Rock / South I-35",
+    "address": "1201 S Interstate 35 Ste 312, Round Rock, TX 78664",
+    "city": "Round Rock",
+    "phone": "512-305-3759",
+    "website": "https://bricksandminifigs.com/roundrock-tx/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "",
+    "source": "https://bricksandminifigs.com/roundrock-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6875322,
+     30.5185038
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bricks & Minifigs - South Austin",
+    "kind": "LEGO",
+    "focus": "LEGO",
+    "stock": "New and used",
+    "type": "LEGO resale franchise",
+    "specialties": "New and used LEGO; bricks; minifigures; trading",
+    "general_area": "Southwest Austin / Sunset Valley",
+    "address": "5207 Brodie Ln Ste 130, Sunset Valley, TX 78745",
+    "city": "Sunset Valley",
+    "phone": "512-774-3774",
+    "website": "https://bricksandminifigs.com/southaustin-tx/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "",
+    "source": "https://bricksandminifigs.com/southaustin-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.818778,
+     30.2316698
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bricks & Minifigs - Bee Cave",
+    "kind": "LEGO",
+    "focus": "LEGO",
+    "stock": "New and used",
+    "type": "LEGO resale franchise",
+    "specialties": "New and used LEGO; bricks; minifigures; parties",
+    "general_area": "West Austin / Bee Cave",
+    "address": "11905 Bee Cave Rd Ste 105, Bee Cave, TX 78738",
+    "city": "Bee Cave",
+    "phone": "512-243-5042",
+    "website": "https://bricksandminifigs.com/beecave-tx/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "",
+    "source": "https://bricksandminifigs.com/beecave-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.923921,
+     30.3076967
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Build-A-Bear Workshop - Barton Creek Square",
+    "kind": "Chain",
+    "focus": "Plush",
+    "stock": "New",
+    "type": "Toy chain; interactive plush retailer",
+    "specialties": "Make-your-own stuffed animals; plush accessories",
+    "general_area": "Southwest Austin / Barton Creek Square",
+    "address": "2901 S Capital of Texas Hwy Space R01, Austin, TX 78746",
+    "city": "Austin",
+    "phone": "512-347-0620",
+    "website": "https://www.buildabear.com/locations?StoreID=128",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "",
+    "source": "https://www.buildabear.com/locations?StoreID=128"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8065226,
+     30.2589313
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Build-A-Bear Workshop - Lakeline Mall",
+    "kind": "Chain",
+    "focus": "Plush",
+    "stock": "New",
+    "type": "Toy chain; interactive plush retailer",
+    "specialties": "Make-your-own stuffed animals; plush accessories",
+    "general_area": "Northwest metro / Lakeline Mall",
+    "address": "11200 Lakeline Mall Dr Space G05A, Cedar Park, TX 78613",
+    "city": "Cedar Park",
+    "phone": "512-401-0850",
+    "website": "https://www.buildabear.com/locations?StoreID=82",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "",
+    "source": "https://www.buildabear.com/locations?StoreID=82"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8075573,
+     30.4694875
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Build-A-Bear Workshop - San Marcos",
+    "kind": "Chain",
+    "focus": "Plush",
+    "stock": "New",
+    "type": "Toy chain; interactive plush retailer",
+    "specialties": "Make-your-own stuffed animals; plush accessories",
+    "general_area": "Southern metro / Tanger Outlets",
+    "address": "4015 S Interstate 35 Ste 500, San Marcos, TX 78666",
+    "city": "San Marcos",
+    "phone": "512-214-6018",
+    "website": "https://www.buildabear.com/locations?StoreID=328",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "",
+    "source": "https://www.buildabear.com/locations?StoreID=328"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9844804,
+     29.8260341
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Disney Store - San Marcos",
+    "kind": "Chain",
+    "focus": "Collectibles",
+    "stock": "New",
+    "type": "Brand-owned children's specialty chain",
+    "specialties": "Disney toys; dolls; plush; games; clothing; collectibles",
+    "general_area": "Southern metro / Tanger Outlets",
+    "address": "4015 S Interstate 35, San Marcos, TX 78666",
+    "city": "San Marcos",
+    "phone": "512-392-8880",
+    "website": "https://stores.disneystore.com/tx/san-marcos/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Outlet mall address; exact shop entrance not geocoded.",
+    "source": "https://stores.disneystore.com/tx/san-marcos/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9874477,
+     29.8236189
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Toys R Us - Barton Creek Square",
+    "kind": "Chain",
+    "focus": "Games & puzzles",
+    "stock": "New",
+    "type": "Toy chain; Go! Retail-operated store",
+    "specialties": "General toys; games; dolls; building toys",
+    "general_area": "Southwest Austin / Barton Creek Square",
+    "address": "2901 S Capital of Texas Hwy Space H03A, Austin, TX 78746",
+    "city": "Austin",
+    "phone": "",
+    "website": "https://www.goretailgroup.com/store-locator/toysrus/TR3404",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Separate store from Toys R Us at Macy's; no direct phone verified. Confirm seasonal status before a special trip.",
+    "source": "https://www.goretailgroup.com/store-locator/toysrus/TR3404"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8104956,
+     30.2560748
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Toys R Us at Macy's - Barton Creek",
+    "kind": "Chain",
+    "focus": "Games & puzzles",
+    "stock": "New",
+    "type": "Department-store toy shop; chain",
+    "specialties": "General toys; games; children's gifts",
+    "general_area": "Southwest Austin / Barton Creek Square",
+    "address": "2901 S Capital of Texas Hwy, Austin, TX 78746",
+    "city": "Austin",
+    "phone": "512-329-2300",
+    "website": "https://www.simon.com/mall/barton-creek-square/stores/toys-r-us-at-macys",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Inside Macy's; phone is the host department store. Separate from Go! Retail-operated Toys R Us.",
+    "source": "https://www.simon.com/mall/barton-creek-square/stores/toys-r-us-at-macys"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8104956,
+     30.2560748
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Go! Games & Toys - Tanger San Marcos",
+    "kind": "Chain",
+    "focus": "Games & puzzles",
+    "stock": "New",
+    "type": "Toy and game chain",
+    "specialties": "Family games; toys; puzzles",
+    "general_area": "Southern metro / Tanger Outlets",
+    "address": "4015 S Interstate 35, San Marcos, TX 78666",
+    "city": "San Marcos",
+    "phone": "512-368-4121",
+    "website": "https://www.tanger.com/sanmarcos/stores/go-games-and-toys/11713",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Mall page lists shop; confirm current opening schedule before visiting.",
+    "source": "https://www.tanger.com/sanmarcos/stores/go-games-and-toys/11713"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9874114,
+     29.8250124
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "All Things Kids",
+    "kind": "Independent / local",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Independent educational toy store",
+    "specialties": "European-style toys; books; creative and educational play",
+    "general_area": "Northern metro / Georgetown Square",
+    "address": "703 S Main St, Georgetown, TX 78626",
+    "city": "Georgetown",
+    "phone": "512-868-2659",
+    "website": "https://www.allthingskids.us/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Address corroborated by Hello Georgetown and OSM.",
+    "source": "https://www.allthingskids.us/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.676895,
+     30.637252
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Kinda Krazy Kids & Kompany",
+    "kind": "Independent / local",
+    "focus": "Plush",
+    "stock": "New",
+    "type": "Independent children's specialty retailer",
+    "specialties": "Toys; dolls; plush; puzzles; books; children's clothing",
+    "general_area": "Westlake / The Forum",
+    "address": "3736 Bee Caves Rd Ste 4, Austin, TX 78746",
+    "city": "Austin",
+    "phone": "512-347-0488",
+    "website": "https://www.kindakrazykids.com/location-hours.html",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "",
+    "source": "https://www.kindakrazykids.com/location-hours.html"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8074145,
+     30.2801607
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Dearly",
+    "kind": "Independent / local",
+    "focus": "Plush",
+    "stock": "New",
+    "type": "Independent baby and children's boutique",
+    "specialties": "Wooden toys; sensory toys; puzzles; plush; baby essentials",
+    "general_area": "West Austin / Davenport Village",
+    "address": "3801 N Capital of Texas Hwy Ste G207, Austin, TX 78746",
+    "city": "Austin",
+    "phone": "512-200-4041",
+    "website": "https://welovedearly.com/pages/visit-us",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Suite G207; shop suggests rear parking to avoid stairs.",
+    "source": "https://welovedearly.com/pages/visit-us"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8053818,
+     30.3362563
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Alexa James Baby",
+    "kind": "Independent / local",
+    "focus": "General toys",
+    "stock": "New",
+    "type": "Independent children's boutique",
+    "specialties": "Baby gifts; toys; musical play; clothing; accessories",
+    "general_area": "Central Austin / Bryker Woods",
+    "address": "1515 W 35th St Ste D, Austin, TX 78703",
+    "city": "Austin",
+    "phone": "512-435-1011",
+    "website": "https://www.alexajbaby.com/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Primarily children's apparel and gifts with selected toys.",
+    "source": "https://www.alexajbaby.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.750071,
+     30.3065808
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Picket Fences Baby & Big Kids",
+    "kind": "Independent / local",
+    "focus": "General toys",
+    "stock": "New",
+    "type": "Independent children's specialty retailer",
+    "specialties": "Baby and children's gifts; clothing; nursery items",
+    "general_area": "Central Austin / West 34th Street",
+    "address": "1003 W 34th St, Austin, TX 78705",
+    "city": "Austin",
+    "phone": "512-458-2565",
+    "website": "https://picketfencesbaby.com/contact-us/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Children's boutique; toy inventory not independently confirmed in this pass. Call for specific toys.",
+    "source": "https://picketfencesbaby.com/contact-us/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7448163,
+     30.3026857
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Kids-N-Cats Unique Gifts",
+    "kind": "Independent / local",
+    "focus": "Collectibles",
+    "stock": "New",
+    "type": "Independent gift and toy retailer",
+    "specialties": "Plush animals; wooden toys; action figures; novelty toys",
+    "general_area": "North Central Austin / Brentwood",
+    "address": "5732 Burnet Rd, Austin, TX 78756",
+    "city": "Austin",
+    "phone": "512-458-6369",
+    "website": "https://kids-n-cats.com/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Mixed gift shop; large plush selection.",
+    "source": "https://kids-n-cats.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7401478,
+     30.3329061
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Whole Earth Provision Co. - Central",
+    "kind": "Independent / local",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Regional outdoor and gift retailer",
+    "specialties": "STEM kits; crafts; games; puzzles; children's gifts",
+    "general_area": "Central Austin / North Lamar",
+    "address": "1014 N Lamar Blvd, Austin, TX 78703",
+    "city": "Austin",
+    "phone": "512-476-1414",
+    "website": "https://shop.wholeearthprovision.com/info/store-locations",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Toy assortment corroborated by March 2026 Austin Moms feature.",
+    "source": "https://shop.wholeearthprovision.com/info/store-locations"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7522566,
+     30.2752114
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Whole Earth Provision Co. - Westgate",
+    "kind": "Independent / local",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Regional outdoor and gift retailer",
+    "specialties": "STEM kits; crafts; games; puzzles; children's gifts",
+    "general_area": "South Austin / Westgate",
+    "address": "4477 S Lamar Blvd, Austin, TX 78745",
+    "city": "Austin",
+    "phone": "512-899-0992",
+    "website": "https://shop.wholeearthprovision.com/info/store-locations",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Toy assortment corroborated by March 2026 Austin Moms feature.",
+    "source": "https://shop.wholeearthprovision.com/info/store-locations"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7979755,
+     30.2312479
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "BookPeople",
+    "kind": "Independent / local",
+    "focus": "General toys",
+    "stock": "New",
+    "type": "Independent bookstore with children's gifts",
+    "specialties": "Children's books; activity kits; toys; crafts",
+    "general_area": "Downtown / West Sixth and Lamar",
+    "address": "603 N Lamar Blvd, Austin, TX 78703",
+    "city": "Austin",
+    "phone": "512-472-5050",
+    "website": "https://bookpeople.com/about-us",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Bookstore with children's toy and gift section; not a dedicated toy store.",
+    "source": "https://bookpeople.com/about-us"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7538693,
+     30.2715847
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Monkey See Monkey Do!",
+    "kind": "Independent / local",
+    "focus": "Collectibles",
+    "stock": "New",
+    "type": "Independent toy and novelty retailer",
+    "specialties": "Designer toys; action figures; blind boxes; collectibles",
+    "general_area": "South Austin / Menchaca and South Lamar",
+    "address": "2810 Menchaca Rd, Austin, TX 78704",
+    "city": "Austin",
+    "phone": "512-443-4999",
+    "website": "https://shopmsmd.com/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Moved from South Congress. Current address supported by 2026 reporting, Roadtrippers and OSM. Mixed all-ages and adult novelty selection.",
+    "source": "https://shopmsmd.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7817675,
+     30.243215
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Batcity Toys",
+    "kind": "Independent / local",
+    "focus": "Collectibles",
+    "stock": "New and used",
+    "type": "Independent vintage and collectible toy store",
+    "specialties": "Vintage and modern action figures; collectible toys",
+    "general_area": "Northern metro / West Georgetown",
+    "address": "3701 W State Highway 29 Ste 5103, Georgetown, TX 78628",
+    "city": "Georgetown",
+    "phone": "512-265-8975",
+    "website": "https://batcitytoys.com/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Current Georgetown address replaces older Austin listings; collector-oriented.",
+    "source": "https://batcitytoys.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7508731,
+     30.6313681
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Toy Dojo",
+    "kind": "Independent / local",
+    "focus": "Collectibles",
+    "stock": "New",
+    "type": "Independent collectible toy specialist",
+    "specialties": "Transformers; anime figures; action figures; collectibles",
+    "general_area": "East Central Austin / Mueller",
+    "address": "2036 Robert Browning St, Austin, TX 78723",
+    "city": "Austin",
+    "phone": "206-569-5139",
+    "website": "https://toydojo.com/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Collector-oriented; address verified on official site, phone corroborated by Cylex and Manta.",
+    "source": "https://toydojo.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7018181,
+     30.2987617
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Wonko's Toys and Games",
+    "kind": "Independent / local",
+    "focus": "Games & puzzles",
+    "stock": "New",
+    "type": "Independent toy and game specialist",
+    "specialties": "Tabletop games; miniatures; trading cards; hobby supplies",
+    "general_area": "Northwest Austin / Lake Creek Parkway",
+    "address": "13776 N US Highway 183 Ste 116, Austin, TX 78750",
+    "city": "Austin",
+    "phone": "512-335-1000",
+    "website": "https://www.wonkos.com/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Gaming-focused shop; not a general preschool toy store.",
+    "source": "https://www.wonkos.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.796587,
+     30.4625975
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "LionHeart Hobby & Games",
+    "kind": "Independent / local",
+    "focus": "Educational / STEM",
+    "stock": "New",
+    "type": "Independent hobby and educational retailer",
+    "specialties": "Model kits; board games; puzzles; STEM kits",
+    "general_area": "Southern metro / Kyle",
+    "address": "5500 FM 2770 Ste 101, Kyle, TX 78640",
+    "city": "Kyle",
+    "phone": "512-504-3404",
+    "website": "https://lionhearthobby.com/",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Official site lists Suite 101; OSM uses Suite 103. Point represents the building, not exact unit.",
+    "source": "https://lionhearthobby.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8903715,
+     30.0231495
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "HobbyTown - Austin North",
+    "kind": "Chain",
+    "focus": "Games & puzzles",
+    "stock": "New",
+    "type": "Locally operated hobby-chain franchise",
+    "specialties": "RC vehicles; model kits; puzzles; hobby supplies",
+    "general_area": "North Austin / Parmer Lane",
+    "address": "2500 W Parmer Ln Ste 80, Austin, TX 78727",
+    "city": "Austin",
+    "phone": "512-246-8904",
+    "website": "https://www.hobbytown.com/austin-n-tx/l128",
+    "status": "Provider or official mall listing reviewed",
+    "notes": "Address and phone corroborated by Horizon Hobby dealer listing; older-child and hobby focus.",
+    "source": "https://www.hobbytown.com/austin-n-tx/l128"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7018107,
+     30.4189031
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Wimberley Puzzle Company",
+    "kind": "Independent / local",
+    "focus": "Games & puzzles",
+    "stock": "New",
+    "type": "Independent puzzle specialist",
+    "specialties": "Handcrafted wooden jigsaw puzzles; custom puzzles",
+    "general_area": "Southwest metro / Wimberley",
+    "address": "13601 Ranch Road 12, Wimberley, TX 78676",
+    "city": "Wimberley",
+    "phone": "512-722-3556",
+    "website": "https://wimberleypuzzlecompany.com/",
+    "status": "Retail presence indexed; address and phone directory corroborated",
+    "notes": "Official indexed page mentions Wimberley retail store; address and phone from claimed business listing. Confirm current walk-in hours.",
+    "source": "https://wimberleypuzzlecompany.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -98.0935878,
+     29.9953662
+    ]
+   }
+  }
+ ]
 }

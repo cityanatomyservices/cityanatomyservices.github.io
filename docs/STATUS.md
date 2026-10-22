@@ -1,5 +1,15 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirty-eighth pass) — toy stores data refreshed
+
+Owner's CSV `C:\Dev\austin-toy-stores\greater-austin-toy-stores-and-childrens-retailers-with-contact-info.csv`
+(35 rows) → `apps/austin-toy-stores/data.geojson` (8 → 35) via
+`apps/austin-toy-stores/build.py`: `kind` (Independent / local, Chain,
+LEGO), `focus` (LEGO, Educational / STEM, Collectibles, Plush, Games &
+puzzles, General toys), `stock` (New / New and used) sorted from the
+owner's text, kept whole. Dropdowns Type / Focus / New or used / Area.
+Data `?v=20261023k`.
+
 ## 2026-10-22 (thirty-seventh pass) — bike shops data refreshed
 
 Owner's CSV `C:\Dev\austin-bicycle-shops\greater-austin-bicycle-and-ebike-shops-with-contact-info.csv`
