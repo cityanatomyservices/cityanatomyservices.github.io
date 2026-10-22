@@ -1,158 +1,547 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.72339,
-          30.30434
-        ]
-      },
-      "properties": {
-        "name": "Austin Vintage Guitars",
-        "address": "4306 Red River St, Austin, TX 78751",
-        "phone": "512-428-9100",
-        "shop_type": "Vintage Specialist",
-        "description": "Austin's largest dedicated vintage and used guitar shop; heavy focus on Fender/Gibson classics, amps, and repair bench."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.76355,
-          30.25276
-        ]
-      },
-      "properties": {
-        "name": "South Austin Music",
-        "address": "1402 S Lamar Blvd, Austin, TX 78704",
-        "phone": "512-448-4992",
-        "shop_type": "Independent",
-        "description": "Neighbourhood guitar institution since the 1980s offering new and used electrics/acoustics, quirky mid-price gear, repairs and lessons."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.73632,
-          30.35757
-        ]
-      },
-      "properties": {
-        "name": "Moon Music Pro",
-        "address": "2210 W Anderson Ln Ste B, Austin, TX 78757",
-        "phone": "512-291-3913",
-        "shop_type": "Independent",
-        "description": "Independent shop with rotating stock of new, used and vintage guitars and ukes; strong reputation for friendly service, setups and repairs."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.72955,
-          30.27233
-        ]
-      },
-      "properties": {
-        "name": "Austin Guitar House",
-        "address": "1104 E 12th St, Austin, TX 78702",
-        "phone": "512-243-6036",
-        "shop_type": "Boutique",
-        "description": "Boutique-oriented store focused on high-end, often hand-built electrics and amps; carries used and consignment pieces alongside new boutique lines."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.80632,
-          30.27163
-        ]
-      },
-      "properties": {
-        "name": "Strait Music Company (Bee Caves Rd)",
-        "address": "3201 Bee Caves Rd Ste 140, Austin, TX 78746",
-        "phone": "512-476-6927",
-        "shop_type": "Full-Line Independent",
-        "description": "Full-line family-owned music store with strong acoustic and electric guitar departments and a mix of new and used inventory plus large repair shop."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.7927,
-          30.4714
-        ]
-      },
-      "properties": {
-        "name": "Strait Music Company (North Austin)",
-        "address": "13945 N US 183 Hwy, Austin, TX 78717",
-        "phone": "512-733-8700",
-        "shop_type": "Full-Line Independent",
-        "description": "North Austin branch of Strait Music with broad new and pre-owned guitar selection, rentals and service."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.7589,
-          30.3114
-        ]
-      },
-      "properties": {
-        "name": "Fiddler's Green Music Shop",
-        "address": "1809 W 35th St, Austin, TX 78703",
-        "phone": "512-452-3900",
-        "shop_type": "Acoustic Specialist",
-        "description": "Small acoustic-oriented shop specialising in higher-end used and new flattops, mandolins and banjos; serious destination for acoustic folk/bluegrass players."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.7369,
-          30.3559
-        ]
-      },
-      "properties": {
-        "name": "Guitar Center Austin (Anderson Ln)",
-        "address": "2817 W Anderson Ln, Austin, TX 78757",
-        "phone": "512-419-1717",
-        "shop_type": "Chain",
-        "description": "Big-box chain with large used section; good for mainstream brands and frequent turnover of pre-owned gear."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.8111,
-          30.2353
-        ]
-      },
-      "properties": {
-        "name": "Guitar Center South Austin (MoPac)",
-        "address": "5300 S Mopac Expy Ste 103, Austin, TX 78749",
-        "phone": "512-891-0297",
-        "shop_type": "Chain",
-        "description": "South Austin Guitar Center location with standard mix of new and used guitars and amps."
-      }
-    }
-  ]
+ "type": "FeatureCollection",
+ "name": "austin-area-guitar-stores",
+ "description": "Austin-area guitar stores, owner research 2026-10-22 (C:\\Dev\\austin-guitar-stores\\austin-area-guitar-stores-with-contact-info.csv). Pins are approximate navigation locations; see each row's source.",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Austin Guitar House",
+    "shop_type": "Guitar retailer",
+    "address": "1104 E 12th St, Austin, TX",
+    "city": "Austin",
+    "phone": "512-243-6036",
+    "website": "https://austinguitarhouse.com/",
+    "notes": "",
+    "source": "https://austinguitarhouse.com/about-austin-guitar-house/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72859,
+     30.27267
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Austin Vintage Guitars",
+    "shop_type": "Guitar retailer",
+    "address": "4306 Red River St, Austin, TX",
+    "city": "Austin",
+    "phone": "512-428-9100",
+    "website": "https://www.austinvintageguitars.com/",
+    "notes": "",
+    "source": "https://www.austinvintageguitars.com/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72126,
+     30.30268
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Erlewine Guitars",
+    "shop_type": "Specialist builder and seller",
+    "address": "4402 Burnet Rd, Austin, TX",
+    "city": "Austin",
+    "phone": "512-302-1225",
+    "website": "https://www.erlewineguitars.com/",
+    "notes": "Custom guitars and repairs; contact before visiting.",
+    "source": "https://www.erlewineguitars.com/pgs/contact.htm"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7425,
+     30.31433
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Guitar Center — North Austin",
+    "shop_type": "Full-service music store",
+    "address": "2817 W Anderson Ln, Austin, TX",
+    "city": "Austin",
+    "phone": "512-419-0310",
+    "website": "https://stores.guitarcenter.com/tx/austin/446",
+    "notes": "Current address; older listings show 2525 W Anderson.",
+    "source": "https://stores.guitarcenter.com/tx/austin/446"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73747,
+     30.35889
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Guitar Center — South Austin",
+    "shop_type": "Full-service music store",
+    "address": "5300 S MoPac Expy, Suite 103, Austin, TX",
+    "city": "Austin",
+    "phone": "512-891-0297",
+    "website": "https://stores.guitarcenter.com/tx/austin/460",
+    "notes": "",
+    "source": "https://www.guitar-stores.com/shop/guitar-center-austin-tx-2/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.82865,
+     30.23332
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "La Casa de la Música",
+    "shop_type": "Guitar retailer",
+    "address": "512 W Stassney Ln, Austin, TX",
+    "city": "Austin",
+    "phone": "512-897-6349",
+    "website": "https://lacasadelamusicausa.com/",
+    "notes": "Location supported by business directory; official site could not be loaded.",
+    "source": "https://www.guitar-stores.com/shop/la-casa-de-la-musica-austin-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78065,
+     30.20894
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Moon Music Pro",
+    "shop_type": "Guitar retailer",
+    "address": "2210 W Anderson Ln, Suite B, Austin, TX",
+    "city": "Austin",
+    "phone": "512-291-3913",
+    "website": "https://moonmusicpro.com/",
+    "notes": "",
+    "source": "https://moonmusicpro.com/pages/were-here-to-help"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.729725,
+     30.355943
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Rock n Roll Rentals — North",
+    "shop_type": "Rental and gear sales",
+    "address": "8335 Burnet Rd, Austin, TX",
+    "city": "Austin",
+    "phone": "512-447-5305",
+    "website": "https://www.rocknrollrentals.com/",
+    "notes": "Rental-focused; new/used gear sales. Coordinate is approximate street address.",
+    "source": "https://www.rocknrollrentals.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.728784,
+     30.36364
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Rock n Roll Rentals — South",
+    "shop_type": "Rental and gear sales",
+    "address": "1420 W Oltorf St, Austin, TX",
+    "city": "Austin",
+    "phone": "512-447-5305",
+    "website": "https://www.rocknrollrentals.com/",
+    "notes": "Rental-focused; new/used gear sales. Coordinate is approximate street address.",
+    "source": "https://www.rocknrollrentals.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.769235,
+     30.246797
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "South Austin Music",
+    "shop_type": "Guitar retailer",
+    "address": "1402 S Lamar Blvd, Austin, TX",
+    "city": "Austin",
+    "phone": "512-448-4992",
+    "website": "https://www.southaustinmusic.com/",
+    "notes": "",
+    "source": "https://www.southaustinmusic.com/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76366,
+     30.25338
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Strait Music — North",
+    "shop_type": "Full-service music store",
+    "address": "13945 N Highway 183, Suite B, Austin, TX",
+    "city": "Austin",
+    "phone": "512-918-3743",
+    "website": "https://www.straitmusic.com/",
+    "notes": "",
+    "source": "https://www.straitmusic.com/pages/north-location"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79753,
+     30.47261
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "The Guitar Collection",
+    "shop_type": "Appointment showroom",
+    "address": "3908 Avenue B, Austin, TX",
+    "city": "Austin",
+    "phone": "",
+    "website": "https://www.guitarcollection.com/",
+    "notes": "Classical guitars; appointment only. No public phone found; email evan@guitarcollection.com.",
+    "source": "https://www.guitarcollection.com/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73577,
+     30.30452
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Wild About Music",
+    "shop_type": "Music/gift retailer with guitars",
+    "address": "615 Congress Ave, Austin, TX",
+    "city": "Austin",
+    "phone": "512-708-1700",
+    "website": "https://wildaboutmusic.com/",
+    "notes": "Music gifts and guitar sales; smaller selection.",
+    "source": "https://wildaboutmusic.com/index.php/contact-us/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74233,
+     30.26855
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Blake’s Music Shop",
+    "shop_type": "Guitar retailer",
+    "address": "93 Loop 150 W, Bastrop, TX",
+    "city": "Bastrop",
+    "phone": "512-985-7849",
+    "website": "https://www.blakesmusicshop.com/",
+    "notes": "",
+    "source": "https://reverb.com/shop/garys-gear-outlet-496/about"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.32754,
+     30.10712
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Music & Arts — Cedar Park",
+    "shop_type": "Full-service music store",
+    "address": "11066 Pecan Park Blvd, Suite B201, Cedar Park, TX",
+    "city": "Cedar Park",
+    "phone": "512-506-8824",
+    "website": "https://stores.musicarts.com/tx/cedarpark/music-store-6924.html",
+    "notes": "",
+    "source": "https://stores.musicarts.com/tx/cedarpark/music-store-6924.html"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79993,
+     30.46914
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Six Strings Guitar & Lounge",
+    "shop_type": "Guitar store and lounge",
+    "address": "705 S Main St, Georgetown, TX",
+    "city": "Georgetown",
+    "phone": "512-869-8064",
+    "website": "https://sixstringsgtown.com/",
+    "notes": "Formerly Kenz Guitars; Old Town Guitars repair shop is inside, not a separate retail location.",
+    "source": "https://www.oldtownguitars.com/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.676859,
+     30.637165
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Guitar Maverick",
+    "shop_type": "Appointment showroom",
+    "address": "18643 FM 1431, Jonestown, TX",
+    "city": "Jonestown",
+    "phone": "512-422-2005",
+    "website": "https://www.guitarmaverick.com/",
+    "notes": "Saturday afternoons and by appointment.",
+    "source": "https://www.guitarmaverick.com/contact-us/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.92381,
+     30.49352
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Fiddler’s Green Music Shop",
+    "shop_type": "Appointment showroom",
+    "address": "108 N Main St, Lockhart, TX",
+    "city": "Lockhart",
+    "phone": "512-452-3900",
+    "website": "https://fiddlersgreenmusicshop.com/",
+    "notes": "Appointment only. Current official address; older listings show 107 N Main. Coordinate is approximate street address.",
+    "source": "https://fiddlersgreenmusicshop.com/pages/contact"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.67237,
+     29.884842
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Sunflower and Friends",
+    "shop_type": "Guitar retailer",
+    "address": "119 W Walnut St, Unit A, Lockhart, TX",
+    "city": "Lockhart",
+    "phone": "512-668-3019",
+    "website": "https://www.sunflowerandfriends.com/",
+    "notes": "",
+    "source": "https://www.sunflowerandfriends.com/shop"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.67336,
+     29.88551
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Music City Guitars",
+    "shop_type": "Guitar retailer",
+    "address": "2203 W FM 1626, Manchaca, TX",
+    "city": "Manchaca",
+    "phone": "512-344-9443",
+    "website": "https://musiccityguitarstx.com/",
+    "notes": "",
+    "source": "https://musiccityguitarstx.com/contact-us/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.85556,
+     30.132
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Guitar Center — Round Rock",
+    "shop_type": "Full-service music store",
+    "address": "2200 S IH-35, Suite B4, Round Rock, TX",
+    "city": "Round Rock",
+    "phone": "512-244-0101",
+    "website": "https://stores.guitarcenter.com/tx/roundrock/492",
+    "notes": "",
+    "source": "https://stores.guitarcenter.com/tx/roundrock/492"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.679545,
+     30.488647
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Music & Arts — Round Rock",
+    "shop_type": "Full-service music store",
+    "address": "2541 S IH-35, Suite 750, Round Rock, TX",
+    "city": "Round Rock",
+    "phone": "512-255-0558",
+    "website": "https://stores.musicarts.com/tx/roundrock/",
+    "notes": "",
+    "source": "https://www.guitar-stores.com/shop/music-and-arts-round-rock-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.67435,
+     30.48471
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Retrostar Music",
+    "shop_type": "Appointment-only gear dealer",
+    "address": "2700 Louis Henna Blvd, Unit H6, Round Rock, TX",
+    "city": "Round Rock",
+    "phone": "512-545-0828",
+    "website": "http://www.retrostarmusic.com/",
+    "notes": "Appointment only per business listing; confirm current operation before visiting.",
+    "source": "https://nextdoor.com/pages/retrostar-music-round-rock-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.63122,
+     30.489574
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "JAMS Music",
+    "shop_type": "Guitar retailer",
+    "address": "118 S LBJ Dr, San Marcos, TX",
+    "city": "San Marcos",
+    "phone": "737-315-6301",
+    "website": "https://jamsmusicsmtx.wixsite.com/jams",
+    "notes": "Current location; older listings show Aquarena Springs. Phone from official website; tourism listing gives 737-221-7220.",
+    "source": "https://jamsmusicsmtx.wixsite.com/jams"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.94012,
+     29.88182
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Music & Arts — Sunset Valley",
+    "shop_type": "Full-service music store",
+    "address": "5207 Brodie Ln, Suite 220, Sunset Valley, TX",
+    "city": "Sunset Valley",
+    "phone": "512-892-0044",
+    "website": "https://stores.musicarts.com/tx/sunsetvalley/music-store-6926.html",
+    "notes": "",
+    "source": "https://www.guitar-stores.com/shop/music-and-arts-sunset-valley-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.81534,
+     30.23023
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Karch Music & Skate Shop",
+    "shop_type": "Guitar retailer",
+    "address": "423 N Main St, Taylor, TX",
+    "city": "Taylor",
+    "phone": "512-595-5465",
+    "website": "https://www.facebook.com/karchmusic/",
+    "notes": "",
+    "source": "https://taylormadetexas.com/shopping/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.41004,
+     30.57144
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Strait Music — Westlake",
+    "shop_type": "Full-service music store",
+    "address": "3201 Bee Caves Rd, Suite 140, Austin, TX",
+    "city": "Austin",
+    "phone": "512-476-6927",
+    "website": "https://www.straitmusic.com/",
+    "notes": "Austin mailing address; replaces former Ben White location.",
+    "source": "https://www.guitar-stores.com/shop/strait-music-company-austin-tx/"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.80071,
+     30.27214
+    ]
+   }
+  }
+ ]
 }

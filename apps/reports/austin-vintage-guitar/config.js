@@ -9,11 +9,11 @@ const CONFIG = {
   subtitle: "Vintage specialists, boutiques, independents, and chains across the metro",
 
   // Text shown in the ⓘ info flyout panel
-  infoPanelText: "Greater Austin's vintage and used guitar market — from dedicated vintage specialists and boutique showrooms to acoustic-focused destinations and big-box chains with deep used sections. Covers 9 shops across the metro.",
+  infoPanelText: "Greater Austin's vintage and used guitar market — from dedicated vintage specialists and boutique showrooms to acoustic-focused destinations and big-box chains with deep used sections. Covers 27 shops across the metro, from Georgetown and Taylor to Lockhart and San Marcos (researched 2026-10-22).",
 
   // ── Map defaults ──────────────────────────────────────────
-  center:          [-97.762, 30.315],
-  zoom:            10,
+  center:          [-97.729, 30.296],
+  zoom:            9.3,
   pitch:           45,
   bearing:         -15,
   markerColor:     "#7D4F00",
@@ -21,7 +21,7 @@ const CONFIG = {
   markerIconStyle: "pin",
 
   // ── Geographic bounds lock ────────────────────────────────
-  maxBounds: [[-98.04, 29.97], [-97.47, 30.62]],
+  maxBounds: [[-98.15, 29.75], [-97.15, 30.80]],
 
   // ── Theme overrides (leave undefined to use defaults) ────────
   // theme: {
@@ -80,6 +80,7 @@ const CONFIG = {
   columns: [
     { property: "name",      header: "Shop"    },
     { property: "shop_type", header: "Type"    },
+    { property: "city",      header: "City"    },
     { property: "address",   header: "Address" },
     { property: "phone",     header: "Phone"   },
   ],
@@ -89,6 +90,8 @@ const CONFIG = {
     { property: "shop_type",   label: "Type"        },
     { property: "address",     label: "Address"     },
     { property: "phone",       label: "Phone"       },
-    { property: "description", label: "Notes"       },
+    { property: "website",     label: "Website"     },
+    { property: "notes",       label: "Notes"       },
+    { property: "source",      label: "Source"      },
   ]
 };
