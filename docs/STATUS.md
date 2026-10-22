@@ -4,7 +4,8 @@
 
 Owner: close the card after a business is picked (map goes there, popup
 opens); the arrow reopens it. `chat/map.js` `onPlace`: `setCard(false)`.
-`chat/*?v=20261022y`.
+`chat/*?v=20261022y`. Then: reopening the card closes the popup
+(`placePopup` hoisted next to `setCard`), `?v=20261022z`.
 
 ## 2026-10-22 (twenty-seventh pass) — businesses under six groups
 

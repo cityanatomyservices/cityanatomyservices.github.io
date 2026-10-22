@@ -31,10 +31,12 @@
   // the card folds with the arrow in its title (same as the topic maps);
   // it starts CLOSED (owner 2026-10-22), showing only the title and the
   // people line, which sits outside the fold
+  let placePopup = null;        // a picked business's popup (set further down); reopening the card closes it
   const setCard = (open) => {
     $('legendTitle').setAttribute('aria-expanded', String(open));
     $('legendBody').hidden = !open;
     $('legend').classList.toggle('is-collapsed', !open);
+    if (open && placePopup) { placePopup.remove(); placePopup = null; }
   };
   setCard(false);
   $('legendTitle').addEventListener('click', () => setCard($('legendTitle').getAttribute('aria-expanded') !== 'true'));
@@ -249,8 +251,7 @@
       const markers = {};                              // room string -> Marker
       const placePoints = {};                          // place id -> [lng, lat], from the loaded list
       const rowOf = (roomString) => roomString.split('/')[1];
-      let placeMarker = null;                          // the business you picked
-      let placePopup = null;                           // and its popup
+      let placeMarker = null;                          // the business you picked (its popup: placePopup, above)
       window.ChatRoom.start(geofences, { hooks: {
         // your room: the old one loses its tint, the new one gains it, the map flies there
         onRoom(feature, before) {
