@@ -35,7 +35,8 @@ def style(text):
     return 'English' if english else 'Western' if western else 'Not stated'
 
 
-rows = list(csv.DictReader(open(CSV, encoding='utf-8-sig')))
+with open(CSV, encoding='utf-8-sig') as f:
+    rows = list(csv.DictReader(f))
 features = []
 for r in rows:
     t = r['type_of_riding'].strip()
