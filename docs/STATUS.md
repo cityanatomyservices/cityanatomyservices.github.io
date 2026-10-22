@@ -1,5 +1,18 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-third pass) — menu arrows back, smaller chat box, three view buttons
+
+Owner: the chevrons back on the hamburger links; chat box a little
+narrower and 40% shorter; three equal square buttons bottom right above
+the info button: Street (flat, block level, zoom 17), Neighborhood (the
+opening view, tilted, one level closer than before: zoom 15.4 — also the
+new default; goes to YOUR neighborhood once located, else downtown), City
+(flat, all of Austin, same as extents). Done: `style.css` `.menu-link::after`
+chevron; `chat/panel.css` 280×216 (phone 33%), moved left of the stack;
+`chat/config.js` `views` block; `chat/map.js` setTilt/cityView/
+neighborhoodView/streetView, opening move = neighborhoodView; room flights
+use the Neighborhood zoom. Site `?v=20261022t`, chat files too.
+
 ## 2026-10-22 (twenty-second pass) — businesses per neighborhood, business rooms
 
 Owner: a categorized list of businesses per neighborhood on the card

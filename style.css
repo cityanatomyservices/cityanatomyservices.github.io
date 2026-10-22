@@ -1194,6 +1194,13 @@ main {
   color: var(--text);
 }
 
+/* a small chevron on every link (owner 2026-10-22: "makes it more obvious
+   there are other items") */
+.site-menu .menu-link::after {
+  content: '›';
+  float: right;
+}
+
 .site-menu .menu-link:hover { color: var(--accent); }
 
 /* Compact home header and footer (owner, 2026-10-22: "maximize the map

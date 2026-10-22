@@ -6,7 +6,9 @@ window.MAP_COPY = {
   pageTitle: 'Austin neighborhoods',
   ui: {
     satellite: 'Satellite', zoomInBtn: 'Zoom in', zoomOutBtn: 'Zoom out', extents: 'Fit to Austin',
-    locate: 'Go to my neighborhood', to3d: 'Map is flat. Switch to tilted 3D view', to2d: 'Map is tilted 3D. Switch to flat 2D view'
+    locate: 'Go to my neighborhood', to3d: 'Map is flat. Switch to tilted 3D view', to2d: 'Map is tilted 3D. Switch to flat 2D view',
+    // the three view buttons, top to bottom
+    street: 'Street', neighborhood: 'Neighborhood', city: 'City'
   },
   // the card in the top-left corner (owner 2026-10-22: no sub line, no
   // About button, no "nobody here" line — the card stays clean)

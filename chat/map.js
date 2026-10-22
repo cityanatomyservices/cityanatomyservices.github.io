@@ -102,13 +102,32 @@
     $('ctrlZoomIn').addEventListener('click', () => map.zoomTo(map.getZoom() + 1, { duration: 250 }));
     $('ctrlZoomOut').addEventListener('click', () => map.zoomTo(map.getZoom() - 1, { duration: 250 }));
     // extents: all of Austin, flat and north-up (the way back after wandering)
-    $('ctrlExtent').addEventListener('click', () => {
-      tilted = false;
-      showTilt();
-      if (map.getLayer('buildings-3d')) map.setLayoutProperty('buildings-3d', 'visibility', 'none');
+    const cityView = () => {
+      setTilt(false);
       const cam = map.cameraForBounds(box, { padding: CFG.fitPadding, bearing: 0 });
       if (cam) map.easeTo({ ...cam, pitch: 0, duration: 700 });
-    });
+    };
+    $('ctrlExtent').addEventListener('click', cityView);
+
+    // the three view buttons (bottom right). Neighborhood = the opening view
+    // (your own neighborhood once the phone has found it, else downtown),
+    // tilted; Street = flat, down to the block; City = all of Austin, flat.
+    const V = CFG.views;
+    const neighborhoodView = (duration) => {
+      const target = (window.ChatRoom && window.ChatRoom.room) || byId(CFG.openView.room);
+      setTilt(true);
+      map.easeTo({ center: target ? centreOf(target) : map.getCenter(), zoom: V.neighborhood.zoom, pitch: V.neighborhood.pitch, bearing: 0, duration });
+    };
+    const streetView = () => {
+      setTilt(false);
+      map.easeTo({ zoom: V.street.zoom, pitch: V.street.pitch, bearing: 0, duration: 700 });
+    };
+    $('viewStreet').textContent = COPY.ui.street;
+    $('viewNeighborhood').textContent = COPY.ui.neighborhood;
+    $('viewCity').textContent = COPY.ui.city;
+    $('viewStreet').addEventListener('click', streetView);
+    $('viewNeighborhood').addEventListener('click', () => neighborhoodView(900));
+    $('viewCity').addEventListener('click', cityView);
     let satelliteOn = false;
     $('ctrlSatellite').addEventListener('click', () => {
       satelliteOn = !satelliteOn;
@@ -126,9 +145,13 @@
       $('ctrlTilt').classList.toggle('is-on', tilted);
     };
     showTilt();
-    const applyTilt = (duration) => {
+    const setTilt = (on) => {               // the button and the buildings follow the state
+      tilted = on;
       showTilt();
       if (map.getLayer('buildings-3d')) map.setLayoutProperty('buildings-3d', 'visibility', tilted ? 'visible' : 'none');
+    };
+    const applyTilt = (duration) => {
+      setTilt(tilted);
       map.easeTo({ pitch: tilted ? CFG.pitch : 0, duration });
     };
     $('ctrlTilt').addEventListener('click', () => { tilted = !tilted; applyTilt(600); });
@@ -174,9 +197,7 @@
       // the opening move: from all of Austin flat, fly in over downtown
       // and tilt up (the owner's reference view); showTilt keeps the button
       // reading 2D while the map is tilted
-      const opening = byId(CFG.openView.room);
-      showTilt();
-      map.easeTo({ center: opening ? centreOf(opening) : map.getCenter(), zoom: CFG.openView.zoom, pitch: CFG.pitch, bearing: 0, duration: CFG.openTiltMs });
+      neighborhoodView(CFG.openTiltMs);
 
       // hover: tint the polygon under the pointer
       let hovered = null;
@@ -218,7 +239,7 @@
           if (before) map.setFeatureState({ source: 'geofences', id: before.properties.id }, { room: false });
           if (!feature) return;
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
-          flyTo(boundsOf([feature]), 60, 15);
+          flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
         },
         // the neighborhood's business list arrived: remember where each one is
         onPlaces(data) {
@@ -252,7 +273,7 @@
       // find me: back to your neighborhood, or ask for the location again
       $('ctrlLocate').addEventListener('click', () => {
         const r = window.ChatRoom.room;
-        if (r) flyTo(boundsOf([r]), 60, 15); else window.ChatRoom.locate();
+        if (r) flyTo(boundsOf([r]), 60, V.neighborhood.zoom); else window.ChatRoom.locate();
       });
 
       // the map object, so it can be poked at from the browser console

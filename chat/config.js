@@ -51,7 +51,15 @@ window.MAP_CONFIG = {
   // where the map opens (owner's reference picture 2026-10-22): over this
   // neighborhood at this zoom, close enough for the buildings to show, then
   // it flies to your own neighborhood once the phone finds it
-  openView: { room: 'downtown', zoom: 14.4 },   // one step closer (owner 2026-10-22)
+  openView: { room: 'downtown' },
+  // the three view buttons (owner 2026-10-22), bottom right above the info
+  // button: Street = flat, block level; Neighborhood = the opening view,
+  // tilted; City = all of Austin, flat (same as the extents button). The
+  // page opens on the Neighborhood view over `openView.room`.
+  views: {
+    street:       { zoom: 17,   pitch: 0 },
+    neighborhood: { zoom: 15.4, pitch: 57 }
+  },
   openTiltMs: 1800,
   buildingColor: '#d6d9dd'
 };

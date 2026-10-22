@@ -2,7 +2,7 @@
    Colours come from six --chat-* variables that each page sets from its
    own palette (the chat map in chat/style.css, each tour in its app.html),
    so the window belongs to the page it is on. Markup: see panel.js. */
-.chatwin { position: absolute; z-index: 8; right: 68px; bottom: 12px; width: 320px; max-width: calc(100% - 80px); height: 360px; max-height: calc(100% - 24px); box-sizing: border-box; display: flex; flex-direction: column; background: var(--chat-bg); border: 1px solid var(--chat-line); border-radius: 8px; color: var(--chat-fg); box-shadow: 0 6px 24px rgba(0,0,0,.25); font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.chatwin { position: absolute; z-index: 8; right: 132px; bottom: 12px; width: 280px; max-width: calc(100% - 136px); height: 216px; max-height: calc(100% - 24px); box-sizing: border-box; display: flex; flex-direction: column; background: var(--chat-bg); border: 1px solid var(--chat-line); border-radius: 8px; color: var(--chat-fg); box-shadow: 0 6px 24px rgba(0,0,0,.25); font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
 .chatwin[hidden] { display: none; }
 .chat-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-bottom: 1px solid var(--chat-line); }
 .chat-head h2 { margin: 0; flex: 1; font-size: 14px; font-family: inherit; }
@@ -17,5 +17,5 @@
 .chat-form input { flex: 1; min-width: 0; font: inherit; font-size: 13px; padding: 6px 8px; border: 1px solid var(--chat-line); border-radius: 6px; background: var(--chat-input-bg); color: var(--chat-fg); }
 .chat-form button { font: inherit; font-size: 13px; padding: 6px 12px; border: 1px solid var(--chat-accent); background: var(--chat-accent); color: var(--chat-bg); border-radius: 6px; cursor: pointer; }
 @media (max-width: 640px) {
-  .chatwin { right: 8px; left: 8px; bottom: 8px; width: auto; max-width: none; height: 55%; }
+  .chatwin { right: 120px; left: 8px; bottom: 8px; width: auto; max-width: none; height: 33%; }
 }
