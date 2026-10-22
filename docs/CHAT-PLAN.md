@@ -1,5 +1,43 @@
 # Chat map plan — the austin.chat home page (drafted 2026-10-22)
 
+## 0. The agreed model (owner, 2026-10-22, evening)
+
+- **One origin, austin.chat, for everything.** austin1885.city is being
+  deleted; every app lives under `austin.chat/apps/<slug>/` and holds all
+  it needs to run in the browser. Many apps are coming.
+- **One identity across all apps, no registration required.** Today that
+  is the random name + emoji (`chat/identity.js`); because every app is on
+  the same origin, the browser already shares that stored identity between
+  `/`, `/apps/1885/`, `/apps/moontower/` and the rest — nothing to build,
+  only one rule: every app reads the SAME file and the SAME storage key
+  (`austinchat:identity`). Once Supabase Auth is set up (§2), the signed-in
+  profile name replaces the random one for people who choose to sign in.
+- **Signing in is optional.** An anonymous visitor gets every function
+  except the ones that need history spanning logins and devices (miles
+  walked, towers lit across phones, past conversations). Those read from
+  the profile and `tour_progress` rows and simply stay off for a visitor
+  with no account.
+- **Use one app, show up in the others.** Presence is per neighborhood
+  room (§3); a person visible in a room is visible in that room from any
+  app, because all apps join the same channels with the same identity.
+  Decided against (2026-10-22 review of the long description): live GPS
+  positions on other people's maps (coordinates never leave the phone;
+  people are shown on their neighborhood polygon), server-side polygon
+  validation (no server; the room is a channel name), Turf.js (the
+  fifteen-line test in `chat/locate.js` does the job).
+- **Visibility is one global switch**, off by default for a visitor who
+  only wanted GPS for a tour; it lives in the browser now and moves to the
+  profile row with Auth so it follows the person across devices.
+- **The shared code** is the chat files themselves, loaded by each app:
+  `identity.js` (later `auth.js`), `locate.js`, `chat.js`, `panel.js`, plus
+  a visibility button. One small file per job; nothing more abstract.
+- **To do when the domain goes:** `home.json` still embeds the 1885 demo
+  from `austin1885.city/annihilatortour/?demo=1`, and the 1885 tour's
+  stops link to `austin1885.city` pages (see the Austin1885 repos) — both
+  need austin.chat addresses first. The tour code itself still sits at
+  `/1885murdertour/app.html` behind the framed `/apps/1885/`; moving it
+  into `/apps/1885/` is a separate pass.
+
 Owner's brief, 2026-10-22: replace the home page's demo reel with a static
 chat map. One geofence per neighborhood (merged by name). You only see
 people in your own geofence. Everyone can turn their visibility on and off.

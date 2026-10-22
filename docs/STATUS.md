@@ -1,5 +1,17 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (nineteenth pass) — the agreed identity model, in the plan
+
+Owner reviewed a long description of the platform; Claude's read: mostly
+what is built, but no server-side polygon check, no live GPS positions,
+no Turf.js, and cross-app login only works on one origin. Owner's
+decisions: austin1885.city will be DELETED, everything runs under
+austin.chat/apps/<slug>/; one identity across all apps (random name now,
+profile name once Auth exists); never required to register; history
+functions (miles walked etc.) are the only sign-in-only ones. Written as
+`docs/CHAT-PLAN.md` §0, with the two things the deletion breaks (1885
+demo src in home.json, stop links to austin1885.city). No code changed.
+
 ## 2026-10-22 (eighteenth pass) — card closed by default, no auto-open chat, closer
 
 Owner: the chat window must NEVER open by itself; the card starts closed
