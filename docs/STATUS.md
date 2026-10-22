@@ -1,5 +1,20 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (fifth pass) — shell.js: one frame, many pages; deep links
+
+Owner: new Content and Contact pages "based on the homepage", the brand
+link to go to `/`, and "many pages" that look exactly like the home page
+except the centre, shareable as links. Built as ONE shared frame:
+`shell.js` (header + menu + footer + day/night button, loaded at the end of
+every page's body) around a page that holds only its `<main>`. `index.html`,
+`content/index.html` and `contact/index.html` are now that shape;
+`contact.html` is gone (its styles moved into `style.css`). Menu items are
+deep links `/#<path>`; `home.js` reads the hash and loads it in the window,
+so `https://austin.chat/#/budget/` opens the Budget Map inside the frame
+from anywhere, and the back button steps through picks. The Content text is
+the old page's placeholder copy, marked as such in the file. `apps/` and
+`apps/reports/` keep the old header for now. `?v=20261022d`.
+
 ## 2026-10-22 (fourth pass) — Maps is a top-level menu section
 
 Owner: "Maps is top level at the menu", beside Apps, holding the Budget,

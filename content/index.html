@@ -3,81 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content • City Anatomy</title>
-  <link rel="canonical" href="https://austin.chat/content" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
-  <link href="/style.css?v=20261022c" rel="stylesheet" />
+  <title>Content · Austin.Chat</title>
+  <link rel="canonical" href="https://austin.chat/content/" />
+  <link href="/style.css?v=20261022d" rel="stylesheet" />
 </head>
 <body>
-  <header id="top" class="topbar">
-    <div class="topbar-left">
-      <a class="brand" href="/index.html">City Anatomy</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="nav-toggle-bar"></span>
-      </button>
-      <nav class="primary-nav" aria-label="Main navigation">
-        <a href="/apps/">Apps</a>
-        <a href="/content/">Content</a>
-      </nav>
-    </div>
-    <div class="topbar-right">
-      <button class="theme-toggle" type="button" aria-label="Toggle color scheme">
-        <span class="toggle-icon">☀️</span>
-        <span class="toggle-label">Light</span>
-      </button>
-    </div>
-  </header>
-
-  <main class="docs-page">
-    <div class="docs-layout">
-      <aside class="docs-nav" aria-label="Content navigation">
-        <p class="content-kicker">Content</p>
-        <h1 class="page-title">Notes, drafts, and dispatches</h1>
-        <p class="sidebar-lede">
-          Read longform essays, field reports, and weeknotes from City Anatomy. This space hosts the stories behind our maps—updates on experiments, behind-the-scenes process notes, and glimpses into what's coming next.
-        </p>
-
-        <div class="nav-section">
-          <button class="nav-section-toggle" type="button" aria-expanded="true">
-            <span>Latest ideas</span>
-            <span class="chevron" aria-hidden="true">▾</span>
-          </button>
-          <ul class="nav-links">
-            <li><button class="nav-link is-active" data-description="An outline for a story on wind, shade, and pocket parks downtown." data-tag="Urban life" data-map-label="How the skyline breathes" data-color="#f97316">How the skyline breathes</button></li>
-            <li><button class="nav-link" data-description="Notes from processing open data and tuning tiling pipelines." data-tag="Process" data-map-label="A week inside the GIS stack" data-color="#0ea5e9">A week inside the GIS stack</button></li>
-            <li><button class="nav-link" data-description="Photo placeholders and captions from an evening walk along the trail." data-tag="Field notes" data-map-label="Field trip: Waller Creek" data-color="#22c55e">Field trip: Waller Creek</button></li>
-          </ul>
-        </div>
-      </aside>
-
-      <section class="map-column">
-        <div class="map-panel">
-          <div class="map-viewport" data-base-color="#f97316">
-            <div class="map-overlay">
-              <p class="overlay-label">Shared map</p>
-              <h2 data-map-label>How the skyline breathes</h2>
-              <p class="overlay-note" data-map-note>Same atlas preview guides every story idea.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <article class="detail-panel" aria-live="polite">
-        <p class="detail-tag" data-detail-tag>Urban life</p>
-        <h2 class="detail-title" data-detail-title>How the skyline breathes</h2>
-        <p class="detail-body" data-detail-body>
-          An outline for a story on wind, shade, and pocket parks downtown.
-        </p>
-      </article>
-
-      <footer class="page-footer docs-footer">
-        <p>&copy; 2025 City Anatomy &bull; Powered by
-          <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>
-        </p>
-      </footer>
-    </div>
+  <!-- Content page: only the centre lives here; shell.js draws the frame.
+       The words below were carried over from the previous Content page on
+       2026-10-22 and are still that page's placeholders; the owner writes
+       the real copy. -->
+  <main class="page-main">
+    <article class="page-body">
+      <p class="page-kicker">Content</p>
+      <h1>Notes, drafts, and dispatches</h1>
+      <p class="page-lede">
+        Read longform essays, field reports, and weeknotes from City Anatomy. This space hosts the stories behind our maps—updates on experiments, behind-the-scenes process notes, and glimpses into what's coming next.
+      </p>
+      <ul class="page-list">
+        <li><strong>How the skyline breathes</strong> — An outline for a story on wind, shade, and pocket parks downtown.</li>
+        <li><strong>A week inside the GIS stack</strong> — Notes from processing open data and tuning tiling pipelines.</li>
+        <li><strong>Field trip: Waller Creek</strong> — Photo placeholders and captions from an evening walk along the trail.</li>
+      </ul>
+    </article>
   </main>
 
-  <script src="/page.js?v=20261022c"></script>
+  <script src="/shell.js?v=20261022d"></script>
 </body>
 </html>

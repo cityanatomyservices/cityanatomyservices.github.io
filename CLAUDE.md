@@ -11,13 +11,13 @@
 
 ## Cache-busting the shared CSS/JS
 
-`/style.css`, `/page.js` and `/home.js` are referenced with a version query —
+`/style.css`, `/shell.js`, `/home.js` and `/page.js` are referenced with a version query —
 `?v=20260911a`. GitHub Pages serves them with a long cache lifetime, so without
 it a visitor keeps the old file after a push and simply does not see the change
 (this bit the owner on 2026-09-10: a restored header button was live but
 invisible to them for exactly this reason).
 
-**Bump the number on every push that changes one of those three files**, in all
+**Bump the number on every push that changes one of those files**, in all
 the HTML that references them:
 
     grep -rl 'v=20260911a' --include='*.html' . | xargs sed -i 's/v=20260911a/v=<new>/g'
@@ -65,3 +65,14 @@ The steps, in order:
    "Navigate map / and sources at / <page address>" from the last map
    second. Output to `C:\Dev\map-exports\<map>\`.
 
+
+## The frame: shell.js (2026-10-22)
+
+Every page is a small HTML file holding only its centre (`<main>`), with
+`/shell.js` loaded at the end of `<body>`. That script draws the header
+(hamburger, Austin.Chat, day/night button, the menu) and the social footer,
+so the frame lives in one file and every page looks the same. To add a page:
+copy `contact/index.html`, replace the centre, keep the `shell.js` line.
+Menu items are deep links of the form `/#/budget/`; `home.js` makes the home
+page's map window follow the hash, so those addresses are shareable.
+`apps/` and `apps/reports/` still carry the older header and `page.js`.

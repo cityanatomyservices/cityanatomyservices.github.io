@@ -1,22 +1,17 @@
-// home.js — the home page's hamburger menu and the demo reel in the window.
+// home.js — the home page's map window: what plays in it, and the demo reel.
+// The header, menu and footer come from shell.js, shared by every page.
 //
-// THE MENU REPLACED THE CARD ROW (owner, 2026-10-22: "more screen real
-// estate"). Every app and report that used to be a card is now a menu item,
-// grouped under a category heading inside Apps.
-// Picking one loads it in the map window and closes the menu; the small ↗
-// beside it opens the same page in a new tab instead. The list of apps comes
-// from home.json and the list of reports from apps/reports/reports.json, so
-// adding one is still a data edit, not a code edit.
+// THE WINDOW FOLLOWS THE ADDRESS. "https://austin.chat/#/budget/" opens the
+// Budget Map in the window; the part after "#" is the path to load. Menu
+// items are links of exactly that shape (shell.js), so picking one just
+// changes the hash, and the browser's back button steps back through picks.
+// Anyone can copy the address bar to share what they are looking at.
 //
-// THE REEL: until the visitor picks something, the window cycles through the
-// apps marked `demo` in home.json, each holding for `demoMs` (default 60 s).
+// THE REEL: with no hash, the window cycles through the apps marked `demo`
+// in home.json, each holding for `demoMs` (default 60 s), until a pick.
 (function () {
   const frame = document.getElementById('app-window');
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.getElementById('site-menu');
-  const appsGroups = document.getElementById('menu-apps');
-  const mapsList = document.getElementById('menu-maps');
-  if (!frame || !toggle || !menu || !appsGroups || !mapsList) return;
+  if (!frame) return;
 
   const DEMO_MS = 60000;
 
@@ -25,23 +20,6 @@
     // does not reload what is already playing.
     if (src && frame.getAttribute('src') !== src) frame.setAttribute('src', src);
   }
-
-  // ── open / close the menu ────────────────────────────────────────────────
-  function setOpen(open) {
-    menu.hidden = !open;
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  }
-  toggle.addEventListener('click', () => setOpen(menu.hidden));
-  // A click anywhere outside the menu, or Escape, closes it.
-  document.addEventListener('click', (e) => {
-    if (menu.hidden) return;
-    if (menu.contains(e.target) || toggle.contains(e.target)) return;
-    setOpen(false);
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !menu.hidden) setOpen(false);
-  });
 
   // ── the demo reel ────────────────────────────────────────────────────────
   let reelTimer = null;
@@ -62,71 +40,50 @@
     reelTimer = setTimeout(step, wait());
   }
 
-  // ── menu items ───────────────────────────────────────────────────────────
-  // One list row: the name loads the page in the window, the ↗ opens a tab.
-  function addItem(list, title, href) {
-    const li = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = href;
-    link.textContent = title;
-    link.addEventListener('click', (e) => {
-      e.preventDefault();               // stay on the home page
-      stopReel();                       // the visitor has chosen; the reel stops
-      show(href);
-      setOpen(false);
-    });
-    const pop = document.createElement('a');
-    pop.className = 'menu-pop';
-    pop.href = href;
-    pop.target = '_blank';
-    pop.rel = 'noopener noreferrer';
-    pop.title = 'Open in a new tab';
-    pop.setAttribute('aria-label', title + ' (new tab)');
-    pop.textContent = '↗';
-    li.appendChild(link);
-    li.appendChild(pop);
-    list.appendChild(li);
+  // ── the address decides what plays ───────────────────────────────────────
+  // Only a path that starts with "/" is accepted, so the hash can never point
+  // the window at another site.
+  function pathFromHash() {
+    const h = decodeURIComponent(location.hash.slice(1));
+    return h.startsWith('/') ? h : '';
   }
-
-  // One category under Apps: a heading that opens to its list of apps.
-  function addGroup(name) {
-    const group = document.createElement('details');
-    group.className = 'menu-group';
-    group.open = true;
-    const heading = document.createElement('summary');
-    heading.textContent = name;
-    const list = document.createElement('ul');
-    list.className = 'menu-links';
-    group.appendChild(heading);
-    group.appendChild(list);
-    appsGroups.appendChild(group);
-    return list;
+  function followHash() {
+    const path = pathFromHash();
+    if (!path) return false;
+    stopReel();                           // the visitor has chosen; the reel stops
+    show(path);
+    return true;
   }
-
-  // The Apps section shows CATEGORIES, never bare links (owner, 2026-10-22).
-  // Apps come from home.json, each with a `category`; every report from
-  // apps/reports/reports.json goes under `reportsCategory` (Shopping Apps).
-  // Categories appear in the order home.json lists them; "Maps" is not one
-  // of them, see below.
-  Promise.all([
-    fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null),
-    fetch('/apps/reports/reports.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])
-  ]).then(([data, reports]) => {
-    if (!data) return;                  // no data: the window keeps index.html's src
-    const chip = (data.chips || []).find((c) => c.label === 'Apps');
-    const apps = (chip && chip.cards) || [];
-    const lists = new Map();
-    (data.categories || []).forEach((name) => lists.set(name, addGroup(name)));
-    const listFor = (name) => lists.get(name) || addGroup(name);   // unknown category: still shown
-    // MAPS IS ITS OWN TOP-LEVEL SECTION (owner, 2026-10-22), beside Apps rather
-    // than inside it: an app whose category is "Maps" is listed there directly.
-    // (Sub-headings by type of map can come later, the way addGroup does for Apps.)
-    apps.forEach((a) => {
-      const list = a.category === 'Maps' ? mapsList : listFor(a.category || 'Apps');
-      addItem(list, a.title, a.app || a.src);
-    });
-    (reports || []).forEach((item) =>
-      addItem(listFor(data.reportsCategory || 'Shopping Apps'), item.title, '/apps/reports/' + item.id + '/'));
-    startReel(apps);
+  window.addEventListener('hashchange', () => {
+    followHash();
+    if (window.siteShell) window.siteShell.closeMenu();
   });
+
+  // A menu pick on THIS page is just a hash change: no navigation, no reload.
+  // (On every other page the same link is a normal link to the home page.)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('#site-menu .menu-links a');
+    if (!link || link.classList.contains('menu-pop')) return;
+    const hash = link.getAttribute('href').replace(/^\//, '');   // "#/budget/"
+    if (!hash.startsWith('#')) return;
+    e.preventDefault();
+    if (location.hash === hash) {         // same pick again: nothing to change
+      if (window.siteShell) window.siteShell.closeMenu();
+      return;
+    }
+    location.hash = hash;
+  });
+
+  // Opening with a hash shows that app at once; otherwise the reel runs.
+  if (!followHash()) {
+    fetch('/home.json')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        const chip = ((data && data.chips) || []).find((c) => c.label === 'Apps');
+        if (!pathFromHash()) startReel((chip && chip.cards) || []);
+      })
+      .catch(() => {
+        // No data: the window still shows whatever src index.html set.
+      });
+  }
 }());
