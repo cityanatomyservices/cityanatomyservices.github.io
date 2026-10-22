@@ -8,8 +8,9 @@
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
   <!-- THE CHAT MAP: the centre of the austin.chat home page (index.html
        frames this page in its window). The 65 neighborhood geofences from
-       chat/data/geofences.geojson, with the same controls as the topic maps
-       (/datacenters/, /AISD/): Satellite, zoom, fit, and a fold card. The
+       chat/data/geofences.geojson, the card top-left (fold card from the
+       topic maps) and, on the right, the round control stack of the
+       walking-tour apps: find me, 2D/3D, satellite, extents, zoom. The
        card says who you are, which neighborhood your phone is in, and who
        else is visible there; when someone else is, the chat window opens.
        It borrows the topic maps' stylesheet so it looks the same, but not
@@ -22,25 +23,14 @@
        ?v= so a push is actually seen (GitHub Pages caches hard): bump it
        on the file that changed. -->
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
-  <link rel="stylesheet" href="./style.css?v=20261022k" />
+  <link rel="stylesheet" href="./style.css?v=20261022l" />
 </head>
 <body>
   <div class="page">
     <div id="map"></div>
 
-    <h1 class="title" id="title"></h1>
-    <!-- top-left: the control row, then the card -->
+    <!-- top-left: the card — you, your neighborhood, who is here, Visible / Chat, About -->
     <div class="topleft">
-      <div class="map-controls">
-        <button class="map-ctrl map-ctrl-text" id="ctrlSatellite" type="button" aria-pressed="false"></button>
-        <button class="map-ctrl" id="ctrlZoomIn" type="button">+</button>
-        <button class="map-ctrl" id="ctrlZoomOut" type="button">&minus;</button>
-        <button class="map-ctrl" id="ctrlExtent" type="button">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
-        </button>
-      </div>
-
-      <!-- the card: you, your neighborhood, who is here, Visible / Chat, About -->
       <aside class="legend" id="legend">
         <button class="card-toggle legend-title" id="legendTitle" type="button" aria-expanded="true" aria-controls="legendBody"></button>
         <div id="legendBody">
@@ -61,6 +51,20 @@
       </aside>
     </div>
 
+    <!-- right: the round control stack, the same set as the walking-tour
+         apps (owner 2026-10-22): find me, 2D/3D tilt, satellite, extents,
+         zoom in, zoom out. Words come from copy.js. -->
+    <div class="stack" id="stack">
+      <button class="round" id="ctrlLocate" type="button">&#9678;</button>
+      <button class="round" id="ctrlTilt" type="button" aria-pressed="false">3D</button>
+      <button class="round round-text" id="ctrlSatellite" type="button" aria-pressed="false">Sat</button>
+      <button class="round" id="ctrlExtent" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
+      </button>
+      <button class="round" id="ctrlZoomIn" type="button">+</button>
+      <button class="round" id="ctrlZoomOut" type="button">&minus;</button>
+    </div>
+
     <!-- the chat window (panel.js) -->
     <section class="chatwin" id="chatwin" hidden aria-label="Chat">
       <div class="chat-head">
@@ -78,12 +82,12 @@
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="./copy.js?v=20261022k"></script>
-  <script src="./config.js?v=20261022k"></script>
-  <script src="./identity.js?v=20261022k"></script>
-  <script src="./locate.js?v=20261022k"></script>
-  <script src="./chat.js?v=20261022k"></script>
-  <script src="./panel.js?v=20261022k"></script>
-  <script src="./map.js?v=20261022k"></script>
+  <script src="./copy.js?v=20261022l"></script>
+  <script src="./config.js?v=20261022l"></script>
+  <script src="./identity.js?v=20261022l"></script>
+  <script src="./locate.js?v=20261022l"></script>
+  <script src="./chat.js?v=20261022l"></script>
+  <script src="./panel.js?v=20261022l"></script>
+  <script src="./map.js?v=20261022l"></script>
 </body>
 </html>

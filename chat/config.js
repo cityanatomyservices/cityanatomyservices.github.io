@@ -32,5 +32,11 @@ window.MAP_CONFIG = {
     anonKey: 'sb_publishable_QMWSj0CLYe3k3XSGCsWOhw_5RsI-nmN'
   },
   // the room's polygon: a stronger fill while you are in it
-  fillRoom: 0.22
+  fillRoom: 0.22,
+
+  // 3D: the tilt the 3D button eases to (the walking-tour apps use 57; past
+  // that the horizon washes out) and the buildings, drawn as blocks from the
+  // basemap's own building data (OpenMapTiles `render_height`) while tilted
+  pitch: 57,
+  buildingColor: '#d6d9dd'
 };

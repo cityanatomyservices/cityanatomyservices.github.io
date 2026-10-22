@@ -22,7 +22,6 @@
   const $ = (id) => document.getElementById(id);
 
   document.title = COPY.pageTitle;
-  $('title').textContent = COPY.pageTitle;
   $('legendTitle').textContent = COPY.legendTitle;
   $('legendSub').textContent = COPY.legendSub;
   $('youLabel').textContent = COPY.you;
@@ -100,15 +99,20 @@
       attribution.removeAttribute('open');
     }
 
-    // the control row: satellite, zoom in, zoom out, fit
-    $('ctrlSatellite').textContent = COPY.ui.satellite;
+    // the control stack (right edge, same set as the walking-tour apps):
+    // find me, 2D/3D, satellite, extents, zoom in, zoom out
+    $('ctrlLocate').title = COPY.ui.locate;
     $('ctrlSatellite').title = COPY.ui.satellite;
     $('ctrlZoomIn').title = COPY.ui.zoomInBtn;
     $('ctrlZoomOut').title = COPY.ui.zoomOutBtn;
     $('ctrlExtent').title = COPY.ui.extents;
-    $('ctrlZoomIn').addEventListener('click', () => map.zoomIn());
-    $('ctrlZoomOut').addEventListener('click', () => map.zoomOut());
-    $('ctrlExtent').addEventListener('click', () => map.fitBounds(box, { padding: CFG.fitPadding, pitch: 0, bearing: 0 }));
+    $('ctrlZoomIn').addEventListener('click', () => map.zoomTo(map.getZoom() + 1, { duration: 250 }));
+    $('ctrlZoomOut').addEventListener('click', () => map.zoomTo(map.getZoom() - 1, { duration: 250 }));
+    // extents: all of Austin, flat and north-up (the way back after wandering)
+    $('ctrlExtent').addEventListener('click', () => {
+      const cam = map.cameraForBounds(box, { padding: CFG.fitPadding, bearing: 0 });
+      if (cam) map.easeTo({ ...cam, pitch: 0, duration: 700 });
+    });
     let satelliteOn = false;
     $('ctrlSatellite').addEventListener('click', () => {
       satelliteOn = !satelliteOn;
@@ -116,11 +120,35 @@
       $('ctrlSatellite').setAttribute('aria-pressed', String(satelliteOn));
       $('ctrlSatellite').classList.toggle('is-on', satelliteOn);
     });
+    // 3D: tilt the map and raise the buildings; 2D lays it flat again
+    let tilted = false;
+    const showTilt = () => {
+      $('ctrlTilt').textContent = tilted ? '2D' : '3D';
+      $('ctrlTilt').title = tilted ? COPY.ui.to2d : COPY.ui.to3d;
+      $('ctrlTilt').setAttribute('aria-pressed', String(tilted));
+      $('ctrlTilt').classList.toggle('is-on', tilted);
+    };
+    showTilt();
+    $('ctrlTilt').addEventListener('click', () => {
+      tilted = !tilted;
+      showTilt();
+      if (map.getLayer('buildings-3d')) map.setLayoutProperty('buildings-3d', 'visibility', tilted ? 'visible' : 'none');
+      map.easeTo({ pitch: tilted ? CFG.pitch : 0, duration: 600 });
+    });
 
     map.on('load', () => {
       // satellite imagery sits above the basemap and below the geofences
       map.addSource('satellite', { type: 'raster', tiles: [CFG.satellite], tileSize: 256, attribution: 'Tiles &copy; Esri' });
       map.addLayer({ id: 'satellite', type: 'raster', source: 'satellite', layout: { visibility: 'none' } });
+
+      // the buildings as blocks, from the basemap's own building tiles
+      // (positron carries OpenMapTiles' `building` layer with heights);
+      // only shown while the map is tilted
+      map.addLayer({ id: 'buildings-3d', type: 'fill-extrusion', source: 'openmaptiles', 'source-layer': 'building', minzoom: 13,
+        layout: { visibility: 'none' },
+        paint: { 'fill-extrusion-color': CFG.buildingColor, 'fill-extrusion-opacity': 0.8,
+                 'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 6],
+                 'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0] } });
 
       // the geofences: fill (stronger under the pointer, strongest for your
       // room), outline, name. promoteId makes each feature's `id` property
@@ -212,6 +240,12 @@
       if (testRoom) enter(byId(testRoom));
       else window.ChatLocate.start(geofences, enter, (status) => {
         if (status !== 'inside') $('roomLine').textContent = COPY.room[status];
+      });
+
+      // find me: back to your neighborhood (or ask for the location again)
+      $('ctrlLocate').addEventListener('click', () => {
+        if (room) map.fitBounds(boundsOf([room]), { padding: 60, maxZoom: 14, duration: 900 });
+        else if (!testRoom) window.ChatLocate.start(geofences, enter, (status) => { if (status !== 'inside') $('roomLine').textContent = COPY.room[status]; });
       });
 
       // the buttons

@@ -1,5 +1,22 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (fourteenth pass) — chat map: tour-app controls on the right, bar fixed
+
+Owner (screenshot): a white bar across the map; move the controls to the
+right and the box to the top; use the same controls as the Moontower map
+including 3D. The bar was the avatars marker stretching full width (its
+div lacked `position:absolute` + `width:max-content`; fixed in
+`chat/style.css`). Now: the card sits top-left at the top; the floating
+title pill is gone (the card carries the title); a round control stack
+on the right in the tour apps' order and size (44 px): find me (eases to
+your room, or asks for the location again), 2D/3D (pitch 57 like the
+tours, plus buildings as blocks from positron's own OpenMapTiles
+`building` layer, shown only while tilted — positron is a vector style so
+tilt works, no basemap change needed), Sat, extents (flat, north-up),
++, −. Behaviour copied from `1885murdertour/js/main.js`; surfaces are
+this site's (paper/ink/accent), not the tour's palette. Chat window moved
+left of the stack. `chat/*?v=20261022l`. Not yet seen in a real browser.
+
 ## 2026-10-22 (thirteenth pass) — the chat map is the home page centre
 
 Owner (after a restart): the home page window holds the chat map, with

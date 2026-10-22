@@ -33,6 +33,7 @@
     // 'asking' | 'denied' | 'outside' | 'inside')
     start(geofences, onRoom, onStatus) {
       if (!navigator.geolocation) { onStatus('off'); return; }
+      this.stop();                       // one watch at a time
       onStatus('asking');
       let lastId;
       watchId = navigator.geolocation.watchPosition((pos) => {
