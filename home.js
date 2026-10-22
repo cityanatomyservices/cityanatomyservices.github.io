@@ -1,10 +1,11 @@
 // home.js — the home page's map window and its demo reel. The header, menu
 // and footer come from shell.js, shared by every page.
 //
-// THE REEL: the window cycles through the apps marked `demo` in home.json,
-// each holding for `demoMs` (default 60 s). The demos are animations only;
-// to use an app, a visitor picks it from the menu, which goes to that app's
-// own framed page at /view/<slug>/ (view.js).
+// THE REEL (off since 2026-10-22): the window cycles through the apps marked
+// `demo` in home.json, each holding for `demoMs` (default 60 s). Since the
+// chat map took the window (index.html points it at /chat/) no app carries
+// `demo`, so this script finds nothing to cycle and leaves the window alone.
+// To bring the reel back, mark two or more apps `demo` again.
 (function () {
   const frame = document.getElementById('app-window');
   if (!frame) return;

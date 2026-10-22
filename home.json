@@ -18,9 +18,7 @@
           "blurb": "Austin, 1895 — light them all",
           "src": "/moontower/",
           "app": "/moontowertour/app.html",
-          "demo": true,
-          "demoMs": 60000,
-          "category": "Walking/Biking Apps"
+                    "category": "Walking/Biking Apps"
         },
         {
           "title": "The 1885 Murder Tour",
@@ -29,9 +27,7 @@
           "blurb": "Austin, 1885 — The Servant Girl Murders",
           "src": "https://austin1885.city/annihilatortour/?demo=1",
           "app": "/1885murdertour/app.html",
-          "demo": true,
-          "demoMs": 60000,
-          "category": "Walking/Biking Apps"
+                    "category": "Walking/Biking Apps"
         },
         {
           "title": "What can I build here?",
@@ -70,8 +66,7 @@
           "category": "Maps"
         }
       ],
-      "cycle": true,
-      "open": true
+            "open": true
     },
     {
       "label": "Reports",

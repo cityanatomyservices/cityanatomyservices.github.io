@@ -91,9 +91,15 @@ The profile page shows it: towers lit, stops reached, dates.
 
 ## 7. Order of work
 
-1. Owner: dashboard steps in §2, and approve §3–§5 or say what changes.
-2. Claude: migration SQL → owner runs it.
-3. Claude: `/chat/` page — map + geofence + sign-in + presence + popup.
-4. Owner tests on a phone in two neighborhoods; then the home window points
-   at `/chat/`.
-5. Later: tour apps write `tour_progress`; profile page shows records.
+Done 2026-10-22 (same day, later): `/chat/` is built and the home window
+points at it — map, geofence from GPS, random name, visible/hidden,
+presence, the chat window that opens when someone else is visible in
+your room. Identity is a browser-local random name for now (identity.js),
+messages are Broadcast only (nothing kept). What is left:
+
+1. Owner tests: a phone in Austin, and two desktop tabs on
+   `https://austin.chat/chat/?room=hyde-park`.
+2. Owner: dashboard steps in §2 (anonymous sign-ins, email) — then Claude
+   swaps identity.js for Supabase Auth and adds the `profiles` migration.
+3. If history is wanted (§4): the `messages` table migration, owner runs it.
+4. Later: tour apps write `tour_progress`; profile page shows records.

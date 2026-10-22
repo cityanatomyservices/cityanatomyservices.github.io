@@ -5,27 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Austin.Chat</title>
   <link rel="canonical" href="https://austin.chat/" />
-  <link href="/style.css?v=20261022j" rel="stylesheet" />
+  <link href="/style.css?v=20261022k" rel="stylesheet" />
 </head>
 <body>
   <!-- Home page: only the map window lives here. The header, menu and
-       footer are drawn by shell.js, the same on every page. home.js makes
-       the window follow the address (#/budget/ etc.) and runs the demo reel. -->
+       footer are drawn by shell.js, the same on every page. The window holds
+       the chat map (/chat/, the neighborhood geofences); home.js would run
+       the demo reel, but no app in home.json is marked `demo` any more. -->
   <main>
     <section class="map-hero">
       <iframe
         id="app-window"
         class="app-window"
-        src="/moontower/"
-        title="Moontower"
+        src="/chat/"
+        title="Chat map"
         allowfullscreen
-        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen; geolocation"
         loading="lazy">
       </iframe>
     </section>
   </main>
 
-  <script src="/shell.js?v=20261022j"></script>
-  <script src="/home.js?v=20261022j"></script>
+  <script src="/shell.js?v=20261022k"></script>
+  <script src="/home.js?v=20261022k"></script>
 </body>
 </html>

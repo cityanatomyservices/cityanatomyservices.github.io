@@ -1,0 +1,39 @@
+/* style.css — the chat map's own look. The controls and cards come from
+   ../topicmap/style.css (the shared topic map stylesheet); this file adds
+   the chat lines in the card, the avatars on the map and the chat window.
+   The accent is the site's own day blue (/style.css), not a topic map's. */
+:root { --accent: #0067c5; }
+
+/* the card: who you are, where you are, who is here, the two buttons */
+.you { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 6px 0 2px; font-size: 13px; }
+.you .handle { font-weight: 600; }
+.you .small { margin-left: 6px; font: inherit; font-size: 11px; padding: 1px 6px; border: 1px solid var(--line); background: #fff; border-radius: 4px; cursor: pointer; color: #52606d; }
+.room-line { margin: 4px 0 0; font-size: 13px; }
+.people-line { margin: 2px 0 6px; font-size: 12px; color: #52606d; }
+.chat-btns { display: flex; gap: 6px; margin-bottom: 4px; }
+.chat-btns button { font: inherit; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 6px; cursor: pointer; }
+.chat-btns button.is-on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.chat-btns button:disabled { opacity: .45; cursor: default; }
+.chat-btns button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* the people in your room: a row of emoji on the neighborhood */
+.avatars { display: flex; gap: 2px; padding: 3px 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; font-size: 18px; line-height: 1; white-space: nowrap; }
+
+/* the chat window: bottom right on a desktop, full width at the bottom on a phone */
+.chatwin { position: absolute; z-index: 8; right: 12px; bottom: 12px; width: 320px; max-width: calc(100% - 24px); height: 360px; max-height: calc(100% - 24px); box-sizing: border-box; display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; color: var(--ink); box-shadow: 0 6px 24px rgba(0,0,0,.15); }
+.chatwin[hidden] { display: none; }
+.chat-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.chat-head h2 { margin: 0; flex: 1; font-size: 14px; }
+.chat-head button { font: inherit; font-size: 18px; line-height: 1; width: 28px; height: 28px; border: 0; background: transparent; cursor: pointer; color: #52606d; }
+.chat-people { padding: 4px 10px; font-size: 11px; color: #52606d; border-bottom: 1px solid var(--line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chat-lines { flex: 1; margin: 0; padding: 8px 10px; list-style: none; overflow-y: auto; font-size: 13px; line-height: 1.35; }
+.chat-lines li { margin-bottom: 8px; }
+.chat-lines .who { font-weight: 600; }
+.chat-lines .when { font-size: 11px; color: #52606d; }
+.chat-lines .is-self .who { color: var(--accent); }
+.chat-form { display: flex; gap: 6px; padding: 8px 10px; border-top: 1px solid var(--line); }
+.chat-form input { flex: 1; min-width: 0; font: inherit; font-size: 13px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; }
+.chat-form button { font: inherit; font-size: 13px; padding: 6px 12px; border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: 6px; cursor: pointer; }
+@container page (max-width: 640px) {
+  .chatwin { right: 8px; left: 8px; bottom: 8px; width: auto; max-width: none; height: 55%; }
+}

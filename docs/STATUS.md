@@ -1,5 +1,35 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirteenth pass) — the chat map is the home page centre
+
+Owner (after a restart): the home page window holds the chat map, with
+the controls the datacenter map has; "it opens a chat window when you
+connect with someone in your neighborhood geofence". Built `/chat/`:
+`index.html` (same control markup as `/datacenters/`: Satellite, +, −,
+fit, fold card; borrows `../topicmap/style.css` but NOT the engine, which
+is dots + a story timeline), `config.js` (data + the paid Supabase
+project `aqbyxpiwugcvoephsvpm`, publishable key as in `/budget/`),
+`copy.js` (words, Claude drafts marked), `identity.js` (random handle +
+emoji in localStorage, "New name" button), `locate.js` (GPS watch →
+point-in-polygon against the 65 geofences, in the browser; coordinates
+never leave the phone), `chat.js` (one Realtime channel per geofence
+`chat:<id>`, Presence = visible, Broadcast = messages, 240 chars, 1/s,
+nothing stored), `panel.js` (the chat window), `map.js` (map + wiring:
+your room tints and the map eases to it; emoji row of the visible people
+on the polygon; Visible/Hidden button remembered per browser, default
+on; the window OPENS BY ITSELF when you are visible and someone else is
+visible in your room, the Chat button toggles it after that; leaving the
+geofence changes the room). Test switch `?room=<geofence id>` joins a
+room without GPS (two tabs at a desk). Home: `index.html` window →
+`/chat/` with `geolocation` allowed on the iframe; demo flags removed
+from `home.json` so `home.js` finds no reel. `?v=20261022k`. VERIFIED
+from node with two clients on the paid project: presence sync, broadcast
+delivery, untrack drops the person within 1 s. NOT yet seen in a real
+browser (headless here has no WebGL) — owner to open austin.chat on a
+phone in Austin, and on two desktop tabs with `?room=hyde-park`.
+NEXT (plan §2/§4/§5, unchanged): accounts (anonymous sign-in → email)
+and the 30-day history table need the owner's dashboard steps first.
+
 ## 2026-10-22 (twelfth pass) — geofences merged by name; chat + login plan
 
 Owner: merge by name ("we don't want the area too small or too many
