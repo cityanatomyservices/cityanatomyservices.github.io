@@ -9,8 +9,10 @@ plain URLs, no API. Done: `categories.json` +25 shop types (car dealers,
 auto parts, storage, phone stores, electronics, furniture, home goods,
 jewelry, department / variety stores, drugstores, gift shops, massage,
 opticians, thrift, tattoo, smoke shops, toys, sporting goods, building
-supply; cosmetics merged into Beauty); `tools/fetch-places.py` re-run
-(counts below). `chat/config.js` `placeLinks` URL templates ({lat} {lng}
+supply; cosmetics merged into Beauty); `tools/fetch-places.py` re-run:
+3,436 places kept (was 2,969), downtown 479, north-burnet 262, zilker 131,
+496 KB; next dropped types are small (stationery 11, wholesale 11,
+copyshop 10, pawnbroker 10, flooring 10…). `chat/config.js` `placeLinks` URL templates ({lat} {lng}
 {name}); `map.js` `onPlace`: flat street zoom + MapLibre popup with the
 three links (`.place-popup`, `.place-links` in `chat/style.css`); words in
 `copy.js places.google/apple/yelp`. Chat files `?v=20261022v`.
