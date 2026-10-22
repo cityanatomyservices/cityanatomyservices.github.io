@@ -55,6 +55,7 @@
 /* the six groups read a little stronger; their categories sit one step in */
 .place-group > summary { color: var(--ink); font-weight: 600; }
 .place-category { padding-left: 12px; }
+.users-fold .user-row { padding-left: 12px; }
 .place-list summary::-webkit-details-marker { display: none; }
 .place-list summary::before { content: '\25B8'; display: inline-block; width: 12px; }
 .place-list details[open] summary::before { content: '\25BE'; }

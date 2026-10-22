@@ -1,5 +1,14 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (twenty-ninth pass) — "Users visible" fold on the card
+
+Owner: above "The whole neighborhood", a "Users visible" dropdown listing
+every visible person and the shop they are in (or the whole
+neighborhood). `room.js` `showUsers(list)`: a fold rebuilt on every
+presence change, one row per person "🦊 Handle (you) · H-E-B"; tapping a
+row joins that person's room (same delegated click as the businesses).
+`?v=20261023a`.
+
 ## 2026-10-22 (twenty-eighth pass) — the card folds after picking a business
 
 Owner: close the card after a business is picked (map goes there, popup

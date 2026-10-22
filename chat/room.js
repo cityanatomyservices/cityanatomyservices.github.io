@@ -37,6 +37,7 @@
   let place = null;             // the business you picked in it, or null
   let others = [];              // the visible people in YOUR room who are not you
   let geofences = null;
+  let placesById = {};          // the neighborhood's businesses, by id (for the users list)
   let hooks = {};
   const el = {};
   let testRoom = null;          // ?room=<id> joins a neighborhood without GPS (testing)
@@ -80,7 +81,7 @@
     if (!el.placeList) return;
     const counts = {};
     list.forEach((p) => { counts[p.room] = (counts[p.room] || 0) + 1; });
-    el.placeList.querySelectorAll('[data-room]').forEach((row) => {
+    el.placeList.querySelectorAll('[data-room]:not(.user-row)').forEach((row) => {
       const n = counts[row.dataset.room] || 0;
       row.querySelector('.here').textContent = n ? fill(COPY.places.here, { n }) : '';
     });
@@ -92,9 +93,34 @@
     window.ChatPanel.setPeople(mine);
     showPeople();
     showCounts(list);
+    showUsers(list);
     if (hooks.onPeople) hooks.onPeople(list, room);      // the map shows everyone in the neighborhood
     // the window never opens by itself (owner 2026-10-22): the Chat button
     // lights up when someone else is visible, and you open it
+  }
+
+  // ── "Users visible": everyone visible in the neighborhood and where they
+  // are — the business they picked, or the whole neighborhood. Tapping a
+  // person takes you to their room. Rebuilt on every presence change.
+  function showUsers(list) {
+    const fold = el.placeList && el.placeList.querySelector('.users-fold');
+    if (!fold) return;
+    fold.querySelector('summary').textContent = COPY.places.usersVisible + ' · ' + list.length;
+    fold.querySelectorAll('.user-row').forEach((r) => r.remove());
+    list.forEach((person) => {
+      const placeId = person.room.split('/')[1];
+      const at = placeId ? placesById[placeId] : null;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'place-row user-row';
+      b.dataset.room = person.room;
+      if (at) b.dataset.place = JSON.stringify(at);
+      const name = document.createElement('span'); name.className = 'place-name';
+      name.textContent = person.emoji + ' ' + person.handle + (person.self ? ' ' + COPY.places.you : '') + ' · ' + (at ? at.name : COPY.places.neighborhoodRow);
+      const here = document.createElement('span'); here.className = 'here';   // keeps the row shape; showCounts leaves it empty
+      b.append(name, here);
+      fold.appendChild(b);
+    });
   }
 
   // ── the business list on the card: group → category → business ───────────
@@ -102,6 +128,8 @@
   function showPlaces(data) {
     const list = el.placeList;
     list.innerHTML = '';
+    placesById = {};
+    allPlaces(data).forEach((p) => { placesById[p.id] = p; });
     if (!data || !data.groups.length) return;
     const row = (text, roomString, cls) => {
       const b = document.createElement('button');
@@ -113,7 +141,6 @@
       b.append(name, here);
       return b;
     };
-    list.appendChild(row(COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
     const fold = (title, count, cls) => {
       const d = document.createElement('details');
       d.className = cls;
@@ -122,6 +149,8 @@
       d.appendChild(s);
       return d;
     };
+    list.appendChild(fold(COPY.places.usersVisible, 0, 'place-group users-fold'));
+    list.appendChild(row(COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
     data.groups.forEach((g) => {
       const total = g.categories.reduce((n, c) => n + c.places.length, 0);
       const gd = fold(g.name, total, 'place-group');
@@ -176,6 +205,7 @@
     if (hooks.onPlaces) hooks.onPlaces(data);
     showPlaces(data);
     showCounts(window.ChatEngine.people());
+    showUsers(window.ChatEngine.people());
     if (testPlace && data) {
       const found = allPlaces(data).find((p) => p.id === testPlace);
       if (found) await choose(found);
