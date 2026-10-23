@@ -1,5 +1,16 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-23 (fortieth pass) — home chat map opens one level closer
+
+Owner: the neighborhood map on the main page zoomed in one more level.
+`chat/config.js` `views.neighborhood.zoom` 15.4 → 16.4. That one number is
+the opening view (`neighborhoodView(CFG.openTiltMs)` in map.js), the
+Neighborhood button, and the `maxZoom` cap on the flight to your own
+neighborhood once the phone finds it, so all three moved together.
+Street view stays at 17 (flat), now only 0.6 above Neighborhood (tilted).
+`chat/index.html` config.js `?v=20261023m`. Not seen in a browser here
+(WebGL) — owner to eyeball the home page.
+
 ## 2026-10-22 (thirty-ninth pass) — NEW shopping app: Pizza in Austin
 
 Owner's CSV `C:\Dev\austin-pizza\austin-pizza-restaurants-deep-research.csv`

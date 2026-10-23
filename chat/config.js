@@ -67,7 +67,7 @@ window.MAP_CONFIG = {
   // page opens on the Neighborhood view over `openView.room`.
   views: {
     street:       { zoom: 17,   pitch: 0 },
-    neighborhood: { zoom: 15.4, pitch: 57 }
+    neighborhood: { zoom: 16.4, pitch: 57 }
   },
   openTiltMs: 1800,
   buildingColor: '#d6d9dd'
