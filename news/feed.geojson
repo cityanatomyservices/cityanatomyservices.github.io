@@ -1,9 +1,486 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-22T15:43:12.389Z",
- "placed": 52,
- "total": 117,
+ "generated": "2026-10-23T15:32:14.989Z",
+ "placed": 50,
+ "total": 112,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6789,
+     30.5083
+    ]
+   },
+   "properties": {
+    "title": "Weekend Events: Diwali in Round Rock, Pet Fest and more",
+    "link": "https://www.kxan.com/weather/weather-blog/weekend-events-diwali-in-round-rock-pet-fest-and-more/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T15:15:53.000Z",
+    "summary": "Upcoming events include the Texas Pumpkin Festival in Leander, the Día de los Muertos celebration in Georgetown, and the 24th Annual Pet Fest in San Marcos.",
+    "place": "Round Rock",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "MAP: Where have Austin's homicides occurred in 2026?",
+    "link": "https://www.kxan.com/news/local/austin/austin-homicide-map-2026/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T14:57:11.000Z",
+    "summary": "KXAN is keeping track of the number of homicides in the City of Austin in 2026. An interactive map shows where those homicides have occurred.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7325,
+     30.281
+    ]
+   },
+   "properties": {
+    "title": "San Antonio Spurs return to Austin for Rockets matchup",
+    "link": "https://www.kxan.com/sports-general/san-antonio-spurs-return-to-austin-for-rockets-matchup/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T14:55:47.000Z",
+    "summary": "The San Antonio Spurs are bringing their annual I-35 Series back to the Moody Center as they take on the Houston Rockets Friday night.",
+    "place": "Moody Center",
+    "placeKind": "venue"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Temperatures, rain totals, severe storms: Explore Austin's 2026 weather data",
+    "link": "https://www.kxan.com/weather/austin-2026-weather-data/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T14:52:00.000Z",
+    "summary": "KXAN has created charts and graphics to help you keep track of whatever weather 2026 brings.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin approves $21M in funding for affordable housing developments",
+    "link": "https://www.kxan.com/news/local/austin/austin-approves-21m-in-funding-for-affordable-housing-developments/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T14:23:55.000Z",
+    "summary": "The city of Austin has approved funding for more $21 million to go towards supporting five local affordable housing developments.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "Austin Police warn of fake detective calls",
+    "link": "https://www.kxan.com/news/local/austin/austin-police-warn-of-fake-detective-calls/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T14:06:14.000Z",
+    "summary": "Austin Police said it was aware of unsolicited calls involving people claiming to be detectives. Here’s how to respond if you receive one of these calls.",
+    "place": "Austin Police",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Trial set next week for man accused of killing four at 'random' in Austin",
+    "link": "https://www.kxan.com/news/crime/trial-set-next-week-for-man-accused-of-killing-four-at-random-in-austin/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T13:43:37.000Z",
+    "summary": "Shane James faces multiple capital murder charges in connection with a double homicide in Bexar County and a string of shootings in Austin that killed four and injured three others, including two police officers. Jury selection for his trial is set to begin Monday.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Sarkisian searching for offensive answers ahead of Ole Miss",
+    "link": "https://www.kxan.com/sports-general/horns-report/sarkisian-searching-for-offensive-answers-ahead-of-ole-miss/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T13:00:00.000Z",
+    "summary": "No. 19 Texas looks to snap a two-game losing streak against No. 7 Ole Miss as Steve Sarkisian emphasizes offensive improvement and winning the turnover battle.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin braces for busy weekend as Formula 1, Texas football and other events draw crowds",
+    "link": "https://www.kxan.com/news/local/austin-braces-for-busy-weekend-as-formula-1-texas-football-and-other-events-draw-crowds/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T12:37:21.000Z",
+    "summary": "Austin city leaders and airport officials are preparing for one of the busiest weekends of the year, with Formula 1, Texas football and several other major events expected to bring large crowds and increase traffic across the area.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742,
+     30.26
+    ]
+   },
+   "properties": {
+    "title": "Another body found in Lady Bird Lake: What we know",
+    "link": "https://www.kxan.com/cause-and-effect/another-body-found-in-lady-bird-lake-what-we-know/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-23T12:30:00.000Z",
+    "summary": "Another body has been recovered from Lady Bird Lake, renewing attention on deaths in the waterway that have raised questions about public safety. Austin police said the latest death isn't being investigated as a homicide, and investigators found no obvious signs of trauma.",
+    "place": "Lady Bird Lake",
+    "placeKind": "lake"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "TopNotch Nail Bar coming soon to Georgetown",
+    "link": "https://communityimpact.com/georgetown/business/topnotch-nail-bar-coming-soon-to-georgetown/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-23T10:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Saving Muny could come at a cost as Austin weighs changes to UT land deal",
+    "link": "https://austincurrent.org/2026/10/22/muny-austin-ut-development-environment/",
+    "outlet": "Austin Current",
+    "group": "planning",
+    "color": "#7ad4c8",
+    "published": "2026-10-23T00:50:06.000Z",
+    "summary": "Muny supporters and the city have fought for decades to preserve the 141-acre golf course, the first in the South to be desegregated. The post Saving Muny could come at a cost as Austin weighs changes to UT land deal appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Homicide Investigation at 710 W. Cesar Chavez Street",
+    "link": "https://www.austintexas.gov/police/news/homicide-investigation-710-w-cesar-chavez-street",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-23T00:00:00.000Z",
+    "summary": "<p><span><strong>Case:</strong>&nbsp; 26-0700596</span><br><br><span><strong>Date:</strong>&nbsp; Wednesday, March 11, 2026</span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br><span><strong>Time:</strong>&nbsp; 11:47 a.m.</span><br><br><span><strong>Location:</strong>&nbsp; 710 W. Cesar Chavez Street</span><br><br><span><strong>Victim (Deceased):</strong>&nbsp; A",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77,
+     30.22
+    ]
+   },
+   "properties": {
+    "title": "Don’t Tell Mama Tattoo plans South Austin expansion",
+    "link": "https://communityimpact.com/central-austin/business/don-t-tell-mama-tattoo-plans-south-austin-expansion/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-22T23:54:44.000Z",
+    "summary": "",
+    "place": "South Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin directs $21M to 5 developments, including affordable housing",
+    "link": "https://communityimpact.com/east-austin/government/austin-directs-21m-to-5-developments-including-affordable-housing/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T23:53:31.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Which PACs are spending?",
+    "link": "https://www.austinpolitics.net/which-pacs-are-spending/",
+    "outlet": "Austin Politics",
+    "group": "government",
+    "color": "#e8b35e",
+    "published": "2026-10-22T23:50:03.000Z",
+    "summary": "And *another* highway in Austin?",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.3153,
+     30.1105
+    ]
+   },
+   "properties": {
+    "title": "Data centers and downtown: See what's trending in Bastrop this week",
+    "link": "https://communityimpact.com/bastrop-cedar-creek/government/data-centers-and-downtown-see-what-s-trending-in-bastrop-this-week/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T22:00:00.000Z",
+    "summary": "",
+    "place": "Bastrop",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8203,
+     30.5052
+    ]
+   },
+   "properties": {
+    "title": "Cedar Park seeks public input on Flock cameras",
+    "link": "https://communityimpact.com/cedar-park/government/cedar-park-seeks-public-input-on-flock-cameras/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T21:49:01.000Z",
+    "summary": "",
+    "place": "Cedar Park",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8772,
+     29.9891
+    ]
+   },
+   "properties": {
+    "title": "Results of investigation into former Kyle Mayor’s alleged misconduct revealed",
+    "link": "https://communityimpact.com/san-marcos-buda-kyle/government/results-of-investigation-into-former-kyle-mayor-s-alleged-misconduct-revealed/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T21:45:00.000Z",
+    "summary": "",
+    "place": "Kyle",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Study shows less rainfall is reaching Lakes Travis and Buchanan",
+    "link": "https://communityimpact.com/lake-travis-westlake/government/study-shows-less-rainfall-is-reaching-lakes-travis-and-buchanan/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T21:40:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746,
+     30.245
+    ]
+   },
+   "properties": {
+    "title": "As a school takeover looms, Austin ISD hears warnings from Houstonians",
+    "link": "https://austincurrent.org/2026/10/22/school-takeover-houston-austin/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-22T20:35:24.000Z",
+    "summary": "Some state leaders call on Houston ISD’s school takeover to be the blueprint to turnaround struggling schools. Other Texans urge troubled districts to avoid Houston’s fate. The post As a school takeover looms, Austin ISD hears warnings from Houstonians appeared first on Austin Current .",
+    "place": "Austin ISD",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Details about the candidates’ personal finances",
+    "link": "https://theaustinbulldog.org/details-about-the-candidates-personal-finances/",
+    "outlet": "The Austin Bulldog",
+    "group": "government",
+    "color": "#e8b35e",
+    "published": "2026-10-22T20:25:26.000Z",
+    "summary": "“It is the policy of the City that the proper operation of democratic government requires that public officials and employees be independent, impartial and responsible to the people; that governmental decisions and policy be made in proper channels of the governmental structure; that public office not be used for personal gain; and that the public […]",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.3153,
+     30.1105
+    ]
+   },
+   "properties": {
+    "title": "Got old paint? Bastrop County will take it Oct. 24",
+    "link": "https://communityimpact.com/bastrop-cedar-creek/government/got-old-paint-bastrop-county-will-take-it-oct-24/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T20:07:00.000Z",
+    "summary": "Free vouchers are available online or at sites in Bastrop, Smithville and Giddings",
+    "place": "Bastrop",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "WilCo officials advance Regional Water Infrastructure Plan",
+    "link": "https://communityimpact.com/georgetown/development/wilco-officials-advance-regional-water-infrastructure-plan/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-10-22T20:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "ATI Physical Therapy now open in New Braunfels",
+    "link": "https://communityimpact.com/new-braunfels/business/ati-physical-therapy-now-open-in-new-braunfels/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-22T20:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Hutto General Store brings sweet treats and charm to downtown",
+    "link": "https://communityimpact.com/pflugerville-hutto/business/hutto-general-store-brings-sweet-treats-and-charm-to-downtown/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-22T19:39:03.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.62,
+     30.439
+    ]
+   },
+   "properties": {
+    "title": "Club Pilates to open Pflugerville location in late October",
+    "link": "https://communityimpact.com/pflugerville-hutto/business/club-pilates-to-open-pflugerville-location-in-late-october/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-22T17:01:59.000Z",
+    "summary": "",
+    "place": "Pflugerville",
+    "placeKind": "city"
+   }
+  },
   {
    "type": "Feature",
    "geometry": {
@@ -53,42 +530,6 @@
     "summary": "Not everyone is cut out for living with roommates, but finding an affordable place to live alone can be tricky. Luckily, the Greater Austin area has become the No. 1 most affordable metro in America for living by yourself, according to a new report. Analysts at Apartments.com discovered Austin renters spend the lowest share of their monthly income on single-bedroom rent out of the 50 biggest metro",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin 311 to no longer take overnight calls",
-    "link": "https://www.kxan.com/news/local/austin/austin-311-to-no-longer-take-overnight-calls/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-22T14:01:53.000Z",
-    "summary": "Beginning Nov. 1, Austin 311 will no longer take overnight calls, according to a city of Austin memo.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.718,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "Homebuilders wanted as Colony Park development warms up in East Austin",
-    "link": "https://www.kxan.com/news/local/austin/homebuilders-wanted-as-colony-park-development-warms-up-in-east-austin/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-22T13:55:14.000Z",
-    "summary": "The City of Austin and Catellus Real Estate Development L.P. are advancing their partnership for the Colony Park mixed-use development, with infrastructure work scheduled to begin next year.",
-    "place": "East Austin",
-    "placeKind": "district"
    }
   },
   {
@@ -156,21 +597,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Warm sunshine late week into weekend",
-    "link": "https://www.kxan.com/weather/forecast/warm-sunshine-late-week-into-weekend/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-22T10:53:24.000Z",
-    "summary": "Our stretch of pleasant weather continues through the end of the work week and the weekend? Well, that doesn't look too shabby either. -Meteorologist Kristen Currie",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -224,21 +650,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Student News Now: Austin wants to be America's best city for kids",
-    "link": "https://www.kxan.com/news/local/studentnewsnow/student-news-now-austin-wants-to-be-americas-best-city-for-kids/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-22T10:00:00.000Z",
-    "summary": "This week on Student News Now we're looking into what Austin is doing about numbers showing fewer children living in the city. In the past five years, the population of kids younger than 18 years old dropped by 17,000, or roughly 9%. That sudden drop is among the reasons the city launched a privately funded initiative called Generation ATX, tasked with making Austin the best city in the country to",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Performance, compliance remain in focus as Austin reviews nonprofit funding",
     "link": "https://communityimpact.com/central-austin/government/performance-compliance-remain-in-focus-as-austin-reviews-nonprofit-funding/",
     "outlet": "Community Impact",
@@ -252,51 +663,15 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "1 dead in motorcycle crash in east Austin",
-    "link": "https://www.kxan.com/news/local/austin/deadly-east-austin-motorcycle-crash-fm-949/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-22T03:55:12.000Z",
-    "summary": "One person died in a motorcycle crash in east Austin on Wednesday evening, according to Austin-Travis County EMS. The crash caused both directions of FM 969 to close.",
-    "place": "Travis County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "City of Austin eyes $2M for supporting renters on brink of eviction",
-    "link": "https://www.kxan.com/news/city-of-austin-eyes-2m-for-supporting-renters-on-brink-of-eviction/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-22T03:00:31.000Z",
-    "summary": "Despite cuts to funding in recent years, the nonprofit handling \"I Belong in Austin\" says every dollar makes an impact.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin Ed Fund raises $700,000 for public education programs",
-    "link": "https://www.kxan.com/news/local/austin/austin-ed-fund-raises-700000-for-public-education-programs/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-22T00:18:59.000Z",
-    "summary": "Austin Ed Fund announced today that the annual Inspire the Future Luncheon raised a total of $700,000.",
+    "title": "Austin Mobility News: Multiple Events This Weekend Could Impact Traffic",
+    "link": "https://www.austintexas.gov/transportation-public-works/news/austin-mobility-news-multiple-events-weekend-could-impact-traffic",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T00:00:00.000Z",
+    "summary": "<p><span>In this week's edition:</span><br>&nbsp;</p><ul><li style=\"text-size-adjust:100%;\"><a href=\"https://mailchi.mp/austintexas/austin-mobility-news-10-19-26#mctoc1\">Multiple Events in Austin This Weekend Could Impact Traffic</a></li><li style=\"text-size-adjust:100%;\"><a href=\"https://mailchi.mp/austintexas/austin-mobility-news-10-19-26#mctoc2\">Try Transit or Walking to the Polls for Early Vot",
     "place": null,
     "placeKind": null
    }
@@ -306,54 +681,33 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.718,
-     30.265
+     -97.73,
+     30.27
     ]
    },
    "properties": {
-    "title": "City leaders rename Plantation Road to Tommie Lee Wyatt Lane",
-    "link": "https://www.kxan.com/news/local/austin/city-leaders-rename-plantation-road-to-tommie-lee-wyatt-lane/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-21T22:45:35.000Z",
-    "summary": "Austin Transportation announced the renaming of Plantation Road for Tommie Lee Wyatt Lane, honoring the longtime publisher and co-founder of East Austin's The Villager newspaper, who passed last January. The new street name signs are now installed as of Oct. 14.",
-    "place": "East Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6411,
-     30.1327
-    ]
-   },
-   "properties": {
-    "title": "Formula 1 themed events happening around Austin as Grand Prix heads to COTA",
-    "link": "https://www.kxan.com/sports/f1-austin/formula-1-themed-events-happening-around-austin-as-grand-prix-heads-to-cota/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-21T22:26:38.000Z",
-    "summary": "Ahead of the Formula 1 United States Grand Prix at the Circuit of the Americas this weekend, several pop-ups are happening around town.",
-    "place": "Circuit of the Americas",
-    "placeKind": "venue"
+    "title": "Austin Mobility News: Austin Celebrates National Walk and Roll to School Day",
+    "link": "https://www.austintexas.gov/transportation-public-works/news/austin-mobility-news-austin-celebrates-national-walk-and-roll",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T00:00:00.000Z",
+    "summary": "<p><span>In this week's edition:</span></p><ul><li style=\"text-size-adjust:100%;\"><a href=\"https://mailchi.mp/austintexas/austin-mobility-news-10-12-26#mctoc1\">Austin Celebrates National Walk and Roll to School Day</a></li><li style=\"text-size-adjust:100%;\"><a href=\"https://mailchi.mp/austintexas/austin-mobility-news-10-12-26#mctoc2\">Reminder: CapMetro Ticket Vending Machines Are Being Removed at ",
+    "place": "CapMetro",
+    "placeKind": "landmark"
    }
   },
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Central Texas doctors warn of rising flu activity ahead of holidays",
-    "link": "https://www.kxan.com/news/central-texas-doctors-warn-of-rising-flu-activity-ahead-of-holidays/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-21T22:16:53.000Z",
-    "summary": "Flu activity is rising in Texas as respiratory virus season gets underway, local doctors are encouraging people to take precautions ahead of the holiday season.",
+    "title": "Over $21 Million Approved for 5 New Affordable Housing Developments",
+    "link": "https://www.austintexas.gov/housing/news/austin-housing-finance-corporation-announces-21-million-funding-five-new-affordable",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-10-22T00:00:00.000Z",
+    "summary": "<p paraid=\"239580126\" paraeid=\"{4215911e-148a-4cc3-85a6-d8901eaac8c7}{145}\"><em><span data-contrast=\"none\" xml:lang=\"EN-US\" lang=\"EN-US\" data-ccp-charstyle=\"Subtle Emphasis\">Investments advance Austin’s long</span><span>‑</span><span data-contrast=\"none\" xml:lang=\"EN-US\" lang=\"EN-US\" data-ccp-charstyle=\"Subtle Emphasis\">term strategy to increase and preserve affordable homes.</span></em></p><p par",
     "place": null,
     "placeKind": null
    }
@@ -459,84 +813,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Beauty supply store relocates within New Braunfels",
-    "link": "https://communityimpact.com/new-braunfels/business/beauty-supply-store-relocates-within-new-braunfels/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-21T20:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8531,
-     30.5788
-    ]
-   },
-   "properties": {
-    "title": "BB Shine’s Express Car Wash in Leander under new management",
-    "link": "https://communityimpact.com/leander-liberty-hill/business/bb-shine-s-express-car-wash-in-leander-under-new-management/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-21T20:00:00.000Z",
-    "summary": "The business is now under the management of Clearwater Express Wash.",
-    "place": "Leander",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.79,
-     30.4
-    ]
-   },
-   "properties": {
-    "title": "OriGen Biomedical opens new facility in Northwest Austin",
-    "link": "https://communityimpact.com/northwest-austin/business/origen-biomedical-opens-new-facility-in-northwest-austin/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-21T19:00:00.000Z",
-    "summary": "",
-    "place": "Northwest Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.9797,
-     30.363
-    ]
-   },
-   "properties": {
-    "title": "Jovie Lakeway apartments now open",
-    "link": "https://communityimpact.com/lake-travis-westlake/business/jovie-lakeway-apartments-now-open/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-21T17:55:00.000Z",
-    "summary": "",
-    "place": "Lakeway",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -554,21 +830,6 @@
     "summary": "About 4.3% of the county’s 952,713 registered voters cast a ballot Monday, compared to just 2.8% on the first day of early voting in the 2022 midterm election. The post Travis County breaks first-day early voting turnout record for every midterm election this century appeared first on Austin Current .",
     "place": "Travis County",
     "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Crunch Fitness opens in New Braunfels",
-    "link": "https://communityimpact.com/new-braunfels/business/crunch-fitness-opens-in-new-braunfels/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-21T16:30:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -611,21 +872,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "New Braunfels weighs program designed to support startup businesses",
-    "link": "https://communityimpact.com/new-braunfels/government/new-braunfels-weighs-program-designed-to-support-startup-businesses/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-21T11:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Welcome to 'Uncanny Valley,' an otherworldly exhibit at the Blanton inhabited by whimsical creatures",
     "link": "https://www.kut.org/life-arts/2026-10-21/austin-tx-art-blanton-exhibit-uncanny-valley-haas-brothers",
     "outlet": "KUT",
@@ -633,21 +879,6 @@
     "color": "#b9a8f0",
     "published": "2026-10-21T10:01:00.000Z",
     "summary": "Twin brothers Simon and Nikolai Haas are showing off the fictional world they've spent 15 years creating.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas Comptroller Don Huffines issues series of “executive orders,” raising questions about his office’s authority",
-    "link": "https://www.texastribune.org/2026/10/21/texas-comptroller-don-huffines-executive-orders/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-10-21T10:00:00.000Z",
-    "summary": "The authority to issue executive orders traditionally belongs to the chief executive, like the governor or a county judge. The post Texas Comptroller Don Huffines issues series of “executive orders,” raising questions about his office’s authority appeared first on The Texas Tribune .",
     "place": null,
     "placeKind": null
    }
@@ -777,42 +1008,6 @@
     "color": "#e07a99",
     "published": "2026-10-20T21:22:13.000Z",
     "summary": "Even after a surprisingly bearable Austin summer, locals are taking to the streets to enjoy the newly arrived fall weather. Lest the novelty wear off in your immediate neighborhood, we're here with some ideas on where to stroll next. Austin's citywide Walk Score — a standardized measure of how easy or pleasant it is to walk in cities across the U.S. — is a middling 42. This is not, on the whole, a",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Round Rock City Council to consider incentive for semiconductor industry business",
-    "link": "https://communityimpact.com/round-rock/government/round-rock-city-council-to-consider-incentive-for-semiconductor-industry-business/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-20T21:05:43.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Old Iron Bridge love locks to return in new sculpture",
-    "link": "https://communityimpact.com/bastrop-cedar-creek/government/old-iron-bridge-love-locks-to-return-in-new-sculpture/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-20T21:00:00.000Z",
-    "summary": "Installation set to debut during Dec. 4 bridge ribbon cutting",
     "place": null,
     "placeKind": null
    }
@@ -1001,41 +1196,11 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Texas data center boom could erase decades of progress on air quality",
-    "link": "https://www.texastribune.org/2026/10/20/data-centers-texas-air-quality-report-pollution-health-risks/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-10-20T11:00:00.000Z",
-    "summary": "A new report warns that the state’s air quality progress could be reversed by the end of the decade, especially if facilities use natural gas power. The post Texas data center boom could erase decades of progress on air quality appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Major McCarty Lane developments gain opening timeline clarity",
     "link": "https://communityimpact.com/san-marcos-buda-kyle/development/major-mccarty-lane-developments-gain-opening-timeline-clarity/",
     "outlet": "Community Impact",
     "group": "planning",
     "color": "#5fc4b6",
-    "published": "2026-10-20T11:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "New Braunfels considers increasing solid waste rates due to forecasted financial challenges",
-    "link": "https://communityimpact.com/new-braunfels/government/new-braunfels-considers-increasing-solid-waste-rates-due-to-forecasted-financial-challenges/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
     "published": "2026-10-20T11:00:00.000Z",
     "summary": "",
     "place": null,
@@ -1116,27 +1281,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "Chief Mike Harmon retires from Cedar Park Police Department after 3 decades",
-    "link": "https://communityimpact.com/cedar-park/government/chief-mike-harmon-retires-from-cedar-park-police-department-after-3-decades/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-19T21:59:44.000Z",
-    "summary": "",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "The District 9 race",
@@ -1169,21 +1313,6 @@
     "summary": "A state representative’s staffer and a longtime parent advocate outline their plans for Austin ISD amid budget, state takeover concerns. The post Former AISD student, PTA leader run for Austin ISD’s southwest District 7 school board seat appeared first on Austin Current .",
     "place": "Austin ISD",
     "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Help shape Austin's updated plan for future citywide growth",
-    "link": "https://communityimpact.com/central-austin/government/help-shape-austin-s-updated-plan-for-future-citywide-growth/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-19T20:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1317,27 +1446,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Two former Austin ISD trustees are vying for the District 1 seat they’ve both already held",
-    "link": "https://austincurrent.org/2026/10/19/austin-austinisd-election-candidates-board/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-19T10:39:00.000Z",
-    "summary": "Both candidates have previous experience on the board. One is the incumbent, and the other is a former trustee seeking to return. The post Two former Austin ISD trustees are vying for the District 1 seat they’ve both already held appeared first on Austin Current .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "APD Detectives Search for a Suspect in Connection to Auto Theft and Collision Involving Injury",
@@ -1398,36 +1506,6 @@
     "color": "#5fc4b6",
     "published": "2026-10-16T20:00:00.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "How Gina Hinojosa went from progressive to populist, emerging as Greg Abbott’s most formidable challenger",
-    "link": "https://www.texastribune.org/2026/10/16/gina-hinojosa-greg-abbott-texas-governor-race/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-10-16T19:49:39.000Z",
-    "summary": "Hinojosa has gone from unknown state lawmaker to Abbott’s most viable Democratic challenger yet — a surge that has dared Democrats to wonder if she could actually topple this mainstay of the Texas Republican establishment. The post How Gina Hinojosa went from progressive to populist, emerging as Greg Abbott’s most formidable challenger appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Meet the candidates running for the Austin Community College board",
-    "link": "https://austincurrent.org/2026/10/16/austin-community-college-board-candidates-2026-election/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-16T19:49:08.000Z",
-    "summary": "Three of nine seats of the Austin Community College board are up for election this fall. The post Meet the candidates running for the Austin Community College board appeared first on Austin Current .",
     "place": null,
     "placeKind": null
    }
@@ -1515,27 +1593,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.69594,
-     30.19022
-    ]
-   },
-   "properties": {
-    "title": "City Invites Community Input on Economic Development Policy",
-    "link": "https://www.austintexas.gov/economic-development/news/city-invites-community-input-economic-development-policy",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-16T00:00:00.000Z",
-    "summary": "<div data-entity-type=\"media\" data-entity-uuid=\"6cd61787-b0db-48a6-aa62-b342e5b5ba81\" data-embed-button=\"media_entity_embed\" data-entity-embed-display=\"view_mode:media.full_width\" data-langcode=\"und\" data-entity-embed-display-settings=\"[]\" embed_alt=\"An aerial view of downtown Austin from the southeast direction\" class=\"embedded-entity ckeditor-image\"><article class=\"media media--type-acquia-dam-i",
-    "place": "Southeast",
-    "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Developer breaks ground on retail and dining at The District",
@@ -1613,63 +1670,6 @@
     "summary": "It's not free, you know?",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Traffic Fatality in the 900 block of Ed Bluestein Boulevard SVRD SB.",
-    "link": "https://www.austintexas.gov/police/news/traffic-fatality-900-block-ed-bluestein-boulevard-svrd-sb",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-15T00:00:00.000Z",
-    "summary": "<p><strong>Case:</strong><span> 26-2871587</span><br><br><strong>Time:</strong><span> 9:59 p.m.</span><br><br><strong>Date:</strong><span> Wednesday, October 14, 2026</span><br><br><strong>Location:</strong><span> 900 block of Ed Bluestein Blvd. SVRD SB</span><br><br><strong>Deceased:</strong><span> Adan Rodriguez, White male, 9/21/1988</span><br><br><strong>Deceased:</strong><span> Ruby Rodriguez",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Traffic Fatality in the 1500 block of East SH 71 WB",
-    "link": "https://www.austintexas.gov/police/news/traffic-fatality-1500-block-east-sh-71-wb",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-15T00:00:00.000Z",
-    "summary": "<p><strong>Case: </strong><span>26-2870283</span><br><br><strong>Time: </strong><span>5:55 a.m.</span><br><br><strong>Date: </strong><span>Wednesday, October 14, 2026</span><br><br><strong>Location: </strong><span>1500 block of East SH 71 WB</span><br><br><strong>Deceased: </strong><span>Unidentified male</span><br><br><span>On Wednesday, October 14, 2026, at approximately 5:55 a.m., Austin Police",
-    "place": "Austin Police",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7431,
-     30.269
-    ]
-   },
-   "properties": {
-    "title": "APD Arrests Suspect in Connection to a Bank Robbery",
-    "link": "https://www.austintexas.gov/police/news/apd-arrests-suspect-connection-bank-robbery",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-15T00:00:00.000Z",
-    "summary": "<p><strong>Case:</strong><span>&nbsp; 26-2861028</span><br><br><strong>Date:</strong><span>&nbsp; Tuesday, October 13, 2026</span><br><br><strong>Time:</strong><span>&nbsp; 4:44 p.m.</span><br><br><strong>Location:</strong><span>&nbsp; 111 Congress Avenue (Wells Fargo)</span><br><br><strong>Suspect (Arrested):</strong><span> Makiya Johnson, Black male, 26 years of age</span><br><br><strong>Video: ",
-    "place": "Congress Avenue",
-    "placeKind": "street"
    }
   },
   {
@@ -1826,21 +1826,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "How Ken Paxton and allies fanned a false conspiracy to convince voters James Talarico was mentally unfit",
-    "link": "https://www.texastribune.org/2026/10/13/james-talarico-ken-paxton-senate-texas-mental-hospital/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-10-14T01:18:48.000Z",
-    "summary": "While James Talarico was recovering from the flu, Paxton supporters said the Democrat was being treated for mental illness in Ohio. The debunked story was shared by White House officials, Elon Musk and social media influencers. The post How Ken Paxton and allies fanned a false conspiracy to convince voters James Talarico was mentally unfit appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "The state of the race: fundraising",
     "link": "https://www.austinpolitics.net/the-state-of-the-race-fundraising/",
     "outlet": "Austin Politics",
@@ -1871,21 +1856,6 @@
     "summary": "",
     "place": "Kyle",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Gym, Rooms to Go: Check out 6 major Austin-area permits filed this week",
-    "link": "https://communityimpact.com/leander-liberty-hill/development/gym-rooms-to-go-check-out-5-major-austin-area-permits-filed-this-week/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-10-13T20:13:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1986,27 +1956,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Taxpayers pay the price when Texas education department takes over school districts",
-    "link": "https://www.texastribune.org/2026/10/12/austin-isd-state-takeover-costs/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-10-12T10:00:00.000Z",
-    "summary": "Cash-strapped Austin ISD faces big changes under a potential state takeover. It could also face increased costs at a time when reserves are running dry. The post Taxpayers pay the price when Texas education department takes over school districts appeared first on The Texas Tribune .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Candidates hustle for campaign cash",
@@ -2031,42 +1980,6 @@
     "color": "#e07a99",
     "published": "2026-10-09T16:29:18.000Z",
     "summary": "ORIX Corp. USA has purchased Strata, a 322-unit luxury asset in Austin, Texas, from Maverick Development Group. In addition, Multi-Housing New reports Franklin BSP Realty Trust issued a $42 million acquisition loan set to mature in 2031. Strata is part of a six-phase project set to include more than 2,000 units. ORIX’s new community comprises ... The post ORIX Buys 322-Unit Austin Apartment Commun",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "City of Austin Council Message Board • Item 29: City View Zoning Motion",
-    "link": "https://austincouncilforum.org/viewtopic.php?p=4984#p4984",
-    "outlet": "Council Message Board",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-08T18:16:31.000Z",
-    "summary": "Colleagues, I want to share information on our work on the City View Zoning Case on Loop 360. This case is at an intersection with many neighboring jurisdictions including TxDOT, City of Austin, Travis County, and the Lost Creek Limited District. We have had multiple meetings with neighbors both inside and outside the city limits, city staff, and the applicant to help shape the outcome. We have wo",
-    "place": "Travis County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "The digital kiosks are here",
-    "link": "https://www.austinpolitics.net/the-digital-kiosks-are-here/",
-    "outlet": "Austin Politics",
-    "group": "government",
-    "color": "#e8b35e",
-    "published": "2026-10-08T16:08:31.000Z",
-    "summary": "Sports betting funding city services.",
     "place": null,
     "placeKind": null
    }
