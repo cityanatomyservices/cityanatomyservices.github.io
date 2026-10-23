@@ -1,5 +1,21 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-22 (thirty-ninth pass) — NEW shopping app: Pizza in Austin
+
+Owner's CSV `C:\Dev\austin-pizza\austin-pizza-restaurants-deep-research.csv`
+(194 rows, with Austin Public Health scores + Reddit / Austin Monthly
+notes) → new app `apps/austin-pizza/` (index.html copied from guitar,
+config.js, build.py, data.geojson). Dropdowns sorted from the owner's
+text: `kind` (Chain / Pizzeria / Bar, brewery or restaurant / Counter or
+trailer), `style` (8 bands, 144 "Not stated"), `score` (90–100 / 80–89 /
+below 80 / no match), `area` (owner's 8 general areas). Popup: type,
+style, "website says", address, phone, website, health score with date
++ inspection link, Reddit note + thread, Austin Monthly note + article,
+verification, notes. Added to `apps/reports/reports.json` (category
+Dining) so the menu (under Shopping Apps for now) and /apps/ list it.
+TITLE "Pizza in Austin", SUBTITLE and BLURB ARE CLAUDE DRAFTS — owner
+to replace. Data `?v=20261023l`.
+
 ## 2026-10-22 (thirty-eighth pass) — toy stores data refreshed
 
 Owner's CSV `C:\Dev\austin-toy-stores\greater-austin-toy-stores-and-childrens-retailers-with-contact-info.csv`

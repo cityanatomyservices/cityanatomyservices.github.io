@@ -1,0 +1,6021 @@
+{
+ "type": "FeatureCollection",
+ "name": "austin-pizza-restaurants",
+ "description": "Austin places serving pizza, owner research 2026-10-22 (C:/Dev/austin-pizza/austin-pizza-restaurants-deep-research.csv), built by build.py. `kind`, `style`, `score` and `area` are sorted from the owner's text (kept whole). Health scores are dated Austin Public Health inspection scores (data.austintexas.gov ecmv-9xxi), not food ratings; blank means no confident match. Pins are approximate.",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "ABIA - East Side Pies (West Food Park)",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Austin-Bergstrom Airport",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Thin-crust pizza with a wide topping selection.",
+    "address": "3600 Presidential Blvd Unit D3376 Austin, TX 78719-2363",
+    "phone": "",
+    "website": "https://eastsidepies.com/contact-and-parking",
+    "health": "100 (2025-07-15)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12143492",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.667729,
+     30.202114
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "ABIA - Salvation Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Austin-Bergstrom Airport",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Former brand domain no longer reliable; omitted.",
+    "address": "3600 Presidential Blvd Unit 3815 Austin, TX 78719-2363",
+    "phone": "",
+    "website": "",
+    "health": "91 (2026-01-05)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12186432",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": "Airport concession. Former brand domain redirects to unrelated content and is omitted. Secure-terminal access required."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.66688,
+     30.20201
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Allday Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza by the slice and whole pie; Tarrytown and Hyde Park locations.",
+    "address": "4300  SPEEDWAY   UNIT 103 AUSTIN, TX 78751",
+    "phone": "",
+    "website": "https://allday.pizza/",
+    "health": "92 (2026-02-13)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12401356",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "Hyde Park location featured among best new restaurants of 2025; brand-level for other branches.",
+    "magazine_url": "https://www.austinmonthly.com/austin-best-new-restaurants-2025/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72994,
+     30.30705
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Allday Pizza - Tarrytown",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "No score matched",
+    "area": "East Austin",
+    "type": "Independent pizzeria",
+    "pizza_style": "New York-style",
+    "website_says": "Pizza by the slice and whole pie; Tarrytown and Hyde Park locations.",
+    "address": "3111 W 35th St, Austin, TX 78703",
+    "phone": "",
+    "website": "https://allday.pizza/",
+    "health": "",
+    "health_url": "",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "Hyde Park location featured among best new restaurants of 2025; brand-level for other branches.",
+    "magazine_url": "https://www.austinmonthly.com/austin-best-new-restaurants-2025/",
+    "status": "Provider location/menu reviewed",
+    "notes": "At Flo's Wine Bar; separate bar and kitchen inspection records exist; no score assigned without kitchen-operator confirmation."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.766302,
+     30.313017
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Austin Beer Garden Brewing Co., The",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Brewery / brewpub with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Brewpub serving pizza alongside house beer.",
+    "address": "1305 W Oltorf St Austin, TX 78704-5350",
+    "phone": "+15122982242",
+    "website": "https://theabgb.com/",
+    "health": "91 (2025-06-25)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10997570",
+    "reddit": "2025 discussion praises pizza; food opinions vary.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1ol1aik",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76894,
+     30.24532
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Austin's Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "3601 W William Cannon Dr Austin, TX 78749-1525",
+    "phone": "512-717-8763",
+    "website": "https://austinspizza.toast.site/locations",
+    "health": "88 (2026-04-07)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12400096",
+    "reddit": "September 2026 discussion mixes nostalgia, quality complaints and a positive delivery report.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1wtcjwq/austins_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.832957,
+     30.214737
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Austin's Pizza - Braker",
+    "kind": "Chain",
+    "style": "Other",
+    "score": "No score matched",
+    "area": "Far North / Northwest Austin",
+    "type": "Local pizza chain",
+    "pizza_style": "Handcrafted; gluten-free option",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "10900 Research Blvd, Austin, TX 78759",
+    "phone": "512-717-8767",
+    "website": "https://austinspizza.toast.site/locations",
+    "health": "",
+    "health_url": "",
+    "reddit": "September 2026 discussion mixes nostalgia, quality complaints and a positive delivery report.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1wtcjwq/austins_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Current official locator."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74568,
+     30.40415
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Aviator Pizza & Drafthouse",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza made with fresh dough and Texas craft beer.",
+    "address": "4005 W Parmer Ln Ste E Austin, TX 78727-4163",
+    "phone": "512-582-0097",
+    "website": "https://aviatorpizza.com/",
+    "health": "93 (2026-08-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12392893",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.716141,
+     30.425144
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Aviator Pizza & Drafthouse",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza made with fresh dough and Texas craft beer.",
+    "address": "6501 S Congress Ave Ste 105 # Bunit Austin, TX 78745-4483",
+    "phone": "512-827-3553",
+    "website": "https://aviatorpizza.com/",
+    "health": "85 (2025-06-23)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11618169",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Shared company contact; site requests online ordering."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77742,
+     30.19524
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Aviator Pizza & Drafthouse - Mueller",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza made with fresh dough and Texas craft beer.",
+    "address": "1905 Aldrich St Unit 115 Austin, TX 78723-3497",
+    "phone": "512-827-3553",
+    "website": "https://aviatorpizza.com/",
+    "health": "96 (2025-12-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12398300",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Shared company contact; site requests online ordering."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70534,
+     30.29813
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bambino Pizza LLC",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizzeria using locally milled Barton Springs Mill flour.",
+    "address": "979 Springdale Rd Unit 153 Austin, TX 78702-3758",
+    "phone": "512-368-3366",
+    "website": "https://bambinoaustin.com/",
+    "health": "91 (2025-09-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399941",
+    "reddit": "Suggested for gluten-free crust in September 2026; kitchen/allergen safety not verified.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1wkzd7g/best_gluten_free_pizza/",
+    "magazine": "Best Pizza selection in the 2024 dining/nightlife awards.",
+    "magazine_url": "https://www.austinmonthly.com/best-of-atx-dining-nightlife-2024/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.696307,
+     30.263698
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "BJ's Restaurant & Brewhouse",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "10515 N MOPAC NB EXPY AUSTIN, TX 78759",
+    "phone": "",
+    "website": "https://www.bjsrestaurants.com/",
+    "health": "90 (2026-08-06)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10575343",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73311,
+     30.39337
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Brooklyn Heights Pizzeria",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "Below 80",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Hand-tossed East Coast-style pizza baked in brick ovens; dine-in, takeout and delivery.",
+    "address": "14900 Avery Ranch Blvd Austin, TX 78717-3951",
+    "phone": "+1-512-238-8889",
+    "website": "https://brooklynheightspizzeria.com/",
+    "health": "79 (2025-03-07)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10101590",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.777579,
+     30.499345
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bufalina",
+    "kind": "Pizzeria",
+    "style": "Neapolitan or wood-fired",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Neapolitan",
+    "website_says": "Neapolitan pizza and wine.",
+    "address": "2215 E Cesar Chavez St Austin, TX 78702-4601",
+    "phone": "512-394-5337",
+    "website": "https://www.bufalinapizza.com/",
+    "health": "98 (2025-08-06)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12397736",
+    "reddit": "Recommended in replies, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.719669,
+     30.255146
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bufalina Due LLC",
+    "kind": "Pizzeria",
+    "style": "Neapolitan or wood-fired",
+    "score": "80 to 89",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Neapolitan",
+    "website_says": "Neapolitan pizza and wine.",
+    "address": "6555 Burnet Rd Ste 100 Austin, TX 78757-2863",
+    "phone": "512-215-8662",
+    "website": "https://www.bufalinapizza.com/",
+    "health": "88 (2026-01-14)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11460194",
+    "reddit": "Recommended in replies, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738342,
+     30.34109
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Chicago Slice",
+    "kind": "Pizzeria",
+    "style": "Sicilian or deep pan",
+    "score": "No score matched",
+    "area": "North / North Central Austin",
+    "type": "Independent pizzeria",
+    "pizza_style": "Chicago tavern; deep dish",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "900 E Braker Ln Ste 105, Austin, TX 78753",
+    "phone": "737-975-9899",
+    "website": "https://www.chicagosliceatx.com/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Current Eater guide listing; official website retrieval failed",
+    "notes": "Provider site could not be retrieved; location from Eater's February 2026 guide. Different permit name at this suite not confidently linked."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.673899,
+     30.376182
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Chuck E. Cheese's",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Arcade / family entertainment with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and family entertainment.",
+    "address": "10515 N MOPAC NB EXPY AUSTIN, TX 78759",
+    "phone": "",
+    "website": "https://www.chuckecheese.com/",
+    "health": "97 (2025-12-30)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394651",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73311,
+     30.39337
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Chuck E. Cheese's",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far South Austin",
+    "type": "Arcade / family entertainment with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and family entertainment.",
+    "address": "9811 S Ih 35 Austin, TX 78744-7929",
+    "phone": "+15122825000",
+    "website": "https://www.chuckecheese.com/",
+    "health": "84 (2026-03-03)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394652",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78896,
+     30.15813
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Cici's Pizza #58",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza buffet; carryout available.",
+    "address": "9717 N Lamar Blvd Austin, TX 78753-4177",
+    "phone": "512-873-8800",
+    "website": "https://www.cicis.com/locations/tx-austin",
+    "health": "90 (2026-08-18)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12397161",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69454,
+     30.36584
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "CiCi's Pizza #71",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza buffet; carryout available.",
+    "address": "5365 N Interstate 35 Austin, TX 78723-2428",
+    "phone": "512-453-4488",
+    "website": "https://www.cicis.com/locations/tx-austin",
+    "health": "92 (2026-08-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10786483",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7085,
+     30.31204
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Cidercade Austin",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Thin crust",
+    "score": "80 to 89",
+    "area": "South Austin",
+    "type": "Arcade and cider bar with pizza",
+    "pizza_style": "Thin-crust; 12-inch pies",
+    "website_says": "Arcade with 12-inch thin-crust pizzas; admission policies apply.",
+    "address": "600 E Riverside Dr, Austin, TX 78704",
+    "phone": "",
+    "website": "https://cidercade.com/austin/food/",
+    "health": "84 (2026-04-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12392338",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Admission-based entertainment venue; 18+ after 9 p.m. per website. APH legal name Bishop Cider Austin."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74104,
+     30.25251
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Conans Pizza",
+    "kind": "Pizzeria",
+    "style": "Sicilian or deep pan",
+    "score": "80 to 89",
+    "area": "South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Deep-pan",
+    "website_says": "Deep-pan pizza, wheat dough and vegetarian options.",
+    "address": "2018 W Stassney Ln Austin, TX 78745-3557",
+    "phone": "+15124416754",
+    "website": "https://conanspizzaaustin.com/",
+    "health": "83 (2025-12-18)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12393802",
+    "reddit": "October 2026 thread praises nostalgia; some criticize held lunch slices. Mostly North location.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1x5xypg/conans/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official South Austin website reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.798257,
+     30.216265
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Conans Pizza North",
+    "kind": "Pizzeria",
+    "style": "Sicilian or deep pan",
+    "score": "80 to 89",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Deep-pan",
+    "website_says": "Deep-pan pizza, wheat dough and vegetarian options.",
+    "address": "2438 W Anderson Ln Austin, TX 78757-1149",
+    "phone": "512-459-3221",
+    "website": "https://conanspizza.com/",
+    "health": "88 (2026-06-30)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2800122",
+    "reddit": "October 2026 thread praises nostalgia; some criticize held lunch slices. Mostly North location.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1x5xypg/conans/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73132,
+     30.35711
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Craig O's Pizza & Pastaria",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and Italian food.",
+    "address": "5501 Balcones Dr Austin, TX 78731-5041",
+    "phone": "5125633879",
+    "website": "https://craigositalian.com/",
+    "health": "89 (2026-02-12)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10348378",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75742,
+     30.33617
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Craigo's Pizza & Pastaria",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "Below 80",
+    "area": "Far South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and Italian food.",
+    "address": "11215 S IH 35 Svrd NB Austin, TX 78747",
+    "phone": "+1-512-282-7499",
+    "website": "https://www.craigosonioncreek.com/",
+    "health": "74 (2026-03-17)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10014353",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.795896,
+     30.137381
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Craigo's Pizza and Pastaria",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and Italian food.",
+    "address": "4970 W US 290 WB HWY AUSTIN, TX 78735",
+    "phone": "+1-512-891-7200",
+    "website": "https://craigositalian.com/locations#southwest",
+    "health": "80 (2026-06-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802243",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.820797,
+     30.235765
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Day's Pizza",
+    "kind": "Counter or trailer",
+    "style": "Sourdough",
+    "score": "No score matched",
+    "area": "Far South Austin",
+    "type": "Food trailer",
+    "pizza_style": "Sourdough pizza",
+    "website_says": "The Thicket's tenant directory lists Day's Pizza; host website, not operator site.",
+    "address": "7800 S 1st St, Austin, TX 78745",
+    "phone": "",
+    "website": "https://www.thicketaustin.com/",
+    "health": "",
+    "health_url": "",
+    "reddit": "September 2026 thread praises sourdough crispness; commenters debate charring.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1w8gzlz/days_pizza_is_awesome/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Website is host Thicket Food Park, which lists Day's as a tenant; no standalone site verified."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.792304,
+     30.184476
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "DeSano Pizzeria Napoletana",
+    "kind": "Pizzeria",
+    "style": "Neapolitan or wood-fired",
+    "score": "90 to 100",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Neapolitan",
+    "website_says": "Wood-fired Neapolitan pizza with Italian ingredients.",
+    "address": "301 Lavaca St Austin, TX 78701-3995",
+    "phone": "512-256-2426",
+    "website": "https://desanopizza.com/downtown-austin",
+    "health": "97 (2026-02-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12186516",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "Pizza school recognized as a date-night activity in 2024; brand coverage.",
+    "magazine_url": "https://www.austinmonthly.com/best-of-atx-dining-nightlife-2024/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745858,
+     30.266252
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "DeSano Pizzeria Napoletana",
+    "kind": "Pizzeria",
+    "style": "Neapolitan or wood-fired",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Neapolitan",
+    "website_says": "Wood-fired Neapolitan pizza with Italian ingredients.",
+    "address": "8000 Burnet Rd Austin, TX 78757-8123",
+    "phone": "512-323-2426",
+    "website": "https://desanopizza.com/downtown-austin",
+    "health": "92 (2026-07-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11615523",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "Pizza school recognized as a date-night activity in 2024; brand coverage.",
+    "magazine_url": "https://www.austinmonthly.com/best-of-atx-dining-nightlife-2024/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730746,
+     30.358536
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "DeSano Pizzeria Napoletana - Slaughter",
+    "kind": "Chain",
+    "style": "Neapolitan or wood-fired",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizzeria chain",
+    "pizza_style": "Wood-fired Neapolitan",
+    "website_says": "Wood-fired Neapolitan pizza with Italian ingredients.",
+    "address": "5701 W Slaughter Ln Bldg E, Austin, TX 78749",
+    "phone": "512-623-2426",
+    "website": "https://desanopizza.com/downtown-austin",
+    "health": "",
+    "health_url": "",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "Pizza school recognized as a date-night activity in 2024; brand coverage.",
+    "magazine_url": "https://www.austinmonthly.com/best-of-atx-dining-nightlife-2024/",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official page lists all three Austin locations."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.866968,
+     30.200881
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "10001 S Interstate 35 Suite 290, Austin, TX 78747",
+    "phone": "+15123465900",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.788258,
+     30.161728
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1200 Barbara Jordan blvd Street 322, Austin, TX 78723",
+    "phone": "+17372731800",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.710911,
+     30.307833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "13201 Pond Springs Rd, Austin, TX 78729",
+    "phone": "+15123317701",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.777894,
+     30.444979
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "13764 Research Blvd, Austin, TX 78750",
+    "phone": "+15122509190",
+    "website": "https://pizza.dominos.com/texas/austin/13764-research-blvd",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.794868,
+     30.460691
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1606 E Parmer Ln Ste 200 Austin, TX 78753-7147",
+    "phone": "+15123945056",
+    "website": "https://www.dominos.com/",
+    "health": "96 (2026-06-24)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394728",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.649897,
+     30.388392
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1807 W Slaughter Ln Ste 465 Austin, TX 78748-6296",
+    "phone": "+15122918300",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "96 (2026-02-18)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10010126",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.82256,
+     30.17265
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "Downtown / Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1900 Guadalupe Ave, Austin, TX 78705",
+    "phone": "+15124770101",
+    "website": "https://pizza.dominos.com/texas/austin/1900-guadalupe-ave",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742456,
+     30.282153
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "2407 S Congress Ave, Austin, TX 78704",
+    "phone": "+15128539674",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.753584,
+     30.238592
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "Downtown / Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "311 W. 5th Ave, Austin, TX 78701",
+    "phone": "+17372374141",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745726,
+     30.267785
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "4201 Westbank Drive, Austin, TX 78746",
+    "phone": "+15123271313",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.81591,
+     30.275829
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "5145 N FM 620 Austin, TX 78732",
+    "phone": "+15128710206",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "97 (2026-07-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12401061",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.88381,
+     30.389105
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "5317 Nuckols Crossing\nSte 104, Austin, TX 78744",
+    "phone": "+15124945463",
+    "website": "https://pizza.dominos.com/texas/austin/5317-nuckols-crossing",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738567,
+     30.192085
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "5353 W US Hwy 290 Suite 101, Austin, TX 78735",
+    "phone": "+15125995555",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.836447,
+     30.236079
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "5701 West Slaughter Lane Ste A160\nBldg A, Ste 160, Austin, TX 78749",
+    "phone": "+17372129005",
+    "website": "https://pizza.dominos.com/texas/austin/5701-west-slaughter-lane-ste-a160",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.869863,
+     30.200491
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "6929 Airport Blvd #100\nSTE 100, Austin, TX 78752",
+    "phone": "+15125994444",
+    "website": "https://pizza.dominos.com/texas/austin/6929-airport-blvd-100",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.718029,
+     30.338268
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "719 W William Cannon Drive, Austin, TX 78745",
+    "phone": "+15124408833",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.788222,
+     30.197164
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "7626 Hwy. 71 West Ste 101\nSte 101, Austin, TX 78735",
+    "phone": "+15122888886",
+    "website": "https://pizza.dominos.com/texas/austin/7626-hwy-71-west-ste-101",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.880456,
+     30.241197
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "7900 N RR 620 Suite 140, Austin, TX 78726",
+    "phone": "+15122587000",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "Official directory address; inspection match not established."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.85059,
+     30.41444
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza # 9259",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "2501 E 7th St Ste 300 Austin, TX 78702-3947",
+    "phone": "+15124800826",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "94 (2025-12-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11397547",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.713666,
+     30.260521
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza #9285",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "3701 Guadalupe St Austin, TX 78705-1396",
+    "phone": "+15125806488",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "97 (2026-06-03)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11514130",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73816,
+     30.30209
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza - Airport Blvd",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "4631 Airport Blvd Ste 124 Austin, TX 78751-3442",
+    "phone": "+15123741000",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "95 (2026-05-01)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12170830",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": "APH legal name Texas Republic Pizza Company; official Domino's locator confirms exact street address and suite."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.71507,
+     30.3061
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza 6607",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "8141 Mesa Dr Ste C Austin, TX 78759-8796",
+    "phone": "+15126513516",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "96 (2026-05-07)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394725",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.755433,
+     30.37379
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza 6613",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1700 W Parmer Ln Ste 640 Austin, TX 78727-4603",
+    "phone": "+15128341122",
+    "website": "https://pizza.dominos.com/texas/austin/1700-west-parmer-lane-suite-640",
+    "health": "96 (2026-06-23)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394726",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.689152,
+     30.41432
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza 8007",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "11150  RESEARCH SB BLVD Unit 203 AUSTIN, TX 78759",
+    "phone": "+15125200009",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "98 (2026-06-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394730",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74542,
+     30.40758
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza 9278",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "2013 Wells Branch Pkwy Ste 109 Austin, TX 78728-6903",
+    "phone": "+15129921375",
+    "website": "https://pizza.dominos.com/texas/austin/2013-wells-branch-parkway",
+    "health": "95 (2026-04-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394722",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.682761,
+     30.435167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza 9322",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1910 W Braker Ln Ste 500 Austin, TX 78758-4176",
+    "phone": "+15129920700",
+    "website": "https://pizza.dominos.com/texas/austin/1910-braker-lane-500/",
+    "health": "95 (2026-06-01)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394724",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.706889,
+     30.392939
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza Store #6609",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1509 S Lamar Blvd Ste 500 Austin, TX 78704-2990",
+    "phone": "+15124470404",
+    "website": "https://pizza.dominos.com/texas/austin/1509-south-lamar-suite-500",
+    "health": "93 (2026-02-26)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10996570",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763722,
+     30.25213
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Domino's Pizza-Store #6404",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "720  BASTROP SB HWY AUSTIN, TX 78741",
+    "phone": "+15129293300",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "95 (2025-09-30)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10996583",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6846,
+     30.23378
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Dominos Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "9001 Cameron Rd Ste 203 # Bunit Austin, TX 78754-3985",
+    "phone": "+15126140031",
+    "website": "https://pizza.dominos.com/texas/austin/9001-cameron-rd-ste-203",
+    "health": "92 (2025-12-15)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11626994",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.676465,
+     30.346634
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Dominos Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "9616 N Lamar Blvd Austin, TX 78758",
+    "phone": "+15128377500",
+    "website": "https://pizza.dominos.com/texas/austin/9616-n-lamar-187",
+    "health": "89 (2026-07-24)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10061666",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.696642,
+     30.365744
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Dominos Pizza #6603",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1931 E Oltorf St Austin, TX 78741-4035",
+    "phone": "+15124476681",
+    "website": "https://pizza.dominos.com/texas/austin/",
+    "health": "94 (2026-02-03)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11860825",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734571,
+     30.230638
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Dominos Pizza 6628",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "2716 W William Cannon Dr Unit 200 Austin, TX 78745-5120",
+    "phone": "+15125790148",
+    "website": "https://www.dominos.com/en?redirect=homepage&utm_source=google&utm_medium=loclist&utm_campaign=localmaps_menutest",
+    "health": "93 (2025-10-22)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12397238",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Listed in official Austin store directory",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.817202,
+     30.208178
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Double Dave's Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and rolled pepperoni snacks.",
+    "address": "13343 N US 183 HWY NB SVRD Unit 240 AUSTIN, TX 78729",
+    "phone": "512-918-3283",
+    "website": "https://www.doubledaves.com/",
+    "health": "86 (2026-09-22)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802971",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.786431,
+     30.44628
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Double Dave's Pizzaworks",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and rolled pepperoni snacks.",
+    "address": "8947 FM 2244 Rd Ste 201 Austin, TX 78746-4733",
+    "phone": "512-402-1555",
+    "website": "https://www.doubledaves.com/locations/tx/austin-area",
+    "health": "98 (2026-08-21)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11714231",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.86368,
+     30.31758
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Double Dave's Pizzaworks",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and rolled pepperoni snacks.",
+    "address": "9500 S Interstate 35 Austin, TX 78748-1752",
+    "phone": "512-301-3283",
+    "website": "https://www.doubledaves.com/locations/tx/austin-area",
+    "health": "89 (2025-06-05)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10328502",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.791066,
+     30.162558
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "DoubleDave's Pizzaworks",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and rolled pepperoni snacks.",
+    "address": "4301 W William Cannon Dr Ste B180 Austin, TX 78749-1480",
+    "phone": "512-377-3283",
+    "website": "https://www.doubledaves.com/locations/tx/austin-area",
+    "health": "84 (2026-07-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10589732",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.83978,
+     30.22139
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Dovetail Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza, pasta and a full bar.",
+    "address": "1816 S 1st St Austin, TX 78704-4252",
+    "phone": "+15125221375",
+    "website": "https://dovetailpizza.com/",
+    "health": "85 (2026-08-05)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12398599",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "March/April 2023 profile discusses its pizza and Bouldin Creek setting.",
+    "magazine_url": "https://www.austinmonthly.com/dovetail-pizza-is-bouldin-creeks-new-king-of-carbs/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.756436,
+     30.246837
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "East Side Pies",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Thin-crust pizza with a wide topping selection.",
+    "address": "13265 N US 183 HWY NB SVRD Unit B AUSTIN, TX 78729",
+    "phone": "512-488-9585",
+    "website": "https://eastsidepies.com/contact-and-parking",
+    "health": "98 (2026-04-03)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12029818",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.784563,
+     30.443841
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "East Side Pies",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Thin-crust pizza with a wide topping selection.",
+    "address": "5530 Burnet Rd Austin, TX 78756-1604",
+    "phone": "512-454-7437",
+    "website": "https://eastsidepies.com/contact-and-parking",
+    "health": "91 (2026-09-01)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12398082",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74025,
+     30.33118
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Eastside Pies",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Thin-crust pizza with a wide topping selection.",
+    "address": "1401 Rosewood Ave Austin, TX 78702-2026",
+    "phone": "512-524-0933",
+    "website": "https://eastsidepies.com/contact-and-parking",
+    "health": "91 (2025-07-22)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802928",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.724084,
+     30.268783
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Favorite Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Whole pizzas and slices; beer available.",
+    "address": "801 W 6th St Austin, TX 78703-5403",
+    "phone": "+1-512-478-4136",
+    "website": "https://favoritepizzaaustin.com/",
+    "health": "88 (2026-07-15)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394308",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.750818,
+     30.270155
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Feral Pizza",
+    "kind": "Counter or trailer",
+    "style": "New York",
+    "score": "No score matched",
+    "area": "East Austin",
+    "type": "Food trailer",
+    "pizza_style": "Sourdough; grandma; Northeast-inspired",
+    "website_says": "Sourdough pizza with a 48–72-hour cold fermentation.",
+    "address": "500 E 51st St, Austin, TX 78751",
+    "phone": "",
+    "website": "https://www.feralpizza.com/",
+    "health": "",
+    "health_url": "",
+    "reddit": "Favorably mentioned in a March 2025 pizza discussion.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1izuwvt",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "At Duval Market; do not substitute the host market's inspection score. Limited days; can sell out."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.719834,
+     30.314232
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Garage Pizza at Garage Bar",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Sicilian or deep pan",
+    "score": "80 to 89",
+    "area": "Downtown / Central Austin",
+    "type": "Cocktail bar with pizza",
+    "pizza_style": "Sicilian-inspired",
+    "website_says": "Bar website links to pizza reservations and takeout.",
+    "address": "503 Colorado St Ste 100, Austin, TX 78701",
+    "phone": "",
+    "website": "https://garagetx.com/",
+    "health": "82 (2026-01-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11099474",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "2026 date-night selection describes Sicilian-inspired, long-fermented pizza.",
+    "magazine_url": "https://www.austinmonthly.com/best-of-atx-2026-dining-nightlife/",
+    "status": "Provider location/menu reviewed",
+    "notes": "Host-bar inspection is labeled; not a separate pizza-kitchen score."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74419,
+     30.26788
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "GattiTown # 2006",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location formats vary.",
+    "address": "9900 S Interstate 35 Ste V Austin, TX 78748-3886",
+    "phone": "+1-512-301-7777",
+    "website": "https://mrgattispizza.com",
+    "health": "93 (2025-06-02)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12393409",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79274,
+     30.15694
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Giovanni's Pizza Stand",
+    "kind": "Counter or trailer",
+    "style": "Other",
+    "score": "No score matched",
+    "area": "South Austin",
+    "type": "Pizza stand",
+    "pizza_style": "Pizza",
+    "website_says": "Ordering marketplace listing; no reliable standalone website description captured.",
+    "address": "2900 S Lamar Blvd, Austin, TX 78704",
+    "phone": "",
+    "website": "https://slicelife.com/pizza-delivery/tx-austin",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Ordering marketplace listing reviewed; standalone official site not established",
+    "notes": "Current Slice marketplace listing reviewed; no standalone provider website verified."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.782454,
+     30.243658
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Grimaldi's Pizzeria",
+    "kind": "Chain",
+    "style": "Neapolitan or wood-fired",
+    "score": "80 to 89",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Coal-fired",
+    "website_says": "Coal-fired brick-oven pizza.",
+    "address": "11700 Domain Blvd Ste 148 Austin, TX 78758-3438",
+    "phone": "+15128539075",
+    "website": "https://www.grimaldispizzeria.com/location/domain-northside/",
+    "health": "82 (2026-07-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12395671",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.721,
+     30.40297
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Grove Wine Bar & Kitchen",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Wine bar and restaurant menu includes pizza.",
+    "address": "7719 Wood Hollow Dr Ste 100 Austin, TX 78731-1616",
+    "phone": "512-519-9905",
+    "website": "https://www.grovewinebar.com/",
+    "health": "90 (2026-01-20)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12400491",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74732,
+     30.3611
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Grove, The",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Wine bar and restaurant menu includes pizza.",
+    "address": "6317 FM 2244 Rd Ste 380 Austin, TX 78746-5208",
+    "phone": "512-327-8822",
+    "website": "https://www.grovewinebar.com/",
+    "health": "85 (2026-02-06)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10076097",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.83219,
+     30.29638
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Happy Slice Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Scratch-made daily dough, unbleached flour and baked wings.",
+    "address": "9900 W PARMER LN Austin, TX 78717",
+    "phone": "512-593-2006",
+    "website": "https://happyslicepizza.com/",
+    "health": "87 (2026-03-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=178779",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76997,
+     30.48772
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Hoboken Pie",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "New York-style pizza.",
+    "address": "718 Red River St Austin, TX 78701-3311",
+    "phone": "+15124774256",
+    "website": "https://www.hobokenpie.com/",
+    "health": "81 (2026-09-21)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10134394",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736789,
+     30.268213
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Home Slice Pizza",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "New York",
+    "website_says": "Hand-tossed New York-style pizza, slices and whole pies.",
+    "address": "1415 S Congress Ave Austin, TX 78704-2434",
+    "phone": "512-444-7437",
+    "website": "https://homeslicepizza.com/",
+    "health": "94 (2025-09-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802846",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.749577,
+     30.249227
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Home Slice Pizza",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "New York",
+    "website_says": "Hand-tossed New York-style pizza, slices and whole pies.",
+    "address": "501 E 53rd St Unit A Austin, TX 78751-2103",
+    "phone": "512-707-7437",
+    "website": "https://homeslicepizza.com/location/north-loop/",
+    "health": "95 (2026-06-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11862857",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.718466,
+     30.315938
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Jester King Brewery",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Neapolitan or wood-fired",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Brewery with pizza",
+    "pizza_style": "Wood-fired",
+    "website_says": "Brewery and farm serving wood-fired pizza.",
+    "address": "13187 Fitzhugh Rd, Austin, TX 78736",
+    "phone": "512-900-1820",
+    "website": "https://jesterkingbrewery.com/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Austin mailing address in the Hill Country; outside urban core."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.996328,
+     30.233401
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Jet's Pizza",
+    "kind": "Chain",
+    "style": "Detroit",
+    "score": "80 to 89",
+    "area": "South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style deep-dish pizza.",
+    "address": "3003 S Lamar Blvd Ste 130 Austin, TX 78704-4703",
+    "phone": "(737) 400-9292",
+    "website": "https://www.jetspizza.com/stores/texas/austin/3003-s-lamar-blvd-f130a/",
+    "health": "89 (2026-04-14)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394782",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.783342,
+     30.242343
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Jet's Pizza",
+    "kind": "Chain",
+    "style": "Detroit",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style deep-dish pizza.",
+    "address": "7101  SH 71   STE A9 AUSTIN, TX 78736",
+    "phone": "(737) 381-0300",
+    "website": "https://www.jetspizza.com/stores/texas/austin/",
+    "health": "89 (2026-03-02)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12401064",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.87771,
+     30.23448
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Jet's Pizza",
+    "kind": "Chain",
+    "style": "Detroit",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style deep-dish pizza.",
+    "address": "7301 Burnet Rd Austin, TX 78757-2250",
+    "phone": "(512) 631-5387",
+    "website": "https://www.jetspizza.com/stores/texas/austin/",
+    "health": "92 (2026-03-12)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=178540",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73523,
+     30.3486
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Jet's Pizza",
+    "kind": "Chain",
+    "style": "Detroit",
+    "score": "90 to 100",
+    "area": "Downtown / Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style deep-dish pizza.",
+    "address": "827 W 12th St Austin, TX 78701-1769",
+    "phone": "(512) 717-3668",
+    "website": "https://www.jetspizza.com/stores/texas/austin/",
+    "health": "93 (2026-04-14)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=177884",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74952,
+     30.27601
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Jet's Pizza",
+    "kind": "Chain",
+    "style": "Detroit",
+    "score": "80 to 89",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style deep-dish pizza.",
+    "address": "8900 S Congress Ave Bldg 2 Ste 175 Austin, TX 78745-7393",
+    "phone": "(512) 599-4356",
+    "website": "https://www.jetspizza.com/stores/texas/austin/",
+    "health": "88 (2025-07-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394251",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Multiple Census matches; first returned match used; verify map pin."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.788203,
+     30.169103
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Jet's Pizza",
+    "kind": "Chain",
+    "style": "Detroit",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style deep-dish pizza.",
+    "address": "9001 Brodie Ln # Bunit # 2 Austin, TX 78748-5002",
+    "phone": "(512) 280-1010",
+    "website": "https://www.jetspizza.com/stores/texas/austin/",
+    "health": "92 (2025-04-30)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12145995",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.84263,
+     30.19397
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Jets Pizza",
+    "kind": "Chain",
+    "style": "Detroit",
+    "score": "80 to 89",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style deep-dish pizza.",
+    "address": "1201 Barbara Jordan Blvd Ste 1420 Austin, TX 78723-3183",
+    "phone": "(512) 767-1688",
+    "website": "https://www.jetspizza.com/stores/texas/austin/",
+    "health": "84 (2026-04-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399125",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70917,
+     30.30636
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "La Volta Pizza Club",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Other",
+    "score": "80 to 89",
+    "area": "Downtown / Central Austin",
+    "type": "Independent pizzeria and bar",
+    "pizza_style": "Pizza; pasta; slices",
+    "website_says": "Pizzeria at 900 West 10th Street.",
+    "address": "900 W 10th St, Austin, TX 78703",
+    "phone": "5127970476",
+    "website": "https://www.lavoltapizza.com/",
+    "health": "82 (2025-07-30)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399484",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "Musician recommendation in an October 2023 interview; not a formal restaurant review.",
+    "magazine_url": "https://www.austinmonthly.com/acl-fest-2023-interview-bob-moses/",
+    "status": "Provider location/menu reviewed",
+    "notes": "Current concept at former Sammataro/40 North address."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75157,
+     30.27512
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Little Caesar's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "4410 E Riverside Dr Austin, TX 78741-4799",
+    "phone": "",
+    "website": "https://littlecaesars.com/en-us/",
+    "health": "86 (2026-03-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2800233",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72117,
+     30.23356
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Little Caesar's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "512 W Stassney Ln Austin, TX 78745-3178",
+    "phone": "",
+    "website": "https://littlecaesars.com/en-us/",
+    "health": "86 (2025-08-12)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2800386",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78013,
+     30.20826
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Little Caesars Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "10001 Research Blvd Ste 160 Austin, TX 78759-5800",
+    "phone": "",
+    "website": "https://littlecaesars.com/en-us/",
+    "health": "91 (2026-07-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=179208",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74614,
+     30.39268
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Little Caesars Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "5200 E William Cannon Dr Austin, TX 78744-5101",
+    "phone": "",
+    "website": "https://littlecaesars.com/en-us/store/8459/",
+    "health": "92 (2026-04-22)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10179226",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.747976,
+     30.180435
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Little Deli & Pizzeria",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Jersey thin-crust",
+    "website_says": "Jersey-style thin-crust pizza and deli sandwiches.",
+    "address": "1804 Briarcliff Blvd Austin, TX 78723-1907",
+    "phone": "512-220-8346",
+    "website": "https://littledeliandpizza.com/locations/",
+    "health": "100 (2026-05-26)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12185961",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.68969,
+     30.31422
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Little Deli & Pizzeria",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Jersey thin-crust",
+    "website_says": "Jersey-style thin-crust pizza and deli sandwiches.",
+    "address": "7101 Woodrow Ave Unit A Austin, TX 78757-1859",
+    "phone": "512-467-7402",
+    "website": "https://littledeliandpizza.com/locations/",
+    "health": "94 (2026-01-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10006179",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.725495,
+     30.342616
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Loudmouth",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza restaurant; published contact number is labeled for texts.",
+    "address": "1209 Rosewood Ave Austin, TX 78702-2022",
+    "phone": "+15127669072",
+    "website": "https://www.loudmouth.pizza/",
+    "health": "",
+    "health_url": "",
+    "reddit": "Thread favors its Italian sandwich; pizza reaction is mixed.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1jemb76",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": "APH name Park Pizza 1 LLC at this address; legal-entity identity not independently confirmed, so score withheld. Published number labeled TEXT US."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72632,
+     30.26837
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Love Supreme",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza, wings and cocktails.",
+    "address": "2805 Manor Rd Austin, TX 78722-1711",
+    "phone": "512-296-2655",
+    "website": "https://www.lovesupremepizzabar.com/",
+    "health": "95 (2025-07-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12393861",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.71165,
+     30.28512
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mandola's Italian Market",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Italian restaurant menu includes pizza.",
+    "address": "4301 W William Cannon Dr Ste E1 Austin, TX 78749-1420",
+    "phone": "",
+    "website": "https://mandolas.com/",
+    "health": "87 (2026-01-23)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10409291",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.83978,
+     30.22139
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mandola's Italian Market",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "Below 80",
+    "area": "East Austin",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Italian restaurant menu includes pizza.",
+    "address": "4700 W Guadalupe St Austin, TX 78751-3683",
+    "phone": "",
+    "website": "https://mandolas.com/",
+    "health": "78 (2026-07-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802671",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73286,
+     30.31583
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mangieri's Pizza Cafe",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and Italian restaurant; South Austin location.",
+    "address": "5900 W Slaughter Ln Ste 490 # Bunit Austin, TX 78749-6513",
+    "phone": "+15123010063",
+    "website": "https://mangieris.com/south-austin-location/",
+    "health": "91 (2025-04-01)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10456513",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": "Official site lists Suite 460; APH uses Suite 490. Same building, confirm unit."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.878962,
+     30.201275
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Marco's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "Below 80",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Online pizza ordering; menu varies by store.",
+    "address": "10019 W Parmer Ln Ste 103 Austin, TX 78717-4934",
+    "phone": "5134742400",
+    "website": "https://www.marcos.com/",
+    "health": "78 (2026-05-21)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12400097",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77235,
+     30.48877
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Marco's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Online pizza ordering; menu varies by store.",
+    "address": "11011  RESEARCH NB BLVD AUSTIN, TX 78759",
+    "phone": "5134742400",
+    "website": "https://www.marcos.com/",
+    "health": "90 (2026-08-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10905433",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74517,
+     30.40564
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Marco's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Online pizza ordering; menu varies by store.",
+    "address": "5610 N Interstate 35 Ste K20 Austin, TX 78751-1717",
+    "phone": "5134742400",
+    "website": "https://www.marcos.com/",
+    "health": "97 (2026-03-31)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12401944",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": "Multiple Census matches; first returned match used; verify map pin."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.709047,
+     30.312663
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Marcos Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Online pizza ordering; menu varies by store.",
+    "address": "6800 West Gate Blvd Unit 100 Austin, TX 78745-4883",
+    "phone": "+1-512-994-1175",
+    "website": "https://order.marcos.com/?id=LPNVED",
+    "health": "83 (2026-02-18)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12400718",
+    "reddit": "Suggested for cheesy pizza; brand-level comments, June 2026.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1uhldll/cheesy_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.81649,
+     30.20848
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Market Street Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza, pasta, calzones, sandwiches and wings; pickup and delivery.",
+    "address": "13000 N IH 35 Svrd SB Austin, TX 78753",
+    "phone": "+1-512-821-3311",
+    "website": "https://marketstreetpizzatx.com/",
+    "health": "96 (2026-08-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11742213",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.67598,
+     30.411372
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Meteor, The",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "All-day cafe, wine and bike shop serving sourdough pizza.",
+    "address": "2110 S Congress Ave Unit A Austin, TX 78704-4317",
+    "phone": "+1 512 351 9541",
+    "website": "https://espressochampagnechainlube.com/",
+    "health": "90 (2026-06-15)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12186126",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.752547,
+     30.242753
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Milano Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "Below 80",
+    "area": "South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Family-owned pizza restaurant with online ordering.",
+    "address": "1025 W Stassney Ln Ste 101 Austin, TX 78745-2995",
+    "phone": "512-440-0866",
+    "website": "https://www.milanopizzaaustin.com/",
+    "health": "76 (2025-05-08)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2801968",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.786829,
+     30.210106
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "More Home Slice",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "80 to 89",
+    "area": "South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "New York",
+    "website_says": "Hand-tossed New York-style pizza, slices and whole pies.",
+    "address": "1421 S Congress Ave Austin, TX 78704-2434",
+    "phone": "512-444-7437",
+    "website": "https://homeslicepizza.com/",
+    "health": "80 (2026-08-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10366758",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.749611,
+     30.248983
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mr Gattis Pizza #108",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location formats vary.",
+    "address": "3720 Far West Blvd Ste 114 Austin, TX 78731-3025",
+    "phone": "+15125838090",
+    "website": "https://mrgattispizza.com/",
+    "health": "99 (2026-02-26)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12396089",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75709,
+     30.35578
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mr. Gatti's Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location formats vary.",
+    "address": "12129 FM 620 N Ste 100 Bldg A Austin, TX 78750-1091",
+    "phone": "",
+    "website": "https://mrgattispizza.com/",
+    "health": "100 (2025-11-10)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12395349",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.81794,
+     30.46152
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mr. Gattis Pizza #102",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location formats vary.",
+    "address": "2121 W Parmer Ln Ste 104 Austin, TX 78727-4351",
+    "phone": "+1-512-583-8086",
+    "website": "https://mrgattispizza.com",
+    "health": "98 (2025-06-30)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12393515",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.696922,
+     30.415549
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mr. Gattis Pizza #103",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location formats vary.",
+    "address": "7525 E US 290 HWY EB SVRD AUSTIN, TX 78723",
+    "phone": "+15125838091",
+    "website": "https://mrgattispizza.com/",
+    "health": "100 (2026-05-20)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12393516",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.675271,
+     30.323931
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mr. Gattis Pizza #106",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location formats vary.",
+    "address": "12110 Manchaca Rd Austin, TX 78748-2704",
+    "phone": "+15125838099",
+    "website": "https://mrgattispizza.com/",
+    "health": "98 (2026-04-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12393641",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.833613,
+     30.142679
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mr. Gattis Pizza #204",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location formats vary.",
+    "address": "801 E William Cannon Dr Austin, TX 78745-6646",
+    "phone": "+15125838103",
+    "website": "https://mrgattispizza.com/",
+    "health": "98 (2025-11-25)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12393519",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7723,
+     30.19062
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Niki's Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza by the slice alongside Italian and Greek dishes.",
+    "address": "1100 Center Ridge Dr Ste 360 Austin, TX 78753-1062",
+    "phone": "+1-512-989-6868",
+    "website": "http://www.nikipizza.com/",
+    "health": "92 (2026-06-15)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10160508",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.670389,
+     30.418079
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "North Italia",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Downtown / Central Austin",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Italian menu including pizza and pasta.",
+    "address": "500 W 2nd St Ste 120 Austin, TX 78701-4674",
+    "phone": "+15127775062",
+    "website": "https://www.northitalia.com/locations/",
+    "health": "90 (2026-03-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11867509",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74923,
+     30.26596
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "North Italia - The Domain",
+    "kind": "Chain",
+    "style": "Other",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Italian restaurant chain",
+    "pizza_style": "Pizza; pasta",
+    "website_says": "Italian menu including pizza and pasta.",
+    "address": "11506 Century Oaks Ter Ste 124, Austin, TX 78758",
+    "phone": "512-339-4400",
+    "website": "https://www.northitalia.com/locations/austin-tx-the-domain/",
+    "health": "90 (2026-06-09)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10026049",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "APH name North, exact suite matched."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72589,
+     30.40258
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Numero 28 Pizzeria & Vineria",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "Below 80",
+    "area": "Downtown / Central Austin",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Southern Italian food, wood-fired pizzas and handmade pasta.",
+    "address": "452 W 2nd St Austin, TX 78701-3898",
+    "phone": "512-494-5510",
+    "website": "https://www.numero28austin.com/",
+    "health": "70 (2026-06-02)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11111461",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74842,
+     30.26567
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Oddwood Ales, LLC",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Thin crust",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Brewery / brewpub with pizza",
+    "pizza_style": "Thin-crust",
+    "website_says": "Brewery serving personal thin-crust pizzas.",
+    "address": "3108 Manor Rd Austin, TX 78723-5719",
+    "phone": "",
+    "website": "https://www.oddwoodbrewing.com/home",
+    "health": "90 (2025-07-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11848076",
+    "reddit": "Suggested for gluten-free crust in September 2026; kitchen/allergen safety not verified.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1wkzd7g/best_gluten_free_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70529,
+     30.28682
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Palm Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "1701 E Cesar Chavez St Ste B Austin, TX 78702-4591",
+    "phone": "+15122916959",
+    "website": "https://www.palmpizza.com/",
+    "health": "91 (2025-05-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399457",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72645,
+     30.25764
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa John's Pizza # 1015",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "2030 E Oltorf St Ste 114 Austin, TX 78741-4038",
+    "phone": "(512) 416-7272",
+    "website": "https://locations.papajohns.com/united-states/tx/78741/austin/2030-e-oltorf-st",
+    "health": "92 (2026-04-14)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10717537",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73216,
+     30.23078
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa John's Pizza #1128",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "9222 W Parmer Ln Ste D Austin, TX 78717-4677",
+    "phone": "(512) 249-7272",
+    "website": "https://locations.papajohns.com/united-states/tx/78717/austin/9222-w-parmer-lane",
+    "health": "80 (2026-05-19)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802225",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76488,
+     30.47828
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa John's Pizza #1296",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "500 W William Cannon Dr Ste 512A Austin, TX 78745-5855",
+    "phone": "(512) 448-1919",
+    "website": "https://locations.papajohns.com/united-states/tx/78745/austin/500-w-william-cannon-drive",
+    "health": "92 (2026-08-19)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2803120",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78511,
+     30.19655
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa John's Pizza #4689",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "7930 Thaxton Rd Ste 400 Austin, TX 78747-4064",
+    "phone": "(512) 975-7272",
+    "website": "https://locations.papajohns.com/united-states/tx/78747/austin/7930-thaxton-rd",
+    "health": "90 (2026-06-17)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11496878",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.744586,
+     30.157407
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa John's Pizza #930",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1925 Rutland Dr Austin, TX 78758-5480",
+    "phone": "(512) 832-6262",
+    "website": "https://locations.papajohns.com/united-states/tx/78758/austin/1925-rutland-dr",
+    "health": "91 (2026-02-25)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2800815",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.713251,
+     30.37892
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa John's Pizza #933",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "2113 W Wells Branch Austin, TX 78728",
+    "phone": "(512) 251-7272",
+    "website": "https://locations.papajohns.com/united-states/tx/78728/austin/2113-wells-branch-pkwy",
+    "health": "95 (2026-01-08)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2800846",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.684642,
+     30.436347
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa John's Pizza #935",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Downtown / Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "411 W Martin Luther King Jr Blvd Austin, TX 78701-1220",
+    "phone": "(512) 476-7272",
+    "website": "https://locations.papajohns.com/united-states/tx/78701/austin/411-west-martin-luther-king-jr-boulevard",
+    "health": "95 (2026-07-06)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2800859",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74216,
+     30.2813
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa John's Pizza #938",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "5343 Burnet Rd Austin, TX 78756-2002",
+    "phone": "(512) 454-7272",
+    "website": "https://locations.papajohns.com/united-states/tx/78756/austin/5343-burnet-rd",
+    "health": "93 (2025-11-13)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2801186",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.739438,
+     30.327447
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa Johns Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "11601 US HIGHWAY 290, Austin, TX 78737",
+    "phone": "(512) 758-4700",
+    "website": "https://locations.papajohns.com/united-states/tx/78737/austin/11601-us-highway-290",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.965562,
+     30.213488
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa Johns Pizza",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "1610 EAST PARMER LANE, Austin, TX 78753",
+    "phone": "(512) 582-5455",
+    "website": "https://locations.papajohns.com/united-states/tx/78753/austin/1610-east-parmer-lane",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.648792,
+     30.387795
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Papa Johns Pizza #1940",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "8106 Brodie Ln Ste 101 Austin, TX 78745-7468",
+    "phone": "(512) 282-3662",
+    "website": "https://locations.papajohns.com/united-states/tx/78745/austin/8106-brodie-ln",
+    "health": "88 (2026-05-26)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2803127",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official individual store page reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.83872,
+     30.20215
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pedroso's Pizza",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "New York; grandma; specialty styles",
+    "website_says": "New York-style, grandma and other pizza styles; Justin Lane and Airport locations.",
+    "address": "2207 Justin Ln Unit D Austin, TX 78757-2416",
+    "phone": "737-600-1107",
+    "website": "https://www.pedrosospizza.com/location",
+    "health": "95 (2026-07-24)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12400625",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "July 2022 brand profile covered its former trailer and New York-style pizza.",
+    "magazine_url": "https://www.austinmonthly.com/pedrosos-pizza-is-setting-a-new-york-sized-standard/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73641,
+     30.34466
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pedroso's Pizza - Airport",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "No score matched",
+    "area": "East Austin",
+    "type": "Independent pizzeria",
+    "pizza_style": "New York; grandma; slices",
+    "website_says": "New York-style, grandma and other pizza styles; Justin Lane and Airport locations.",
+    "address": "3850 Airport Blvd, Austin, TX 78722",
+    "phone": "512-676-7368",
+    "website": "https://www.pedrosospizza.com/location",
+    "health": "",
+    "health_url": "",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "July 2022 brand profile covered its former trailer and New York-style pizza.",
+    "magazine_url": "https://www.austinmonthly.com/pedrosos-pizza-is-setting-a-new-york-sized-standard/",
+    "status": "Provider location/menu reviewed",
+    "notes": "Current second storefront; do not use the former bar's inspection score."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.707475,
+     30.289385
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pinthouse Brewing - Ben White",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Sicilian or deep pan",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Brewery restaurant",
+    "pizza_style": "Sicilian-style",
+    "website_says": "Pizza and house-brewed beer; menus vary by location.",
+    "address": "2201 E Ben White Blvd, Austin, TX 78741",
+    "phone": "512-717-0873",
+    "website": "https://pinthouse.com/",
+    "health": "93 (2025-09-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12393643",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": "Different menu from Pinthouse Pizza pubs; APH legal name PHP Brewing."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74134,
+     30.21588
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pinthouse Pizza",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Brewery / brewpub with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and house-brewed beer; menus vary by location.",
+    "address": "4729 Burnet Rd Austin, TX 78756-2826",
+    "phone": "+1-512-436-9605",
+    "website": "http://pinthousepizza.com/",
+    "health": "90 (2026-06-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10826815",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.739063,
+     30.318752
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pinthouse Pizza - South Lamar",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Other",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Brewpub",
+    "pizza_style": "Handcrafted pizza",
+    "website_says": "Pizza and house-brewed beer; menus vary by location.",
+    "address": "4236 S Lamar Blvd, Austin, TX 78704",
+    "phone": "512-502-5808",
+    "website": "https://pinthouse.com/pizza-south-lamar",
+    "health": "97 (2024-10-01)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11420194",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": "Latest matching published APH score is older than most entries; date retained."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79664,
+     30.23409
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Di Roma",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Slice-powered restaurant menu offers pizza; sausage, peppers and fresh mozzarella among toppings.",
+    "address": "3316 Harmon Ave Austin, TX 78705-2128",
+    "phone": "512-243-8608",
+    "website": "https://www.pizzadiromatx.com/",
+    "health": "91 (2026-01-22)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12400448",
+    "reddit": "July 2024 discussion of the newly opened pizzeria; historical context.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1e0vg6h",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72315,
+     30.29183
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "1015 E Braker Ln Austin, TX 78753-3449",
+    "phone": "(512) 833-7444",
+    "website": "https://locations.pizzahut.com/tx/austin/1015-e-braker-lane",
+    "health": "92 (2026-03-20)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10034421",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.671735,
+     30.37454
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "10601 FM 2222 Rd Austin, TX 78730",
+    "phone": "(512) 275-0111",
+    "website": "https://locations.pizzahut.com/tx/austin/10601-fm-2222-/-riverplace",
+    "health": "95 (2026-02-25)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802656",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.844616,
+     30.392719
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "1144 Airport Blvd Austin, TX 78702-3163",
+    "phone": "(512) 933-1444",
+    "website": "https://locations.pizzahut.com/tx/austin/1144-airport-blvd",
+    "health": "86 (2026-01-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802789",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69779,
+     30.271676
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "13717 Burnet Rd Austin, TX 78727-1292",
+    "phone": "(512) 388-5252",
+    "website": "https://locations.pizzahut.com/tx/austin/13717-burnet-rd-ste-225-/-wells-branch",
+    "health": "95 (2026-02-25)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802722",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69822,
+     30.438151
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "1901 W William Cannon Dr Austin, TX 78745-5371",
+    "phone": "(512) 462-9494",
+    "website": "https://locations.pizzahut.com/tx/austin/1901-w-william-cannon-dr",
+    "health": "92 (2026-05-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802765",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.806012,
+     30.202368
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "2021 E Riverside Dr Austin, TX 78741-1324",
+    "phone": "+15124479494",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "91 (2026-02-17)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802750",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72765,
+     30.24001
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "5510 S Ih 35 Ste C Austin, TX 78745-3209",
+    "phone": "(512) 416-7444",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "95 (2025-12-23)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10181716",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763283,
+     30.2002
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "6307  CAMERON  RD AUSTIN, TX 78723",
+    "phone": "+1 512-371-9444",
+    "website": "https://locations.pizzahut.com/tx/austin/6307a-cameron-rd",
+    "health": "95 (2026-07-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802720",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.695054,
+     30.320054
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "7327 Burnet Rd Austin, TX 78757-2243",
+    "phone": "(512) 808-2841",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "96 (2026-06-03)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399834",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73471,
+     30.34918
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "West Austin / western Austin-address area",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "8400 Brodie Ln Ste 108 Austin, TX 78745-8161",
+    "phone": "(512) 292-6444",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "91 (2026-06-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11035522",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8395,
+     30.20045
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "8500 N Lamar Blvd Austin, TX 78753-5543",
+    "phone": "(512) 836-1444",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "94 (2026-02-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802468",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.705631,
+     30.353432
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut #7111",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far North / Northwest Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "12636  RESEARCH SB BLVD AUSTIN, TX 78759",
+    "phone": "(512) 257-8686",
+    "website": "https://locations.pizzahut.com/tx/austin/12636-research-blvd",
+    "health": "87 (2026-03-03)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802763",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.764152,
+     30.430486
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut Express",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "North / North Central Austin",
+    "type": "Pizza counter / chain concession",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "10107 Research Blvd, Austin, TX 78759",
+    "phone": "",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official Pizza Hut Express locator; phone not published. Host-store score not substituted."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745819,
+     30.392527
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut Express",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizza counter / chain concession",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "500 FM 1626, Austin, TX 78748",
+    "phone": "",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official Pizza Hut Express locator; phone not published. Host-store score not substituted."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.816682,
+     30.142074
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut Express",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizza counter / chain concession",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "5300 S Mopac Expy, Austin, TX 78749",
+    "phone": "",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official Pizza Hut Express locator; phone not published. Host-store score not substituted."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.827119,
+     30.232454
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut Express",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "East Austin",
+    "type": "Pizza counter / chain concession",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "711 W 23rd St, Austin, TX 78705",
+    "phone": "",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official Pizza Hut Express locator; phone not published. Host-store score not substituted."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.744886,
+     30.287184
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut Express",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "North / North Central Austin",
+    "type": "Pizza counter / chain concession",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "8601 Research Blvd, Austin, TX 78758",
+    "phone": "",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official Pizza Hut Express locator; phone not published. Host-store score not substituted."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.716921,
+     30.362269
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Hut Express",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "No score matched",
+    "area": "Far South Austin",
+    "type": "Pizza counter / chain concession",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "9500 S Interstate 35 Bldg G, Austin, TX 78748",
+    "phone": "",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official Pizza Hut Express locator; phone not published. Host-store score not substituted."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78871,
+     30.16262
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Patron",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far South Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza with Latin-inspired flavors.",
+    "address": "5717 S Ih 35 Austin, TX 78744-2711",
+    "phone": "",
+    "website": "https://www.pizzapatron.com/austin/",
+    "health": "97 (2026-04-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399530",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76377,
+     30.19799
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Patron",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza with Latin-inspired flavors.",
+    "address": "7112 Ed Bluestein Blvd Ste 175 Austin, TX 78723-2923",
+    "phone": "",
+    "website": "https://www.pizzapatron.com/austin/",
+    "health": "97 (2026-01-12)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12397242",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.66323,
+     30.31561
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Patron #0165",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza with Latin-inspired flavors.",
+    "address": "9411 N Lamar Blvd Ste 100 Austin, TX 78753-4179",
+    "phone": "",
+    "website": "https://www.pizzapatron.com/austin/",
+    "health": "92 (2026-07-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=178190",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69546,
+     30.36311
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizza Press, The",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "404 W 26th St Austin, TX 78705-4514",
+    "phone": "+1-512-808-0474",
+    "website": "",
+    "health": "90 (2026-02-04)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11701376",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742035,
+     30.290681
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizzeria Grata",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Neapolitan or wood-fired",
+    "score": "No score matched",
+    "area": "South Austin",
+    "type": "Independent pizzeria and bar",
+    "pizza_style": "Neapolitan; calzones; cheesesteaks",
+    "website_says": "Indexed official menu describes Neapolitan pizza and Philly specialties; direct site retrieval was inconsistent.",
+    "address": "2700 S Lamar Blvd, Austin, TX 78704",
+    "phone": "512-505-8808",
+    "website": "https://www.gratapizza.com/menu/",
+    "health": "",
+    "health_url": "",
+    "reddit": "Enthusiastic December 2024 recommendation; title misspells the restaurant name.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1hphwcz",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Indexed official menu and OSM reviewed; direct website content inconsistent",
+    "notes": "APH Tailor Shop LLC record at same address not assigned without legal-entity confirmation."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.780423,
+     30.245336
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Pizzeria Sportiva",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Sicilian or deep pan",
+    "score": "No score matched",
+    "area": "South Austin",
+    "type": "Italian pizzeria and sports bar",
+    "pizza_style": "Roman rectangular pizza",
+    "website_says": "Indexed official site describes rectangular Roman-style stone-fired pizza.",
+    "address": "1500 S Lamar Blvd Ste 120, Austin, TX 78704",
+    "phone": "512-551-9676",
+    "website": "https://www.pizzeriasportiva.com/",
+    "health": "",
+    "health_url": "",
+    "reddit": "Favorably mentioned in a March 2025 pizza discussion.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1izuwvt",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Separate from neighboring It's Italian Cucina; no neighboring restaurant score substituted."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.764292,
+     30.25252
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Rockin' Rolls",
+    "kind": "Counter or trailer",
+    "style": "Other",
+    "score": "No score matched",
+    "area": "North / North Central Austin",
+    "type": "Food trailer",
+    "pizza_style": "Pizza rolls",
+    "website_says": "Pizza rolls from a food trailer.",
+    "address": "5000 Burnet Rd, Austin, TX 78756",
+    "phone": "512-200-3838",
+    "website": "https://www.rockinrollsatx.com/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Pizza-roll specialist rather than conventional whole-pie pizzeria."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.739732,
+     30.321068
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Roppolo's Pizzeria II",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza by the slice and whole pie.",
+    "address": "316 E 6th St Austin, TX 78701-3686",
+    "phone": "512-476-1490",
+    "website": "https://www.roppolos.com/",
+    "health": "81 (2025-12-03)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2800762",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.739671,
+     30.26748
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Roppolo's Pizzeria II",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza by the slice and whole pie.",
+    "address": "414 E 6th St Austin, TX 78701-3740",
+    "phone": "512-476-1490",
+    "website": "https://www.roppolos.com/",
+    "health": "80 (2026-09-24)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2803157",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Shared Sixth Street contact; limited late-night opening days."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738684,
+     30.267039
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Roppolos Pizzeria Northside",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "Below 80",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza by the slice and whole pie.",
+    "address": "2604 Guadalupe St Austin, TX 78705-4042",
+    "phone": "512-265-2121",
+    "website": "https://www.roppolos.com/",
+    "health": "77 (2026-06-23)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12185737",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.741548,
+     30.290999
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Saccone's Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "13776 N US 183 Hwy Svrd SB Austin, TX 78750",
+    "phone": "",
+    "website": "https://saccones.com/",
+    "health": "96 (2025-11-07)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12392642",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.795321,
+     30.461971
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Sammataro - East Austin",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "No score matched",
+    "area": "East Austin",
+    "type": "Independent pizzeria",
+    "pizza_style": "New York-style",
+    "website_says": "New York-style pies; East 12th restaurant and Lynnbrook slice shop.",
+    "address": "2907 E 12th St, Austin, TX 78702",
+    "phone": "",
+    "website": "https://www.sammataro.nyc/",
+    "health": "",
+    "health_url": "",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official site header says 2907; footer says 2903. Pin is approximate address location; confirm pickup entrance."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.707153,
+     30.275736
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Sammataro - Slice Shop",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "No score matched",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizza slice shop",
+    "pizza_style": "New York-style",
+    "website_says": "New York-style pies; East 12th restaurant and Lynnbrook slice shop.",
+    "address": "2105 Lynnbrook Dr, Austin, TX 78748",
+    "phone": "",
+    "website": "https://www.sammataro.nyc/",
+    "health": "",
+    "health_url": "",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": "Official site lists limited Thursday-Saturday service; confirm current schedule."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.831479,
+     30.165142
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Show Me Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "2809 S 1st St Austin, TX 78704-5455",
+    "phone": "+1-512-551-2657",
+    "website": "https://www.showmepizza.com",
+    "health": "92 (2026-07-22)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12394379",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.762781,
+     30.236764
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Small's Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza by the slice during the day; whole pies and wine.",
+    "address": "1023 SPRINGDALE RD Austin, TX 78721",
+    "phone": "203-988-4019",
+    "website": "https://smalls.pizza/",
+    "health": "96 (2026-01-22)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12401909",
+    "reddit": "Personal favorites, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": "Phone from Toast; other directories show a different number."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69349,
+     30.26767
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "South Flo Pizza - Lake Austin H-E-B",
+    "kind": "Counter or trailer",
+    "style": "Other",
+    "score": "No score matched",
+    "area": "Downtown / Central Austin",
+    "type": "Grocery-store pizza counter",
+    "pizza_style": "Pizza",
+    "website_says": "Pizza counter inside H-E-B.",
+    "address": "2652 Lake Austin Blvd, Austin, TX 78703",
+    "phone": "",
+    "website": "https://www.heb.com/static-page/south-flo-pizza",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "OSM pizza counter; H-E-B store inspection not substituted for a dedicated pizza score."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.776352,
+     30.283103
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "South Flo Pizza - Mueller H-E-B",
+    "kind": "Counter or trailer",
+    "style": "Other",
+    "score": "No score matched",
+    "area": "East Austin",
+    "type": "Food-hall pizza counter",
+    "pizza_style": "Pizza",
+    "website_says": "Pizza counter inside H-E-B.",
+    "address": "1801 E 51st St, Austin, TX 78723",
+    "phone": "512-236-1020",
+    "website": "https://www.heb.com/static-page/foodhall",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": "Phone is the host Main Streat food hall; separate pizza inspection not confidently matched."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.698908,
+     30.303831
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Southside Flying Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Slice-powered menu lists pizzas and handmade pepperoni rolls.",
+    "address": "1224 S Lamar Blvd, Austin, TX 78704",
+    "phone": "+1-512-433-6695",
+    "website": "https://www.southsideflyingpizza.com/",
+    "health": "83 (2026-02-18)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11080084",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": "Current provider address 1224; APH record uses 1222 in the same storefront group. Score retained with address discrepancy disclosed."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763131,
+     30.25409
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "SV - BJ's Restaurant & Brewhouse",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "5207 Brodie Ln Ste 300 Sunset Valley, TX 78745-2573",
+    "phone": "",
+    "website": "https://www.bjsrestaurants.com/",
+    "health": "89 (2025-08-19)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10029239",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.81898,
+     30.23095
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Target (Pizza Hut)",
+    "kind": "Chain",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Chain pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; location offerings vary.",
+    "address": "5621 N IH 35 Svrd Nb Austin, TX 78723",
+    "phone": "(512) 416-7444",
+    "website": "https://locations.pizzahut.com/tx/austin",
+    "health": "98 (2026-09-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802195",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official location directory reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70615,
+     30.3164
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "The Backspace",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Neapolitan or wood-fired",
+    "score": "80 to 89",
+    "area": "Downtown / Central Austin",
+    "type": "Independent pizzeria and wine bar",
+    "pizza_style": "Wood-fired Neapolitan",
+    "website_says": "Wood-fired Neapolitan pizza using Italian flour.",
+    "address": "507 San Jacinto Blvd, Austin, TX 78701",
+    "phone": "512-474-9899",
+    "website": "https://backspacepizza.com/",
+    "health": "87 (2026-09-16)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10527474",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "March 2022 guide; historical brand-level coverage.",
+    "magazine_url": "https://www.austinmonthly.com/our-guide-to-the-best-pizza-in-austin/",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74044,
+     30.26687
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "The Onion",
+    "kind": "Counter or trailer",
+    "style": "Other",
+    "score": "No score matched",
+    "area": "Downtown / Central Austin",
+    "type": "Independent pizza counter",
+    "pizza_style": "Pizza; slices",
+    "website_says": "Downtown pizzeria advertising delivery.",
+    "address": "408 Brazos St, Austin, TX 78701",
+    "phone": "512-476-6466",
+    "website": "https://onionbaby.com/",
+    "health": "",
+    "health_url": "",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742148,
+     30.266486
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Tony C's Pizza & Wine Bar",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far North / Northwest Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Coal-fired New York-style pizza and Italian-American dishes.",
+    "address": "10526 W Parmer Ln Austin, TX 78717-4873",
+    "phone": "512-255-9463",
+    "website": "https://tonycs.com/",
+    "health": "81 (2026-06-15)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=10925608",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77395,
+     30.49738
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Tony C's Pizza and Beer Garden",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza and beer garden; Anderson Lane location listed.",
+    "address": "2900 W Anderson Ln Ste B Austin, TX 78757-1124",
+    "phone": "+15125957151",
+    "website": "https://www.tonycsbeergarden.com/",
+    "health": "93 (2026-04-20)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12186537",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73742,
+     30.35958
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Toss Pizzeria and Pub",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "Below 80",
+    "area": "South Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "New York-inspired",
+    "website_says": "Large New York-style pies with Texas-inspired toppings; vegan and gluten-free options.",
+    "address": "2901 S 1st St Ste 102 Austin, TX 78704-6465",
+    "phone": "",
+    "website": "https://www.tosspizzeria.com/",
+    "health": "70 (2026-07-29)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11539622",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.76291,
+     30.23637
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "True Food Kitchen",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Far North / Northwest Austin",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Restaurant menu includes pizza.",
+    "address": "11410 Century Oaks Terrace Austin, TX 78758",
+    "phone": "+15129920685",
+    "website": "https://www.truefoodkitchen.com/locations/austin-domain/",
+    "health": "81 (2026-07-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12106446",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72674,
+     30.40169
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "True Food Kitchen",
+    "kind": "Bar, brewery or restaurant",
+    "style": "Not stated",
+    "score": "80 to 89",
+    "area": "Downtown / Central Austin",
+    "type": "Restaurant / cafe with pizza",
+    "pizza_style": "Not verified",
+    "website_says": "Restaurant menu includes pizza.",
+    "address": "222 West Ave Ste 100 Austin, TX 78701-4659",
+    "phone": "+15127772430",
+    "website": "https://www.truefoodkitchen.com/locations/austin/",
+    "health": "89 (2026-07-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11477028",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.75202,
+     30.26741
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "VIA 313 Pizza",
+    "kind": "Pizzeria",
+    "style": "Detroit",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style pizza; see location menu.",
+    "address": "3016 Guadalupe St Austin, TX 78705-2862",
+    "phone": "",
+    "website": "https://www.via313.com/",
+    "health": "90 (2026-07-22)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11485756",
+    "reddit": "Suggested for gluten-free crust in September 2026; kitchen/allergen safety not verified.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1wkzd7g/best_gluten_free_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.741433,
+     30.297869
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Via 313 Pizza",
+    "kind": "Pizzeria",
+    "style": "Detroit",
+    "score": "80 to 89",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style pizza; see location menu.",
+    "address": "6705 W US 290  HWY Unit 503 AUSTIN, TX 78749",
+    "phone": "",
+    "website": "https://www.via313.com/",
+    "health": "87 (2025-09-17)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11318005",
+    "reddit": "Suggested for gluten-free crust in September 2026; kitchen/allergen safety not verified.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1wkzd7g/best_gluten_free_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.865667,
+     30.23282
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "VIA 313 Pizzeria",
+    "kind": "Pizzeria",
+    "style": "Detroit",
+    "score": "90 to 100",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Detroit",
+    "website_says": "Detroit-style pizza; see location menu.",
+    "address": "600 W 6th St Unit B Austin, TX 78701-2706",
+    "phone": "+1-737-358-9100",
+    "website": "https://locations.via313.com/locations/600-w-6th-street/",
+    "health": "96 (2026-06-13)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399520",
+    "reddit": "Suggested for gluten-free crust in September 2026; kitchen/allergen safety not verified.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1wkzd7g/best_gluten_free_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.748458,
+     30.270108
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Villa Pizza (Food Court)",
+    "kind": "Counter or trailer",
+    "style": "Not stated",
+    "score": "Below 80",
+    "area": "Downtown / Central Austin",
+    "type": "Food-court pizzeria",
+    "pizza_style": "Not verified",
+    "website_says": "A reliable website description was not captured in this pass; see linked site and verification notes.",
+    "address": "2901 S Capital of Texas Hwy Austin, TX 78746-8101",
+    "phone": "",
+    "website": "",
+    "health": "75 (2026-03-31)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2801072",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.80701,
+     30.25789
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "WL - Austin's Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza; delivery and carryout.",
+    "address": "3638 Bee Caves Rd West Lake Hills, TX 78746-7022",
+    "phone": "512-717-8771",
+    "website": "https://austinspizza.toast.site/locations",
+    "health": "93 (2026-01-29)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12400095",
+    "reddit": "September 2026 discussion mixes nostalgia, quality complaints and a positive delivery report.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1wtcjwq/austins_pizza/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Provider location/menu reviewed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.80526,
+     30.279851
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "WL - Baldinucci Pizza Romana",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Roman and New York-style pizzas, including slices.",
+    "address": "3300 Bee Caves Rd Ste 110 West Lake Hills, TX 78746-6660",
+    "phone": "+1-512-382-1166",
+    "website": "https://www.baldinucci.pizza",
+    "health": "94 (2026-01-28)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12397352",
+    "reddit": "Recommended in replies, May 2026; brand-level.",
+    "reddit_url": "https://www.reddit.com/r/austinfood/comments/1t9iix9/your_pizza_rankings/",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.800633,
+     30.275128
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "WL - Maryes Gourmet Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "Downtown / Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Homemade pizzas, salads and sandwiches in Westlake Hills.",
+    "address": "3663 Bee Caves Rd Ste 4G West Lake Hills, TX 78746-5388",
+    "phone": "+1-512-327-5222",
+    "website": "https://maryesgourmetpizza.com/",
+    "health": "90 (2026-05-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=11016089",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.807367,
+     30.278436
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Yaghi's New York Pizzaria",
+    "kind": "Pizzeria",
+    "style": "New York",
+    "score": "Below 80",
+    "area": "West Austin / western Austin-address area",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "New York",
+    "website_says": "Stone-baked New York-style pizza; dough prepared daily.",
+    "address": "4220 W William Cannon Dr Austin, TX 78749-1569",
+    "phone": "512-891-7900",
+    "website": "https://www.yaghispizzeria.com/locations",
+    "health": "77 (2026-06-15)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=2802742",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.83781,
+     30.22226
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Zalat Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "North / North Central Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza for pickup and delivery; two Austin locations listed.",
+    "address": "10515 N Mopac Expy # 310 Austin, TX 78759-5324",
+    "phone": "+1-512-729-0420",
+    "website": "https://zalatpizza.com/stores/austin-arborwalk-2/",
+    "health": "93 (2026-01-27)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399588",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.731571,
+     30.391812
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Zalat Pizza",
+    "kind": "Pizzeria",
+    "style": "Not stated",
+    "score": "90 to 100",
+    "area": "East Austin",
+    "type": "Pizzeria / pizza restaurant",
+    "pizza_style": "Not verified",
+    "website_says": "Pizza for pickup and delivery; two Austin locations listed.",
+    "address": "2222 Rio Grande St # Bunit # 190 Austin, TX 78705-5110",
+    "phone": "+1-512-661-0420",
+    "website": "https://zalatpizza.com/z30/",
+    "health": "95 (2026-06-23)",
+    "health_url": "https://data.austintexas.gov/resource/ecmv-9xxi.json?facility_id=12399071",
+    "reddit": "",
+    "reddit_url": "",
+    "magazine": "",
+    "magazine_url": "",
+    "status": "Official inspection listing; current operating status not independently confirmed",
+    "notes": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.744899,
+     30.287088
+    ]
+   }
+  }
+ ]
+}
