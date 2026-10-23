@@ -129,10 +129,15 @@
     // (your own neighborhood once the phone has found it, else downtown),
     // tilted; Street = flat, down to the block; City = all of Austin, flat.
     const V = CFG.views;
+    // the whole neighborhood fitted on screen, `neighborhood.zoom` only a
+    // cap — the SAME fit the room flight (onRoom, below) makes, so the
+    // opening move and the later flight to your room land on one view
+    // instead of zooming in and then back out (owner 2026-10-23)
     const neighborhoodView = (duration) => {
       const target = (window.ChatRoom && window.ChatRoom.room) || byId(CFG.openView.room);
       setTilt(true);
-      map.easeTo({ center: target ? centreOf(target) : map.getCenter(), zoom: V.neighborhood.zoom, pitch: V.neighborhood.pitch, bearing: 0, duration });
+      if (target) flyTo(boundsOf([target]), 60, V.neighborhood.zoom, duration);
+      else map.easeTo({ zoom: V.neighborhood.zoom, pitch: V.neighborhood.pitch, bearing: 0, duration });
     };
     const streetView = () => {
       setTilt(false);
@@ -172,9 +177,9 @@
     };
     $('ctrlTilt').addEventListener('click', () => { tilted = !tilted; applyTilt(600); });
     // a flight to a box that keeps the current tilt
-    const flyTo = (b, padding, maxZoom) => {
+    const flyTo = (b, padding, maxZoom, duration = 900) => {
       const cam = map.cameraForBounds(b, { padding, maxZoom, bearing: 0 });
-      if (cam) map.easeTo({ ...cam, pitch: tilted ? CFG.pitch : 0, duration: 900 });
+      if (cam) map.easeTo({ ...cam, pitch: tilted ? CFG.pitch : 0, duration });
     };
 
     map.on('load', () => {

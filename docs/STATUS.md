@@ -16,7 +16,17 @@ owner sees and likes is that fitted view, not the configured number, so
 raising the number only made the overshoot bigger. If the double move
 should go: make the opening move fit `openView.room` the same way
 (flyTo with the cap) instead of easing to a fixed zoom — one line in
-map.js — or drop the opening ease and wait for the room. Not done; ask.
+map.js — or drop the opening ease and wait for the room.
+
+DONE (owner, same day): `neighborhoodView()` now calls the same
+`flyTo(boundsOf([target]), 60, V.neighborhood.zoom, duration)` as the room
+flight (flyTo took a `duration` argument, default 900; the opening pass
+uses `openTiltMs`), so the opening move, the Neighborhood button and the
+flight to your room all land on the fitted view. `neighborhood.zoom` is
+now only a cap everywhere; to open closer, raise the cap AND the fit
+would still win for a big neighborhood — shrink the 60 px padding instead.
+`chat/index.html` map.js + config.js `?v=20261023n`. Not seen with WebGL
+here — owner to eyeball.
 
 ## 2026-10-22 (thirty-ninth pass) — NEW shopping app: Pizza in Austin
 
