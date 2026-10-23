@@ -69,6 +69,10 @@ window.MAP_CONFIG = {
     street:       { zoom: 17,   pitch: 0 },
     neighborhood: { zoom: 15.4, pitch: 57 }
   },
+  // the Neighborhood view (opening, the button, the flight to your room) is
+  // the neighborhood fitted on screen and then this many zoom levels closer
+  // (owner 2026-10-23), still never past neighborhood.zoom
+  fitCloser: 1,
   openTiltMs: 1800,
   buildingColor: '#d6d9dd'
 };

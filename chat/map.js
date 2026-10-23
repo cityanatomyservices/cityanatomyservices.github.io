@@ -176,10 +176,12 @@
       map.easeTo({ pitch: tilted ? CFG.pitch : 0, duration });
     };
     $('ctrlTilt').addEventListener('click', () => { tilted = !tilted; applyTilt(600); });
-    // a flight to a box that keeps the current tilt
+    // a flight to a box that keeps the current tilt: the box fitted on
+    // screen, then `fitCloser` levels nearer (owner 2026-10-23: one level
+    // closer than the plain fit), never past `maxZoom`
     const flyTo = (b, padding, maxZoom, duration = 900) => {
       const cam = map.cameraForBounds(b, { padding, maxZoom, bearing: 0 });
-      if (cam) map.easeTo({ ...cam, pitch: tilted ? CFG.pitch : 0, duration });
+      if (cam) map.easeTo({ ...cam, zoom: Math.min(cam.zoom + CFG.fitCloser, maxZoom), pitch: tilted ? CFG.pitch : 0, duration });
     };
 
     map.on('load', () => {

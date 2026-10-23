@@ -25,8 +25,13 @@ uses `openTiltMs`), so the opening move, the Neighborhood button and the
 flight to your room all land on the fitted view. `neighborhood.zoom` is
 now only a cap everywhere; to open closer, raise the cap AND the fit
 would still win for a big neighborhood — shrink the 60 px padding instead.
-`chat/index.html` map.js + config.js `?v=20261023n`. Not seen with WebGL
-here — owner to eyeball.
+`chat/index.html` map.js + config.js `?v=20261023n`. Owner: "that fixed it".
+
+THEN one level closer (owner): new `config.js` `fitCloser: 1` — flyTo
+takes the fitted zoom + fitCloser, capped at `neighborhood.zoom`. Applies
+to the opening view, the Neighborhood button and the flight to your room
+alike (all go through flyTo). Downtown now lands near z14.7 (phone) –
+z15.1 (desktop). `?v=20261023o` on both scripts.
 
 ## 2026-10-22 (thirty-ninth pass) — NEW shopping app: Pizza in Austin
 
