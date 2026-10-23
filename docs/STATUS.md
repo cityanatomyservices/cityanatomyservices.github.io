@@ -1,15 +1,22 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
-## 2026-10-23 (fortieth pass) — home chat map opens one level closer
+## 2026-10-23 (fortieth pass) — home chat map zoom: 16.4 tried, REVERTED to 15.4
 
-Owner: the neighborhood map on the main page zoomed in one more level.
-`chat/config.js` `views.neighborhood.zoom` 15.4 → 16.4. That one number is
-the opening view (`neighborhoodView(CFG.openTiltMs)` in map.js), the
-Neighborhood button, and the `maxZoom` cap on the flight to your own
-neighborhood once the phone finds it, so all three moved together.
-Street view stays at 17 (flat), now only 0.6 above Neighborhood (tilted).
-`chat/index.html` config.js `?v=20261023m`. Not seen in a browser here
-(WebGL) — owner to eyeball the home page.
+Owner asked for one level closer; `views.neighborhood.zoom` 15.4 → 16.4
+made the map "zoom in and then zoom out", so it is back at 15.4
+(`chat/index.html` config.js `?v=20261023n`). WHY IT ZOOMS TWICE (same
+before the change, just less visible): on load `neighborhoodView()` eases
+to downtown at `neighborhood.zoom` (close, tilted); then GPS (or
+`?room=`) resolves a neighborhood and `onRoom` calls
+`flyTo(boundsOf([feature]), 60, V.neighborhood.zoom)` — that FITS the
+whole polygon with 60 px padding, `neighborhood.zoom` is only a CAP.
+Downtown's box is 2.6 × 3.6 km and fits at about z13.7 (phone) – z14.1
+(desktop), so the second move zooms OUT to the fitted view. The view the
+owner sees and likes is that fitted view, not the configured number, so
+raising the number only made the overshoot bigger. If the double move
+should go: make the opening move fit `openView.room` the same way
+(flyTo with the cap) instead of easing to a fixed zoom — one line in
+map.js — or drop the opening ease and wait for the room. Not done; ask.
 
 ## 2026-10-22 (thirty-ninth pass) — NEW shopping app: Pizza in Austin
 
