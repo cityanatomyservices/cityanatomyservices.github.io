@@ -1,5 +1,36 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-24 (forty-second pass) — shopping-app videos: story mode + generator (pizza first)
+
+Owner wants a sub-one-minute informational video per shopping app
+(count, types, most talked about from Reddit/Yelp with quotes), then the
+same for many apps, automated. Facts first: the pizza CSV has NO Yelp
+data; Reddit notes on 54 places are summaries, not quotes, pointing at
+11 r/austinfood threads; each place carries at most one Reddit and one
+magazine source, so "popularity" here = number of sources (0–2). Owner
+decided: start with mention counts and no quotes, ElevenLabs voice,
+9:16 only. BUILT (recipe in CLAUDE.md "Shopping app videos"):
+`/shopmap/play.js` (?phone layout + ?play story player: curtain, bottom
+card, beats all / breakdown (pins recoloured by the property, bars) /
+top (only those pins, labels forced on) / end), app.js exposes
+`window.shopApp` + `shopmap:ready` and drops its zoom/bounds limits while
+playing, story CSS in shopmap/style.css, `tools/make-story.py` (story.json
++ data → story.js + docs/<id>-narration.md, brand grouping by name),
+`tools/story-take.sh` (OBS), `tools/story-composite.sh` (curtain-drop
+trim via negate+blackdetect, per-beat clips with adelay, amix). Pizza:
+`apps/austin-pizza/story.json` → 6 beats, 0:58 (194 → by type → style
+named, 144 not stated → health bands → 11 brands in both Reddit and
+Austin Monthly, 8 shown → end card). Narration draft in
+`docs/austin-pizza-narration.md`, beat 4 is one word over budget.
+Verified headless (SwiftShader, 1080x1920, ?play&phone): every card
+renders, pins recolour, no page errors; SwiftShader loads slowly so the
+curtain dropped ~8 s in, which the composite's trim handles. Engine
+`?v=20261024a` on all 7 shopping pages. NEXT: owner reviews the narration
+lines → ElevenLabs clips per beat → OBS take (ask first) → composite.
+Open: Yelp/quote columns would need the owner's research AI to add
+`quote`, `quote_url`, `quote_by` to the CSV; make-story.py can then grow a
+`quote` beat.
+
 ## 2026-10-24 (forty-first pass) — menu: Maps section gone, Metro Apps, Maps under Content
 
 Owner: take the top-level Maps section out of the hamburger, put Maps as

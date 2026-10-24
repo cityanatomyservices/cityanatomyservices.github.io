@@ -99,6 +99,29 @@
 /* your location, from the find-me button */
 .shopmap .me-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--accent); }
 
+/* ── story mode (?play, see play.js): the panel and buttons go, a card
+   sits at the bottom of the map; a white curtain hides the loading ────── */
+.story-curtain { position: fixed; inset: 0; z-index: 50; background: #fff; }
+.shopmap.playing .data-panel, .shopmap.playing .stack, .shopmap.playing .views { display: none; }
+.shopmap .story-card {
+  position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 6;
+  padding: 14px 16px 12px; background: var(--paper); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+.shopmap .story-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; }
+.shopmap .story-big { font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 64px; font-weight: 700; line-height: 1; color: var(--accent); }
+.shopmap .story-label { margin-top: 6px; font-size: 16px; font-weight: 600; }
+.shopmap .story-row { position: relative; display: flex; align-items: center; gap: 8px; padding: 5px 0 7px; font-size: 14px; }
+.shopmap .story-row .swatch { width: 12px; height: 12px; margin: 0; flex: none; }
+.shopmap .story-name { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+.shopmap .story-n { font-variant-numeric: tabular-nums; font-weight: 700; }
+.shopmap .story-detail { font-size: 12px; color: var(--dim); white-space: nowrap; }
+.shopmap .story-bar { position: absolute; left: 20px; bottom: 2px; height: 3px; border-radius: 2px; background: var(--accent); opacity: .45; }
+.shopmap .story-note { margin-top: 6px; font-size: 12px; color: var(--dim); }
+.shopmap .story-end { bottom: 50%; transform: translateY(50%); text-align: center; padding: 28px 20px; }
+.shopmap .story-end-line { font-size: 22px; font-weight: 600; line-height: 1.4; }
+.shopmap .story-end-line.is-accent { color: var(--accent); font-weight: 700; word-break: break-all; }
+
 @container page (max-width: 640px) {
   .shopmap { --panel-w: min(300px, calc(100% - 60px)); }
   .shopmap .filter-group { flex-basis: 100%; }

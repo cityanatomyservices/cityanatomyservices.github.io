@@ -94,6 +94,40 @@ stays at `/moontowertour/app.html` and `/1885murdertour/app.html`; those
 folders' `index.html` only redirect to the `/apps/` pages. `apps/reports/`
 still carries the older header and `page.js`.
 
+## Shopping app videos: one minute per app, from the data (2026-10-24)
+
+Owner: an informational video for each shopping app — how many places,
+the types, the ones people talk about — made the same way every time and
+automated. Decisions 2026-10-24: mention counts and no quotes for now,
+ElevenLabs voice, 9:16 only. The pieces, all in git:
+
+1. `apps/<id>/story.json` — the beats the owner wants (`all`, `breakdown`
+   by a property, `top` by sources, `end`), each with its `hold` in
+   seconds and optionally `say` (the owner's narration line).
+2. `python3 tools/make-story.py <id>` — reads story.json + data.geojson,
+   writes `apps/<id>/story.js` (every number and row the player shows;
+   never edited by hand) and `docs/<id>-narration.md` (the narration draft
+   with time ranges and word budgets, 2.4 words a second), and puts the
+   story.js tag into index.html with a fresh `?v=`.
+3. `/shopmap/play.js` — `?play&phone` on the app's page runs the beats
+   over the real map with a card at the bottom; a white curtain hides the
+   loading until beat one. Loaded before app.js on every shopping page.
+4. **Owner reviews the narration draft** (script-review rule), then the
+   voice: one ElevenLabs clip per beat, saved as
+   `C:\Dev\map-exports\<id>\narration\beat-01.mp3`, `beat-02.mp3` ...
+   Each clip must fit its beat's hold.
+5. `tools/story-take.sh <id> <seconds>` — the OBS take (profile
+   `wcibh-phone`, scene `Site portrait`), into `C:\Dev\map-exports\<id>\`.
+   OBS must be open; ask before recording.
+6. `tools/story-composite.sh <id> <take>` — finds the curtain drop, trims
+   to the story's length, lays each clip at its beat, writes
+   `<id>-short-narrated.mp4` beside the take. Reports any clip longer than
+   its beat.
+
+A new app's video is steps 1–2 (a story.json copied from austin-pizza and
+edited), then review, voice, take, composite. Bump the engine `?v=` when
+`/shopmap/play.js` or `style.css` change.
+
 ## Shopping apps: /apps/<id>/ on the /shopmap/ engine (2026-10-22)
 
 A shopping app (the former "reports": guitar shops, bike shops, toy
