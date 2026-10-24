@@ -26,14 +26,8 @@
 //
 // The control and view code is the same as chat/map.js (the home map), kept
 // as a twin here on purpose so each page can be read on its own.
-//
-// Story mode (2026-10-24): with ?play in the address, play.js runs the
-// app's story.js over this map for a video. This file only hands it the
-// pieces (window.shopApp + the `shopmap:ready` event) and, while playing,
-// leaves the zoom and bounds limits off so the camera can frame freely.
 (function () {
   const CFG = window.SHOP_CONFIG;
-  const PLAYING = new URLSearchParams(location.search).has('play');
   const W = window.SHOP_WORDS;
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -97,7 +91,6 @@
       style: BASEMAP,
       bounds: box,
       fitBoundsOptions: { padding: FIT_PADDING },
-      pixelRatio: window.PHONE_SCALE || 1,        // crisp at the recording zoom (play.js)
       attributionControl: false
     });
     // the map sits inside the site frame, which shell.js draws after this
@@ -119,10 +112,8 @@
       const cam = map.cameraForBounds(box, { padding: FIT_PADDING });
       if (cam) map.setMinZoom(cam.zoom);
     };
-    if (!PLAYING) {
-      map.on('zoomend', keepInView);
-      map.on('resize', () => { limitZoom(); keepInView(); });
-    }
+    map.on('zoomend', keepInView);
+    map.on('resize', () => { limitZoom(); keepInView(); });
 
     // ── the control stack: find me, 2D/3D, satellite, extents, zoom ────────
     let tilted = false;
@@ -300,7 +291,8 @@
     $('resetBtn').addEventListener('click', () => { selects.forEach((s) => { s.value = ''; }); applyFilters(); });
 
     map.on('load', () => {
-      if (!PLAYING) { limitZoom(); keepInView(); }
+      limitZoom();
+      keepInView();
       map.addSource('satellite', { type: 'raster', tiles: [SATELLITE], tileSize: 256, attribution: 'Tiles &copy; Esri' });
       map.addLayer({ id: 'satellite', type: 'raster', source: 'satellite', layout: { visibility: 'none' } });
       map.addLayer({ id: 'buildings-3d', type: 'fill-extrusion', source: 'openmaptiles', 'source-layer': 'building', minzoom: 13,
@@ -325,9 +317,5 @@
       map.easeTo({ pitch: PITCH, duration: 1800 });
       window.shopMap = map;
     });
-
-    // for play.js (story mode): the map and the pieces it steers
-    window.shopApp = { map, features, name, box, colorOf, categoryField: CFG.categoryField, setPanel };
-    document.dispatchEvent(new CustomEvent('shopmap:ready', { detail: window.shopApp }));
   });
 })();

@@ -1,13 +1,63 @@
 {
-  "_comment": "The one-minute video's beats for this app (owner 2026-10-24). tools/make-story.py reads this and data.geojson and writes story.js (what play.js shows) and docs/austin-pizza-narration.md (the narration draft with the timings). `hold` is seconds on screen. A `say` line on a beat replaces the drafted narration with the owner's words.",
+  "_comment": "The one-minute video's beats for this app (owner 2026-10-24: a quick review of the numbers and the most-talked-about places, no map). tools/video/make-story.py reads this and data.geojson and writes the cards' numbers (C:/Dev/map-exports/austin-pizza/story/beats.json) and docs/austin-pizza-narration.md (the narration draft). `hold` is the least seconds a card stays up; a longer narration clip stretches it. A `say` line on a beat replaces the drafted narration with the owner's words. `credit` is the small line at the foot of every card.",
   "beats": [
-    { "type": "all", "hold": 8, "label": "places serving pizza in Austin" },
-    { "type": "breakdown", "property": "kind", "title": "By type", "hold": 10 },
-    { "type": "breakdown", "property": "style", "title": "Style named on the website", "hold": 10, "skip": ["Not stated"] },
-    { "type": "breakdown", "property": "score", "title": "Austin Public Health inspection score", "hold": 10, "phrase": "{count} scored {value}",
-      "order": ["90 to 100", "80 to 89", "Below 80", "No score matched"] },
-    { "type": "top", "title": "Talked about on Reddit and in Austin Monthly", "hold": 12, "top": 8,
-      "sources": [ { "property": "reddit", "label": "r/austinfood" }, { "property": "magazine", "label": "Austin Monthly" } ] },
-    { "type": "end", "hold": 8, "lines": ["Navigate the map at", "austin.chat/apps/austin-pizza"] }
-  ]
+    {
+      "type": "all",
+      "hold": 8,
+      "label": "places serving pizza in Austin"
+    },
+    {
+      "type": "breakdown",
+      "property": "kind",
+      "title": "By type",
+      "hold": 10
+    },
+    {
+      "type": "breakdown",
+      "property": "style",
+      "title": "Style named on the website",
+      "hold": 10,
+      "skip": [
+        "Not stated"
+      ]
+    },
+    {
+      "type": "breakdown",
+      "property": "score",
+      "title": "Austin Public Health inspection score",
+      "hold": 10,
+      "phrase": "{count} scored {value}",
+      "order": [
+        "90 to 100",
+        "80 to 89",
+        "Below 80",
+        "No score matched"
+      ]
+    },
+    {
+      "type": "top",
+      "title": "Talked about on Reddit and in Austin Monthly",
+      "hold": 12,
+      "top": 8,
+      "sources": [
+        {
+          "property": "reddit",
+          "label": "r/austinfood"
+        },
+        {
+          "property": "magazine",
+          "label": "Austin Monthly"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "hold": 8,
+      "lines": [
+        "More Austin maps and apps at",
+        "austin.chat"
+      ]
+    }
+  ],
+  "credit": "Owner research 2026-10-22 · Austin Public Health inspection scores"
 }

@@ -1,0 +1,6 @@
+{
+  "name": "austin-chat-video-cards",
+  "private": true,
+  "description": "Renders the shopping-app video cards (render-cards.js) with the Chromium Playwright already keeps on this machine.",
+  "dependencies": { "playwright-core": "1.52.0" }
+}

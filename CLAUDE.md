@@ -96,37 +96,38 @@ still carries the older header and `page.js`.
 
 ## Shopping app videos: one minute per app, from the data (2026-10-24)
 
-Owner: an informational video for each shopping app — how many places,
-the types, the ones people talk about — made the same way every time and
-automated. Decisions 2026-10-24: mention counts and no quotes for now,
-ElevenLabs voice, 9:16 only. The pieces, all in git:
+Owner: a quick informational video for each shopping app — the total
+numbers and the most-talked-about places — made the same way every time
+and automated. It does NOT use the map page or OBS (owner, same day): the
+video is a run of cards rendered from the data, with the narration laid
+over them. Decisions 2026-10-24: mention counts and no quotes for now,
+ElevenLabs voice, 9:16 only. Everything lives in `tools/video/`:
 
 1. `apps/<id>/story.json` — the beats the owner wants (`all`, `breakdown`
-   by a property, `top` by sources, `end`), each with its `hold` in
-   seconds and optionally `say` (the owner's narration line).
-2. `python3 tools/make-story.py <id>` — reads story.json + data.geojson,
-   writes `apps/<id>/story.js` (every number and row the player shows;
-   never edited by hand) and `docs/<id>-narration.md` (the narration draft
-   with time ranges and word budgets, 2.4 words a second), and puts the
-   story.js tag into index.html with a fresh `?v=`.
-3. `/shopmap/play.js` — `?play&phone` on the app's page runs the beats
-   over the real map with a card at the bottom; a white curtain hides the
-   loading until beat one. Loaded before app.js on every shopping page.
-4. **Owner reviews the narration draft** (script-review rule), then the
-   voice: one ElevenLabs clip per beat, saved as
-   `C:\Dev\map-exports\<id>\narration\beat-01.mp3`, `beat-02.mp3` ...
-   Each clip must fit its beat's hold.
-5. `tools/story-take.sh <id> <seconds>` — the OBS take (profile
-   `wcibh-phone`, scene `Site portrait`), into `C:\Dev\map-exports\<id>\`.
-   OBS must be open; ask before recording.
-6. `tools/story-composite.sh <id> <take>` — finds the curtain drop, trims
-   to the story's length, lays each clip at its beat, writes
-   `<id>-short-narrated.mp4` beside the take. Reports any clip longer than
-   its beat.
+   by a property, `top` by sources, `end`), each with its `hold` (the
+   least seconds its card stays up), optionally `say` (the owner's
+   narration line) and a `credit` line for the card foot.
+2. `python3 tools/video/make-story.py <id>` — reads story.json +
+   data.geojson, writes `C:\Dev\map-exports\<id>\story\beats.json`
+   (every number and row the cards show) and `docs/<id>-narration.md`
+   (the draft lines with word budgets at 2.4 words a second).
+3. **Owner reviews the narration lines** (script-review rule). Final
+   words go into story.json as `say`; run step 2 again.
+4. `node tools/video/render-cards.js <id>` — one 1080x1920 PNG per beat
+   from `tools/video/card.html` (site look: day palette, Poppins
+   headings) via playwright-core and the Chromium in
+   `~/.cache/ms-playwright` (`npm install` once in `tools/video/`).
+5. The voice: one ElevenLabs clip per beat, saved as
+   `C:\Dev\map-exports\<id>\story\narration\beat-01.mp3`, `beat-02.mp3` ...
+6. `tools/video/compose.sh <id>` — each card holds for its `hold` or its
+   clip plus 0.6 s, whichever is longer; writes
+   `C:\Dev\map-exports\<id>\<id>-short.mp4` (silent while there are no
+   clips) and prints each card's start time.
 
-A new app's video is steps 1–2 (a story.json copied from austin-pizza and
-edited), then review, voice, take, composite. Bump the engine `?v=` when
-`/shopmap/play.js` or `style.css` change.
+A new app's video is a story.json copied from austin-pizza and edited,
+then steps 2–6. Quotes would need `quote`, `quote_url`, `quote_by`
+columns in the owner's CSV first; make-story.py can then grow a `quote`
+beat.
 
 ## Shopping apps: /apps/<id>/ on the /shopmap/ engine (2026-10-22)
 

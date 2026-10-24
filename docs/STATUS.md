@@ -1,5 +1,29 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-24 (forty-third pass) — the video does NOT use the map: card renderer instead
+
+Owner, on seeing pass 42: "we dont need to use OBS, this report won't
+reference the map built for this, it will just be a quick review of the
+total numbers and the top comments". So the map story mode is GONE again
+(play.js, the app.js hooks, the story CSS, story-take/composite.sh,
+apps/austin-pizza/story.js — all removed; shopmap/app.js and style.css
+are back to 6cd2720, the `?v=20261024a` bumps stay). In its place
+`tools/video/`: `make-story.py` (same beats, now writes
+`C:\Dev\map-exports\<id>\story\beats.json` + the narration doc),
+`card.html` (one 1080x1920 card in the site's day look: eyebrow
+AUSTIN.CHAT, app title, big number / rows with bars / top list / end
+lines, credit + progress dots at the foot), `render-cards.js`
+(playwright-core + the ms-playwright Chromium → card-NN.png), `compose.sh`
+(cards concat; each card holds max(hold, clip + 0.6 s); narration clips
+at beat-NN.mp3 laid at their card's start; silent when none). Pizza:
+6 cards rendered, silent 58 s cut at
+`C:\Dev\map-exports\austin-pizza\austin-pizza-short.mp4` for the owner
+to look at. End card now "More Austin maps and apps at / austin.chat"
+(draft). "Top comments": no quote data exists, so the top card is the 8
+brands (of 11) mentioned in both r/austinfood and Austin Monthly; a
+`quote` beat comes when the CSV has quote columns. NEXT: owner reviews
+`docs/austin-pizza-narration.md` → ElevenLabs clip per beat → compose.
+
 ## 2026-10-24 (forty-second pass) — shopping-app videos: story mode + generator (pizza first)
 
 Owner wants a sub-one-minute informational video per shopping app

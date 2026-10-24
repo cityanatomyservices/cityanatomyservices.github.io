@@ -15,3 +15,6 @@ Thumbs.db
 
 # Fetch dumps left behind by research agents (45 were committed by accident 2026-09-09)
 *.out
+
+# the video renderer's own packages (tools/video, npm install there)
+tools/video/node_modules/
