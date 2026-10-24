@@ -7,7 +7,7 @@
 .shopmap {
   --ink: #1f2933; --paper: rgba(255, 255, 255, 0.96); --line: #d9dee3; --dim: #52606d;
   --accent: #0067c5; --control: 44px;
-  --panel-w: clamp(260px, 30%, 400px);
+  --panel-w: clamp(300px, 40%, 560px);  /* opened further, owner 2026-10-23 */
   --slide: 0.25s ease;
   position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden; container: page / size;
   color: var(--ink);
