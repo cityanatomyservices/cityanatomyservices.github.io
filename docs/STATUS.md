@@ -1,5 +1,27 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-24 (forty-first pass) — menu: Maps section gone, Metro Apps, Maps under Content
+
+Owner: take the top-level Maps section out of the hamburger, put Maps as
+a section under Content, and move the three Planning maps (Budget,
+Datacenter, AISD) to a new category called Metro Apps. Done:
+`home.json` — `categories` gains "Metro Apps" (last, after Shopping
+Apps), `mapCategories` is deleted (Animated / Austin News / Historical
+were empty), the three maps carry `category: "Metro Apps"`; their `kind`
+stays `maps`, so their framed pages are still /maps/budget/,
+/maps/datacenters/, /maps/aisd/ and the /maps/ directory page is
+untouched. `shell.js` — the Maps `<details>` is removed; Content now
+opens to a Maps group (a `.menu-group`, same look as a category, holding
+"All maps" → /maps/ plus any map whose category is not an Apps category —
+none today) and then the social/shop links. Cards route by category: a
+`kind: maps` card with an Apps category sits under Apps. Only
+`shell.js?v=20261024a` bumped (19 pages + tools/page-template.html);
+style.css unchanged. Verified headless (Playwright 1280x800, local
+server): sections Apps / Content / Contact; Apps ▸ five categories, Metro
+Apps lists the three maps; Content ▸ Maps ▸ All maps, then YouTube…Ebay;
+no page errors. Choices to confirm with the owner: Metro Apps placed last
+in the Apps list; Maps placed FIRST under Content (before YouTube).
+
 ## 2026-10-23 (fortieth pass) — home chat map zoom: 16.4 tried, REVERTED to 15.4
 
 Owner asked for one level closer; `views.neighborhood.zoom` 15.4 → 16.4

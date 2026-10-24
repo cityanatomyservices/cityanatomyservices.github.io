@@ -1,16 +1,11 @@
 {
-  "_comment": "FRAMED PAGES (owner 2026-10-22, final shape): every app and map has its own page inside the site frame at /<kind>/<slug>/ - `kind` is `apps` or `maps` (the folder), `slug` the folder name: /apps/moontower/, /maps/budget/ ... `app` is what plays inside it (a page, or a PDF: point `app` at a .pdf in the folder and the window shows it). Every report in apps/reports/reports.json is a SHOPPING APP at /apps/<id>/ (`reportsKind`), a real page on the /shopmap/ engine, not a framed one. Run `node tools/make-pages.js` after adding one to create its folder. /apps/ and /maps/ list everything of that kind (list.js). The hamburger menu (owner 2026-10-22, evening): Apps opens to `categories` (in this order), each app's `category` places it there, all reports go under `reportsCategory`; Maps opens to `mapCategories`, each map's `category` places it there (an app is a map when `kind` is `maps`); Content opens to the `content` links (an entry with an empty `url` shows greyed until the address is filled in). Every category listed shows even while empty, so the structure is visible. ",
+  "_comment": "FRAMED PAGES (owner 2026-10-22, final shape): every app and map has its own page inside the site frame at /<kind>/<slug>/ - `kind` is `apps` or `maps` (the folder), `slug` the folder name: /apps/moontower/, /maps/budget/ ... `app` is what plays inside it (a page, or a PDF: point `app` at a .pdf in the folder and the window shows it). Every report in apps/reports/reports.json is a SHOPPING APP at /apps/<id>/ (`reportsKind`), a real page on the /shopmap/ engine, not a framed one. Run `node tools/make-pages.js` after adding one to create its folder. /apps/ and /maps/ list everything of that kind (list.js). The hamburger menu (owner 2026-10-22, evening; reshaped 2026-10-24): Apps opens to `categories` (in this order), each app's or map's `category` places it there (Budget, Datacenter and AISD sit under Metro Apps; `kind` only decides the folder of its framed page), all reports go under `reportsCategory`; Content opens to a Maps group (the /maps/ directory plus any map whose `category` is not an Apps category) followed by the `content` links (an entry with an empty `url` shows greyed until the address is filled in). There is no top-level Maps section any more. Every category listed shows even while empty, so the structure is visible. ",
   "categories": [
     "Walking and Biking Apps",
     "Real Estate Apps",
     "Historical Apps",
-    "Shopping Apps"
-  ],
-  "mapCategories": [
-    "Animated",
-    "Austin News",
-    "Historical",
-    "Planning"
+    "Shopping Apps",
+    "Metro Apps"
   ],
   "content": [
     {
@@ -86,7 +81,7 @@
           "blurb": "",
           "src": "/budget/#bill",
           "app": "/budget/",
-          "category": "Planning"
+          "category": "Metro Apps"
         },
         {
           "title": "Datacenter Map",
@@ -95,7 +90,7 @@
           "blurb": "",
           "src": "/datacenters/",
           "app": "/datacenters/",
-          "category": "Planning"
+          "category": "Metro Apps"
         },
         {
           "title": "AISD School Closures",
@@ -104,7 +99,7 @@
           "blurb": "",
           "src": "/AISD/",
           "app": "/AISD/",
-          "category": "Planning"
+          "category": "Metro Apps"
         }
       ],
       "open": true

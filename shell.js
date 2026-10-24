@@ -8,15 +8,17 @@
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// THE MENU (owner, 2026-10-22, late): three levels. Apps opens to its
-// categories (home.json `categories`: Walking and Biking, Real Estate,
-// Historical, Shopping), each opening to its apps; Maps opens to
-// `mapCategories` (Animated, Austin News, Historical, Planning), each to
-// its maps; Content opens to the social and shop links (`content`);
-// Contact is a plain link. The first row under Apps and Maps is the
-// directory page (/apps/, /maps/, list.js). Every app and map goes to its
-// framed page at /apps/<slug>/ or /maps/<slug>/ (view.js); the reports
-// (apps/reports/reports.json) are maps filed under `reportsCategory`.
+// THE MENU (owner, 2026-10-22, late; reshaped 2026-10-24): three levels.
+// Apps opens to its categories (home.json `categories`: Walking and Biking,
+// Real Estate, Historical, Shopping, Metro Apps), each opening to its
+// apps — the Budget, Datacenter and AISD maps are filed under Metro Apps;
+// Content opens to a Maps group (the /maps/ directory, plus any map whose
+// category is not an Apps category) and then the social and shop links
+// (`content`); Contact is a plain link. The top-level Maps section is
+// gone (owner, 2026-10-24). The first row under Apps is the directory
+// page (/apps/, list.js). Every app and map goes to its framed page at
+// /apps/<slug>/ or /maps/<slug>/ (view.js — `kind` picks the folder); the
+// reports (apps/reports/reports.json) are filed under `reportsCategory`.
 // A category shows even while empty. Closing the menu folds it all up.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────
@@ -47,12 +49,13 @@
         <div id="menu-apps" class="menu-groups"></div>
       </details>
       <details class="menu-section">
-        <summary>Maps</summary>
-        <ul class="menu-links"><li><a href="/maps/">All maps</a></li></ul>
-        <div id="menu-maps" class="menu-groups"></div>
-      </details>
-      <details class="menu-section">
         <summary>Content</summary>
+        <div class="menu-groups">
+          <details class="menu-group">
+            <summary>Maps</summary>
+            <ul id="menu-content-maps" class="menu-links"><li><a href="/maps/">All maps</a></li></ul>
+          </details>
+        </div>
         <ul id="menu-content" class="menu-links"></ul>
       </details>
       <a class="menu-link" href="/contact/">Contact</a>
@@ -141,13 +144,14 @@
     if (!data) return;
     const appLists = new Map();
     (data.categories || []).forEach((name) => appLists.set(name, addGroup(document.getElementById('menu-apps'), name)));
-    const mapLists = new Map();
-    (data.mapCategories || []).forEach((name) => mapLists.set(name, addGroup(document.getElementById('menu-maps'), name)));
     const listFor = (lists, holderId, name) => lists.get(name) || (lists.set(name, addGroup(document.getElementById(holderId), name)), lists.get(name));
     const chip = (data.chips || []).find((c) => c.label === 'Apps');
     ((chip && chip.cards) || []).forEach((a) => {
       const kind = a.kind || 'apps';
-      const list = kind === 'maps' ? listFor(mapLists, 'menu-maps', a.category || 'Planning') : listFor(appLists, 'menu-apps', a.category || 'Apps');
+      // A map with no Apps category (none today) falls into Content ▸ Maps.
+      const list = kind === 'maps' && !appLists.has(a.category)
+        ? document.getElementById('menu-content-maps')
+        : listFor(appLists, 'menu-apps', a.category || 'Apps');
       addItem(list, a.title, '/' + kind + '/' + a.slug + '/');
     });
     (reports || []).forEach((r) => addItem(listFor(appLists, 'menu-apps', data.reportsCategory || 'Shopping Apps'), r.title, '/' + (data.reportsKind || 'maps') + '/' + r.id + '/'));
