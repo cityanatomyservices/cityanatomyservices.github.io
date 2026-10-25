@@ -1,20 +1,158 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-24T14:10:03.785Z",
- "placed": 51,
+ "generated": "2026-10-25T14:39:49.313Z",
+ "placed": 50,
  "total": 117,
  "features": [
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Quiet and warm weekend weather, rain chances next week",
-    "link": "https://www.kxan.com/weather/forecast/quiet-and-warm-weekend-weather-rain-chances-next-week/",
+    "title": "Cloudy and mild Sunday, pattern change brings rain",
+    "link": "https://www.kxan.com/weather/forecast/cloudy-and-mild-sunday-pattern-change-brings-rain/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-10-24T11:46:26.000Z",
-    "summary": "Warm, quiet weather through the weekend for events across the area, but changes are coming next week as rain chances return. - Meteorologist Hannah Gard",
+    "published": "2026-10-25T12:02:09.000Z",
+    "summary": "Clouds keep temperatures closer to normal, and high pressure moves out of the region, allowing rain chances back into the forecast later in the week. - Meteorologist Hannah Gard",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7431,
+     30.269
+    ]
+   },
+   "properties": {
+    "title": "Life-threatening injuries reported in auto-ped crash in south Austin, police say",
+    "link": "https://www.kxan.com/news/local/life-threatening-injuries-reported-in-auto-ped-crash-in-south-austin-police-says/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-25T11:41:14.000Z",
+    "summary": "Police are on scene of an auto-pedestrian crash Saturday on South Congress Avenue near Oltorf Street.",
+    "place": "Congress Avenue",
+    "placeKind": "street"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Georgetown begins to roll out downtown enhancements",
+    "link": "https://communityimpact.com/georgetown/development/georgetown-begins-to-roll-out-downtown-enhancements/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-10-25T11:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas Senate candidates bring closing pitches to Austin area voters",
+    "link": "https://www.kxan.com/news/your-local-election-hq/texas-senate-candidates-bring-closing-pitches-to-austin-area-voters/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-25T03:27:46.000Z",
+    "summary": "The race to represent Texas in D.C. swung through Austin over the weekend.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin Film Society expands with 3rd theater, a testament to the impact of independent art in Austin",
+    "link": "https://www.kxan.com/news/local/austin/austin-film-society-expands-with-3rd-theater-a-testament-to-the-impact-of-independent-art-in-austin/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-24T21:27:00.000Z",
+    "summary": "Austin may be one of the few American cities keeping art house repertory cinemas alive, and an expansion at Austin’s only nonprofit art house theater is a testament to that.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "No. 19 Texas holds off second half surge from No. 7 Ole Miss for 34-27 win",
+    "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-19-texas-looks-to-snap-two-game-skid-against-no-7-ole-miss/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-24T20:47:03.000Z",
+    "summary": "No. 19 Texas survived a furious second-half comeback from No. 7 Ole Miss, holding on for a 34-27 win at DKR to snap its two-game losing streak and keep its College Football Playoff hopes alive.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "How to stay safe during your Halloween celebrations",
+    "link": "https://www.kxan.com/news/simplehealth/how-to-stay-safe-during-your-halloween-celebrations/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-24T18:50:51.000Z",
+    "summary": "Halloween is just one week out, and Integral Care wants to remind Central Texans to stay safe when celebrating the holiday.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "Hydrilla growth in Lake Austin plateaus",
+    "link": "https://www.kxan.com/news/local/austin/hydrilla-growth-in-lake-austin-plateaus/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-24T18:17:36.000Z",
+    "summary": "A city of Austin memo sent out Thursday shared new data, showing that an invasive species has stopped spreading in Lake Austin.",
+    "place": "Lake Austin",
+    "placeKind": "lake"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin cancer survivor honored nationally for helping patients preserve fertility before treatment",
+    "link": "https://www.kxan.com/news/simplehealth/austin-cancer-survivor-honored-nationally-for-helping-patients-preserve-fertility-before-treatment/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-24T17:00:35.000Z",
+    "summary": "An Austin woman who turned her own cancer diagnosis into a mission to help others is receiving national recognition for her work toward supporting young cancer patients facing fertility challenges.",
     "place": null,
     "placeKind": null
    }
@@ -89,129 +227,6 @@
     "summary": "AUSTIN (KXAN) — Week 9 of high school football in Central Texas means more teams jockeying for playoff positioning. The biggest matchup in the area, as it is every year, was between Lake Travis and Westlake. The Chaps avenged last year's loss to the Cavaliers with an impressive 38-17 win. Lago Vista and Dripping Springs [...]",
     "place": "Dripping Springs",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin family accuses neighbor of stealing, dumping cat 100 miles away",
-    "link": "https://www.kxan.com/news/local/max-the-cat-taken-austin-texas/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T03:10:47.000Z",
-    "summary": "Max's disappearance is the talk of Shady Hollow and raising legal questions over the rights of pet owners.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "'Black Out Sunday' aims to drive turnout during Texas' only early voting weekend",
-    "link": "https://www.kxan.com/news/texas-politics/black-out-sunday-early-voting-weekend-texas/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T02:22:54.000Z",
-    "summary": "Organizers say more than 2,000 churches have signed on across the state.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -98.0867,
-     30.1902
-    ]
-   },
-   "properties": {
-    "title": "Dripping Springs shuts out Hays 42-0 for sixth straight win",
-    "link": "https://www.kxan.com/sports-general/watch-dripping-springs-vs-hays-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-23T23:14:34.000Z",
-    "summary": "Dripping Springs extended its winning streak to six games with a 42-0 shutout of Hays on Friday night, improving to 7-1 overall and remaining unbeaten in District 26-6A play.",
-    "place": "Dripping Springs",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.718,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "Transient man charged for 'unprovoked' hatchet attack in east Austin park",
-    "link": "https://www.kxan.com/news/transient-man-charged-for-unprovoked-hatchet-attack-in-east-austin-park/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-23T22:54:50.000Z",
-    "summary": "A transient man who has had \"frequent interactions\" with local police in the east Austin area is accused of attacking a stranger with a hatchet at Metz Park in September, according to court records and a newly-issued arrest warrant.",
-    "place": "East Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "McCallum extends Lockhart's losing streak to four with 19-10 win",
-    "link": "https://www.kxan.com/sports-general/watch-lockhart-vs-mccallum-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-23T22:53:49.000Z",
-    "summary": "McCallum improved to 3-3 in District 13-5A Division I play with a 19-10 victory over Lockhart on Friday night, handing the Lions their fourth consecutive loss.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Watch: Round Rock vs. McNeil football live",
-    "link": "https://www.kxan.com/sports-general/watch-round-rock-vs-mcneil-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-23T22:40:54.000Z",
-    "summary": "Round Rock looks to build on its offensive success when the Dragons face winless McNeil in Week 9 at Kelly Reeves Athletic Complex. The Mavericks are still searching for their first victory of the season.",
-    "place": "Round Rock",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Cedar Ridge stays unbeaten with 68-29 win over Stony Point",
-    "link": "https://www.kxan.com/news/local/watch-stony-point-vs-cedar-ridge-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-23T22:09:42.000Z",
-    "summary": "Cedar Ridge improved to 8-0 with a 68-29 victory over Stony Point on Friday night, setting up a Week 10 showdown against Westlake with both teams unbeaten in district play.",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1910,27 +1925,6 @@
     "summary": "Who's raised money & who's broke?",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8772,
-     29.9891
-    ]
-   },
-   "properties": {
-    "title": "Dacy Business Park begins third-phase expansion in Kyle",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/development/dacy-business-park-begins-third-phase-expansion-in-kyle/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-10-13T20:56:24.000Z",
-    "summary": "",
-    "place": "Kyle",
-    "placeKind": "city"
    }
   },
   {
