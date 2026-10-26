@@ -68,6 +68,28 @@ owner wants that depth, bake Eevee/Cycles lighting into vertex colours in
 Blender and re-export; three.js multiplies vertex colours into the base
 colour for free.
 
+**Same day, third pass — shadows and baked ambient occlusion (owner: "Add
+the shadows and baked AO to the current page").** Shadows: the sun in
+`model-layer.js` now casts a 2048 px PCF-soft shadow map; `spotlight(key)`
+(called by app.js on every pick) aims the shadow camera at the picked
+model's footprint and moves the scene origin there. The origin matters on
+its own: Austin sits near (0.23, 0.41) Mercator and a metre is 3e-8, more
+than 32-bit floats can hold together, so objects are now placed RELATIVE to
+the origin and the big offset rides in the projection matrix (built in
+64-bit each frame). An invisible ShadowMaterial sheet under each model
+catches its shadow on the map plane. AO: `tools/models/bake-ao.sh` runs
+the Windows Blender 5.2 headless with `bake-ao.py` on each raw GLB: join,
+split every edge longer than N m (4 m buildings, 8–12 m context), bake
+Cycles AO (OptiX on the RTX 3050, seconds per model) into a vertex colour
+attribute, multiply it into every material's base colour so the glTF
+exporter writes COLOR_0; results land in
+`C:\Dev\Austin_Models_Transfer_Batch\baked\` and `prepare-glbs.sh` prefers
+them. First attempt baked to a TEXTURE and failed: a Smart-UV layout of a
+building plus hundreds of trees gave the roofs no texture space (black
+image with leaf speckles). Vertex AO needs no layout. `?v=20261026c`.
+Verified headless: Convention Center canopy underside darkens, trees and
+the building drop shadows on the plaza, no console errors.
+
 ## 2026-10-24 (forty-third pass) — the video does NOT use the map: card renderer instead
 
 Owner, on seeing pass 42: "we dont need to use OBS, this report won't

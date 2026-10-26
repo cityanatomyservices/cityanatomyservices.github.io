@@ -12,7 +12,7 @@
 window.MODELS_CONFIG = {
   basemap: 'https://tiles.openfreemap.org/styles/positron',
   satellite: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-  placements: './data/placements.json?v=20261026b',
+  placements: './data/placements.json?v=20261026c',
 
   // how the page opens: all five anchors in view, flat
   minZoom: 9,
@@ -22,27 +22,27 @@ window.MODELS_CONFIG = {
 
   projects: [
     { id: 'drainage', color: '#1f77b4', layers: [
-        { id: 'main', file: './data/drainage.glb?v=20261026b', on: true }
+        { id: 'main', file: './data/drainage.glb?v=20261026c', on: true }
       ] },
     { id: 'convention-center', color: '#d62728', layers: [
-        { id: 'main', file: './data/convention-center.glb?v=20261026b', on: true }
+        { id: 'main', file: './data/convention-center.glb?v=20261026c', on: true }
       ] },
     { id: 'i35-stitches', color: '#2ca02c', layers: [
-        { id: 'main', file: './data/i35-stitches.glb?v=20261026b', on: true },
-        { id: 'highway', file: './data/i35-highway-context.glb?v=20261026b', on: false }
+        { id: 'main', file: './data/i35-stitches.glb?v=20261026c', on: true },
+        { id: 'highway', file: './data/i35-highway-context.glb?v=20261026c', on: false }
       ] },
     { id: 'lady-bird-rail', color: '#9467bd', layers: [
-        { id: 'main', file: './data/lady-bird-rail.glb?v=20261026b', on: true },
-        { id: 'trains', file: './data/lady-bird-trains.glb?v=20261026b', on: true },
-        { id: 'lake', file: './data/lady-bird-lake-surface.glb?v=20261026b', on: false },
-        { id: 'shore', file: './data/lady-bird-shore-context.glb?v=20261026b', on: false }
+        { id: 'main', file: './data/lady-bird-rail.glb?v=20261026c', on: true },
+        { id: 'trains', file: './data/lady-bird-trains.glb?v=20261026c', on: true },
+        { id: 'lake', file: './data/lady-bird-lake-surface.glb?v=20261026c', on: false },
+        { id: 'shore', file: './data/lady-bird-shore-context.glb?v=20261026c', on: false }
       ] },
     { id: 'aus-concourse-b', color: '#ff7f0e', layers: [
-        { id: 'main', file: './data/aus-concourse-b.glb?v=20261026b', on: true },
-        { id: 'tunnel', file: './data/aus-tunnel.glb?v=20261026b', on: false },
-        { id: 'apron', file: './data/aus-apron-context.glb?v=20261026b', on: false },
-        { id: 'aircraft', file: './data/aus-aircraft-context.glb?v=20261026b', on: false },
-        { id: 'terminal', file: './data/aus-terminal-context.glb?v=20261026b', on: false }
+        { id: 'main', file: './data/aus-concourse-b.glb?v=20261026c', on: true },
+        { id: 'tunnel', file: './data/aus-tunnel.glb?v=20261026c', on: false },
+        { id: 'apron', file: './data/aus-apron-context.glb?v=20261026c', on: false },
+        { id: 'aircraft', file: './data/aus-aircraft-context.glb?v=20261026c', on: false },
+        { id: 'terminal', file: './data/aus-terminal-context.glb?v=20261026c', on: false }
       ] }
   ]
 };

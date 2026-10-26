@@ -11,8 +11,8 @@ the model stands on the basemap or the satellite image at true size.
 | The page | `models/index.html`, `style.css`, `config.js` (files), `copy.js` (words), `js/app.js` (controls), `js/model-layer.js` (the three.js custom layer) |
 | The models | `models/data/*.glb`, Draco-compressed, 1.4 MB in all |
 | Where each model sits | `models/data/placements.json`: anchor, heading, ground offset, footprint, and the reasoning for each number |
-| The tools | `tools/models/place.py` (writes placements.json), `tools/models/prepare-glbs.sh` (makes the GLBs), `tools/models/osm-cache/` (the OpenStreetMap answer place.py works from) |
-| The Blender sources | `C:\Dev\Austin_Models_Transfer_Batch\` (five zips) and `unpacked\` next to it. **Not in any git repo.** |
+| The tools | `tools/models/place.py` (writes placements.json), `tools/models/bake-ao.sh` + `bake-ao.py` (Blender bakes ambient occlusion into each model), `tools/models/prepare-glbs.sh` (makes the GLBs), `tools/models/osm-cache/` (the OpenStreetMap answer place.py works from) |
+| The Blender sources | `C:\Dev\Austin_Models_Transfer_Batch\` (five zips), `unpacked\` next to it, and `baked\` (the AO-baked copies). **Not in any git repo.** |
 | The framed page | `maps/models/` (from `node tools/make-pages.js`), card in `home.json` under Metro Apps |
 
 ## How a model gets on the map
@@ -64,10 +64,28 @@ the model stands on the basemap or the satellite image at true size.
    and Blender glass becomes plain transparency. Models load the first time
    they are switched on and stay loaded. Map `antialias: true` matters.
 
+## Shadows and ambient occlusion (2026-10-26)
+
+- **Shadows** are real-time: the sun in `model-layer.js` casts a 2048 px
+  shadow map, aimed by `spotlight(key)` at the picked model (app.js calls it
+  on every pick). An invisible sheet under each model catches the shadow on
+  the map plane. The same call moves the scene origin to the model, which
+  keeps 32-bit precision honest (Mercator coordinates near 0.3 with metres
+  at 3e-8 would otherwise snap vertices to a half-metre grid).
+- **Ambient occlusion** is baked once per model by Blender, headless:
+  `bash tools/models/bake-ao.sh` (all) or `bash tools/models/bake-ao.sh
+  <name>.glb`. It joins the model, splits long edges so there is a vertex
+  every few metres, bakes Cycles AO into a vertex colour attribute and
+  exports with COLOR_0, which three.js multiplies into the base colour.
+  Output goes to `C:\Dev\Austin_Models_Transfer_Batch\baked\`; run
+  `prepare-glbs.sh` afterwards, it prefers a baked copy when one exists.
+  Baking to a texture was tried first and failed (no UV room for the roofs
+  next to hundreds of trees), hence per-vertex.
+
 ## Adding a sixth model
 
 1. Unpack its transfer zip next to the others in `unpacked\`.
-2. Add its GLB(s) to `FILES` in `tools/models/prepare-glbs.sh` and run it.
+2. Add its GLB(s) to `MODELS` in `tools/models/bake-ao.sh` and `FILES` in `tools/models/prepare-glbs.sh`; run the bake, then prepare.
 3. Add a block to `tools/models/place.py` that works out anchor, heading and
    ground offset from something checkable (an OSM way or node, the package's
    own coordinates), with a `derivation` for each; run

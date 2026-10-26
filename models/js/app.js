@@ -2,7 +2,7 @@
 // and the About panel. The models themselves are drawn by model-layer.js;
 // where they go comes from data/placements.json (made by
 // tools/models/place.py); the files from config.js; the words from copy.js.
-import { createModelLayer } from './model-layer.js?v=20261026b';
+import { createModelLayer } from './model-layer.js?v=20261026c';
 
 const CFG = window.MODELS_CONFIG;
 const COPY = window.MODELS_COPY;
@@ -80,7 +80,7 @@ function pick(id, fly = true) {
     map.fitBounds(pl.bounds, { padding: CFG.fitPadding, pitch: CFG.pitch, bearing: pl.heading_deg, duration: 2200 });
   }
   if (current) history.replaceState(null, '', '#' + current.id);
-  syncLayers();
+  syncLayers().then(() => { if (current) models.spotlight(keyOf(current, current.layers[0])); });
 }
 
 // ── the picker rows ──

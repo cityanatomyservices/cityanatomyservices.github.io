@@ -30,6 +30,9 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
 BATCH=/mnt/c/Dev/Austin_Models_Transfer_Batch/unpacked
+# bake-ao.sh leaves a copy of each model with baked ambient occlusion here;
+# when one exists it is used instead of the raw export
+BAKED=/mnt/c/Dev/Austin_Models_Transfer_Batch/baked
 OUT="$REPO/models/data"
 GLTF="$HERE/node_modules/.bin/gltf-transform"
 
@@ -55,12 +58,14 @@ FILES=(
   "AUS_Concourse_B/AUS_Concourse_B/Models/existing_terminal_context.glb                  aus-terminal-context.glb"
 )
 
-printf '%-32s %10s %10s\n' file before after
+printf '%-32s %-6s %10s %10s\n' file from before after
 for entry in "${FILES[@]}"; do
   read -r src name <<<"$entry"
-  "$GLTF" optimize "$BATCH/$src" "$OUT/$name" --compress false --palette false --simplify false --texture-compress false >/dev/null
+  in="$BATCH/$src"; from=raw
+  if [ -f "$BAKED/$name" ]; then in="$BAKED/$name"; from=baked; fi
+  "$GLTF" optimize "$in" "$OUT/$name" --compress false --palette false --simplify false --texture-compress false >/dev/null
   "$GLTF" draco "$OUT/$name" "$OUT/$name" --quantize-position 16 --quantize-normal 10 --quantize-texcoord 12 >/dev/null
-  printf '%-32s %10s %10s\n' "$name" "$(stat -c %s "$BATCH/$src")" "$(stat -c %s "$OUT/$name")"
+  printf '%-32s %-6s %10s %10s\n' "$name" "$from" "$(stat -c %s "$in")" "$(stat -c %s "$OUT/$name")"
 done
 echo
 du -sh "$OUT"
