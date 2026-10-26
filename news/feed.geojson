@@ -1,20 +1,41 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-25T14:39:49.313Z",
+ "generated": "2026-10-26T17:03:18.842Z",
  "placed": 50,
- "total": 117,
+ "total": 116,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7325,
+     30.2837
+    ]
+   },
+   "properties": {
+    "title": "Stats: How are the Texas Longhorns performing in the 2026 season?",
+    "link": "https://www.kxan.com/sports-general/horns-report/longhorn-football-stats-2026/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-26T16:53:16.000Z",
+    "summary": "Follow along as we track the Longhorns' performance throughout the 2026 season.",
+    "place": "Texas Longhorns",
+    "placeKind": "venue"
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Cloudy and mild Sunday, pattern change brings rain",
-    "link": "https://www.kxan.com/weather/forecast/cloudy-and-mild-sunday-pattern-change-brings-rain/",
+    "title": "Austin firefighters respond to spray booth fire inside warehouse",
+    "link": "https://www.kxan.com/news/local/austin/austin-firefighters-respond-to-spray-booth-fire-inside-warehouse/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-10-25T12:02:09.000Z",
-    "summary": "Clouds keep temperatures closer to normal, and high pressure moves out of the region, allowing rain chances back into the forecast later in the week. - Meteorologist Hannah Gard",
+    "published": "2026-10-26T16:14:48.000Z",
+    "summary": "Austin Fire received reports of a \"spray booth fire\" inside a warehouse that contains \"hazardous materials.\"",
     "place": null,
     "placeKind": null
    }
@@ -24,20 +45,281 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.7431,
-     30.269
+     -97.72,
+     30.38
     ]
    },
    "properties": {
-    "title": "Life-threatening injuries reported in auto-ped crash in south Austin, police say",
-    "link": "https://www.kxan.com/news/local/life-threatening-injuries-reported-in-auto-ped-crash-in-south-austin-police-says/",
+    "title": "Weidner Adds 341-Unit Rental Asset to Austin Portfolio",
+    "link": "https://www.connectcre.com/stories/weidner-adds-341-unit-rental-asset-to-austin-portfolio/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-10-26T16:06:30.000Z",
+    "summary": "Weidner Apartment Homes acquired the Solaris House apartments, a 341-unit high-rise apartment complex located in North Austin’s Domain submarket. Brandywine Realty Trust was the seller. JLL represented Brandywine Realty Trust in the sale of the asset. JLL’s Debt Advisory team also arranged acquisition financing for Weidner through Nationwide. The acquisition marks Weidner’s fifth community in ... ",
+    "place": "North Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Finnish tech companies visit Austin as cities forge new partnership",
+    "link": "https://www.kxan.com/news/finnish-tech-companies-visit-austin-as-cities-forge-new-partnership/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-10-25T11:41:14.000Z",
-    "summary": "Police are on scene of an auto-pedestrian crash Saturday on South Congress Avenue near Oltorf Street.",
-    "place": "Congress Avenue",
-    "placeKind": "street"
+    "published": "2026-10-26T15:51:05.000Z",
+    "summary": "A Finnish technology delegation is visiting Central Texas as Austin and Tampere, Finland, launch a new partnership aimed at connecting businesses working in artificial intelligence, robotics and advanced manufacturing.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "With Muny in play, the city golf course is in the spotlight once again",
+    "link": "https://www.kut.org/austin/2026-10-26/with-muny-in-play-the-city-golf-course-is-in-the-spotlight-once-again",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-26T15:37:51.000Z",
+    "summary": "As the city tries to secure the future of the historic golf course, Muny’s history as a civil rights landmark is back in the limelight.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Officials break ground on Georgetown Customer Service Center, SU 560",
+    "link": "https://communityimpact.com/georgetown/development/officials-break-ground-on-georgetown-customer-service-center-su-560/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-10-26T15:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Competency trial for Austin capital murder suspect, what to expect",
+    "link": "https://www.kxan.com/news/crime/competency-trial-for-austin-capital-murder-suspect-what-to-expect/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-26T14:57:33.000Z",
+    "summary": "Shane James is accused of shooting seven people in Austin in December of 2023, four of them fatally. Authorities said he also shot his parents in Bexar County that morning.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7394,
+     30.285
+    ]
+   },
+   "properties": {
+    "title": "UT Austin creating new AI-powered sports analytics lab",
+    "link": "https://www.kxan.com/news/education/ut-austin-creating-new-ai-powered-sports-analytics-lab/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-26T13:51:22.000Z",
+    "summary": "The University of Texas is building a new sports lab that will use artificial intelligence and data to help athletes and coaches train, according to a press release from UT Austin Athletics.",
+    "place": "University of Texas",
+    "placeKind": "campus"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742,
+     30.26
+    ]
+   },
+   "properties": {
+    "title": "Q&A: What another body found in Lady Bird Lake means for ongoing safety concerns",
+    "link": "https://www.kxan.com/inside-the-investigation/qa-what-another-body-found-in-lady-bird-lake-means-for-ongoing-safety-concerns/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-26T12:00:00.000Z",
+    "summary": "On this edition of \"Inside the Investigation\" – an extended discussion first featured in the latest episode of our weekly investigative program, \"Cause & Effect\" – KXAN's investigative team revisits deaths in Lady Bird Lake following the recovery of another body near the Wishbone Bridge pedestrian trail.",
+    "place": "Lady Bird Lake",
+    "placeKind": "lake"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9414,
+     29.8833
+    ]
+   },
+   "properties": {
+    "title": "San Marcos council postpones funeral home zoning change, risking development partnership",
+    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/san-marcos-council-postpones-funeral-home-zoning-change-risking-development-partnership/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-26T11:00:00.000Z",
+    "summary": "",
+    "place": "San Marcos",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Scattered rain to end October, temps stay warm",
+    "link": "https://www.kxan.com/weather/forecast/scattered-rain-to-end-october-temps-stay-warm/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-26T10:54:48.000Z",
+    "summary": "We'll close out the month of October with unsettled weather as rain chances return Tuesday and continue into the weekend. -Meteorologist Hannah Gard",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8531,
+     30.5788
+    ]
+   },
+   "properties": {
+    "title": "Austin Futsal League now offering youth training in Leander",
+    "link": "https://communityimpact.com/leander-liberty-hill/business/austin-futsal-league-now-offering-youth-training-in-leander/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-10-26T10:44:29.000Z",
+    "summary": "",
+    "place": "Leander",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "How a big project became a big fight: The road to Dog’s Head",
+    "link": "https://austincurrent.org/2026/10/26/how-a-big-project-became-a-big-fight-the-road-to-dogs-head/",
+    "outlet": "Austin Current",
+    "group": "planning",
+    "color": "#7ad4c8",
+    "published": "2026-10-26T10:30:00.000Z",
+    "summary": "The post How a big project became a big fight: The road to Dog’s Head appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "With Muny in play, the city golf course is in the spotlight once again",
+    "link": "https://austincurrent.org/2026/10/26/muny-austin-ut-environment-development/",
+    "outlet": "Austin Current",
+    "group": "planning",
+    "color": "#7ad4c8",
+    "published": "2026-10-26T10:25:00.000Z",
+    "summary": "As the city tries to secure the future of the historic golf course, Muny’s history as a civil rights landmark is back in the limelight. The post With Muny in play, the city golf course is in the spotlight once again appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Rewind with Austin VHS Swap, the local cult that worships bygone physical media",
+    "link": "https://www.kut.org/life-arts/2026-10-26/rewind-with-austin-vhs-swap-the-local-cult-that-worships-bygone-physical-media",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-10-26T10:01:00.000Z",
+    "summary": "In a streaming age that has largely rejected physical media, Austin VHS Swap is like the opposite of a doomsday cult. Every stack of tapes seems to say: Be the Blockbuster you wish to see in the world.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Concordia University celebrates 100 years educating students",
+    "link": "https://www.kxan.com/news/education/concordia-university-100-year-anniversary/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-26T03:48:25.000Z",
+    "summary": "The school was founded in 1926 as a four-year boys' high school in Austin and has evolved into a private, Christ-centered liberal arts university.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6699,
+     30.1975
+    ]
+   },
+   "properties": {
+    "title": "After 'biggest weekend ever' in Austin, airport bracing for busiest day",
+    "link": "https://www.kxan.com/news/local/austin/austin-airport-busiest-day-f1-weekend/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-26T01:45:54.000Z",
+    "summary": "Austin-Bergstrom International is expecting 44,584 passengers Monday -- closing in on the record set the day after last year's F1 race.",
+    "place": "Austin-Bergstrom",
+    "placeKind": "airport"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "The Texans struggle defensively again in 27-21 overtime loss to Giants",
+    "link": "https://www.kxan.com/sports/the-texans-struggle-defensively-again-in-27-21-overtime-loss-to-giants/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-10-26T01:00:02.000Z",
+    "summary": "HOUSTON (AP) — This year’s Houston Texans defense looks nothing like last year’s unit that was the NFL’s best. Missed tackles, wide-open receivers and big play after big play led to a 27-21 overtime loss to the New York Giants on Sunday that dropped Houston to 2-5. Coach DeMeco Ryans is tired of people bringing [...]",
+    "place": null,
+    "placeKind": null
    }
   },
   {
@@ -65,102 +347,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Texas Senate candidates bring closing pitches to Austin area voters",
-    "link": "https://www.kxan.com/news/your-local-election-hq/texas-senate-candidates-bring-closing-pitches-to-austin-area-voters/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-25T03:27:46.000Z",
-    "summary": "The race to represent Texas in D.C. swung through Austin over the weekend.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin Film Society expands with 3rd theater, a testament to the impact of independent art in Austin",
-    "link": "https://www.kxan.com/news/local/austin/austin-film-society-expands-with-3rd-theater-a-testament-to-the-impact-of-independent-art-in-austin/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T21:27:00.000Z",
-    "summary": "Austin may be one of the few American cities keeping art house repertory cinemas alive, and an expansion at Austin’s only nonprofit art house theater is a testament to that.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "No. 19 Texas holds off second half surge from No. 7 Ole Miss for 34-27 win",
-    "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-19-texas-looks-to-snap-two-game-skid-against-no-7-ole-miss/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T20:47:03.000Z",
-    "summary": "No. 19 Texas survived a furious second-half comeback from No. 7 Ole Miss, holding on for a 34-27 win at DKR to snap its two-game losing streak and keep its College Football Playoff hopes alive.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "How to stay safe during your Halloween celebrations",
-    "link": "https://www.kxan.com/news/simplehealth/how-to-stay-safe-during-your-halloween-celebrations/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T18:50:51.000Z",
-    "summary": "Halloween is just one week out, and Integral Care wants to remind Central Texans to stay safe when celebrating the holiday.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.79,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "Hydrilla growth in Lake Austin plateaus",
-    "link": "https://www.kxan.com/news/local/austin/hydrilla-growth-in-lake-austin-plateaus/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T18:17:36.000Z",
-    "summary": "A city of Austin memo sent out Thursday shared new data, showing that an invasive species has stopped spreading in Lake Austin.",
-    "place": "Lake Austin",
-    "placeKind": "lake"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin cancer survivor honored nationally for helping patients preserve fertility before treatment",
-    "link": "https://www.kxan.com/news/simplehealth/austin-cancer-survivor-honored-nationally-for-helping-patients-preserve-fertility-before-treatment/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T17:00:35.000Z",
-    "summary": "An Austin woman who turned her own cancer diagnosis into a mission to help others is receiving national recognition for her work toward supporting young cancer patients facing fertility challenges.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Austin’s 2027 audits to cover city efficiency, employee pay, police oversight and training",
     "link": "https://communityimpact.com/central-austin/government/austin-s-2027-audits-to-cover-city-efficiency-employee-pay-police-oversight-and-training/",
     "outlet": "Community Impact",
@@ -168,21 +354,6 @@
     "color": "#f0c27a",
     "published": "2026-10-24T11:21:15.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Game preview: No. 19 Texas looks to avoid third straight loss against No. 7 Ole Miss",
-    "link": "https://www.kxan.com/sports-general/horns-report/game-preview-ut-ole-miss/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T11:00:00.000Z",
-    "summary": "The Longhorns look to avoid a third straight loss as they host No. 7 Ole Miss on Saturday, with playoff hopes hanging in the balance and questions surrounding Arch Manning and the offense.",
     "place": null,
     "placeKind": null
    }
@@ -206,27 +377,6 @@
     "summary": "Talarico spoke to a packed auditorium on the UT Austin campus on Friday evening as part of his \"Clear Eyes, Full Hearts” tour.",
     "place": "UT Austin",
     "placeKind": "campus"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -98.0867,
-     30.1902
-    ]
-   },
-   "properties": {
-    "title": "Week 9 Texas high school football scores",
-    "link": "https://www.kxan.com/sports/week-9-texas-high-school-football-scores-2/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-10-24T03:50:59.000Z",
-    "summary": "AUSTIN (KXAN) — Week 9 of high school football in Central Texas means more teams jockeying for playoff positioning. The biggest matchup in the area, as it is every year, was between Lake Travis and Westlake. The Chaps avenged last year's loss to the Cavaliers with an impressive 38-17 win. Lago Vista and Dripping Springs [...]",
-    "place": "Dripping Springs",
-    "placeKind": "city"
    }
   },
   {
@@ -753,48 +903,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.8772,
-     29.9891
-    ]
-   },
-   "properties": {
-    "title": "Olive Garden, Long Horn Steakhouse: Check out 6 Kyle business updates",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/olive-garden-long-horn-steakhouse-check-out-6-kyle-business-updates/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-22T11:00:00.000Z",
-    "summary": "",
-    "place": "Kyle",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "See what businesses are new and coming soon to the Georgetown area",
-    "link": "https://communityimpact.com/georgetown/business/see-what-businesses-are-new-and-coming-soon-to-the-georgetown-area/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-22T11:00:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.747,
      30.265
     ]
@@ -1233,21 +1341,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Rep. Greg Casar faces first-time Republican candidate Lauren Peña in U.S. House District 37 race",
-    "link": "https://www.kut.org/austin/2026-10-20/austin-tx-us-house-district-37-race-greg-casar-lauren-pena",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-20T17:51:48.000Z",
-    "summary": "The seat, which has been long-held by Rep. Lloyd Doggett, D-Austin, will now be handed off to either Democratic Congressman Greg Casar or first-time Republican candidate Lauren Peña.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -1299,21 +1392,6 @@
     "color": "#e07a99",
     "published": "2026-10-20T15:10:35.000Z",
     "summary": "Endeavor Real Estate Group, an Austin-based investment and development firm, closed a $210 million private equity fund. Fund managers say the fund will have a particular focus on Texas. The fund will also be invested in a handful of other Sun Belt towns, such as Nashville, Charlotte and Salt Lake City. The $210 million fund is anticipated ... The post Endeavor Closes on $210M Texas-Centric CRE Fun",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "What are the biggest Austin races in the November election? And other common voter questions",
-    "link": "https://www.kut.org/politics/2026-10-20/austin-tx-voting-election-ballot-candidates-questions",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-20T12:00:00.000Z",
-    "summary": "Where do I find polling places? When is early voting? What’s on my ballot? We’ve got answers for the Austin area.",
     "place": null,
     "placeKind": null
    }
@@ -1530,48 +1608,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.77,
-     30.22
-    ]
-   },
-   "properties": {
-    "title": "Who will represent South Austin on the Austin ISD board? Meet the District 6 candidates",
-    "link": "https://austincurrent.org/2026/10/19/austin-austinisd-texas-district6-schoolboard-trustee/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-19T11:09:13.000Z",
-    "summary": "Three hopefuls are competing to lead the South Austin district bringing a variety of experience, including parent advocacy and policy and education expertise. The post Who will represent South Austin on the Austin ISD board? Meet the District 6 candidates appeared first on Austin Current .",
-    "place": "South Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Three candidates compete for Austin ISD District 4 board seat",
-    "link": "https://austincurrent.org/2026/10/19/austin-austinisd-candidates-election-board/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-19T10:50:00.000Z",
-    "summary": "Business, legal and advocacy experience shape the candidates' plans for a district facing budget cuts and state scrutiny. The post Three candidates compete for Austin ISD District 4 board seat appeared first on Austin Current .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "2022 runner-up Ramos works to win",
@@ -1758,21 +1794,6 @@
     "color": "#e8b35e",
     "published": "2026-10-14T21:40:33.000Z",
     "summary": "Austin City Council Member Zohaib Ahmad “Zo” Qadri, the son of Pakistani immigrants, was born in 1990 in Secaucus, New Jersey. The family later moved to Schenectady, New York, roughly 18 miles from the capital of Albany. In 2002, just months after the attacks on the World Trade Towers in lower Manhattan, his family moved […]",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin, UT announce deal to preserve Muny",
-    "link": "https://communityimpact.com/central-austin/development/austin-ut-announce-deal-to-preserve-muny/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-10-14T21:00:00.000Z",
-    "summary": "",
     "place": null,
     "placeKind": null
    }
@@ -2019,42 +2040,6 @@
     "color": "#e8b35e",
     "published": "2026-10-12T18:35:47.000Z",
     "summary": "I'm skeptical.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Taxpayers pay the price when Texas education department takes over school districts",
-    "link": "https://www.texastribune.org/2026/10/12/austin-isd-state-takeover-costs/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-10-12T10:00:00.000Z",
-    "summary": "Cash-strapped Austin ISD faces big changes under a potential state takeover. It could also face increased costs at a time when reserves are running dry. The post Taxpayers pay the price when Texas education department takes over school districts appeared first on The Texas Tribune .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Candidates hustle for campaign cash",
-    "link": "https://theaustinbulldog.org/candidates-hustle-for-campaign-cash/",
-    "outlet": "The Austin Bulldog",
-    "group": "government",
-    "color": "#e8b35e",
-    "published": "2026-10-11T20:15:11.000Z",
-    "summary": "We’re just 24 days from the mid-term elections that will determine which party controls the U.S. Senate and House of Representatives as well as the state’s next U.S. senator and governor. Closer to home, further down the ballot the November 3rd election will permit voters to choose who will win five seats on the Austin […]",
     "place": null,
     "placeKind": null
    }
