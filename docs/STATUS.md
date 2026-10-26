@@ -44,6 +44,30 @@ outside every repo; `unpacked\` next to the zips is where the GLBs came
 from). Stray empty folder `C:\Dev\tools\models` left by a misdirected
 npm install: delete it.
 
+**Same day, second pass — "blurry and abstracted" next to Blender (owner).**
+Three causes found and fixed, in order of weight: (1) MapLibre's Mercator
+world is left-handed and three.js assumes right-handed, so three.js lit
+every face from the wrong side (roofs shaded as undersides: murky, flat).
+Diagnosed with a blue-sky/red-ground test light on a plain cube. Fix: the
+y mirror now lives in the camera's projection matrix where three.js never
+looks, and objects sit in a right-handed map frame (x east, y north, z
+up) with plain similarity matrices (`model-layer.js`, FLIP_Y). This is
+also why the official MapLibre+three example bakes the mirror into the
+projection. (2) gltf-transform's `optimize` had merged all materials into
+a palette texture and Draco at its default 14-bit positions spaces
+vertices 0.4 m apart on the 6 km drainage model; now `optimize` runs with
+palette/simplify/compress off and a separate `draco` pass at 16 bits
+(1.6 MB total). (3) the map canvas had no antialiasing (`antialias:
+true`). Also: Blender glass arrives as a transmission material, which
+three.js renders with a pass that does not work inside MapLibre's context
+and caused the "framebuffer incomplete" warnings; glass is now plain
+45 % transparent, warnings gone. `?v=20261026b`. The Convention Center
+now reads like the Blender aerial: zinc roof, limestone paving, lawn,
+creek. What is still not Blender: no shadows or ambient occlusion. If the
+owner wants that depth, bake Eevee/Cycles lighting into vertex colours in
+Blender and re-export; three.js multiplies vertex colours into the base
+colour for free.
+
 ## 2026-10-24 (forty-third pass) — the video does NOT use the map: card renderer instead
 
 Owner, on seeing pass 42: "we dont need to use OBS, this report won't

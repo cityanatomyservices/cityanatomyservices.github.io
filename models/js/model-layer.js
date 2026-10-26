@@ -42,23 +42,38 @@ export function createModelLayer({ map }) {
   let renderer = null;
 
   /**
+   * COORDINATES, and the one trap in them. MapLibre's world is Mercator: x
+   * east, y SOUTH, z up, the whole globe in one unit. That frame is
+   * left-handed, and three.js assumes a right-handed one: it decides which
+   * side of every triangle is the front from the object's matrix, so a mirror
+   * hidden in the camera makes it light every face from the wrong side (the
+   * first version of this page had murky, flat models for exactly this
+   * reason, 2026-10-26). The cure is to put the mirror where three.js never
+   * looks: the camera's projection matrix gets a y flip (see render()), and
+   * everything else lives in a right-handed "map frame": x east, y NORTH,
+   * z up, in Mercator units. Objects then carry only translation, uniform
+   * scale and rotation, and three.js shades them correctly.
+   */
+  const FLIP_Y = new THREE.Matrix4().makeScale(1, -1, 1);
+
+  /**
    * The matrix that takes a glTF model (metres, Y up, -Z north) to its spot
-   * in MapLibre's world (Mercator: x east, y south, z up, the globe in one
-   * unit). Read right to left:
+   * in the map frame. Read right to left:
    *   1. lift or sink the model by its ground offset (along its own up axis)
    *   2. turn it about its up axis by the heading (clockwise from north is a
    *      NEGATIVE rotation about +Y in three.js's right-handed frame)
-   *   3. stand it up: a quarter turn about x takes Y-up to Z-up, and the
-   *      negative y scale flips to Mercator's south-pointing y
+   *   3. stand it up: a quarter turn about x takes glTF's Y-up/-Z-north to
+   *      the map frame's Z-up/+Y-north
    *   4. scale metres to Mercator units at this latitude, move to the anchor
+   *      (its y negated: Mercator y runs south, the map frame's runs north)
    */
   function placementMatrix(p) {
     const mc = maplibregl.MercatorCoordinate.fromLngLat(p.anchor, 0);
     const s = mc.meterInMercatorCoordinateUnits();
     const heading = THREE.MathUtils.degToRad(p.heading_deg || 0);
     return new THREE.Matrix4()
-      .makeTranslation(mc.x, mc.y, mc.z)
-      .scale(new THREE.Vector3(s, -s, s))
+      .makeTranslation(mc.x, -mc.y, mc.z)
+      .scale(new THREE.Vector3(s, s, s))
       .multiply(new THREE.Matrix4().makeRotationX(Math.PI / 2))
       .multiply(new THREE.Matrix4().makeRotationY(-heading))
       .multiply(new THREE.Matrix4().makeTranslation(0, p.ground_offset_m || 0, 0));
@@ -74,9 +89,19 @@ export function createModelLayer({ map }) {
         // reflect here, so metal came out black on the first try (2026-10-26).
         gltf.scene.traverse((o) => {
           if (!o.isMesh || !o.material) return;
-          o.material.side = THREE.DoubleSide;
-          o.material.metalness = 0;
-          o.material.roughness = Math.max(o.material.roughness ?? 1, 0.6);
+          const m = o.material;
+          m.side = THREE.DoubleSide;
+          m.metalness = 0;
+          m.roughness = Math.max(m.roughness ?? 1, 0.6);
+          // Blender's glass arrives as a "transmission" material. three.js
+          // renders that with an extra full-screen pass that does not work
+          // inside MapLibre's context, so glass becomes plain see-through.
+          if (m.transmission > 0) {
+            m.transmission = 0;
+            m.transparent = true;
+            m.opacity = 0.45;
+            m.depthWrite = false;
+          }
         });
         return gltf.scene;
       }));
@@ -95,14 +120,14 @@ export function createModelLayer({ map }) {
       camera = new THREE.Camera();
       scene = new THREE.Scene();
 
-      // Daylight. Light directions are in Mercator space, where +z is up and
-      // +y is south: the sun stands high in the south-east, the sky fills in
-      // the rest, so vertical faces still read against the flat roofs.
-      const sky = new THREE.HemisphereLight(0xffffff, 0x9aa0a6, 1.8);   // first try at 1.1 read too dark
+      // Daylight, in the map frame (x east, y north, z up): the sun stands
+      // high in the south-east, the sky light fills in the rest, so vertical
+      // faces still read against the flat roofs.
+      const sky = new THREE.HemisphereLight(0xffffff, 0x9aa0a6, 1.4);
       sky.position.set(0, 0, 1);
       scene.add(sky);
-      const sun = new THREE.DirectionalLight(0xffffff, 2.2);
-      sun.position.set(0.5, 0.7, 1.0);
+      const sun = new THREE.DirectionalLight(0xffffff, 2.0);
+      sun.position.set(0.5, -0.7, 1.0);
       scene.add(sun);
 
       renderer = new THREE.WebGLRenderer({ canvas: map.getCanvas(), context: gl, antialias: true });
@@ -120,7 +145,8 @@ export function createModelLayer({ map }) {
       // itself. Accept either, so a version bump cannot silently blank the layer.
       const m = args?.defaultProjectionData?.mainMatrix ?? args?.mainMatrix ?? args;
       if (!m) return;
-      camera.projectionMatrix = new THREE.Matrix4().fromArray(m);
+      // MapLibre's matrix, with the handedness mirror folded in (see FLIP_Y)
+      camera.projectionMatrix = new THREE.Matrix4().fromArray(m).multiply(FLIP_Y);
       // three.js and MapLibre share one GL context and each assumes it owns
       // the state. This hands it back in the condition MapLibre expects.
       renderer.resetState();
@@ -149,8 +175,9 @@ export function createModelLayer({ map }) {
 
     has(key) { return items.has(key); },
 
-    /** For checks from the console: the three.js scene. */
+    /** For checks from the console: the three.js scene and renderer. */
     get scene() { return scene; },
+    get renderer() { return renderer; },
 
     show(key, on) {
       const item = items.get(key);

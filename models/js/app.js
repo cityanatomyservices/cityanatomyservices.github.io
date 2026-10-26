@@ -2,7 +2,7 @@
 // and the About panel. The models themselves are drawn by model-layer.js;
 // where they go comes from data/placements.json (made by
 // tools/models/place.py); the files from config.js; the words from copy.js.
-import { createModelLayer } from './model-layer.js?v=20261026a';
+import { createModelLayer } from './model-layer.js?v=20261026b';
 
 const CFG = window.MODELS_CONFIG;
 const COPY = window.MODELS_COPY;
@@ -38,6 +38,9 @@ const map = new maplibregl.Map({
   fitBoundsOptions: { padding: CFG.fitPadding },
   minZoom: CFG.minZoom,
   maxPitch: 70,
+  // MapLibre draws without antialiasing unless asked; the models' edges then
+  // come out stepped, which reads as blur (owner, 2026-10-26)
+  antialias: true,
   attributionControl: { compact: true }
 });
 const models = createModelLayer({ map });

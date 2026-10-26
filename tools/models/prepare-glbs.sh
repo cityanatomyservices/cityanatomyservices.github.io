@@ -5,15 +5,19 @@
 #   bash tools/models/prepare-glbs.sh          (from anywhere)
 #
 # WHY: the Blender exports are plain, uncompressed glTF binaries (the drainage
-# one is 17 MB). gltf-transform's `optimize` de-duplicates, welds and prunes
-# the meshes, then Draco-compresses the geometry: the drainage model drops to
-# under half a megabyte (measured 2026-10-26: quantize alone left it at 13 MB,
-# meshopt at 2 MB, Draco at 0.4 MB). The page decodes Draco with the decoder
-# that ships with three.js (see models/js/model-layer.js). Mesh simplification
-# is switched off so nothing is thrown away (it saved nothing anyway: the
-# meshes are already lean). Textures are left alone: these models have none,
-# only flat colours.
-#
+# one is 17 MB). Two gltf-transform passes per file:
+#   1. `optimize` with everything lossy switched off: it de-duplicates, flattens
+#      and joins meshes (fewer draw calls) but keeps every vertex, every
+#      material and its flat colour. Mesh simplification is off so nothing is
+#      thrown away, and the material "palette" is off because merging the
+#      colours into one tiny texture smeared them on the first try (2026-10-26:
+#      the owner found the models "blurry and abstracted" next to Blender).
+#   2. `draco` compression at 16-bit positions (the finest Draco allows; its
+#      default 14 bits spaces vertices 0.4 m apart on the 6 km drainage model,
+#      visibly lumpy). Draco is what makes the files small: 17 MB -> well under
+#      1 MB. The page decodes it with the decoder that ships with three.js (see
+#      models/js/model-layer.js). Textures are left alone: these models have
+#      none, only flat colours.
 # WHICH FILES: one main export per project plus the optional context layers
 # the page offers as toggles. Never a combined export AND its split parts
 # (both_stitches already contains 41st_stitch + red_line_stitch, and so on).
@@ -54,7 +58,8 @@ FILES=(
 printf '%-32s %10s %10s\n' file before after
 for entry in "${FILES[@]}"; do
   read -r src name <<<"$entry"
-  "$GLTF" optimize "$BATCH/$src" "$OUT/$name" --compress draco --texture-compress false --simplify false >/dev/null
+  "$GLTF" optimize "$BATCH/$src" "$OUT/$name" --compress false --palette false --simplify false --texture-compress false >/dev/null
+  "$GLTF" draco "$OUT/$name" "$OUT/$name" --quantize-position 16 --quantize-normal 10 --quantize-texcoord 12 >/dev/null
   printf '%-32s %10s %10s\n' "$name" "$(stat -c %s "$BATCH/$src")" "$(stat -c %s "$OUT/$name")"
 done
 echo

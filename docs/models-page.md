@@ -21,8 +21,11 @@ the model stands on the basemap or the satellite image at true size.
    in metres, Y up, around its own pivot. `prepare-glbs.sh` runs gltf-transform
    on the chosen ones (`FILES` at the top of the script) and writes
    `models/data/<name>.glb`. Draco compression is what makes them small: the
-   drainage model is 17 MB raw and 0.4 MB compressed. The decoder is loaded on
-   the page from the same pinned three.js copy on unpkg.
+   drainage model is 17 MB raw and 0.5 MB compressed. The decoder is loaded on
+   the page from the same pinned three.js copy on unpkg. Two passes: `optimize`
+   with palette, simplify and compression OFF (keeps every vertex and every
+   flat material colour), then `draco` at 16-bit positions (the default 14 bits
+   spaced vertices 0.4 m apart on the 6 km drainage model).
 2. **Where it goes.** The map is flat, so a model needs three things: an
    anchor (lon/lat for its local origin), a heading (how far its +Y axis is
    turned clockwise from true north) and a ground offset (metres to lift or
@@ -48,12 +51,18 @@ the model stands on the basemap or the satellite image at true size.
    metres for the rest, more for AUS.
 3. **Drawing.** `model-layer.js` is one MapLibre custom layer
    (`renderingMode: '3d'`) with a three.js scene on the map's own WebGL
-   context. Each model's matrix: move to the anchor in Mercator units, scale
-   metres to Mercator at that latitude (y negated, Mercator y runs south),
-   quarter turn about x (Y-up to Z-up), turn about the up axis by minus the
-   heading, lift by the ground offset. Lights: a hemisphere light and one sun
-   from the south-east. Models load the first time they are switched on and
-   stay loaded.
+   context. **The trap:** MapLibre's Mercator world (x east, y south, z up)
+   is left-handed and three.js assumes right-handed, so a mirror in an
+   object's matrix makes three.js light every face from the wrong side. The
+   mirror therefore lives in the camera's projection matrix (`FLIP_Y`), and
+   objects sit in a right-handed map frame (x east, y north, z up). Each
+   model's matrix: move to the anchor (Mercator x, minus Mercator y), scale
+   metres to Mercator units at that latitude, quarter turn about x (Y-up to
+   Z-up), turn about the up axis by minus the heading, lift by the ground
+   offset. Lights: a hemisphere light and one sun from the south-east.
+   Materials are forced matte (metal with nothing to reflect renders black)
+   and Blender glass becomes plain transparency. Models load the first time
+   they are switched on and stay loaded. Map `antialias: true` matters.
 
 ## Adding a sixth model
 
