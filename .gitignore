@@ -18,3 +18,6 @@ Thumbs.db
 
 # the video renderer's own packages (tools/video, npm install there)
 tools/video/node_modules/
+
+# the models page tools (tools/models, npm install there)
+tools/models/node_modules/

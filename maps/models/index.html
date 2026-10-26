@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin.Chat</title>
+  <link href="/style.css?v=20261023e" rel="stylesheet" />
+</head>
+<body>
+  <!-- A framed page for one app or map. Which one is decided by this folder's
+       address (view.js); every folder under /apps/ and /maps/ holds this same
+       file. To add one, give it a kind and slug in home.json (or add a report)
+       and run: node tools/make-pages.js -->
+  <main>
+    <section class="map-hero">
+      <iframe
+        id="app-window"
+        class="app-window"
+        src="about:blank"
+        title="App"
+        allowfullscreen
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen; geolocation; screen-wake-lock">
+      </iframe>
+    </section>
+  </main>
+
+  <script src="/shell.js?v=20261024a"></script>
+  <script src="/folder.js?v=20261023e"></script>
+  <script src="/view.js?v=20261023e"></script>
+</body>
+</html>

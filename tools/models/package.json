@@ -1,0 +1,8 @@
+{
+  "name": "austin-chat-models-tools",
+  "private": true,
+  "description": "Command-line tools for the /models/ page: gltf-transform shrinks the Blender GLB exports before they go into models/data/. Run `npm install` here once, then tools/models/prepare-glbs.sh.",
+  "dependencies": {
+    "@gltf-transform/cli": "4.2.1"
+  }
+}

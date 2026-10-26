@@ -1,0 +1,108 @@
+{
+  "generated": "2026-10-26",
+  "generated_by": "tools/models/place.py",
+  "heading_convention": "degrees clockwise from true north that the model +Y axis is turned",
+  "projects": {
+    "drainage": {
+      "anchor": [
+        -97.73558985,
+        30.26005218
+      ],
+      "heading_deg": 1.338,
+      "ground_offset_m": -42.6,
+      "bounds": [
+        -97.73817,
+        30.246235,
+        -97.688855,
+        30.303704
+      ],
+      "derivation": {
+        "anchor": "origin_longitude/latitude from the package georeference.json: the state-plane origin E 3,117,000 / N 10,069,000 ft (EPSG:6578), converted by the package author.",
+        "heading": "Model +Y is state-plane grid north. Grid north leans clockwise from true north by the Texas Central grid convergence at this longitude, computed here as 1.338 degrees.",
+        "ground_offset": "Model z = 0 is NAVD88 100 m. The elevation tiles give 142.6 m at the origin, so the model is sunk by the difference and the tunnels sit at true depth below the map plane. Ground rises to the north-east along the route, so the depth reads shallow there.",
+        "scale": "Model metres are surface (ground) metres already; no scale change."
+      },
+      "accuracy": "Route and shaft positions from 2024 TxDOT contract drawings; the package calls the station-anchored route \"survey check required\". Metres, not tens of metres."
+    },
+    "convention-center": {
+      "anchor": [
+        -97.73954061,
+        30.2632616
+      ],
+      "heading_deg": 17.87,
+      "ground_offset_m": 0,
+      "bounds": [
+        -97.741002,
+        30.261663,
+        -97.73804,
+        30.264833
+      ],
+      "derivation": {
+        "anchor": "Centroid of the existing Austin Convention Center building in OpenStreetMap (way 187392350). The model pivot is its \"approximate site center\" and the proposal fills the same block.",
+        "heading": "Model +Y is downtown-grid north. Measured as the bearing of Trinity Street between Cesar Chavez and 4th in OpenStreetMap: 17.87 degrees (the package estimated 17).",
+        "ground_offset": "Model z = 0 is ground at the site."
+      },
+      "accuracy": "Package: \"approximate visual registration only\". Expect the footprint to be off by up to a few tens of metres against the real block."
+    },
+    "i35-stitches": {
+      "anchor": [
+        -97.71792114,
+        30.2975433
+      ],
+      "heading_deg": 27.95,
+      "ground_offset_m": 0,
+      "bounds": [
+        -97.718794,
+        30.29688,
+        -97.715185,
+        30.301238
+      ],
+      "derivation": {
+        "anchor": "Midpoint of where the line of East 41st Street (joined across the highway) crosses the I-35 mainlane carriageways in OpenStreetMap (4 crossings averaged). The package pivot is \"the approximate future 41st Street crossing center\".",
+        "heading": "Model +Y runs along the corridor. Mean bearing of the mainlanes at the crossing: 27.95 degrees.",
+        "ground_offset": "Model z = 0 is the deck top, at street grade; the depressed highway sits at -10 m in the model."
+      },
+      "accuracy": "Deck extents were traced from a presentation raster at 0.46 m per pixel; the package has no survey control. Tens of metres."
+    },
+    "lady-bird-rail": {
+      "anchor": [
+        -97.7410674,
+        30.2624232
+      ],
+      "heading_deg": 17.99,
+      "ground_offset_m": -12.1,
+      "bounds": [
+        -97.744626,
+        30.255415,
+        -97.739635,
+        30.264498
+      ],
+      "derivation": {
+        "anchor": "The OpenStreetMap node(s) shared by Trinity Street and East Cesar Chavez Street (1 found, averaged). This settles the package's two geocode candidates 56 m apart.",
+        "heading": "Model +Y follows Trinity towards 3rd Street. Bearing of Trinity north of the anchor in OpenStreetMap: 17.99 degrees (the package estimated 18.01).",
+        "ground_offset": "Model z = 0 is the lake at 428 ft (130.5 m). Street grade at the anchor from the elevation tiles is 142.6 m, so the model is sunk by the difference: streets on the map plane, the lake surface below it, the rail deck above."
+      },
+      "accuracy": "Alignment traced from the FEIS conceptual plan sheets at 0.23 m per pixel. Tens of metres."
+    },
+    "aus-concourse-b": {
+      "anchor": [
+        -97.66628599,
+        30.19950937
+      ],
+      "heading_deg": 358.13,
+      "ground_offset_m": 0,
+      "bounds": [
+        -97.669586,
+        30.198954,
+        -97.662986,
+        30.200065
+      ],
+      "derivation": {
+        "anchor": "The package has no coordinates at all. Taken as the centroid of the Barbara Jordan Terminal footprint in OpenStreetMap (way 183977275) moved 308 m towards the airfield, perpendicular to the terminal's long axis: 308 m is the distance between the concourse and the terminal stand-in inside the model itself.",
+        "heading": "Terminal long axis from OpenStreetMap: 88.13 degrees. Model +Y points at the terminal, so the heading is 358.13.",
+        "ground_offset": "Model z = 0 is apron level."
+      },
+      "accuracy": "Conceptual: \"no surveyed pivot or reliable georeferencing recovered\". The position is a documented guess from the terminal footprint, not a site plan. Expect 50 m or more."
+    }
+  }
+}

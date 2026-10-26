@@ -1,5 +1,49 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-26 (forty-fourth pass) — NEW page /models/: five Blender project models in 3D on the map
+
+Owner: the five Blender models in `C:\Dev\Austin_Models_Transfer_Batch`
+(drainage tunnels, Convention Center redevelopment, I-35 northern
+stitches, Lady Bird Lake light rail, AUS Concourse B) onto MapLibre so
+they can be zoomed and tilted on the site. Decisions: MapLibre + three.js
+(not Cesium), one page with a project picker, NO hand positioning. Finding
+first: the batch was packed for a Unity+Cesium import on another laptop
+that never ran (`unity_cesium_runtime_tested: false` everywhere), so the
+models were never placed anywhere and that is why there was no height
+data. On a flat map height stops mattering (one ground offset per model
+from its own notes) and position is derived, not dragged.
+
+Built: `/models/` (index.html, style.css, config.js, copy.js DRAFT,
+js/app.js, js/model-layer.js — a MapLibre custom layer drawing GLBs with
+three.js from unpkg, Draco decoder from the same pinned copy);
+`models/data/*.glb` (13 files, 1.4 MB in all: Draco took the 17 MB
+drainage model to 0.4 MB); `models/data/placements.json` written by
+`tools/models/place.py` from OpenStreetMap geometry + the package notes,
+with the reasoning next to every number (drainage: state-plane origin +
+grid convergence 1.34°; Convention Center: OSM footprint centroid, Trinity
+bearing 17.87°; I-35: 41st line × mainlanes, 27.95°; Lady Bird: the
+Trinity/Cesar Chavez node, 17.99°, sunk 12.1 m so streets meet the map
+plane; AUS: terminal centroid moved 308 m to the airfield, 358.13°).
+`tools/models/prepare-glbs.sh` makes the GLBs (gltf-transform, `npm
+install` in tools/models). Card in `home.json` under Metro Apps, framed
+page `maps/models/`. Recipe and placement reasoning in
+`docs/models-page.md`.
+
+Checked headless (playwright-core + the ms-playwright Chromium): every
+file 200, no errors; screenshots over the satellite layer put the
+Convention Center on its block square to the grid, the rail along Trinity
+and across the lake, the tunnels from downtown up I-35 and east to the
+outfall. First try rendered the buildings black: Blender's metallic
+factors with nothing to reflect; the layer now forces matte materials.
+Three MapLibre console warnings "Expected value to be of type number,
+but found null" and a few GL "framebuffer incomplete" warnings during the
+fly remain, cosmetic. NEXT: owner opens the page on the phone (3D custom
+layers on phone GPUs untested), reviews the DRAFT copy, and decides where
+the Blender sources and the transfer batch should live in git (they are
+outside every repo; `unpacked\` next to the zips is where the GLBs came
+from). Stray empty folder `C:\Dev\tools\models` left by a misdirected
+npm install: delete it.
+
 ## 2026-10-24 (forty-third pass) — the video does NOT use the map: card renderer instead
 
 Owner, on seeing pass 42: "we dont need to use OBS, this report won't

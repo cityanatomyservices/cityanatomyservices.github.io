@@ -1,0 +1,23 @@
+/* models/style.css — what is particular to the 3D models page. The shared
+   look (cards, controls) is ../topicmap/style.css; this file only sets the
+   accent and styles the project picker rows. */
+:root { --accent: #0e7c7b; }
+
+.project-rows { display: flex; flex-direction: column; gap: 2px; }
+.project-row {
+  display: grid; grid-template-columns: 13px minmax(0, 1fr); align-items: center; gap: 8px;
+  width: 100%; padding: 5px 6px; border: 1px solid transparent; border-radius: 6px;
+  background: transparent; font: inherit; color: var(--ink); text-align: left; cursor: pointer;
+}
+.project-row:hover { background: #f0f2f4; }
+.project-row[aria-current="true"] { border-color: var(--accent); background: #e8f3f3; }
+.project-row .swatch { border-color: rgba(0,0,0,.25); }
+.project-row small { display: block; color: #52606d; font-size: 11px; }
+.project-row.is-loading small::after { content: ' · loading…'; }
+
+/* the About panel: the model's facts, caveats, where it was placed and why */
+.about h4 { margin: 8px 0 2px; font-size: 12px; color: #52606d; }
+.about h4:first-child { margin-top: 0; }
+.about .draft { color: #8a4b00; font-size: 11px; }
+.about ul { margin: 0; padding-left: 16px; }
+.about a { color: #1f6f8b; }

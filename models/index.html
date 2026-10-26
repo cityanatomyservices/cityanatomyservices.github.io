@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Projects in 3D</title>
+  <link rel="icon" href="data:," />
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+  <!-- The page borrows the topic maps' look (controls, fold cards) from
+       /topicmap/style.css but NOT their engine: it is not a point-and-timeline
+       story, so it has its own small app in ./js/. ?v= so a push is actually
+       seen (GitHub Pages caches hard): bump it on the file that changed. -->
+  <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
+  <link rel="stylesheet" href="./style.css?v=20261026a" />
+</head>
+<body>
+  <!-- FIVE PROPOSED AUSTIN PROJECTS AS 3D MODELS ON THE MAP (2026-10-26).
+       The models were built in Blender from published plans and exported as
+       GLB; they are drawn inside MapLibre's own WebGL context by three.js
+       (./js/model-layer.js) so they sit in the map's 3D space and keep their
+       place at every zoom and tilt. Where each one goes is worked out by
+       tools/models/place.py and recorded, with its reasoning, in
+       ./data/placements.json. config.js names the files, copy.js holds every
+       word on screen, app.js wires the controls. -->
+  <div class="page">
+    <div id="map"></div>
+
+    <a class="home" id="home" href="https://austin.chat" target="_top"></a>
+    <h1 class="title" id="title"></h1>
+
+    <div class="topleft">
+      <div class="map-controls">
+        <button class="map-ctrl map-ctrl-text" id="ctrlSatellite" type="button" aria-pressed="false"></button>
+        <button class="map-ctrl" id="ctrlZoomIn" type="button">+</button>
+        <button class="map-ctrl" id="ctrlZoomOut" type="button">&minus;</button>
+        <button class="map-ctrl" id="ctrlExtent" type="button" title="">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
+        </button>
+      </div>
+
+      <!-- the project picker: one row per model; picking one flies to it -->
+      <aside class="legend projects" id="projects">
+        <button class="card-toggle legend-title" id="projectsTitle" type="button" aria-expanded="true" aria-controls="projectsBody"></button>
+        <div id="projectsBody">
+          <div class="legend-sub" id="projectsSub"></div>
+          <div class="project-rows" id="projectRows"></div>
+          <button class="about-toggle" id="aboutToggle" type="button" aria-expanded="false" aria-controls="about" hidden></button>
+          <div class="about" id="about" hidden></div>
+        </div>
+      </aside>
+
+      <!-- the Layers box: the picked project's optional parts, plus the city's
+           existing buildings in 3D (off by default: the old Convention Center
+           and today's I-35 decks would clash with the proposals) -->
+      <div class="overlays" id="layers">
+        <button class="card-toggle overlays-title" id="layersTitle" type="button" aria-expanded="true" aria-controls="layerRows"></button>
+        <div id="layerRows"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="./copy.js?v=20261026a"></script>
+  <script src="./config.js?v=20261026a"></script>
+  <!-- three.js straight from the CDN, pinned. No bundler: the import map tells
+       the browser where "three" and "three/addons/" live. -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="./js/app.js?v=20261026a"></script>
+</body>
+</html>
