@@ -1,0 +1,226 @@
+/* Austin.chat visual finish. Paint only: no dimensions, typography, spacing,
+   border widths, radii, transforms, or layout rules. Existing geometry wins.
+   Ink navigation, chalk surfaces and teal states; researched 2026-10-28:
+   https://linear.app/now/behind-the-latest-design-refresh
+   https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale
+   Load after the page's existing styles so their structure stays independent. */
+:root {
+  --background: #f0f3ee;
+  --text: #192e2b;
+  --accent: #08796f;
+  --accent-light: #065e57;
+  --surface: #fbfcf8;
+  --muted: #586b65;
+  --border: #ced9d1;
+  --shadow: rgb(15 39 32 / 12%);
+  --finish-raised: #ffffff;
+  --finish-soft: #f0f4ef;
+  --finish-hover: #e6eee8;
+  --finish-selected: #e3f2eb;
+  --finish-control-border: #b7c8be;
+  --finish-highlight: rgb(255 255 255 / 90%);
+  --finish-chrome: #142e2b;
+  --finish-chrome-end: #203c35;
+  --finish-chrome-text: #f1f7ef;
+  --finish-chrome-muted: #bdd1c6;
+  --finish-chrome-line: #3d5950;
+  --finish-chrome-button: #254139;
+  --finish-on-accent: #ffffff;
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  --background: #111c1b;
+  --text: #e9f1eb;
+  --accent: #76d6bb;
+  --accent-light: #acebd4;
+  --surface: #1a2926;
+  --muted: #a8bdb2;
+  --border: #344b42;
+  --shadow: rgb(0 0 0 / 30%);
+  --finish-raised: #23362f;
+  --finish-soft: #1e302a;
+  --finish-hover: #2b4238;
+  --finish-selected: #25483c;
+  --finish-control-border: #486557;
+  --finish-highlight: rgb(205 240 218 / 7%);
+  --finish-chrome: #0e1b19;
+  --finish-chrome-end: #162a24;
+  --finish-chrome-text: #edf6ed;
+  --finish-chrome-muted: #acc8b6;
+  --finish-chrome-line: #324d3e;
+  --finish-chrome-button: #20392d;
+  --finish-on-accent: #102a21;
+  color-scheme: dark;
+}
+
+/* The frame stays quiet against the colorful neighborhood map. */
+:root .topbar {
+  background: linear-gradient(110deg, var(--finish-chrome), var(--finish-chrome-end));
+  border-color: var(--finish-chrome-line);
+  box-shadow: inset 0 -1px 0 rgb(167 208 183 / 12%), 0 3px 12px var(--shadow);
+}
+:root .topbar .brand { color: var(--finish-chrome-text); }
+:root .topbar .brand:hover { color: #b9e7cf; }
+:root .topbar :is(.menu-toggle, .theme-toggle) {
+  color: var(--finish-chrome-text);
+  background: var(--finish-chrome-button);
+  border-color: var(--finish-chrome-line);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 5%);
+}
+:root .topbar :is(.menu-toggle, .theme-toggle):is(:hover, :focus-visible) {
+  border-color: #92bfaa;
+  box-shadow: inset 0 0 0 1px rgb(146 191 170 / 15%);
+}
+:root .topbar .nav-toggle-bar,
+:root .topbar .nav-toggle-bar::before,
+:root .topbar .nav-toggle-bar::after {
+  background: var(--finish-chrome-text);
+}
+:root .site-menu {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: 0 12px 32px var(--shadow), inset 0 1px 0 var(--finish-highlight);
+}
+:root .site-menu :is(a, summary):hover {
+  color: var(--accent);
+  background: var(--finish-hover);
+}
+:root .site-menu details[open] > summary { color: var(--accent); background: var(--finish-soft); }
+:root .page-footer {
+  background: linear-gradient(110deg, var(--finish-chrome), var(--finish-chrome-end));
+  border-color: var(--finish-chrome-line);
+}
+:root .social-icons a { color: var(--finish-chrome-muted); }
+:root .social-icons a:is(:hover, :focus-visible) { color: var(--finish-chrome-text); }
+:root .page-main { background-image: linear-gradient(135deg, var(--background), var(--finish-soft)); }
+:root :is(.contact-card, .content-shell, .news-feed) {
+  background: linear-gradient(135deg, var(--finish-raised), var(--surface));
+  border-color: var(--border);
+  box-shadow: 0 10px 28px var(--shadow), inset 0 1px 0 var(--finish-highlight);
+}
+:root :is(.page-kicker, .content-kicker, .contact-role) { color: var(--accent); }
+:root .contact-item-icon { background: var(--finish-selected); }
+
+/* Ticker, reader and saved topic choices. */
+:root .austin-ticker {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: 0 -2px 10px rgb(15 39 32 / 5%);
+}
+:root .austin-ticker :is(button, select) {
+  background: var(--finish-raised);
+  border-color: var(--finish-control-border);
+  color: var(--text);
+  box-shadow: inset 0 1px 0 var(--finish-highlight);
+}
+:root .austin-ticker button:hover { background: var(--finish-hover); border-color: var(--accent); }
+:root .ticker-bar .ticker-brand { color: var(--accent); background: transparent; box-shadow: none; }
+:root .ticker-brand::before { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent); }
+:root .ticker-bar .ticker-customize { background: var(--finish-selected); border-color: var(--finish-control-border); color: var(--accent); }
+:root .ticker-panel {
+  background: linear-gradient(135deg, var(--finish-raised), var(--surface));
+  border-color: var(--finish-control-border);
+  box-shadow: 0 -12px 40px var(--shadow), inset 0 1px 0 var(--finish-highlight);
+}
+:root .ticker-tabs button[aria-pressed='true'],
+:root .ticker-bar .ticker-customize[aria-expanded='true'],
+:root .ticker-done {
+  background: var(--accent);
+  color: var(--finish-on-accent);
+  border-color: var(--accent);
+  box-shadow: inset 0 1px 0 var(--finish-highlight);
+}
+:root .ticker-choice {
+  background: var(--finish-soft);
+  border-color: var(--border);
+  box-shadow: inset 0 1px 0 var(--finish-highlight);
+}
+:root .ticker-choice:hover { background: var(--finish-hover); border-color: var(--finish-control-border); }
+:root .ticker-choice:has(input:checked) {
+  background: var(--finish-selected);
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 9%, transparent);
+}
+:root .ticker-preferences legend { color: var(--accent); }
+:root .ticker-list a:hover { background: var(--finish-soft); }
+
+/* Match the home map and shopping map surfaces without touching their engines. */
+:root[data-austin-map], :root .shopmap {
+  --ink: var(--text);
+  --paper: var(--surface);
+  --line: var(--border);
+  --dim: var(--muted);
+  --chat-bg: var(--surface);
+  --chat-fg: var(--text);
+  --chat-line: var(--border);
+  --chat-accent: var(--accent);
+  --chat-dim: var(--muted);
+  --chat-input-bg: var(--finish-raised);
+}
+:root .shopmap { --accent: #08796f; }
+:root[data-theme='dark'] .shopmap { --accent: #76d6bb; }
+:root[data-austin-map] :is(.legend, .explore-panel, .chatwin),
+:root .shopmap .data-panel {
+  background: linear-gradient(135deg, var(--finish-raised), var(--surface));
+  border-color: var(--border);
+  box-shadow: 0 6px 24px var(--shadow), inset 0 1px 0 var(--finish-highlight);
+}
+:root[data-austin-map] .round, :root .shopmap .round {
+  background: linear-gradient(150deg, var(--finish-raised), var(--finish-soft));
+  border-color: var(--finish-control-border);
+  box-shadow: 0 2px 7px var(--shadow), inset 0 1px 0 var(--finish-highlight);
+}
+:root[data-austin-map] .round:hover, :root .shopmap .round:hover { background: var(--finish-hover); border-color: var(--accent); }
+:root[data-austin-map] .round.is-on, :root .shopmap .round.is-on {
+  background: var(--accent);
+  color: var(--finish-on-accent);
+  border-color: var(--accent);
+}
+:root[data-austin-map] :is(.view-btn, .you .small, .chat-btns button, .place-links a, .explore-close, .explore-more),
+:root .shopmap :is(.view-btn, .panel-btn, .place-links a, .filter-group select) {
+  color: var(--text);
+  background: var(--finish-raised);
+  border-color: var(--finish-control-border);
+  box-shadow: inset 0 1px 0 var(--finish-highlight);
+}
+:root[data-austin-map] :is(.view-btn, .chat-btns button, .place-links a, .explore-close, .explore-more):hover,
+:root .shopmap :is(.view-btn, .panel-btn, .place-links a):hover { background: var(--finish-hover); border-color: var(--accent); }
+:root[data-austin-map] .chat-btns button[aria-pressed='true'],
+:root[data-austin-map] .chat-form button { background: var(--accent); color: var(--finish-on-accent); border-color: var(--accent); }
+:root[data-austin-map] :is(.people-line, .place-list summary, .place-row .here, .place-credit, .place-popup .addr,
+  .explore-note, .explore-options summary, .explore-sources, .explore-tile-count, .explore-result small) { color: var(--muted); }
+:root[data-austin-map] .place-group > summary { color: var(--text); }
+:root[data-austin-map] .explore-times button { color: var(--muted); }
+:root[data-austin-map] .explore-times button[aria-pressed='true'] { background: var(--finish-selected); color: var(--accent); box-shadow: inset 0 0 0 1px var(--border); }
+:root[data-austin-map] .explore-layer { background: var(--finish-soft); color: var(--text); border-color: var(--border); box-shadow: inset 0 1px 0 var(--finish-highlight); }
+:root[data-austin-map] .explore-layer:hover { background: var(--finish-hover); border-color: var(--finish-control-border); }
+:root[data-austin-map] .explore-layer.is-selected { background: var(--finish-selected); border-color: var(--accent); }
+:root[data-austin-map] .explore-tile-check { color: var(--accent); }
+:root[data-austin-map] :is(.explore-browse, .explore-filters) :is(input, select) { color: var(--text); background: var(--finish-raised); border-color: var(--finish-control-border); }
+:root[data-austin-map] input::placeholder { color: var(--muted); }
+:root[data-austin-map] .explore-result:hover { background: var(--finish-soft); }
+:root[data-austin-map] .explore-result .explore-price { color: var(--accent); }
+:root[data-austin-map] :is(.maplibregl-popup-content, .maplibregl-ctrl-attrib),
+:root .shopmap .maplibregl-popup-content { color: var(--text); background: var(--surface); box-shadow: 0 4px 20px var(--shadow); }
+:root[data-austin-map] .explore-popup-body { color: var(--text); }
+:root[data-austin-map] :is(.explore-popup-links a, .explore-showtimes a, .explore-sources a) { color: var(--accent); }
+:root[data-austin-map] .explore-showtimes a { border-color: var(--finish-control-border); }
+:root[data-austin-map] .explore-showtimes a:hover { background: var(--finish-selected); }
+:root[data-austin-map] .explore-popup-body article + article { border-color: var(--border); }
+:root[data-austin-map] .maplibregl-popup-close-button { color: var(--muted); }
+:root[data-austin-map] :is(.maplibregl-popup-anchor-bottom, .maplibregl-popup-anchor-bottom-left, .maplibregl-popup-anchor-bottom-right) .maplibregl-popup-tip { border-top-color: var(--surface); }
+:root[data-austin-map] :is(.maplibregl-popup-anchor-top, .maplibregl-popup-anchor-top-left, .maplibregl-popup-anchor-top-right) .maplibregl-popup-tip { border-bottom-color: var(--surface); }
+:root[data-austin-map] .maplibregl-popup-anchor-left .maplibregl-popup-tip { border-right-color: var(--surface); }
+:root[data-austin-map] .maplibregl-popup-anchor-right .maplibregl-popup-tip { border-left-color: var(--surface); }
+:root[data-austin-map][data-theme='dark'] :is(.explore-tile-icon, .explore-result .explore-category) { filter: brightness(1.7) saturate(.8); }
+:root .shopmap thead th { background: var(--finish-soft); }
+:root .shopmap td { border-color: var(--border); }
+:root .shopmap tbody tr:is(:hover, :focus) { background: var(--finish-selected); }
+
+/* High contrast mode continues to use the visitor's own system palette. */
+@media (forced-colors: active) {
+  :root :is(.topbar, .page-footer, .ticker-panel, .ticker-choice, .explore-panel, .explore-layer, .round) { background: Canvas; color: CanvasText; box-shadow: none; }
+  :root .topbar .brand, :root .social-icons a { color: LinkText; }
+  :root .topbar :is(.menu-toggle, .theme-toggle) { background: ButtonFace; color: ButtonText; }
+  :root .topbar .nav-toggle-bar, :root .topbar .nav-toggle-bar::before, :root .topbar .nav-toggle-bar::after { background: ButtonText; }
+}
