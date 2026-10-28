@@ -1,5 +1,6 @@
 """Build the Free & cheap map without AI or API keys. Python 3.12+, stdlib only."""
 from concurrent.futures import ThreadPoolExecutor
+from collections import Counter
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html import unescape
@@ -98,35 +99,39 @@ def ld_events(page):
             continue
 
 
-def library_event(item, branches, now):
+def library_event(item, branches, now, skipped=None):
+    def skip(reason):
+        if skipped is not None:
+            skipped[reason] += 1
+        return None
     url = item.findtext('link', '').replace('http://', 'https://', 1)
     if urlparse(url).netloc != 'library.austintexas.gov':
-        return None
+        return skip('unexpected event URL')
     description = clean(item.findtext('description'))
     branch_name = description.split(' - ')[0]
     branch = branches.get(branch_name)
     if not branch:
-        return None  # Online, mobile-library stops and unknown venues are not guessed.
+        return skip('unknown or online venue')
     page = fetch(url).decode('utf-8')
     events = list(ld_events(page))
     if not events:
         raise ValueError('Missing event metadata')
     event = events[0]
     if event.get('eventStatus', '').endswith(('EventCancelled', 'EventPostponed')):
-        return None
+        return skip('cancelled or postponed')
     if not event.get('eventAttendanceMode', '').endswith('OfflineEventAttendanceMode'):
-        return None
+        return skip('not marked in-person')
     if str(event.get('isAccessibleForFree')).lower() != 'true':
-        return None
+        return skip('not marked free')
     if 'Free and open to the public' not in clean(page):
-        return None
+        return skip('public admission unconfirmed')
     start, end = date(event.get('startDate')), date(event.get('endDate'))
     if not start or start > now + timedelta(days=MAX_DAYS):
-        return None
+        return skip('outside date window')
     # No invented duration: missing end times expire at their start.
     end = end or start
     if end <= now or end <= start:
-        return None
+        return skip('ended or missing end')
     address = branch['address']
     tags = re.search(r'<div class="event_tag_links">(.*?)</div>', page, re.S)
     conditions = clean(tags.group(1)) if tags else ''
@@ -148,10 +153,13 @@ def library(now, previous):
         raise ValueError('Library feed has no event records')
     candidates = [i for i in items if date(i.findtext('pubDate'))
                   and now - timedelta(days=1) <= date(i.findtext('pubDate')) <= now + timedelta(days=MAX_DAYS)]
+    print(f'Library: {len(branches)} venues, {len(items)} RSS records, {len(candidates)} candidates; first feed dates: {[i.findtext("pubDate") for i in items[:3]]}', flush=True)
+    print(f'Library sample: venue={clean(items[0].findtext("description")).split(" - ")[0]!r}; URL={items[0].findtext("link")!r}; known venues={list(branches)[:3]}', flush=True)
     failed = []
+    skipped = Counter()
     def one(item):
         try:
-            return library_event(item, branches, now)
+            return library_event(item, branches, now, skipped)
         except Exception as error:
             url = item.findtext('link', '').replace('http://', 'https://', 1)
             failed.append(url)
@@ -159,6 +167,9 @@ def library(now, previous):
             return None
     with ThreadPoolExecutor(max_workers=4) as pool:
         result = [f for f in pool.map(one, candidates) if f]
+    print(f'Library exclusions: {dict(skipped)}', flush=True)
+    if not result:
+        raise ValueError('No verified library events returned; preserve unexpired previous data and investigate feed/schema changes')
     result.extend(f for f in previous if f['properties']['url'] in failed and valid_cached(f, now))
     if candidates and len(failed) == len(candidates):
         raise ValueError('All library event detail requests failed')
