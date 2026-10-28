@@ -136,6 +136,54 @@ public sources with Python's standard library, without AI, keys or paid APIs:
   Explicit source categories and conservative title rules distinguish music,
   festivals and markets from other Events. No AI classification is used.
 
+### Expanded Live Comedy coverage
+
+`tools/explore/comedy_sources.py` supplements Fallout with eight automatically
+refreshed venues:
+
+- [Comedy Mothership](https://comedymothership.com/shows) and
+  [Sunset Strip](https://www.sunsetstripatx.com/): the public SquadUP organizer
+  feeds used by their ticket calendars. Mothership's organizer is published on
+  [its ticket-provider page](https://comedy-mothership.squadup.com/); Sunset's
+  organizer ID comes from its public embed configuration. No authentication,
+  checkout, resale marketplace or browser automation is involved. Dates, Austin
+  locations, room names and sold-out flags come from the feed. Links go to the
+  organizer's event page on its ticket provider. Only in-person events with
+  published start times qualify. Invite-only events are excluded. SquadUP's
+  `private` directory setting is distinct from invite-only access: venue embeds
+  publish these unlisted events on their own public calendars. The response
+  must fit the requested 500-record page; a truncated response fails the import.
+- [Cap City](https://www.capcitycomedy.com/calendar) and
+  [The Velveeta Room](https://www.thevelveetaroom.com/): official SeatEngine
+  calendars, using JSON-LD dates plus each performance's ticket-link status.
+  Both months are fetched when the next 14 days cross a month boundary.
+- [The Creek and The Cave](https://creekandcave.com/calendar): dated calendar
+  entries lead to official show pages with structured per-performance dates,
+  end times and ticket availability. At most three detail pages load at once.
+- [ColdTowne](https://coldtownetheater.com/live-shows/): the same unauthenticated
+  date-range JSON endpoint used by its public calendar. Only `/show/` records
+  qualify; class enrollment products do not. Naive dates use Austin time.
+- [East Austin Comedy](https://eastaustincomedy.com/): published ComedyEvent
+  JSON-LD and the venue's own coordinates. Explicit dates only; no extrapolation
+  of the site's recurring weekly schedule.
+- [The Hideout](https://hideouttheatre.com/calendar/): dated show cards for the
+  current and following month. These shows are at the
+  [Annex](https://hideouttheatre.com/locations/hideout-annex/), 5555 N Lamar,
+  Suite B103, rather than the former Congress Avenue location. Class listings
+  and date-only previews are excluded; an unrecognized venue fails the update
+  until its location can be verified.
+
+Each club fails independently and retains only its own unexpired last-good
+entries. An unavailable page never invents or renews a show. Explicitly sold-out
+or cancelled performances are excluded where the source supplies that status;
+otherwise visitors confirm availability with the venue. Admission remains
+unknown rather than assuming a ticket amount includes fees or drink minimums.
+The 14-day snapshot contains separate performances; the menu's default week
+view shows a smaller, time-filtered subset. Overlapping month calendars are
+deduplicated by performance, and venue pins combine shows at one location.
+Small ticket-page coordinate differences at an identical street address are
+consolidated to that address’s most frequently published coordinate.
+
 This is initial source coverage, not a complete citywide event directory.
 The sources' published schedules determine what appears in each category.
 Only factual titles, dates, venue information and links are republished.

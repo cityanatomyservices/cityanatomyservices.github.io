@@ -7,7 +7,11 @@ from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 from build import ROOT, clean, date, web_url
-from culture_sources import SOURCES
+from culture_sources import SOURCES as CULTURE_SOURCES
+from comedy_sources import SOURCES as COMEDY_SOURCES
+
+SOURCES = CULTURE_SOURCES + COMEDY_SOURCES
+COMEDY_NAMES = {name for name, _, _ in COMEDY_SOURCES}
 
 OUT = ROOT / 'chat/data/explore'
 THEMES = ('pop-up-markets', 'festivals', 'live-comedy', 'live-music', 'events')
@@ -52,6 +56,7 @@ def event_feature(row, source, now):
              endKnown=bool(end), allDay=bool(row.get('allDay')), checked=now.isoformat(),
              expires=min(end or start, now+timedelta(hours=24)).isoformat(), price=None, priceLabel='Check admission',
              url=row['url'], source=source,
+             description=clean(row.get('description'))[:220],
              conditions='Check the organizer for tickets, age limits, admission conditions and schedule changes.'
                         + (' End time not published; listing disappears at its start.' if not end else ''))
     return dict(type='Feature', id=fid, geometry=dict(type='Point', coordinates=[lng,lat]), properties=p)
@@ -93,7 +98,8 @@ def events(now):
         features = [f for f in unique.values() if f['properties']['theme'] == name]
         features += [f for f in retained((load_old(name) or {}).get('features', []), failed, now) if f['id'] not in unique]
         features.sort(key=lambda f: f['properties']['start'])
-        sources = [dict(s, count=sum(f['properties']['source'] == s['name'] for f in features)) for s in statuses]
+        sources = [dict(s, count=sum(f['properties']['source'] == s['name'] for f in features)) for s in statuses
+                   if name == 'live-comedy' or s['name'] not in COMEDY_NAMES]
         write(name, features, now, sources)
         print(f'{name}: {len(features)} listings', flush=True)
     if failed:
