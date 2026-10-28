@@ -2,10 +2,12 @@
 
 The main page loads the chat map. Its **Explore** button (top right) opens a
 tile menu with Free & cheap, Movies, Live Music, Live Comedy, Pop up markets,
-Festivals, Events and Parks. Free & cheap starts on; all other categories start
+and Events & Festivals. Free & cheap starts on; all other categories start
 off. Any combination can be selected, and the combined map/list updates
 immediately. Layer
-choices and filters are remembered locally. Nothing in Explore changes chat
+choices and filters are remembered locally. A previously selected Events or
+Festivals card enables the combined card; saved Parks selections are discarded.
+Nothing in Explore changes chat
 identity, rooms, visibility or presence. Near me requests a location only when
 selected, keeps coordinates in memory and does not send them to the server.
 
@@ -30,9 +32,8 @@ GeoJSON point properties: `id`, `title`, `url`, `venue`, `address`, `start`,
 (`event` / `activity` / `offer`), `source`, `checked`, `expires`, optional
 `description`, `conditions`, `allDay`, `endKnown`. IDs distinguish occurrences.
 Organizer listings use `kind: listing`, a category `theme`, and `price: null`
-when admission is unknown. Parks use `kind: park`, `theme: parks`, and have no
-start, end or expiry dates. Parks ignore time and price controls but still
-respect the shared name/location filters.
+when admission is unknown. The historical park snapshot uses `kind: park`;
+it is no longer loaded by the menu or refreshed by the scheduled job.
 
 Movies use `kind: movie`, `price: null` (never assumed free), `tags` (`imax` or
 `dine-in`), and a `showtimes` array of `{start, url, format}`. Each feature is one
@@ -46,10 +47,9 @@ or individual showtimes. Popups and list update together as screenings expire.
 Date/location filters affect all dated categories. Now means ongoing or
 starting in the next two hours; Tonight means 6 PM through 3 AM Austin time,
 including the previous evening before 3 AM. Movie showtimes must start inside
-the selected window. Today is also available under More filters. Parks stay
-available in every time view; this does not imply they are currently open.
+the selected window. Today is also available under More filters.
 Price/type controls explicitly apply only to Free & cheap. Movies has its own
-theater-type selector under More filters. Search matches names and venues
+theater-type selector under More filters. Search matches names, venues and addresses
 across all selected categories. Settings remain local.
 
 Filtering happens **before** venue grouping and clustering, so counts match
@@ -115,7 +115,7 @@ Alamo and museum times without offsets are interpreted in America/Chicago,
 including daylight saving changes. Dates are never extrapolated from a film's
 release date or multiweek screening range.
 
-### Public organizer calendars and city parks
+### Public organizer calendars
 
 `tools/explore/build_layers.py` and `culture_sources.py` import these free,
 public sources with Python's standard library, without AI, keys or paid APIs:
@@ -328,7 +328,66 @@ and saved in `tools/explore/venue-cache.json`. Ambiguous matches or addresses
 outside the source's allowed cities fail that source update. These street-address coordinates are approximate,
 not surveyed entrances. No visitor location is sent for geocoding.
 
-[Parks come from the City of Austin park-boundary inventory](https://data.austintexas.gov/d/v8hw-gz65).
+### Expanded Events & Festivals coverage
+
+`tools/explore/event_sources.py` and `community_sources.py` add twelve free
+organizer/city calendars, using Python's standard library. These are public
+website feeds and pages, with no credentials, paid API, or AI in routine updates.
+
+| Source | Import and coverage |
+| --- | --- |
+| [The Contemporary Austin](https://thecontemporaryaustin.org/events/) | Public Events Calendar API; family art, tours, talks and special programs at Jones Center and Laguna Gloria. |
+| [Lady Bird Johnson Wildflower Center](https://www.wildflower.org/events) | Same dated API; nature activities, workshops, plant sales, tours and family programs. |
+| [Mexic-Arte Museum](https://mexic-artemuseum.org/calendar/) | Same API for timed museum programs and celebrations. A valid empty calendar is healthy; its October Viva la Vida festival has already ended. |
+| [Blanton Museum of Art](https://blantonmuseum.org/programs/) | The museum's public Juicebox calendar feed; dated tours, art activities, talks and B Scene. Uses event dates, not post publication dates. |
+| [Bullock Museum](https://www.thestoryoftexas.com/calendar/?_post_type_filter=event) | Filtered public calendar cards with explicit times; museum programs, not the IMAX feed or virtual classes. |
+| [Canopy](https://www.canopyaustin.com/happenings-) | Public Squarespace calendar; openings, open studios, celebrations and workshops. |
+| [Preservation Austin](https://www.preservationaustin.org/events) | Public Squarespace calendar; talks, tours and community celebrations with a published meeting address. |
+| [Pease Park Conservancy](https://peasepark.org/events) | Public Squarespace calendar; individually dated history, nature, wellness and family programs. |
+| [City cultural centers](https://www.austintexas.gov/arts-culture/events) and [ESB-MACC](https://www.austintexas.gov/macc/events) | Paginated city calendars; Carver, Dougherty, Asian American Resource Center, MACC and other arts/museum programs. Overlapping department entries are merged. |
+| [Austin Center for Events](https://www.austintexas.gov/ace/events) | Paginated city special-event calendar; dated community events and stadium events with specific street addresses. |
+| [Waterloo Greenway](https://waterloogreenway.org/events/) | Individually dated community celebrations, fitness and volunteer sessions. Creek Show's explicitly published nightly hours produce separate nightly records when they enter the 14-day window. |
+| [Shoal Creek Conservancy](https://shoalcreekconservancy.org/events/) | Dated volunteer and educational events with public meeting addresses. Private meeting points sent only after registration are not guessed. |
+
+The first combined snapshot contained 232 dates at 46 coordinate locations,
+including 86 distinct dates from new sources. Counts naturally change during
+refreshes; a source can have no eligible dates in the next two weeks.
+
+The menu's stable `events` ID now loads `events-festivals.geojson`. The builder
+merges Events and Festivals after source-specific failure retention, deduplicates
+occurrence IDs and recomputes source counts. Separate legacy files keep previously
+opened tabs working. Nothing is copied manually into the combined file.
+
+All new source health appears only under Events & Festivals. Entries keep the
+existing 24-hour verification expiry, and source failures never extend stale
+entries. Start/end dates use Austin time, including daylight saving. Blanton
+queries start at local midnight to keep ongoing programs; other feeds are also
+filtered by the actual end time. Unknown admission remains “Check admission.”
+
+Street addresses are checked through Census rather than trusting copied template
+pins. Preservation Austin's Tavern event had a mismatched pin and ZIP code; its
+published street resolves correctly. The Wildflower Center's Courtyard also had
+a copied pin, so venue coordinates are derived from its street address. City
+JSON-LD can attach an incorrect timezone offset; the importer instead checks
+visible times against the HTML time fields. Midnight placeholders, citywide
+routes without meeting points, virtual events, explicitly private/member-only
+events, and multiweek date spans without daily hours are omitted. A printed
+series span is never assumed to meet every day. Separately dated sessions qualify.
+
+Other calendars researched included Austin Parks Foundation (its current HTTP
+page exposes unrendered calendar shortcodes), Zilker Botanical Garden (old feed
+is unavailable), BookPeople (403), Long Center (inconsistent structured timezone
+and placeholder end times), Downtown Austin Alliance, and the Texas Book Festival.
+They are not imported through fragile workarounds or stale previous-year dates.
+Seasonal festivals appear only when a supported source publishes an eligible date.
+
+### Archived Parks layer
+
+Parks was removed from the menu on October 28, 2026. Its importer and snapshot
+remain in git for reuse, but the normal build no longer requests or refreshes
+them. Dated activities in parks still belong in Events & Festivals.
+
+[The archived locations came from the City of Austin park-boundary inventory](https://data.austintexas.gov/d/v8hw-gz65).
 Only developed park types listed as Open are included; undeveloped parcels,
 closed parks, school grounds, golf courses, cemeteries and planting strips
 are excluded. Duplicate assets are merged. An interior point in the largest
@@ -337,8 +396,7 @@ Directions search the park name and address. Links lead to the official
 [park directory](https://www.austintexas.gov/parks/locations/park-directory),
 or a matching park-specific city page. Inventory status does not report live
 opening hours, closures or fees. The initial snapshot contains 275 parks.
-Parks refresh daily and remain browsable during a source outage, with their
-actual last-checked date shown.
+The archived snapshot retains its original checked date.
 
 The import covers 14 days; the visitor's default view is the next seven calendar
 days including today. Today includes ongoing events. Weekend means Saturday
@@ -348,8 +406,7 @@ straight-line miles, not walking directions. Price filters include free items.
 ## Automation and failure behavior
 
 `.github/workflows/build-explore.yml` runs at minute 43 every three hours and
-supports manual dispatch. Organizer calendars run every three hours; the
-park importer skips snapshots less than 24 hours old. GitHub can delay schedules. The browser checks every
+supports manual dispatch. Organizer calendars run every three hours. GitHub can delay schedules. The browser checks every
 five minutes while visible, and on returning to the tab. It reads the newest
 valid deployed/raw-main snapshot, so GITHUB_TOKEN commit behavior does not
 prevent data updates. Map state is preserved while refreshing.
@@ -374,7 +431,7 @@ then reports the failure. Each new organizer adapter also retains only its
 own unexpired previous listings on failure; successful sources replace their
 old entries. These entries expire within 24 hours of verification, or at their
 known end/start boundary, whichever is earlier. Total organizer failure leaves
-all category snapshots intact and still permits the park import to run.
+all category snapshots intact, including the combined Events & Festivals feed.
 Requests use bounded concurrency and per-run cache
 queries; museum pagination/date matching are checked rather than silently
 publishing partial or wrong-day results.

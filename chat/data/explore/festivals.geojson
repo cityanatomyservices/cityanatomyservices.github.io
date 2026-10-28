@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-28T20:38:58.172959+00:00",
+ "generated": "2026-10-28T21:04:12.589689+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
@@ -36,9 +36,124 @@
    "ok": true,
    "failures": 0,
    "count": 0
+  },
+  {
+   "name": "The Contemporary Austin",
+   "url": "https://thecontemporaryaustin.org/events/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Lady Bird Johnson Wildflower Center",
+   "url": "https://www.wildflower.org/events",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Mexic-Arte Museum",
+   "url": "https://mexic-artemuseum.org/calendar/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Pease Park Conservancy programs",
+   "url": "https://peasepark.org/events",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Canopy arts events",
+   "url": "https://www.canopyaustin.com/happenings-",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Preservation Austin",
+   "url": "https://www.preservationaustin.org/events",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Blanton Museum of Art",
+   "url": "https://blantonmuseum.org/programs/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Bullock Museum programs",
+   "url": "https://www.thestoryoftexas.com/calendar/?_post_type_filter=event",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "City of Austin cultural centers",
+   "url": "https://www.austintexas.gov/arts-culture/events",
+   "ok": true,
+   "failures": 0,
+   "count": 1
+  },
+  {
+   "name": "Austin Center for Events",
+   "url": "https://www.austintexas.gov/ace/events",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Shoal Creek Conservancy",
+   "url": "https://shoalcreekconservancy.org/events/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Waterloo Greenway programs",
+   "url": "https://waterloogreenway.org/events/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
   }
  ],
  "features": [
+  {
+   "type": "Feature",
+   "id": "c5046434392b0af1330a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740036059617,
+     30.258199388062
+    ]
+   },
+   "properties": {
+    "id": "c5046434392b0af1330a",
+    "title": "Mexamericon- Mexican American Comic Con Festival",
+    "venue": "Emma S. Barrientos Mexican American Cultural Center",
+    "address": "600 River St Austin TX",
+    "kind": "listing",
+    "theme": "festivals",
+    "start": "2026-10-31T11:00:00-05:00",
+    "end": "2026-10-31T17:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/arts-culture/events/mexamericon-mexican-americon-comic-con-festival",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
   {
    "type": "Feature",
    "id": "c50f75ec798d68fd03c0",
@@ -60,8 +175,8 @@
     "end": "2026-10-31T12:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/halloween-carnival",

@@ -3,7 +3,7 @@ window.AustinExplore = {
   init(map) {
     const M = window.ExploreModel, layers = window.EXPLORE_LAYERS;
     const saved = (() => { try { return JSON.parse(localStorage.getItem('austin-explore-v1')) || {}; } catch (_) { return {}; } })();
-    const state = { enabled: new Set(Array.isArray(saved.enabled) ? saved.enabled.filter(id => layers.some(l => l.id === id)) : layers.filter(l => l.defaultOn).map(l => l.id)),
+    const state = { enabled: new Set(Array.isArray(saved.enabled) ? saved.enabled.map(id => id === 'festivals' ? 'events' : id).filter(id => layers.some(l => l.id === id)) : layers.filter(l => l.defaultOn).map(l => l.id)),
       when: ['now', 'tonight', 'today', 'weekend', 'week'].includes(saved.when) ? saved.when : 'week',
       price: ['0', '10', '20'].includes(saved.price) ? saved.price : '20',
       kind: ['all', 'event', 'activity', 'offer'].includes(saved.kind) ? saved.kind : 'all',
@@ -32,11 +32,10 @@ window.AustinExplore = {
       </fieldset></details>
       <p class="explore-note explore-location" role="status"></p>
       <p class="explore-note explore-time-note"></p>
-      <p class="explore-note" data-for-layer="parks" hidden>Parks stay in every time view. Check posted hours and closures.</p>
       <p class="explore-note explore-count" role="status"></p><ul class="explore-results"></ul>
       <button type="button" class="explore-more" hidden>Show more</button>
       <details class="explore-sources"><summary>Sources & freshness</summary><div class="explore-freshness"></div>
-      <p class="explore-note">Times are in Austin time. Check the organizer before going: reservations, age limits, parking or extra activities may cost more. Free & cheap requires a confirmed admission price. Movie and event prices vary; follow the source for tickets and availability. Only published schedules are listed. Park markers show locations, not live opening status or entrances. Report corrections through <a href="/contact/" target="_blank" rel="noopener">Contact</a>.</p></details></div>`;
+      <p class="explore-note">Times are in Austin time. Check the organizer before going: reservations, age limits, parking or extra activities may cost more. Free & cheap requires a confirmed admission price. Movie and event prices vary; follow the source for tickets and availability. Only published schedules are listed. Report corrections through <a href="/contact/" target="_blank" rel="noopener">Contact</a>.</p></details></div>`;
     document.querySelector('.page').append(panel);
     const $ = s => panel.querySelector(s);
     function save() {
@@ -72,9 +71,7 @@ window.AustinExplore = {
       'live-music': '<path d="M10 17V5l10-2v12 M10 9l10-2"/><ellipse cx="6.5" cy="18" rx="3.5" ry="3"/><ellipse cx="16.5" cy="16" rx="3.5" ry="3"/>',
       'live-comedy': '<rect x="8" y="2" width="8" height="13" rx="4"/><path d="M5 10v2a7 7 0 0 0 14 0v-2 M12 19v3 M8 22h8"/>',
       'pop-up-markets': '<path d="M4 7h16l1 14H3Z M8 9V6a4 4 0 0 1 8 0v3"/>',
-      festivals: '<path d="M12 2v5 M12 2h6l-6 3 M2 12l10-5 10 5Z M4 12v9h16v-9 M9 21l3-7 3 7"/>',
-      events: '<path d="M3 5h18v5a2 2 0 0 0 0 4v5H3v-5a2 2 0 0 0 0-4Z M15 5v2 M15 10v4 M15 17v2"/>',
-      parks: '<path d="M12 2 6 10h3l-5 7h16l-5-7h3Z M12 17v5 M9 22h6"/>'
+      events: '<path d="M3 5h18v5a2 2 0 0 0 0 4v5H3v-5a2 2 0 0 0 0-4Z M15 5v2 M15 10v4 M15 17v2"/>'
     };
     function closePopup() { if (popup) popup.remove(); popup = null; activeIds = []; activeStamp = ''; }
     const stamp = items => JSON.stringify(items.map(f => f.properties));
@@ -160,7 +157,7 @@ window.AustinExplore = {
         }
         if (errors.has(layer.id)) freshness.append(node('p', `${layer.title}: refresh unavailable. Only unexpired previous items are shown.`, 'explore-note'));
       }
-      freshness.append(node('p', 'Events and movies refresh every 3 hours; city parks refresh daily. Runs may be delayed. Expired events disappear; park locations stay available during an update delay. Unknown event end times are not guessed. Curated activities expire on their review deadline.', 'explore-note'));
+      freshness.append(node('p', 'Events and movies refresh every 3 hours. Runs may be delayed. Expired events disappear. Unknown event end times are not guessed. Curated activities expire on their review deadline.', 'explore-note'));
     }
     let coverageStamp = '';
     function update() {

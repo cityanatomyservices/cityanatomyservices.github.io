@@ -29,7 +29,7 @@ jobs:
         id: movies
         continue-on-error: true
         run: python tools/explore/build_movies.py
-      - name: Refresh local calendars and city parks
+      - name: Refresh local calendars
         id: culture
         continue-on-error: true
         run: python tools/explore/build_layers.py

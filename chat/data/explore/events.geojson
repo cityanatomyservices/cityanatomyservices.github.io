@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-28T20:38:58.172959+00:00",
+ "generated": "2026-10-28T21:04:12.589689+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
@@ -35,7 +35,91 @@
    "url": "https://calendar.utexas.edu/",
    "ok": true,
    "failures": 0,
-   "count": 135
+   "count": 133
+  },
+  {
+   "name": "The Contemporary Austin",
+   "url": "https://thecontemporaryaustin.org/events/",
+   "ok": true,
+   "failures": 0,
+   "count": 4
+  },
+  {
+   "name": "Lady Bird Johnson Wildflower Center",
+   "url": "https://www.wildflower.org/events",
+   "ok": true,
+   "failures": 0,
+   "count": 20
+  },
+  {
+   "name": "Mexic-Arte Museum",
+   "url": "https://mexic-artemuseum.org/calendar/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Pease Park Conservancy programs",
+   "url": "https://peasepark.org/events",
+   "ok": true,
+   "failures": 0,
+   "count": 3
+  },
+  {
+   "name": "Canopy arts events",
+   "url": "https://www.canopyaustin.com/happenings-",
+   "ok": true,
+   "failures": 0,
+   "count": 4
+  },
+  {
+   "name": "Preservation Austin",
+   "url": "https://www.preservationaustin.org/events",
+   "ok": true,
+   "failures": 0,
+   "count": 3
+  },
+  {
+   "name": "Blanton Museum of Art",
+   "url": "https://blantonmuseum.org/programs/",
+   "ok": true,
+   "failures": 0,
+   "count": 11
+  },
+  {
+   "name": "Bullock Museum programs",
+   "url": "https://www.thestoryoftexas.com/calendar/?_post_type_filter=event",
+   "ok": true,
+   "failures": 0,
+   "count": 4
+  },
+  {
+   "name": "City of Austin cultural centers",
+   "url": "https://www.austintexas.gov/arts-culture/events",
+   "ok": true,
+   "failures": 0,
+   "count": 20
+  },
+  {
+   "name": "Austin Center for Events",
+   "url": "https://www.austintexas.gov/ace/events",
+   "ok": true,
+   "failures": 0,
+   "count": 4
+  },
+  {
+   "name": "Shoal Creek Conservancy",
+   "url": "https://shoalcreekconservancy.org/events/",
+   "ok": true,
+   "failures": 0,
+   "count": 1
+  },
+  {
+   "name": "Waterloo Greenway programs",
+   "url": "https://waterloogreenway.org/events/",
+   "ok": true,
+   "failures": 0,
+   "count": 11
   }
  ],
  "features": [
@@ -60,7 +144,7 @@
     "end": "2026-10-29T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-29T00:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -91,7 +175,7 @@
     "end": "2026-10-29T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-29T00:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -122,7 +206,7 @@
     "end": "2026-10-29T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-29T00:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -153,7 +237,7 @@
     "end": "2026-10-29T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-29T00:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -184,42 +268,11 @@
     "end": "2026-10-29T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-29T00:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
-    "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "91034012c0a74593acf7",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.726614,
-     30.387227
-    ]
-   },
-   "properties": {
-    "id": "91034012c0a74593acf7",
-    "title": "Viva La Vida with AT!",
-    "venue": "Commons Learning Center",
-    "address": "2901 Read Granberry Trail",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-10-28T07:00:00-05:00",
-    "end": "2026-10-28T16:00:00-05:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-28T16:00:00-05:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://calendar.utexas.edu/event/viva-la-vida-with-at-5221",
     "source": "UT Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
@@ -246,42 +299,11 @@
     "end": "2026-10-28T17:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-28T17:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
-    "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "2567bf0cf8a64cfca0fa",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.737274,
-     30.283442
-    ]
-   },
-   "properties": {
-    "id": "2567bf0cf8a64cfca0fa",
-    "title": "From Notes to Print: A Panel Discussion on Research, Writing, and AI",
-    "venue": "Perry-Castañeda Library (PCL)",
-    "address": "101 East 21st Street",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-10-28T14:30:00-05:00",
-    "end": "2026-10-28T15:45:00-05:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-28T15:45:00-05:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://calendar.utexas.edu/event/from-notes-to-print-a-panel-discussion-on-research-writing-and-ai",
     "source": "UT Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
@@ -308,7 +330,7 @@
     "end": "2026-10-28T18:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-28T18:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -339,7 +361,7 @@
     "end": "2026-10-28T18:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-28T18:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -347,6 +369,99 @@
     "source": "Meanwhile Brewing",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "34b4f633c7c622f3acf5",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.755856298164,
+     30.260429470086
+    ]
+   },
+   "properties": {
+    "id": "34b4f633c7c622f3acf5",
+    "title": "Taking Root",
+    "venue": "Dougherty Arts Center",
+    "address": "1110 Barton Springs Rd. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T19:00:00-05:00",
+    "end": "2026-10-28T21:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-28T21:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/dougherty/events/taking-root",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "782bf3143307b3c98406",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72441711042,
+     30.269757102661
+    ]
+   },
+   "properties": {
+    "id": "782bf3143307b3c98406",
+    "title": "The Rotation: Hip-Hop Edition",
+    "venue": "George Washington Carver Museum, Cultural, and Genealogy Center",
+    "address": "1165 Angelina Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T19:30:00-05:00",
+    "end": "2026-10-28T21:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-28T21:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/carver/events/rotation-hip-hop-edition",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "912a6b34ffd2d30befb4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.719210376094,
+     30.385281795746
+    ]
+   },
+   "properties": {
+    "id": "912a6b34ffd2d30befb4",
+    "title": "Q2 Stadium / Austin FC vs. Real Salt Lake",
+    "venue": "Q2 Stadium",
+    "address": "10414 McKalla Pl Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T19:30:00-05:00",
+    "end": "2026-10-28T22:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-28T22:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/ace/events/q2-stadium-austin-fc-vs-real-salt-lake",
+    "source": "Austin Center for Events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -370,8 +485,8 @@
     "end": "2026-10-30T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -401,8 +516,8 @@
     "end": "2026-10-30T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -432,8 +547,8 @@
     "end": "2026-10-30T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -463,8 +578,8 @@
     "end": "2026-10-30T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -494,8 +609,8 @@
     "end": "2026-10-30T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -525,8 +640,8 @@
     "end": "2026-10-30T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -556,12 +671,43 @@
     "end": "2026-10-29T16:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T16:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/viva-la-vida-with-at-5221",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fb65f28619b50f923547",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "fb65f28619b50f923547",
+    "title": "Get FIT: Fall Series",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T07:30:00-05:00",
+    "end": "2026-10-29T08:30:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T08:30:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/get-fit-fall-series-10-29-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -587,7 +733,7 @@
     "end": "2026-10-29T09:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-29T09:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -618,12 +764,43 @@
     "end": "2026-10-29T17:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "17affa3bed9aa63d769c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740036059617,
+     30.258199388062
+    ]
+   },
+   "properties": {
+    "id": "17affa3bed9aa63d769c",
+    "title": "Casa TechMex: A Cultural Technology Conference",
+    "venue": "Emma S. Barrientos Mexican American Cultural Center",
+    "address": "600 River Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T10:00:00-05:00",
+    "end": "2026-10-29T20:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/macc/events/casa-techmex-cultural-technology-conference",
+    "source": "City of Austin cultural centers",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -649,12 +826,43 @@
     "end": "2026-10-29T15:30:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
     "expires": "2026-10-29T15:30:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/legal-professionals-in-a-confucian-society-the-qing-juridical-field-in-late-imperial-china-2026-taiwan-lectures-on-chinese-studies-by-prof-li-chen-university-of-toronto",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "063f9c979f714a084783",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "063f9c979f714a084783",
+    "title": "Public Tour – Modern Artists",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T14:00:00-05:00",
+    "end": "2026-10-29T15:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T15:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=public-tour-modern-artists-3",
+    "source": "Blanton Museum of Art",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -680,8 +888,8 @@
     "end": "2026-10-29T17:30:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/closing-reception-for-texas-to-chile-dave-oliphant-across-the-poetic-bridge-exhibition",
@@ -711,8 +919,8 @@
     "end": "2026-10-29T18:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/arts-craft-night-sip-paint-9",
@@ -742,12 +950,43 @@
     "end": "2026-10-29T19:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/ut-austin-fall-2026-liz-carpenter-lecture-with-eddie-s-glaude",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5670fd60173ad0835506",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.755856298164,
+     30.260429470086
+    ]
+   },
+   "properties": {
+    "id": "5670fd60173ad0835506",
+    "title": "Try It: Van Gogh Inspired Landscapes",
+    "venue": "Dougherty Arts Center",
+    "address": "1110 Barton Springs Rd. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T18:00:00-05:00",
+    "end": "2026-10-29T21:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/dougherty/events/try-it-van-gogh-inspired-landscapes",
+    "source": "City of Austin cultural centers",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -773,8 +1012,8 @@
     "end": "2026-10-29T19:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/ali-wong",
@@ -804,8 +1043,8 @@
     "end": "2026-10-31T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -835,8 +1074,8 @@
     "end": "2026-10-31T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -866,8 +1105,8 @@
     "end": "2026-10-31T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -897,8 +1136,8 @@
     "end": "2026-10-31T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -928,8 +1167,8 @@
     "end": "2026-10-31T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -959,8 +1198,8 @@
     "end": "2026-10-31T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -990,8 +1229,8 @@
     "end": "2026-10-30T15:30:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/aha-bls-provider-and-heartsaver-first-aid-dual-certificates-5381",
@@ -1021,8 +1260,8 @@
     "end": "2026-10-30T09:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
@@ -1052,12 +1291,198 @@
     "end": "2026-10-30T17:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "402a1db574460cc841b3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "402a1db574460cc841b3",
+    "title": "Botanical Illustration Series",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T09:00:00-05:00",
+    "end": "2026-10-30T12:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/botanical-illustration-series-10-30",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "36e64c0a63835e9a4b4f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.741124614438,
+     30.262062978194
+    ]
+   },
+   "properties": {
+    "id": "36e64c0a63835e9a4b4f",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at The Confluence",
+    "venue": "Grandpa's Lakeview Terrace (71 1/2 Trinity St.) — Waterloo Greenway",
+    "address": "71 1/2 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T09:00:00-05:00",
+    "end": "2026-10-30T11:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/3-volunteer-opportunity-monarch-butterfly-tagging-at-the-confluence/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d330c551e58833a0d9f5",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.771750523384,
+     30.313044529096
+    ]
+   },
+   "properties": {
+    "id": "d330c551e58833a0d9f5",
+    "title": "Arty Party Dia de los Muertos!",
+    "venue": "Laguna Gloria",
+    "address": "3809 West 35th Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T10:00:00-05:00",
+    "end": "2026-10-30T11:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thecontemporaryaustin.org/event/arty-party-dia-de-los-muertos/",
+    "source": "The Contemporary Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7a9bddb6f0a24d97a5b8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.666467988464,
+     30.309187158082
+    ]
+   },
+   "properties": {
+    "id": "7a9bddb6f0a24d97a5b8",
+    "title": "Art in Cahoots at University Hills Library",
+    "venue": "University Hills Branch, Austin Public Library",
+    "address": "4721 Loyola Ln Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T10:00:00-05:00",
+    "end": "2026-10-30T11:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/arts-culture/events/art-cahoots-university-hills-library",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7d6faee6d25dc3440942",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.723088267014,
+     30.296476172563
+    ]
+   },
+   "properties": {
+    "id": "7d6faee6d25dc3440942",
+    "title": "Lunch and Learn: The Art of Terra Cotta and Color",
+    "venue": "Preservation Austin",
+    "address": "3805 Red River Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T12:00:00-05:00",
+    "end": "2026-10-30T13:30:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.preservationaustin.org/events/ludowici-terra-cotta",
+    "source": "Preservation Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "825a1e4e7b8265902d5c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.739535028029,
+     30.266034355027
+    ]
+   },
+   "properties": {
+    "id": "825a1e4e7b8265902d5c",
+    "title": "Stitch in Time Club - Final Fridays",
+    "venue": "Susanna Dickinson Museum",
+    "address": "411 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T14:00:00-05:00",
+    "end": "2026-10-30T16:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/arts-culture/events/stitch-time-club-final-fridays",
+    "source": "City of Austin cultural centers",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -1083,14 +1508,76 @@
     "end": "2026-10-30T19:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/volleyball-open-free-play-69",
     "source": "Meanwhile Brewing",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "66527a702f2bde82228d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.697810538066,
+     30.262172597239
+    ]
+   },
+   "properties": {
+    "id": "66527a702f2bde82228d",
+    "title": "Daniel II Prophete Album Release Party at DAWA HQ",
+    "venue": "The Canopy",
+    "address": "916 Springdale Road Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T19:00:00-05:00",
+    "end": "2026-10-30T21:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.canopyaustin.com/happenings-/daniel-ii-prophete-album-release-party-at-dawa-hq",
+    "source": "Canopy arts events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "61fa1a9bd9d97356aa50",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "61fa1a9bd9d97356aa50",
+    "title": "B Scene: Monster Ball",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T19:00:00-05:00",
+    "end": "2026-10-30T23:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=b-scene-monster-ball",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -1114,8 +1601,8 @@
     "end": "2026-11-01T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -1145,8 +1632,8 @@
     "end": "2026-11-01T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -1176,8 +1663,8 @@
     "end": "2026-11-01T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -1207,8 +1694,8 @@
     "end": "2026-11-01T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -1238,8 +1725,8 @@
     "end": "2026-11-01T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -1269,8 +1756,8 @@
     "end": "2026-11-01T00:00:00-05:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -1300,12 +1787,291 @@
     "end": "2026-10-31T09:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3875437d5b6b165dc9ed",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "3875437d5b6b165dc9ed",
+    "title": "Public Days: Fall Native Plant Sale",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T09:00:00-05:00",
+    "end": "2026-10-31T13:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/fall-native-plant-sale-2026-10-31",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "585e83263689a6ee62ab",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "585e83263689a6ee62ab",
+    "title": "Photo Pathways",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T09:00:00-05:00",
+    "end": "2026-10-31T10:30:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/photo-pathways-10-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "21a0cd8e4f40a1c924c9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736001445175,
+     30.272657464501
+    ]
+   },
+   "properties": {
+    "id": "21a0cd8e4f40a1c924c9",
+    "title": "Morning Zumba",
+    "venue": "Meredith Heritage Tree Deck — Waterloo Greenway",
+    "address": "500 E 12th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T09:00:00-05:00",
+    "end": "2026-10-31T10:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/morning-zumba-3/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c3d324cbbc1e87f69615",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "c3d324cbbc1e87f69615",
+    "title": "UT Longhorns Home Game: Museum Open As Usual",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T10:00:00-05:00",
+    "end": "2026-10-31T20:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=ut-longhorns-home-game-museum-open-as-usual-10",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f127f396bd7b3b0a0a1f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740036059617,
+     30.258199388062
+    ]
+   },
+   "properties": {
+    "id": "f127f396bd7b3b0a0a1f",
+    "title": "Casa de la Cultura: Caminata con Dulces",
+    "venue": "Emma S. Barrientos Mexican American Cultural Center",
+    "address": "600 River St. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T10:00:00-05:00",
+    "end": "2026-10-31T12:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/macc/events/casa-de-la-cultura-caminata-con-dulces",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5a7fa1f007cd3b4987e3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.72441711042,
+     30.269757102661
+    ]
+   },
+   "properties": {
+    "id": "5a7fa1f007cd3b4987e3",
+    "title": "Pumpkin Carver",
+    "venue": "George Washington Carver Museum, Cultural, and Genealogy Center",
+    "address": "1165 Angelina Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T12:00:00-05:00",
+    "end": "2026-10-31T15:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/carver/events/pumpkin-carver",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2e0fe1a8d6b73bb09118",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.755856298164,
+     30.260429470086
+    ]
+   },
+   "properties": {
+    "id": "2e0fe1a8d6b73bb09118",
+    "title": "Dougherty Arts Center presents: Creepy Crawlies @ DAC",
+    "venue": "Dougherty Arts Center",
+    "address": "1110 Barton Springs Rd. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T13:00:00-05:00",
+    "end": "2026-10-31T16:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/dougherty/events/dougherty-arts-center-presents-creepy-crawlies-dac",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6a82f573616b5eef8f6d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736001445175,
+     30.272657464501
+    ]
+   },
+   "properties": {
+    "id": "6a82f573616b5eef8f6d",
+    "title": "Waterloo Gameday: Texas Longhorns vs. Mississippi State Bulldogs",
+    "venue": "Meredith Heritage Tree Deck — Waterloo Greenway",
+    "address": "500 E 12th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T15:00:00-05:00",
+    "end": "2026-10-31T19:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/waterloo-gameday-texas-longhorns-vs-mississippi-state-bulldogs/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e0132a2e167d21c84df5",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.733960729909,
+     30.283653591909
+    ]
+   },
+   "properties": {
+    "id": "e0132a2e167d21c84df5",
+    "title": "UT vs Mississippi State",
+    "venue": "Darrell K Royal Texas Memorial Stadium",
+    "address": "2139 San Jacinto Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T17:00:00-05:00",
+    "end": "2026-10-31T17:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/arts-culture/events/ut-vs-mississippi-state",
+    "source": "Austin Center for Events",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
    }
@@ -1331,8 +2097,8 @@
     "end": "2026-11-02T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -1362,8 +2128,8 @@
     "end": "2026-11-02T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -1393,8 +2159,8 @@
     "end": "2026-11-02T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -1424,8 +2190,8 @@
     "end": "2026-11-02T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -1455,8 +2221,8 @@
     "end": "2026-11-02T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -1486,8 +2252,8 @@
     "end": "2026-11-02T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -1517,14 +2283,45 @@
     "end": "2026-11-01T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
     "source": "UT Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3471bf16dfad35adda7c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "3471bf16dfad35adda7c",
+    "title": "Public Days: Fall Native Plant Sale",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T09:00:00-06:00",
+    "end": "2026-11-01T13:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/fall-native-plant-sale-2026-11-01",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -1548,14 +2345,45 @@
     "end": "2026-11-01T10:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/sunday-yoga-with-practice-yoga-austin-8",
     "source": "Meanwhile Brewing",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3b655650d08df5723292",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738541315926,
+     30.279731353216
+    ]
+   },
+   "properties": {
+    "id": "3b655650d08df5723292",
+    "title": "H-E-B Free First Sunday",
+    "venue": "Bullock Texas State History Museum",
+    "address": "1800 N Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T10:00:00-06:00",
+    "end": "2026-11-01T17:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thestoryoftexas.com/events/heb-free-first-sunday-20261101/",
+    "source": "Bullock Museum programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -1579,12 +2407,198 @@
     "end": "2026-11-01T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/dia-de-los-huesos-day-of-the-bones",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "64263c39d63a58f9fa9e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740036059617,
+     30.258199388062
+    ]
+   },
+   "properties": {
+    "id": "64263c39d63a58f9fa9e",
+    "title": "ESB-MACC Dia de los Muertos",
+    "venue": "Emma S. Barrientos Mexican American Cultural Center",
+    "address": "600 River St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T13:00:00-06:00",
+    "end": "2026-11-01T18:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/macc/events/esb-macc-dia-de-los-muertos",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0cb0ed3c146c8ad5484f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "0cb0ed3c146c8ad5484f",
+    "title": "Visita guiada pública [EN ESPAÑOL] – Haas Brothers: Uncanny Valley",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T13:30:00-06:00",
+    "end": "2026-11-01T14:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=visita-guiada-publica-en-espanol-haas-brothers-uncanny-valley",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1d9c0e5a79cfe82f4b48",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742514229001,
+     30.269038360799
+    ]
+   },
+   "properties": {
+    "id": "1d9c0e5a79cfe82f4b48",
+    "title": "Public Curator-Led Tour The Living Temple: The World of Moki Cherry & HOST: Laura Lit",
+    "venue": "Jones Center",
+    "address": "700 Congress Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T14:00:00-06:00",
+    "end": "2026-11-01T15:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thecontemporaryaustin.org/event/public-curator-led-tour-the-living-temple-the-world-of-moki-cherry-host-laura-lit/",
+    "source": "The Contemporary Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "068424dfd72d40953df8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "068424dfd72d40953df8",
+    "title": "Public Tour – Haas Brothers: Uncanny Valley",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T15:00:00-06:00",
+    "end": "2026-11-01T16:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=public-tour-haas-brothers-uncanny-valley-3",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1e7381eaf2f7f1d557b2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736293043711,
+     30.274997894514
+    ]
+   },
+   "properties": {
+    "id": "1e7381eaf2f7f1d557b2",
+    "title": "Día de los Muertos",
+    "venue": "Moody Amphitheater — Waterloo Greenway",
+    "address": "1401 N Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T16:00:00-06:00",
+    "end": "2026-11-01T20:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/dia-de-los-muertos-3/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f5d6da1edce0bbc85c87",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "f5d6da1edce0bbc85c87",
+    "title": "Fort Night",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T17:00:00-06:00",
+    "end": "2026-11-01T20:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/fortlandia-night",
+    "source": "Lady Bird Johnson Wildflower Center",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -1610,8 +2624,8 @@
     "end": "2026-11-03T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -1641,8 +2655,8 @@
     "end": "2026-11-03T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -1672,8 +2686,8 @@
     "end": "2026-11-03T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -1703,8 +2717,8 @@
     "end": "2026-11-03T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -1734,8 +2748,8 @@
     "end": "2026-11-03T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -1765,8 +2779,8 @@
     "end": "2026-11-03T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -1796,8 +2810,8 @@
     "end": "2026-11-02T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
@@ -1827,12 +2841,74 @@
     "end": "2026-11-02T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "17481b07eddf23f33b05",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "17481b07eddf23f33b05",
+    "title": "Yoga FIT: Fall Series",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T10:30:00-06:00",
+    "end": "2026-11-02T11:15:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/yoga-fit-fall-series-2026-11-2",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "217f0cad872eaf17ec51",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736293043711,
+     30.274997894514
+    ]
+   },
+   "properties": {
+    "id": "217f0cad872eaf17ec51",
+    "title": "Día de los Muertos Celebration Yoga (Bilingual) with Live Mariachi",
+    "venue": "Moody Amphitheater — Waterloo Greenway",
+    "address": "1401 N Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T18:00:00-06:00",
+    "end": "2026-11-02T19:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/dia-de-los-muertos-celebration-yoga-bilingual-with-live-mariachi/",
+    "source": "Waterloo Greenway programs",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -1858,8 +2934,8 @@
     "end": "2026-11-02T19:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/ticketed-event-plant-bingo-with-the-social-greenhouse",
@@ -1889,8 +2965,8 @@
     "end": "2026-11-04T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -1920,8 +2996,8 @@
     "end": "2026-11-04T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -1951,8 +3027,8 @@
     "end": "2026-11-04T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -1982,8 +3058,8 @@
     "end": "2026-11-04T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -2013,8 +3089,8 @@
     "end": "2026-11-04T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -2044,8 +3120,8 @@
     "end": "2026-11-04T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -2075,12 +3151,43 @@
     "end": "2026-11-03T02:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/lorraine-j-haricombe-distinguished-speaker-series-disruptions-in-the-global-scientific-ecosystem-with-cassidy-r-sugimoto",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7cc47ce47c285c81dcc9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "7cc47ce47c285c81dcc9",
+    "title": "Get FIT: Fall Series",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T07:30:00-06:00",
+    "end": "2026-11-03T08:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/get-fit-fall-series-11-03-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2106,8 +3213,8 @@
     "end": "2026-11-03T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
@@ -2137,12 +3244,74 @@
     "end": "2026-11-03T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "992c746b2a43d2c78b9b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736642031789,
+     30.274093162077
+    ]
+   },
+   "properties": {
+    "id": "992c746b2a43d2c78b9b",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at Waterloo Park",
+    "venue": "Lebermann Plaza — Waterloo Greenway",
+    "address": "1301 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T09:00:00-06:00",
+    "end": "2026-11-03T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/3-volunteer-opportunity-monarch-butterfly-tagging-at-waterloo-park/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "69fc24abd236c5685a50",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736001445175,
+     30.272657464501
+    ]
+   },
+   "properties": {
+    "id": "69fc24abd236c5685a50",
+    "title": "Stay Strong",
+    "venue": "Meredith Heritage Tree Deck — Waterloo Greenway",
+    "address": "500 E 12th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T10:00:00-06:00",
+    "end": "2026-11-03T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/stay-strong-20/",
+    "source": "Waterloo Greenway programs",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2168,8 +3337,8 @@
     "end": "2026-11-03T13:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/allies-at-war-how-the-struggles-between-the-allied-powers-shaped-the-war-and-the-world",
@@ -2199,12 +3368,43 @@
     "end": "2026-11-03T13:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/ut-energy-symposium-i-widget-why-its-nearly-impossible-to-trace-physical-flows-through-the-us-economy-and-what-that-means-for-industrial-energy-modeling",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "95b072f025abddebe75a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "95b072f025abddebe75a",
+    "title": "Tour With a Gardener",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T16:30:00-06:00",
+    "end": "2026-11-03T17:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/garden-tour-11-3",
+    "source": "Lady Bird Johnson Wildflower Center",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2230,8 +3430,8 @@
     "end": "2026-11-03T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
@@ -2261,8 +3461,8 @@
     "end": "2026-11-03T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/musical-theatre-workshop-2317",
@@ -2292,8 +3492,8 @@
     "end": "2026-11-03T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/tuesday-trivia-90",
@@ -2323,8 +3523,8 @@
     "end": "2026-11-05T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -2354,8 +3554,8 @@
     "end": "2026-11-05T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -2385,8 +3585,8 @@
     "end": "2026-11-05T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -2416,8 +3616,8 @@
     "end": "2026-11-05T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -2447,8 +3647,8 @@
     "end": "2026-11-05T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -2478,8 +3678,8 @@
     "end": "2026-11-05T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -2509,8 +3709,8 @@
     "end": "2026-11-04T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
@@ -2540,12 +3740,74 @@
     "end": "2026-11-04T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d2fa15267a16aa65290a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "d2fa15267a16aa65290a",
+    "title": "Homeschool Day: Animal Trackers",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T10:00:00-06:00",
+    "end": "2026-11-04T11:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/homeschool-day-animal-trackers",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "83ea074cbf7c50368e33",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738541315926,
+     30.279731353216
+    ]
+   },
+   "properties": {
+    "id": "83ea074cbf7c50368e33",
+    "title": "High Noon Talk: Rewind 1999",
+    "venue": "Bullock Texas State History Museum",
+    "address": "1800 N Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T12:00:00-06:00",
+    "end": "2026-11-04T13:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thestoryoftexas.com/events/high-noon-talk-rewind-1999-20261104/",
+    "source": "Bullock Museum programs",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2571,8 +3833,8 @@
     "end": "2026-11-04T13:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fight-like-a-machine-the-combat-future-of-the-human-body",
@@ -2602,12 +3864,74 @@
     "end": "2026-11-04T14:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/taking-pictures-in-postwar-japan-1945-1955-a-talk-with-dr-emily-cole-ut-tyler",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "4b4a13fb4140e8b49141",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.750454179378,
+     30.276647761674
+    ]
+   },
+   "properties": {
+    "id": "4b4a13fb4140e8b49141",
+    "title": "2026 Legacy Business Month Wrap Party",
+    "venue": "The Tavern",
+    "address": "922 w 12 Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T18:00:00-06:00",
+    "end": "2026-11-04T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.preservationaustin.org/events/2026-lbm-wrap-party",
+    "source": "Preservation Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a324e3a3b3e225484d10",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.755856298164,
+     30.260429470086
+    ]
+   },
+   "properties": {
+    "id": "a324e3a3b3e225484d10",
+    "title": "Artist Talk: Bella Cheng and Faith Chonko",
+    "venue": "Dougherty Arts Center",
+    "address": "1110 Barton Springs Rd. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T19:00:00-06:00",
+    "end": "2026-11-04T21:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/dougherty/events/artist-talk-bella-cheng-and-faith-chonko",
+    "source": "City of Austin cultural centers",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2633,8 +3957,8 @@
     "end": "2026-11-04T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
@@ -2664,8 +3988,8 @@
     "end": "2026-11-06T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -2695,8 +4019,8 @@
     "end": "2026-11-06T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -2726,8 +4050,8 @@
     "end": "2026-11-06T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -2757,8 +4081,8 @@
     "end": "2026-11-06T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -2788,8 +4112,8 @@
     "end": "2026-11-06T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -2819,12 +4143,43 @@
     "end": "2026-11-06T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c14a217292f5931e9c1a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "c14a217292f5931e9c1a",
+    "title": "Get FIT: Fall Series",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T07:30:00-06:00",
+    "end": "2026-11-05T08:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/get-fit-fall-series-11-05-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2850,8 +4205,8 @@
     "end": "2026-11-05T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
@@ -2881,12 +4236,74 @@
     "end": "2026-11-05T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "098b1f9c8f38b5073e17",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.741124614438,
+     30.262062978194
+    ]
+   },
+   "properties": {
+    "id": "098b1f9c8f38b5073e17",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at The Confluence",
+    "venue": "Grandpa's Lakeview Terrace (71 1/2 Trinity St.) — Waterloo Greenway",
+    "address": "71 1/2 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T09:00:00-06:00",
+    "end": "2026-11-05T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/4-volunteer-opportunity-monarch-butterfly-tagging-at-the-confluence/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "662930b5bd2a37bb8c8c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "662930b5bd2a37bb8c8c",
+    "title": "Blanton Behind The Scenes: Spanish Wine & Art Pairing",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T17:30:00-06:00",
+    "end": "2026-11-05T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=blanton-behind-the-scenes-house-wine-x-blanton-spanish-wine-art-pairing",
+    "source": "Blanton Museum of Art",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2912,8 +4329,8 @@
     "end": "2026-11-05T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/noire-presents-eras-of-elegance-magazine-release-party-8233",
@@ -2943,8 +4360,8 @@
     "end": "2026-11-05T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
@@ -2974,8 +4391,8 @@
     "end": "2026-11-07T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -3005,8 +4422,8 @@
     "end": "2026-11-07T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -3036,8 +4453,8 @@
     "end": "2026-11-07T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -3067,8 +4484,8 @@
     "end": "2026-11-07T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -3098,8 +4515,8 @@
     "end": "2026-11-07T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -3129,8 +4546,8 @@
     "end": "2026-11-07T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -3160,8 +4577,8 @@
     "end": "2026-11-06T08:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/6-year-anniversary-day-one",
@@ -3191,8 +4608,8 @@
     "end": "2026-11-06T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
@@ -3222,12 +4639,136 @@
     "end": "2026-11-06T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3978ed64707ac940dd5d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "3978ed64707ac940dd5d",
+    "title": "Botanical Illustration Series",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T09:00:00-06:00",
+    "end": "2026-11-06T12:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/botanical-illustration-series-11-6",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "06f720f0f321f670a883",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.741124614438,
+     30.262062978194
+    ]
+   },
+   "properties": {
+    "id": "06f720f0f321f670a883",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at The Confluence",
+    "venue": "Grandpa's Lakeview Terrace (71 1/2 Trinity St.) — Waterloo Greenway",
+    "address": "71 1/2 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T09:00:00-06:00",
+    "end": "2026-11-06T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/5-volunteer-opportunity-monarch-butterfly-tagging-at-the-confluence/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1cd2a37646bc4661b445",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.755856298164,
+     30.260429470086
+    ]
+   },
+   "properties": {
+    "id": "1cd2a37646bc4661b445",
+    "title": "Art in Cahoots at Dougherty Arts Center",
+    "venue": "Dougherty Arts Center",
+    "address": "1110 Barton Springs Rd. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T10:00:00-06:00",
+    "end": "2026-11-06T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/dougherty/events/art-cahoots-dougherty-arts-center-0",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9945ffbf2fcdc3da01ab",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742514229001,
+     30.269038360799
+    ]
+   },
+   "properties": {
+    "id": "9945ffbf2fcdc3da01ab",
+    "title": "Lunch & Learn: Intuitive Practices in Contemporary Art Casual conversations in art history",
+    "venue": "Jones Center",
+    "address": "700 Congress Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T12:00:00-06:00",
+    "end": "2026-11-06T13:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thecontemporaryaustin.org/event/lunch-learn-intuitive-practices/",
+    "source": "The Contemporary Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -3253,8 +4794,8 @@
     "end": "2026-11-06T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/aha-bls-provider-cpr-certification-renewal-5409",
@@ -3284,14 +4825,45 @@
     "end": "2026-11-06T16:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/guided-brewery-tour-6",
     "source": "Meanwhile Brewing",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a8dd162943404697f5e6",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738541315926,
+     30.279731353216
+    ]
+   },
+   "properties": {
+    "id": "a8dd162943404697f5e6",
+    "title": "Educator Workshop: Exploring “We The People” with the National Constitution Center",
+    "venue": "Bullock Texas State History Museum",
+    "address": "1800 N Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T16:00:00-06:00",
+    "end": "2026-11-06T20:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thestoryoftexas.com/events/educator-workshop-ncc-20261106/",
+    "source": "Bullock Museum programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3315,8 +4887,8 @@
     "end": "2026-11-06T17:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/guided-brewery-tour-5",
@@ -3346,14 +4918,76 @@
     "end": "2026-11-06T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/ticketed-event-girl-dinner---a-guided-cheese-beer-dinner-with-antonellis-meanwhile",
     "source": "Meanwhile Brewing",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3a39387f8a9a81652259",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.697810538066,
+     30.262172597239
+    ]
+   },
+   "properties": {
+    "id": "3a39387f8a9a81652259",
+    "title": "The 24th Anniversary Kick-Off Celebration of the Austin Studio Tour with Almost Real Things",
+    "venue": "The Canopy",
+    "address": "916 Springdale Road Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T18:30:00-06:00",
+    "end": "2026-11-06T22:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.canopyaustin.com/happenings-/celebrate-the-24th-anniversary-of-the-austin-studio-tour-with-almost-real-things",
+    "source": "Canopy arts events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d89f3e31fbad060e0205",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740036059617,
+     30.258199388062
+    ]
+   },
+   "properties": {
+    "id": "d89f3e31fbad060e0205",
+    "title": "Con Mucho Amor, a Queer Quince with Bobby Pudrido",
+    "venue": "Emma S. Barrientos Mexican American Cultural Center",
+    "address": "600 River Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T19:00:00-06:00",
+    "end": "2026-11-06T23:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/macc/events/con-mucho-amor-queer-quince-bobby-pudrido",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3377,8 +5011,8 @@
     "end": "2026-11-06T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/motherhood-an-artist-lecture-by-suzanne-bocanegra",
@@ -3408,8 +5042,8 @@
     "end": "2026-11-06T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
@@ -3439,8 +5073,8 @@
     "end": "2026-11-08T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -3470,8 +5104,8 @@
     "end": "2026-11-08T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -3501,8 +5135,8 @@
     "end": "2026-11-08T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -3532,8 +5166,8 @@
     "end": "2026-11-08T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -3563,8 +5197,8 @@
     "end": "2026-11-08T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -3594,8 +5228,8 @@
     "end": "2026-11-08T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -3625,14 +5259,45 @@
     "end": "2026-11-07T08:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/anniversary-volleyball-tournament",
     "source": "Meanwhile Brewing",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "804fbff51f00df7f4d78",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738541315926,
+     30.279731353216
+    ]
+   },
+   "properties": {
+    "id": "804fbff51f00df7f4d78",
+    "title": "Educator Workshop: Exploring “We The People” with the National Constitution Center",
+    "venue": "Bullock Texas State History Museum",
+    "address": "1800 N Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T08:00:00-06:00",
+    "end": "2026-11-07T16:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thestoryoftexas.com/events/educator-workshop-ncc-20261107/",
+    "source": "Bullock Museum programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3656,14 +5321,417 @@
     "end": "2026-11-07T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
     "source": "UT Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e59b7b17f14b0501bc28",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "e59b7b17f14b0501bc28",
+    "title": "Container Gardening",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/container-gardening-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c4feab936b0e9913ab2f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "c4feab936b0e9913ab2f",
+    "title": "Tree ID Walk with TreeFolks",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/tree-id-walk-fall-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ff075d3bc6b94509d5b8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727079678149,
+     30.306666891813
+    ]
+   },
+   "properties": {
+    "id": "ff075d3bc6b94509d5b8",
+    "title": "Naturalists at the Ney: It's My Park Day",
+    "venue": "Elisabet Ney Museum",
+    "address": "304 E. 44th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T12:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/ney/events/naturalists-ney-its-my-park-day",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1a93ba2d166ff4f5b592",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.748364698465,
+     30.30454096087
+    ]
+   },
+   "properties": {
+    "id": "1a93ba2d166ff4f5b592",
+    "title": "It’s My Park Day along Shoal Creek",
+    "venue": "Seiders Springs Park",
+    "address": "1380 W 34th St, Austin, TX 78731",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://shoalcreekconservancy.org/event/its-my-park-day-along-shoal-creek-12/",
+    "source": "Shoal Creek Conservancy",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b186aebaa7fd7eef15b9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736001445175,
+     30.272657464501
+    ]
+   },
+   "properties": {
+    "id": "b186aebaa7fd7eef15b9",
+    "title": "Morning Glories: Diwali",
+    "venue": "Meredith Heritage Tree Deck — Waterloo Greenway",
+    "address": "500 E 12th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T12:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/morning-glories-diwali/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8c6f7bdcae1c674b6a60",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.755856298164,
+     30.260429470086
+    ]
+   },
+   "properties": {
+    "id": "8c6f7bdcae1c674b6a60",
+    "title": "It's My Park Day at the Dougherty Arts Center: Garden Clean Out and Wildflower Meadow",
+    "venue": "Dougherty Arts Center",
+    "address": "1110 Barton Springs Rd. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T10:00:00-06:00",
+    "end": "2026-11-07T12:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/dougherty/events/its-my-park-day-garden-clean-out-and-wildflower-meadow",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "253922d5162f95f7b63b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.690580980631,
+     30.311815453897
+    ]
+   },
+   "properties": {
+    "id": "253922d5162f95f7b63b",
+    "title": "Cyclovia ATX",
+    "venue": "Windsor Park Branch, Austin Public Library",
+    "address": "5833 Westminster Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T10:00:00-06:00",
+    "end": "2026-11-07T14:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/ace/events/cyclovia-atx",
+    "source": "Austin Center for Events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2bd86509d2ecba351758",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740036059617,
+     30.258199388062
+    ]
+   },
+   "properties": {
+    "id": "2bd86509d2ecba351758",
+    "title": "Casa De La Cultura - Hecho en Casa",
+    "venue": "Emma S. Barrientos Mexican American Cultural Center",
+    "address": "600 River St. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T10:30:00-06:00",
+    "end": "2026-11-07T12:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/macc/events/casa-de-la-cultura-hecho-en-casa",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9b1cd8ab8703c6a8995b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "9b1cd8ab8703c6a8995b",
+    "title": "UT Mindfulness Summit 2026 – Finding Our Whimsy",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T11:00:00-06:00",
+    "end": "2026-11-07T14:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=ut-mindfulness-summit-2026-finding-our-whimsy",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "674e71732516b1b9b3d4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740036059617,
+     30.258199388062
+    ]
+   },
+   "properties": {
+    "id": "674e71732516b1b9b3d4",
+    "title": "Opening Reception: Land of the Free, Home of the Brave by Franklin Mendez",
+    "venue": "Emma S. Barrientos Mexican American Cultural Center",
+    "address": "600 River Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T11:00:00-06:00",
+    "end": "2026-11-07T13:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/macc/events/opening-reception-land-free-home-brave-franklin-mendez",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b287284a94e26526b45a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.681145837847,
+     30.340353920284
+    ]
+   },
+   "properties": {
+    "id": "b287284a94e26526b45a",
+    "title": "AARC: Returning to the River: A Community Movement Workshop",
+    "venue": "Asian American Resource Center",
+    "address": "8401 Cameron Road Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T12:00:00-06:00",
+    "end": "2026-11-07T13:15:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/arts-culture/events/aarc-returning-river-community-movement-workshop",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5d48bfcafc43eb92d39f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.697810538066,
+     30.262172597239
+    ]
+   },
+   "properties": {
+    "id": "5d48bfcafc43eb92d39f",
+    "title": "November Open Canopy",
+    "venue": "The Canopy",
+    "address": "916 Springdale Road Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T13:00:00-06:00",
+    "end": "2026-11-07T16:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.canopyaustin.com/happenings-/november-open-canopy",
+    "source": "Canopy arts events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a96a9b4c77a8c79ccc51",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74146775202,
+     30.271925742749
+    ]
+   },
+   "properties": {
+    "id": "a96a9b4c77a8c79ccc51",
+    "title": "Glenn Towery: A Retrospective",
+    "venue": "Old Bakery and Emporium",
+    "address": "1006 Congress Avenue Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T13:00:00-06:00",
+    "end": "2026-11-07T16:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/old-bakery/events/glenn-towery-retrospective",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3687,14 +5755,107 @@
     "end": "2026-11-07T14:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
     "source": "UT Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8b7cd02916a0edaa41c4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "8b7cd02916a0edaa41c4",
+    "title": "Public Tour: Highlights of the Blanton’s Collection",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T17:30:00-06:00",
+    "end": "2026-11-07T18:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=public-tour-highlights-of-the-blantons-collection-63",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e1eb13804e08d6bf5cc9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.697810538066,
+     30.262172597239
+    ]
+   },
+   "properties": {
+    "id": "e1eb13804e08d6bf5cc9",
+    "title": "SAGE Studio Annual Fundraiser, Party at the Playhouse",
+    "venue": "The Canopy",
+    "address": "916 Springdale Road Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T18:00:00-06:00",
+    "end": "2026-11-07T21:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.canopyaustin.com/happenings-/sage-studio-annual-fundraiser-party-at-the-playhouse",
+    "source": "Canopy arts events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "becf83558d48f019a22d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.719210376094,
+     30.385281795746
+    ]
+   },
+   "properties": {
+    "id": "becf83558d48f019a22d",
+    "title": "Q2 Stadium / Austin FC vs. Portland",
+    "venue": "Q2 Stadium",
+    "address": "10414 McKalla Pl Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T18:00:00-06:00",
+    "end": "2026-11-07T21:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/ace/events/q2-stadium-austin-fc-vs-portland",
+    "source": "Austin Center for Events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3718,8 +5879,8 @@
     "end": "2026-11-07T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/miro-quartet-306",
@@ -3749,8 +5910,8 @@
     "end": "2026-11-07T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/motherhood-an-artist-lecture-by-suzanne-bocanegra",
@@ -3780,12 +5941,43 @@
     "end": "2026-11-07T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1ab25e904f3f30d9681d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.771750523384,
+     30.313044529096
+    ]
+   },
+   "properties": {
+    "id": "1ab25e904f3f30d9681d",
+    "title": "Art Dinner Afterparty",
+    "venue": "Laguna Gloria",
+    "address": "3809 West 35th Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T21:30:00-06:00",
+    "end": "2026-11-07T21:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thecontemporaryaustin.org/event/art-dinner-afterparty-2026/",
+    "source": "The Contemporary Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
    }
@@ -3811,8 +6003,8 @@
     "end": "2026-11-09T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -3842,8 +6034,8 @@
     "end": "2026-11-09T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -3873,8 +6065,8 @@
     "end": "2026-11-09T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -3904,8 +6096,8 @@
     "end": "2026-11-09T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -3935,8 +6127,8 @@
     "end": "2026-11-09T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -3966,8 +6158,8 @@
     "end": "2026-11-09T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/the-visit",
@@ -3997,14 +6189,76 @@
     "end": "2026-11-08T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
     "source": "UT Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7194df1bf42aa0f13b66",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "7194df1bf42aa0f13b66",
+    "title": "Forest Bathing",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T10:00:00-06:00",
+    "end": "2026-11-08T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/forest-bathing-fall-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "683a203c230575bc68f4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727079678149,
+     30.306666891813
+    ]
+   },
+   "properties": {
+    "id": "683a203c230575bc68f4",
+    "title": "Hyde Park Homes Tour",
+    "venue": "Elisabet Ney Museum",
+    "address": "304 E. 44th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T11:00:00-06:00",
+    "end": "2026-11-08T17:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/ney/events/hyde-park-historic-homes-tours",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -4028,14 +6282,45 @@
     "end": "2026-11-08T13:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
     "source": "UT Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dd0a0ee5ad1fd1386e0d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "dd0a0ee5ad1fd1386e0d",
+    "title": "Public Tour – Shadows on Stone: Portraits of Colonial Mexican Architecture",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T15:00:00-06:00",
+    "end": "2026-11-08T16:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=public-tour-shadows-on-stone-portraits-of-colonial-mexican-architecture-2",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -4059,8 +6344,8 @@
     "end": "2026-11-08T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
@@ -4090,8 +6375,8 @@
     "end": "2026-11-10T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -4121,8 +6406,8 @@
     "end": "2026-11-10T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -4152,8 +6437,8 @@
     "end": "2026-11-10T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -4183,8 +6468,8 @@
     "end": "2026-11-10T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -4214,8 +6499,8 @@
     "end": "2026-11-10T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
@@ -4245,8 +6530,8 @@
     "end": "2026-11-09T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
@@ -4276,12 +6561,74 @@
     "end": "2026-11-09T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d9830fd993568beb4226",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736642031789,
+     30.274093162077
+    ]
+   },
+   "properties": {
+    "id": "d9830fd993568beb4226",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at Waterloo Park",
+    "venue": "Lebermann Plaza — Waterloo Greenway",
+    "address": "1301 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T09:00:00-06:00",
+    "end": "2026-11-09T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/4-volunteer-opportunity-monarch-butterfly-tagging-at-waterloo-park/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bcc60c2be457a65e0598",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "bcc60c2be457a65e0598",
+    "title": "Yoga FIT: Fall Series",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T10:30:00-06:00",
+    "end": "2026-11-09T11:15:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/yoga-fit-fall-series-2026-11-9",
+    "source": "Lady Bird Johnson Wildflower Center",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4307,8 +6654,8 @@
     "end": "2026-11-11T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
@@ -4338,8 +6685,8 @@
     "end": "2026-11-11T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
@@ -4369,8 +6716,8 @@
     "end": "2026-11-11T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
@@ -4400,8 +6747,8 @@
     "end": "2026-11-11T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
@@ -4431,12 +6778,43 @@
     "end": "2026-11-11T00:00:00-06:00",
     "endKnown": true,
     "allDay": true,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "cffcb013fc1a3d65afbc",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "cffcb013fc1a3d65afbc",
+    "title": "Get FIT: Fall Series",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T07:30:00-06:00",
+    "end": "2026-11-10T08:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/get-fit-fall-series-11-10-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4462,8 +6840,8 @@
     "end": "2026-11-10T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
@@ -4493,12 +6871,74 @@
     "end": "2026-11-10T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/hullabaloo-hooray-the-history-of-texas-spirit",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c923d5e84e3e6aed9370",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.751523722449,
+     30.280894544725
+    ]
+   },
+   "properties": {
+    "id": "c923d5e84e3e6aed9370",
+    "title": "Lives Remembered: Black History in Pease Park",
+    "venue": "Kingsbury Commons at Pease Park",
+    "address": "1100 Kingsbury Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T10:00:00-06:00",
+    "end": "2026-11-10T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://peasepark.org/events/2026/11/10/livesremembered",
+    "source": "Pease Park Conservancy programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "86b083d84fa58133fb27",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "86b083d84fa58133fb27",
+    "title": "Public Tour – Modern Artists",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T12:30:00-06:00",
+    "end": "2026-11-10T13:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=public-tour-modern-artists",
+    "source": "Blanton Museum of Art",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4524,12 +6964,74 @@
     "end": "2026-11-10T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/digital-scholars-in-practice-musics-of-latin-america-oer-textbook-initiative",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9966aed814abacd4e859",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "9966aed814abacd4e859",
+    "title": "Visita guiada pública [EN ESPAÑOL] – Artistas Modernos",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T14:00:00-06:00",
+    "end": "2026-11-10T15:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=visita-guiada-publica-en-espanol-artistas-modernos",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "26428044fa4d6956968e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "26428044fa4d6956968e",
+    "title": "Tuesday Twilights Feat. Ryan DeSiato",
+    "venue": "Courtyard",
+    "address": "4801 La Crosse Ave Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T17:00:00-06:00",
+    "end": "2026-11-10T20:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/tuesday-twilights-11-10-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4555,8 +7057,8 @@
     "end": "2026-11-10T17:09:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/sunset-reset-6440",
@@ -4586,12 +7088,167 @@
     "end": "2026-11-10T19:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-28T20:38:58.172959+00:00",
-    "expires": "2026-10-29T20:38:58.172959+00:00",
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/longhorns-in-sustainability-a-career-panel-5580",
     "source": "UT Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "585f532f18e7ddeff3d0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "585f532f18e7ddeff3d0",
+    "title": "Plant Bingo",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T18:00:00-06:00",
+    "end": "2026-11-10T20:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/plant-bingo",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "42d0fb1e7ce947eb6384",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.751523722449,
+     30.280894544725
+    ]
+   },
+   "properties": {
+    "id": "42d0fb1e7ce947eb6384",
+    "title": "Golden Frequencies Sound Bath in the Treehouse",
+    "venue": "Treehouse in Pease Park",
+    "address": "1100 Kingsbury Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T18:00:00-06:00",
+    "end": "2026-11-10T19:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://peasepark.org/events/2026/11/10/soundbath-sona-shala",
+    "source": "Pease Park Conservancy programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6068ee042ffc9d81c0cd",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.700966175017,
+     30.25165996183
+    ]
+   },
+   "properties": {
+    "id": "6068ee042ffc9d81c0cd",
+    "title": "66th Annual Preservation Merit Awards Celebration",
+    "venue": "Central Machine Works",
+    "address": "4824 East Cesar Chavez Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T18:00:00-06:00",
+    "end": "2026-11-10T21:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.preservationaustin.org/events/2026-pmas",
+    "source": "Preservation Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "34a0e12c1afb48d7aaf7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.870586726648,
+     30.185595491852
+    ]
+   },
+   "properties": {
+    "id": "34a0e12c1afb48d7aaf7",
+    "title": "Sprouts",
+    "venue": "Wildflower Center",
+    "address": "4801 La Crosse Ave. Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-11T10:00:00-06:00",
+    "end": "2026-11-11T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.wildflower.org/event/sprouts-11-11-2026",
+    "source": "Lady Bird Johnson Wildflower Center",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7c4f3968fe6d48ddc3fb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.751523722449,
+     30.280894544725
+    ]
+   },
+   "properties": {
+    "id": "7c4f3968fe6d48ddc3fb",
+    "title": "Toddler Yoga with ATX Yoga Girl",
+    "venue": "Great Lawn",
+    "address": "1100 Kingsbury Street Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-11T10:00:00-06:00",
+    "end": "2026-11-11T10:45:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T21:04:12.589689+00:00",
+    "expires": "2026-10-29T21:04:12.589689+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://peasepark.org/events/2026/11/11/toddler-yoga",
+    "source": "Pease Park Conservancy programs",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }

@@ -1,4 +1,4 @@
-"""Refresh Austin's public event categories and city park locations; no AI or keys."""
+"""Refresh Austin's public event categories; no AI or keys."""
 from datetime import datetime, timedelta, timezone
 import hashlib
 import json
@@ -11,11 +11,15 @@ from culture_sources import SOURCES as CULTURE_SOURCES
 from comedy_sources import SOURCES as COMEDY_SOURCES
 from music_sources import SOURCES as MUSIC_SOURCES
 from market_sources import SOURCES as MARKET_SOURCES
+from event_sources import SOURCES as MUSEUM_SOURCES
+from community_sources import SOURCES as COMMUNITY_SOURCES
 
-SOURCES = CULTURE_SOURCES + COMEDY_SOURCES + MUSIC_SOURCES + MARKET_SOURCES
+EVENT_SOURCES = MUSEUM_SOURCES + COMMUNITY_SOURCES
+SOURCES = CULTURE_SOURCES + COMEDY_SOURCES + MUSIC_SOURCES + MARKET_SOURCES + EVENT_SOURCES
 COMEDY_NAMES = {name for name, _, _ in COMEDY_SOURCES}
 MUSIC_NAMES = {name for name, _, _ in MUSIC_SOURCES}
 MARKET_NAMES = {name for name, _, _ in MARKET_SOURCES}
+EVENT_NAMES = {name for name, _, _ in EVENT_SOURCES}
 
 OUT = ROOT / 'chat/data/explore'
 THEMES = ('pop-up-markets', 'festivals', 'live-comedy', 'live-music', 'events')
@@ -98,6 +102,8 @@ def events(now):
             print(f'{source}: {error}', flush=True)
     if len(failed) == len(SOURCES):
         raise RuntimeError('All event sources failed; retaining previous category files')
+    combined = {}
+    event_statuses = []
     for name in THEMES:
         features = [f for f in unique.values() if f['properties']['theme'] == name]
         features += [f for f in retained((load_old(name) or {}).get('features', []), failed, now) if f['id'] not in unique]
@@ -105,9 +111,19 @@ def events(now):
         sources = [dict(s, count=sum(f['properties']['source'] == s['name'] for f in features)) for s in statuses
                    if (name == 'live-comedy' or s['name'] not in COMEDY_NAMES)
                    and (name == 'live-music' or s['name'] not in MUSIC_NAMES)
-                   and (name == 'pop-up-markets' or s['name'] not in MARKET_NAMES)]
+                   and (name == 'pop-up-markets' or s['name'] not in MARKET_NAMES)
+                   and (name in ('events', 'festivals') or s['name'] not in EVENT_NAMES)]
         write(name, features, now, sources)
         print(f'{name}: {len(features)} listings', flush=True)
+        if name in ('events', 'festivals'):
+            combined.update((f['id'], f) for f in features)
+            event_statuses = sources
+    # The old files remain available to previously opened tabs. The new card
+    # receives one combined snapshot, including each source's retained items.
+    features = sorted(combined.values(), key=lambda f: f['properties']['start'])
+    sources = [dict(s, count=sum(f['properties']['source'] == s['name'] for f in features)) for s in event_statuses]
+    write('events-festivals', features, now, sources)
+    print(f'events-festivals: {len(features)} listings', flush=True)
     if failed:
         raise RuntimeError('Some calendars unavailable: '+', '.join(sorted(failed)))
 
@@ -205,16 +221,9 @@ def parks(now):
 
 
 def build():
-    now = datetime.now(timezone.utc)
-    failures = []
-    for name, job in [('events', events), ('parks', parks)]:
-        try:
-            job(now)
-        except Exception as error:
-            failures.append(name)
-            print(f'{name}: {error}', flush=True)
-    if failures:
-        raise RuntimeError('Imports failed: ' + ', '.join(failures))
+    # Parks was removed from the menu. Keep its historical snapshot and
+    # importer available, but stop requesting an unused city inventory daily.
+    events(datetime.now(timezone.utc))
 
 
 if __name__ == '__main__':
