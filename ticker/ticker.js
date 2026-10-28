@@ -20,7 +20,7 @@
   ];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reduced.matches;
-  try { if (localStorage.getItem('austin-ticker-paused') === 'true') paused = true; } catch (_) { /* storage optional */ }
+  let resumeAfterLink = false;
   let news = [], weather = [], sports = [], sources = [], generated = null, pending = false;
   let hovering = false, focusing = false, dragging = false, frameTime = 0, scrollRemainder = 0;
   let widgetTheme = null;
@@ -124,8 +124,8 @@
     pauseButton.setAttribute('aria-pressed', String(paused));
   }
   pauseButton.addEventListener('click', () => {
+    resumeAfterLink = false;
     paused = !paused; showPaused();
-    try { localStorage.setItem('austin-ticker-paused', String(paused)); } catch (_) { /* optional */ }
   });
   reduced.addEventListener('change', event => { if (event.matches) { paused = true; showPaused(); } });
   function openPanel(open) {
@@ -146,10 +146,29 @@
   viewport.addEventListener('pointerdown', () => { dragging = true; });
   window.addEventListener('pointerup', () => { dragging = false; });
   window.addEventListener('pointercancel', () => { dragging = false; });
+  function rememberLink(event) {
+    if (event.target.closest('a[target="_blank"]')) resumeAfterLink = true;
+  }
+  root.addEventListener('click', rememberLink);
+  root.addEventListener('auxclick', rememberLink);
+  function resumeFromLink() {
+    if (document.hidden || !resumeAfterLink) return;
+    resumeAfterLink = false;
+    dragging = false;
+    hovering = false;
+    paused = reduced.matches;
+    if (!panel.hidden) openPanel(false);
+    showPaused();
+  }
+  window.addEventListener('focus', resumeFromLink);
+  window.addEventListener('pageshow', resumeFromLink);
+  document.addEventListener('visibilitychange', resumeFromLink);
   function animate(timestamp) {
     const elapsed = Math.min(timestamp - frameTime, 60); frameTime = timestamp;
     if (pending && !focusing && !hovering && !dragging && panel.hidden) render();
-    if (!paused && !hovering && !focusing && !dragging && panel.hidden && !document.hidden) {
+    // Only explicit pause, active dragging, or the expanded reader stops motion.
+    // A clicked link can retain focus/hover after returning from its new tab.
+    if (!paused && !dragging && panel.hidden && !document.hidden) {
       scrollRemainder += elapsed * .035;
       const pixels = Math.floor(scrollRemainder);
       scrollRemainder -= pixels;

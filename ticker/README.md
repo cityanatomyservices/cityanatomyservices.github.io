@@ -3,8 +3,10 @@
 The shared `shell.js` loads a 42px ticker immediately above the footer on
 Austin.chat's framed pages. Click **Austin now** or the up arrow to browse,
 filter by category, or expand the Austin-area stock quotes. All item links
-open a new tab. The ticker pauses on hover, focus, touch, or its pause button;
-reduced-motion users start paused. The manual pause preference is remembered.
+open a new tab. The ticker scrolls by default, including while hovered or focused;
+the pause button, active dragging, and expanded reader stop it. Returning after
+opening a ticker link resumes scrolling and closes the reader. Manual pause is
+not persisted across page loads. Reduced-motion users still start/return paused.
 
 ## Sources
 
