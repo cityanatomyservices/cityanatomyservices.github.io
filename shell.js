@@ -74,6 +74,20 @@
     </div>
   </footer>`);
 
+  // Compact Austin updates live in the shared frame, above the social footer.
+  const tickerStyle = document.createElement('link');
+  tickerStyle.rel = 'stylesheet';
+  tickerStyle.href = '/ticker/ticker.css?v=20261027a';
+  document.head.append(tickerStyle);
+  const ticker = document.createElement('aside');
+  ticker.id = 'austin-ticker';
+  ticker.className = 'austin-ticker';
+  ticker.setAttribute('aria-label', 'Austin news, weather and events');
+  document.querySelector('.home-footer').before(ticker);
+  const tickerScript = document.createElement('script');
+  tickerScript.src = '/ticker/ticker.js?v=20261027a';
+  document.body.append(tickerScript);
+
   // ── the day / night button ───────────────────────────────────────────────
   // It says WHERE A CLICK TAKES YOU, not where you are (owner, 2026-09-10).
   const themeToggle = document.querySelector('.theme-toggle');

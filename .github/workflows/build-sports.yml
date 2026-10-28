@@ -1,0 +1,29 @@
+name: Refresh Texas sports scores
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: texas-sports
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tools/news/build-sports.mjs
+      - name: Save score snapshot
+        run: |
+          git config user.name 'austin-ticker bot'
+          git config user.email 'cityanatomyservices@users.noreply.github.com'
+          git add ticker/scores.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh Texas sports scores'
+          git pull --rebase origin main
+          git push origin HEAD:main

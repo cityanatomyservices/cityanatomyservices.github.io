@@ -1,0 +1,41 @@
+.austin-ticker { position: relative; flex: 0 0 auto; min-width: 0; border-block: 1px solid var(--border); background: var(--surface); z-index: 8; font-size: 13px; }
+.ticker-bar { display: flex; align-items: center; gap: 4px; height: 42px; padding: 0 8px; }
+.austin-ticker button, .austin-ticker select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 5px; min-height: 34px; cursor: pointer; }
+.austin-ticker button:hover { border-color: var(--accent); }
+.austin-ticker :focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.ticker-bar .ticker-brand { border: 0; color: var(--accent); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; padding: 0 10px 0 4px; white-space: nowrap; }
+.ticker-brand::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: currentColor; margin-right: 7px; }
+.ticker-viewport { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.ticker-viewport::-webkit-scrollbar { display: none; }
+.ticker-track, .ticker-group { display: flex; align-items: center; width: max-content; }
+.ticker-item { display: inline-flex; align-items: center; gap: 9px; min-height: 36px; padding: 0 20px; white-space: nowrap; color: var(--text); border-right: 1px solid var(--border); }
+.ticker-item:hover { color: var(--accent); }
+.ticker-tag { color: var(--accent); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
+.ticker-item small { color: var(--muted); font-size: 11px; }
+.ticker-button { min-width: 34px; padding: 0 8px; }
+.ticker-panel { position: absolute; bottom: calc(100% + 1px); left: 0; right: 0; max-height: min(65vh, 580px); overflow: auto; background: var(--surface); border-top: 1px solid var(--border); box-shadow: 0 -8px 24px var(--shadow); padding: 16px max(16px, calc((100% - 1000px) / 2)); }
+.ticker-panel[hidden] { display: none; }
+.ticker-panel-header { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
+.ticker-panel-header h2 { font-size: 18px; margin: 0; }
+.ticker-panel-header label { margin-left: auto; }
+.ticker-panel-header select { margin-left: 6px; padding: 0 6px; }
+.ticker-note { font-size: 12px; margin: 8px 0; line-height: 1.5; }
+.ticker-list { margin: 8px 0; padding: 0; list-style: none; }
+.ticker-list li { border-top: 1px solid var(--border); }
+.ticker-list a { display: block; color: var(--text); padding: 10px 0; line-height: 1.5; }
+.ticker-list a:hover { color: var(--accent); }
+.ticker-list .ticker-tag { margin-right: 8px; }
+.ticker-list small { display: block; color: var(--muted); margin-top: 3px; }
+.ticker-markets { border-block: 1px solid var(--border); padding: 10px 0; }
+.ticker-markets summary, .ticker-sources summary { cursor: pointer; font-weight: 700; padding: 5px 0; }
+.ticker-stock-links { display: flex; flex-wrap: wrap; gap: 14px; margin: 8px 0; }
+.ticker-market-widget { min-height: 72px; }
+.ticker-sources { color: var(--muted); font-size: 12px; margin-top: 12px; }
+.ticker-sources ul { padding-left: 18px; line-height: 1.8; }
+@media (max-width: 520px) {
+  .ticker-bar { padding: 0 4px; }
+  .ticker-bar .ticker-brand { font-size: 10px; letter-spacing: .02em; padding-right: 4px; }
+  .ticker-brand::before { display: none; }
+  .ticker-item { padding: 0 12px; }
+  .ticker-panel-header label { margin-left: 0; }
+}
