@@ -148,7 +148,10 @@ def library(now, previous):
     branches = {b['name']: b for b in json.loads(fetch(BRANCHES))}
     if 'John Gillum Branch (North Village)' in branches:
         branches['John Gillum Branch'] = branches['John Gillum Branch (North Village)']
-    items = ET.fromstring(fetch(LIBRARY)).findall('.//item')
+    # Some CDN locations retain the unversioned RSS response for weeks. A
+    # per-run query prevents those stale snapshots from emptying the map.
+    feed_url = f'{LIBRARY}?austinchat_refresh={int(now.timestamp())}'
+    items = ET.fromstring(fetch(feed_url)).findall('.//item')
     if not items:
         raise ValueError('Library feed has no event records')
     candidates = [i for i in items if date(i.findtext('pubDate'))

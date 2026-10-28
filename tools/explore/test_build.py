@@ -41,6 +41,13 @@ class BuildTests(unittest.TestCase):
         self.assertIsNone(run(event | {'endDate': None}))
         self.assertIsNone(run(event | {'eventAttendanceMode': 'https://schema.org/OnlineEventAttendanceMode'}))
 
+    def test_stale_library_feed_cannot_silently_clear_existing_data(self):
+        stale = b'<rss><channel><item><pubDate>Mon, 12 Oct 2026 09:30:00 -0500</pubDate></item></channel></rss>'
+        with patch.object(build, 'fetch', side_effect=[b'[]', stale]) as fetch:
+            with self.assertRaisesRegex(ValueError, 'No verified library events'):
+                build.library(NOW, [])
+        self.assertIn('?austinchat_refresh=', fetch.call_args_list[1].args[0])
+
     def test_ut_public_price_and_occurrences(self):
         e = dict(status='live', title='Concert', localist_url='https://calendar.utexas.edu/event/test', ticket_cost='$15',
                  filters={'event_target_audience':[{'name':'General Public'}]},

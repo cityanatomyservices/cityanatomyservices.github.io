@@ -73,7 +73,9 @@ valid deployed/raw-main snapshot, so GITHUB_TOKEN commit behavior does not
 prevent data updates. Map state is preserved while refreshing.
 
 The importer requests library detail pages with at most four concurrent
-requests. Duplicate title/start/location records are merged. Failed sources or
+requests and uses a fresh query on the RSS feed to avoid stale CDN snapshots.
+An unexpectedly empty verified library import is treated as a source failure.
+Duplicate title/start/location records are merged. Failed sources or
 detail requests retain previous entries only until their existing expiry; they
 do not receive a new checked time. Successful feeds replace their earlier
 records, removing cancellations and vanished entries. Automated entries expire
