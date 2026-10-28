@@ -571,5 +571,13 @@
     ],
     "matchedAddress": "2652 LAKE AUSTIN BLVD, AUSTIN, TX, 78703",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2652+Lake+Austin+Blvd+Austin+TX&benchmark=Public_AR_Current&format=json"
+  },
+  "1407 East 7th Street Austin TX": {
+    "coordinates": [
+      -97.727911283072,
+      30.264564857232
+    ],
+    "matchedAddress": "1407 E 7TH ST, AUSTIN, TX, 78702",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1407+East+7th+Street+Austin+TX&benchmark=Public_AR_Current&format=json"
   }
 }
