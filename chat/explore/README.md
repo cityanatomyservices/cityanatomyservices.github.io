@@ -414,6 +414,13 @@ five minutes while visible, and on returning to the tab. It reads the newest
 valid deployed/raw-main snapshot, so GITHUB_TOKEN commit behavior does not
 prevent data updates. Map state is preserved while refreshing.
 
+The job uses Ubuntu 24.04 explicitly, avoiding automatic operating-system
+migrations under `ubuntu-latest`. Checkout 7.0.1 and setup-python 7.1.0 use
+Node 24 internally; the import scripts still run on Python 3.12. A source failure
+can produce two exit-code annotations: one for the importer and one for the
+final failure-report step. Successful feeds are published before that report.
+Old failed runs keep their annotations after a fix; inspect the latest run.
+
 The importer requests library detail pages with at most four concurrent
 requests and uses a fresh query on the RSS feed to avoid stale CDN snapshots.
 An unexpectedly empty verified library import is treated as a source failure.
