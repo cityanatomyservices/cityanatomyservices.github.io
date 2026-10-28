@@ -14,12 +14,19 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'ticker' / 'feed.json'
 CENTRAL = ZoneInfo('America/Chicago')
 FEEDS = [
-    ('KUT', 'headlines', 'https://www.kut.org/austin.rss'),
-    ('KXAN', 'headlines', 'https://www.kxan.com/news/local/austin/feed/'),
-    ('City of Austin', 'city', 'https://www.austintexas.gov/site/news/rss.xml'),
-    ('KUT housing', 'property', 'https://www.kut.org/housing.rss'),
-    ('KUT transportation', 'transport', 'https://www.kut.org/transportation.rss'),
-    ('Texas Tribune', 'national', 'https://www.texastribune.org/feed/'),
+    ('KUT', 'kut', 'headlines', 'https://www.kut.org/austin.rss'),
+    ('KXAN', 'kxan', 'headlines', 'https://www.kxan.com/news/local/austin/feed/'),
+    ('Austin Chronicle news', 'chronicle', 'headlines', 'https://www.austinchronicle.com/category/news/feed/'),
+    ('Austin Chronicle culture', 'chronicle', 'culture', 'https://www.austinchronicle.com/feed/'),
+    ('Austin Current', 'current', 'headlines', 'https://austincurrent.org/feed/'),
+    ('Community Impact · Austin area', 'community-impact', 'headlines', 'https://communityimpact.com/rss/austin/'),
+    ('KVUE', 'kvue', 'headlines', 'https://www.kvue.com/feeds/syndication/rss/news/local'),
+    ('Austin Monthly', 'monthly', 'culture', 'https://www.austinmonthly.com/feed/'),
+    ('The Daily Texan', 'daily-texan', 'headlines', 'https://thedailytexan.com/category/news/feed/'),
+    ('City of Austin', 'city', 'city', 'https://www.austintexas.gov/site/news/rss.xml'),
+    ('KUT housing', 'kut', 'property', 'https://www.kut.org/housing.rss'),
+    ('KUT transportation', 'kut', 'transport', 'https://www.kut.org/transportation.rss'),
+    ('Texas Tribune', 'tribune', 'national', 'https://www.texastribune.org/feed/'),
 ]
 LOCAL = re.compile(r'\b(Austin|Central Texas|Travis County|Round Rock)\b', re.I)
 NATIONAL = re.compile(r'\b(federal|Congress|White House|Supreme Court|Trump|tariffs?|Medicare|Medicaid|ICE|immigration|shutdown)\b', re.I)
@@ -58,7 +65,17 @@ def fetch(url):
 
 def rss(data, source, category, now):
     items = []
-    for entry in ET.fromstring(data).findall('.//item'):
+    root = ET.fromstring(data)
+    if root.tag != 'rss' or root.find('channel') is None:
+        raise ValueError('Expected an RSS channel, not a website or error page')
+    for entry in root.findall('./channel/item'):
+        tags = {clean(tag.text).casefold() for tag in entry.findall('category')}
+        if any(re.search(r'\b(contests?|sponsored|advertorial|partner content)\b', tag) for tag in tags):
+            continue
+        # The separate Chronicle news feed includes its weekly issue. Its general
+        # feed supplies arts/food/music stories without repeating those headlines.
+        if source == 'Austin Chronicle culture' and 'news' in tags:
+            continue
         title = clean(entry.findtext('title'))
         link = html.unescape((entry.findtext('link') or '').strip())
         published = date(entry.findtext('pubDate'))
@@ -76,62 +93,29 @@ def rss(data, source, category, now):
     return sorted(items, key=lambda item: date(item['published']), reverse=True)[:(3 if category == 'national' else 8)]
 
 
-def events(data, now):
-    items = []
-    for wrapper in json.loads(data).get('events', []):
-        event = wrapper['event']
-        audiences = event.get('filters', {}).get('event_target_audience', [])
-        if not any(a.get('name') == 'General Public' for a in audiences):
-            continue
-        if event.get('status') != 'live':
-            continue
-        geo = event.get('geo') or {}
-        if (geo.get('city') or '').lower() != 'austin':
-            continue
-        upcoming = []
-        for instance in event.get('event_instances', []):
-            instance = instance['event_instance']
-            start = date(instance.get('start'))
-            if start and now < start < now + timedelta(days=14):
-                upcoming.append((start, instance))
-        if not upcoming:
-            continue
-        start, instance = min(upcoming, key=lambda value: value[0])
-        link = event.get('localist_url')
-        if not safe_url(link):
-            continue
-        items.append(dict(title=clean(event.get('title')), url=link,
-                          source='UT Austin calendar', category='events',
-                          starts=start.isoformat(), expires=start.isoformat(),
-                          allDay=bool(instance.get('all_day')),
-                          location=clean(event.get('location_name'))))
-    return sorted(items, key=lambda item: date(item['starts']))[:12]
-
-
 def build():
     now = datetime.now(timezone.utc)
-    jobs = [(name, url, lambda data, name=name, cat=cat: rss(data, name, cat, now))
-            for name, cat, url in FEEDS]
-    # Explicit start_date avoids a cached calendar response for a previous day.
-    day = now.astimezone(CENTRAL).date().isoformat()
-    jobs.append(('UT Austin calendar', f'https://calendar.utexas.edu/api/2/events?start_date={day}&days=14&pp=100',
-                 lambda data: events(data, now)))
+    # Dated activities now come from the same six Explore feeds as the map.
+    jobs = [(name, publisher, url, lambda data, name=name, cat=cat: rss(data, name, cat, now))
+            for name, publisher, cat, url in FEEDS]
     try:
         previous = json.loads(OUT.read_text()).get('items', [])
     except (OSError, ValueError):
         previous = []
     items, statuses = [], []
     with concurrent.futures.ThreadPoolExecutor(max_workers=7) as pool:
-        futures = [(name, url, parser, pool.submit(fetch, url)) for name, url, parser in jobs]
-        for name, url, parser, future in futures:
+        futures = [(name, publisher, url, parser, pool.submit(fetch, url)) for name, publisher, url, parser in jobs]
+        for name, publisher, url, parser, future in futures:
             try:
                 found = parser(future.result())
-                statuses.append(dict(name=name, url=url, ok=True, count=len(found)))
+                statuses.append(dict(name=name, publisher=publisher, url=url, ok=True, count=len(found)))
             except Exception as error:
                 print(f'{name}: {error}')
                 found = [item for item in previous if item['source'] == name
                          and date(item.get('expires')) and date(item['expires']) > now]
-                statuses.append(dict(name=name, url=url, ok=False, count=len(found)))
+                statuses.append(dict(name=name, publisher=publisher, url=url, ok=False, count=len(found)))
+            for item in found:
+                item['publisher'] = publisher
             items.extend(found)
     # Prefer category-specific coverage when the same article occurs in two feeds.
     unique = {}

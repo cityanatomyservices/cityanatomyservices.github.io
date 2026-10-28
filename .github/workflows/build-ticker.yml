@@ -14,13 +14,17 @@ concurrency:
 
 jobs:
   refresh:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
         with:
           python-version: '3.12'
+      - name: Check feed parsing and ticker selection
+        run: |
+          python -m unittest discover -s tools/news -p 'test_*.py'
+          node tools/news/test-ticker.cjs
       - run: python tools/news/build-ticker.py
       - name: Save updated feed
         run: |

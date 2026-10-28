@@ -1,47 +1,96 @@
 {
-  "generated": "2026-10-28T19:32:33.902686+00:00",
+  "generated": "2026-10-28T22:58:53.278663+00:00",
   "sources": [
     {
       "name": "KUT",
+      "publisher": "kut",
       "url": "https://www.kut.org/austin.rss",
       "ok": true,
       "count": 8
     },
     {
       "name": "KXAN",
+      "publisher": "kxan",
       "url": "https://www.kxan.com/news/local/austin/feed/",
       "ok": true,
       "count": 8
     },
     {
+      "name": "Austin Chronicle news",
+      "publisher": "chronicle",
+      "url": "https://www.austinchronicle.com/category/news/feed/",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "Austin Chronicle culture",
+      "publisher": "chronicle",
+      "url": "https://www.austinchronicle.com/feed/",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "Austin Current",
+      "publisher": "current",
+      "url": "https://austincurrent.org/feed/",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "Community Impact · Austin area",
+      "publisher": "community-impact",
+      "url": "https://communityimpact.com/rss/austin/",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "KVUE",
+      "publisher": "kvue",
+      "url": "https://www.kvue.com/feeds/syndication/rss/news/local",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "Austin Monthly",
+      "publisher": "monthly",
+      "url": "https://www.austinmonthly.com/feed/",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "The Daily Texan",
+      "publisher": "daily-texan",
+      "url": "https://thedailytexan.com/category/news/feed/",
+      "ok": true,
+      "count": 8
+    },
+    {
       "name": "City of Austin",
+      "publisher": "city",
       "url": "https://www.austintexas.gov/site/news/rss.xml",
       "ok": true,
       "count": 8
     },
     {
       "name": "KUT housing",
+      "publisher": "kut",
       "url": "https://www.kut.org/housing.rss",
       "ok": true,
       "count": 0
     },
     {
       "name": "KUT transportation",
+      "publisher": "kut",
       "url": "https://www.kut.org/transportation.rss",
       "ok": true,
       "count": 0
     },
     {
       "name": "Texas Tribune",
+      "publisher": "tribune",
       "url": "https://www.texastribune.org/feed/",
       "ok": true,
       "count": 1
-    },
-    {
-      "name": "UT Austin calendar",
-      "url": "https://calendar.utexas.edu/api/2/events?start_date=2026-10-28&days=14&pp=100",
-      "ok": true,
-      "count": 12
     }
   ],
   "items": [
@@ -51,7 +100,8 @@
       "source": "KUT",
       "category": "headlines",
       "published": "2026-10-27T19:39:17+00:00",
-      "expires": "2026-11-03T19:39:17+00:00"
+      "expires": "2026-11-03T19:39:17+00:00",
+      "publisher": "kut"
     },
     {
       "title": "Austin’s beloved 800-pound dinosaur is relocated as Wheatsville Guadalupe closes",
@@ -59,7 +109,8 @@
       "source": "KUT",
       "category": "headlines",
       "published": "2026-10-27T17:35:26+00:00",
-      "expires": "2026-11-03T17:35:26+00:00"
+      "expires": "2026-11-03T17:35:26+00:00",
+      "publisher": "kut"
     },
     {
       "title": "Austin director's documentary explores how Bill Wittliff brought Hollywood to Texas",
@@ -67,7 +118,8 @@
       "source": "KUT",
       "category": "headlines",
       "published": "2026-10-27T10:01:00+00:00",
-      "expires": "2026-11-03T10:01:00+00:00"
+      "expires": "2026-11-03T10:01:00+00:00",
+      "publisher": "kut"
     },
     {
       "title": "A weekend at F1: Our favorite photos from the paddock",
@@ -75,7 +127,8 @@
       "source": "KUT",
       "category": "headlines",
       "published": "2026-10-26T20:06:39+00:00",
-      "expires": "2026-11-02T20:06:39+00:00"
+      "expires": "2026-11-02T20:06:39+00:00",
+      "publisher": "kut"
     },
     {
       "title": "With Muny in play, the city golf course is in the spotlight once again",
@@ -83,7 +136,8 @@
       "source": "KUT",
       "category": "headlines",
       "published": "2026-10-26T15:37:51+00:00",
-      "expires": "2026-11-02T15:37:51+00:00"
+      "expires": "2026-11-02T15:37:51+00:00",
+      "publisher": "kut"
     },
     {
       "title": "Rewind with Austin VHS Swap, the local cult that worships bygone physical media",
@@ -91,7 +145,8 @@
       "source": "KUT",
       "category": "headlines",
       "published": "2026-10-26T10:01:00+00:00",
-      "expires": "2026-11-02T10:01:00+00:00"
+      "expires": "2026-11-02T10:01:00+00:00",
+      "publisher": "kut"
     },
     {
       "title": "U.S. Senate hopeful James Talarico holds rally at UT Austin ahead of Election Day",
@@ -99,7 +154,8 @@
       "source": "KUT",
       "category": "headlines",
       "published": "2026-10-24T03:58:09+00:00",
-      "expires": "2026-10-31T03:58:09+00:00"
+      "expires": "2026-10-31T03:58:09+00:00",
+      "publisher": "kut"
     },
     {
       "title": "Austin's SAFE Alliance to bring back forensic exams for sexual assault survivors",
@@ -107,7 +163,62 @@
       "source": "KUT",
       "category": "headlines",
       "published": "2026-10-22T14:35:00+00:00",
-      "expires": "2026-10-29T14:35:00+00:00"
+      "expires": "2026-10-29T14:35:00+00:00",
+      "publisher": "kut"
+    },
+    {
+      "title": "After a Stage 4 breast cancer diagnosis at 29, Austin woman urges others to know their risk",
+      "url": "https://www.kxan.com/news/simplehealth/after-a-stage-4-breast-cancer-diagnosis-at-29-austin-woman-urges-others-to-know-their-risk/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-10-28T22:08:43+00:00",
+      "expires": "2026-11-04T22:08:43+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Trump announces more relief for flood survivors",
+      "url": "https://www.kxan.com/news/local/hill-country/trump-announces-more-relief-for-flood-survivors/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-10-28T21:59:18+00:00",
+      "expires": "2026-11-04T21:59:18+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "CAMPO launches I-35 carpool program connecting Austin, Buda and Kyle",
+      "url": "https://www.kxan.com/news/local/austin/campo-launches-i-35-carpool-program-connecting-austin-buda-and-kyle/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-10-28T21:14:48+00:00",
+      "expires": "2026-11-04T21:14:48+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Austin firefighters say raccoon stuck in tree is 'alive and unharmed'",
+      "url": "https://www.kxan.com/news/local/austin/austin-firefighters-say-raccoon-stuck-in-tree-is-alive-and-unharmed/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-10-28T21:10:20+00:00",
+      "expires": "2026-11-04T21:10:20+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Sixth suspect arrested in 2025 Austin robbery killing",
+      "url": "https://www.kxan.com/news/crime/sixth-suspect-arrested-in-2025-austin-robbery-killing/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-10-28T20:18:38+00:00",
+      "expires": "2026-11-04T20:18:38+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "McNeil junior's self-defense club earns her a Girl Scout Gold Award",
+      "url": "https://www.kxan.com/news/local/austin/mcneil-juniors-self-defense-club-earns-her-a-girl-scout-gold-award/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-10-28T19:41:26+00:00",
+      "expires": "2026-11-04T19:41:26+00:00",
+      "publisher": "kxan"
     },
     {
       "title": "AEG Presents announces new name, inaugural lineup for Emo's Riverside venue",
@@ -115,7 +226,8 @@
       "source": "KXAN",
       "category": "headlines",
       "published": "2026-10-28T16:43:28+00:00",
-      "expires": "2026-11-04T16:43:28+00:00"
+      "expires": "2026-11-04T16:43:28+00:00",
+      "publisher": "kxan"
     },
     {
       "title": "Temperatures, rain totals, severe storms: Explore Austin's 2026 weather data",
@@ -123,55 +235,494 @@
       "source": "KXAN",
       "category": "headlines",
       "published": "2026-10-28T16:06:29+00:00",
-      "expires": "2026-11-04T16:06:29+00:00"
+      "expires": "2026-11-04T16:06:29+00:00",
+      "publisher": "kxan"
     },
     {
-      "title": "Dolores Huerta, labor leader and feminist activist, dies at 96",
-      "url": "https://www.kxan.com/news/local/austin/dolores-huerta-labor-leader-and-feminist-activist-dies-at-96/",
-      "source": "KXAN",
+      "title": "Paranoia Spreads as Election Officials Prepare for Federal Intervention in Midterm Elections",
+      "url": "https://www.austinchronicle.com/news/paranoia-spreads-as-election-officials-prepare-for-federal-intervention-in-midterm-elections/",
+      "source": "Austin Chronicle news",
       "category": "headlines",
-      "published": "2026-10-28T16:04:07+00:00",
-      "expires": "2026-11-04T16:04:07+00:00"
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
     },
     {
-      "title": "Austin accountant serving time after money laundering, bank fraud convictions",
-      "url": "https://www.kxan.com/news/crime/austin-accountant-serving-time-after-money-laundering-bank-fraud-convictions/",
-      "source": "KXAN",
+      "title": "Southeast Supermarket Fears the City’s Light Rail Project Could Shutter Business",
+      "url": "https://www.austinchronicle.com/news/southeast-supermarket-fears-the-citys-light-rail-project-could-shutter-business/",
+      "source": "Austin Chronicle news",
       "category": "headlines",
-      "published": "2026-10-28T15:51:33+00:00",
-      "expires": "2026-11-04T15:51:33+00:00"
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
     },
     {
-      "title": "A look inside the jury selection process for the Shane James trial",
-      "url": "https://www.kxan.com/news/local/austin/a-look-inside-the-jury-selection-process-for-the-shane-james-trial/",
-      "source": "KXAN",
+      "title": "The Road to Open the Polls",
+      "url": "https://www.austinchronicle.com/news/the-road-to-open-the-polls/",
+      "source": "Austin Chronicle news",
       "category": "headlines",
-      "published": "2026-10-28T15:19:42+00:00",
-      "expires": "2026-11-04T15:19:42+00:00"
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
     },
     {
-      "title": "Are Austin drivers slowing down on city roads? See the latest report",
-      "url": "https://www.kxan.com/traffic/transportation/are-austin-drivers-slowing-down-on-city-roads-see-the-latest-report/",
-      "source": "KXAN",
+      "title": "Social Service Spending Draws a Closer Look After Council Took a Vote Without the Full Picture",
+      "url": "https://www.austinchronicle.com/news/social-service-spending-draws-a-closer-look-after-council-took-a-vote-without-the-full-picture/",
+      "source": "Austin Chronicle news",
       "category": "headlines",
-      "published": "2026-10-28T15:05:25+00:00",
-      "expires": "2026-11-04T15:05:25+00:00"
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
     },
     {
-      "title": "Wetter days ahead, drying out for Halloween weekend",
-      "url": "https://www.kxan.com/weather/forecast/wetter-days-ahead-drying-out-for-halloween-weekend/",
-      "source": "KXAN",
+      "title": "Parent Petitions to Close Webb and Burnet Middle Schools Called Into Question",
+      "url": "https://www.austinchronicle.com/news/parent-petitions-to-close-webb-and-burnet-middle-schools-called-into-question/",
+      "source": "Austin Chronicle news",
       "category": "headlines",
-      "published": "2026-10-28T10:49:19+00:00",
-      "expires": "2026-11-04T10:49:19+00:00"
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
     },
     {
-      "title": "Police investigate death in southeast Austin",
-      "url": "https://www.kxan.com/news/local/austin/police-investigate-death-in-southeast-austin/",
-      "source": "KXAN",
+      "title": "The Week’s Biggest News in Brief: Oct. 15-21",
+      "url": "https://www.austinchronicle.com/news/the-weeks-biggest-news-in-brief-oct-15-21/",
+      "source": "Austin Chronicle news",
       "category": "headlines",
-      "published": "2026-10-28T10:11:37+00:00",
-      "expires": "2026-11-04T10:11:37+00:00"
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Austin Film Festival Interview: Horror Turns on the Webcam for Remote",
+      "url": "https://www.austinchronicle.com/screens/austin-film-festival-interview-horror-turns-on-the-webcam-for-remote/",
+      "source": "Austin Chronicle culture",
+      "category": "culture",
+      "published": "2026-10-28T20:54:48+00:00",
+      "expires": "2026-11-04T20:54:48+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Smashing Pumpkins Roar Through Rage and Sorrow at the Moody Center",
+      "url": "https://www.austinchronicle.com/music/live-shots/smashing-pumpkins-roar-through-rage-and-sorrow-at-the-moody-center/",
+      "source": "Austin Chronicle culture",
+      "category": "culture",
+      "published": "2026-10-28T16:47:42+00:00",
+      "expires": "2026-11-04T16:47:42+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Hell House Comes Home",
+      "url": "https://www.austinchronicle.com/screens/george-ratliff-hell-house-comes-home-agfa-bluray/",
+      "source": "Austin Chronicle culture",
+      "category": "culture",
+      "published": "2026-10-23T15:04:00+00:00",
+      "expires": "2026-10-30T15:04:00+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Highway Music for the Stability-Curious: Squirrel Flower Explores Life on the Road",
+      "url": "https://www.austinchronicle.com/music/highway-music-for-the-stability-curious-squirrel-flower-explores-life-on-the-road/",
+      "source": "Austin Chronicle culture",
+      "category": "culture",
+      "published": "2026-10-23T13:30:00+00:00",
+      "expires": "2026-10-30T13:30:00+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Austin Author David Brandon Hodge Pierces the Veil With Supernatural Machines",
+      "url": "https://www.austinchronicle.com/arts/austin-author-david-brandon-hodge-pierces-the-veil-with-supernatural-machines/",
+      "source": "Austin Chronicle culture",
+      "category": "culture",
+      "published": "2026-10-22T15:59:24+00:00",
+      "expires": "2026-10-29T15:59:24+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Clayface Review: Muck and Murder",
+      "url": "https://www.austinchronicle.com/screens/film-review/clayface-review-muck-and-murder/",
+      "source": "Austin Chronicle culture",
+      "category": "culture",
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "A Talent for Murder Review: The Talented Ms. Highsmith Takes Another Stab at Tom Ripley",
+      "url": "https://www.austinchronicle.com/screens/film-review/a-talent-for-murder-review-the-talented-ms-highsmith-takes-another-stab-at-tom-ripley/",
+      "source": "Austin Chronicle culture",
+      "category": "culture",
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "New Community Spaces to Shop, Read, and Eat; Talarico on the Town; Flowers for Dr. Farmer",
+      "url": "https://www.austinchronicle.com/music/crosstalk/new-community-spaces-to-shop-read-and-eat-talarico-on-the-town-flowers-for-dr-farmer/",
+      "source": "Austin Chronicle culture",
+      "category": "culture",
+      "published": "2026-10-22T05:00:00+00:00",
+      "expires": "2026-10-29T05:00:00+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Who won the money race? Austin council candidates submit final campaign finance report before election",
+      "url": "https://austincurrent.org/2026/10/28/texas-austin-election-city-council-campaign-fundraise-2/",
+      "source": "Austin Current",
+      "category": "headlines",
+      "published": "2026-10-28T21:50:00+00:00",
+      "expires": "2026-11-04T21:50:00+00:00",
+      "publisher": "current"
+    },
+    {
+      "title": "Burnet and Webb could close. Their communities stand to lose more than schools.",
+      "url": "https://austincurrent.org/2026/10/28/austin-austinisd-burnet-webb-petition/",
+      "source": "Austin Current",
+      "category": "headlines",
+      "published": "2026-10-28T10:30:00+00:00",
+      "expires": "2026-11-04T10:30:00+00:00",
+      "publisher": "current"
+    },
+    {
+      "title": "Frustration over school takeovers, vouchers could sway Texas voters in close governor’s race",
+      "url": "https://austincurrent.org/2026/10/27/greg-abbott-gina-hinojosa-education-texas-governor-election-2026/",
+      "source": "Austin Current",
+      "category": "headlines",
+      "published": "2026-10-27T23:24:10+00:00",
+      "expires": "2026-11-03T23:24:10+00:00",
+      "publisher": "current"
+    },
+    {
+      "title": "Roadwork ahead? CTXGO helps you navigate traffic and earn up to $150.",
+      "url": "https://austincurrent.org/2026/10/27/roadwork-ahead-ctxgo-helps-you-navigate-traffic-and-earn-up-to-150/",
+      "source": "Austin Current",
+      "category": "headlines",
+      "published": "2026-10-27T14:30:19+00:00",
+      "expires": "2026-11-03T14:30:19+00:00",
+      "publisher": "current"
+    },
+    {
+      "title": "How a big project became a big fight: The road to Dog’s Head",
+      "url": "https://austincurrent.org/2026/10/26/how-a-big-project-became-a-big-fight-the-road-to-dogs-head/",
+      "source": "Austin Current",
+      "category": "headlines",
+      "published": "2026-10-26T10:30:00+00:00",
+      "expires": "2026-11-02T10:30:00+00:00",
+      "publisher": "current"
+    },
+    {
+      "title": "With Muny in play, the city golf course is in the spotlight once again",
+      "url": "https://austincurrent.org/2026/10/26/muny-austin-ut-environment-development/",
+      "source": "Austin Current",
+      "category": "headlines",
+      "published": "2026-10-26T10:25:00+00:00",
+      "expires": "2026-11-02T10:25:00+00:00",
+      "publisher": "current"
+    },
+    {
+      "title": "Saving Muny could come at a cost as Austin weighs changes to UT land deal",
+      "url": "https://austincurrent.org/2026/10/22/muny-austin-ut-development-environment/",
+      "source": "Austin Current",
+      "category": "headlines",
+      "published": "2026-10-23T00:50:06+00:00",
+      "expires": "2026-10-30T00:50:06+00:00",
+      "publisher": "current"
+    },
+    {
+      "title": "As a school takeover looms, Austin ISD hears warnings from Houstonians",
+      "url": "https://austincurrent.org/2026/10/22/school-takeover-houston-austin/",
+      "source": "Austin Current",
+      "category": "headlines",
+      "published": "2026-10-22T20:35:24+00:00",
+      "expires": "2026-10-29T20:35:24+00:00",
+      "publisher": "current"
+    },
+    {
+      "title": "Closing the gap: McCarty Lane H-E-B opens in San Marcos's east side, alleviating local food desert",
+      "url": "https://communityimpact.com/san-marcos-buda-kyle/development/closing-the-gap-mccarty-lane-h-e-b-opens-in-san-marcos-s-east-side-alleviating-local-food-desert/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-10-28T22:34:40+00:00",
+      "expires": "2026-11-04T22:34:40+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "Bastrop ISD administrative staff trade offices for classrooms",
+      "url": "https://communityimpact.com/bastrop-cedar-creek/education/bastrop-isd-administrative-staff-trade-offices-for-classrooms/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-10-28T22:08:00+00:00",
+      "expires": "2026-11-04T22:08:00+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "Pflugerville adopts new policy for AI, surveillance technology and data privacy",
+      "url": "https://communityimpact.com/pflugerville-hutto/government/pflugerville-adopts-new-policy-for-ai-surveillance-technology-and-data-privacy/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-10-28T21:31:47+00:00",
+      "expires": "2026-11-04T21:31:47+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "Neighbor’s Cafe takes over former Winston’s location in Spicewood",
+      "url": "https://communityimpact.com/lake-travis-westlake/dining/neighbor-s-cafe-takes-over-former-winston-s-location-in-spicewood/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-10-28T21:25:18+00:00",
+      "expires": "2026-11-04T21:25:18+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "Menchie's Frozen Yogurt coming to Creekside Town Center this winter",
+      "url": "https://communityimpact.com/new-braunfels/business/menchie-s-frozen-yogurt-coming-to-creekside-town-center-this-winter/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-10-28T21:15:00+00:00",
+      "expires": "2026-11-04T21:15:00+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "TxDOT wraps up $677M Oak Hill Parkway expansion project",
+      "url": "https://communityimpact.com/southwest-austin-dripping-springs/transportation/txdot-wraps-up-677m-oak-hill-parkway-expansion-project/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-10-28T20:54:32+00:00",
+      "expires": "2026-11-04T20:54:32+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "Cedar Creek's Redeemed Treasure thrift store closes",
+      "url": "https://communityimpact.com/bastrop-cedar-creek/business/cedar-creek-s-redeemed-treasure-thrift-store-closes/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-10-28T20:26:12+00:00",
+      "expires": "2026-11-04T20:26:12+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "Kyle to restore habitat along Plum Creek",
+      "url": "https://communityimpact.com/san-marcos-buda-kyle/government/kyle-to-restore-habitat-along-plum-creek/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-10-28T20:24:12+00:00",
+      "expires": "2026-11-04T20:24:12+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "Pflugerville enacts stricter oversight on surveillance, AI technology use",
+      "url": "https://www.kvue.com/article/news/police/pflugerville-texas-enacts-stricter-oversight-surveillance-ai-technology/269-d49d8dc6-f704-402d-83d5-5cd99e3e566b",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-10-28T22:54:40+00:00",
+      "expires": "2026-11-04T22:54:40+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Why one Austin coffee shop doesn’t allow laptops at its booths",
+      "url": "https://www.kvue.com/article/news/local/austin-coffee-shop-laptop-policy-better-half/269-24c547ee-c1ce-4b5f-aff0-3fd6484eb611",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-10-28T22:30:07+00:00",
+      "expires": "2026-11-04T22:30:07+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Lanes reopen near Austin Executive Airport following vehicle",
+      "url": "https://www.kvue.com/article/traffic/texas-sh-130-vehicle-fire-traffic/269-5466fb22-4ef4-46d7-95e7-0da8c55ff684",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-10-28T22:18:19+00:00",
+      "expires": "2026-11-04T22:18:19+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Military pilot offers special reward for Stetson lost during UT football flyover",
+      "url": "https://www.kvue.com/article/news/community/military-pilot-special-reward-stetson-lost-ut-austin-football-flyover/269-4c6a8046-9eec-4b67-a553-21461c9cbbf4",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-10-28T22:06:36+00:00",
+      "expires": "2026-11-04T22:06:36+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "NTSB report details what happened before a plane crashed north of Fort Worth, killing the pilot",
+      "url": "https://www.kvue.com/article/news/local/fort-worth-plane-crash-hicks-airfield/287-b6b677ea-13f7-4d54-bd64-98cef4891784",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-10-28T21:59:35+00:00",
+      "expires": "2026-11-04T21:59:35+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Federal judge halts euthanasia for Austin dog after 575 days in isolation",
+      "url": "https://www.kvue.com/article/news/local/major-dog-halted-euthanasia-order-austin/269-4ca4617a-b91a-44a4-87ae-3407d354e2a8",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-10-28T20:18:59+00:00",
+      "expires": "2026-11-04T20:18:59+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "When does early voting end in Texas?",
+      "url": "https://www.kvue.com/article/news/politics/vote-texas/when-does-early-voting-end-in-texas/269-c5331c1b-d14a-480b-af2e-2d9e9b7c7d92",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-10-28T17:18:45+00:00",
+      "expires": "2026-11-04T17:18:45+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "KVUE Voter Guide: What you need to know to vote in the November midterm election",
+      "url": "https://www.kvue.com/article/news/politics/vote-texas/midterm-election-voter-guide-kvue-november/269-ab3b5506-f442-4222-8363-f9f1ef48c289",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-10-28T17:13:08+00:00",
+      "expires": "2026-11-04T17:13:08+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "6 Standout Screenings at This Year’s Austin Film Festival",
+      "url": "https://www.austinmonthly.com/6-standout-screenings-at-this-years-austin-film-festival/",
+      "source": "Austin Monthly",
+      "category": "culture",
+      "published": "2026-10-28T19:21:04+00:00",
+      "expires": "2026-11-04T19:21:04+00:00",
+      "publisher": "monthly"
+    },
+    {
+      "title": "The Best Two-Step Instructors in Austin",
+      "url": "https://www.austinmonthly.com/the-best-two-step-instructors-in-austin/",
+      "source": "Austin Monthly",
+      "category": "culture",
+      "published": "2026-10-28T17:49:32+00:00",
+      "expires": "2026-11-04T17:49:32+00:00",
+      "publisher": "monthly"
+    },
+    {
+      "title": "Austin’s Best New Restaurants 2026",
+      "url": "https://www.austinmonthly.com/austins-best-new-restaurants-2026/",
+      "source": "Austin Monthly",
+      "category": "culture",
+      "published": "2026-10-27T16:04:23+00:00",
+      "expires": "2026-11-03T16:04:23+00:00",
+      "publisher": "monthly"
+    },
+    {
+      "title": "This Popular Austin Beauty Brand Uses Banana Sap For Glowing Skin",
+      "url": "https://www.austinmonthly.com/this-popular-austin-beauty-brand-uses-banana-sap-for-glowing-skin/",
+      "source": "Austin Monthly",
+      "category": "culture",
+      "published": "2026-10-27T15:55:47+00:00",
+      "expires": "2026-11-03T15:55:47+00:00",
+      "publisher": "monthly"
+    },
+    {
+      "title": "Our 2026 Austin Holiday Gift Guide",
+      "url": "https://www.austinmonthly.com/our-2026-austin-holiday-gift-guide/",
+      "source": "Austin Monthly",
+      "category": "culture",
+      "published": "2026-10-27T14:00:56+00:00",
+      "expires": "2026-11-03T14:00:56+00:00",
+      "publisher": "monthly"
+    },
+    {
+      "title": "The Mighty Driskill Hotel Is Turning 140 This December",
+      "url": "https://www.austinmonthly.com/the-mighty-driskill-hotel-is-turning-140-this-december/",
+      "source": "Austin Monthly",
+      "category": "culture",
+      "published": "2026-10-27T14:00:13+00:00",
+      "expires": "2026-11-03T14:00:13+00:00",
+      "publisher": "monthly"
+    },
+    {
+      "title": "Renowned Menswear Designer Opens His First Austin Shop on Music Lane",
+      "url": "https://www.austinmonthly.com/renowned-menswear-designer-opens-his-first-austin-shop-on-music-lane/",
+      "source": "Austin Monthly",
+      "category": "culture",
+      "published": "2026-10-26T21:47:39+00:00",
+      "expires": "2026-11-02T21:47:39+00:00",
+      "publisher": "monthly"
+    },
+    {
+      "title": "7 Fun Things to Do This Halloween Weekend in Austin",
+      "url": "https://www.austinmonthly.com/7-fun-things-to-do-this-halloween-weekend-in-austin/",
+      "source": "Austin Monthly",
+      "category": "culture",
+      "published": "2026-10-26T00:20:23+00:00",
+      "expires": "2026-11-02T00:20:23+00:00",
+      "publisher": "monthly"
+    },
+    {
+      "title": "UT pauses school librarian certificate program amid declining enrollments",
+      "url": "https://thedailytexan.com/2026/10/27/ut-pauses-school-librarian-certificate-program-amid-declining-enrollments/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-10-28T01:19:33+00:00",
+      "expires": "2026-11-04T01:19:33+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "Texas governor candidates campaign at student tailgates ahead of midterms",
+      "url": "https://thedailytexan.com/2026/10/26/texas-governor-candidates-campaign-at-student-tailgates-ahead-of-midterms/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-10-27T04:05:27+00:00",
+      "expires": "2026-11-03T04:05:27+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "SG Executive Alliance talks student involvement, academic changes at semester halfway point",
+      "url": "https://thedailytexan.com/2026/10/26/sg-executive-alliance-talks-student-involvement-academic-changes-at-semester-halfway-point/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-10-27T04:04:51+00:00",
+      "expires": "2026-11-03T04:04:51+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "Over $115,000 separate highest, lowest paid UT student loan recipients after degree completion",
+      "url": "https://thedailytexan.com/2026/10/26/over-115000-separate-highest-lowest-paid-ut-student-loan-recipients-after-degree-completion/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-10-27T04:00:05+00:00",
+      "expires": "2026-11-03T04:00:05+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "UT discusses compromise with Austin over University-owned golf course, field lab",
+      "url": "https://thedailytexan.com/2026/10/26/ut-discusses-compromise-with-austin-over-university-owned-golf-course-field-lab/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-10-27T03:59:47+00:00",
+      "expires": "2026-11-03T03:59:47+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "Wheatsville ‘Mangiasaurus’ waves goodbye as Wheatsville Co-op closes 45-year-old location",
+      "url": "https://thedailytexan.com/2026/10/26/wheatsville-mangiasaurus-waves-goodbye-as-wheatsville-co-op-closes-45-year-old-location/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-10-27T02:57:32+00:00",
+      "expires": "2026-11-03T02:57:32+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "Orientation to include more student organizations, flexibility for advisors",
+      "url": "https://thedailytexan.com/2026/10/26/orientation-to-include-more-student-organizations-flexibility-for-advisors/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-10-27T02:55:06+00:00",
+      "expires": "2026-11-03T02:55:06+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "Student organization leads Adapted Sports Night amid Disability Cultural Center leadership change",
+      "url": "https://thedailytexan.com/2026/10/25/student-organization-leads-adapted-sports-night-amid-disability-cultural-center-leadership-change/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-10-26T03:36:01+00:00",
+      "expires": "2026-11-02T03:36:01+00:00",
+      "publisher": "daily-texan"
     },
     {
       "title": "Austin Water to Host Open House on Two Water Supply Projects",
@@ -179,7 +730,8 @@
       "source": "City of Austin",
       "category": "city",
       "published": "2026-10-28T00:00:00-05:00",
-      "expires": "2026-11-04T00:00:00-06:00"
+      "expires": "2026-11-04T00:00:00-06:00",
+      "publisher": "city"
     },
     {
       "title": "Austin Energy inks deal with Jupiter Power for 200 MW of battery storage, exceeding overall 2030 target",
@@ -187,7 +739,8 @@
       "source": "City of Austin",
       "category": "city",
       "published": "2026-10-28T00:00:00-05:00",
-      "expires": "2026-11-04T00:00:00-06:00"
+      "expires": "2026-11-04T00:00:00-06:00",
+      "publisher": "city"
     },
     {
       "title": "Austin Police North Metro Tactical Unit Arrests Suspect in High Value Theft Series",
@@ -195,7 +748,8 @@
       "source": "City of Austin",
       "category": "city",
       "published": "2026-10-27T00:00:00-05:00",
-      "expires": "2026-11-03T00:00:00-06:00"
+      "expires": "2026-11-03T00:00:00-06:00",
+      "publisher": "city"
     },
     {
       "title": "Partial Reopening of Zilker Park Great Lawn",
@@ -203,7 +757,8 @@
       "source": "City of Austin",
       "category": "city",
       "published": "2026-10-27T00:00:00-05:00",
-      "expires": "2026-11-03T00:00:00-06:00"
+      "expires": "2026-11-03T00:00:00-06:00",
+      "publisher": "city"
     },
     {
       "title": "Austin Mobility News: Safety and Mobility Improvements at South First Street and Radam Lane",
@@ -211,7 +766,8 @@
       "source": "City of Austin",
       "category": "city",
       "published": "2026-10-26T00:00:00-05:00",
-      "expires": "2026-11-02T00:00:00-06:00"
+      "expires": "2026-11-02T00:00:00-06:00",
+      "publisher": "city"
     },
     {
       "title": "City of Austin's Art in Public Places Program Honored with IAP2 USA Project of the Year Award for \"Absolute Equality: Unity Tunnel\"",
@@ -219,7 +775,8 @@
       "source": "City of Austin",
       "category": "city",
       "published": "2026-10-26T00:00:00-05:00",
-      "expires": "2026-11-02T00:00:00-06:00"
+      "expires": "2026-11-02T00:00:00-06:00",
+      "publisher": "city"
     },
     {
       "title": "Formula 1 Puts Austin on the World Stage While Driving Local Economic Opportunity",
@@ -227,7 +784,8 @@
       "source": "City of Austin",
       "category": "city",
       "published": "2026-10-26T00:00:00-05:00",
-      "expires": "2026-11-02T00:00:00-06:00"
+      "expires": "2026-11-02T00:00:00-06:00",
+      "publisher": "city"
     },
     {
       "title": "Traffic Fatality in the 7800 block of FM 969",
@@ -235,7 +793,8 @@
       "source": "City of Austin",
       "category": "city",
       "published": "2026-10-23T00:00:00-05:00",
-      "expires": "2026-10-30T00:00:00-05:00"
+      "expires": "2026-10-30T00:00:00-05:00",
+      "publisher": "city"
     },
     {
       "title": "Austin man shot by ICE officer pleads not guilty to federal assault charge",
@@ -243,127 +802,8 @@
       "source": "Texas Tribune",
       "category": "national",
       "published": "2026-10-27T20:27:42+00:00",
-      "expires": "2026-11-03T20:27:42+00:00"
-    },
-    {
-      "title": "Artist Talk: Saif Azzuz",
-      "url": "https://calendar.utexas.edu/event/artist-talk-saif-azzuz",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-28T15:30:00-05:00",
-      "expires": "2026-10-28T15:30:00-05:00",
-      "allDay": false,
-      "location": "Art Building (ART)"
-    },
-    {
-      "title": "Visiting Artists Program: Talk by Saif Azzuz",
-      "url": "https://calendar.utexas.edu/event/visiting-artists-program-talk-by-saif-azzuz-316",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-28T15:30:00-05:00",
-      "expires": "2026-10-28T15:30:00-05:00",
-      "allDay": false,
-      "location": "Art Building (ART)"
-    },
-    {
-      "title": "Behind The Scream - A Live Conversation with David Arquette following a 30th anniversary screening of SCREAM",
-      "url": "https://calendar.utexas.edu/event/behind-the-scream-a-live-conversation-with-david-arquette-following-a-30th-anniversary-screening-of-scream",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-28T19:00:00-05:00",
-      "expires": "2026-10-28T19:00:00-05:00",
-      "allDay": false,
-      "location": "Bass Concert Hall, Performing Arts Center (PAC)"
-    },
-    {
-      "title": "New Music Ensemble",
-      "url": "https://calendar.utexas.edu/event/new-music-ensemble-1850",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-28T19:30:00-05:00",
-      "expires": "2026-10-28T19:30:00-05:00",
-      "allDay": false,
-      "location": "Bates Recital Hall, Music Building (MRH)"
-    },
-    {
-      "title": "Adraint Bereal: As It Appears",
-      "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-29T00:00:00-05:00",
-      "expires": "2026-10-29T00:00:00-05:00",
-      "allDay": true,
-      "location": "Visual Arts Center, Art Building (ART)"
-    },
-    {
-      "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
-      "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-29T00:00:00-05:00",
-      "expires": "2026-10-29T00:00:00-05:00",
-      "allDay": true,
-      "location": "Visual Arts Center, Art Building (ART)"
-    },
-    {
-      "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
-      "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-29T00:00:00-05:00",
-      "expires": "2026-10-29T00:00:00-05:00",
-      "allDay": true,
-      "location": "Visual Arts Center, Art Building (ART)"
-    },
-    {
-      "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
-      "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-29T00:00:00-05:00",
-      "expires": "2026-10-29T00:00:00-05:00",
-      "allDay": true,
-      "location": "Visual Arts Center, Art Building (ART)"
-    },
-    {
-      "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
-      "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-29T00:00:00-05:00",
-      "expires": "2026-10-29T00:00:00-05:00",
-      "allDay": true,
-      "location": "Benson Latin American Collection"
-    },
-    {
-      "title": "The Visit",
-      "url": "https://calendar.utexas.edu/event/the-visit",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-29T00:00:00-05:00",
-      "expires": "2026-10-29T00:00:00-05:00",
-      "allDay": true,
-      "location": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)"
-    },
-    {
-      "title": "Viva La Vida with AT!",
-      "url": "https://calendar.utexas.edu/event/viva-la-vida-with-at-5221",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-29T07:00:00-05:00",
-      "expires": "2026-10-29T07:00:00-05:00",
-      "allDay": false,
-      "location": "Commons Learning Center"
-    },
-    {
-      "title": "Comics and Zines: Staff Picks from the Benson Collection",
-      "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
-      "source": "UT Austin calendar",
-      "category": "events",
-      "starts": "2026-10-29T09:00:00-05:00",
-      "expires": "2026-10-29T09:00:00-05:00",
-      "allDay": false,
-      "location": "Benson Latin American Collection"
+      "expires": "2026-11-03T20:27:42+00:00",
+      "publisher": "tribune"
     }
   ]
 }
