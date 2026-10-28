@@ -10,10 +10,12 @@ from build import ROOT, clean, date, web_url
 from culture_sources import SOURCES as CULTURE_SOURCES
 from comedy_sources import SOURCES as COMEDY_SOURCES
 from music_sources import SOURCES as MUSIC_SOURCES
+from market_sources import SOURCES as MARKET_SOURCES
 
-SOURCES = CULTURE_SOURCES + COMEDY_SOURCES + MUSIC_SOURCES
+SOURCES = CULTURE_SOURCES + COMEDY_SOURCES + MUSIC_SOURCES + MARKET_SOURCES
 COMEDY_NAMES = {name for name, _, _ in COMEDY_SOURCES}
 MUSIC_NAMES = {name for name, _, _ in MUSIC_SOURCES}
+MARKET_NAMES = {name for name, _, _ in MARKET_SOURCES}
 
 OUT = ROOT / 'chat/data/explore'
 THEMES = ('pop-up-markets', 'festivals', 'live-comedy', 'live-music', 'events')
@@ -102,7 +104,8 @@ def events(now):
         features.sort(key=lambda f: f['properties']['start'])
         sources = [dict(s, count=sum(f['properties']['source'] == s['name'] for f in features)) for s in statuses
                    if (name == 'live-comedy' or s['name'] not in COMEDY_NAMES)
-                   and (name == 'live-music' or s['name'] not in MUSIC_NAMES)]
+                   and (name == 'live-music' or s['name'] not in MUSIC_NAMES)
+                   and (name == 'pop-up-markets' or s['name'] not in MARKET_NAMES)]
         write(name, features, now, sources)
         print(f'{name}: {len(features)} listings', flush=True)
     if failed:

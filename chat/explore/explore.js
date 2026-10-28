@@ -21,7 +21,7 @@ window.AustinExplore = {
         <button type="button" data-when="now">Now</button><button type="button" data-when="tonight">Tonight</button><button type="button" data-when="weekend">Weekend</button><button type="button" data-when="week">This week</button>
       </div><div class="explore-layers" role="group" aria-label="Choose map categories"></div>
       <div class="explore-browse"><label><span class="explore-sr">Search listings</span><input type="search" data-filter="query" maxlength="100" placeholder="Search names or places"></label>
-        <label><span class="explore-sr">Where</span><select data-filter="where"><option value="all">All Austin</option><option value="map">This map area</option><option value="near">Near me</option></select></label></div>
+        <label><span class="explore-sr">Where</span><select data-filter="where"><option value="all">All locations</option><option value="map">This map area</option><option value="near">Near me</option></select></label></div>
       <details class="explore-options"><summary>More filters</summary>
       <fieldset class="explore-filters">
         <label>Date range<select data-filter="when"><option value="now">Now / next 2 hours</option><option value="tonight">Tonight</option><option value="today">Today</option><option value="weekend">This weekend</option><option value="week">Next 7 days</option></select></label>
@@ -121,7 +121,7 @@ window.AustinExplore = {
       }
       for (const el of panel.querySelectorAll('[data-for-layer]')) el.hidden = !state.enabled.has(el.dataset.forLayer);
       button.classList.toggle('is-on', on);
-      const suffix = state.where === 'near' ? ` within ${state.radius} miles` : state.where === 'map' ? ' in this map area' : ' across Austin';
+      const suffix = state.where === 'near' ? ` within ${state.radius} miles` : state.where === 'map' ? ' in this map area' : ' across the Austin area';
       const loading = [...busy].some(id => state.enabled.has(id));
       $('.explore-count').textContent = !on ? 'Turn on a layer to explore.' : matches.length
         ? `${matches.length} matching listings${suffix}${loading ? ' · Updating…' : ''}`
@@ -162,7 +162,18 @@ window.AustinExplore = {
       }
       freshness.append(node('p', 'Events and movies refresh every 3 hours; city parks refresh daily. Runs may be delayed. Expired events disappear; park locations stay available during an update delay. Unknown event end times are not guessed. Curated activities expire on their review deadline.', 'explore-note'));
     }
+    let coverageStamp = '';
     function update() {
+      // Use valid records in enabled layers, before area/search/time filters.
+      // Otherwise "This map area" could shrink the pan limit as you move it.
+      const points = layers.filter(l => state.enabled.has(l.id))
+        .flatMap(l => (data.get(l.id)?.features || []).filter(f => M.valid(f)).map(f => f.geometry.coordinates));
+      const coverage = points.length ? [
+        [Math.min(...points.map(c => c[0])), Math.min(...points.map(c => c[1]))],
+        [Math.max(...points.map(c => c[0])), Math.max(...points.map(c => c[1]))]
+      ] : null;
+      const nextCoverage = JSON.stringify(coverage);
+      if (coverageStamp !== nextCoverage) { coverageStamp = nextCoverage; map.fire('explorebounds', { bounds: coverage }); }
       const b = map.getBounds();
       const options = { ...state, bounds: [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()] };
       matches = [];

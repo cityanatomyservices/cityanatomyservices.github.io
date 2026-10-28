@@ -62,3 +62,13 @@ assert.equal(M.filter([film],{...opts,when:'now'},now).length,0,'movie sessions 
 assert.equal(M.filter([film],{...opts,when:'tonight'},now).length,1);
 assert.equal(M.filter([concert],{...opts,when:'tonight'},Date.parse(concert.properties.end)).length,0);
 console.log('New categories: parks ignore dates/prices but respect location/search; now, tonight, DST and movie time windows passed.');
+
+// Nearby markets remain discoverable by their city/address without changing
+// the visitor's map-area or distance filter.
+const market=make('Sunshine','2026-10-31T15:00:00Z','2026-10-31T20:00:00Z',0,[-97.688743,30.634108]);
+Object.assign(market.properties,{kind:'listing',theme:'pop-up-markets',venue:'Floor & Decor parking lot',address:'1101 S Interstate 35, Georgetown TX',price:null});
+assert.equal(M.filter([market],{...opts,query:'Georgetown'},now).length,1);
+assert.equal(M.filter([market],{...opts,query:'Interstate 35'},now).length,1);
+assert.equal(M.filter([market],{...opts,query:'Georgetown',where:'near',position:[-97.75,30.27],radius:3},now).length,0);
+assert.equal(M.filter([market],{...opts,where:'map',bounds:[-97.8,30.2,-97.7,30.4]},now).length,0);
+console.log('Markets: city/address search, map-area filtering and nearby distance passed.');

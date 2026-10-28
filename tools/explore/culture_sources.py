@@ -52,14 +52,14 @@ def first(node, tag=None, cls=None, attr=None):
     return found[0]
 
 
-def geocode(address):
+def geocode(address, cities=('AUSTIN',)):
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
     if address in cache:
         return cache[address]['coordinates']
     url = 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?' + urlencode(dict(address=address, benchmark='Public_AR_Current', format='json'))
     matches = json.loads(fetch(url))['result']['addressMatches']
-    if len(matches) != 1 or matches[0]['addressComponents'].get('city') != 'AUSTIN':
-        raise ValueError(f'No unambiguous Austin address match: {address}')
+    if len(matches) != 1 or matches[0]['addressComponents'].get('city') not in cities:
+        raise ValueError(f'No unambiguous address match in the allowed cities: {address}')
     match = matches[0]
     coords = [match['coordinates']['x'], match['coordinates']['y']]
     cache[address] = dict(coordinates=coords, matchedAddress=match['matchedAddress'], source=url)

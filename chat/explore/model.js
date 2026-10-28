@@ -67,7 +67,7 @@
       const p = f.properties, c = f.geometry.coordinates;
       if (p.kind !== 'park' && (Date.parse(p.start) >= last || Date.parse(p.end) <= first)) return false;
       const query = (options.query || '').trim().toLocaleLowerCase();
-      if (query && !`${p.title} ${p.venue || ''}`.toLocaleLowerCase().includes(query)) return false;
+      if (query && !`${p.title} ${p.venue || ''} ${p.address || ''}`.toLocaleLowerCase().includes(query)) return false;
       if (p.kind === 'movie') {
         if (options.movieType && options.movieType !== 'all' && !p.tags?.includes(options.movieType)) return false;
         const query = (options.movieSearch || '').trim().toLocaleLowerCase();

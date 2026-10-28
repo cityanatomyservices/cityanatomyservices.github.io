@@ -243,14 +243,89 @@ Friends Bar's
 site had an expired TLS certificate during setup, and Half Step did not expose
 a usable dated calendar; neither is populated with guessed recurring shows.
 
+### Expanded Pop up markets coverage
+
+`tools/explore/market_sources.py` adds ten independent sources to Austin Flea.
+The existing menu tile includes artisan, vintage, community and farmers'
+markets. It remains off by default. Search includes street addresses and city
+names, and the location selector says **All locations** because some markets
+are in nearby cities. The existing Austin-area bounds already include the
+Georgetown, Round Rock and Cedar Park locations; no citywide boundary was
+expanded for other categories.
+The map's pan/zoom limits include valid locations in enabled Explore layers,
+so selecting a Georgetown result can actually reach its pin. Coverage uses
+records before search, time and area filtering to avoid trapping the visitor
+inside a shrinking map view. Disabling layers restores the remaining coverage;
+the City button continues to return to the original Austin neighborhoods.
+
+- [Sunshine Markets](https://nextdoor.com/pages/santas-sun-market-georgetown-tx/):
+  the organizer's public story specifies Saturdays and **third Sundays**, 10–3,
+  at the Floor & Decor parking lot, 1101 S Interstate 35, Georgetown. Generic
+  business-hours widgets omit the third-Sunday restriction and are not used.
+  A current explicit cancellation notice suppresses the regular listings.
+- [SoCo Makers Market and Vintage Annex](https://www.socomakersmarket.com/):
+  published Friday/Saturday/Sunday daytime hours at 1501 S Congress.
+- [Austin Makers Collective](https://www.austinmakerscollective.com/about-3):
+  RivCo's published Friday evening and Saturday/Sunday daytime hours at
+  Cork & Brew, 343 S Congress. The page's other location lacks sufficient
+  published hours and is not copied into the feed.
+- [Texas Farmers' Market at Bell](https://texasfarmersmarket.org/farmers-markets-and-events)
+  in Cedar Park and [Mueller](https://texasfarmersmarket.org/mueller): separately
+  checked Saturday and Sunday schedules. Mueller's pavilion uses the map pin
+  published on its own page; that pin's address must still match the market.
+- [SFC Farmers' Markets](https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/):
+  Saturday hours at Republic Square and the Toney Burger Center.
+- [Farmer George](https://www.farmergeorge.market/): the Saturday market at
+  Rock Creek Center, Round Rock. Christmas Day is excluded; the advertised
+  Sunday market marked "coming soon" is not imported.
+- [Austin Witches Market / Yarrow & Sage](https://yarrowandsageatx.com/pages/calendar):
+  the public Google iCalendar feed embedded by the organizer. Only market
+  events qualify; classes and date-only records do not. `icalendar` and
+  `recurring-ical-events` expand published recurrence rules while respecting
+  excluded dates, moved instances, cancellations, timezones and DST. This adds
+  rotating markets at cafés, breweries and outdoor venues. No Google API key
+  or account is needed. The separate moon-phase calendar is not imported.
+- [The Front Market / Future Front](https://thefrontmarket.com/popups): the
+  organizer's dated Squarespace event feed. Multi-day exhibitions without
+  daily opening hours are omitted. A Coquito event currently retains Stubb's
+  location from a reused template; it is logged and skipped instead of placing
+  a knowingly incorrect marker. Separately dated Waterloo markets qualify.
+- [Central Machine Works](https://events.cmwbrewery.com/calendar): dated market
+  and gear-swap cards, with the current venue address verified on each event
+  page. Explicit detail-page end times are used when available. Generic free
+  template labels are not treated as confirmed admission prices.
+
+Weekly/monthly hours are expanded only after that source's current page has
+been fetched and its schedule/address recognized. Those entries say **Regular
+published schedule; check the organizer for weather and holiday changes.**
+This is different from a separately confirmed dated event. Schedule changes
+that the parser cannot interpret fail that source and retain only previously
+checked, unexpired entries. A successful empty calendar removes old entries.
+No occurrence is generated beyond the rolling 14-day horizon, and every
+listing expires within 24 hours unless successfully checked again. These
+pages cannot guarantee that last-minute social-media cancellations are seen.
+
+New nearby-city addresses are checked with the Census geocoder using an
+explicit Austin/Cedar Park/Round Rock/Georgetown allowlist. Other importers
+retain their Austin-only default. All market source health is shown only for
+Pop up markets. Admission remains "Check admission"; vendor booth fees are
+never mistaken for visitor ticket prices.
+
+Install the pinned calendar readers and dependencies in
+`tools/explore/requirements.txt` before local tests/builds. GitHub Actions
+installs them automatically. They run locally in Python, require no paid
+service or credentials, and do not use AI. Source pages supply factual event
+names, dates, hours, venue addresses and links; vendor rosters, photographs
+and descriptive articles are not republished.
+
 This is initial source coverage, not a complete citywide event directory.
 The sources' published schedules determine what appears in each category.
 Only factual titles, dates, venue information and links are republished.
 Unknown end times are not invented: those listings disappear at their start.
 New market addresses are verified through the free
 [US Census Geocoder](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html)
-and saved in `tools/explore/venue-cache.json`. Ambiguous/non-Austin matches
-fail that source update. These street-address coordinates are approximate,
+and saved in `tools/explore/venue-cache.json`. Ambiguous matches or addresses
+outside the source's allowed cities fail that source update. These street-address coordinates are approximate,
 not surveyed entrances. No visitor location is sent for geocoding.
 
 [Parks come from the City of Austin park-boundary inventory](https://data.austintexas.gov/d/v8hw-gz65).
@@ -312,6 +387,7 @@ updates require neither AI nor human editing.
 Run from repository root:
 
 ```sh
+python3 -m pip install -r tools/explore/requirements.txt
 python3 -m unittest discover -s tools/explore -p 'test_*.py'
 node tools/explore/test-model.cjs
 python3 tools/explore/build.py

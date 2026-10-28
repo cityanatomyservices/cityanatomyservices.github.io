@@ -56,7 +56,9 @@
 .explore-sources { font-size: 11px; color: #52606d; border-top: 1px solid var(--line); padding-top: 10px; margin-top: 12px; }
 .explore-sources summary { cursor: pointer; }
 .explore-sources ul { padding-left: 16px; line-height: 1.6; }
+.explore-popup { z-index: 6; }
 .explore-popup .maplibregl-popup-content { padding: 14px; border-radius: 10px; font-family: system-ui, sans-serif; }
+.explore-popup .maplibregl-popup-close-button { width: 32px; height: 32px; font-size: 22px; }
 .explore-popup-body { max-height: min(320px, 45vh); overflow-y: auto; color: #1f2933; }
 .explore-popup-body h3 { font-size: 15px; margin: 0 18px 8px 0; }
 .explore-popup-body h4 { font-size: 13px; margin: 8px 0 4px; }

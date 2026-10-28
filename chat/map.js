@@ -84,21 +84,34 @@
       attributionControl: false
     });
 
-    // the limits (owner 2026-10-22): no zooming out past the City view, and
+    // The limits keep the chat neighborhoods on screen. Selected Explore
+    // layers can also contain nearby cities, so include their actual locations
+    // while they are enabled. The City button still returns to Austin.
+    let exploreBox = null;
+    const coverageBox = () => exploreBox ? [
+      [Math.min(box[0][0], exploreBox[0][0]), Math.min(box[0][1], exploreBox[0][1])],
+      [Math.max(box[1][0], exploreBox[1][0]), Math.max(box[1][1], exploreBox[1][1])]
+    ] : box;
+    // the limits (owner 2026-10-22): no zooming out past the covered area, and
     // the map can be pushed almost off the screen but never all the way —
     // a tenth of the screen (keepOnScreen) must still show it. The pan
-    // limit is the geofences' box widened by what the screen shows at the
+    // limit is the covered area's box widened by what the screen shows at the
     // current zoom, so it is worked out again after every zoom or resize.
     const keepInView = () => {
       const b = map.getBounds();
+      const area = coverageBox();
       const w = (b.getEast() - b.getWest()) * (1 - CFG.keepOnScreen);
       const h = (b.getNorth() - b.getSouth()) * (1 - CFG.keepOnScreen);
-      map.setMaxBounds([[box[0][0] - w, box[0][1] - h], [box[1][0] + w, box[1][1] + h]]);
+      map.setMaxBounds([[area[0][0] - w, area[0][1] - h], [area[1][0] + w, area[1][1] + h]]);
     };
     const limitZoom = () => {
-      const cam = map.cameraForBounds(box, { padding: CFG.fitPadding });
+      const cam = map.cameraForBounds(coverageBox(), { padding: CFG.fitPadding });
       if (cam) map.setMinZoom(cam.zoom);
     };
+    map.on('explorebounds', e => {
+      exploreBox = e.bounds;
+      limitZoom(); keepInView();
+    });
     map.on('zoomend', keepInView);
     map.on('resize', () => { limitZoom(); keepInView(); });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
