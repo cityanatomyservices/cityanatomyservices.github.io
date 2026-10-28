@@ -330,14 +330,13 @@ not surveyed entrances. No visitor location is sent for geocoding.
 
 ### Expanded Events & Festivals coverage
 
-`tools/explore/event_sources.py` and `community_sources.py` add twelve free
+`tools/explore/event_sources.py` and `community_sources.py` add eleven free
 organizer/city calendars, using Python's standard library. These are public
 website feeds and pages, with no credentials, paid API, or AI in routine updates.
 
 | Source | Import and coverage |
 | --- | --- |
 | [The Contemporary Austin](https://thecontemporaryaustin.org/events/) | Public Events Calendar API; family art, tours, talks and special programs at Jones Center and Laguna Gloria. |
-| [Lady Bird Johnson Wildflower Center](https://www.wildflower.org/events) | Same dated API; nature activities, workshops, plant sales, tours and family programs. |
 | [Mexic-Arte Museum](https://mexic-artemuseum.org/calendar/) | Same API for timed museum programs and celebrations. A valid empty calendar is healthy; its October Viva la Vida festival has already ended. |
 | [Blanton Museum of Art](https://blantonmuseum.org/programs/) | The museum's public Juicebox calendar feed; dated tours, art activities, talks and B Scene. Uses event dates, not post publication dates. |
 | [Bullock Museum](https://www.thestoryoftexas.com/calendar/?_post_type_filter=event) | Filtered public calendar cards with explicit times; museum programs, not the IMAX feed or virtual classes. |
@@ -349,8 +348,8 @@ website feeds and pages, with no credentials, paid API, or AI in routine updates
 | [Waterloo Greenway](https://waterloogreenway.org/events/) | Individually dated community celebrations, fitness and volunteer sessions. Creek Show's explicitly published nightly hours produce separate nightly records when they enter the 14-day window. |
 | [Shoal Creek Conservancy](https://shoalcreekconservancy.org/events/) | Dated volunteer and educational events with public meeting addresses. Private meeting points sent only after registration are not guessed. |
 
-The first combined snapshot contained 232 dates at 46 coordinate locations,
-including 86 distinct dates from new sources. Counts naturally change during
+The initial production snapshot contained 212 dates at 45 coordinate locations,
+including 66 distinct dates from new sources. Counts naturally change during
 refreshes; a source can have no eligible dates in the next two weeks.
 
 The menu's stable `events` ID now loads `events-festivals.geojson`. The builder
@@ -366,13 +365,17 @@ filtered by the actual end time. Unknown admission remains â€œCheck admission.â€
 
 Street addresses are checked through Census rather than trusting copied template
 pins. Preservation Austin's Tavern event had a mismatched pin and ZIP code; its
-published street resolves correctly. The Wildflower Center's Courtyard also had
-a copied pin, so venue coordinates are derived from its street address. City
+published street resolves correctly. City
 JSON-LD can attach an incorrect timezone offset; the importer instead checks
 visible times against the HTML time fields. Midnight placeholders, citywide
 routes without meeting points, virtual events, explicitly private/member-only
 events, and multiweek date spans without daily hours are omitted. A printed
 series span is never assumed to meet every day. Separately dated sessions qualify.
+
+The Lady Bird Johnson Wildflower Center returned valid public API data locally,
+but rejected two consecutive GitHub Actions runs with HTTP 403. It is excluded
+from automatic imports, and its trial records are removed rather than kept
+indefinitely. Reassess only if an accessible automation feed becomes available.
 
 Other calendars researched included Austin Parks Foundation (its current HTTP
 page exposes unrendered calendar shortcodes), Zilker Botanical Garden (old feed

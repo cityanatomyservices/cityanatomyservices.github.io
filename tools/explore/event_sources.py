@@ -74,10 +74,6 @@ def contemporary(now):
     return tribe(now,'https://thecontemporaryaustin.org')
 
 
-def wildflower(now):
-    return tribe(now,'https://www.wildflower.org')
-
-
 def mexicarte(now):
     return tribe(now,'https://mexic-artemuseum.org')
 
@@ -178,7 +174,6 @@ def bullock(now):
 
 SOURCES=[
     ('The Contemporary Austin','https://thecontemporaryaustin.org/events/',contemporary),
-    ('Lady Bird Johnson Wildflower Center','https://www.wildflower.org/events',wildflower),
     ('Mexic-Arte Museum','https://mexic-artemuseum.org/calendar/',mexicarte),
     ('Pease Park Conservancy programs','https://peasepark.org/events',pease),
     ('Canopy arts events','https://www.canopyaustin.com/happenings-',canopy),
