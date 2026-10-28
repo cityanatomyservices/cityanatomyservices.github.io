@@ -244,6 +244,9 @@
       // click: the tapped neighborhood's border darkens (one at a time)
       let selected = null;
       map.on('click', 'geofence-fill', (e) => {
+        // An Explore pin belongs to its event, not to the polygon underneath it.
+        const exploreLayers = (window.EXPLORE_LAYERS || []).flatMap(l => [`explore-${l.id}-points`, `explore-${l.id}-clusters`]).filter(id => map.getLayer(id));
+        if (exploreLayers.length && map.queryRenderedFeatures(e.point, { layers: exploreLayers }).length) return;
         const f = e.features && e.features[0];
         if (!f) return;
         if (selected !== null) map.setFeatureState({ source: 'geofences', id: selected }, { selected: false });
@@ -321,6 +324,7 @@
 
       // the map object, so it can be poked at from the browser console
       window.chatMap = map;
+      window.AustinExplore.init(map);
     });
   });
 })();

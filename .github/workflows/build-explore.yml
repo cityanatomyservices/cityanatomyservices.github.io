@@ -1,0 +1,30 @@
+name: Refresh Explore map layers
+on:
+  schedule:
+    - cron: '43 */3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: explore-map
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tools/explore -p 'test_*.py'
+      - run: python tools/explore/build.py
+      - name: Publish map data
+        run: |
+          git config user.name 'austin-explore bot'
+          git config user.email 'cityanatomyservices@users.noreply.github.com'
+          git add chat/data/explore/free-cheap.geojson
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh Explore map data'
+          git pull --rebase origin main
+          git push origin HEAD:main

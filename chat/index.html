@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
   <link rel="stylesheet" href="./panel.css?v=20261023e" />
   <link rel="stylesheet" href="./style.css?v=20261023e" />
+  <link rel="stylesheet" href="./explore/explore.css?v=20261028a" />
 </head>
 <body>
   <div class="page">
@@ -55,6 +56,9 @@
          apps (owner 2026-10-22): find me, 2D/3D tilt, satellite, extents,
          zoom in, zoom out. Words come from copy.js. -->
     <div class="stack" id="stack">
+      <button class="round explore-control" id="ctrlExplore" type="button" aria-expanded="false" aria-controls="explore-panel" aria-label="Explore Austin map layers" title="Explore Austin">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 11 6-11 6L1 8zm-8 11 8 4.4 8-4.4 3 1.6-11 6-11-6z"/></svg><span>Explore</span>
+      </button>
       <button class="round" id="ctrlLocate" type="button">&#9678;</button>
       <button class="round" id="ctrlTilt" type="button" aria-pressed="false">3D</button>
       <button class="round round-text" id="ctrlSatellite" type="button" aria-pressed="false">Sat</button>
@@ -96,6 +100,9 @@
   <script src="./chat.js?v=20261023e"></script>
   <script src="./panel.js?v=20261023e"></script>
   <script src="./room.js?v=20261023e"></script>
-  <script src="./map.js?v=20261023o"></script>
+  <script src="./explore/config.js?v=20261028a"></script>
+  <script src="./explore/model.js?v=20261028a"></script>
+  <script src="./explore/explore.js?v=20261028a"></script>
+  <script src="./map.js?v=20261028a"></script>
 </body>
 </html>

@@ -1,0 +1,47 @@
+.stack .explore-control { gap: 0; align-content: center; font-size: 8px; line-height: 12px; }
+.explore-control svg { width: 20px; height: 20px; }
+.explore-panel { position: absolute; top: 12px; right: 68px; z-index: 7; width: 350px; max-width: calc(100% - 80px); max-height: calc(100% - 24px); display: flex; flex-direction: column; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 24px #17253630; backdrop-filter: blur(12px); font-size: 13px; }
+.explore-panel[hidden] { display: none; }
+.explore-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 14px 8px; }
+.explore-header h2 { margin: 0; font-size: 18px; }
+.explore-panel button, .explore-panel select { font: inherit; }
+.explore-close { border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); width: 32px; height: 32px; cursor: pointer; }
+.explore-scroll { overflow-y: auto; padding: 0 14px 14px; min-height: 0; }
+.explore-layer { display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: pointer; }
+.explore-layer + .explore-layer { margin-top: 6px; }
+.explore-layer input { width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
+.explore-layer strong, .explore-layer small { display: block; }
+.explore-layer small { color: #52606d; font-size: 11px; margin-top: 2px; }
+.explore-filters { border: 0; margin: 12px 0 8px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.explore-filters label { display: grid; gap: 4px; font-size: 11px; font-weight: 700; }
+.explore-filters select { width: 100%; min-width: 0; padding: 7px 4px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); font-size: 12px; }
+.explore-filters:disabled { opacity: .55; }
+.explore-filters [hidden] { display: none; }
+.explore-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: #52606d; margin: 8px 0; }
+.explore-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; background: #0067c5; }
+.explore-dot.activity { background: #087f70; }
+.explore-dot.offer { background: #9a4b00; }
+.explore-note { font-size: 11px; line-height: 1.5; color: #52606d; margin: 8px 0; }
+.explore-results { list-style: none; padding: 0; margin: 0; }
+.explore-results li { border-top: 1px solid var(--line); }
+.explore-result { display: block; text-align: left; width: 100%; padding: 10px 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.explore-result strong { font-size: 13px; font-weight: 650; line-height: 1.4; display: block; }
+.explore-result small { display: block; color: #52606d; font-size: 11px; line-height: 1.5; margin-top: 3px; }
+.explore-result:hover strong { color: var(--accent); }
+.explore-result .explore-price { color: #087364; font-weight: 700; }
+.explore-more { width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: 6px; color: var(--accent); background: white; cursor: pointer; }
+.explore-panel :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.explore-sources { font-size: 11px; color: #52606d; border-top: 1px solid var(--line); padding-top: 10px; margin-top: 12px; }
+.explore-sources summary { cursor: pointer; }
+.explore-sources ul { padding-left: 16px; line-height: 1.6; }
+.explore-popup .maplibregl-popup-content { padding: 14px; border-radius: 10px; font-family: system-ui, sans-serif; }
+.explore-popup-body { max-height: min(320px, 45vh); overflow-y: auto; color: #1f2933; }
+.explore-popup-body h3 { font-size: 15px; margin: 0 18px 8px 0; }
+.explore-popup-body h4 { font-size: 13px; margin: 8px 0 4px; }
+.explore-popup-body p { font-size: 12px; line-height: 1.5; margin: 5px 0; }
+.explore-popup-body article + article { border-top: 1px solid #d9dee3; margin-top: 12px; padding-top: 6px; }
+.explore-popup-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.explore-popup-links a { color: #0067c5; font-size: 12px; font-weight: 600; }
+@media (max-width: 520px) {
+  .explore-panel { top: 64px; right: 12px; width: calc(100% - 24px); max-width: none; max-height: calc(100% - 76px); }
+}

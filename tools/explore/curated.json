@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Explore Austin Nature & Science Center",
+    "venue": "Austin Nature & Science Center",
+    "address": "2389 Stratford Drive, Austin",
+    "coordinates": [-97.773444, 30.272419],
+    "url": "https://www.austintexas.gov/parks/plan-your-visit-austin-nature-science-center",
+    "price": 0,
+    "priceLabel": "Free",
+    "description": "Explore the exhibits and grounds on a self-guided visit.",
+    "conditions": "Free admission for individuals and families. Group programs may differ. Check the official site for weather, holiday or special-event closures.",
+    "verified": "2026-10-28T00:00:00-05:00",
+    "validUntil": "2026-11-04T00:00:00-06:00",
+    "hours": {"0": ["09:00", "17:00"], "1": ["09:00", "17:00"], "2": ["09:00", "17:00"], "3": ["09:00", "17:00"], "4": ["09:00", "17:00"], "5": ["09:00", "17:00"], "6": ["12:00", "17:00"]}
+  },
+  {
+    "title": "Free Tuesday at the Blanton",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E. Martin Luther King Jr. Boulevard, Austin",
+    "coordinates": [-97.7376, 30.2808],
+    "url": "https://blantonmuseum.org/visit/",
+    "price": 0,
+    "priceLabel": "Free admission",
+    "description": "Visit the museum during its weekly free-admission day.",
+    "conditions": "Tuesday museum admission is free. Parking and special ticketed programs may cost extra. Check the museum for closures and reservations.",
+    "verified": "2026-10-28T00:00:00-05:00",
+    "validUntil": "2026-11-04T00:00:00-06:00",
+    "hours": {"1": ["10:00", "17:00"]}
+  }
+]
