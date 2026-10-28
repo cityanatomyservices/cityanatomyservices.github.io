@@ -22,3 +22,21 @@ assert.equal(M.dayKey('2026-11-01T04:30:00Z'),'2026-10-31'); // DST weekend: Aus
 assert.equal(M.filter(rows,{...opts,when:'today'},Date.parse('2026-11-01T04:30:00Z')).length,0);
 assert.ok(M.miles([-97.75,30.27],[-97.75,30.27])===0);
 console.log('Map filters: date windows/DST, prices, expired records, bounds, distance, and venue aggregation passed.');
+const film = make('film', '2026-10-31T18:00:00Z', '2026-10-31T23:00:01Z');
+Object.assign(film.properties, {kind:'movie', price:null, venue:'IMAX theater', tags:['imax'], showtimes:[
+  {start:'2026-10-31T18:00:00Z', url:'https://example.org/early'},
+  {start:'2026-10-31T23:00:00Z', url:'https://example.org/late'}
+]});
+const mixed = M.filter([...rows, film], {...opts,price:0,kind:'activity'},now);
+assert.deepEqual(mixed.map(f=>f.properties.id),['film'],'Free & cheap filters do not hide movie listings');
+assert.equal(mixed[0].properties.showtimes.length,1,'started screenings disappear');
+assert.equal(mixed[0].properties.start,'2026-10-31T23:00:00Z');
+assert.equal(film.properties.showtimes.length,2,'filtering does not mutate the snapshot');
+assert.equal(M.filter([film],{...opts,movieType:'dine-in'},now).length,0);
+assert.equal(M.filter([film],{...opts,movieSearch:'IMAX'},now).length,1);
+assert.deepEqual(M.filter([...rows,film],{...opts,movieSearch:'not-a-film'},now).map(f=>f.properties.id),['today','sunday','monday']);
+assert.equal(M.filter([film],opts,Date.parse('2026-10-31T23:00:00Z')).length,0);
+assert.equal(M.venues(mixed).features[0].properties.label,'M');
+const unsafe = structuredClone(film);unsafe.properties.showtimes[1].url='javascript:alert(1)';
+assert.equal(M.filter([unsafe],opts,now).length,0);
+console.log('Movies: independent filters, grouped showtimes, expiry, safe links, search and theater types passed.');

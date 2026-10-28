@@ -23,19 +23,29 @@
   }
   function valid(f, now = Date.now()) {
     const p = f?.properties, c = f?.geometry?.coordinates;
-    if (!p || f.geometry.type !== 'Point' || !Array.isArray(c) || c.length !== 2 || !c.every(Number.isFinite)) return false;
+    if (!p || f.geometry?.type !== 'Point' || !Array.isArray(c) || c.length !== 2 || !c.every(Number.isFinite)) return false;
     return typeof p.id === 'string' && typeof p.title === 'string' && typeof p.url === 'string' && /^https?:\/\//.test(p.url)
-      && ['event', 'activity', 'offer'].includes(p.kind) && Number.isFinite(p.price) && p.price >= 0 && p.price <= 20
+      && (p.kind === 'movie' ? p.price === null && Array.isArray(p.showtimes) && p.showtimes.length > 0
+        && p.showtimes.every(s => Number.isFinite(Date.parse(s?.start)) && typeof s.url === 'string' && /^https?:\/\//.test(s.url))
+        : ['event', 'activity', 'offer'].includes(p.kind) && Number.isFinite(p.price) && p.price >= 0 && p.price <= 20)
       && Number.isFinite(Date.parse(p.start)) && Date.parse(p.end) > Date.parse(p.start)
       && Date.parse(p.end) > now && Date.parse(p.expires) > now;
   }
   function filter(features, options, now = Date.now()) {
     const [first, last] = windowDays(options.when, now);
-    return features.filter(f => {
+    return features.map(f => {
+      if (f?.properties?.kind !== 'movie' || !Array.isArray(f.properties.showtimes)) return f;
+      const showtimes = f.properties.showtimes.filter(s => Date.parse(s?.start) > now);
+      return { ...f, properties: { ...f.properties, showtimes, start: showtimes[0]?.start } };
+    }).filter(f => {
       if (!valid(f, now)) return false;
       const p = f.properties, c = f.geometry.coordinates;
       if (dayNumber(p.start) > last || dayNumber(Date.parse(p.end) - 1) < first) return false;
-      if (p.price > Number(options.price) || (options.kind !== 'all' && p.kind !== options.kind)) return false;
+      if (p.kind === 'movie') {
+        if (options.movieType && options.movieType !== 'all' && !p.tags?.includes(options.movieType)) return false;
+        const query = (options.movieSearch || '').trim().toLocaleLowerCase();
+        if (query && !`${p.title} ${p.venue}`.toLocaleLowerCase().includes(query)) return false;
+      } else if (p.price > Number(options.price) || (options.kind !== 'all' && p.kind !== options.kind)) return false;
       if (options.where === 'map' && options.bounds) {
         const [w, s, e, n] = options.bounds;
         if (c[0] < w || c[0] > e || c[1] < s || c[1] > n) return false;
@@ -60,7 +70,7 @@
     }
     for (const f of groups.values()) {
       const p = f.properties;
-      p.label = p.eventCount > 1 ? String(p.eventCount) : ({ event: 'E', activity: 'A', offer: '$' }[p.kind]);
+      p.label = p.eventCount > 1 ? String(p.eventCount) : ({ event: 'E', activity: 'A', offer: '$', movie: 'M' }[p.kind]);
       p.ids = JSON.stringify(p.ids);
     }
     return { type: 'FeatureCollection', features: [...groups.values()] };

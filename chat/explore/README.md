@@ -1,7 +1,8 @@
 # Explore Austin — main-map layers
 
 The main page loads the chat map. Its **Explore** button (top right) opens a
-shared layer menu. Free & cheap starts on; visitors can turn it off. Layer
+shared layer menu. Free & cheap starts on; Movies starts off. Either, both or
+neither can be selected, and the combined map/list updates immediately. Layer
 choices and filters are remembered locally. Nothing in Explore changes chat
 identity, rooms, visibility or presence. Near me requests a location only when
 selected, keeps coordinates in memory and does not send them to the server.
@@ -19,6 +20,8 @@ selected, keeps coordinates in memory and does not send them to the server.
   APIs, database or pip dependencies.
 - `../../tools/explore/curated.json`: small human-reviewed recurring activity
   collection. Explicit `validUntil` deadlines are never automatically renewed.
+- `../../tools/explore/build_movies.py`: public theater feed/calendar importer.
+  Generates `../data/explore/movies.geojson` without keys, AI or paid services.
 
 GeoJSON point properties: `id`, `title`, `url`, `venue`, `address`, `start`,
 `end`, `price` (number in USD; known admission price), `priceLabel`, `kind`
@@ -26,6 +29,20 @@ GeoJSON point properties: `id`, `title`, `url`, `venue`, `address`, `start`,
 `description`, `conditions`, `allDay`, `endKnown`. IDs distinguish occurrences.
 The current menu supports dated layers; an always-available places layer would
 need its own time-filter behavior instead of inventing event dates.
+
+Movies use `kind: movie`, `price: null` (never assumed free), `tags` (`imax` or
+`dine-in`), and a `showtimes` array of `{start, url, format}`. Each feature is one
+film at one theater on one Austin calendar day. The browser removes started
+screenings before filtering and advances the listing to its next showing.
+The feature's `end` is one second after its final start, solely a filtering
+boundary, not a claim about runtime. It is never displayed as an end time.
+Movie pins/clusters are purple. Counts represent film/day listings, not seats
+or individual showtimes. Popups and list update together as screenings expire.
+
+Date/location filters affect both layers. Price/type controls explicitly apply
+only to Free & cheap. Movies has its own theater-type selector and title/theater
+search. This prevents unknown ticket prices or a saved activity-only selection
+from making Movies silently disappear when enabled. Settings remain local.
 
 Filtering happens **before** venue grouping and clustering, so counts match
 what the visitor selected. Co-located events share a pin; its popup lists the
@@ -59,6 +76,36 @@ all items, including off-screen pins.
   the same explicit cost, conditions, schedule and review deadline; none are
   fabricated to populate an empty filter.
 
+### Automatically refreshed movie sources
+
+- [Alamo's public Austin market feed](https://feeds.drafthouse.com/adcService/showtimes.svc/marketFilms/austin),
+  also described in [Alamo's own API example](https://github.com/drafthouse/adc-mcc):
+  South Lamar, Slaughter Lane, Mueller, Village and Lakeline. Imports only future
+  `onsale` sessions and uses feed-supplied theater coordinates, local dates,
+  formats, ratings and food/beverage requirements. A feed older than 12 hours
+  is rejected. Where no session sales URL exists, links open the official movie
+  schedule so the visitor can choose their theater/time. No ticket prices are
+  inferred from ticket category codes.
+- [Bullock Museum calendar](https://www.thestoryoftexas.com/calendar/): date-filtered,
+  paginated public showtime cards. Only cards explicitly labeled IMAX Theatre
+  qualify; Texas Spirit Theater is not mislabeled as IMAX. Exact start times
+  and film-page links come from the calendar. The building coordinate comes
+  from the museum's [own map link](https://maps.app.goo.gl/ajgF8BTW6cyByE4Y7).
+- [Violet Crown Austin](https://austin.violetcrown.com/cinema/): public cinema and
+  movie-page JSON-LD `ScreeningEvent` data, official checkout URLs and theater
+  coordinates. Only available, uncancelled future screenings qualify. No
+  authenticated API or browser automation is needed. Coverage follows the
+  dates published in these pages and may be shorter than the full week.
+
+This is an initial selection of seven theaters, not a complete Austin cinema
+directory. All movie sources update automatically; none require a person to
+enter weekly schedules. No posters, trailers or film synopses are republished.
+Availability and prices are confirmed on the theater's own site. Movie feeds
+carry a 12-hour expiry, and each showing disappears at its actual start time.
+Alamo and museum times without offsets are interpreted in America/Chicago,
+including daylight saving changes. Dates are never extrapolated from a film's
+release date or multiweek screening range.
+
 The import covers 14 days; the visitor's default view is the next seven calendar
 days including today. Today includes ongoing events. Weekend means Saturday
 and Sunday (the current weekend on Saturday/Sunday). Near me distances are
@@ -84,6 +131,14 @@ deadline. Total failure of both automatic sources fails the job and leaves the
 published file intact. The browser still hides expired data. The Sources &
 freshness panel shows partial failures and delayed updates.
 
+Movie imports use the same rules for last-good data: failed sources, film
+pages or individual calendar days may retain their previous unexpired records
+without renewing them. Complete movie-source failure fails that import. The
+workflow publishes successful layer updates even if the other importer fails,
+then reports the failure. Requests use bounded concurrency and per-run cache
+queries; museum pagination/date matching are checked rather than silently
+publishing partial or wrong-day results.
+
 Curated updates require a person to verify the organizer's current price,
 hours and conditions, then update `verified`, `validUntil` and any changed
 fields. They automatically disappear if nobody reconfirms them. Routine feed
@@ -95,6 +150,7 @@ Run from repository root:
 python3 -m unittest discover -s tools/explore -p 'test_*.py'
 node tools/explore/test-model.cjs
 python3 tools/explore/build.py
+python3 tools/explore/build_movies.py
 ```
 
 UI changes require version bumps in `chat/index.html`; changes to that frame

@@ -4,7 +4,8 @@
 .explore-panel[hidden] { display: none; }
 .explore-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 14px 8px; }
 .explore-header h2 { margin: 0; font-size: 18px; }
-.explore-panel button, .explore-panel select { font: inherit; }
+.explore-panel button, .explore-panel select, .explore-panel input { font: inherit; }
+.explore-panel [data-for-layer][hidden] { display: none; }
 .explore-close { border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); width: 32px; height: 32px; cursor: pointer; }
 .explore-scroll { overflow-y: auto; padding: 0 14px 14px; min-height: 0; }
 .explore-layer { display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: pointer; }
@@ -14,13 +15,19 @@
 .explore-layer small { color: #52606d; font-size: 11px; margin-top: 2px; }
 .explore-filters { border: 0; margin: 12px 0 8px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .explore-filters label { display: grid; gap: 4px; font-size: 11px; font-weight: 700; }
-.explore-filters select { width: 100%; min-width: 0; padding: 7px 4px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); font-size: 12px; }
+.explore-filters select, .explore-filters input { box-sizing: border-box; width: 100%; min-width: 0; padding: 7px 4px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); font-size: 12px; }
+.explore-filters label { min-width: 0; }
 .explore-filters:disabled { opacity: .55; }
 .explore-filters [hidden] { display: none; }
 .explore-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: #52606d; margin: 8px 0; }
 .explore-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; background: #0067c5; }
 .explore-dot.activity { background: #087f70; }
 .explore-dot.offer { background: #9a4b00; }
+.explore-dot.movie { background: #7844a8; }
+.explore-result[data-kind="movie"] .explore-price { color: #7844a8; }
+.explore-showtimes { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.explore-showtimes a { padding: 6px 8px; border: 1px solid #d9c8ea; border-radius: 6px; color: #663697; font-size: 12px; text-decoration: none; }
+.explore-showtimes a:hover { background: #f2eafa; }
 .explore-note { font-size: 11px; line-height: 1.5; color: #52606d; margin: 8px 0; }
 .explore-results { list-style: none; padding: 0; margin: 0; }
 .explore-results li { border-top: 1px solid var(--line); }
