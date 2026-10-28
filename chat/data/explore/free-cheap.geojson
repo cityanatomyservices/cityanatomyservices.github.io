@@ -1,13 +1,13 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-28T16:47:36.450052+00:00",
+ "generated": "2026-10-28T16:51:44.356581+00:00",
  "sources": [
   {
    "name": "Austin Public Library",
    "url": "https://library.austintexas.gov/events-feed.xml",
-   "ok": true,
-   "failures": 0,
-   "count": 270
+   "ok": false,
+   "failures": 1,
+   "count": 264
   },
   {
    "name": "UT Austin",
@@ -1177,12 +1177,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -1990,12 +1990,12 @@
     "price": 15.0,
     "priceLabel": "$5 – 15",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -2774,12 +2774,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": true
    }
   },
@@ -3036,12 +3036,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -3066,12 +3066,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -4343,12 +4343,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -5127,12 +5127,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -5621,12 +5621,12 @@
     "price": 15.0,
     "priceLabel": "$5 – 15",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -6318,12 +6318,12 @@
     "price": 20.0,
     "priceLabel": "$10 – 20",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -6435,12 +6435,12 @@
     "price": 15.0,
     "priceLabel": "$5 – 15",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
@@ -7944,12 +7944,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-10-28T16:47:36.450052+00:00",
+    "checked": "2026-10-28T16:51:44.356581+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-10-29T16:47:36.450052+00:00",
+    "expires": "2026-10-29T16:51:44.356581+00:00",
     "endKnown": false
    }
   },
