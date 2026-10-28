@@ -184,6 +184,65 @@ deduplicated by performance, and venue pins combine shows at one location.
 Small ticket-page coordinate differences at an identical street address are
 consolidated to that address’s most frequently published coordinate.
 
+### Expanded Live Music coverage
+
+`tools/explore/music_sources.py` adds eleven venues to Antone’s, Meanwhile and
+UT's existing music listings. These adapters use Python's standard library,
+run in the existing three-hour workflow, and need no paid service, AI,
+account registration, owner API credentials, or browser automation:
+
+- [Saxon Pub](https://thesaxonpub.com/events/): its public WordPress Events
+  Calendar feed, including dated recurring instances, UTC start/end times and
+  bounded pagination. Records without a separate venue object belong to this
+  single-venue calendar; a conflicting venue fails the import.
+- [Continental Club and Gallery](https://continentalclub.com/austin) and
+  [C-Boy’s Heart & Soul](https://www.cboys.com/calendar): their embedded Timely
+  calendars, with a 14-day date range and verified venue IDs. Timely requires
+  the public widget's application header for anonymous reads; the importer
+  reads this configuration from Timely's published frontend bundle at runtime.
+  No private key is saved. A truncated result or unexpected venue fails that
+  source. Timely's `instant_event` flag means the end time is unknown, even
+  though the feed supplies a synthetic 23:59:59 boundary.
+- [Elephant Room](https://elephantroom.com/calendar) and
+  [Sam’s Town Point](https://www.samstownpointatx.com/calendar): Bandzoogle's
+  public upcoming-performance lists and their linked pagination. Yearless dates
+  resolve into the nearest adjacent year, then must pass the 14-day window.
+  Explicit show times in a title override a doors time in the calendar field.
+  Repeated pages, broken markup and unexpectedly large pagination fail safely.
+- [Mohawk](https://mohawkaustin.com/): its public Prekindle widget, using the
+  show time instead of `doorsTime`, available performances with a band lineup,
+  and a verified indoor/outdoor venue. Both stages share a map pin; the room
+  remains visible in event details. Ticket links use the venue's provider.
+- [Banger’s](https://www.bangersaustin.com/pages/event-calendar): the public
+  Events Calendar widget's dated Live Music entries. Artist names come from
+  those entries. Separate local date/hour fields supply the performance time;
+  the provider's midnight epoch fields are not show times.
+- [The White Horse](https://www.thewhitehorseaustin.com/): the public Google
+  calendar feed used by its embedded Events Calendar widget. The provider
+  expands recurrences and exceptions into explicit dated sets. Cover-charge
+  entries, dance lessons, private bookings and DJ-only entries are excluded.
+- [The ABGB](https://theabgb.com/events/): explicit dated calendar cards, with
+  published time ranges. Food specials, football, book signings, film screenings,
+  ambiguous all-day performances and doors-only ticket events are excluded.
+- [Sahara Lounge](https://www.saharalounge.com/shows/): its public Brown Bear
+  calendar for each month touched by the 14-day window. Only named sets with
+  an explicit am/pm time in the written lineup qualify. The generic calendar
+  time sometimes conflicts with the lineup and is not used. Ambiguous times,
+  buffet/opening entries, rehearsals and private events are omitted. Midnight
+  sets belong to the following date of the published evening lineup.
+
+Music source health appears only in Live Music. Each source replaces its own
+old listings on success and retains only unexpired records on failure, without
+renewing their checked/expiry timestamps. Cancelled and sold-out flags are
+honored where published; ticket availability and admission still require
+checking the organizer. Sources without individual event URLs link to their
+public calendar. Every source is free to read; coverage is not exhaustive.
+Skylark Lounge is not included because it
+[closed in April 2025](https://www.kut.org/austin/2025-12-18/austin-tx-businesses-restaurants-stores-local-closures-2025).
+Friends Bar's
+site had an expired TLS certificate during setup, and Half Step did not expose
+a usable dated calendar; neither is populated with guessed recurring shows.
+
 This is initial source coverage, not a complete citywide event directory.
 The sources' published schedules determine what appears in each category.
 Only factual titles, dates, venue information and links are republished.
