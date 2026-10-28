@@ -563,5 +563,13 @@
     ],
     "matchedAddress": "703 1/2 E 4TH ST, AUSTIN, TX, 78701",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=703+1%2F2+E+4th+St.+Austin+TX&benchmark=Public_AR_Current&format=json"
+  },
+  "2652 Lake Austin Blvd Austin TX": {
+    "coordinates": [
+      -97.775753950919,
+      30.281825189003
+    ],
+    "matchedAddress": "2652 LAKE AUSTIN BLVD, AUSTIN, TX, 78703",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2652+Lake+Austin+Blvd+Austin+TX&benchmark=Public_AR_Current&format=json"
   }
 }

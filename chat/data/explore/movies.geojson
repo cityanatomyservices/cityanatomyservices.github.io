@@ -1,12 +1,12 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-28T21:19:33.768390+00:00",
+ "generated": "2026-10-28T22:25:43.301560+00:00",
  "sources": [
   {
    "name": "Alamo Drafthouse",
    "url": "https://drafthouse.com/austin",
-   "ok": true,
-   "failures": 0,
+   "ok": false,
+   "failures": 1,
    "count": 437
   },
   {
@@ -21,93 +21,10 @@
    "url": "https://austin.violetcrown.com/cinema/",
    "ok": true,
    "failures": 0,
-   "count": 15
+   "count": 14
   }
  ],
  "features": [
-  {
-   "type": "Feature",
-   "id": "movie-20c42e37f81b194e9c0a",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-20c42e37f81b194e9c0a",
-    "title": "Invasion of the Body Snatchers",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-10-28T16:20:00-05:00",
-    "end": "2026-10-28T16:20:01-05:00",
-    "endKnown": false,
-    "day": "2026-10-28",
-    "expires": "2026-10-28T16:20:00-05:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
-    "url": "https://austin.violetcrown.com/movie/invasion-of-the-body-snatchers/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-10-28T16:20:00-05:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/invasion-of-the-body-snatchers/4083539/",
-      "format": ""
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-ef9ecc7e7a71c3111701",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-ef9ecc7e7a71c3111701",
-    "title": "Primetime",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-10-28T16:20:00-05:00",
-    "end": "2026-10-28T22:25:01-05:00",
-    "endKnown": false,
-    "day": "2026-10-28",
-    "expires": "2026-10-28T22:25:00-05:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
-    "url": "https://austin.violetcrown.com/movie/primetime/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-10-28T16:20:00-05:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/primetime/4178324/",
-      "format": ""
-     },
-     {
-      "start": "2026-10-28T22:25:00-05:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/primetime/4178321/",
-      "format": ""
-     }
-    ]
-   }
-  },
   {
    "type": "Feature",
    "id": "movie-eadc1aed6c064f413baf",
@@ -1031,7 +948,7 @@
     "endKnown": false,
     "day": "2026-10-28",
     "expires": "2026-10-28T22:10:00-05:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/wicker/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -1817,7 +1734,7 @@
     "endKnown": false,
     "day": "2026-10-28",
     "expires": "2026-10-28T21:00:00-05:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -1895,7 +1812,7 @@
     "endKnown": false,
     "day": "2026-10-28",
     "expires": "2026-10-28T21:55:00-05:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/digger/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2063,6 +1980,45 @@
       "start": "2026-10-28T22:20:00-05:00",
       "url": "https://drafthouse.com/austin/show/other-mommy",
       "format": "Digital"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "movie-ef9ecc7e7a71c3111701",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-ef9ecc7e7a71c3111701",
+    "title": "Primetime",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-10-28T22:25:00-05:00",
+    "end": "2026-10-28T22:25:01-05:00",
+    "endKnown": false,
+    "day": "2026-10-28",
+    "expires": "2026-10-28T22:25:00-05:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
+    "url": "https://austin.violetcrown.com/movie/primetime/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-10-28T22:25:00-05:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/primetime/4178321/",
+      "format": ""
      }
     ]
    }
@@ -2245,8 +2201,8 @@
     "end": "2026-10-29T22:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/wicker/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2427,8 +2383,8 @@
     "end": "2026-10-29T21:10:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2545,8 +2501,8 @@
     "end": "2026-10-29T22:15:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/primetime/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2737,8 +2693,8 @@
     "end": "2026-10-29T11:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -2938,8 +2894,8 @@
     "end": "2026-10-29T21:40:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/digger/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -3437,8 +3393,8 @@
     "end": "2026-10-29T12:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4119,8 +4075,8 @@
     "end": "2026-10-29T13:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4212,8 +4168,8 @@
     "end": "2026-10-29T14:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4364,8 +4320,8 @@
     "end": "2026-10-29T15:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/el-poder-del-caballo-3d-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4564,8 +4520,8 @@
     "end": "2026-10-29T16:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/cuerpos-humanos-202603/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4603,8 +4559,8 @@
     "end": "2026-10-29T16:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-29",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/the-only-living-pickpocket-in-new-york/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -5242,8 +5198,8 @@
     "end": "2026-10-30T22:15:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/wicker/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -5301,8 +5257,8 @@
     "end": "2026-10-30T21:10:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -5360,8 +5316,8 @@
     "end": "2026-10-30T19:15:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/the-only-living-pickpocket-in-new-york/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -5512,8 +5468,8 @@
     "end": "2026-10-30T11:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -6400,8 +6356,8 @@
     "end": "2026-10-30T12:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -6709,8 +6665,8 @@
     "end": "2026-10-30T21:30:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/primetime/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -6915,8 +6871,8 @@
     "end": "2026-10-30T21:45:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://austin.violetcrown.com/movie/digger/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -7185,8 +7141,8 @@
     "end": "2026-10-30T13:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7410,8 +7366,8 @@
     "end": "2026-10-30T14:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7493,8 +7449,8 @@
     "end": "2026-10-30T15:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/el-poder-del-caballo-3d-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7571,8 +7527,8 @@
     "end": "2026-10-30T16:00:01-05:00",
     "endKnown": false,
     "day": "2026-10-30",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/cuerpos-humanos-202603/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18454,8 +18410,8 @@
     "end": "2026-11-06T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-06",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18547,8 +18503,8 @@
     "end": "2026-11-06T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-06",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18689,8 +18645,8 @@
     "end": "2026-11-06T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-06",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18728,8 +18684,8 @@
     "end": "2026-11-06T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-06",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18767,8 +18723,8 @@
     "end": "2026-11-06T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-06",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19373,8 +19329,8 @@
     "end": "2026-11-07T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-07",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19505,8 +19461,8 @@
     "end": "2026-11-07T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-07",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19686,8 +19642,8 @@
     "end": "2026-11-07T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-07",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19764,8 +19720,8 @@
     "end": "2026-11-07T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-07",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19803,8 +19759,8 @@
     "end": "2026-11-07T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-07",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20409,8 +20365,8 @@
     "end": "2026-11-08T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20502,8 +20458,8 @@
     "end": "2026-11-08T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20761,8 +20717,8 @@
     "end": "2026-11-08T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20800,8 +20756,8 @@
     "end": "2026-11-08T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20917,8 +20873,8 @@
     "end": "2026-11-08T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -21523,8 +21479,8 @@
     "end": "2026-11-09T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -21621,8 +21577,8 @@
     "end": "2026-11-09T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -21714,8 +21670,8 @@
     "end": "2026-11-09T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -21753,8 +21709,8 @@
     "end": "2026-11-09T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -21792,8 +21748,8 @@
     "end": "2026-11-09T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -22212,8 +22168,8 @@
     "end": "2026-11-10T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -22310,8 +22266,8 @@
     "end": "2026-11-10T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -22403,8 +22359,8 @@
     "end": "2026-11-10T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -22442,8 +22398,8 @@
     "end": "2026-11-10T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -22481,8 +22437,8 @@
     "end": "2026-11-10T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-10-29T09:19:33.768390+00:00",
-    "checked": "2026-10-28T21:19:33.768390+00:00",
+    "expires": "2026-10-29T10:25:43.301560+00:00",
+    "checked": "2026-10-28T22:25:43.301560+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
