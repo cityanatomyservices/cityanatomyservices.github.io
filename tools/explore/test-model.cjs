@@ -40,3 +40,25 @@ assert.equal(M.venues(mixed).features[0].properties.label,'M');
 const unsafe = structuredClone(film);unsafe.properties.showtimes[1].url='javascript:alert(1)';
 assert.equal(M.filter([unsafe],opts,now).length,0);
 console.log('Movies: independent filters, grouped showtimes, expiry, safe links, search and theater types passed.');
+
+// New category and permanent-place behavior, including DST overnight windows.
+const park={type:'Feature',geometry:{type:'Point',coordinates:[-97.75,30.27]},properties:{id:'park',title:'Neighborhood Park',venue:'Neighborhood Park',kind:'park',theme:'parks',url:'https://www.austintexas.gov/parks',price:null}};
+for(const when of ['now','tonight','today','weekend','week']) {
+  assert.equal(M.filter([park],{...opts,when,price:0,kind:'offer',movieType:'imax'},now).length,1);
+}
+assert.equal(M.filter([park],{...opts,query:'neighborhood'},now).length,1);
+assert.equal(M.filter([park],{...opts,query:'missing'},now).length,0);
+assert.equal(M.filter([park],{...opts,where:'map',bounds:[-97.8,30.3,-97.7,30.4]},now).length,0);
+const concert=make('concert','2026-10-31T23:30:00Z','2026-11-01T07:30:00Z');
+Object.assign(concert.properties,{kind:'listing',theme:'live-music',price:null});
+assert.equal(M.filter([concert],{...opts,price:0,kind:'offer'},now).length,1);
+assert.equal(M.filter([concert],{...opts,when:'now'},now).length,0);
+assert.equal(M.filter([concert],{...opts,when:'now'},Date.parse('2026-10-31T22:00:00Z')).length,1);
+assert.equal(M.filter([concert],{...opts,when:'tonight'},now).length,1);
+assert.deepEqual(M.timeWindow('tonight',now).map(n=>new Date(n).toISOString()),['2026-10-31T23:00:00.000Z','2026-11-01T09:00:00.000Z']);
+assert.deepEqual(M.timeWindow('tonight',Date.parse('2026-11-01T07:00:00Z')),M.timeWindow('tonight',now),'after midnight stays with the same evening through the DST repeat');
+assert.deepEqual(M.timeWindow('tonight',Date.parse('2026-03-07T19:00:00Z')).map(n=>new Date(n).toISOString()),['2026-03-08T00:00:00.000Z','2026-03-08T08:00:00.000Z']);
+assert.equal(M.filter([film],{...opts,when:'now'},now).length,0,'movie sessions must actually start inside the selected window');
+assert.equal(M.filter([film],{...opts,when:'tonight'},now).length,1);
+assert.equal(M.filter([concert],{...opts,when:'tonight'},Date.parse(concert.properties.end)).length,0);
+console.log('New categories: parks ignore dates/prices but respect location/search; now, tonight, DST and movie time windows passed.');

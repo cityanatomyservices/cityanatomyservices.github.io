@@ -1,0 +1,133 @@
+{
+ "type": "FeatureCollection",
+ "generated": "2026-10-28T18:34:18.881877+00:00",
+ "sources": [
+  {
+   "name": "Fallout Theater",
+   "url": "https://falloutcomedy.com/comedy-shows/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Antone’s Nightclub",
+   "url": "https://antonesnightclub.com/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Meanwhile Brewing",
+   "url": "https://www.meanwhilebeer.com/events",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Austin Flea",
+   "url": "https://www.austinflea.net/",
+   "ok": true,
+   "failures": 0,
+   "count": 3
+  },
+  {
+   "name": "UT Austin",
+   "url": "https://calendar.utexas.edu/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  }
+ ],
+ "features": [
+  {
+   "type": "Feature",
+   "id": "f20c449a9468392e2c11",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.697349415859,
+     30.253824673849
+    ]
+   },
+   "properties": {
+    "id": "f20c449a9468392e2c11",
+    "title": "Austin Flea at Hi Sign Brewing",
+    "venue": "Hi Sign Brewing",
+    "address": "730 Shady Lane Austin TX",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-10-31T11:00:00-05:00",
+    "end": "2026-10-31T16:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austinflea.net/",
+    "source": "Austin Flea",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c212f700e7f0fd79dec0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7627502163,
+     30.215432743827
+    ]
+   },
+   "properties": {
+    "id": "c212f700e7f0fd79dec0",
+    "title": "Austin Flea at The Yard",
+    "venue": "The Yard",
+    "address": "440 E St Elmo Austin TX",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-07T12:00:00-06:00",
+    "end": "2026-11-07T17:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austinflea.net/",
+    "source": "Austin Flea",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6023ca9f9fbf9b90f48e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7397396769,
+     30.329122722113
+    ]
+   },
+   "properties": {
+    "id": "6023ca9f9fbf9b90f48e",
+    "title": "Austin Flea at Little Woodrows & Little Longhorn",
+    "venue": "Little Woodrows & Little Longhorn",
+    "address": "5425 Burnet Rd Austin TX",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-08T12:00:00-06:00",
+    "end": "2026-11-08T16:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austinflea.net/",
+    "source": "Austin Flea",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  }
+ ]
+}

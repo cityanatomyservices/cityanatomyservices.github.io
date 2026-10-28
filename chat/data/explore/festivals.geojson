@@ -1,0 +1,73 @@
+{
+ "type": "FeatureCollection",
+ "generated": "2026-10-28T18:34:18.881877+00:00",
+ "sources": [
+  {
+   "name": "Fallout Theater",
+   "url": "https://falloutcomedy.com/comedy-shows/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Antone’s Nightclub",
+   "url": "https://antonesnightclub.com/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Meanwhile Brewing",
+   "url": "https://www.meanwhilebeer.com/events",
+   "ok": true,
+   "failures": 0,
+   "count": 1
+  },
+  {
+   "name": "Austin Flea",
+   "url": "https://www.austinflea.net/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "UT Austin",
+   "url": "https://calendar.utexas.edu/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  }
+ ],
+ "features": [
+  {
+   "type": "Feature",
+   "id": "c50f75ec798d68fd03c0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "c50f75ec798d68fd03c0",
+    "title": "Halloween Carnival",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "festivals",
+    "start": "2026-10-31T12:00:00-05:00",
+    "end": "2026-10-31T12:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/halloween-carnival",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  }
+ ]
+}

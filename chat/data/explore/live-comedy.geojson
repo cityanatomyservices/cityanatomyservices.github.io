@@ -1,0 +1,583 @@
+{
+ "type": "FeatureCollection",
+ "generated": "2026-10-28T18:34:18.881877+00:00",
+ "sources": [
+  {
+   "name": "Fallout Theater",
+   "url": "https://falloutcomedy.com/comedy-shows/",
+   "ok": true,
+   "failures": 0,
+   "count": 18
+  },
+  {
+   "name": "Antone’s Nightclub",
+   "url": "https://antonesnightclub.com/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Meanwhile Brewing",
+   "url": "https://www.meanwhilebeer.com/events",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Austin Flea",
+   "url": "https://www.austinflea.net/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "UT Austin",
+   "url": "https://calendar.utexas.edu/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  }
+ ],
+ "features": [
+  {
+   "type": "Feature",
+   "id": "1d9d9f3d475fe6bf1e9f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "1d9d9f3d475fe6bf1e9f",
+    "title": "Hot Take: Come In Hot. Share Your Take",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-28T19:00:00-05:00",
+    "end": "2026-10-28T20:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T20:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/hot-take-come-in-hot-share-your-take-tickets-2002912569412",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "af7defbbd5f865a53d7b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "af7defbbd5f865a53d7b",
+    "title": "Teenage Dirtbag: Nostalgia Fueled Improv Comedy",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-28T20:30:00-05:00",
+    "end": "2026-10-28T21:30:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T21:30:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/teenage-dirtbag-nostalgia-fueled-improv-comedy-tickets-2003739227970",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0f96ba91e598f0b638db",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "0f96ba91e598f0b638db",
+    "title": "Welcome to Terror Terrace: A Halloween Variety Show",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-29T19:00:00-05:00",
+    "end": "2026-10-29T20:45:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/welcome-to-terror-terrace-a-halloween-variety-show-tickets-1999615103603",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5f71c4c63b6be2e9622f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "5f71c4c63b6be2e9622f",
+    "title": "Welcome to Terror Terrace: A Halloween Variety Show",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-29T21:00:00-05:00",
+    "end": "2026-10-29T22:45:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/welcome-to-terror-terrace-a-halloween-variety-show-tickets-1999615104606",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3a92b39efe6f5f837bad",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "3a92b39efe6f5f837bad",
+    "title": "Welcome to Terror Terrace: A Halloween Variety Show",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-30T19:00:00-05:00",
+    "end": "2026-10-30T20:45:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/welcome-to-terror-terrace-a-halloween-variety-show-tickets-1999615117645",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2f89580afa333b631402",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "2f89580afa333b631402",
+    "title": "Welcome to Terror Terrace: A Halloween Variety Show",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-30T21:00:00-05:00",
+    "end": "2026-10-30T22:45:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/welcome-to-terror-terrace-a-halloween-variety-show-tickets-1999615118648",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d1623c634fcda23e86d2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "d1623c634fcda23e86d2",
+    "title": "Cvnty Vampires…an improv show about the messiest immortals around",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-30T23:30:00-05:00",
+    "end": "2026-10-31T00:30:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/cvnty-vampiresan-improv-show-about-the-messiest-immortals-around-tickets-2002178594072",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ec781bcf4572b74a1ea8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "ec781bcf4572b74a1ea8",
+    "title": "Welcome to Terror Terrace: A Halloween Variety Show",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-31T19:00:00-05:00",
+    "end": "2026-10-31T20:45:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/welcome-to-terror-terrace-a-halloween-variety-show-tickets-1999615206912",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9cc5ef86aa0c1c7db435",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "9cc5ef86aa0c1c7db435",
+    "title": "Welcome to Terror Terrace: A Halloween Variety Show",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-10-31T21:00:00-05:00",
+    "end": "2026-10-31T22:45:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/welcome-to-terror-terrace-a-halloween-variety-show-tickets-1999615207915",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e78d21dc6dc19f6ebb70",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "e78d21dc6dc19f6ebb70",
+    "title": "Jane Austin Improv",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-01T18:00:00-06:00",
+    "end": "2026-11-01T19:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/jane-austin-improv-tickets-1991017167946",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "54cb00a7a5b070c21118",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "54cb00a7a5b070c21118",
+    "title": "Welcome to Terror Terrace: A Halloween Variety Show",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-01T19:30:00-06:00",
+    "end": "2026-11-01T21:15:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/welcome-to-terror-terrace-a-halloween-variety-show-tickets-1999615215939",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a7d661160e311bfd4eda",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "a7d661160e311bfd4eda",
+    "title": "Fuck This Week: A Comedic Exploration of Your Shit-Ass Week",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-02T20:00:00-06:00",
+    "end": "2026-11-02T21:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/fuck-this-week-a-comedic-exploration-of-your-shit-ass-week-tickets-1985217053648",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dadc25cc2f191dbaa119",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "dadc25cc2f191dbaa119",
+    "title": "Bomb Shelter: BYOB Open Mic",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-02T21:30:00-06:00",
+    "end": "2026-11-02T22:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/bomb-shelter-byob-open-mic-tickets-2001626674265",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f4b3d58b9119088f7c74",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "f4b3d58b9119088f7c74",
+    "title": "The Floor Is Lava: Explosive Sketch Comedy + Molten Hot Players!",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-03T20:30:00-06:00",
+    "end": "2026-11-03T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/the-floor-is-lava-explosive-sketch-comedy-molten-hot-players-tickets-2000992635839",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0f75b8d861a395182aad",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "0f75b8d861a395182aad",
+    "title": "Hot Take: Come In Hot. Share Your Take",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-04T19:00:00-06:00",
+    "end": "2026-11-04T20:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/hot-take-come-in-hot-share-your-take-tickets-2002912570415",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d6eb7588157d8ba6d753",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "d6eb7588157d8ba6d753",
+    "title": "ImproVintage",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-04T20:30:00-06:00",
+    "end": "2026-11-04T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/improvintage-tickets-1999044244147",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c41ccfd10e875a992115",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "c41ccfd10e875a992115",
+    "title": "Fuck This Week: A Comedic Exploration of Your Shit-Ass Week",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-09T20:00:00-06:00",
+    "end": "2026-11-09T21:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/fuck-this-week-a-comedic-exploration-of-your-shit-ass-week-tickets-1985217054651",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5dc20bfd98f836059f2d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.745193830841,
+     30.268923835691
+    ]
+   },
+   "properties": {
+    "id": "5dc20bfd98f836059f2d",
+    "title": "Bomb Shelter: BYOB Open Mic",
+    "venue": "Fallout Theater",
+    "address": "616 Lavaca St Austin TX",
+    "kind": "listing",
+    "theme": "live-comedy",
+    "start": "2026-11-09T21:30:00-06:00",
+    "end": "2026-11-09T22:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.eventbrite.com/e/bomb-shelter-byob-open-mic-tickets-2001626675268",
+    "source": "Fallout Theater",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  }
+ ]
+}

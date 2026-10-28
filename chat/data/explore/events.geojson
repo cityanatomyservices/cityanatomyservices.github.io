@@ -1,0 +1,4243 @@
+{
+ "type": "FeatureCollection",
+ "generated": "2026-10-28T18:34:18.881877+00:00",
+ "sources": [
+  {
+   "name": "Fallout Theater",
+   "url": "https://falloutcomedy.com/comedy-shows/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Antone’s Nightclub",
+   "url": "https://antonesnightclub.com/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Meanwhile Brewing",
+   "url": "https://www.meanwhilebeer.com/events",
+   "ok": true,
+   "failures": 0,
+   "count": 12
+  },
+  {
+   "name": "Austin Flea",
+   "url": "https://www.austinflea.net/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "UT Austin",
+   "url": "https://calendar.utexas.edu/",
+   "ok": true,
+   "failures": 0,
+   "count": 128
+  }
+ ],
+ "features": [
+  {
+   "type": "Feature",
+   "id": "15a2b1ba89725793222f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "15a2b1ba89725793222f",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T00:00:00-05:00",
+    "end": "2026-10-29T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T00:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8ec8ee5160456b18dc4e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "8ec8ee5160456b18dc4e",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T00:00:00-05:00",
+    "end": "2026-10-29T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T00:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "db20f1437a643b01d618",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "db20f1437a643b01d618",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T00:00:00-05:00",
+    "end": "2026-10-29T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T00:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3a058b0804331a7c3582",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "3a058b0804331a7c3582",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T00:00:00-05:00",
+    "end": "2026-10-29T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T00:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "68ba3bcd87ce033019fb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "68ba3bcd87ce033019fb",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T00:00:00-05:00",
+    "end": "2026-10-29T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T00:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "91034012c0a74593acf7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.726614,
+     30.387227
+    ]
+   },
+   "properties": {
+    "id": "91034012c0a74593acf7",
+    "title": "Viva La Vida with AT!",
+    "venue": "Commons Learning Center",
+    "address": "2901 Read Granberry Trail",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T07:00:00-05:00",
+    "end": "2026-10-28T16:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T16:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/viva-la-vida-with-at-5221",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "70ba46643e8243631fc4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737274,
+     30.283442
+    ]
+   },
+   "properties": {
+    "id": "70ba46643e8243631fc4",
+    "title": "AI Drop By",
+    "venue": "Perry-Castañeda Library (PCL)",
+    "address": "101 East 21st Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T12:00:00-05:00",
+    "end": "2026-10-28T14:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T14:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/ai-drop-by-3789",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2567bf0cf8a64cfca0fa",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737274,
+     30.283442
+    ]
+   },
+   "properties": {
+    "id": "2567bf0cf8a64cfca0fa",
+    "title": "From Notes to Print: A Panel Discussion on Research, Writing, and AI",
+    "venue": "Perry-Castañeda Library (PCL)",
+    "address": "101 East 21st Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T14:30:00-05:00",
+    "end": "2026-10-28T15:45:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T15:45:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/from-notes-to-print-a-panel-discussion-on-research-writing-and-ai",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0918a32df47c0f56aae5",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "0918a32df47c0f56aae5",
+    "title": "Artist Talk: Saif Azzuz",
+    "venue": "Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T15:30:00-05:00",
+    "end": "2026-10-28T15:30:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T15:30:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/artist-talk-saif-azzuz",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1b4a2a25eed6a66e6ce8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "1b4a2a25eed6a66e6ce8",
+    "title": "Visiting Artists Program: Talk by Saif Azzuz",
+    "venue": "Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T15:30:00-05:00",
+    "end": "2026-10-28T15:30:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T15:30:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/visiting-artists-program-talk-by-saif-azzuz-316",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b1870ad5f698fec38bd9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "b1870ad5f698fec38bd9",
+    "title": "Halloween Dog Pawrty & Costume Contest",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T18:00:00-05:00",
+    "end": "2026-10-28T18:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T18:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/halloween-dog-pawrty-costume-contest",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6d4d96f452b22f724363",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "6d4d96f452b22f724363",
+    "title": "Ticketed Class: Halloween Pet Tarot Cards with Carlie Arts",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-28T18:00:00-05:00",
+    "end": "2026-10-28T18:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T18:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/ticketed-class-halloween-pet-tarot-cards-with-carlie-arts",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6afcdb81b0db1104862f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "6afcdb81b0db1104862f",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T00:00:00-05:00",
+    "end": "2026-10-30T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2c32ee3a871693d76441",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "2c32ee3a871693d76441",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T00:00:00-05:00",
+    "end": "2026-10-30T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "51eeb4e8eea6affa7fb1",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "51eeb4e8eea6affa7fb1",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T00:00:00-05:00",
+    "end": "2026-10-30T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e836ad11a56f0d5bc737",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "e836ad11a56f0d5bc737",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T00:00:00-05:00",
+    "end": "2026-10-30T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "439e0d10321d26204869",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "439e0d10321d26204869",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T00:00:00-05:00",
+    "end": "2026-10-30T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6729f979ada2ac8ad16c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "6729f979ada2ac8ad16c",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T00:00:00-05:00",
+    "end": "2026-10-30T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0dfe6c2c2ec2b0fa925a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.726614,
+     30.387227
+    ]
+   },
+   "properties": {
+    "id": "0dfe6c2c2ec2b0fa925a",
+    "title": "Viva La Vida with AT!",
+    "venue": "Commons Learning Center",
+    "address": "2901 Read Granberry Trail",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T07:00:00-05:00",
+    "end": "2026-10-29T16:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/viva-la-vida-with-at-5221",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5136254ad984a12d5f8e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "5136254ad984a12d5f8e",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T09:00:00-05:00",
+    "end": "2026-10-29T09:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T09:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e29a8eb5acdaf8d9230e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737274,
+     30.283442
+    ]
+   },
+   "properties": {
+    "id": "e29a8eb5acdaf8d9230e",
+    "title": "Legal Professionals in a Confucian Society: The Qing Juridical Field in Late Imperial China 2026 Taiwan Lectures on Chinese Studies by Prof. Li Chen, University of Toronto",
+    "venue": "Perry-Castañeda Library (PCL)",
+    "address": "101 East 21st Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T14:00:00-05:00",
+    "end": "2026-10-29T15:30:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/legal-professionals-in-a-confucian-society-the-qing-juridical-field-in-late-imperial-china-2026-taiwan-lectures-on-chinese-studies-by-prof-li-chen-university-of-toronto",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bd107848391bcac6104a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "bd107848391bcac6104a",
+    "title": "Closing Reception for \"Texas to Chile: Dave Oliphant across the poetic bridge\" Exhibition",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T16:00:00-05:00",
+    "end": "2026-10-29T17:30:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/closing-reception-for-texas-to-chile-dave-oliphant-across-the-poetic-bridge-exhibition",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5cc73c79e5713179a83c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "5cc73c79e5713179a83c",
+    "title": "Arts & Craft Night: Sip & Paint",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T18:00:00-05:00",
+    "end": "2026-10-29T18:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/arts-craft-night-sip-paint-9",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1a902a6492672a0855a7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.729128,
+     30.285793
+    ]
+   },
+   "properties": {
+    "id": "1a902a6492672a0855a7",
+    "title": "UT Austin Fall 2026 Liz Carpenter Lecture with Eddie S. Glaude",
+    "venue": "LBJ Auditorium",
+    "address": "2313 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T18:00:00-05:00",
+    "end": "2026-10-29T19:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/ut-austin-fall-2026-liz-carpenter-lecture-with-eddie-s-glaude",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c23be83b1c38be6ff655",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "c23be83b1c38be6ff655",
+    "title": "Ali Wong",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-29T19:00:00-05:00",
+    "end": "2026-10-29T19:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/ali-wong",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3ad57ce7f34817cb1ae9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "3ad57ce7f34817cb1ae9",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T00:00:00-05:00",
+    "end": "2026-10-31T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ac6c2b5a05b85236d325",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "ac6c2b5a05b85236d325",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T00:00:00-05:00",
+    "end": "2026-10-31T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8804d9b45ac248e5b211",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "8804d9b45ac248e5b211",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T00:00:00-05:00",
+    "end": "2026-10-31T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dcfbbb76afe0a9d77d77",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "dcfbbb76afe0a9d77d77",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T00:00:00-05:00",
+    "end": "2026-10-31T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f0dc8cd3630ee3c1cb80",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "f0dc8cd3630ee3c1cb80",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T00:00:00-05:00",
+    "end": "2026-10-31T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "42942462958bb90b6557",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "42942462958bb90b6557",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T00:00:00-05:00",
+    "end": "2026-10-31T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "92314ec07655034ccc71",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.733521,
+     30.278486
+    ]
+   },
+   "properties": {
+    "id": "92314ec07655034ccc71",
+    "title": "AHA BLS Provider and Heartsaver First Aid (Dual Certificates)",
+    "venue": "Nursing School (NUR)",
+    "address": "1710 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T08:30:00-05:00",
+    "end": "2026-10-30T15:30:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/aha-bls-provider-and-heartsaver-first-aid-dual-certificates-5381",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9e589272534908d436c5",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "9e589272534908d436c5",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T09:00:00-05:00",
+    "end": "2026-10-30T09:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "548f853fa89741be6871",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "548f853fa89741be6871",
+    "title": "Volleyball Open Free Play",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-30T19:00:00-05:00",
+    "end": "2026-10-30T19:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/volleyball-open-free-play-69",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "4f223de7c60487f93bce",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "4f223de7c60487f93bce",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T00:00:00-05:00",
+    "end": "2026-11-01T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7ba0904b67431fff308e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "7ba0904b67431fff308e",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T00:00:00-05:00",
+    "end": "2026-11-01T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "532c890b727cebe26818",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "532c890b727cebe26818",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T00:00:00-05:00",
+    "end": "2026-11-01T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c0c3f31980d431b4da97",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "c0c3f31980d431b4da97",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T00:00:00-05:00",
+    "end": "2026-11-01T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f9e9fc99b1a25021b134",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "f9e9fc99b1a25021b134",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T00:00:00-05:00",
+    "end": "2026-11-01T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1a767c507ac3c6054c40",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "1a767c507ac3c6054c40",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T00:00:00-05:00",
+    "end": "2026-11-01T00:00:00-05:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f6f76c60246c2329bb5f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "f6f76c60246c2329bb5f",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-10-31T09:00:00-05:00",
+    "end": "2026-10-31T09:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c156f1bc81613b8f5662",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "c156f1bc81613b8f5662",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T00:00:00-05:00",
+    "end": "2026-11-02T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7bcdfa32a2a39af492f9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "7bcdfa32a2a39af492f9",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T00:00:00-05:00",
+    "end": "2026-11-02T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "43836a30384768d660db",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "43836a30384768d660db",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T00:00:00-05:00",
+    "end": "2026-11-02T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d88866e867fb848b9482",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "d88866e867fb848b9482",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T00:00:00-05:00",
+    "end": "2026-11-02T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7ed3aac71863c8cb224c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "7ed3aac71863c8cb224c",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T00:00:00-05:00",
+    "end": "2026-11-02T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f7751a148d53e5ad0b0c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "f7751a148d53e5ad0b0c",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T00:00:00-05:00",
+    "end": "2026-11-02T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a8e0559dbd9cd1a5d8a0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "a8e0559dbd9cd1a5d8a0",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T09:00:00-06:00",
+    "end": "2026-11-01T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f9f28002a22185e3221e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "f9f28002a22185e3221e",
+    "title": "Sunday Yoga with Practice Yoga Austin",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T10:00:00-06:00",
+    "end": "2026-11-01T10:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/sunday-yoga-with-practice-yoga-austin-8",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f86339d3cc77d4b968c4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732366,
+     30.286992
+    ]
+   },
+   "properties": {
+    "id": "f86339d3cc77d4b968c4",
+    "title": "Día de los Huesos (Day of the Bones)",
+    "venue": "Texas Science & Natural History Museum",
+    "address": "2400 Trinity Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-01T13:00:00-06:00",
+    "end": "2026-11-01T17:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/dia-de-los-huesos-day-of-the-bones",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c35ef10406cf4a0ce524",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "c35ef10406cf4a0ce524",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T00:00:00-06:00",
+    "end": "2026-11-03T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dc531a73d30906a726f5",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "dc531a73d30906a726f5",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T00:00:00-06:00",
+    "end": "2026-11-03T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "042fe43f68f5e0625ba2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "042fe43f68f5e0625ba2",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T00:00:00-06:00",
+    "end": "2026-11-03T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9cb4b1edd2055b045427",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "9cb4b1edd2055b045427",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T00:00:00-06:00",
+    "end": "2026-11-03T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bc4bfcd4d9cc5db5240d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "bc4bfcd4d9cc5db5240d",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T00:00:00-06:00",
+    "end": "2026-11-03T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "cda6d1e722768ce08578",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "cda6d1e722768ce08578",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T00:00:00-06:00",
+    "end": "2026-11-03T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "110dfb3e8aeecc634799",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "110dfb3e8aeecc634799",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T09:00:00-06:00",
+    "end": "2026-11-02T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "80f2ed7f601af117bc74",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "80f2ed7f601af117bc74",
+    "title": "Ticketed Event: Plant Bingo with The Social Greenhouse",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-02T19:00:00-06:00",
+    "end": "2026-11-02T19:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/ticketed-event-plant-bingo-with-the-social-greenhouse",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5354e59458de00b55e6b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "5354e59458de00b55e6b",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T00:00:00-06:00",
+    "end": "2026-11-04T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2485dce2927329a95a56",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "2485dce2927329a95a56",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T00:00:00-06:00",
+    "end": "2026-11-04T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f3948ee091a613e6a0a9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "f3948ee091a613e6a0a9",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T00:00:00-06:00",
+    "end": "2026-11-04T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "572a56b2955519d486c5",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "572a56b2955519d486c5",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T00:00:00-06:00",
+    "end": "2026-11-04T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b53c3495ed99ce4a1db2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "b53c3495ed99ce4a1db2",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T00:00:00-06:00",
+    "end": "2026-11-04T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2a3286dfeb15989e2414",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "2a3286dfeb15989e2414",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T00:00:00-06:00",
+    "end": "2026-11-04T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3be17fdee594d050f2b2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737274,
+     30.283442
+    ]
+   },
+   "properties": {
+    "id": "3be17fdee594d050f2b2",
+    "title": "Lorraine J. Haricombe Distinguished Speaker Series: Disruptions in the Global Scientific Ecosystem with Cassidy R. Sugimoto",
+    "venue": "Perry-Castañeda Library (PCL)",
+    "address": "101 East 21st Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T00:00:00-06:00",
+    "end": "2026-11-03T02:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/lorraine-j-haricombe-distinguished-speaker-series-disruptions-in-the-global-scientific-ecosystem-with-cassidy-r-sugimoto",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b7ba278382e16ffac17b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "b7ba278382e16ffac17b",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T09:00:00-06:00",
+    "end": "2026-11-03T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0e1a658fbc25c49107bc",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.728504,
+     30.285707
+    ]
+   },
+   "properties": {
+    "id": "0e1a658fbc25c49107bc",
+    "title": "Allies at War: How the Struggles Between the Allied Powers Shaped the War and the World",
+    "venue": "LBJ School of Public Affairs, Bass Lecture Hall",
+    "address": "2315 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T12:15:00-06:00",
+    "end": "2026-11-03T13:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/allies-at-war-how-the-struggles-between-the-allied-powers-shaped-the-war-and-the-world",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8fef9be32a08bd5b740a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73515,
+     30.288012
+    ]
+   },
+   "properties": {
+    "id": "8fef9be32a08bd5b740a",
+    "title": "UT Energy Symposium: I, Widget: Why It’s Nearly Impossible to Trace Physical Flows Through the U.S. Economy, And What That Means for Industrial Energy Modeling",
+    "venue": "Engineering Education and Research Center (EER)",
+    "address": "2501 Speedway",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T12:30:00-06:00",
+    "end": "2026-11-03T13:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/ut-energy-symposium-i-widget-why-its-nearly-impossible-to-trace-physical-flows-through-the-us-economy-and-what-that-means-for-industrial-energy-modeling",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2c3e1f5111d463d766c2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "2c3e1f5111d463d766c2",
+    "title": "A Beautiful Noise",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T19:30:00-06:00",
+    "end": "2026-11-03T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ae2485226d0cae2f2ba4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740108,
+     30.284902
+    ]
+   },
+   "properties": {
+    "id": "ae2485226d0cae2f2ba4",
+    "title": "Musical Theatre Workshop",
+    "venue": "Jessen Auditorium, Homer Rainey Hall (HRH)",
+    "address": "200 West 21st Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T19:30:00-06:00",
+    "end": "2026-11-03T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/musical-theatre-workshop-2317",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2cc18a0a87c4e36f0b19",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "2cc18a0a87c4e36f0b19",
+    "title": "Tuesday Trivia",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-03T20:00:00-06:00",
+    "end": "2026-11-03T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/tuesday-trivia-90",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2ecfdec31343a70975d6",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "2ecfdec31343a70975d6",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T00:00:00-06:00",
+    "end": "2026-11-05T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6e43b22286862bde6c12",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "6e43b22286862bde6c12",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T00:00:00-06:00",
+    "end": "2026-11-05T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "4ef56ef5774c567744d3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "4ef56ef5774c567744d3",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T00:00:00-06:00",
+    "end": "2026-11-05T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2ff0acacf6459d916da0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "2ff0acacf6459d916da0",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T00:00:00-06:00",
+    "end": "2026-11-05T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0b9bcb5a25ae9c5190fc",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "0b9bcb5a25ae9c5190fc",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T00:00:00-06:00",
+    "end": "2026-11-05T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ebcb632c70915b216805",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "ebcb632c70915b216805",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T00:00:00-06:00",
+    "end": "2026-11-05T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "42c68550415d5b91fa91",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "42c68550415d5b91fa91",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T09:00:00-06:00",
+    "end": "2026-11-04T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8f937d45f24cb2f157cd",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.728556,
+     30.285805
+    ]
+   },
+   "properties": {
+    "id": "8f937d45f24cb2f157cd",
+    "title": "Fight Like a Machine: The Combat Future of the Human Body",
+    "venue": "LBJ School of Public Affairs",
+    "address": "2315 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T12:15:00-06:00",
+    "end": "2026-11-04T13:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fight-like-a-machine-the-combat-future-of-the-human-body",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "17b4fb0a90a51eaf80d4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738644,
+     30.286205
+    ]
+   },
+   "properties": {
+    "id": "17b4fb0a90a51eaf80d4",
+    "title": "Taking Pictures in Postwar Japan (1945-1955)- a talk with Dr. Emily Cole, UT Tyler",
+    "venue": "Will C. Hogg Building (WCH)",
+    "address": "120 Inner Campus Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T13:00:00-06:00",
+    "end": "2026-11-04T14:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/taking-pictures-in-postwar-japan-1945-1955-a-talk-with-dr-emily-cole-ut-tyler",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0b77e24cc2df5c2ef9a8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "0b77e24cc2df5c2ef9a8",
+    "title": "A Beautiful Noise",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-04T19:30:00-06:00",
+    "end": "2026-11-04T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2bf4fa0b318dfce7865d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "2bf4fa0b318dfce7865d",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T00:00:00-06:00",
+    "end": "2026-11-06T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f7632d4ea3e45f7c2456",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "f7632d4ea3e45f7c2456",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T00:00:00-06:00",
+    "end": "2026-11-06T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "71fb0ce8979a03471b1f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "71fb0ce8979a03471b1f",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T00:00:00-06:00",
+    "end": "2026-11-06T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "16afbec72172136bdbdb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "16afbec72172136bdbdb",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T00:00:00-06:00",
+    "end": "2026-11-06T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fb209f7ff52bf5f57105",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "fb209f7ff52bf5f57105",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T00:00:00-06:00",
+    "end": "2026-11-06T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d7aecc330f9d7d0fa7a9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "d7aecc330f9d7d0fa7a9",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T00:00:00-06:00",
+    "end": "2026-11-06T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d4cb930fc88acba096b7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "d4cb930fc88acba096b7",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T09:00:00-06:00",
+    "end": "2026-11-05T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "4842b836d9929f0fc810",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "4842b836d9929f0fc810",
+    "title": "Noire Presents: Eras of Elegance Magazine Release Party",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T18:00:00-06:00",
+    "end": "2026-11-05T18:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/noire-presents-eras-of-elegance-magazine-release-party-8233",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c5e5cea07661df125d67",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "c5e5cea07661df125d67",
+    "title": "A Beautiful Noise",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T19:30:00-06:00",
+    "end": "2026-11-05T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c745a2d8700b14b2f96d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "c745a2d8700b14b2f96d",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T00:00:00-06:00",
+    "end": "2026-11-07T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9b112f1020314c421c4a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "9b112f1020314c421c4a",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T00:00:00-06:00",
+    "end": "2026-11-07T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "835240798db93aae50d1",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "835240798db93aae50d1",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T00:00:00-06:00",
+    "end": "2026-11-07T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "395285950db783040b3d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "395285950db783040b3d",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T00:00:00-06:00",
+    "end": "2026-11-07T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "17f758bd86a7e69f8c09",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "17f758bd86a7e69f8c09",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T00:00:00-06:00",
+    "end": "2026-11-07T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "78b6dff39e36752ae646",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "78b6dff39e36752ae646",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T00:00:00-06:00",
+    "end": "2026-11-07T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "551be160ca35662eaa8a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "551be160ca35662eaa8a",
+    "title": "6 Year Anniversary: Day One",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T08:00:00-06:00",
+    "end": "2026-11-06T08:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/6-year-anniversary-day-one",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7ae0ac655213a99c05e3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "7ae0ac655213a99c05e3",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T09:00:00-06:00",
+    "end": "2026-11-06T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f1fef25b9fb06a8a0446",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.733521,
+     30.278486
+    ]
+   },
+   "properties": {
+    "id": "f1fef25b9fb06a8a0446",
+    "title": "AHA BLS Provider (CPR) Certification Renewal",
+    "venue": "Nursing School (NUR)",
+    "address": "1710 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T14:30:00-06:00",
+    "end": "2026-11-06T17:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/aha-bls-provider-cpr-certification-renewal-5409",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7e2fb890bf52064c2b08",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "7e2fb890bf52064c2b08",
+    "title": "Free Brewery Tour (4pm)",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T16:00:00-06:00",
+    "end": "2026-11-06T16:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/guided-brewery-tour-6",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "70d9eeab629c2f5ba4a8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "70d9eeab629c2f5ba4a8",
+    "title": "Free Brewery Tour (5pm)",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T17:00:00-06:00",
+    "end": "2026-11-06T17:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/guided-brewery-tour-5",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3d55331972759e8ab816",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "3d55331972759e8ab816",
+    "title": "Girl Dinner - A Guided Cheese & Beer Dinner with Antonelli's & Meanwhile (Ticketed)",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T18:30:00-06:00",
+    "end": "2026-11-06T18:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/ticketed-event-girl-dinner---a-guided-cheese-beer-dinner-with-antonellis-meanwhile",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a0183a3ab4fb44de1709",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730682,
+     30.286623
+    ]
+   },
+   "properties": {
+    "id": "a0183a3ab4fb44de1709",
+    "title": "Motherhood, An Artist Lecture By Suzanne Bocanegra",
+    "venue": "McCullough Theatre, Performing Arts Center (PAC)",
+    "address": "2375 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T19:30:00-06:00",
+    "end": "2026-11-06T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/motherhood-an-artist-lecture-by-suzanne-bocanegra",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7a3fec80ef6cf227c54c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "7a3fec80ef6cf227c54c",
+    "title": "A Beautiful Noise",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T20:00:00-06:00",
+    "end": "2026-11-06T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d8d0a9c4ed68e2f3fc10",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "d8d0a9c4ed68e2f3fc10",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T00:00:00-06:00",
+    "end": "2026-11-08T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "27e2f0228d45ea1da9d4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "27e2f0228d45ea1da9d4",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T00:00:00-06:00",
+    "end": "2026-11-08T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f6ea84aecd3f6dcae6b7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "f6ea84aecd3f6dcae6b7",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T00:00:00-06:00",
+    "end": "2026-11-08T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "490533f9624b2110f2a8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "490533f9624b2110f2a8",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T00:00:00-06:00",
+    "end": "2026-11-08T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d6b6145257bf0329ec93",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "d6b6145257bf0329ec93",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T00:00:00-06:00",
+    "end": "2026-11-08T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "83b5b080964e583e1b60",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "83b5b080964e583e1b60",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T00:00:00-06:00",
+    "end": "2026-11-08T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "68f5cd03bd7455f27f3a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "68f5cd03bd7455f27f3a",
+    "title": "Anniversary Volleyball Tournament",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T08:00:00-06:00",
+    "end": "2026-11-07T08:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/anniversary-volleyball-tournament",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bd148f323724e8afc74e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "bd148f323724e8afc74e",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a913f279a6e3fbd91055",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "a913f279a6e3fbd91055",
+    "title": "A Beautiful Noise",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T14:00:00-06:00",
+    "end": "2026-11-07T14:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1bf002cf0e72e7b5fa22",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730637,
+     30.287403
+    ]
+   },
+   "properties": {
+    "id": "1bf002cf0e72e7b5fa22",
+    "title": "Miró Quartet",
+    "venue": "Bates Recital Hall, Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T19:30:00-06:00",
+    "end": "2026-11-07T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/miro-quartet-306",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "61238ec15f5c1455ca3b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730682,
+     30.286623
+    ]
+   },
+   "properties": {
+    "id": "61238ec15f5c1455ca3b",
+    "title": "Motherhood, An Artist Lecture By Suzanne Bocanegra",
+    "venue": "McCullough Theatre, Performing Arts Center (PAC)",
+    "address": "2375 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T19:30:00-06:00",
+    "end": "2026-11-07T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/motherhood-an-artist-lecture-by-suzanne-bocanegra",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "088ec5bdceb9f60d741a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "088ec5bdceb9f60d741a",
+    "title": "A Beautiful Noise",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T20:00:00-06:00",
+    "end": "2026-11-07T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "073d0779baa01c74ad42",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "073d0779baa01c74ad42",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T00:00:00-06:00",
+    "end": "2026-11-09T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "32d93c3e2bd2c491a2a6",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "32d93c3e2bd2c491a2a6",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T00:00:00-06:00",
+    "end": "2026-11-09T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3082c03cc51f12d042a2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "3082c03cc51f12d042a2",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T00:00:00-06:00",
+    "end": "2026-11-09T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2807d50ca286f1d6ba0a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "2807d50ca286f1d6ba0a",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T00:00:00-06:00",
+    "end": "2026-11-09T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3420775cbb82ddc1fc57",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "3420775cbb82ddc1fc57",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T00:00:00-06:00",
+    "end": "2026-11-09T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e3ca54190638a1d427c4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.734467,
+     30.285898
+    ]
+   },
+   "properties": {
+    "id": "e3ca54190638a1d427c4",
+    "title": "The Visit",
+    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
+    "address": "305 East 23rd Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T00:00:00-06:00",
+    "end": "2026-11-09T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/the-visit",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "013d8cbe8252a2897530",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "013d8cbe8252a2897530",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T09:00:00-06:00",
+    "end": "2026-11-08T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "02971ec7d39b45df1080",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "02971ec7d39b45df1080",
+    "title": "A Beautiful Noise",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T13:00:00-06:00",
+    "end": "2026-11-08T13:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9a5d9ee9f8ed08e94654",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73098,
+     30.285816
+    ]
+   },
+   "properties": {
+    "id": "9a5d9ee9f8ed08e94654",
+    "title": "A Beautiful Noise",
+    "venue": "Bass Concert Hall, Performing Arts Center (PAC)",
+    "address": "2322-2380 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-08T18:30:00-06:00",
+    "end": "2026-11-08T18:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/a-beautiful-noise",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0f076ae2ba137b53ca33",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "0f076ae2ba137b53ca33",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T00:00:00-06:00",
+    "end": "2026-11-10T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b667efcdbb321f569b0c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "b667efcdbb321f569b0c",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T00:00:00-06:00",
+    "end": "2026-11-10T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "385c47788739ed883afc",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "385c47788739ed883afc",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T00:00:00-06:00",
+    "end": "2026-11-10T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e4a288150f3b8f101e76",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "e4a288150f3b8f101e76",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T00:00:00-06:00",
+    "end": "2026-11-10T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "751e47b18ee42b273d7b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "751e47b18ee42b273d7b",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T00:00:00-06:00",
+    "end": "2026-11-10T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d9f12f20306d7487c290",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "d9f12f20306d7487c290",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T09:00:00-06:00",
+    "end": "2026-11-09T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "04e862c937e7ed380549",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "04e862c937e7ed380549",
+    "title": "Adraint Bereal: As It Appears",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T00:00:00-06:00",
+    "end": "2026-11-11T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bddbef31a6c2eedddd3b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "bddbef31a6c2eedddd3b",
+    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T00:00:00-06:00",
+    "end": "2026-11-11T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d184142e625198abf142",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "d184142e625198abf142",
+    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T00:00:00-06:00",
+    "end": "2026-11-11T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fa6c9ca2e763ee4a44bf",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.732996,
+     30.286256
+    ]
+   },
+   "properties": {
+    "id": "fa6c9ca2e763ee4a44bf",
+    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
+    "venue": "Visual Arts Center, Art Building (ART)",
+    "address": "2301 San Jacinto Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T00:00:00-06:00",
+    "end": "2026-11-11T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d915eb33f2b6cfaff23a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "d915eb33f2b6cfaff23a",
+    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T00:00:00-06:00",
+    "end": "2026-11-11T00:00:00-06:00",
+    "endKnown": true,
+    "allDay": true,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "731e79f34fe9bad551ad",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727669,
+     30.284239
+    ]
+   },
+   "properties": {
+    "id": "731e79f34fe9bad551ad",
+    "title": "Comics and Zines: Staff Picks from the Benson Collection",
+    "venue": "Benson Latin American Collection",
+    "address": "2300 Red River Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T09:00:00-06:00",
+    "end": "2026-11-10T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/comics-and-zines-staff-picks-from-the-benson-collection",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c2922431384fd5c48530",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737274,
+     30.283442
+    ]
+   },
+   "properties": {
+    "id": "c2922431384fd5c48530",
+    "title": "Digital Scholars in Practice: Musics of Latin America OER Textbook Initiative",
+    "venue": "Perry-Castañeda Library (PCL)",
+    "address": "101 East 21st Street",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T14:00:00-06:00",
+    "end": "2026-11-10T15:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/digital-scholars-in-practice-musics-of-latin-america-oer-textbook-initiative",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d76bf21827dd083a7d2f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737297,
+     30.284765
+    ]
+   },
+   "properties": {
+    "id": "d76bf21827dd083a7d2f",
+    "title": "Sunset Reset",
+    "venue": "Skyspace, Student Activity Center (SAC)",
+    "address": "2201 Speedway",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T17:09:00-06:00",
+    "end": "2026-11-10T17:09:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/sunset-reset-6440",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c036a45880ef70e5b7b9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.741225,
+     30.281863
+    ]
+   },
+   "properties": {
+    "id": "c036a45880ef70e5b7b9",
+    "title": "Longhorns in Sustainability: A Career Panel",
+    "venue": "Robert B. Rowling Hall (RRH)",
+    "address": "300 West Martin Luther King Junior Boulevard",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T17:30:00-06:00",
+    "end": "2026-11-10T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/longhorns-in-sustainability-a-career-panel-5580",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  }
+ ]
+}

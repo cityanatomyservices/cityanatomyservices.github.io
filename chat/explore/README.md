@@ -1,8 +1,10 @@
 # Explore Austin — main-map layers
 
 The main page loads the chat map. Its **Explore** button (top right) opens a
-shared layer menu. Free & cheap starts on; Movies starts off. Either, both or
-neither can be selected, and the combined map/list updates immediately. Layer
+tile menu with Free & cheap, Movies, Live Music, Live Comedy, Pop up markets,
+Festivals, Events and Parks. Free & cheap starts on; all other categories start
+off. Any combination can be selected, and the combined map/list updates
+immediately. Layer
 choices and filters are remembered locally. Nothing in Explore changes chat
 identity, rooms, visibility or presence. Near me requests a location only when
 selected, keeps coordinates in memory and does not send them to the server.
@@ -10,7 +12,7 @@ selected, keeps coordinates in memory and does not send them to the server.
 ## Files and adding layers
 
 - `config.js`: layer registry. Add a title, description, stable ID and GeoJSON
-  URL to register another dated-events/activities layer in the same menu.
+  URL to register another event or place layer in the same menu.
 - `model.js`: pure date, cost, distance, viewport and expiration filtering.
   Dates use America/Chicago even if a visitor's computer uses another zone.
 - `explore.js` / `explore.css`: menu, remembered filters, event list, map
@@ -27,8 +29,10 @@ GeoJSON point properties: `id`, `title`, `url`, `venue`, `address`, `start`,
 `end`, `price` (number in USD; known admission price), `priceLabel`, `kind`
 (`event` / `activity` / `offer`), `source`, `checked`, `expires`, optional
 `description`, `conditions`, `allDay`, `endKnown`. IDs distinguish occurrences.
-The current menu supports dated layers; an always-available places layer would
-need its own time-filter behavior instead of inventing event dates.
+Organizer listings use `kind: listing`, a category `theme`, and `price: null`
+when admission is unknown. Parks use `kind: park`, `theme: parks`, and have no
+start, end or expiry dates. Parks ignore time and price controls but still
+respect the shared name/location filters.
 
 Movies use `kind: movie`, `price: null` (never assumed free), `tags` (`imax` or
 `dine-in`), and a `showtimes` array of `{start, url, format}`. Each feature is one
@@ -39,14 +43,19 @@ boundary, not a claim about runtime. It is never displayed as an end time.
 Movie pins/clusters are purple. Counts represent film/day listings, not seats
 or individual showtimes. Popups and list update together as screenings expire.
 
-Date/location filters affect both layers. Price/type controls explicitly apply
-only to Free & cheap. Movies has its own theater-type selector and title/theater
-search. This prevents unknown ticket prices or a saved activity-only selection
-from making Movies silently disappear when enabled. Settings remain local.
+Date/location filters affect all dated categories. Now means ongoing or
+starting in the next two hours; Tonight means 6 PM through 3 AM Austin time,
+including the previous evening before 3 AM. Movie showtimes must start inside
+the selected window. Today is also available under More filters. Parks stay
+available in every time view; this does not imply they are currently open.
+Price/type controls explicitly apply only to Free & cheap. Movies has its own
+theater-type selector under More filters. Search matches names and venues
+across all selected categories. Settings remain local.
 
 Filtering happens **before** venue grouping and clustering, so counts match
 what the visitor selected. Co-located events share a pin; its popup lists the
-matching occurrences. Cluster numbers count records, not people. Map clicks on
+matching occurrences. UT events shared by Free & cheap and a specific category
+appear once when both are selected. Cluster numbers count records, not people. Map clicks on
 Explore pins do not also select the neighborhood underneath. Records are
 rechecked for expiration every minute. The list provides keyboard access to
 all items, including off-screen pins.
@@ -106,6 +115,49 @@ Alamo and museum times without offsets are interpreted in America/Chicago,
 including daylight saving changes. Dates are never extrapolated from a film's
 release date or multiweek screening range.
 
+### Public organizer calendars and city parks
+
+`tools/explore/build_layers.py` and `culture_sources.py` import these free,
+public sources with Python's standard library, without AI, keys or paid APIs:
+
+- [Fallout Theater](https://falloutcomedy.com/comedy-shows/): public comedy
+  cards with explicit show dates, start/end times and Eventbrite detail links.
+- [Antone’s](https://antonesnightclub.com/): official live-music calendar;
+  show time is used, not the earlier doors time.
+- [Meanwhile Brewing](https://www.meanwhilebeer.com/events): dated concerts,
+  festivals and other public events. Admission is checked on the source;
+  generic template labels are not taken as evidence that a paid class is free.
+- [Austin Flea](https://www.austinflea.net/): individually dated market cards
+  and venues, not extrapolated weekly recurrences. Where the page omits a year,
+  only an occurrence in the immediately upcoming 30-day window qualifies.
+- [UT Austin](https://calendar.utexas.edu/): the same public calendar API with
+  Austin coordinates and General Public eligibility; these broader categories
+  do not require a known admission price. Movie screenings are excluded here.
+  Explicit source categories and conservative title rules distinguish music,
+  festivals and markets from other Events. No AI classification is used.
+
+This is initial source coverage, not a complete citywide event directory.
+The sources' published schedules determine what appears in each category.
+Only factual titles, dates, venue information and links are republished.
+Unknown end times are not invented: those listings disappear at their start.
+New market addresses are verified through the free
+[US Census Geocoder](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html)
+and saved in `tools/explore/venue-cache.json`. Ambiguous/non-Austin matches
+fail that source update. These street-address coordinates are approximate,
+not surveyed entrances. No visitor location is sent for geocoding.
+
+[Parks come from the City of Austin park-boundary inventory](https://data.austintexas.gov/d/v8hw-gz65).
+Only developed park types listed as Open are included; undeveloped parcels,
+closed parks, school grounds, golf courses, cemeteries and planting strips
+are excluded. Duplicate assets are merged. An interior point in the largest
+boundary polygon places each marker, respecting holes; it is not an entrance.
+Directions search the park name and address. Links lead to the official
+[park directory](https://www.austintexas.gov/parks/locations/park-directory),
+or a matching park-specific city page. Inventory status does not report live
+opening hours, closures or fees. The initial snapshot contains 275 parks.
+Parks refresh daily and remain browsable during a source outage, with their
+actual last-checked date shown.
+
 The import covers 14 days; the visitor's default view is the next seven calendar
 days including today. Today includes ongoing events. Weekend means Saturday
 and Sunday (the current weekend on Saturday/Sunday). Near me distances are
@@ -114,7 +166,8 @@ straight-line miles, not walking directions. Price filters include free items.
 ## Automation and failure behavior
 
 `.github/workflows/build-explore.yml` runs at minute 43 every three hours and
-supports manual dispatch. GitHub can delay schedules. The browser checks every
+supports manual dispatch. Organizer calendars run every three hours; the
+park importer skips snapshots less than 24 hours old. GitHub can delay schedules. The browser checks every
 five minutes while visible, and on returning to the tab. It reads the newest
 valid deployed/raw-main snapshot, so GITHUB_TOKEN commit behavior does not
 prevent data updates. Map state is preserved while refreshing.
@@ -135,7 +188,12 @@ Movie imports use the same rules for last-good data: failed sources, film
 pages or individual calendar days may retain their previous unexpired records
 without renewing them. Complete movie-source failure fails that import. The
 workflow publishes successful layer updates even if the other importer fails,
-then reports the failure. Requests use bounded concurrency and per-run cache
+then reports the failure. Each new organizer adapter also retains only its
+own unexpired previous listings on failure; successful sources replace their
+old entries. These entries expire within 24 hours of verification, or at their
+known end/start boundary, whichever is earlier. Total organizer failure leaves
+all category snapshots intact and still permits the park import to run.
+Requests use bounded concurrency and per-run cache
 queries; museum pagination/date matching are checked rather than silently
 publishing partial or wrong-day results.
 
@@ -151,6 +209,7 @@ python3 -m unittest discover -s tools/explore -p 'test_*.py'
 node tools/explore/test-model.cjs
 python3 tools/explore/build.py
 python3 tools/explore/build_movies.py
+python3 tools/explore/build_layers.py
 ```
 
 UI changes require version bumps in `chat/index.html`; changes to that frame

@@ -1,0 +1,733 @@
+{
+ "type": "FeatureCollection",
+ "generated": "2026-10-28T18:34:18.881877+00:00",
+ "sources": [
+  {
+   "name": "Fallout Theater",
+   "url": "https://falloutcomedy.com/comedy-shows/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "Antone’s Nightclub",
+   "url": "https://antonesnightclub.com/",
+   "ok": true,
+   "failures": 0,
+   "count": 10
+  },
+  {
+   "name": "Meanwhile Brewing",
+   "url": "https://www.meanwhilebeer.com/events",
+   "ok": true,
+   "failures": 0,
+   "count": 5
+  },
+  {
+   "name": "Austin Flea",
+   "url": "https://www.austinflea.net/",
+   "ok": true,
+   "failures": 0,
+   "count": 0
+  },
+  {
+   "name": "UT Austin",
+   "url": "https://calendar.utexas.edu/",
+   "ok": true,
+   "failures": 0,
+   "count": 8
+  }
+ ],
+ "features": [
+  {
+   "type": "Feature",
+   "id": "d556a5a8c70539e743dc",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730637,
+     30.287403
+    ]
+   },
+   "properties": {
+    "id": "d556a5a8c70539e743dc",
+    "title": "New Music Ensemble",
+    "venue": "Bates Recital Hall, Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-10-28T19:30:00-05:00",
+    "end": "2026-10-28T19:30:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T19:30:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/new-music-ensemble-1850",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "523333f8b2aa51264b69",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "523333f8b2aa51264b69",
+    "title": "Chasing Abbey w/ Killer Kaya",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-10-28T20:00:00-05:00",
+    "end": "2026-10-28T20:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-28T20:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/chasing-abbey/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ce31d1a0616cdb651b5d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "ce31d1a0616cdb651b5d",
+    "title": "Zilker Sessions V ft. The Droptines & Angel White",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-10-29T19:00:00-05:00",
+    "end": "2026-10-29T19:00:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/zilker-sessions-v-ft-the-droptines-angel-white/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "727bb3b1279331fb8825",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730637,
+     30.287403
+    ]
+   },
+   "properties": {
+    "id": "727bb3b1279331fb8825",
+    "title": "Trombone Choir",
+    "venue": "Bates Recital Hall, Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-10-29T19:30:00-05:00",
+    "end": "2026-10-29T19:30:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/trombone-choir-1356",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b2cd8d3b125f396eaa3a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "b2cd8d3b125f396eaa3a",
+    "title": "Free Concert: Cumbia Night with Llamativa",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-10-30T19:30:00-05:00",
+    "end": "2026-10-30T19:30:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/free-concert-llamativa-2-copy",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b60ca278e78cb990cffb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "b60ca278e78cb990cffb",
+    "title": "Ticketed Show: Kat Hasty with Travis Roberts",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-10-31T19:30:00-05:00",
+    "end": "2026-10-31T19:30:01-05:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/ticketed-show-kat-hasty-with-travis-roberts",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7923f488ea7053cde4f8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "7923f488ea7053cde4f8",
+    "title": "Free Concert: Chris Gebhard Trio",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-01T10:00:00-06:00",
+    "end": "2026-11-01T10:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/free-concert-chris-gebhard-trio",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f4f3724143228062b06b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730637,
+     30.287403
+    ]
+   },
+   "properties": {
+    "id": "f4f3724143228062b06b",
+    "title": "Concert Chorale",
+    "venue": "Bates Recital Hall, Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-01T16:00:00-06:00",
+    "end": "2026-11-01T16:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/concert-chorale-9704",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f161825d760560edf0af",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "f161825d760560edf0af",
+    "title": "Blue Monday w/ Soul Man Sam",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-02T19:00:00-06:00",
+    "end": "2026-11-02T19:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/blue-monday-w-soul-man-sam-7/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fda15f2447d5b19a71f4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730637,
+     30.287403
+    ]
+   },
+   "properties": {
+    "id": "fda15f2447d5b19a71f4",
+    "title": "Percussion Ensemble",
+    "venue": "Bates Recital Hall, Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-03T19:30:00-06:00",
+    "end": "2026-11-03T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/percussion-ensemble-4133",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dc52326c2f2ea81f3637",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "dc52326c2f2ea81f3637",
+    "title": "Free Concert: Wolf Trax",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-04T19:30:00-06:00",
+    "end": "2026-11-04T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/free-concert-wolf-trax",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "789342e229f10b342a02",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730637,
+     30.287403
+    ]
+   },
+   "properties": {
+    "id": "789342e229f10b342a02",
+    "title": "Wind Symphony",
+    "venue": "Bates Recital Hall, Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-04T19:30:00-06:00",
+    "end": "2026-11-04T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/wind-symphony-7751",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2408e9152ef9e336a5f6",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "2408e9152ef9e336a5f6",
+    "title": "An Evening with Shadowgrass",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-04T20:00:00-06:00",
+    "end": "2026-11-04T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/an-evening-with-shadowgrass/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "cae9f4895ca02f7ba73a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "cae9f4895ca02f7ba73a",
+    "title": "Ticketed Show: STRFKR",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-05T19:00:00-06:00",
+    "end": "2026-11-05T19:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/ticketed-show-strfkr",
+    "source": "Meanwhile Brewing",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "64528f697c7b82a174f8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730553,
+     30.287142
+    ]
+   },
+   "properties": {
+    "id": "64528f697c7b82a174f8",
+    "title": "Alternative Improvisation Music Ensemble",
+    "venue": "Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-05T19:30:00-06:00",
+    "end": "2026-11-05T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/alternative-improvisation-music-ensemble-4888",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a2624534873d59e5896f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "a2624534873d59e5896f",
+    "title": "The Jack Wharff Band w/ Tucker Stone",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-05T20:00:00-06:00",
+    "end": "2026-11-05T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/the-jack-wharff-band/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d106ae12049efc6ae97f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730637,
+     30.287403
+    ]
+   },
+   "properties": {
+    "id": "d106ae12049efc6ae97f",
+    "title": "Symphony Orchestra",
+    "venue": "Bates Recital Hall, Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-06T19:30:00-06:00",
+    "end": "2026-11-06T19:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/symphony-orchestra-897",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "243df10c7ad4ca419fb4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "243df10c7ad4ca419fb4",
+    "title": "Low Cut Connie w/ Laney Jones and the Spirits",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-06T20:00:00-06:00",
+    "end": "2026-11-06T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/low-cut-connie/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7a36ca4a0140237690ee",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "7a36ca4a0140237690ee",
+    "title": "Soul Man Sam",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-07T21:00:00-06:00",
+    "end": "2026-11-07T21:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/soul-man-sam/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "feef0f5760db8c15e395",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "feef0f5760db8c15e395",
+    "title": "The Jazz Room: A Frank Sinatra & Louis Armstrong Tribute",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-08T16:00:00-06:00",
+    "end": "2026-11-08T16:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/the-jazz-room-a-frank-sinatra-louis-armstrong-tribute-3/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "4fad2d2e5c772f2c4c5f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730637,
+     30.287403
+    ]
+   },
+   "properties": {
+    "id": "4fad2d2e5c772f2c4c5f",
+    "title": "Wind Ensemble",
+    "venue": "Bates Recital Hall, Music Building (MRH)",
+    "address": "2406 Robert Dedman Drive",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-08T16:00:00-06:00",
+    "end": "2026-11-08T16:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://calendar.utexas.edu/event/wind-ensemble-6878",
+    "source": "UT Austin",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2a190451b60e376a6ccb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "2a190451b60e376a6ccb",
+    "title": "RESCHEDULED — Olivia O’Brien Presents: The PIXIE Tour w/ Sophie Cates",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-09T20:00:00-06:00",
+    "end": "2026-11-09T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/olivia-obrien-presents-the-pixie-tour/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "64f72a4cfb241387738a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "64f72a4cfb241387738a",
+    "title": "Greg Freeman w/ Touch Girl Apple Blossom",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-10T20:00:00-06:00",
+    "end": "2026-11-10T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-10-28T18:34:18.881877+00:00",
+    "expires": "2026-10-29T18:34:18.881877+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/greg-freeman/",
+    "source": "Antone’s Nightclub",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  }
+ ]
+}
