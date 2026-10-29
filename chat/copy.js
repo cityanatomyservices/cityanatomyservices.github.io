@@ -32,7 +32,7 @@ window.MAP_COPY = {
   // the Visible button's hint: what being visible means
   visibleHint: 'Visible shares your name and approximate location with the people in your neighborhood.',
   // the business list on the card: the neighborhood row, then one fold per category
-  places: { usersVisible: 'Users visible', you: '(you)', near: 'near {place}', neighborhoodRow: 'The whole neighborhood', here: '{n} here', credit: 'Businesses \u00a9 OpenStreetMap contributors',
+  places: { usersVisible: 'Users visible', you: '(you)', near: 'near {place}', neighborhoodRow: 'The whole neighborhood', here: '{n} here', credit: 'Businesses © OpenStreetMap · Overture · City of Austin · Local guides', updated: 'Updated {date}', website: 'Website',
             // the buttons in a business's popup
             google: 'Google Maps', apple: 'Apple Maps', yelp: 'Yelp' },
   chat: { send: 'Send', close: 'Close', placeholder: 'Say something to the neighborhood\u2026' },

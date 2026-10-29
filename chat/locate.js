@@ -1,7 +1,7 @@
 // locate.js — which neighborhood geofence the visitor is standing in.
 //
 // Watches the phone's GPS and tests the point against the 65 polygons in
-// the browser (ray casting on the outer ring; no server sees the position).
+// the browser (ray casting, including polygon holes; no server sees the position).
 // Reports a room when the point enters a polygon, `null` when it is outside
 // them all, a status word the card can show, and (onPosition) each reading
 // itself — which chat.js shares with the neighborhood only while you are
@@ -19,12 +19,12 @@
     return inside;
   }
 
-  // the first geofence whose outer ring holds the point (they do not overlap)
+  // The first geofence containing the point, excluding its interior holes.
   function find(geofences, pt) {
     return geofences.features.find((f) => {
       const g = f.geometry;
       const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;   // MultiPolygon, just in case
-      return polys.some((rings) => inRing(pt, rings[0]));
+      return polys.some((rings) => inRing(pt, rings[0]) && !rings.slice(1).some((hole) => inRing(pt, hole)));
     }) || null;
   }
 

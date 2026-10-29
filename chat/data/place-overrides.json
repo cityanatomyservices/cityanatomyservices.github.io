@@ -1,0 +1,73 @@
+{
+  "_comment": "Documented manual corrections only. Each exclusion needs an ID, reason, source URL and review date. IDs may be OSM n/w/r IDs, Overture ov- IDs or local ac- IDs.",
+  "exclude": [
+    {
+      "id": "w257040849",
+      "reason": "Austin Guitar House moved from 2206 W Anderson to 1104 E 12th; keep the current guide location.",
+      "source": "https://austinguitarhouse.com/about-austin-guitar-house/",
+      "reviewed": "2026-10-28"
+    },
+    {
+      "id": "n10563623211",
+      "reason": "Tiny Pies South Lamar closed March 30, 2025; Burnet remains open.",
+      "source": "https://tinypies.com/pages/tiny-pies-south-lamar-closes-march-30th",
+      "reviewed": "2026-10-28"
+    },
+    {
+      "id": "n4948072431",
+      "reason": "Former Congress Avenue Horizon Bank branch; official directory lists 600 W 5th instead.",
+      "source": "https://www.horizon.bank/contact-us/",
+      "reviewed": "2026-10-28"
+    },
+    {
+      "id": "ov-05692335-0422-4d8f-985c-cf9e314b2e00",
+      "reason": "Stale toy-store record; unrelated Canadian clothing-store website. Closure reported in 2018.",
+      "source": "https://www.fox7austin.com/news/increasing-rent-continues-to-push-some-businesses-out-of-austin",
+      "reviewed": "2026-10-28"
+    },
+    {
+      "id": "ov-a8cb2d20-4d0b-4b13-9035-d5449f78f21c",
+      "reason": "Withheld pending evidence of reopening; closure reported in May 2021 despite directory open flag.",
+      "source": "https://www.reddit.com/r/Austin/comments/na6mud/",
+      "reviewed": "2026-10-28"
+    },
+    {
+      "id": "n919339993",
+      "reason": "Fair Bean Coffee closed November 2017.",
+      "source": "https://austin.eater.com/2017/12/13/16771782/fair-bean-coffee-closed-p-terrys-giving-back-day",
+      "reviewed": "2026-10-28"
+    },
+    {
+      "id": "n8612211032",
+      "reason": "TC Noodle House listed permanently closed by Eater and Overture.",
+      "source": "https://austin.eater.com/venue/54175/tc-noodle-house",
+      "reviewed": "2026-10-28"
+    },
+    {
+      "id": "w468463419",
+      "reason": "Sno.Co Flattop Shaved Ice listed permanently closed by Eater and Overture.",
+      "source": "https://austin.eater.com/venue/48075/snoco-flattop-shaved-ice",
+      "reviewed": "2026-10-28"
+    },
+    {
+      "id": "n1233166975",
+      "reason": "Daily Grill at the Domain listed closed by GAYOT and Overture.",
+      "source": "https://www.gayot.com/restaurants/restaurant-c-losed-daily-grill-austin-tx-78758_52au080701.html?map=1",
+      "reviewed": "2026-10-28"
+    }
+  ],
+  "correct": [
+    {
+      "id": "n3506562415",
+      "values": {
+        "address": "1420 W Oltorf St",
+        "lng": -97.769235,
+        "lat": 30.246797,
+        "website": "https://www.rocknrollrentals.com/"
+      },
+      "source": "https://www.rocknrollrentals.com/topic/FAQs",
+      "reason": "Correct misplaced south-store marker using the location in the existing shopping guide and official address.",
+      "reviewed": "2026-10-28"
+    }
+  ]
+}

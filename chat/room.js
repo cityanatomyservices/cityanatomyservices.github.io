@@ -144,8 +144,11 @@
     const list = el.placeList;
     list.innerHTML = '';
     placesById = {};
-    allPlaces(data).forEach((p) => { placesById[p.id] = p; });
-    if (!data || !data.groups.length) return;
+    allPlaces(data).forEach((p) => {
+      placesById[p.id] = p;
+      (p.aliases || []).forEach((id) => { placesById[id] = p; });
+    });
+    if (!data) return;
     const row = (text, roomString, cls) => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -183,7 +186,13 @@
     });
     const credit = document.createElement('div');
     credit.className = 'place-credit';
-    credit.textContent = COPY.places.credit;
+    const sources = document.createElement('a');
+    sources.href = 'https://github.com/cityanatomyservices/cityanatomyservices.github.io/blob/main/chat/data/README.md#business-directory';
+    sources.target = '_blank';
+    sources.rel = 'noopener noreferrer';
+    sources.textContent = COPY.places.credit;
+    credit.appendChild(sources);
+    if (data.fetched) credit.appendChild(document.createTextNode(' · ' + fill(COPY.places.updated, { date: data.fetched })));
     list.appendChild(credit);
   }
 
@@ -215,14 +224,27 @@
     if (!feature) { await window.ChatEngine.leave(); return; }
     await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) });
     if (!el.placeList) return;                         // the tour apps: no list, no fetch
-    const data = await fetch(CFG.places + feature.properties.id + '.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    const file = feature.properties.id + '.json';
+    const urls = [CFG.places + file];
+    if (CFG.placesLive) urls.push(CFG.placesLive + file);
+    // Scheduled bot commits do not trigger GitHub Pages. Read the current
+    // repository copy as well, keeping Pages as a fallback if it is unavailable.
+    const results = await Promise.allSettled(urls.map(async (url) => {
+      const response = await fetch(url, { cache: 'no-cache', signal: AbortSignal.timeout(8000) });
+      if (!response.ok) throw new Error('Directory unavailable');
+      const value = await response.json();
+      if (value.id !== feature.properties.id || !Array.isArray(value.groups)) throw new Error('Invalid directory');
+      return value;
+    }));
+    const data = results.filter((r) => r.status === 'fulfilled').map((r) => r.value)
+      .sort((a, b) => String(b.fetched).localeCompare(String(a.fetched)))[0] || null;
     if (room !== feature) return;                      // you moved on while it loaded
     if (hooks.onPlaces) hooks.onPlaces(data);
     showPlaces(data);
     showCounts(window.ChatEngine.people());
     showUsers(window.ChatEngine.people());
     if (testPlace && data) {
-      const found = allPlaces(data).find((p) => p.id === testPlace);
+      const found = allPlaces(data).find((p) => p.id === testPlace || (p.aliases || []).includes(testPlace));
       if (found) await choose(found);
     }
   }

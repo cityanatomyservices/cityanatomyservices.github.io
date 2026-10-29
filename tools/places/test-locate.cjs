@@ -1,0 +1,15 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+const context = { window: {} };
+vm.runInNewContext(fs.readFileSync('chat/locate.js', 'utf8'), context);
+const outer = [[0,0],[10,0],[10,10],[0,10],[0,0]];
+const hole = [[2,2],[4,2],[4,4],[2,4],[2,2]];
+const feature = { properties: { id:'area' }, geometry: { type:'Polygon', coordinates:[outer, hole] } };
+const fences = { features:[feature] };
+assert.equal(context.window.ChatLocate.find(fences, [1,1]), feature);
+assert.equal(context.window.ChatLocate.find(fences, [3,3]), null);
+assert.equal(context.window.ChatLocate.find(fences, [11,11]), null);
+feature.geometry = { type:'MultiPolygon', coordinates:[[outer,hole]] };
+assert.equal(context.window.ChatLocate.find(fences, [3,3]), null);
+console.log('Browser geofence hole checks passed');

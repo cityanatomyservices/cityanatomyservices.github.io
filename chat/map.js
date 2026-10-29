@@ -296,11 +296,16 @@
           map.easeTo({ center: at, zoom: V.street.zoom, pitch: 0, bearing: 0, duration: 900 });
           const vars = { lat: place.lat, lng: place.lng, name: encodeURIComponent(place.name) };
           const link = (key) => `<a href="${esc(fill(CFG.placeLinks[key], vars))}" target="_blank" rel="noopener">${esc(COPY.places[key])}</a>`;
+          let website = '';
+          try {
+            const url = new URL(place.website);
+            if (['https:', 'http:'].includes(url.protocol)) website = `<a href="${esc(url.href)}" target="_blank" rel="noopener noreferrer">${esc(COPY.places.website)}</a>`;
+          } catch (_) { /* This listing has no usable business website. */ }
           placePopup = new maplibregl.Popup({ offset: 36, maxWidth: '280px', closeOnClick: false })
             .setLngLat(at)
             .setHTML(`<div class="place-popup"><h3>${esc(place.name)}</h3>` +
                      (place.address ? `<p class="addr">${esc(place.address)}</p>` : '') +
-                     `<div class="place-links">${link('google')}${link('apple')}${link('yelp')}</div></div>`)
+                     `<div class="place-links">${website}${link('google')}${link('apple')}${link('yelp')}</div></div>`)
             .addTo(map);
         },
         // everyone visible in the neighborhood, each drawn where they are: at

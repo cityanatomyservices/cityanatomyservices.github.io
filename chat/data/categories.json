@@ -1,5 +1,5 @@
 {
-  "_comment": "The business types the chat map lists in each neighborhood (owner 2026-10-22: shops + food + drink + everyday services). Each key is an OpenStreetMap tag (shop, amenity, leisure); each entry maps the tag's value to the label shown on the card. The order here is the order on the card; two values with the same label merge into one category. Shop values not listed here are dropped by tools/fetch-places.py, which prints a tally of them so this file can grow. Re-run the script after editing. 2026-10-22: the 25 most common dropped types from the first run were added. 2026-10-22: `groups` puts the labels under six headings (owner's choice: Food & Drink, Groceries & Essentials, Shopping, Health & Beauty, Auto, Things to Do); the card goes neighborhood → group → category → business. A label missing from `groups` lands under `Other`.",
+  "_comment": "Business types for the neighborhood chat menu. Groups control display order. Other keys map OpenStreetMap tags to labels. Overture mappings live in overture-categories.json. Rebuild with python tools/fetch-places.py; see tools/places/README.md.",
   "groups": {
     "Food & Drink": [
       "Restaurants",
@@ -7,7 +7,11 @@
       "Coffee",
       "Bakeries",
       "Ice cream",
-      "Bars"
+      "Bars",
+      "Sweets",
+      "Food courts",
+      "Food trucks",
+      "Breweries"
     ],
     "Groceries & Essentials": [
       "Supermarkets",
@@ -19,7 +23,9 @@
       "Smoke shops",
       "Laundry",
       "Post offices",
-      "Banks"
+      "Banks",
+      "Health foods & supplements",
+      "Printing & shipping"
     ],
     "Shopping": [
       "Clothing",
@@ -40,7 +46,13 @@
       "Pet stores",
       "Bike shops",
       "Hardware",
-      "Building supply"
+      "Building supply",
+      "Music stores",
+      "Stationery & office supplies",
+      "Pawn shops",
+      "Arts & crafts",
+      "Games & hobbies",
+      "Garden centers"
     ],
     "Health & Beauty": [
       "Doctors",
@@ -51,18 +63,52 @@
       "Hair salons",
       "Beauty",
       "Massage",
-      "Tattoo"
+      "Tattoo",
+      "Clinics",
+      "Hospitals",
+      "Physical therapy",
+      "Counseling",
+      "Wellness",
+      "Opticians & hearing",
+      "Medical supplies"
     ],
     "Auto": [
       "Car dealers",
       "Auto repair",
       "Auto parts",
-      "Storage"
+      "Storage",
+      "Gas stations",
+      "Car washes",
+      "Car rentals",
+      "Motorcycle dealers & repair"
     ],
     "Things to Do": [
       "Cinemas",
       "Theatres",
-      "Libraries"
+      "Libraries",
+      "Nightclubs",
+      "Event venues",
+      "Sports & recreation",
+      "Bowling & arcades",
+      "Dance studios",
+      "Museums",
+      "Art galleries",
+      "Live music",
+      "Comedy clubs"
+    ],
+    "Services": [
+      "Pet care",
+      "Clothing repairs",
+      "Electronics repair",
+      "Photography",
+      "Home services",
+      "Legal services",
+      "Insurance",
+      "Real estate services",
+      "Tax & accounting",
+      "Travel services",
+      "Coworking",
+      "Hotels"
     ]
   },
   "shop": {
@@ -113,7 +159,53 @@
     "e-cigarette": "Smoke shops",
     "toys": "Toy stores",
     "sports": "Sporting goods",
-    "trade": "Building supply"
+    "trade": "Building supply",
+    "musical_instrument": "Music stores",
+    "music": "Music stores",
+    "copyshop": "Printing & shipping",
+    "stationery": "Stationery & office supplies",
+    "wholesale": "Groceries",
+    "pawnbroker": "Pawn shops",
+    "flooring": "Home goods",
+    "nutrition_supplements": "Health foods & supplements",
+    "craft": "Arts & crafts",
+    "motorcycle": "Motorcycle dealers & repair",
+    "video_games": "Games & hobbies",
+    "interior_decoration": "Home goods",
+    "computer": "Electronics",
+    "garden_centre": "Garden centers",
+    "kitchen": "Home goods",
+    "art": "Arts & crafts",
+    "carpet": "Home goods",
+    "pastry": "Bakeries",
+    "pet_grooming": "Pet care",
+    "paint": "Hardware",
+    "health_food": "Health foods & supplements",
+    "outdoor": "Sporting goods",
+    "confectionery": "Sweets",
+    "frame": "Arts & crafts",
+    "telecommunication": "Phone stores",
+    "watches": "Jewelry",
+    "beverages": "Groceries",
+    "games": "Games & hobbies",
+    "motorcycle_repair": "Motorcycle dealers & repair",
+    "butcher": "Groceries",
+    "seafood": "Groceries",
+    "deli": "Groceries",
+    "cheese": "Groceries",
+    "hifi": "Electronics",
+    "appliance": "Home goods",
+    "lighting": "Home goods",
+    "sewing": "Arts & crafts",
+    "fabric": "Arts & crafts",
+    "tailor": "Clothing repairs",
+    "travel_agency": "Travel services",
+    "ticket": "Travel services",
+    "photo": "Photography",
+    "locksmith": "Home services",
+    "shoe_repair": "Clothing repairs",
+    "hearing_aids": "Opticians & hearing",
+    "medical_supply": "Medical supplies"
   },
   "amenity": {
     "cafe": "Coffee",
@@ -131,9 +223,62 @@
     "dentist": "Dentists",
     "doctors": "Doctors",
     "veterinary": "Vets",
-    "post_office": "Post offices"
+    "post_office": "Post offices",
+    "fuel": "Gas stations",
+    "car_wash": "Car washes",
+    "car_rental": "Car rentals",
+    "clinic": "Clinics",
+    "hospital": "Hospitals",
+    "nightclub": "Nightclubs",
+    "events_venue": "Event venues",
+    "food_court": "Food courts"
   },
   "leisure": {
-    "fitness_centre": "Gyms"
+    "fitness_centre": "Gyms",
+    "sports_centre": "Sports & recreation",
+    "bowling_alley": "Bowling & arcades",
+    "amusement_arcade": "Bowling & arcades",
+    "escape_game": "Games & hobbies",
+    "dance": "Dance studios"
+  },
+  "healthcare": {
+    "clinic": "Clinics",
+    "dentist": "Dentists",
+    "doctor": "Doctors",
+    "pharmacy": "Pharmacies",
+    "hospital": "Hospitals",
+    "optometrist": "Opticians",
+    "physiotherapist": "Physical therapy",
+    "counselling": "Counseling",
+    "psychotherapist": "Counseling",
+    "alternative": "Wellness"
+  },
+  "craft": {
+    "electronics_repair": "Electronics repair",
+    "tailor": "Clothing repairs",
+    "shoemaker": "Clothing repairs",
+    "photographer": "Photography",
+    "locksmith": "Home services",
+    "hvac": "Home services",
+    "electrician": "Home services",
+    "plumber": "Home services",
+    "roofer": "Home services"
+  },
+  "office": {
+    "lawyer": "Legal services",
+    "insurance": "Insurance",
+    "estate_agent": "Real estate services",
+    "tax_advisor": "Tax & accounting",
+    "accountant": "Tax & accounting",
+    "notary": "Legal services",
+    "travel_agent": "Travel services",
+    "coworking": "Coworking"
+  },
+  "tourism": {
+    "hotel": "Hotels",
+    "motel": "Hotels",
+    "hostel": "Hotels",
+    "museum": "Museums",
+    "gallery": "Art galleries"
   }
 }

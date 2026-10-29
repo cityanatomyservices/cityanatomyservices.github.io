@@ -8,9 +8,10 @@ window.MAP_CONFIG = {
   geofences: './data/geofences.geojson?v=20261022k',
   nameField: 'name',
   // the businesses in each neighborhood, one file per neighborhood id
-  // (tools/fetch-places.py, from OpenStreetMap); absolute so the apps under
+  // (tools/fetch-places.py, from public directories); absolute so the apps under
   // /apps/ could load them too
   places: '/chat/data/places/',
+  placesLive: 'https://raw.githubusercontent.com/cityanatomyservices/cityanatomyservices.github.io/main/chat/data/places/',
 
   basemap: 'https://tiles.openfreemap.org/styles/positron',
   satellite: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',

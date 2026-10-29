@@ -30,19 +30,54 @@ dissolved into their parent; every merge came out as a single Polygon.
 Made by `bash tools/make-geofences.sh` (GDAL from the QGIS install) — run
 it again after refreshing `neighborhoods.geojson`, then commit both. 156 KB.
 
-## categories.json and places/ — the businesses (from OpenStreetMap, 2026-10-22)
+## Business directory
 
-`categories.json` says which OpenStreetMap business types the chat map
-lists and what each is called on the card (owner-editable; order = card
-order). `bash`-free: `python3 tools/fetch-places.py` asks the Overpass API
-for every such place inside the neighborhoods' box, sorts each into its
-neighborhood (point in polygon, the same test as `../locate.js`) and writes
-`places/<neighborhood id>.json` — by group (`groups` in categories.json:
-Food & Drink, Groceries & Essentials, Shopping, Health & Beauty, Auto,
-Things to Do), then category, places sorted by name, each
-place `{ id, name, lng, lat, address? }` where `id` is the OSM type letter +
-id (`n…` node, `w…` way, `r…` relation). `places/index.json` records when it
-ran and the count per neighborhood; the page never reads it. Re-run after
-editing `categories.json` or to refresh; the script prints the shop types it
-dropped so the file can grow. Data © OpenStreetMap contributors, ODbL 1.0
-(credited on the card).
+The Austin Neighborhood Chat menu combines free public sources:
+
+- [OpenStreetMap](https://www.openstreetmap.org/copyright), © OpenStreetMap contributors, under [ODbL 1.0](licenses/ODbL-1.0.txt).
+- [Overture Maps Foundation Places](https://docs.overturemaps.org/guides/places/), with provider attribution below.
+- [City of Austin Food Establishment Inspection Scores](https://data.austintexas.gov/d/ecmv-9xxi), used to corroborate food-business names and locations. An inspection is not a statement that a business is currently open, and this menu does not display or assess health scores.
+- Austin.chat's existing guitar, bicycle and toy-shopping guides, with individual business source URLs retained in the records.
+
+The original October 22 list contained 3,335 entries from OpenStreetMap alone.
+The October 28 audit expanded the categories and compared additional directories,
+resolved matching duplicates, checked selected stale listings against business
+websites/local reporting, and corrected neighborhood polygon-hole handling.
+Current counts, source releases and provider licenses are in [places/index.json](places/index.json);
+per-run changes are in [places-audit.json](places-audit.json).
+
+Each neighborhood file retains the existing group → category → business shape.
+Businesses carry `id`, `name`, `lng`, `lat`, optional `address`/`website`, `sources`,
+and optional `aliases` for merged chat IDs. Source evidence is traceable through
+OpenStreetMap node/way/relation paths, Overture GERS IDs and release, City facility
+IDs and inspection dates, or individual business URLs. No reviews or personal
+contact records are imported.
+
+Coverage is limited to the 65 existing neighborhood planning-area geofences;
+this does not cover every business inside Austin's city limits or its suburbs.
+Directory data can be incomplete or stale. New Overture food listings require a
+matching City inspection; other additions require an open flag, high existence
+confidence, street address, website and a mapped public-facing category. Records
+were cross-matched automatically; not every business was individually verified.
+
+The free Python/GitHub Actions process refreshes weekly. Underlying sources have
+their own update schedules. See [the build instructions](../../tools/places/README.md)
+for eligibility rules, manual corrections, validation and failure handling.
+
+### Overture attribution and redistribution
+
+Data from Overture Maps Foundation and Meta, Microsoft, BrightQuery, DAC, Birdeye,
+Uberall, OpenTravel Alliance and PinMeTo is available under
+[CDLA Permissive 2.0](licenses/CDLA-Permissive-2.0.txt).
+Data from AllThePlaces is available under [CC0 1.0](licenses/CC0-1.0.txt).
+Data from Foursquare: Copyright 2024 Foursquare Labs, Inc. All rights reserved.
+Available under [Apache 2.0](licenses/Apache-2.0.txt); see the
+[Foursquare notice](licenses/Foursquare-NOTICE.txt).
+Foursquare data was transformed to the Overture schema. Austin.chat further
+filters records, maps categories, normalizes addresses, merges matching locations
+and selects fields for the neighborhood menu (October 28, 2026).
+See [Overture's full attribution](https://docs.overturemaps.org/attribution/#places).
+
+The combined neighborhood database incorporating OpenStreetMap is distributed
+under ODbL 1.0, with the additional source notices/licenses retained above.
+The database and the scripts used to produce it are publicly downloadable here.
