@@ -53,7 +53,9 @@
     if (s.hoursText) details.append(node('p','Published hours: '+s.hoursText));
     details.append(node('p','Optional availability within this day, after checking the venue. Times before 5 AM mean the following morning; a 5 AM closing time ends this plan day.'));
     details.append(field(item,'Available from','windowStart','time',u.windowStart ? M.clock(u.windowStart) : ''),field(item,'Available until','windowEnd','time',u.windowEnd ? M.clock(u.windowEnd) : ''));
-    details.append(field(item,'Travel buffer before this stop (min)','bufferBefore','number',u.bufferBefore ?? '',{min:0,max:240,placeholder:'Use day default'}));
+    details.append(field(item,'Manual travel allowance if route unavailable (min)','bufferBefore','number',u.bufferBefore ?? '',{min:0,max:240,placeholder:'Use day default'}));
+    details.append(field(item,'Parking / extra arrival time (min)','arrivalMinutes','number',u.arrivalMinutes ?? '',{min:0,max:120,placeholder:'Use day default'}));
+    details.append(window.PlanRoutePanel.entrance(item));
     const noteLabel = node('label','My notes'), notes = node('textarea'); notes.value = u.note || ''; notes.maxLength = 2000; notes.dataset.field = 'note'; notes.dataset.item = item.id; noteLabel.append(notes); details.append(noteLabel);
     if (s.provider || s.checked) details.append(node('p',[s.provider,s.checked ? 'Source checked '+fmt(s.checked) : ''].filter(Boolean).join(' · ')));
     details.append(node('p','Saved details are a snapshot. Check the source for cancellations and changed hours.'));
@@ -70,14 +72,14 @@
     const remove = node('button','Remove'); remove.type = 'button'; remove.setAttribute('aria-label',`Remove ${s.title}`);
     remove.onclick = () => change(plan => { plan.items = plan.items.filter(i => i.id !== item.id); },`${s.title} removed. You can undo or add it again from the main map.`);
     const selectedShow = s.showtimes?.find(show => show.start === u.showtime);
-    actions.append(order,link('Source ↗',selectedShow?.url || s.url),remove); li.append(actions);
+    actions.append(order,link('Source ↗',selectedShow?.url || s.url),window.PlanRoutePanel.navigation(item),remove); li.append(actions);
     return li;
   }
   function render() {
     $('save-status').textContent = S.status;
     $('save-conflict').hidden = !S.conflict;
     $('retry-save').hidden = !/unavailable/.test(S.status);
-    const plan = S.plan, next = view + JSON.stringify(plan) + JSON.stringify(S.days);
+    const plan = S.plan, next = view + JSON.stringify(plan) + JSON.stringify(S.days) + routing.revision;
     if (next === signature) return;
     signature = next;
     if (shownDay && shownDay !== plan.date) { undo = null; $('undo').disabled = true; message(''); }
@@ -86,7 +88,7 @@
     const focus = active?.dataset.field ? [active.dataset.item,active.dataset.field] : null;
     const open = new Set([...document.querySelectorAll('.stop-details[open]')].map(e => e.dataset.details));
     for (const name of ['name','bufferMinutes']) if (form.elements[name] !== active || changedDay) form.elements[name].value = plan[name];
-    $('day-settings-label').textContent = 'Day name, travel buffer & backup';
+    $('day-settings-label').textContent = 'Day name, manual allowance & backup';
     $('plan-day').replaceChildren(...S.days.map(d => { const option=node('option',`${dayLabel(d.date)} · ${d.count} stops`); option.value=d.date;return option; }));
     $('plan-day').value=plan.date;
     const result = M.check(plan,routing);
@@ -95,11 +97,18 @@
     $('view-timeline').setAttribute('aria-pressed',String(view === 'timeline')); $('view-order').setAttribute('aria-pressed',String(view === 'order'));
     $('plan-empty').hidden = !!plan.items.length; $('build-day').disabled = !plan.items.length;
     const displayed = view === 'timeline' ? [...plan.items].sort((a,b) => (Date.parse(a.schedule.start) || Infinity) - (Date.parse(b.schedule.start) || Infinity)) : plan.items;
-    $('plan-items').replaceChildren(...displayed.map((item,index) => card(item,index,result.issues.get(item.id))));
+    const cards=[];
+    displayed.forEach((item,index)=>{
+      const at=result.scheduled.findIndex(i=>i.id===item.id);
+      if(view==='timeline' && plan.routing?.enabled && at>0) cards.push(window.PlanRoutePanel.journey(result.scheduled[at-1],item,plan));
+      cards.push(card(item,index,result.issues.get(item.id)));
+    });
+    $('plan-items').replaceChildren(...cards);
     for (const el of document.querySelectorAll('.stop-details')) el.open = open.has(el.dataset.details);
     if (focus) document.querySelector(`[data-item="${CSS.escape(focus[0])}"][data-field="${CSS.escape(focus[1])}"]`)?.focus({preventScroll:true});
-    const pins = JSON.stringify(displayed.map(i => [i.id,i.source.coordinates,i.schedule.start,i.schedule.duration]));
+    const pins = JSON.stringify(displayed.map(i => [i.id,routing.coordinates(i),i.schedule.start,i.schedule.duration]));
     if (pins !== mapSignature) { window.PlanMap.update(displayed,changedDay); mapSignature = pins; }
+    window.PlanRoutePanel.update(plan,result);
   }
   form.addEventListener('submit', e => e.preventDefault());
   $('plan-day').onchange = async event => { try { await S.chooseDay(event.target.value); } catch(e) { message(e.message); } };
@@ -126,7 +135,7 @@
       value = candidates[0] || null;
       if (candidates.length > 1) notice = 'This time occurs twice when clocks change. The earlier occurrence is selected.';
     }
-    if (['duration','bufferBefore'].includes(name)) value = value === '' && name === 'bufferBefore' ? null : Number(value);
+    if (['duration','bufferBefore','arrivalMinutes'].includes(name)) value = value === '' && name !== 'duration' ? null : Number(value);
     change(plan => {
       const item = plan.items.find(i => i.id === id); if (!item) return;
       item.schedule[name] = value;
@@ -166,6 +175,8 @@
     } catch (error) { message(error.message); }
     event.target.value = '';
   };
+  window.PlanRoutePanel.init({change,message});
+  routing.subscribe(()=>queueMicrotask(render));
   S.subscribe(render); render();
   const mobile = matchMedia('(max-width: 680px)');
   const foldSettings = () => { $('day-settings').open = !mobile.matches; };

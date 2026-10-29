@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="hand-made fixture for tools/03-build-network.py">
+  <!-- A tiny town. Way 1 runs west-east through node 2; way 2 runs south-north through node 2
+       (a real crossroads). Way 3 is a bridge that crosses way 1 on the map but shares no node,
+       so it must NOT create a junction. Way 4 is one-way. Way 5 is a footway (excluded).
+       Way 6 ends at node 2 and way 7 starts there: used by a clean turn restriction.
+       Relation 2 is a restriction whose from-way passes THROUGH the via node: ambiguous. -->
+  <node id="1" lat="30.2700" lon="-97.7500" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="2" lat="30.2700" lon="-97.7490" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="3" lat="30.2700" lon="-97.7480" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="4" lat="30.2690" lon="-97.7490" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="5" lat="30.2710" lon="-97.7490" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="6" lat="30.2690" lon="-97.7485" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="7" lat="30.2710" lon="-97.7485" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="8" lat="30.2700" lon="-97.7470" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="9" lat="30.2695" lon="-97.7500" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="10" lat="30.2705" lon="-97.7495" version="1" timestamp="2026-01-01T00:00:00Z"/>
+  <node id="11" lat="30.2695" lon="-97.7485" version="1" timestamp="2026-02-02T00:00:00Z"/>
+  <way id="1" version="1" timestamp="2026-01-01T00:00:00Z"><nd ref="1"/><nd ref="2"/><nd ref="3"/><tag k="highway" v="residential"/><tag k="name" v="Main St"/></way>
+  <way id="2" version="1" timestamp="2026-01-01T00:00:00Z"><nd ref="4"/><nd ref="2"/><nd ref="5"/><tag k="highway" v="secondary"/><tag k="maxspeed" v="35 mph"/></way>
+  <way id="3" version="1" timestamp="2026-01-01T00:00:00Z"><nd ref="6"/><nd ref="7"/><tag k="highway" v="primary"/><tag k="bridge" v="yes"/><tag k="layer" v="1"/></way>
+  <way id="4" version="1" timestamp="2026-01-01T00:00:00Z"><nd ref="3"/><nd ref="8"/><tag k="highway" v="residential"/><tag k="oneway" v="yes"/></way>
+  <way id="5" version="1" timestamp="2026-01-01T00:00:00Z"><nd ref="1"/><nd ref="9"/><tag k="highway" v="footway"/></way>
+  <way id="6" version="1" timestamp="2026-01-01T00:00:00Z"><nd ref="10"/><nd ref="2"/><tag k="highway" v="residential"/></way>
+  <way id="7" version="1" timestamp="2026-01-01T00:00:00Z"><nd ref="2"/><nd ref="11"/><tag k="highway" v="service"/><tag k="toll" v="yes"/></way>
+  <relation id="1" version="1" timestamp="2026-01-01T00:00:00Z"><member type="way" ref="6" role="from"/><member type="node" ref="2" role="via"/><member type="way" ref="7" role="to"/><tag k="type" v="restriction"/><tag k="restriction" v="no_left_turn"/></relation>
+  <relation id="2" version="1" timestamp="2026-01-01T00:00:00Z"><member type="way" ref="1" role="from"/><member type="node" ref="2" role="via"/><member type="way" ref="7" role="to"/><tag k="type" v="restriction"/><tag k="restriction:conditional" v="no_right_turn @ (Mo-Fr 07:00-09:00)"/></relation>
+</osm>

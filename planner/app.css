@@ -53,6 +53,17 @@ h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size
 .stop-details { font-size: 12px; margin: 8px 0; color: var(--muted); } .stop-details label { margin: 8px 0; }
 .stop-details p { overflow-wrap: anywhere; } .stop-details textarea { resize: vertical; min-height: 55px; }
 .plan-footnote { font-size: 11px; color: var(--muted); margin: 18px 0 0; }
+.route-panel { border: 1px solid var(--border); border-radius: 10px; background: var(--finish-soft); padding: 10px; margin-bottom: 14px; }
+.route-panel .build-row button { font-size: 12px; }
+#route-status { margin: 9px 0 5px; font-size: 12px; }
+.route-options { font-size: 12px; } .route-options label { margin: 8px 0; }
+.route-options p,.route-disclaimer { font-size: 11px; color: var(--muted); margin: 8px 0 0; }
+.travel-leg { margin: 0 6px; border-left: 3px solid var(--accent); padding: 3px 10px; font-size: 12px; overflow-wrap: anywhere; }
+.travel-leg p { margin: 4px 0; } .travel-detail { color: var(--muted); font-size: 11px; }
+.travel-conflict { border-color: #bf6549; } .travel-unavailable { border-left-style: dashed; }
+.entrance-controls { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.entrance-controls button { font-size: 11px; padding: 6px; }
+.stop-actions { flex-wrap: wrap; } .navigate-link { font-weight: 650; }
 #plan-empty { text-align: center; padding: 25px 8px; } #plan-empty h2 { font-size: 20px; margin-bottom: 12px; } #plan-empty p { color: var(--muted); }
 .plan-map-area { position: relative; min-width: 0; min-height: 0; } #plan-map { position: absolute; inset: 0; }
 .map-tools { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px; right: 55px; }

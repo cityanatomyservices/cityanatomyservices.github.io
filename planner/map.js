@@ -1,24 +1,25 @@
 /* Presentation only. The planner works even when WebGL or map tiles fail. */
 (() => {
-  let map, markers = [], latest = [], fitted = false;
+  let map, markers = [], latest = [], fitted = false, routeDirty=true, routeData={type:'FeatureCollection',features:[]}, picking;
   const M = window.PlanModel;
+  const coordinates=item=>window.PlanRouting.coordinates(item);
   const fit = () => {
-    const points = latest.map(i => i.source.coordinates).filter(Boolean);
+    const points = latest.map(coordinates).filter(Boolean).concat(routeData.features.flatMap(f=>f.geometry.type==='LineString'?f.geometry.coordinates:f.geometry.coordinates.flat()));
     if (!map || !points.length) return;
     const bounds = points.reduce((b,p) => b.extend(p), new maplibregl.LngLatBounds(points[0], points[0]));
     map.fitBounds(bounds, { padding: 65, maxZoom: 15, duration: 500 });
   };
   const focus = id => {
-    const item = latest.find(i => i.id === id); if (!map || !item?.source.coordinates) return;
-    map.easeTo({ center: item.source.coordinates, zoom: Math.max(14,map.getZoom()), duration: 500 });
+    const item = latest.find(i => i.id === id); if (!map || !coordinates(item)) return;
+    map.easeTo({ center: coordinates(item), zoom: Math.max(14,map.getZoom()), duration: 500 });
     markers.find(m => m.id === id)?.marker.togglePopup();
   };
   function update(items,changedDay = false) {
-    if (changedDay) fitted = false;
+    if (changedDay) {fitted = false;cancelPick();}
     latest = items; if (!map) return;
     markers.forEach(m => m.marker.remove()); markers = [];
     items.forEach((item,index) => {
-      if (!item.source.coordinates) return;
+      if (!coordinates(item)) return;
       const button = document.createElement('button'); button.type = 'button'; button.className = 'map-stop';
       button.textContent = index + 1; button.setAttribute('aria-label', `${index + 1}. ${item.source.title}`);
       const body = document.createElement('div'), name = document.createElement('strong'), time = document.createElement('p'), edit = document.createElement('button');
@@ -27,17 +28,50 @@
       edit.textContent = 'Edit this stop'; edit.type = 'button';
       edit.addEventListener('click', () => { const card = document.querySelector(`[data-item-id="${item.id}"]`); card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); card?.querySelector('input,select')?.focus({ preventScroll: true }); });
       body.append(name,time,edit);
-      const marker = new maplibregl.Marker({ element: button }).setLngLat(item.source.coordinates)
+      const marker = new maplibregl.Marker({ element: button }).setLngLat(coordinates(item))
         .setPopup(new maplibregl.Popup({ offset: 20 }).setDOMContent(body)).addTo(map);
       markers.push({ id:item.id, marker });
     });
-    if (!fitted && items.some(i => i.source.coordinates)) { fit(); fitted = true; }
+    if (!fitted && items.some(coordinates)) { fit(); fitted = true; }
   }
+  function drawRoutes() {
+    if(!routeDirty || !map?.isStyleLoaded()) return;
+    if(!map.getSource('planner-routes')) {
+      map.addSource('planner-routes',{type:'geojson',data:routeData});
+      map.addLayer({id:'planner-route-casing',type:'line',source:'planner-routes',paint:{'line-color':'#fff','line-width':7,'line-opacity':0.8},layout:{'line-join':'round','line-cap':'round'}});
+      map.addLayer({id:'planner-route-lines',type:'line',source:'planner-routes',paint:{'line-color':'#247dbe','line-width':4,'line-opacity':0.9},layout:{'line-join':'round','line-cap':'round'}});
+    } else map.getSource('planner-routes').setData(routeData);
+    routeDirty=false;
+    document.getElementById('plan-map').setAttribute('aria-label',`Map with ${routeData.features.length} estimated driving journeys`);
+  }
+  function routes(legs) {
+    routeData={type:'FeatureCollection',features:legs.filter(l=>l.geometry&&['LineString','MultiLineString'].includes(l.geometry.type)).map(l=>({type:'Feature',properties:{},geometry:l.geometry}))};
+    routeDirty=true;
+    drawRoutes();
+    if(!picking) document.getElementById('map-caption').textContent=routeData.features.length?'Driving overview · use your navigation app on the road':'Your selected places';
+  }
+  function cancelPick() {
+    if(picking&&map) map.off('click',picking);
+    picking=null;if(map)map.getCanvas().style.cursor='';
+    document.getElementById('map-caption').textContent=routeData.features.length?'Driving overview · use your navigation app on the road':'Your selected places';
+  }
+  function pick(item,callback) {
+    if(!map) return;
+    cancelPick();
+    if(coordinates(item)) map.easeTo({center:coordinates(item),zoom:17,duration:400});
+    map.getCanvas().style.cursor='crosshair';
+    document.getElementById('map-caption').textContent='Click the driving entrance · Esc to cancel';
+    document.getElementById('plan-map').scrollIntoView({behavior:'smooth',block:'nearest'});
+    picking=event=>{const point=[Number(event.lngLat.lng.toFixed(6)),Number(event.lngLat.lat.toFixed(6))];cancelPick();callback(point);};
+    map.on('click',picking);
+  }
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')cancelPick();});
   try {
     map = new maplibregl.Map({ container:'plan-map', style:'https://tiles.openfreemap.org/styles/positron', center:[-97.7431,30.2672], zoom:11, attributionControl:false });
-    map.addControl(new maplibregl.AttributionControl({ compact:true }), 'bottom-right');
+    map.addControl(new maplibregl.AttributionControl({ compact:true,customAttribution:'Routing © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>' }), 'bottom-right');
     map.addControl(new maplibregl.NavigationControl(), 'top-right');
     map.on('load', async () => {
+      drawRoutes();
       try {
         const response = await fetch('/chat/data/geofences.geojson');
         if (!response.ok) return;
@@ -50,8 +84,8 @@
       } catch (_) { /* selected markers and itinerary remain usable */ }
     });
     map.on('error', () => { if (!map.isStyleLoaded()) document.getElementById('map-error').hidden = false; });
-    map.on('idle', () => { document.getElementById('map-error').hidden = true; });
+    map.on('idle', () => { document.getElementById('map-error').hidden = true;drawRoutes(); });
   } catch (_) { document.getElementById('map-error').hidden = false; }
   document.getElementById('fit-plan').addEventListener('click', fit);
-  window.PlanMap = { update, focus };
+  window.PlanMap = { update, focus, routes, pick, fit };
 })();

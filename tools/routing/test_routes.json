@@ -1,0 +1,15 @@
+[
+  {"name": "Capitol -> Zilker Park",            "from": [-97.7404, 30.2747], "to": [-97.7713, 30.2670], "why": "downtown one-way grid, Lamar bridge"},
+  {"name": "6th & Brazos -> E 7th & Chicon",    "from": [-97.7418, 30.2676], "to": [-97.7190, 30.2630], "why": "one-way downtown streets, I-35 crossing"},
+  {"name": "UT Tower -> Mueller",               "from": [-97.7394, 30.2862], "to": [-97.7050, 30.2990], "why": "Dean Keeton / Manor Rd"},
+  {"name": "Capitol -> AUS airport",            "from": [-97.7404, 30.2747], "to": [-97.6664, 30.1975], "why": "SH 71 / Ben White frontage roads"},
+  {"name": "Capitol -> The Domain",             "from": [-97.7404, 30.2747], "to": [-97.7236, 30.4019], "why": "MoPac ramps"},
+  {"name": "The Domain -> Round Rock",          "from": [-97.7236, 30.4019], "to": [-97.6789, 30.5083], "why": "I-35 north, frontage roads"},
+  {"name": "Round Rock -> Georgetown square",   "from": [-97.6789, 30.5083], "to": [-97.6776, 30.6333], "why": "north edge of coverage"},
+  {"name": "Capitol -> Kyle",                   "from": [-97.7404, 30.2747], "to": [-97.8772, 29.9891], "why": "I-35 south, long route, south edge"},
+  {"name": "Capitol -> Lakeway",                "from": [-97.7404, 30.2747], "to": [-97.9797, 30.3630], "why": "RM 620 / RM 2222, west edge"},
+  {"name": "Capitol -> Pflugerville",           "from": [-97.7404, 30.2747], "to": [-97.6200, 30.4394], "why": "SH 130 / 45 toll vs non-toll"},
+  {"name": "Capitol -> Manor",                  "from": [-97.7404, 30.2747], "to": [-97.5570, 30.3408], "why": "US 290 east, toll alternative"},
+  {"name": "Barton Creek Square -> S Congress & Oltorf", "from": [-97.8080, 30.2580], "to": [-97.7510, 30.2450], "why": "Loop 360 / Ben White"},
+  {"name": "Zilker Park -> Capitol (return)",   "from": [-97.7713, 30.2670], "to": [-97.7404, 30.2747], "why": "return leg should differ on one-way streets"}
+]

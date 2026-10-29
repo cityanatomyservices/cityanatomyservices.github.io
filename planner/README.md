@@ -13,7 +13,8 @@ visitor's physical neighborhood through the existing chat engine.
 | `shared/session.js` | One persisted anonymous Supabase identity across same-origin applications; no profiles, tables, chat or geolocation |
 | `sources.js` | Business/Explore snapshots, stable selection keys, movie occurrences and published timing provenance |
 | `model.js` | Pure Austin-time scheduling and validation; no DOM, network, auth, chat, or routes |
-| `routing.js` | Provider contract; currently only user-entered buffer minutes |
+| `routing.js` | Async route transport, in-memory cache, estimate provider and navigation links |
+| `route-panel.js` | Route controls, travel blocks, arrival-point editing and fitting scheduled visits |
 | `repository.js` | Supabase planner RPC names and response validation |
 | `store.js` | Private browser cache, subscriptions, account boundary, atomic saves and explicit revision conflicts |
 | `select.js` | Main-map checkboxes and count; consumes `austin:planner-target` events |
@@ -42,8 +43,8 @@ Applied `supabase/migrations/0002_planner.sql` to project
 `aqbyxpiwugcvoephsvpm` on 2026-10-29. Existing PostGIS 3.3.7 is in `public`;
 its schema was not moved. `planner_plans` and `planner_items` are new tables,
 with owner-only RLS, auth-user cascade cleanup and no references to chat tables.
-Locations are generated PostGIS geography points with a GiST index. No road
-network or pgRouting extension is required for this release.
+Locations are generated PostGIS geography points with a GiST index. The base
+itinerary works independently of the road network and pgRouting extension.
 
 `0003_planner_days.sql` (also applied 2026-10-29) adds `planner_items.plan_day`
 and changes source uniqueness to `(plan_id, plan_day, source_key)`. The same
@@ -112,22 +113,50 @@ no email/social sign-in UI yet; the anonymous session belongs to this browser.
 - The `America/Chicago` clock is independent of device timezone. Nonexistent
   spring-forward inputs are rejected; repeated fall-back inputs choose the
   earlier occurrence and show a notice. Source timestamps retain their offsets.
-- The 20-minute default travel buffer is a user allowance, not a calculated
-  journey duration. Each stop can override its incoming buffer. No road routes
-  or straight-line route claims are displayed. Up to 60 days and 150 total stops
-  in the collection. Each day has its own adjustable travel buffer.
+- The 20-minute manual travel allowance is used before routing or when a route
+  is unavailable. A calculated journey instead uses driving + estimated road
+  access + an arrival allowance (10 minutes by default, adjustable per day/stop).
+  The old manual allowance is not added to a calculated journey. Up to 60 days
+  and 150 total stops can be saved in the collection.
 
-## Incremental routing
+## Routing and navigation
 
-Keep street graph tables and import jobs separate from planner/chat. An adapter
-can later use PostGIS snapping and pgRouting on prepared edges/nodes, and return
-`{status:'ready', minutes, distanceMeters, geometry, mode, networkVersion,
-calculatedAt}` from `leg(before, after, plan)`. Model scheduling only consumes
-minutes. Fetch route data outside the pure model and cache by endpoint/mode/
-network version. A missing leg must remain manual/unknown rather than zero.
-Then render geometry in map.js and add routing controls in their own UI module.
-Network coverage can expand incrementally while uncovered stops retain manual
-buffers. The chat modules need no changes for that work.
+`Plan route` estimates journeys between scheduled stops in chronological order.
+It never changes visit times. Once enabled for a day, new endpoint/order/toll
+choices refresh estimates; changing arrival times rechecks conflicts against the
+static estimates. `Fit travel times` preserves this order and fixed/locked starts,
+moving only flexible visits within their availability. Infeasible fits change
+nothing and ask the user to shorten, move, or remove a visit. Unscheduled stops
+stay unscheduled. This is not stop-order optimization or live navigation.
+
+`daySettings[date].routing` stores `{enabled,avoidTolls,arrivalMinutes}`. Optional
+`schedule.arrivalMinutes` overrides the day's allowance. A user-picked
+`schedule.routeCoordinates` is the driving entrance; the original source marker
+is preserved. Missing locations and uncovered/unreachable destinations retain
+the manual allowance and a visible warning; they are never treated as zero time.
+
+Migrations `0004`–`0006` add private `routing` tables and a private `routing_engine`
+extension schema. Existing PostGIS stays in `public`. Authenticated sessions
+(including anonymous Supabase accounts) can call only `planner_routing_status`
+and `planner_route_leg`. The latter validates coordinates, checks coverage,
+limits concurrent expensive work to two requests across the project and one
+per identity, and rate-limits cache misses. Private per-user caches expire after
+7 days and are capped at 200 entries. New versions invalidate cache keys.
+
+The graph covers the Census Austin urban area plus 10 km. Its estimates use a
+static car profile, no live traffic. Conditional prohibitions apply conservatively
+all day; unresolved restricted approaches and uncertain barriers are unavailable.
+Stops connect to fractions along reachable roads, with a maximum 250 m offset.
+Reported road-access minutes are a walking allowance based on that offset, not
+a calculated pedestrian route. Use the entrance editor for uncertain connections.
+
+Google Maps, Apple Maps and Waze links open a destination in a new tab/app using
+public URL formats, without API keys. Navigation starts from the user's current
+location; the planner's exact road path is not forced on the navigation app.
+Journeys to the first stop and home afterward are not included automatically.
+
+The build, upload and network checks live in [tools/routing](../tools/routing/README.md).
+Chat and parcel tables are unchanged. No recurring rebuild has been scheduled.
 
 ## Verification
 

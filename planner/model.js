@@ -81,7 +81,7 @@
   function replaceDay(book, view) {
     if (view.date !== book.date || view.id !== book.id) throw new Error('Choose the day using the plan day selector.');
     book.items = book.items.filter(i => i.day !== view.date).concat(view.items.map(i => ({...i,day:view.date})));
-    book.daySettings[view.date] = {name:view.name,bufferMinutes:view.bufferMinutes};
+    book.daySettings[view.date] = {name:view.name,bufferMinutes:view.bufferMinutes,...(view.routing ? {routing:structuredClone(view.routing)} : {})};
     return book;
   }
   function fixedStart(item) {
@@ -162,9 +162,42 @@
     }
     for (let i = 1; i < scheduled.length; i++) {
       const before = scheduled[i - 1], after = scheduled[i], gap = interval(after)[0] - interval(before)[1];
-      if (gap >= 0 && gap < buffer(plan, before, after, provider)) add(after, 'buffer', 'Not enough room for your travel buffer.', 'error');
+      const leg = provider?.leg?.(before,after,plan);
+      if (plan.routing?.enabled && leg?.status !== 'ready') add(after,'route-unavailable','Travel time is not confirmed. The manual allowance is being used.');
+      if (gap >= 0 && gap < buffer(plan, before, after, provider)) {
+        const missing = Math.ceil((buffer(plan,before,after,provider)-gap)/minute);
+        add(after, 'buffer', leg?.status === 'ready' ? `Travel and arrival allowance need ${missing} more minute${missing===1?'':'s'} before this stop.` : 'Not enough room for your travel buffer.', 'error');
+      }
     }
     return { issues, scheduled, conflicts: items.filter(i => issues.get(i.id).some(x => x.severity === 'error')).length };
+  }
+  // Fit the scheduled order between fixed/locked anchors. An infeasible day
+  // throws before the caller saves anything; no activities are silently dropped.
+  function fitTravel(plan, provider) {
+    const result = structuredClone(plan), items = check(result,provider).scheduled;
+    if (items.length < 2) return {plan:result,changed:false};
+    for (let i=1;i<items.length;i++) if (provider?.leg?.(items[i-1],items[i],result)?.status !== 'ready')
+      throw new Error('Calculate every scheduled journey before fitting travel. Adjust an arrival point or the schedule for unavailable journeys.');
+    const latest = [], original = items.map(i=>interval(i)[0]);
+    for (const item of items) if (item.schedule.locked && fixedStart(item) && Date.parse(item.schedule.start)!==Date.parse(fixedStart(item)))
+      throw new Error(`The locked arrival for ${item.source.title} differs from its published start. Resolve that conflict before fitting travel.`);
+    for (let i=items.length-1;i>=0;i--) {
+      const item=items[i], [opens,closes]=windows(item,result), length=duration(item)*minute;
+      const fixed=fixedStart(item) || (item.schedule.locked ? item.schedule.start : null);
+      latest[i]=Math.min(closes-length,i+1<items.length ? latest[i+1]-buffer(result,item,items[i+1],provider)-length : Infinity);
+      if (fixed) {
+        if (Date.parse(fixed)>latest[i]) throw new Error(`This order cannot fit around ${item.source.title}. Shorten a visit, adjust an unlocked time, or remove a stop.`);
+        latest[i]=Date.parse(fixed);
+      }
+      if (latest[i]<opens) throw new Error(`${item.source.title} cannot fit within its availability with travel included. Your times have been kept.`);
+    }
+    for (let i=0;i<items.length;i++) {
+      const item=items[i], fixed=fixedStart(item) || (item.schedule.locked ? item.schedule.start : null);
+      const earliest=Math.max(windows(item,result)[0],i ? interval(items[i-1])[1]+buffer(result,items[i-1],item,provider) : -Infinity);
+      if (earliest>latest[i]) throw new Error(`There is not enough time to reach ${item.source.title}. Shorten a visit or adjust the plan. Your times have been kept.`);
+      item.schedule.start=iso(fixed ? Date.parse(fixed) : Math.max(earliest,Math.min(original[i],latest[i])));
+    }
+    return {plan:result,changed:items.some((item,i)=>interval(item)[0]!==original[i])};
   }
   function empty(id) {
     const date = planDay();
@@ -176,10 +209,14 @@
     if (!instant(plan.date + 'T12:00')) return false;
     if (plan.schemaVersion === 2 && (!Array.isArray(plan.days) || !plan.days.includes(plan.date) || plan.days.length > 60 || new Set(plan.days).size !== plan.days.length || !plan.days.every(d => instant(d+'T12:00')) || !plan.daySettings || !plan.days.every(d => typeof plan.daySettings[d]?.name === 'string' && plan.daySettings[d].name.length <= 100 && finite(plan.daySettings[d].bufferMinutes) && plan.daySettings[d].bufferMinutes >= 0 && plan.daySettings[d].bufferMinutes <= 240))) return false;
     if (!bounds(plan).every(Number.isFinite) || !finite(plan.bufferMinutes) || plan.bufferMinutes < 0 || plan.bufferMinutes > 240) return false;
+    const validRouting = r => r == null || (typeof r === 'object' && typeof r.enabled === 'boolean' && typeof r.avoidTolls === 'boolean' && finite(r.arrivalMinutes) && r.arrivalMinutes>=0 && r.arrivalMinutes<=120);
+    if (!validRouting(plan.routing) || Object.values(plan.daySettings || {}).some(s=>!validRouting(s.routing))) return false;
     const ids = new Set(), keys = new Set();
     return plan.items.every(i => {
       if (!i || !uuid.test(i.id || '') || ids.has(i.id) || typeof i.source?.title !== 'string' || !i.source.title || typeof i.source?.key !== 'string' || !i.source.key || !i.schedule || !finite(i.schedule.duration) || i.schedule.duration < 1 || i.schedule.duration > 1440) return false;
       if (i.schedule.bufferBefore != null && (!finite(i.schedule.bufferBefore) || i.schedule.bufferBefore < 0 || i.schedule.bufferBefore > 240)) return false;
+      if (i.schedule.arrivalMinutes != null && (!finite(i.schedule.arrivalMinutes) || i.schedule.arrivalMinutes < 0 || i.schedule.arrivalMinutes > 120)) return false;
+      if (i.schedule.routeCoordinates != null && (!Array.isArray(i.schedule.routeCoordinates) || i.schedule.routeCoordinates.length!==2 || !i.schedule.routeCoordinates.every(finite) || Math.abs(i.schedule.routeCoordinates[0])>180 || Math.abs(i.schedule.routeCoordinates[1])>90)) return false;
       if (!['fixed','window','unknown'].includes(i.source.timing) || !['start','end','validFrom','validUntil','checked'].every(k => i.source[k] == null || Number.isFinite(Date.parse(i.source[k])))) return false;
       if (i.source.showtimes != null && (!Array.isArray(i.source.showtimes) || !i.source.showtimes.every(s => s && Number.isFinite(Date.parse(s.start))))) return false;
       if (i.schedule.note != null && (typeof i.schedule.note !== 'string' || i.schedule.note.length > 2000)) return false;
@@ -193,5 +230,5 @@
         (!i.source.coordinates || (Array.isArray(i.source.coordinates) && i.source.coordinates.length === 2 && i.source.coordinates.every(finite) && Math.abs(i.source.coordinates[0]) <= 180 && Math.abs(i.source.coordinates[1]) <= 90));
     });
   }
-  return { zone, day, local, localCandidates, instant, nextDay, previousDay, clock, planDay, timeCandidates, timeOnDay, bounds, onDay, targetDay, upgrade, dayView, ensureDay, replaceDay, interval, windows, fixedStart, duration, buffer, build, check, empty, valid };
+  return { zone, day, local, localCandidates, instant, nextDay, previousDay, clock, planDay, timeCandidates, timeOnDay, bounds, onDay, targetDay, upgrade, dayView, ensureDay, replaceDay, interval, windows, fixedStart, duration, buffer, build, check, fitTravel, empty, valid };
 });

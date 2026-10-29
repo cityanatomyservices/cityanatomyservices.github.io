@@ -5,7 +5,7 @@
   <title>My Plan Map</title><link rel="icon" href="data:,">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
   <link rel="stylesheet" href="/appearance.css?v=20261028h">
-  <link rel="stylesheet" href="/planner/app.css?v=20261029b">
+  <link rel="stylesheet" href="/planner/app.css?v=20261029r">
   <link rel="stylesheet" href="/chat/panel.css?v=20261023e">
   <script src="/chat/theme.js?v=20261028g"></script>
 </head>
@@ -22,9 +22,9 @@
       <dialog id="day-dialog"><form id="add-day-form"><h2>Add a plan day</h2><label>Date<input id="new-day-date" type="date" required min="2020-01-01" max="2099-12-31"></label><p>Each day runs from 5 AM until 5 AM the following morning. Existing days keep their own stops.</p><div class="build-row"><button type="button" id="cancel-day">Cancel</button><button type="submit" class="primary">Open day</button></div></form></dialog>
       <details id="day-settings" open><summary id="day-settings-label">Day settings</summary><form id="plan-settings">
         <label class="plan-name">Day name<input name="name" maxlength="100" required aria-label="Day name"></label>
-        <details class="plan-options"><summary>Travel buffer & saving</summary>
-          <label>Minutes between stops<input name="bufferMinutes" type="number" min="0" max="240" step="5" required></label>
-          <p>This is your allowance, not a calculated journey time. Routing will be added later. Adjust a stop’s buffer if it needs longer.</p>
+        <details class="plan-options"><summary>Manual travel allowance & saving</summary>
+          <label>Minutes when no route is available<input name="bufferMinutes" type="number" min="0" max="240" step="5" required></label>
+          <p>This manual allowance is used until a journey is calculated, or when a route is unavailable. Calculated journeys use driving time plus your arrival allowance below.</p>
           <p>Your anonymous account saves privately on this browser; clearing site data can lose access. Download all days for a backup.</p>
           <button type="button" id="download-plan">Download all days</button>
           <button type="button" id="import-plan">Restore downloaded days</button><input type="file" id="import-file" accept="application/json,.json" hidden aria-label="Import a downloaded Austin plan">
@@ -32,6 +32,18 @@
       </form></details>
       <div class="build-row"><button type="button" id="build-day" class="primary">Build my day</button><button type="button" id="undo" disabled>Undo</button></div>
       <p class="build-help">Fixed starts and locked stops stay put. Flexible stops fill the gaps in your preferred order.</p>
+      <section class="route-panel" aria-label="Travel planning">
+        <div class="build-row"><button type="button" id="plan-route" class="primary">Plan route</button><button type="button" id="fit-travel" disabled>Fit travel times</button></div>
+        <p id="route-status" role="status" aria-live="polite">Schedule at least two stops to estimate the journeys between them.</p>
+        <details class="route-options"><summary>Driving & arrival options</summary>
+          <label class="lock-label"><input id="route-enabled" type="checkbox">Include driving estimates</label>
+          <label class="lock-label"><input id="avoid-tolls" type="checkbox">Avoid toll roads</label>
+          <label>Parking / extra arrival minutes per stop<input id="arrival-minutes" type="number" min="0" max="120" step="1" value="10"></label>
+          <label>Open navigation in<select id="navigation-app"><option value="google">Google Maps</option><option value="apple">Apple Maps</option><option value="waze">Waze</option></select></label>
+          <p>Estimates cover journeys between scheduled stops. Your trip to the first stop and your trip home are not included. Navigation opens from your current location.</p>
+        </details>
+        <p class="route-disclaimer">Planning estimates · live traffic not included. Confirm the drive in your navigation app before leaving.</p>
+      </section>
       <div id="plan-message" role="status" aria-live="polite"></div>
       <div id="plan-summary"></div>
       <div class="plan-view" role="group" aria-label="Itinerary view"><button type="button" id="view-timeline" aria-pressed="true">Timeline</button><button type="button" id="view-order" aria-pressed="false">Preferred order</button></div>
@@ -42,17 +54,18 @@
     <section class="plan-map-area" aria-label="Map of your selected places">
       <div id="plan-map"></div><p id="map-error" hidden>The map couldn’t load. Your itinerary still works.</p>
       <div class="map-tools"><button id="fit-plan" type="button">Fit my places</button><button id="chat-launch" type="button">Neighborhood chat</button></div>
-      <div class="map-caption">Your selected places · routes coming later</div>
+      <div class="map-caption" id="map-caption">Your selected places</div>
       <div id="planner-chat-host"></div>
     </section>
   </main>
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="/shared/session.js?v=20261029a"></script>
-  <script src="/planner/model.js?v=20261029b"></script><script src="/planner/sources.js?v=20261029b"></script>
-  <script src="/planner/repository.js?v=20261029b"></script><script src="/planner/store.js?v=20261029b"></script>
-  <script src="/planner/routing.js?v=20261029b"></script>
-  <script src="/planner/map.js?v=20261029b"></script><script src="/planner/app.js?v=20261029b"></script>
+  <script src="/planner/model.js?v=20261029r"></script><script src="/planner/sources.js?v=20261029r"></script>
+  <script src="/planner/repository.js?v=20261029r"></script><script src="/planner/store.js?v=20261029r"></script>
+  <script src="/planner/routing.js?v=20261029r"></script>
+  <script src="/planner/route-panel.js?v=20261029r"></script>
+  <script src="/planner/map.js?v=20261029r"></script><script src="/planner/app.js?v=20261029r"></script>
   <script src="/chat/widget.js?v=20261029a"></script>
 </body>
 </html>
