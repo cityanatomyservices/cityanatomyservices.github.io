@@ -1,6 +1,7 @@
 /* Austin.chat visual finish. Paint only: no dimensions, typography, spacing,
    border widths, radii, transforms, or layout rules. Existing geometry wins.
-   Ink navigation, chalk surfaces and teal states; researched 2026-10-28:
+   White navigation in light mode, ink in dark mode, chalk surfaces and teal
+   states; researched 2026-10-28:
    https://linear.app/now/behind-the-latest-design-refresh
    https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale
    Load after the page's existing styles so their structure stays independent. */
@@ -19,12 +20,12 @@
   --finish-selected: #e3f2eb;
   --finish-control-border: #b7c8be;
   --finish-highlight: rgb(255 255 255 / 90%);
-  --finish-chrome: #142e2b;
-  --finish-chrome-end: #203c35;
-  --finish-chrome-text: #f1f7ef;
-  --finish-chrome-muted: #bdd1c6;
-  --finish-chrome-line: #3d5950;
-  --finish-chrome-button: #254139;
+  --finish-chrome: #ffffff;
+  --finish-chrome-end: #ffffff;
+  --finish-chrome-text: var(--text);
+  --finish-chrome-muted: var(--muted);
+  --finish-chrome-line: var(--border);
+  --finish-chrome-button: var(--finish-raised);
   --finish-on-accent: #ffffff;
   color-scheme: light;
 }
@@ -60,7 +61,7 @@
   box-shadow: inset 0 -1px 0 rgb(167 208 183 / 12%), 0 3px 12px var(--shadow);
 }
 :root .topbar .brand { color: var(--finish-chrome-text); }
-:root .topbar .brand:hover { color: #b9e7cf; }
+:root .topbar .brand:hover { color: var(--accent); }
 :root .topbar :is(.menu-toggle, .theme-toggle) {
   color: var(--finish-chrome-text);
   background: var(--finish-chrome-button);
