@@ -28,18 +28,29 @@
   $('newName').textContent = COPY.newName;
   $('chatBtn').textContent = COPY.chatButton;
 
-  // the card folds with the arrow in its title (same as the topic maps);
-  // it starts CLOSED (owner 2026-10-22), showing only the title and the
-  // people line, which sits outside the fold
+  // Chat in the control stack opens the existing neighborhood card.
+  // Closing it hides the entire card, leaving the map clear.
   let placePopup = null;        // a picked business's popup (set further down); reopening the card closes it
   const setCard = (open) => {
+    if (!open && $('legend').contains(document.activeElement)) $('ctrlChat').focus({ preventScroll: true });
+    if (open) window.AustinExplore.close?.();
+    $('legend').hidden = !open;
+    $('ctrlChat').setAttribute('aria-expanded', String(open));
+    $('ctrlChat').classList.toggle('is-on', open);
     $('legendTitle').setAttribute('aria-expanded', String(open));
     $('legendBody').hidden = !open;
     $('legend').classList.toggle('is-collapsed', !open);
     if (open && placePopup) { placePopup.remove(); placePopup = null; }
   };
+  window.AustinChatCard = { close: () => setCard(false) };
   setCard(false);
+  $('ctrlChat').addEventListener('click', () => {
+    const open = $('legend').hidden;
+    setCard(open);
+    if (open) $('legendTitle').focus({ preventScroll: true });
+  });
   $('legendTitle').addEventListener('click', () => setCard($('legendTitle').getAttribute('aria-expanded') !== 'true'));
+  $('legend').addEventListener('keydown', event => { if (event.key === 'Escape') setCard(false); });
 
   // the bounding box of a polygon, or of every polygon: what the map opens
   // on, refits to, and eases to when you join a room

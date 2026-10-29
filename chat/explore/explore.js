@@ -41,11 +41,12 @@ window.AustinExplore = {
     function save() {
       try { localStorage.setItem('austin-explore-v1', JSON.stringify({ ...state, enabled: [...state.enabled], position: undefined })); } catch (_) { /* storage optional */ }
     }
-    function open(on) {
+    function open(on, returnFocus = true) {
       panel.hidden = !on; button.setAttribute('aria-expanded', String(on));
-      if (on) { document.getElementById('legendBody').hidden = true; document.getElementById('legendTitle').setAttribute('aria-expanded', 'false'); document.getElementById('legend').classList.add('is-collapsed'); }
-      else button.focus();
+      if (on) window.AustinChatCard?.close();
+      else if (returnFocus) button.focus();
     }
+    window.AustinExplore.close = () => open(false, false);
     button.addEventListener('click', () => open(panel.hidden));
     $('.explore-close').addEventListener('click', () => open(false));
     panel.addEventListener('keydown', e => { if (e.key === 'Escape') open(false); });
