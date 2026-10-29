@@ -58,6 +58,7 @@
         </div>
         <ul id="menu-content" class="menu-links"></ul>
       </details>
+      <a class="menu-link" href="/myplanmap/">My Plan Map</a>
       <a class="menu-link" href="/contact/">Contact</a>
     </nav>
   </header>`);

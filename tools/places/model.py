@@ -149,7 +149,7 @@ def safe_website(url):
 
 
 def merge(target, other):
-    for key in ('address', 'website'):
+    for key in ('address', 'website', 'opening_hours'):
         if not target.get(key) and other.get(key):
             target[key] = other[key]
     for source, evidence in other.get('sources', {}).items():

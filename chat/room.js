@@ -178,7 +178,9 @@
           const b = row(p.name, room.properties.id + '/' + p.id, 'place-row');
           b.title = p.address || p.name;
           b.dataset.place = JSON.stringify(p);
-          cd.appendChild(b);
+          const wrapper = document.createElement('div'); wrapper.className = 'plan-place-row';
+          wrapper.appendChild(b); cd.appendChild(wrapper);
+          window.dispatchEvent(new CustomEvent('austin:planner-target', { detail: { container: wrapper, provider: 'place', data: p } }));
         });
         gd.appendChild(cd);
       });

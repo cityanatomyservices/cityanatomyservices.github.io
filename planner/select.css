@@ -1,0 +1,11 @@
+.plan-open { position: absolute; left: 12px; bottom: 34px; z-index: 6; border: 1px solid var(--border); border-radius: 10px; padding: 10px 13px; background: var(--surface); color: var(--accent); box-shadow: 0 3px 15px var(--shadow); font: 600 13px/1.2 system-ui,sans-serif; text-decoration: none; }
+.plan-open:hover { background: var(--finish-selected); }
+.plan-select { display: inline-flex; align-items: center; gap: 5px; flex: none; padding: 7px 5px; font: 500 12px/1.3 system-ui,sans-serif; color: var(--text); cursor: pointer; }
+.plan-select input { width: 17px; height: 17px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+.plan-place-row { display: flex; align-items: center; min-width: 0; }
+.plan-place-row .place-row { min-width: 0; }
+.plan-place-row .plan-select { padding-block: 4px; }
+.plan-place-row .plan-select span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.explore-results > li { position: relative; }
+.explore-results > li > .plan-select { margin: -3px 10px 5px; }
+.plan-select:focus-within, .plan-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

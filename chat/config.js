@@ -5,7 +5,7 @@
 // how; `bash tools/make-geofences.sh` rebuilds it). Each has `id` (URL-safe,
 // the future chat room key) and `name`.
 window.MAP_CONFIG = {
-  geofences: './data/geofences.geojson?v=20261022k',
+  geofences: '/chat/data/geofences.geojson?v=20261022k',
   nameField: 'name',
   // the businesses in each neighborhood, one file per neighborhood id
   // (tools/fetch-places.py, from public directories); absolute so the apps under
@@ -38,13 +38,7 @@ window.MAP_CONFIG = {
   fitPadding: 24,
   keepOnScreen: 0.1,
 
-  // the chat's Supabase project (the paid one, the same as /budget/ and
-  // /parcels/). The publishable key is public by design: it opens Realtime
-  // channels, and row security guards every table.
-  supabase: {
-    url: 'https://aqbyxpiwugcvoephsvpm.supabase.co',
-    anonKey: 'sb_publishable_QMWSj0CLYe3k3XSGCsWOhw_5RsI-nmN'
-  },
+  // Shared Supabase identity is configured in /shared/session.js.
   // the three links in a business's popup (owner 2026-10-22: plain web
   // addresses, no API keys). {lat} {lng} {name} are filled in by map.js.
   placeLinks: {

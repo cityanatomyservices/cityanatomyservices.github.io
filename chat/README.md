@@ -6,7 +6,7 @@ part of the same chat. One small file per job; nothing is abstract.
 | file | job |
 | --- | --- |
 | `index.html` | the chat map page: the map, the card, the control stack, the chat window markup |
-| `config.js` | where the data is, how it draws, the Supabase project (publishable key — public by design) |
+| `config.js` | where the data is and how it draws |
 | `copy.js` | every word on screen (owner writes copy; current strings are drafts) |
 | `auth.js` | who you are: an anonymous Supabase account the browser keeps (shared by every app on austin.chat), your handle + emoji in your `profiles` row; falls back to a browser-only random name when offline |
 | `locate.js` | GPS → which neighborhood polygon you are in (point in polygon, in the browser) and each reading, which chat.js shares with your neighborhood ONLY while you are Visible, rounded to ~10 m |
@@ -23,7 +23,7 @@ part of the same chat. One small file per job; nothing is abstract.
    (`data-glyph="👁"` / `data-glyph="💬"` lets them show a glyph instead of
    words), and the chat window markup (copy it from `index.html`).
 2. The script tags, in this order: supabase-js, `/chat/copy.js`, `config.js`,
-   `auth.js`, `locate.js`, `chat.js`, `panel.js`, `room.js`.
+   `/shared/session.js`, `auth.js`, `locate.js`, `chat.js`, `panel.js`, `room.js`.
 3. One line of its own: `ChatRoom.load().then((g) => ChatRoom.start(g, { ids: { visibleBtn: '…', chatBtn: '…' } }))`
    (`1885murdertour/js/chat.js`, `moontowertour/js/chat.js`).
 
@@ -49,3 +49,11 @@ are standing in. Visibility starts OFF and is remembered once turned on.
   else. The card goes neighborhood → group → category → business, with
   "N here" counts, and the map shows each visible person on the business
   they picked. `?room=<id>&place=<place id>` picks one for testing.
+# Planner integration (2026-10-29)
+
+`/shared/session.js` now owns the Supabase client and anonymous session. Chat's
+`auth.js` only adds its profile/name logic. The home map, both tour apps, and
+My Plan Map use this shared session without sharing their application state.
+Load shared/session.js before auth.js. `widget.js` is an optional lazy-loaded
+chat UI for other applications, currently used by My Plan Map. Planner tables,
+scheduling and selection controls live separately; see [planner/README.md](../planner/README.md).

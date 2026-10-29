@@ -1,0 +1,22 @@
+name: Check My Plan Map
+on:
+  push:
+    branches: [main]
+    paths: ['planner/**', 'shared/**', 'chat/widget.js', 'tests/planner/**', 'supabase/migrations/0002_planner.sql', '.github/workflows/test-planner.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Scheduling and persistence
+        run: node --test tests/planner/*.test.cjs
+      - name: Browser module syntax
+        run: |
+          for file in planner/*.js shared/*.js chat/widget.js; do node --check "$file"; done

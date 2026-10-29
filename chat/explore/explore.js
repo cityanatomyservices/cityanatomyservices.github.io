@@ -98,6 +98,7 @@ window.AustinExplore = {
         if (p.ticketsUrl && /^https?:\/\//.test(p.ticketsUrl)) actions.append(link('Tickets ↗', p.ticketsUrl));
         actions.append(link('Directions ↗', `https://www.google.com/maps/dir/?api=1&destination=${destination}`), link('Report a change ↗', '/contact/'));
         article.append(actions, node('p', `${p.source} · Checked ${format(p.checked)} CT`));
+        window.dispatchEvent(new CustomEvent('austin:planner-target', { detail: { container: article, provider: 'explore', data: item } }));
         body.append(article);
       }
       popup = new maplibregl.Popup({ maxWidth: '310px', offset: 14, className: 'explore-popup' }).setLngLat(at).setDOMContent(body).addTo(map);
@@ -139,6 +140,7 @@ window.AustinExplore = {
           showItems([f], f.geometry.coordinates);
         });
         li.append(b); list.append(li);
+        window.dispatchEvent(new CustomEvent('austin:planner-target', { detail: { container: li, provider: 'explore', data: f } }));
       }
       $('.explore-more').hidden = matches.length <= limit;
       const freshness = $('.explore-freshness'); freshness.replaceChildren();

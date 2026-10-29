@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-austin-map>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Plan Map</title><link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="/appearance.css?v=20261028h">
+  <link rel="stylesheet" href="/planner/app.css?v=20261029a">
+  <link rel="stylesheet" href="/chat/panel.css?v=20261023e">
+  <script src="/chat/theme.js?v=20261028g"></script>
+</head>
+<body>
+  <main class="planner-layout">
+    <section class="plan-panel" aria-label="Itinerary">
+      <header class="plan-heading"><div><p class="eyebrow">A day in Austin</p><h1>My Plan Map</h1></div><a class="button" href="/" target="_top">＋ Add places</a></header>
+      <p class="intro">Save places on the main map, then make time for them here.</p>
+      <div class="save-line"><span id="save-status" role="status">Opening your plan…</span><button type="button" id="retry-save" class="text-button">Retry save</button></div>
+      <div id="save-conflict" hidden><p>A newer copy was saved elsewhere. Your edits are still in this browser.</p><button type="button" id="keep-local">Save this copy</button> <button type="button" id="use-remote">Use saved copy</button></div>
+      <details id="day-settings" open><summary id="day-settings-label">Day settings</summary><form id="plan-settings">
+        <label class="plan-name">Plan name<input name="name" maxlength="100" required aria-label="Plan name"></label>
+        <div class="settings-grid">
+          <label class="plan-date">Date<input name="date" type="date" required min="2020-01-01" max="2099-12-31"></label>
+          <label>Start<input name="dayStart" type="time" required></label><label>Finish<input name="dayEnd" type="time" required></label>
+        </div>
+        <details class="plan-options"><summary>Travel buffer & saving</summary>
+          <label>Minutes between stops<input name="bufferMinutes" type="number" min="0" max="240" step="5" required></label>
+          <p>This is your allowance, not a calculated journey time. Routing will be added later. Adjust a stop’s buffer if it needs longer.</p>
+          <p>All times use Austin time. A finish earlier than the start is the following morning. Your anonymous account saves privately on this browser; clearing site data can lose access. Use Download plan for a backup.</p>
+          <button type="button" id="download-plan">Download plan</button>
+          <button type="button" id="import-plan">Import plan</button><input type="file" id="import-file" accept="application/json,.json" hidden aria-label="Import a downloaded Austin plan">
+        </details>
+      </form></details>
+      <div class="build-row"><button type="button" id="build-day" class="primary">Build my day</button><button type="button" id="undo" disabled>Undo</button></div>
+      <p class="build-help">Fixed starts and locked stops stay put. Flexible stops fill the gaps in your preferred order.</p>
+      <div id="plan-message" role="status" aria-live="polite"></div>
+      <div id="plan-summary"></div>
+      <div class="plan-view" role="group" aria-label="Itinerary view"><button type="button" id="view-timeline" aria-pressed="true">Timeline</button><button type="button" id="view-order" aria-pressed="false">Preferred order</button></div>
+      <ol id="plan-items" aria-label="Selected places and events"></ol>
+      <div id="plan-empty" hidden><h2>Your day starts here</h2><p>Check “My plan” beside an Explore Austin listing or a neighborhood business. Come back here to choose times and build your day.</p><a class="button primary" href="/" target="_top">Explore Austin →</a></div>
+      <p class="plan-footnote">Saving a place doesn’t book admission or make you visible in chat. Check the source for changes before going.</p>
+    </section>
+    <section class="plan-map-area" aria-label="Map of your selected places">
+      <div id="plan-map"></div><p id="map-error" hidden>The map couldn’t load. Your itinerary still works.</p>
+      <div class="map-tools"><button id="fit-plan" type="button">Fit my places</button><button id="chat-launch" type="button">Neighborhood chat</button></div>
+      <div class="map-caption">Your selected places · routes coming later</div>
+      <div id="planner-chat-host"></div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/shared/session.js?v=20261029a"></script>
+  <script src="/planner/model.js?v=20261029a"></script><script src="/planner/sources.js?v=20261029a"></script>
+  <script src="/planner/repository.js?v=20261029a"></script><script src="/planner/store.js?v=20261029a"></script>
+  <script src="/planner/routing.js?v=20261029a"></script>
+  <script src="/planner/map.js?v=20261029a"></script><script src="/planner/app.js?v=20261029a"></script>
+  <script src="/chat/widget.js?v=20261029a"></script>
+</body>
+</html>

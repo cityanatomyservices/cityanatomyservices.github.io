@@ -16,7 +16,6 @@
 //                      client()  the shared Supabase client (chat.js uses it)
 //                      userId()  the auth user id, or null when offline
 (function () {
-  const CFG = window.MAP_CONFIG;
   const KEY = 'austinchat:identity';
   const ADJECTIVES = ['Sparky', 'Breezy', 'Mellow', 'Sunny', 'Jazzy', 'Plucky', 'Dreamy', 'Zesty', 'Peachy', 'Frosty',
     'Cosmic', 'Glowy', 'Cheery', 'Snazzy', 'Bouncy', 'Mossy', 'Giddy', 'Nimble', 'Fuzzy', 'Lucky', 'Nifty', 'Lively', 'Jolly', 'Zippy'];
@@ -30,23 +29,16 @@
   const remember = (i) => { try { localStorage.setItem(KEY, JSON.stringify(i)); } catch (e) { /* private mode */ } };
   const remembered = () => { try { const i = JSON.parse(localStorage.getItem(KEY)); return i && i.handle && i.emoji ? i : null; } catch (e) { return null; } };
 
-  let client = null;
   let uid = null;
   let me = null;
 
   function getClient() {
-    if (!client) client = window.supabase.createClient(CFG.supabase.url, CFG.supabase.anonKey, { realtime: { params: { eventsPerSecond: 5 } } });
-    return client;
+    return window.AustinSession.client();
   }
 
   // the session: the one the browser kept, or a new anonymous account
   async function signIn() {
-    const c = getClient();
-    const { data } = await c.auth.getSession();
-    if (data.session) return data.session.user.id;
-    const { data: fresh, error } = await c.auth.signInAnonymously();
-    if (error) throw error;
-    return fresh.user.id;
+    return (await window.AustinSession.ready()).user.id;
   }
 
   // write a name to the profile; a taken handle gets a new try (handles are unique)

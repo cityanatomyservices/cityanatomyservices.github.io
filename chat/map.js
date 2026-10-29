@@ -307,6 +307,7 @@
                      (place.address ? `<p class="addr">${esc(place.address)}</p>` : '') +
                      `<div class="place-links">${website}${link('google')}${link('apple')}${link('yelp')}</div></div>`)
             .addTo(map);
+          window.dispatchEvent(new CustomEvent('austin:planner-target', { detail: { container: placePopup.getElement().querySelector('.place-popup'), provider: 'place', data: place } }));
         },
         // everyone visible in the neighborhood, each drawn where they are: at
         // the position they share, else on the neighborhood. Picking a

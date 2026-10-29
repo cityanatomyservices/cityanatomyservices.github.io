@@ -90,6 +90,10 @@ def osm_places(data, categories):
         website = safe_website(tags.get('website') or tags.get('contact:website'))
         if website:
             place['website'] = website
+        if tags.get('opening_hours'):
+            # Preserve the published OSM expression. The planner shows it for
+            # review; it does not pretend to interpret holidays/seasonal rules.
+            place['opening_hours'] = tags['opening_hours']
         yield place
 
 
