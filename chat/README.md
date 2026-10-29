@@ -14,13 +14,14 @@ part of the same chat. One small file per job; nothing is abstract.
 | `panel.js` + `panel.css` | the chat window (colours from six `--chat-*` variables each page sets) |
 | `room.js` | the wiring: joins your neighborhood, lists its businesses by category on the card, moves you to a business room when you tap one, keeps the Visible / Chat buttons and lines up to date; shared with the apps |
 | `map.js` | the chat map itself: layers, controls, 3D, and the hooks that draw your room, the people (an emoji row on the business they picked, or on the neighborhood) and a pin on the business you picked |
-| `apps-menu.js` | the Apps button and expandable categories, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
+| `catalog-menu.js` | the Apps and Media buttons and expandable categories, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
-The main map controls are Apps, Day Plan, Chat, Explore, GPS, 2D/3D, satellite
+The main map controls are Apps, Media, Day Plan, Chat, Explore, GPS, 2D/3D, satellite
 and extents. Zoom and compass use the same MapLibre control as the planner,
 positioned top left. Day Plan opens the date picker and planned-day list;
-Apps opens the catalog categories. Opening one map panel closes the others.
+Apps opens the catalog categories; Media opens the former Content links.
+The shared header has an inactive Sign In placeholder; the hamburger is removed. Opening one map panel closes the others.
 
 ## How an app joins (what the two tours do)
 

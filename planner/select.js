@@ -18,7 +18,7 @@
   const inputs=new WeakMap();
   const dateLabel=date=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric'}).format(new Date(date+'T12:00:00-06:00'));
   function show(on,returnFocus=false) {
-    if(on){window.AustinChatCard?.close();window.AustinExplore?.close?.();window.AustinApps?.close();}
+    if(on){window.AustinChatCard?.close();window.AustinExplore?.close?.();window.AustinApps?.close();window.AustinMedia?.close();}
     bar.hidden=!on;button.setAttribute('aria-expanded',String(on));button.classList.toggle('is-on',on);
     if(on)day.focus({preventScroll:true});else if(returnFocus||bar.contains(document.activeElement))button.focus({preventScroll:true});
   }

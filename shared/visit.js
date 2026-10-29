@@ -23,8 +23,8 @@
   // Keep the outer page alive when switching maps, so a guest plan can move
   // between them without writing it to storage, a URL, or browser history.
   const routes={
-    '/': {src:'/chat/?v=20261029u',title:'Austin.Chat',frameTitle:'Chat map'},
-    '/myplanmap/': {src:'/planner/app.html?v=20261029u',title:'My Plan Map · Austin.Chat',frameTitle:'My Plan Map itinerary'}
+    '/': {src:'/chat/?v=20261029v',title:'Austin.Chat',frameTitle:'Chat map'},
+    '/myplanmap/': {src:'/planner/app.html?v=20261029v',title:'My Plan Map · Austin.Chat',frameTitle:'My Plan Map itinerary'}
   };
   if(window===window.top && routes[location.pathname]) {
     let transition=0;
@@ -41,8 +41,6 @@
         frame.title=route.frameTitle;
         // replace avoids adding a second, iframe-only history entry.
         frame.contentWindow.location.replace(route.src);
-        document.getElementById('site-menu')?.setAttribute('hidden','');
-        document.querySelector('.menu-toggle')?.setAttribute('aria-expanded','false');
       });
       return true;
     };

@@ -4,13 +4,12 @@
 // A page is a small HTML file holding only its centre (<main>). This script,
 // loaded at the end of <body>, draws the same header above it and the same
 // social footer below it, so the frame lives in ONE place and every page
-// stays identical. It also builds the hamburger menu and runs the day/night
+// stays identical. It also draws the Sign In placeholder and runs the day/night
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// Apps and its expandable categories now live on the main map's Apps
-// button (chat/apps-menu.js). Both menus read home.json. The site menu
-// keeps Content → Maps, social/shop links, the planner and Contact.
+// Apps and Media live on the main map (chat/catalog-menu.js), using home.json.
+// Sign In is intentionally inactive until the login flow is added.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────
   // Day is the default (owner, 2026-09-10); night is remembered once chosen.
@@ -21,9 +20,7 @@
   document.body.insertAdjacentHTML('afterbegin', `
   <header id="top" class="topbar topbar-home">
     <div class="topbar-left">
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-        <span class="nav-toggle-bar"></span>
-      </button>
+      <button class="sign-in-button" type="button" disabled>Sign In</button>
     </div>
     <a class="brand brand-center" href="/">Austin.Chat</a>
     <div class="topbar-right">
@@ -32,21 +29,6 @@
         <span class="toggle-label">Light</span>
       </button>
     </div>
-
-    <nav id="site-menu" class="site-menu" hidden aria-label="Site menu">
-      <details class="menu-section">
-        <summary>Content</summary>
-        <div class="menu-groups">
-          <details class="menu-group">
-            <summary>Maps</summary>
-            <ul id="menu-content-maps" class="menu-links"><li><a href="/maps/">All maps</a></li></ul>
-          </details>
-        </div>
-        <ul id="menu-content" class="menu-links"></ul>
-      </details>
-      <a class="menu-link" href="/myplanmap/">My Plan Map</a>
-      <a class="menu-link" href="/contact/">Contact</a>
-    </nav>
   </header>`);
 
   // ── the footer ───────────────────────────────────────────────────────────
@@ -93,50 +75,4 @@
     showOffer(next);
   });
 
-  // ── open / close the menu ────────────────────────────────────────────────
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.getElementById('site-menu');
-  function setOpen(open) {
-    menu.hidden = !open;
-    // Fold the second level back up so the next opening starts at the top.
-    if (!open) menu.querySelectorAll('details').forEach((d) => { d.open = false; });
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  }
-  toggle.addEventListener('click', () => setOpen(menu.hidden));
-  // A click anywhere outside the menu, or Escape, closes it.
-  document.addEventListener('click', (e) => {
-    if (menu.hidden) return;
-    if (menu.contains(e.target) || toggle.contains(e.target)) return;
-    setOpen(false);
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !menu.hidden) setOpen(false);
-  });
-
-  // ── the second and third levels ──────────────────────────────────────────
-  // one row: a link to a page (an empty url shows the name greyed, for a
-  // shop or social account not set up yet)
-  function addItem(list, title, url, newTab) {
-    const li = document.createElement('li');
-    const link = document.createElement(url ? 'a' : 'span');
-    if (url) { link.href = url; if (newTab) { link.target = '_blank'; link.rel = 'noopener'; } }
-    else link.className = 'menu-soon';
-    link.textContent = title;
-    li.appendChild(link);
-    list.appendChild(li);
-  }
-  fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null).then((data) => {
-    if (!data) return;
-    const appCategories = new Set(data.categories || []);
-    const chip = (data.chips || []).find((c) => c.label === 'Apps');
-    ((chip && chip.cards) || []).forEach((a) => {
-      const kind = a.kind || 'apps';
-      // A map with no Apps category (none today) falls into Content ▸ Maps.
-      if (kind === 'maps' && !appCategories.has(a.category)) {
-        addItem(document.getElementById('menu-content-maps'), a.title, '/' + kind + '/' + a.slug + '/');
-      } else appCategories.add(a.category || 'Apps');
-    });
-    (data.content || []).forEach((c) => addItem(document.getElementById('menu-content'), c.title, c.url, true));
-  });
 }());

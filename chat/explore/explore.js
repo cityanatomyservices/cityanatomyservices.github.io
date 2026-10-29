@@ -43,7 +43,7 @@ window.AustinExplore = {
     }
     function open(on, returnFocus = true) {
       panel.hidden = !on; button.setAttribute('aria-expanded', String(on));
-      if (on) { window.AustinChatCard?.close(); window.AustinDayPlan?.close(); window.AustinApps?.close(); }
+      if (on) { window.AustinChatCard?.close(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); }
       else if (returnFocus) button.focus();
     }
     window.AustinExplore.close = () => open(false, false);
