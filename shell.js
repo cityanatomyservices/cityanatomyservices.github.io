@@ -8,18 +8,9 @@
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// THE MENU (owner, 2026-10-22, late; reshaped 2026-10-24): three levels.
-// Apps opens to its categories (home.json `categories`: Walking and Biking,
-// Real Estate, Historical, Shopping, Metro Apps), each opening to its
-// apps — the Budget, Datacenter and AISD maps are filed under Metro Apps;
-// Content opens to a Maps group (the /maps/ directory, plus any map whose
-// category is not an Apps category) and then the social and shop links
-// (`content`); Contact is a plain link. The top-level Maps section is
-// gone (owner, 2026-10-24). The first row under Apps is the directory
-// page (/apps/, list.js). Every app and map goes to its framed page at
-// /apps/<slug>/ or /maps/<slug>/ (view.js — `kind` picks the folder); the
-// reports (apps/reports/reports.json) are filed under `reportsCategory`.
-// A category shows even while empty. Closing the menu folds it all up.
+// Apps and its expandable categories now live on the main map's Apps
+// button (chat/apps-menu.js). Both menus read home.json. The site menu
+// keeps Content → Maps, social/shop links, the planner and Contact.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────
   // Day is the default (owner, 2026-09-10); night is remembered once chosen.
@@ -43,11 +34,6 @@
     </div>
 
     <nav id="site-menu" class="site-menu" hidden aria-label="Site menu">
-      <details class="menu-section">
-        <summary>Apps</summary>
-        <ul class="menu-links"><li><a href="/apps/">All apps</a></li></ul>
-        <div id="menu-apps" class="menu-groups"></div>
-      </details>
       <details class="menu-section">
         <summary>Content</summary>
         <div class="menu-groups">
@@ -140,36 +126,17 @@
     li.appendChild(link);
     list.appendChild(li);
   }
-  // one category: a heading that opens to its list
-  function addGroup(holder, name) {
-    const group = document.createElement('details');
-    group.className = 'menu-group';
-    const heading = document.createElement('summary');
-    heading.textContent = name;
-    const list = document.createElement('ul');
-    list.className = 'menu-links';
-    group.append(heading, list);
-    holder.appendChild(group);
-    return list;
-  }
-  Promise.all([
-    fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null),
-    fetch('/apps/reports/reports.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])
-  ]).then(([data, reports]) => {
+  fetch('/home.json').then((r) => (r.ok ? r.json() : null)).catch(() => null).then((data) => {
     if (!data) return;
-    const appLists = new Map();
-    (data.categories || []).forEach((name) => appLists.set(name, addGroup(document.getElementById('menu-apps'), name)));
-    const listFor = (lists, holderId, name) => lists.get(name) || (lists.set(name, addGroup(document.getElementById(holderId), name)), lists.get(name));
+    const appCategories = new Set(data.categories || []);
     const chip = (data.chips || []).find((c) => c.label === 'Apps');
     ((chip && chip.cards) || []).forEach((a) => {
       const kind = a.kind || 'apps';
       // A map with no Apps category (none today) falls into Content ▸ Maps.
-      const list = kind === 'maps' && !appLists.has(a.category)
-        ? document.getElementById('menu-content-maps')
-        : listFor(appLists, 'menu-apps', a.category || 'Apps');
-      addItem(list, a.title, '/' + kind + '/' + a.slug + '/');
+      if (kind === 'maps' && !appCategories.has(a.category)) {
+        addItem(document.getElementById('menu-content-maps'), a.title, '/' + kind + '/' + a.slug + '/');
+      } else appCategories.add(a.category || 'Apps');
     });
-    (reports || []).forEach((r) => addItem(listFor(appLists, 'menu-apps', data.reportsCategory || 'Shopping Apps'), r.title, '/' + (data.reportsKind || 'maps') + '/' + r.id + '/'));
     (data.content || []).forEach((c) => addItem(document.getElementById('menu-content'), c.title, c.url, true));
   });
 }());

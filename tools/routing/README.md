@@ -59,7 +59,10 @@ build. Re-running the loader on an identical version resumes an interrupted load
 ## Database deployment
 
 Apply `supabase/migrations/0004_routing_network.sql`,
-`0005_planner_routing_api.sql`, then `0006_private_routing_engine.sql` to Supabase.
+`0005_planner_routing_api.sql`, `0006_private_routing_engine.sql`, then
+`0007_temporary_guests.sql` to Supabase. The last migration keeps guest routing
+available without retaining a per-user route cache; only registered accounts
+can persist planner data.
 For local graph tests, apply only `0004`; it supports pgRouting 3.4 and 4.x
 without relocating an existing local extension. The private extension schema
 in `0006` keeps generic pgRouting SQL functions out of the public Data API;
@@ -73,6 +76,7 @@ Never put database credentials or admin tokens in the public repository.
 python tools/routing/admin.py supabase/migrations/0004_routing_network.sql
 python tools/routing/admin.py supabase/migrations/0005_planner_routing_api.sql
 python tools/routing/admin.py supabase/migrations/0006_private_routing_engine.sql
+python tools/routing/admin.py supabase/migrations/0007_temporary_guests.sql
 python tools/routing/load.py /data/network --version 3 --supabase
 python tools/routing/check_network.py --version 3 --supabase
 ```

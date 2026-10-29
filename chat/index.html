@@ -10,7 +10,7 @@
        frames this page in its window). The 65 neighborhood geofences from
        chat/data/geofences.geojson, the neighborhood panel opened by Chat
        and, on the right, the round control stack of the
-       walking-tour apps: find me, 2D/3D, satellite, extents, zoom. The
+       walking-tour apps: GPS, 2D/3D, satellite, extents. Zoom is top left. The
        card says who you are, which neighborhood your phone is in, and who
        else is visible there; the conversation opens through its Chat button.
        It borrows the topic maps' stylesheet so it looks the same, but not
@@ -26,11 +26,11 @@
        on the file that changed. -->
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
   <link rel="stylesheet" href="./panel.css?v=20261023e" />
-  <link rel="stylesheet" href="./style.css?v=20261029t" />
+  <link rel="stylesheet" href="./style.css?v=20261029u" />
   <link rel="stylesheet" href="./explore/explore.css?v=20261028e" />
   <link rel="stylesheet" href="../appearance.css?v=20261028h" />
   <script src="./theme.js?v=20261028g"></script>
-  <link rel="stylesheet" href="/planner/select.css?v=20261029r">
+  <link rel="stylesheet" href="/planner/select.css?v=20261029u">
 </head>
 <body>
   <div class="page">
@@ -45,7 +45,7 @@
           <p class="you"><span id="youLabel"></span> <span class="handle" id="youHandle"></span><button class="small" id="newName" type="button"></button></p>
           <p class="room-line" id="roomLine"></p>
           <div class="chat-btns">
-            <button id="visibleBtn" type="button" aria-pressed="true"></button>
+            <button id="visibleBtn" type="button" aria-pressed="false"></button>
             <button id="chatBtn" type="button" disabled></button>
           </div>
           <!-- the neighborhood's businesses by category (room.js fills it) -->
@@ -54,31 +54,26 @@
       </aside>
     </div>
 
-    <!-- right: the round control stack, the same set as the walking-tour
-         apps (owner 2026-10-22): find me, 2D/3D tilt, satellite, extents,
-         zoom in, zoom out. Words come from copy.js. -->
+    <!-- Map panels and display controls; the MapLibre zoom control is top left. -->
     <div class="stack" id="stack">
+      <button class="round apps-control" id="ctrlApps" type="button" aria-expanded="false" aria-controls="apps-panel" aria-label="Apps" title="Apps">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3Z M14 3h7v7h-7Z M3 14h7v7H3Z M14 14h7v7h-7Z"/></svg><span>Apps</span>
+      </button>
+      <button class="round day-plan-control" id="ctrlDayPlan" type="button" aria-expanded="false" aria-controls="day-plan-panel" aria-label="Day Plan" title="Day Plan">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z M7 2v5 M17 2v5 M3 10h18 M8 14h3 M8 17h7"/></svg><span>Day Plan</span>
+      </button>
       <button class="round chat-control" id="ctrlChat" type="button" aria-expanded="false" aria-controls="legend" aria-label="Neighborhood chat" title="Neighborhood chat">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3Z M8 8h8 M8 12h5"/></svg><span>Chat</span>
       </button>
       <button class="round explore-control" id="ctrlExplore" type="button" aria-expanded="false" aria-controls="explore-panel" aria-label="Explore Austin map layers" title="Explore Austin">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 11 6-11 6L1 8zm-8 11 8 4.4 8-4.4 3 1.6-11 6-11-6z"/></svg><span>Explore</span>
       </button>
-      <button class="round" id="ctrlLocate" type="button">&#9678;</button>
+      <button class="round round-text" id="ctrlLocate" type="button">GPS</button>
       <button class="round" id="ctrlTilt" type="button" aria-pressed="false">3D</button>
       <button class="round round-text" id="ctrlSatellite" type="button" aria-pressed="false">Sat</button>
       <button class="round" id="ctrlExtent" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
       </button>
-      <button class="round" id="ctrlZoomIn" type="button">+</button>
-      <button class="round" id="ctrlZoomOut" type="button">&minus;</button>
-    </div>
-
-    <!-- bottom right, above the info button: the three views (map.js) -->
-    <div class="views" id="views">
-      <button class="view-btn" id="viewStreet" type="button"></button>
-      <button class="view-btn" id="viewNeighborhood" type="button"></button>
-      <button class="view-btn" id="viewCity" type="button"></button>
     </div>
 
     <!-- the chat window (panel.js) -->
@@ -100,20 +95,22 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="./copy.js?v=20261028i"></script>
   <script src="./config.js?v=20261029a"></script>
-  <script src="/shared/session.js?v=20261029a"></script>
-  <script src="./auth.js?v=20261029a"></script>
+  <script src="/shared/visit.js?v=20261029u"></script>
+  <script src="/shared/session.js?v=20261029u"></script>
+  <script src="./auth.js?v=20261029u"></script>
   <script src="./locate.js?v=20261028i"></script>
-  <script src="./chat.js?v=20261023e"></script>
+  <script src="./chat.js?v=20261029u"></script>
   <script src="./panel.js?v=20261023e"></script>
-  <script src="./room.js?v=20261029a"></script>
+  <script src="./room.js?v=20261029u"></script>
   <script src="./explore/config.js?v=20261028e"></script>
   <script src="./explore/model.js?v=20261028e"></script>
-  <script src="./explore/explore.js?v=20261029t"></script>
+  <script src="./explore/explore.js?v=20261029u"></script>
   <script src="/planner/model.js?v=20261029r"></script>
   <script src="/planner/sources.js?v=20261029r"></script>
   <script src="/planner/repository.js?v=20261029r"></script>
-  <script src="/planner/store.js?v=20261029r"></script>
-  <script src="/planner/select.js?v=20261029r"></script>
-  <script src="./map.js?v=20261029t"></script>
+  <script src="/planner/store.js?v=20261029u"></script>
+  <script src="/planner/select.js?v=20261029u"></script>
+  <script src="./apps-menu.js?v=20261029u"></script>
+  <script src="./map.js?v=20261029u"></script>
 </body>
 </html>

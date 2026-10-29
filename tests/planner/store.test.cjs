@@ -8,30 +8,47 @@ const place=n=>({key:n,title:n,kind:'place',timing:'unknown',coordinates:[-97.7,
 const deferred=()=>{let resolve;const promise=new Promise(r=>resolve=r);return {promise,resolve};};
 function fixture(options={}) {
  const owner=options.owner||uuid(), memory=options.memory||new Map(), timers=new Set(), events={};
- let remote=options.remote||null, saveFn=options.save, writes=0, quota=false;
- const w={PlanModel:M,PlanSources:Sources,addEventListener:(event,fn)=>{events[event]=fn;}};
+ let remote=options.remote||null, saveFn=options.save, writes=0, loads=0, quota=false;
+ const values=new Map(),subscribers=new Set();
+ const visit=options.visit||{get:k=>values.get(k)||null,set:(k,v)=>{values.set(k,v);subscribers.forEach(fn=>fn(k));},remove:k=>values.delete(k),subscribe:fn=>{subscribers.add(fn);return()=>subscribers.delete(fn);}};
+ const w={AustinVisit:visit,PlanModel:M,PlanSources:Sources,addEventListener:(event,fn)=>{events[event]=fn;}};
  const client={auth:{onAuthStateChange:fn=>{events.auth=fn;}}};
- w.AustinSession={client:()=>client,ready:async()=>{if(options.offline)throw new Error('offline');return {user:{id:owner}};}};
+ w.AustinSession={client:()=>client,ready:async()=>{if(options.offline)throw new Error('offline');return {user:options.user||{id:owner,is_anonymous:options.anonymous??false}};}};
  w.PlanRepository={
-  load:async(_c,_owner,id)=>remote&&(!id||remote.plan.id===id)?structuredClone(remote):null,
+  load:async(_c,_owner,id)=>{loads++;return remote&&(!id||remote.plan.id===id)?structuredClone(remote):null;},
   save:async(_c,e)=>{writes++;if(saveFn)return saveFn(e);if(remote&&remote.revision!==e.revision)throw {code:'PT409',message:'planner_revision_conflict'};remote={...structuredClone(e),revision:e.revision+1,dirty:false};return {revision:remote.revision};}
  };
- const storage={getItem:k=>memory.get(k)||null,setItem:(k,v)=>{if(quota)throw new Error('quota');memory.set(k,v);},removeItem:k=>memory.delete(k)};
+ const storage=new Proxy({getItem:k=>memory.get(k)||null,setItem:(k,v)=>{if(quota)throw new Error('quota');memory.set(k,v);},removeItem:k=>memory.delete(k)},{ownKeys:()=>[...memory.keys()],getOwnPropertyDescriptor:()=>({enumerable:true,configurable:true})});
  vm.runInNewContext(code,{window:w,document:{hidden:false,addEventListener:(event,fn)=>{events[event]=fn;}},navigator:{},crypto,structuredClone,localStorage:storage,
-  setTimeout:(fn,ms)=>{const t=setTimeout(fn,ms);t.unref();timers.add(t);return t;},clearTimeout,console});
- return {store:w.PlanStore,owner,memory,events,get writes(){return writes;},set quota(v){quota=v;},set remote(v){remote=v;},get remote(){return remote;},set save(fn){saveFn=fn;},dispose:()=>{for(const t of timers)clearTimeout(t);}};
+  setTimeout:(fn,ms)=>{const t=setTimeout(fn,ms);t.unref();timers.add(t);return t;},clearTimeout,queueMicrotask,console});
+ return {store:w.PlanStore,owner,memory,visit,events,get loads(){return loads;},get writes(){return writes;},set quota(v){quota=v;},set remote(v){remote=v;},get remote(){return remote;},set save(fn){saveFn=fn;},dispose:()=>{for(const t of timers)clearTimeout(t);}};
 }
-test('offline selections persist, deduplicate and restore without requiring chat',async()=>{
- const a=fixture({offline:true});try{
-  await a.store.select(place('coffee'),true);await a.store.select(place('coffee'),true);
-  assert.equal(a.store.plan.items.length,1);
-  const b=fixture({offline:true,memory:a.memory});try{await b.store.ready();assert.equal(b.store.plan.items[0].source.title,'coffee');}finally{b.dispose();}
+test('guest selections stay in visit memory and do not survive refresh',async()=>{
+ const a=fixture({anonymous:true});try{
+  await a.store.select(place('coffee'),true);await a.store.select(place('coffee'),true);await a.store.sync();
+  assert.equal(a.store.plan.items.length,1);assert.equal(a.loads,0);assert.equal(a.writes,0);assert.equal(a.memory.size,0);
+  const next=fixture({anonymous:true,memory:a.memory,visit:a.visit});try{await next.store.ready();assert.equal(next.store.plan.items[0].source.title,'coffee');}finally{next.dispose();}
+  const refreshed=fixture({anonymous:true,memory:a.memory});try{await refreshed.store.ready();assert.equal(refreshed.store.plan.items.length,0);}finally{refreshed.dispose();}
  }finally{a.dispose();}
 });
-test('guest recovery keeps the date and schedule when first signing in',async()=>{
- const a=fixture({offline:true});try{
+test('guest recovery keeps the current visit date and schedule when first signing in',async()=>{
+ const options={offline:true},a=fixture(options);try{
   await a.store.chooseDay('2026-12-25');await a.store.select(place('coffee'),true);
-  const b=fixture({memory:a.memory});try{await b.store.ready();assert.equal(b.store.plan.date,'2026-12-25');assert.equal(b.store.plan.dayStart,'05:00');assert.equal(b.store.plan.items.length,1);await b.store.sync();assert.equal(b.remote.plan.items.length,1);}finally{b.dispose();}
+  options.offline=false;await a.store.retry();assert.equal(a.store.plan.date,'2026-12-25');assert.equal(a.store.plan.dayStart,'05:00');assert.equal(a.store.plan.items.length,1);await a.store.sync();assert.equal(a.remote.plan.items.length,1);
+ }finally{a.dispose();}
+});
+test('guest mode rejects legacy browser and remote plans and an unclassified identity',async()=>{
+ const plan=M.empty(uuid());plan.items=[Sources.item(place('old private stop'),uuid())];
+ const owner=uuid(),old={plan,revision:1,dirty:false,stamp:''};
+ const memory=new Map([['austin:planner:v1:'+owner,JSON.stringify(old)],['austin:planner:v1:last-owner',owner]]);
+ const f=fixture({owner,user:{id:owner},memory,remote:old});try{
+  await f.store.ready();assert.equal(f.store.plan.items.length,0);assert.equal(f.loads,0);assert.equal(memory.size,0);assert.equal(f.store.temporary,true);
+ }finally{f.dispose();}
+});
+test('registered account plans still persist across a new visit',async()=>{
+ const a=fixture();try{
+  await a.store.select(place('saved'),true);await a.store.sync();
+  const b=fixture({owner:a.owner,memory:a.memory,remote:a.remote});try{await b.store.ready();assert.equal(b.store.plan.items[0].source.title,'saved');assert.equal(b.store.temporary,false);}finally{b.dispose();}
  }finally{a.dispose();}
 });
 test('edits during an in-flight save survive and use the returned revision',async()=>{
@@ -101,7 +118,7 @@ test('storage quota failure does not replace new in-memory edits with an older c
 test('sign-out separates planner state from the next account',async()=>{
  const f=fixture();try{
   await f.store.select(place('private'),true);f.events.auth('SIGNED_OUT',null);
-  assert.equal(f.store.plan.items.length,0);assert.match(f.store.status,/Account changed/);
+  assert.equal(f.store.plan.items.length,0);assert.match(f.store.status,/Temporary plan/);
  }finally{f.dispose();}
 });
 test('a memory-only guest plan survives first login after connectivity returns',async()=>{
@@ -117,6 +134,6 @@ test('completion of an old account upload cannot replace signed-out state',async
   f.save=async()=>{began.resolve();await pending.promise;return {revision:1};};
   const saving=f.store.sync();await began.promise;f.events.auth('SIGNED_OUT',null);
   pending.resolve();await saving;assert.equal(f.store.plan.items.length,0);
-  assert.match(f.store.status,/Account changed/);
+  assert.match(f.store.status,/Temporary plan/);
  }finally{f.dispose();}
 });

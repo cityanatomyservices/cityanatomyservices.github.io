@@ -41,6 +41,7 @@
     (data || []).reverse().forEach((r) => cbs.onMessage({ handle: r.handle, emoji: r.emoji, text: r.text, t: Date.parse(r.created_at), self: r.user_id === uid }));
   }
 
+  window.addEventListener('pagehide', () => window.ChatEngine.leave());
   window.ChatEngine = {
     // join a neighborhood room. Visible = put yourself in Presence so the
     // others see you; hidden = listen only. callbacks: onPeople(list), onMessage(m)
@@ -97,9 +98,9 @@
       const payload = { handle: ident.handle, emoji: ident.emoji, text: trimmed, t: now, room: roomId };
       if (cbs.onMessage) cbs.onMessage({ ...payload, self: true });     // your own line shows at once
       try { await channel.send({ type: 'broadcast', event: 'msg', payload }); } catch (e) { return false; }
-      // and into the table for the next person; a failure here changes nothing live
+      // Only registered accounts leave saved messages; guest chat is live-only.
       const uid = window.ChatIdentity.userId();
-      if (uid) getClient().from('messages').insert({ room: roomId, user_id: uid, handle: ident.handle, emoji: ident.emoji, text: trimmed })
+      if (uid && window.AustinSession.registered) getClient().from('messages').insert({ room: roomId, user_id: uid, handle: ident.handle, emoji: ident.emoji, text: trimmed })
         .then(({ error }) => { if (error) console.warn('austin.chat: message not kept', error.message); });
       return true;
     },

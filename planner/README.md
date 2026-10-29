@@ -10,20 +10,21 @@ visitor's physical neighborhood through the existing chat engine.
 
 | Module | Owns |
 | --- | --- |
-| `shared/session.js` | One persisted anonymous Supabase identity across same-origin applications; no profiles, tables, chat or geolocation |
+| `shared/visit.js` | Page-memory state and navigation between the main map and planner; no browser storage |
+| `shared/session.js` | Temporary guest credentials; persistent credentials only for registered accounts |
 | `sources.js` | Business/Explore snapshots, stable selection keys, movie occurrences and published timing provenance |
 | `model.js` | Pure Austin-time scheduling and validation; no DOM, network, auth, chat, or routes |
 | `routing.js` | Async route transport, in-memory cache, estimate provider and navigation links |
 | `route-panel.js` | Route controls, travel blocks, arrival-point editing and fitting scheduled visits |
 | `repository.js` | Supabase planner RPC names and response validation |
-| `store.js` | Private browser cache, subscriptions, account boundary, atomic saves and explicit revision conflicts |
-| `select.js` | Main-map checkboxes and count; consumes `austin:planner-target` events |
+| `store.js` | Guest visit memory; registered-account cache/cloud saves, subscriptions and revision conflicts |
+| `select.js` | Main-map Day Plan panel, date picker, planned-day list and Day Planner checkboxes; consumes `austin:planner-target` events |
 | `panel.js` | Collapsible itinerary drawer and focus/accessibility state; no plan data |
 | `map.js` | Selected-place markers and neighborhood basemap; failure does not disable the itinerary |
 | `app.js` | Timeline, preferences, editing, showtime selection, conflict explanations, undo and JSON backup/restore |
 | `chat/widget.js` | Optional lazy-loaded ChatRoom/ChatEngine/ChatPanel; planner has no dependency on those modules |
 
-Other applications can load shared/session and the five selection scripts from
+Other applications can load shared/visit, shared/session and the five selection scripts from
 `chat/index.html`, then publish:
 
 ```js
@@ -35,8 +36,8 @@ window.dispatchEvent(new CustomEvent('austin:planner-target', {
 
 Use a sibling container beside a place's button, never a checkbox nested inside
 a navigation button. Other source types can add an adapter in sources.js. The
-optional chat widget can mount into its own host; load shared/session.js and
-Supabase JS first. Existing home/tour maps continue using their own chat UI.
+optional chat widget can mount into its own host; load shared/visit.js,
+Supabase JS and shared/session.js first. Existing home/tour maps continue using their own chat UI.
 
 ## Storage
 
@@ -58,7 +59,8 @@ notes and locked times; existing stops are grouped by their scheduled day
 `planner_load` reads settings, revision and ordered items in one SQL snapshot.
 `planner_save` atomically writes the plan and items under a row lock with a
 revision check. Both RPCs are SECURITY INVOKER and restricted to authenticated
-users; Supabase anonymous users have that role. Stale revisions return `PT409`,
+users. Migration `0007` additionally requires a non-anonymous JWT for planner
+rows; an anonymous Supabase account alone cannot save or load a plan. Stale revisions return `PT409`,
 not SQLSTATE 40001: [Supabase documents that 40001 triggers PostgREST retries](https://supabase.com/kb/troubleshooting/high-cpu-and-infinite-transaction-retries-when-using-custom-error-codes-in-rpc-functions).
 Each identity has a collection of dated itineraries, with one selected day at
 a time. Settings contain `schemaVersion:2`, `days`, `daySettings` (name and buffer
@@ -71,15 +73,32 @@ only the selected day; `chooseDay` switches or adds a day. An expected-day guard
 prevents a stale editor from writing into another selected day. `build` and
 `check` also ignore other days if called with a full collection.
 
-Browser keys are `austin:planner:v1:<auth-user-id>` (or `guest` when initial auth
-is unavailable). Pending edits survive failed requests. Web Locks serialize
-same-browser writes and uploads where supported; `storage` events update other
-tabs. Revision conflicts never silently overwrite another saved copy. A local
-copy can explicitly replace the remote version, or the user can load the saved
-copy. JSON v2 download/import includes every saved day, and imports of v1 files
-are upgraded without losing selections. The old browser-key prefix is retained
-so existing visitors recover their data. There is
-no email/social sign-in UI yet; the anonymous session belongs to this browser.
+Guest plans, credentials, chat nicknames and visibility stay in `AustinVisit`
+page memory. The main map and planner switch their iframe with the History API,
+keeping the outer page alive. This preserves the working plan when moving
+between them or using Back, without writing selections to localStorage,
+sessionStorage, URLs or history state. Refreshing, closing, opening another tab,
+or leaving this pair of pages starts a fresh guest visit. BFCache restoration
+reloads the page rather than reviving an old guest visit. Display preferences
+(theme, Explore filters and navigation-app choice) remain remembered.
+
+Only registered accounts use `austin:planner:v1:<auth-user-id>` and the cloud
+repository. Guest code never calls planner_load/planner_save. Old guest caches
+and tokens are discarded; `0007_temporary_guests.sql` clears old anonymous
+plans, route caches, tour progress, saved messages and chat profile fields while
+preserving registered data and unrelated profile columns. Guest route requests
+still work, without a persisted per-user route cache. Guest chat is live-only.
+
+An anonymous auth record is still necessary for the protected APIs. Browser
+closure cannot reliably trigger server deletion. A scoped hourly cron removes
+new guest accounts tagged `austin_guest_visit` after at least 24 hours without
+auth-session activity. It excludes registered users and other apps' untagged
+guest accounts. This is not a claim that Supabase auth/security logs disappear
+immediately on browser closure.
+
+Registered saves retain atomic revisions, conflict resolution and local retry
+copies. JSON v2 download/import remains an explicit way for a visitor to keep
+their own copy. No email/social login UI is included in this release.
 
 ## Scheduling semantics and current limits
 
@@ -141,8 +160,8 @@ extension schema. Existing PostGIS stays in `public`. Authenticated sessions
 (including anonymous Supabase accounts) can call only `planner_routing_status`
 and `planner_route_leg`. The latter validates coordinates, checks coverage,
 limits concurrent expensive work to two requests across the project and one
-per identity, and rate-limits cache misses. Private per-user caches expire after
-7 days and are capped at 200 entries. New versions invalidate cache keys.
+per identity, and rate-limits cache misses. Registered users’ private route caches expire after
+7 days and are capped at 200 entries; guest routes are not persisted. New versions invalidate cache keys.
 
 The graph covers the Census Austin urban area plus 10 km. Its estimates use a
 static car profile, no live traffic. Conditional prohibitions apply conservatively
@@ -162,7 +181,7 @@ Chat and parcel tables are unchanged. No recurring rebuild has been scheduled.
 ## Verification
 
 `node --test tests/planner/*.test.cjs` checks scheduling, DST, locks, impossible
-windows, time conflicts, guest persistence, upload races, revision conflicts,
+windows, time conflicts, guest reset/navigation, registered persistence, upload races, revision conflicts,
 quota failures and account separation. GitHub Actions runs this suite on changes.
 Real-browser checks cover selection without joining chat, main-map return,
 cross-tab updates, showtimes, mobile sizes, both themes, optional chat, backup/

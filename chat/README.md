@@ -8,13 +8,19 @@ part of the same chat. One small file per job; nothing is abstract.
 | `index.html` | the chat map page: the map, the card, the control stack, the chat window markup |
 | `config.js` | where the data is and how it draws |
 | `copy.js` | every word on screen (owner writes copy; current strings are drafts) |
-| `auth.js` | who you are: an anonymous Supabase account the browser keeps (shared by every app on austin.chat), your handle + emoji in your `profiles` row; falls back to a browser-only random name when offline |
+| `auth.js` | guest nickname in visit memory; registered accounts use their saved profile; shared authentication comes from shared/session.js |
 | `locate.js` | GPS → which neighborhood polygon you are in (point in polygon, in the browser) and each reading, which chat.js shares with your neighborhood ONLY while you are Visible, rounded to ~10 m |
-| `chat.js` | the Supabase Realtime channel per neighborhood: Presence = who is visible, Broadcast = live messages; each message also goes into the `messages` table (30 days) and a room's last lines are read back on joining |
+| `chat.js` | the Supabase Realtime channel per neighborhood: Presence = who is visible, Broadcast = live messages; registered messages also go into the `messages` table (30 days) and a room's saved lines are read back on joining |
 | `panel.js` + `panel.css` | the chat window (colours from six `--chat-*` variables each page sets) |
 | `room.js` | the wiring: joins your neighborhood, lists its businesses by category on the card, moves you to a business room when you tap one, keeps the Visible / Chat buttons and lines up to date; shared with the apps |
 | `map.js` | the chat map itself: layers, controls, 3D, and the hooks that draw your room, the people (an emoji row on the business they picked, or on the neighborhood) and a pin on the business you picked |
+| `apps-menu.js` | the Apps button and expandable categories, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
+
+The main map controls are Apps, Day Plan, Chat, Explore, GPS, 2D/3D, satellite
+and extents. Zoom and compass use the same MapLibre control as the planner,
+positioned top left. Day Plan opens the date picker and planned-day list;
+Apps opens the catalog categories. Opening one map panel closes the others.
 
 ## How an app joins (what the two tours do)
 
@@ -23,13 +29,17 @@ part of the same chat. One small file per job; nothing is abstract.
    (`data-glyph="👁"` / `data-glyph="💬"` lets them show a glyph instead of
    words), and the chat window markup (copy it from `index.html`).
 2. The script tags, in this order: supabase-js, `/chat/copy.js`, `config.js`,
-   `/shared/session.js`, `auth.js`, `locate.js`, `chat.js`, `panel.js`, `room.js`.
+   `/shared/visit.js`, `/shared/session.js`, `auth.js`, `locate.js`, `chat.js`, `panel.js`, `room.js`.
 3. One line of its own: `ChatRoom.load().then((g) => ChatRoom.start(g, { ids: { visibleBtn: '…', chatBtn: '…' } }))`
    (`1885murdertour/js/chat.js`, `moontowertour/js/chat.js`).
 
-Because every app is on austin.chat, the browser shares the same stored
-name between them: visible in one, visible in all, in the neighborhood you
-are standing in. Visibility starts OFF and is remembered once turned on.
+Guest nicknames, credentials and visibility are temporary. The home map and
+planner share them while switching within the same page visit; refresh/reopen
+starts fresh. Visibility starts OFF. Registered accounts can retain their
+profile and visibility preference. Display preferences stay in browser storage.
+Guest messages are broadcast live but not written to saved history; registered
+messages keep the existing 30-day history behavior. Migration `0007` enforces
+this distinction and clears the prior anonymous saved application data.
 
 ## Rules kept
 
@@ -51,9 +61,10 @@ are standing in. Visibility starts OFF and is remembered once turned on.
   they picked. `?room=<id>&place=<place id>` picks one for testing.
 # Planner integration (2026-10-29)
 
-`/shared/session.js` now owns the Supabase client and anonymous session. Chat's
+`/shared/visit.js` owns ephemeral page memory; `/shared/session.js` owns the
+Supabase client and anonymous session. Chat's
 `auth.js` only adds its profile/name logic. The home map, both tour apps, and
 My Plan Map use this shared session without sharing their application state.
-Load shared/session.js before auth.js. `widget.js` is an optional lazy-loaded
+Load shared/visit.js, then shared/session.js before auth.js. `widget.js` is an optional lazy-loaded
 chat UI for other applications, currently used by My Plan Map. Planner tables,
 scheduling and selection controls live separately; see [planner/README.md](../planner/README.md).

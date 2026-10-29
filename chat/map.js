@@ -33,7 +33,7 @@
   let placePopup = null;        // a picked business's popup (set further down); reopening the card closes it
   const setCard = (open) => {
     if (!open && $('legend').contains(document.activeElement)) $('ctrlChat').focus({ preventScroll: true });
-    if (open) window.AustinExplore.close?.();
+    if (open) { window.AustinExplore.close?.(); window.AustinDayPlan?.close(); window.AustinApps?.close(); }
     $('legend').hidden = !open;
     $('ctrlChat').setAttribute('aria-expanded', String(open));
     $('ctrlChat').classList.toggle('is-on', open);
@@ -97,7 +97,7 @@
 
     // The limits keep the chat neighborhoods on screen. Selected Explore
     // layers can also contain nearby cities, so include their actual locations
-    // while they are enabled. The City button still returns to Austin.
+    // while they are enabled. The extents button still returns to Austin.
     let exploreBox = null;
     const coverageBox = () => exploreBox ? [
       [Math.min(box[0][0], exploreBox[0][0]), Math.min(box[0][1], exploreBox[0][1])],
@@ -126,6 +126,7 @@
     map.on('zoomend', keepInView);
     map.on('resize', () => { limitZoom(); keepInView(); });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
+    map.addControl(new maplibregl.NavigationControl(), 'top-left');
     const attribution = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
     if (attribution) {                 // start with only the info button, not the open strip
       attribution.classList.remove('maplibregl-compact-show');
@@ -133,14 +134,11 @@
     }
 
     // the control stack (right edge, same set as the walking-tour apps):
-    // find me, 2D/3D, satellite, extents, zoom in, zoom out
+    // GPS, 2D/3D, satellite, extents
     $('ctrlLocate').title = COPY.ui.locate;
+    $('ctrlLocate').setAttribute('aria-label', 'GPS: ' + COPY.ui.locate);
     $('ctrlSatellite').title = COPY.ui.satellite;
-    $('ctrlZoomIn').title = COPY.ui.zoomInBtn;
-    $('ctrlZoomOut').title = COPY.ui.zoomOutBtn;
     $('ctrlExtent').title = COPY.ui.extents;
-    $('ctrlZoomIn').addEventListener('click', () => map.zoomTo(map.getZoom() + 1, { duration: 250 }));
-    $('ctrlZoomOut').addEventListener('click', () => map.zoomTo(map.getZoom() - 1, { duration: 250 }));
     // extents: all of Austin, flat and north-up (the way back after wandering)
     const cityView = () => {
       setTilt(false);
@@ -149,9 +147,7 @@
     };
     $('ctrlExtent').addEventListener('click', cityView);
 
-    // the three view buttons (bottom right). Neighborhood = the opening view
-    // (your own neighborhood once the phone has found it, else downtown),
-    // tilted; Street = flat, down to the block; City = all of Austin, flat.
+    // Opening neighborhood view and street zoom used when choosing a place.
     const V = CFG.views;
     // the whole neighborhood fitted on screen, `neighborhood.zoom` only a
     // cap — the SAME fit the room flight (onRoom, below) makes, so the
@@ -163,16 +159,6 @@
       if (target) flyTo(boundsOf([target]), 60, V.neighborhood.zoom, duration);
       else map.easeTo({ zoom: V.neighborhood.zoom, pitch: V.neighborhood.pitch, bearing: 0, duration });
     };
-    const streetView = () => {
-      setTilt(false);
-      map.easeTo({ zoom: V.street.zoom, pitch: V.street.pitch, bearing: 0, duration: 700 });
-    };
-    $('viewStreet').textContent = COPY.ui.street;
-    $('viewNeighborhood').textContent = COPY.ui.neighborhood;
-    $('viewCity').textContent = COPY.ui.city;
-    $('viewStreet').addEventListener('click', streetView);
-    $('viewNeighborhood').addEventListener('click', () => neighborhoodView(900));
-    $('viewCity').addEventListener('click', cityView);
     let satelliteOn = false;
     $('ctrlSatellite').addEventListener('click', () => {
       satelliteOn = !satelliteOn;
@@ -292,8 +278,8 @@
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
           flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
         },
-        // the business you picked: the map goes there at street level (flat,
-        // like the Street button) and a popup names it with Google Maps,
+        // the business you picked: the map goes there at street level (flat)
+        // and a popup names it with Google Maps,
         // Apple Maps and Yelp links (owner 2026-10-22: web addresses only,
         // no API). Picking the neighborhood row again clears it.
         onPlace(place) {

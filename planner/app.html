@@ -28,7 +28,7 @@
         <details class="plan-options"><summary>Manual travel allowance & saving</summary>
           <label>Minutes when no route is available<input name="bufferMinutes" type="number" min="0" max="240" step="5" required></label>
           <p>This manual allowance is used until a journey is calculated, or when a route is unavailable. Calculated journeys use driving time plus your arrival allowance below.</p>
-          <p>Your anonymous account saves privately on this browser; clearing site data can lose access. Download all days for a backup.</p>
+          <p id="plan-storage-help">Guest plans last only for this visit. Refreshing or closing the page clears them. Download all days if you want to keep your own copy.</p>
           <button type="button" id="download-plan">Download all days</button>
           <button type="button" id="import-plan">Restore downloaded days</button><input type="file" id="import-file" accept="application/json,.json" hidden aria-label="Import a downloaded Austin plan">
         </details>
@@ -51,7 +51,7 @@
       <div id="plan-summary"></div>
       <div class="plan-view" role="group" aria-label="Itinerary view"><button type="button" id="view-timeline" aria-pressed="true">Timeline</button><button type="button" id="view-order" aria-pressed="false">Preferred order</button></div>
       <ol id="plan-items" aria-label="Selected places and events"></ol>
-      <div id="plan-empty" hidden><h2>Your day starts here</h2><p>Check “My plan” beside an Explore Austin listing or a neighborhood business. Come back here to choose times and build your day.</p><a class="button primary" href="/" target="_top">Explore Austin →</a></div>
+      <div id="plan-empty" hidden><h2>Your day starts here</h2><p>Check “Day Planner” beside an Explore Austin listing or a neighborhood business. Come back here to choose times and build your day.</p><a class="button primary" href="/" target="_top">Explore Austin →</a></div>
       <p class="plan-footnote">Saving a place doesn’t book admission or make you visible in chat. Check the source for changes before going.</p>
     </section>
     <section class="plan-map-area" aria-label="Map of your selected places">
@@ -63,13 +63,14 @@
   </main>
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="/shared/session.js?v=20261029a"></script>
+  <script src="/shared/visit.js?v=20261029u"></script>
+  <script src="/shared/session.js?v=20261029u"></script>
   <script src="/planner/model.js?v=20261029r"></script><script src="/planner/sources.js?v=20261029r"></script>
-  <script src="/planner/repository.js?v=20261029r"></script><script src="/planner/store.js?v=20261029r"></script>
-  <script src="/planner/routing.js?v=20261029r"></script>
+  <script src="/planner/repository.js?v=20261029r"></script><script src="/planner/store.js?v=20261029u"></script>
+  <script src="/planner/routing.js?v=20261029u"></script>
   <script src="/planner/route-panel.js?v=20261029r"></script>
   <script src="/planner/panel.js?v=20261029s"></script>
-  <script src="/planner/map.js?v=20261029s"></script><script src="/planner/app.js?v=20261029r"></script>
-  <script src="/chat/widget.js?v=20261029a"></script>
+  <script src="/planner/map.js?v=20261029s"></script><script src="/planner/app.js?v=20261029u"></script>
+  <script src="/chat/widget.js?v=20261029u"></script>
 </body>
 </html>

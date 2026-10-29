@@ -31,8 +31,8 @@
 
   let me = null;                // set by start(), once auth.js has signed you in
   // visibility: off until you turn it on (owner 2026-10-22: GPS for a tour
-  // must not make you visible by itself), then remembered in this browser
-  let visible = localStorage.getItem('austinchat:visible') === 'on';
+  // must not make you visible by itself), then remembered during this visit
+  let visible = window.AustinVisit.get('chat:visible') === 'on';
   let room = null;              // the neighborhood (geofence feature) you are in
   let place = null;             // the business you picked in it, or null
   let others = [];              // the visible people in YOUR room who are not you
@@ -283,8 +283,9 @@
       showVisible();
       showPeople();
       window.ChatPanel.init((text) => window.ChatEngine.send(text));
-      me = await window.ChatIdentity.ready();       // the anonymous account, or the browser-only name
-      showMe();
+      me = await window.ChatIdentity.ready();
+      if (window.AustinSession.registered) { try { visible = localStorage.getItem('austinchat:visible:' + window.ChatIdentity.userId()) === 'on'; } catch (_) {} }
+      showMe(); showVisible(); showPeople();
 
       if (el.chatBtn) el.chatBtn.addEventListener('click', () => {
         if (window.ChatPanel.isOpen()) window.ChatPanel.close();
@@ -292,7 +293,8 @@
       });
       if (el.visibleBtn) el.visibleBtn.addEventListener('click', async () => {
         visible = !visible;
-        localStorage.setItem('austinchat:visible', visible ? 'on' : 'off');
+        window.AustinVisit.set('chat:visible', visible ? 'on' : 'off');
+        if (window.AustinSession.registered) { try { localStorage.setItem('austinchat:visible:' + window.ChatIdentity.userId(), visible ? 'on' : 'off'); } catch (_) {} }
         showVisible();
         if (!visible) window.ChatPanel.close();
         await window.ChatEngine.setVisible(visible);

@@ -62,7 +62,7 @@
         controller=current;requested=wanted;busy=true;
         const status=await transport.rpc(client,'planner_routing_status',{},current.signal);
         if(current.signal.aborted) return;
-        if(status?.status!=='ready') throw new Error('Routing is temporarily unavailable. Your plan is saved.');
+        if(status?.status!=='ready') throw new Error('Routing is temporarily unavailable. Your itinerary is still open.');
         if(version!==status.networkVersion) {cache.clear();version=status.networkVersion;}
         metadata=status;
         for(let i=1;i<items.length;i++) {

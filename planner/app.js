@@ -77,6 +77,7 @@
   }
   function render() {
     $('save-status').textContent = S.status;
+    $('plan-storage-help').textContent = S.temporary ? 'Guest plans last only for this visit. Refreshing or closing the page clears them. Download all days if you want to keep your own copy.' : 'Your plan saves privately to your signed-in account. Download all days for your own backup.';
     $('save-conflict').hidden = !S.conflict;
     $('retry-save').hidden = !/unavailable/.test(S.status);
     const plan = S.plan, next = view + JSON.stringify(plan) + JSON.stringify(S.days) + routing.revision;
