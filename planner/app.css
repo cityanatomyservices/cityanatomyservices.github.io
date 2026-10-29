@@ -11,8 +11,14 @@ input,select,textarea { min-width: 0; width: 100%; border: 1px solid var(--borde
 input[type=checkbox] { width: 17px; height: 17px; accent-color: var(--accent); }
 label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
 p { margin: 0 0 10px; } a { color: var(--accent); } h1,h2,h3 { line-height: 1.2; margin: 0; }
-.planner-layout { display: grid; grid-template-columns: minmax(330px,420px) 1fr; height: 100%; }
-.plan-panel { padding: 20px; overflow: auto; border-right: 1px solid var(--border); background: var(--surface); }
+.planner-layout { --panel-width: 420px; --panel-space: var(--panel-width); position: relative; display: grid; grid-template-columns: var(--panel-space) minmax(0,1fr); height: 100%; overflow: hidden; transition: grid-template-columns .2s ease; }
+.planner-layout.panel-closed { --panel-space: 0px; }
+.plan-panel { grid-column: 1; grid-row: 1; width: var(--panel-width); min-height: 0; padding: 20px; overflow: auto; overscroll-behavior: contain; border-right: 1px solid var(--border); background: var(--surface); z-index: 5; transition: transform .2s ease, visibility 0s; }
+.panel-closed .plan-panel { transform: translateX(-100%); visibility: hidden; transition: transform .2s ease, visibility 0s .2s; }
+.panel-toggle { position: absolute; left: var(--panel-space); top: 50%; transform: translateY(-50%); z-index: 6; display: grid; place-items: center; width: 44px; height: 56px; padding: 0; border-left: 0; border-radius: 0 10px 10px 0; background: var(--surface); color: var(--accent); box-shadow: 3px 2px 8px var(--shadow); transition: left .2s ease; }
+.panel-toggle svg { transition: transform .2s ease; }
+.panel-closed .panel-toggle svg { transform: rotate(180deg); }
+.panel-toggle:focus-visible { outline-offset: -3px; }
 .plan-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .eyebrow { margin: 0 0 4px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: 10px; font-weight: 700; }
 h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size: 12px; white-space: nowrap; }
@@ -65,7 +71,7 @@ h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size
 .entrance-controls button { font-size: 11px; padding: 6px; }
 .stop-actions { flex-wrap: wrap; } .navigate-link { font-weight: 650; }
 #plan-empty { text-align: center; padding: 25px 8px; } #plan-empty h2 { font-size: 20px; margin-bottom: 12px; } #plan-empty p { color: var(--muted); }
-.plan-map-area { position: relative; min-width: 0; min-height: 0; } #plan-map { position: absolute; inset: 0; }
+.plan-map-area { grid-column: 2; grid-row: 1; position: relative; min-width: 0; min-height: 0; } #plan-map { position: absolute; inset: 0; }
 .map-tools { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px; right: 55px; }
 .map-tools button { font-size: 12px; box-shadow: 0 2px 6px var(--shadow); }
 .map-caption { position: absolute; left: 10px; bottom: 32px; font-size: 11px; padding: 5px 8px; background: var(--surface); border-radius: 6px; color: var(--muted); pointer-events: none; }
@@ -78,10 +84,13 @@ h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size
 [hidden] { display: none !important; }
 @media (max-width: 680px) {
   .intro { display: none; }
-  .planner-layout { grid-template-columns: 1fr; grid-template-rows: 210px minmax(0,1fr); }
-  .plan-map-area { grid-row: 1; } .plan-panel { grid-row: 2; border-right: 0; border-top: 1px solid var(--border); padding: 14px; }
+  .planner-layout { --panel-width: min(360px,calc(100% - 44px)); grid-template-columns: minmax(0,1fr); }
+  .plan-map-area { grid-column: 1; }
+  .plan-panel { position: absolute; inset: 0 auto 0 0; padding: 14px; box-shadow: 3px 0 15px var(--shadow); }
   .map-caption { font-size: 10px; } .planner-chat-card { position: fixed; top: 65px; max-height: calc(100% - 75px); overflow: auto; }
   .settings-grid { grid-template-columns: 1fr 1fr; } .plan-date { grid-column: 1/-1; }
   .schedule-grid { grid-template-columns: 1fr; } .plan-heading { align-items: start; } h1 { font-size: 22px; }
 }
-@media (max-height: 450px) and (max-width: 680px) { .planner-layout { grid-template-rows: 120px minmax(0,1fr); } }
+@media (prefers-reduced-motion: reduce) {
+  .planner-layout,.plan-panel,.panel-closed .plan-panel,.panel-toggle,.panel-toggle svg { transition: none; }
+}

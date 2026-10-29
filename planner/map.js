@@ -11,6 +11,7 @@
   };
   const focus = id => {
     const item = latest.find(i => i.id === id); if (!map || !coordinates(item)) return;
+    window.PlanPanel?.showMap();
     map.easeTo({ center: coordinates(item), zoom: Math.max(14,map.getZoom()), duration: 500 });
     markers.find(m => m.id === id)?.marker.togglePopup();
   };
@@ -26,7 +27,7 @@
       name.textContent = item.source.title;
       time.textContent = item.schedule.start ? `${M.local(item.schedule.start).replace('T',' · ')} CT · ${item.schedule.duration} min` : 'Not scheduled yet';
       edit.textContent = 'Edit this stop'; edit.type = 'button';
-      edit.addEventListener('click', () => { const card = document.querySelector(`[data-item-id="${item.id}"]`); card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); card?.querySelector('input,select')?.focus({ preventScroll: true }); });
+      edit.addEventListener('click', () => { window.PlanPanel?.open(); const card = document.querySelector(`[data-item-id="${item.id}"]`); card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); card?.querySelector('input,select')?.focus({ preventScroll: true }); });
       body.append(name,time,edit);
       const marker = new maplibregl.Marker({ element: button }).setLngLat(coordinates(item))
         .setPopup(new maplibregl.Popup({ offset: 20 }).setDOMContent(body)).addTo(map);
@@ -58,16 +59,19 @@
   function pick(item,callback) {
     if(!map) return;
     cancelPick();
+    const reopen=window.PlanPanel?.isOpen;
+    window.PlanPanel?.showMap();
     if(coordinates(item)) map.easeTo({center:coordinates(item),zoom:17,duration:400});
     map.getCanvas().style.cursor='crosshair';
     document.getElementById('map-caption').textContent='Click the driving entrance · Esc to cancel';
     document.getElementById('plan-map').scrollIntoView({behavior:'smooth',block:'nearest'});
-    picking=event=>{const point=[Number(event.lngLat.lng.toFixed(6)),Number(event.lngLat.lat.toFixed(6))];cancelPick();callback(point);};
+    picking=event=>{const point=[Number(event.lngLat.lng.toFixed(6)),Number(event.lngLat.lat.toFixed(6))];cancelPick();if(reopen)window.PlanPanel?.open();callback(point);};
     map.on('click',picking);
   }
   document.addEventListener('keydown',event=>{if(event.key==='Escape')cancelPick();});
   try {
     map = new maplibregl.Map({ container:'plan-map', style:'https://tiles.openfreemap.org/styles/positron', center:[-97.7431,30.2672], zoom:11, attributionControl:false });
+    new ResizeObserver(()=>map.resize()).observe(document.getElementById('plan-map'));
     map.addControl(new maplibregl.AttributionControl({ compact:true,customAttribution:'Routing © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>' }), 'bottom-right');
     map.addControl(new maplibregl.NavigationControl(), 'top-right');
     map.on('load', async () => {

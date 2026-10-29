@@ -18,6 +18,7 @@ visitor's physical neighborhood through the existing chat engine.
 | `repository.js` | Supabase planner RPC names and response validation |
 | `store.js` | Private browser cache, subscriptions, account boundary, atomic saves and explicit revision conflicts |
 | `select.js` | Main-map checkboxes and count; consumes `austin:planner-target` events |
+| `panel.js` | Collapsible itinerary drawer and focus/accessibility state; no plan data |
 | `map.js` | Selected-place markers and neighborhood basemap; failure does not disable the itinerary |
 | `app.js` | Timeline, preferences, editing, showtime selection, conflict explanations, undo and JSON backup/restore |
 | `chat/widget.js` | Optional lazy-loaded ChatRoom/ChatEngine/ChatPanel; planner has no dependency on those modules |

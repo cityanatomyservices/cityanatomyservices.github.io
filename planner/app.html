@@ -5,13 +5,16 @@
   <title>My Plan Map</title><link rel="icon" href="data:,">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
   <link rel="stylesheet" href="/appearance.css?v=20261028h">
-  <link rel="stylesheet" href="/planner/app.css?v=20261029r">
+  <link rel="stylesheet" href="/planner/app.css?v=20261029s">
   <link rel="stylesheet" href="/chat/panel.css?v=20261023e">
   <script src="/chat/theme.js?v=20261028g"></script>
 </head>
 <body>
   <main class="planner-layout">
-    <section class="plan-panel" aria-label="Itinerary">
+    <button id="plan-panel-toggle" class="panel-toggle" type="button" aria-controls="plan-panel" aria-expanded="true" aria-label="Hide itinerary" title="Hide itinerary">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="m14 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <section id="plan-panel" class="plan-panel" aria-label="Itinerary">
       <header class="plan-heading"><div><p class="eyebrow">A day in Austin</p><h1>My Plan Map</h1></div><a class="button" href="/" target="_top">+ Add places</a></header>
       <p class="intro">Choose a day, then arrange its stops. Each day has its own itinerary.</p>
       <div class="save-line"><span id="save-status" role="status">Opening your plan…</span><button type="button" id="retry-save" class="text-button">Retry save</button></div>
@@ -65,7 +68,8 @@
   <script src="/planner/repository.js?v=20261029r"></script><script src="/planner/store.js?v=20261029r"></script>
   <script src="/planner/routing.js?v=20261029r"></script>
   <script src="/planner/route-panel.js?v=20261029r"></script>
-  <script src="/planner/map.js?v=20261029r"></script><script src="/planner/app.js?v=20261029r"></script>
+  <script src="/planner/panel.js?v=20261029s"></script>
+  <script src="/planner/map.js?v=20261029s"></script><script src="/planner/app.js?v=20261029r"></script>
   <script src="/chat/widget.js?v=20261029a"></script>
 </body>
 </html>
