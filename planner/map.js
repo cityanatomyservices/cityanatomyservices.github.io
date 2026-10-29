@@ -13,7 +13,8 @@
     map.easeTo({ center: item.source.coordinates, zoom: Math.max(14,map.getZoom()), duration: 500 });
     markers.find(m => m.id === id)?.marker.togglePopup();
   };
-  function update(items) {
+  function update(items,changedDay = false) {
+    if (changedDay) fitted = false;
     latest = items; if (!map) return;
     markers.forEach(m => m.marker.remove()); markers = [];
     items.forEach((item,index) => {

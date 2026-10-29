@@ -45,20 +45,38 @@ with owner-only RLS, auth-user cascade cleanup and no references to chat tables.
 Locations are generated PostGIS geography points with a GiST index. No road
 network or pgRouting extension is required for this release.
 
+`0003_planner_days.sql` (also applied 2026-10-29) adds `planner_items.plan_day`
+and changes source uniqueness to `(plan_id, plan_day, source_key)`. The same
+business can be saved independently on different days. Older clients can still
+save: the RPC uses the plan's date when an item has no explicit day. The v2
+client upgrades older snapshots before saving, preserving IDs, source data,
+notes and locked times; existing stops are grouped by their scheduled day
+(published day for fixed events), with the 5 AM boundary.
+
 `planner_load` reads settings, revision and ordered items in one SQL snapshot.
 `planner_save` atomically writes the plan and items under a row lock with a
 revision check. Both RPCs are SECURITY INVOKER and restricted to authenticated
 users; Supabase anonymous users have that role. Stale revisions return `PT409`,
 not SQLSTATE 40001: [Supabase documents that 40001 triggers PostgREST retries](https://supabase.com/kb/troubleshooting/high-cpu-and-infinite-transaction-retries-when-using-custom-error-codes-in-rpc-functions).
-This release exposes one current itinerary per identity; schema IDs allow
-multiple named plans in a later UI without coupling to chat.
+Each identity has a collection of dated itineraries, with one selected day at
+a time. Settings contain `schemaVersion:2`, `days`, `daySettings` (name and buffer
+per day), and `date` (selected day). Item snapshots carry `day`. The collection
+still saves in one atomic transaction and shares no state with chat.
+
+`PlanStore.plan` returns only the selected day's settings and stops;
+`PlanStore.book` returns the full collection for backup/restore. `edit` merges
+only the selected day; `chooseDay` switches or adds a day. An expected-day guard
+prevents a stale editor from writing into another selected day. `build` and
+`check` also ignore other days if called with a full collection.
 
 Browser keys are `austin:planner:v1:<auth-user-id>` (or `guest` when initial auth
 is unavailable). Pending edits survive failed requests. Web Locks serialize
 same-browser writes and uploads where supported; `storage` events update other
 tabs. Revision conflicts never silently overwrite another saved copy. A local
 copy can explicitly replace the remote version, or the user can load the saved
-copy. JSON download/import supports recovery after clearing site data. There is
+copy. JSON v2 download/import includes every saved day, and imports of v1 files
+are upgraded without losing selections. The old browser-key prefix is retained
+so existing visitors recover their data. There is
 no email/social sign-in UI yet; the anonymous session belongs to this browser.
 
 ## Scheduling semantics and current limits
@@ -69,8 +87,18 @@ no email/social sign-in UI yet; the anonymous session belongs to this browser.
   not an exhaustive optimizer; an item that does not fit stays unscheduled.
 - The default view is chronological; Preferred order controls flexible-stop
   priority. Map numbers follow the chosen view.
-- Availability windows restrict a full visit, including user-entered overnight
-  hours. A finish earlier than day start means the following calendar date.
+- Every plan day starts at 5 AM Austin time and ends at 5 AM the next calendar
+  date (displayed as 5:00 AM–4:59 AM). Arrival and availability inputs accept
+  times only. Times before 5 AM resolve to the following morning; a 5 AM
+  availability closing means the upper boundary. A visit crossing that boundary
+  is flagged. This is 24 hours on ordinary days, 23/25 elapsed hours at DST, so
+  the local 5 AM boundary remains consistent.
+- The main map has a planning-day picker for flexible places. Fixed events
+  select/create their actual plan day rather than moving published dates.
+  Movies retain only showtime choices within the selected day; movie listings
+  spanning the boundary can be saved to either applicable day.
+- Availability windows restrict a full visit, including overnight hours. No
+  stop-level date controls or editable day boundaries are presented.
 - Expiry timestamps are never used as unknown event/movie finish times. Movie
   runtime, when published, is an initial duration estimate; trailers and early
   arrival are not silently invented. Users choose an actual showtime.
@@ -86,7 +114,8 @@ no email/social sign-in UI yet; the anonymous session belongs to this browser.
   earlier occurrence and show a notice. Source timestamps retain their offsets.
 - The 20-minute default travel buffer is a user allowance, not a calculated
   journey duration. Each stop can override its incoming buffer. No road routes
-  or straight-line route claims are displayed. Up to 150 stops per plan.
+  or straight-line route claims are displayed. Up to 60 days and 150 total stops
+  in the collection. Each day has its own adjustable travel buffer.
 
 ## Incremental routing
 

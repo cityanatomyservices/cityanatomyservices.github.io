@@ -10,7 +10,7 @@
   const copy = value => structuredClone(value);
   const lock = (name, fn) => navigator.locks ? navigator.locks.request(name, fn) : Promise.resolve().then(fn);
   function read(k = key) {
-    try { const e = JSON.parse(localStorage.getItem(k)); return M.valid(e?.plan) ? e : null; } catch (_) { return null; }
+    try { const e = JSON.parse(localStorage.getItem(k)); if (e) e.plan = M.upgrade(e.plan); return M.valid(e?.plan) ? e : null; } catch (_) { return null; }
   }
   function notify() { for (const fn of listeners) fn(); }
   function persist() {
@@ -43,8 +43,11 @@
       const guest = volatileGuest || read(prefix + 'guest');
       if (guest?.plan.items.length && !conflict) {
         if (!remote && !envelope.plan.items.length) envelope = { ...guest, revision: 0 };
-        const keys = new Set(envelope.plan.items.map(i => i.source.key));
-        for (const item of guest.plan.items) if (!keys.has(item.source.key) && envelope.plan.items.length < 150) { envelope.plan.items.push(item); keys.add(item.source.key); }
+        const keys = new Set(envelope.plan.items.map(i => `${i.day}:${i.source.key}`));
+        const added = guest.plan.items.filter(i => !keys.has(`${i.day}:${i.source.key}`));
+        if (envelope.plan.items.length + added.length > 150 || new Set([...envelope.plan.days,...guest.plan.days]).size > 60) throw new Error('Guest plan exceeds capacity; its browser copy is kept.');
+        for (const date of guest.plan.days) if (!envelope.plan.days.includes(date)) { envelope.plan.days.push(date); envelope.plan.daySettings[date] = guest.plan.daySettings[date]; }
+        envelope.plan.items.push(...added);
         envelope.dirty = true; envelope.stamp = crypto.randomUUID();
         persist();
         if (persistent) try { localStorage.removeItem(prefix + 'guest'); } catch (_) { /* optional */ }
@@ -63,15 +66,22 @@
     });
   }
   function ready() { if (!started) started = start(); return started; }
-  async function edit(fn) {
+  async function mutate(fn) {
     await ready();
     return lock('austin-planner-edit', () => {
       const latest = persistent ? read() : null; if (latest) envelope = latest;
-      const next = copy(envelope.plan); fn(next);
-      if (!M.valid(next)) throw new Error('Check the date, times and visit lengths. A plan can hold up to 150 places.');
+      const next = copy(envelope.plan); const result = fn(next);
+      if (!M.valid(next)) throw new Error('Check the day, times and visit lengths. You can save up to 60 days and 150 stops.');
       envelope = { ...envelope, plan: next, dirty: true, stamp: crypto.randomUUID() };
       status = conflict ? 'A newer saved plan exists. Choose which copy to keep.' : client ? 'Saving…' : 'Saved in this browser · connection unavailable';
       persist(); notify(); if (!conflict) queue();
+      return result;
+    });
+  }
+  function edit(fn, expectedDate) {
+    return mutate(book => {
+      if (expectedDate && expectedDate !== book.date) throw new Error('The selected day changed. Please edit the day shown now.');
+      const view = M.dayView(book); fn(view); M.replaceDay(book,view);
     });
   }
   async function sync() {
@@ -116,19 +126,24 @@
   document.addEventListener('visibilitychange', () => { if (!document.hidden) { if (!client) { started = null; ready(); } else sync(); } });
   window.PlanStore = {
     ready, edit, sync, resolve,
-    get plan() { return copy(envelope.plan); },
+    get plan() { return M.dayView(envelope.plan); },
+    get book() { return copy(envelope.plan); },
+    get days() { return [...envelope.plan.days].sort().map(date => ({date,count:envelope.plan.items.filter(i => i.day === date).length})); },
+    chooseDay(date) { return mutate(book => M.ensureDay(book,date)); },
+    restore(plan) { return mutate(book => { const id = book.id; Object.assign(book,M.upgrade(plan),{id}); }); },
     get status() { return persistent ? status : 'Browser storage is unavailable. ' + status; },
     get conflict() { return conflict; },
     subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
-    has(source) { return envelope.plan.items.some(i => i.source.key === source.key); },
+    has(source) { const date=M.targetDay(source,envelope.plan.date); return envelope.plan.items.some(i => i.day === date && i.source.key === source.key); },
     async select(source, selected) {
-      return edit(plan => {
-        const index = plan.items.findIndex(i => i.source.key === source.key);
+      return mutate(plan => {
+        const date=M.targetDay(source,plan.date), index = plan.items.findIndex(i => i.day === date && i.source.key === source.key);
         if (selected && index < 0) {
-          if (!plan.items.length && source.start) plan.date = M.day(source.start);
-          plan.items.push(window.PlanSources.item(source, crypto.randomUUID()));
+          M.ensureDay(plan,date);
+          plan.items.push({...window.PlanSources.item(source, crypto.randomUUID()),day:date});
         }
         if (!selected && index >= 0) plan.items.splice(index, 1);
+        return date;
       });
     },
     retry() { if (!client) { started = null; return ready(); } return sync(); }

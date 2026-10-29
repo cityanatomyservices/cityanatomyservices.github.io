@@ -2,7 +2,7 @@ name: Check My Plan Map
 on:
   push:
     branches: [main]
-    paths: ['planner/**', 'shared/**', 'chat/widget.js', 'tests/planner/**', 'supabase/migrations/0002_planner.sql', '.github/workflows/test-planner.yml']
+    paths: ['planner/**', 'shared/**', 'chat/widget.js', 'tests/planner/**', 'supabase/migrations/*planner*.sql', '.github/workflows/test-planner.yml']
   workflow_dispatch:
 permissions:
   contents: read

@@ -30,8 +30,8 @@ test('offline selections persist, deduplicate and restore without requiring chat
 });
 test('guest recovery keeps the date and schedule when first signing in',async()=>{
  const a=fixture({offline:true});try{
-  await a.store.select(place('coffee'),true);await a.store.edit(p=>{p.date='2026-12-25';p.dayStart='11:00';});
-  const b=fixture({memory:a.memory});try{await b.store.ready();assert.equal(b.store.plan.date,'2026-12-25');assert.equal(b.store.plan.dayStart,'11:00');assert.equal(b.store.plan.items.length,1);await b.store.sync();assert.equal(b.remote.plan.items.length,1);}finally{b.dispose();}
+  await a.store.chooseDay('2026-12-25');await a.store.select(place('coffee'),true);
+  const b=fixture({memory:a.memory});try{await b.store.ready();assert.equal(b.store.plan.date,'2026-12-25');assert.equal(b.store.plan.dayStart,'05:00');assert.equal(b.store.plan.items.length,1);await b.store.sync();assert.equal(b.remote.plan.items.length,1);}finally{b.dispose();}
  }finally{a.dispose();}
 });
 test('edits during an in-flight save survive and use the returned revision',async()=>{
@@ -48,10 +48,40 @@ test('edits during an in-flight save survive and use the returned revision',asyn
 test('a stale save preserves local edits until the user chooses a copy',async()=>{
  const f=fixture();try{
   await f.store.select(place('local'),true);await f.store.sync();
-  f.remote={...f.remote,revision:2,plan:{...f.remote.plan,name:'Other tab'}};
+  const newer=structuredClone(f.remote);newer.revision=2;newer.plan.daySettings[newer.plan.date].name='Other tab';f.remote=newer;
   await f.store.edit(p=>{p.name='My unsynced edit';});await f.store.sync();
   assert.equal(f.store.conflict,true);assert.equal(f.store.plan.name,'My unsynced edit');
   await f.store.resolve(false);assert.equal(f.store.plan.name,'Other tab');assert.equal(f.store.conflict,false);
+ }finally{f.dispose();}
+});
+test('multiple days keep independent selections, durations, buffers and names',async()=>{
+ const f=fixture({offline:true});try{
+  await f.store.chooseDay('2026-10-31');await f.store.select(place('Cafe'),true);
+  await f.store.edit(p=>{p.name='Saturday';p.bufferMinutes=35;p.items[0].schedule.duration=30;});
+  const first=f.store.plan.items[0].id;
+  await f.store.chooseDay('2026-11-01');assert.equal(f.store.plan.items.length,0);
+  await f.store.select(place('Cafe'),true);await f.store.edit(p=>{p.items[0].schedule.duration=90;});
+  assert.notEqual(f.store.plan.items[0].id,first);assert.equal(f.store.plan.bufferMinutes,20);
+  await f.store.chooseDay('2026-10-31');assert.equal(f.store.plan.name,'Saturday');assert.equal(f.store.plan.bufferMinutes,35);assert.equal(f.store.plan.items[0].schedule.duration,30);
+  await f.store.select(place('Cafe'),false);assert.equal(f.store.plan.items.length,0);
+  await f.store.chooseDay('2026-11-01');assert.equal(f.store.plan.items.length,1);assert.equal(f.store.plan.items[0].schedule.duration,90);
+  assert.equal(M.valid(f.store.book),true);
+ }finally{f.dispose();}
+});
+test('dated event selection creates its published day rather than moving the event',async()=>{
+ const f=fixture({offline:true});try{
+  await f.store.chooseDay('2026-11-10');await f.store.select(place('Cafe'),true);
+  const show={...place('Concert'),kind:'event',timing:'fixed',start:'2026-11-01T01:00:00-05:00'};
+  assert.equal(await f.store.select(show,true),'2026-10-31');assert.equal(f.store.plan.date,'2026-10-31');assert.equal(f.store.plan.items[0].schedule.start,show.start);
+  await f.store.chooseDay('2026-11-10');assert.equal(f.store.plan.items[0].source.title,'Cafe');
+ }finally{f.dispose();}
+});
+test('a stale editor cannot edit another selected day or change a stop date',async()=>{
+ const f=fixture({offline:true});try{
+  await f.store.chooseDay('2026-10-31');await f.store.select(place('Cafe'),true);
+  await f.store.chooseDay('2026-11-01');
+  await assert.rejects(f.store.edit(p=>{p.name='Wrong day';},'2026-10-31'),/selected day changed/);
+  await assert.rejects(f.store.edit(p=>{p.date='2026-11-02';}),/day selector/);
  }finally{f.dispose();}
 });
 test('saving this copy resolves an explicit conflict without deleting its selections',async()=>{

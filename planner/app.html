@@ -5,29 +5,29 @@
   <title>My Plan Map</title><link rel="icon" href="data:,">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
   <link rel="stylesheet" href="/appearance.css?v=20261028h">
-  <link rel="stylesheet" href="/planner/app.css?v=20261029a">
+  <link rel="stylesheet" href="/planner/app.css?v=20261029b">
   <link rel="stylesheet" href="/chat/panel.css?v=20261023e">
   <script src="/chat/theme.js?v=20261028g"></script>
 </head>
 <body>
   <main class="planner-layout">
     <section class="plan-panel" aria-label="Itinerary">
-      <header class="plan-heading"><div><p class="eyebrow">A day in Austin</p><h1>My Plan Map</h1></div><a class="button" href="/" target="_top">＋ Add places</a></header>
-      <p class="intro">Save places on the main map, then make time for them here.</p>
+      <header class="plan-heading"><div><p class="eyebrow">A day in Austin</p><h1>My Plan Map</h1></div><a class="button" href="/" target="_top">+ Add places</a></header>
+      <p class="intro">Choose a day, then arrange its stops. Each day has its own itinerary.</p>
       <div class="save-line"><span id="save-status" role="status">Opening your plan…</span><button type="button" id="retry-save" class="text-button">Retry save</button></div>
       <div id="save-conflict" hidden><p>A newer copy was saved elsewhere. Your edits are still in this browser.</p><button type="button" id="keep-local">Save this copy</button> <button type="button" id="use-remote">Use saved copy</button></div>
+      <div class="plan-day-picker"><label>Plan day<select id="plan-day" aria-label="Plan day"></select></label><button type="button" id="add-day">+ Add day</button></div>
+      <p class="day-boundary">5:00 AM–4:59 AM the following morning · Austin time</p>
+      <p class="overnight-help">Times before 5 AM belong to the following morning.</p>
+      <dialog id="day-dialog"><form id="add-day-form"><h2>Add a plan day</h2><label>Date<input id="new-day-date" type="date" required min="2020-01-01" max="2099-12-31"></label><p>Each day runs from 5 AM until 5 AM the following morning. Existing days keep their own stops.</p><div class="build-row"><button type="button" id="cancel-day">Cancel</button><button type="submit" class="primary">Open day</button></div></form></dialog>
       <details id="day-settings" open><summary id="day-settings-label">Day settings</summary><form id="plan-settings">
-        <label class="plan-name">Plan name<input name="name" maxlength="100" required aria-label="Plan name"></label>
-        <div class="settings-grid">
-          <label class="plan-date">Date<input name="date" type="date" required min="2020-01-01" max="2099-12-31"></label>
-          <label>Start<input name="dayStart" type="time" required></label><label>Finish<input name="dayEnd" type="time" required></label>
-        </div>
+        <label class="plan-name">Day name<input name="name" maxlength="100" required aria-label="Day name"></label>
         <details class="plan-options"><summary>Travel buffer & saving</summary>
           <label>Minutes between stops<input name="bufferMinutes" type="number" min="0" max="240" step="5" required></label>
           <p>This is your allowance, not a calculated journey time. Routing will be added later. Adjust a stop’s buffer if it needs longer.</p>
-          <p>All times use Austin time. A finish earlier than the start is the following morning. Your anonymous account saves privately on this browser; clearing site data can lose access. Use Download plan for a backup.</p>
-          <button type="button" id="download-plan">Download plan</button>
-          <button type="button" id="import-plan">Import plan</button><input type="file" id="import-file" accept="application/json,.json" hidden aria-label="Import a downloaded Austin plan">
+          <p>Your anonymous account saves privately on this browser; clearing site data can lose access. Download all days for a backup.</p>
+          <button type="button" id="download-plan">Download all days</button>
+          <button type="button" id="import-plan">Restore downloaded days</button><input type="file" id="import-file" accept="application/json,.json" hidden aria-label="Import a downloaded Austin plan">
         </details>
       </form></details>
       <div class="build-row"><button type="button" id="build-day" class="primary">Build my day</button><button type="button" id="undo" disabled>Undo</button></div>
@@ -49,10 +49,10 @@
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="/shared/session.js?v=20261029a"></script>
-  <script src="/planner/model.js?v=20261029a"></script><script src="/planner/sources.js?v=20261029a"></script>
-  <script src="/planner/repository.js?v=20261029a"></script><script src="/planner/store.js?v=20261029a"></script>
-  <script src="/planner/routing.js?v=20261029a"></script>
-  <script src="/planner/map.js?v=20261029a"></script><script src="/planner/app.js?v=20261029a"></script>
+  <script src="/planner/model.js?v=20261029b"></script><script src="/planner/sources.js?v=20261029b"></script>
+  <script src="/planner/repository.js?v=20261029b"></script><script src="/planner/store.js?v=20261029b"></script>
+  <script src="/planner/routing.js?v=20261029b"></script>
+  <script src="/planner/map.js?v=20261029b"></script><script src="/planner/app.js?v=20261029b"></script>
   <script src="/chat/widget.js?v=20261029a"></script>
 </body>
 </html>

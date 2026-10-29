@@ -4,7 +4,10 @@ window.PlanRepository = {
     const { data, error } = await client.rpc('planner_load', { p_id: id || null });
     if (error) throw error;
     if (!data) return null;
+    const legacy = data.plan?.schemaVersion !== 2;
+    data.plan = window.PlanModel.upgrade(data.plan);
     if (!window.PlanModel.valid(data.plan)) throw new Error('Saved plan has an unsupported format. Your browser copy is intact.');
+    if (legacy) data.dirty = true;
     return data;
   },
   async save(client, envelope) {
