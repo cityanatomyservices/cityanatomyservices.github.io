@@ -54,7 +54,7 @@
   ticker.setAttribute('aria-label', 'Austin news, weather and events');
   document.querySelector('.home-footer').before(ticker);
   const tickerScript = document.createElement('script');
-  tickerScript.src = '/ticker/ticker.js?v=20261028f';
+  tickerScript.src = '/ticker/ticker.js?v=20261030c';
   document.body.append(tickerScript);
 
   // ── the day / night button ───────────────────────────────────────────────
@@ -72,10 +72,14 @@
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
     localStorage.setItem('theme', next);
+    window.AustinPreferences?.set('theme',next);
     showOffer(next);
   });
+  window.addEventListener('storage',event=>{if(event.key==='theme'){const theme=event.newValue==='dark'?'dark':'light';document.documentElement.dataset.theme=theme;showOffer(theme);}});
 
-  const accountStyle=document.createElement('link');accountStyle.rel='stylesheet';accountStyle.href='/shared/account.css?v=20261030a';document.head.append(accountStyle);
-  const accountScript=document.createElement('script');accountScript.src='/shared/account.js?v=20261030a';document.body.append(accountScript);
+  const accountStyle=document.createElement('link');accountStyle.rel='stylesheet';accountStyle.href='/shared/account.css?v=20261030c';document.head.append(accountStyle);
+  const memberScript=document.createElement('script');memberScript.src='/shared/member-ui.js?v=20261030c';
+  memberScript.onload=()=>{const accountScript=document.createElement('script');accountScript.src='/shared/account.js?v=20261030c';document.body.append(accountScript);};
+  document.body.append(memberScript);
 
 }());

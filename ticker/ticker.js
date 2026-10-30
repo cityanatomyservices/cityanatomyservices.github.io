@@ -208,6 +208,7 @@
     prefs = M.preferences(prefs, categories); stripOffset = 0;
     syncChoices();
     if (save) {
+      window.AustinPreferences?.set('ticker',prefs);
       try { localStorage.setItem(storageKey, JSON.stringify(prefs)); }
       catch (_) { $('.ticker-saved').textContent += ' Storage is unavailable; choices apply for this visit.'; }
     }

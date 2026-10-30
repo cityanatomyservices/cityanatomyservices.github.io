@@ -56,9 +56,8 @@
         if(run!==generation)return ready();
         if (!window.AustinSession.registered) identity = remembered() || generate();
         else {
-          const { data, error } = await getClient().from('profiles').select('handle, emoji').eq('id', owner).maybeSingle();
+          const data = await window.AustinMember.profile();
           if(run!==generation)return ready();
-          if (error) throw error;
           identity = data && data.handle ? { handle: data.handle, emoji: data.emoji || '🙂' } : await saveName(remembered() || generate(),owner);
         }
       } catch (e) {
@@ -89,6 +88,14 @@
     ready().then(identity=>{if(!closed&&run===generation)window.dispatchEvent(new CustomEvent('austin:identity-changed',{detail:identity}));});
   });
   window.addEventListener('pagehide',()=>{closed=true;unsubscribe?.();});
+  const unsubscribeProfile=window.AustinMember.subscribe(section=>{
+    if(!['profile','loaded'].includes(section)||!me||!uid||!window.AustinSession.registered)return;
+    const p=window.AustinMember.state?.profile;if(!p?.handle)return;
+    const renamed=p.handle!==me.handle||p.emoji!==me.emoji;
+    me={handle:p.handle,emoji:p.emoji||'🙂'};remember(me);
+    window.dispatchEvent(new CustomEvent('austin:profile-updated',{detail:{identity:me,renamed}}));
+  });
+  window.addEventListener('pagehide',unsubscribeProfile);
   window.ChatIdentity = {
     client: getClient,
     userId: () => uid,
@@ -98,7 +105,7 @@
       const run=generation;
       const fresh = generate();
       let identity;
-      try { identity = uid && window.AustinSession.registered ? await saveName(fresh) : fresh; }
+      try { identity = uid && window.AustinSession.registered ? await window.AustinMember.saveIdentity({...fresh,show_avatar:false}) : fresh; }
       catch (e) { console.warn('austin.chat: could not save the new name', e.message || e); identity = fresh; }
       if(run!==generation)return ready();
       me=identity;

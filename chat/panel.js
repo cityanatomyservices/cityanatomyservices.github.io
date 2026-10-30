@@ -38,7 +38,8 @@
     clear() { $('chatLines').innerHTML = ''; },
     // the people line under the room name
     setPeople(list) {
-      $('chatPeople').textContent = list.map((p) => p.emoji + ' ' + p.handle).join(' · ');
+      const line=$('chatPeople');line.replaceChildren();
+      list.forEach((p,i)=>{if(i)line.append(' · ');const person=document.createElement('span');line.append(person);window.AustinMember.paintIdentity(person,p);});
     },
     addMessage(m) {
       const lines = $('chatLines');
@@ -46,6 +47,7 @@
       if (m.self) li.className = 'is-self';
       li.innerHTML = `<span class="who">${esc(m.emoji)} ${esc(m.handle)}</span> <span class="when">${esc(time(m.t))}</span><br>${esc(m.text)}`;
       lines.appendChild(li);
+      window.AustinMember.paintIdentity(li.querySelector('.who'),m);
       lines.scrollTop = lines.scrollHeight;
     }
   };

@@ -80,7 +80,73 @@ approved test address, then confirm receipt in that inbox.
   sign-out; an anonymous account in one tab does not sign another tab in.
 - Guest plans still reset on refresh/reopen. Display preferences remain.
 
-## Validation
+## Profiles, Favorites and account preferences (2026-10-30)
+
+`0008_member_profiles.sql` is applied to the existing project. No hosting,
+subscription, parcel or routing changes were required. `shared/member.js`
+owns the account data in page memory and is shared by the outer frame and
+its apps. `member-ui.js` mounts Profile & privacy, Favorites and Preferences
+inside the existing Account dialog. `favorite-button.js` subscribes to the
+same listing targets as the planner without selecting a day or joining chat.
+The app catalog also supplies Favorite actions.
+
+- A person may keep the generated nickname and emoji, choose another unique
+  nickname, or upload a picture. Real Google names/photos are not copied into
+  their public identity. The profile editor previews what others see; map
+  visibility remains an independent explicit Chat control.
+- The existing `profiles` table still has owner-only SELECT, including its
+  email column. `profile_display(handle)` returns only handle, emoji and an
+  opted-in avatar path. It does not expose the private profile row.
+- `avatars` is a private Storage bucket. Browser canvas crops/resizes to a
+  256×256 WebP, omitting original EXIF/GPS data. Bucket policies enforce one
+  fixed path per registered account, WebP MIME and 128 KiB per file. A person
+  can replace/delete only their own file; other authenticated visitors can
+  fetch only explicitly displayed pictures. The app uses short-lived signed
+  downloads and local blob URLs, not permanent public image URLs. File
+  replacement and deletion go through the Storage API. Previously displayed
+  images can be copied; CDN invalidation is not instantaneous. Privacy tests
+  verify fresh requests and the actual file listing, not stale cached URLs.
+- `member_favorites` stores private source snapshots, limited in Postgres to
+  200 per account, with an owner index and serialized count check. Expired
+  listings remain labeled for review. Add to Day Planner uses the existing
+  source/date behavior; a Favorite alone does not alter the itinerary.
+- `member_preferences` privately stores theme, Explore categories/filters,
+  ticker selections and navigation app. Per-key updates avoid overwriting
+  unrelated choices from another tab. `shared/preferences.js` mirrors only
+  display choices into existing browser settings; searches, coordinates,
+  profiles, Favorites and tour progress are not copied there.
+- `webtour/store.js` now uses existing `tour_progress` rows for registered
+  users and visit memory for guests. Moontower lighting and physical visits
+  remain separate. Legacy unscoped progress is removed rather than assigned
+  to whichever account next signs in. Progress errors show a banner.
+- Account changes clear the in-memory member data before new data loads.
+  Mutations retain their initiating account ID; stale loads cannot overwrite
+  another account. Cross-tab notifications carry no profile or Favorite data.
+
+The owner wants to retain the current setup through roughly 1,000 registered
+users. The organization was already on **Pro**, with approximately **3.16 GB**
+database usage and **86 MB** Storage files at the initial check. Pro currently
+includes 100,000 monthly active users, 8 GB database disk and 100 GB file
+storage. At this upload cap 1,000 avatars occupy at most 125 MiB. This is an
+account/storage capacity assessment, not a 1,000-concurrent-user load test:
+chat connections, traffic and routing computation still matter. Pro includes
+500 peak Realtime connections before overages; no billing setting was changed.
+See [current Supabase allowances](https://supabase.com/pricing).
+Email sign-in has separate throughput limits: the existing Supabase sender is
+set to 30 emails/hour, and the requested Resend free tier allows 100/day and
+3,000/month. Google sign-in does not consume those email sends. These settings
+were inspected, not changed; a burst of new email sign-ins can reach these
+limits before the account/storage allowances. See [Resend limits](https://resend.com/docs/knowledge-base/account-quotas-and-limits).
+
+Run `node tools/auth/check-members.cjs http://127.0.0.1:8765` for real Storage,
+RLS, image processing, visibility, Favorites, preference restore, tour progress,
+two-account isolation, guest reset and responsive dialog checks. It creates
+only disposable accounts, sends no email, and removes test avatars through
+Storage before removing accounts. `tests/planner/member.test.cjs` covers late
+loads, sign-out during saves and concurrent reloads. Both browser checks can
+also target the live site **after** the matching Pages deployment completes.
+
+## Sign-in validation
 
 Run `node --test tests/planner/*.test.cjs`. Browser checks cover the current
 guest plan becoming an account plan, refresh, sign-out, two-account isolation,

@@ -21,3 +21,24 @@
 #account-status:not(:empty) { border-top: 1px solid var(--border); padding-top: 12px; }
 #account-status:empty { display: none; }
 #account-discard { margin-top: 10px; }
+.member-controls { border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:14px 0; margin:14px 0; }
+.member-tabs { display:flex; flex-wrap:wrap; gap:5px; }
+.member-tabs button { flex:1; font-size:12px; padding:7px; }
+.member-tabs button[aria-pressed=true] { color:var(--accent); background:var(--finish-selected); border-color:var(--accent); }
+.member-controls fieldset { border:0; padding:0; margin:0; min-width:0; display:grid; gap:10px; }
+.member-controls select { box-sizing:border-box; width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; background:var(--finish-raised); color:var(--text); font:inherit; font-size:16px; }
+.member-controls input[type=file] { font-size:12px; padding:6px; }
+.member-controls .member-check { display:flex; align-items:flex-start; gap:8px; font-weight:400; }
+.member-check input[type=checkbox] { width:18px; height:18px; margin:3px 0 0; flex:none; accent-color:var(--accent); }
+.member-preview { padding:12px; border:1px solid var(--border); border-radius:10px; background:var(--finish-raised); }
+.member-preview small { display:block; margin-top:6px; color:var(--muted); }
+.member-preview .member-avatar { width:40px; height:40px; font-size:30px; }
+.member-controls [role=status] { overflow-wrap:anywhere; }
+.member-favorite { padding:12px 0; border-bottom:1px solid var(--border); overflow-wrap:anywhere; }
+.member-favorite p { margin:5px 0; }
+.member-favorite-actions { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:8px; }
+.member-favorite-actions button { min-height:34px; font-size:12px; padding:6px 8px; }
+.member-favorite-actions a,.member-controls a { color:var(--accent); }
+.member-section-title { font-weight:650; margin-top:18px; }
+#member-progress a { display:block; margin:8px 0; }
+[data-member-panel=settings] label { margin:12px 0; }

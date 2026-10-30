@@ -13,6 +13,8 @@ the reader. Visitors can select any combination of nine news/utility topics and
 the six Explore Austin categories, choose news publishers, and set Explore to
 Now, Tonight, This weekend or Next 7 days. Settings are saved immediately in
 `austin-ticker-preferences-v1` in localStorage and synchronized across tabs.
+Signed-in users also sync these choices through `shared/preferences.js` to
+their private account settings. Guest display choices remain browser-only.
 An empty selection stays empty. Restore defaults resets topics, publishers and
 dates. Storage failures only affect persistence. Map settings/presence are never
 read or changed by ticker preferences.

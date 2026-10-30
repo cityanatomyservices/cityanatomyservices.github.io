@@ -1,5 +1,64 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-30 — profiles, private Favorites and saved preferences
+
+Owner approved building the proposed account features while retaining GitHub
+Pages and the existing Supabase setup through roughly 1,000 registered users.
+The organization is already on Pro. Initial usage was about 3.16 GB database
+and 86 MB Storage; no subscription, compute, billing or email-sending limits
+were changed. No parcel/routing data or owner account data was removed.
+
+Account now has **Profile & privacy**, **Favorites**, and **Preferences**:
+
+- Choose a unique nickname and emoji, retain a random identity, or optionally
+  upload/display/delete a picture. Google names and photos are not published
+  automatically. Chat offers Edit profile for registered users. Map visibility
+  remains separate. The generated-name/emoji option is a pseudonym attached to
+  the private account, not a promise of unlinkable activity.
+- Add Favorite actions beside Explore listings, neighborhood businesses and
+  catalog apps. Favorites are private source snapshots, independent of plan
+  selection, with a database-enforced limit of 200 per account. The account
+  list opens source links, removes items, and adds places/events to Day Planner
+  using its existing date logic. Past listings are labeled for review.
+- Theme, Explore categories/filters, ticker choices and navigation app sync
+  across signed-in devices. Searches and GPS are not synced as preferences.
+- The two tour apps use account-owned `tour_progress`; guests use visit memory
+  and reset on refresh. Lighting Moontowers remains separate from physically
+  visiting them. Older unscoped tour caches are not assigned to new accounts.
+
+Applied `0008_member_profiles.sql`. Existing profile emails stay behind
+owner-only RLS; the public display RPC returns only nickname, emoji and an
+opted-in avatar path. The private `avatars` bucket enforces one 128 KiB WebP
+per registered user. The browser crops/resizes to 256×256 and omits original
+image metadata. Storage API handles deletion; no direct object-row deletion.
+Fresh downloads obey visibility rules; already displayed/copied/cached images
+cannot be recalled instantly. No real emails were sent during testing.
+
+Modules: `shared/member.js` (account data), `member-ui.js` (dialog panels),
+`preferences.js` (display setting sync), `favorite-button.js` (listing action),
+and `member.css`. These remain independent of planner scheduling and chat
+presence. Changed browser assets, map frame URLs, tour modules and shared
+loader references use cache tag `20261030c`.
+
+Validation: 60 planner/session/member Node tests and the ticker/Explore checks
+passed (62 test-runner results). Browser checks with disposable accounts passed
+real sign-in/code verification, guest merges, private profile/photo access,
+image processing, nickname uniqueness, Favorite limits, new-browser restore,
+preferences, guest reset, sign-out isolation, both actual tour pages, responsive
+account layouts, and actual routing with a rendered line. Test accounts and
+avatar files were removed. `tools/auth/check-members.cjs` is the repeatable
+profile/Storage integration check; `tools/auth/check-browser.cjs` retains the
+sign-in checks. Provider consent/email delivery are simulated in those tests;
+the owner's real Google sign-in was verified in the preceding checkpoint.
+
+Capacity details and source links are in [auth/README.md](../auth/README.md).
+1,000 avatars at the cap use at most 125 MiB; the current Pro account/storage
+allowances have ample room for that. This is not a 1,000 simultaneous-user load
+test. Pro includes 500 peak Realtime connections, and the requested free email
+sender still has separate hourly/daily quotas. The actual owner email-code
+inbox-delivery check remains unconfirmed. No additional owner setup is needed
+for profiles or Favorites; review them through Account after refresh.
+
 ## 2026-10-30 — owner sign-in verified; route line confirmed
 
 The owner confirmed the repaired route line appears on their device and asked

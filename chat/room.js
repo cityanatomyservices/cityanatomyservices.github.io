@@ -48,7 +48,10 @@
   // the room string: "<neighborhood>" or "<neighborhood>/<place>"
   const roomId = () => (room ? room.properties.id + (place ? '/' + place.id : '') : null);
 
-  function showMe() { if (el.youHandle) el.youHandle.textContent = me ? me.emoji + ' ' + me.handle : '…'; }
+  function showMe() {
+    if(el.youHandle){if(me)window.AustinMember.paintIdentity(el.youHandle,me);else el.youHandle.textContent='…';}
+    if(el.newName)el.newName.textContent=window.AustinSession.registered?'Edit profile':COPY.newName;
+  }
 
   function showVisible() {
     const b = el.visibleBtn;
@@ -305,6 +308,10 @@
         showMe();showVisible();showPeople();
         if(room)await enter(room);
       });
+      window.addEventListener('austin:profile-updated',async event=>{
+        me=event.detail.identity;showMe();
+        if(room&&event.detail.renamed){const previousPlace=place;await enter(room);if(previousPlace)await choose(previousPlace);}
+      });
 
       if (el.chatBtn) el.chatBtn.addEventListener('click', () => {
         if (window.ChatPanel.isOpen()) window.ChatPanel.close();
@@ -320,6 +327,7 @@
         showPeople();
       });
       if (el.newName) el.newName.addEventListener('click', async () => {
+        if(window.AustinSession.registered){const account=window.AustinAccount||window.parent.AustinAccount;await account?.open('profile');return;}
         me = await window.ChatIdentity.regenerate();
         showMe();
         if (room) await enter(room);          // rejoin under the new name

@@ -268,7 +268,7 @@
       // the people: one emoji row per room — on the business they picked, or
       // on the neighborhood for the neighborhood room (owner 2026-10-22: see
       // on the map where everyone visible in your neighborhood is)
-      const markers = {};                              // handle -> Marker
+      const markers = Object.create(null);             // arbitrary nickname -> Marker
       let placeMarker = null;                          // the business you picked (its popup: placePopup, above)
       window.ChatRoom.start(geofences, { hooks: {
         // your room: the old one loses its tint, the new one gains it, the map flies there
@@ -311,7 +311,7 @@
         // business never moves anyone's marker (owner 2026-10-22); the pick
         // shows in the users list and the "N here" counts instead.
         onPeople(list, feature) {
-          const seen = {};
+          const seen = Object.create(null);
           if (feature) list.forEach((p) => {
             const at = p.pos || centreOf(feature);
             if (!markers[p.handle]) {

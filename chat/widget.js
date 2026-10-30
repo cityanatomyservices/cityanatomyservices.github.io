@@ -17,7 +17,7 @@
       <div class="chat-people" id="chatPeople"></div><ul class="chat-lines" id="chatLines"></ul><div class="chat-form"><input id="chatText" autocomplete="off" type="text"><button id="chatSend" type="button"></button></div></section>
     </section>`;
     host.querySelector('#widgetClose').onclick = () => { host.hidden=true; window.ChatPanel?.close(); };
-    for (const [file,version] of [['copy','20261028i'],['config','20261029a'],['auth','20261030a'],['locate','20261028i'],['chat','20261029u'],['panel','20261023e'],['room','20261030a']]) await script(`/chat/${file}.js?v=${version}`);
+    for (const [file,version] of [['copy','20261028i'],['config','20261029a'],['auth','20261030c'],['locate','20261028i'],['chat','20261029u'],['panel','20261030c'],['room','20261030c']]) await script(`/chat/${file}.js?v=${version}`);
     // Absolute data URL: the widget can be embedded at any depth in the site.
     const response = await fetch('/chat/data/geofences.geojson'); if (!response.ok) throw new Error('Neighborhoods unavailable');
     await window.ChatRoom.start(await response.json());

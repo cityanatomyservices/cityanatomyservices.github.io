@@ -15,11 +15,17 @@ of the matching file in the app (`CityAnatomyAustin/src/engine`, `src/lib`,
 | `engine.js` | geofence maths: a stop fires after 3 consecutive GPS readings inside its radius; nearest-pending stop for the approach hint; metre-accurate circles | `src/engine/tour-engine.ts` |
 | `distance.js` | the walked-distance meter with its jitter / bad-fix / teleport filters, and `formatMiles` | `src/lib/distance-tracker.ts` |
 | `geo.js` | the browser's GPS: a running watch, one-shot fixes, the screen wake lock | expo-location + expo-keep-awake |
-| `store.js` | a saved list of stop ids in localStorage (visited / lit); each app passes its own key | `src/store/tour-store.ts` |
+| `store.js` | account-owned completion in Supabase; guest completion in visit memory; each app passes its own key | web account adapter for `src/store/tour-store.ts` |
 | `controls.js` | banner, credits drawer, stop picker, tap-or-hold | `src/ui/map-controls.tsx`, `src/ui/info-drawer.tsx` |
 | `text.js` | HTML escaping and the period-date formatter (never `Date`, which is a day out west of Greenwich) | `src/lib/format-date.ts` |
 
 ## What every app does with it
+
+Since 2026-10-30 the web store uses `AustinMember` and the existing
+`tour_progress` table. Guest completion resets on refresh; registered progress
+loads across visits/devices. Moontower lighting (`moontower`) and physical
+visits (`moontower-visits`) remain distinct; murder-tour completion uses `1885`.
+The cloud adapter saves stop IDs, not GPS trails. See [account docs](../auth/README.md).
 
 1. Loads its map style verbatim (the app's own style JSON, copied to
    `vendor/` by `tools/sync-webapps.js`). The style ships its tour sources

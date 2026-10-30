@@ -10,7 +10,9 @@
   function init(callbacks) {
     ({change,message}=callbacks);
     $('navigation-app').value=service;
-    $('navigation-app').onchange=()=>{service=$('navigation-app').value;try{localStorage.setItem('austin:navigation-app',service);}catch(_){};document.querySelectorAll('[data-navigate]').forEach(a=>{const item=S.plan.items.find(i=>i.id===a.dataset.navigate);if(item)a.href=R.navigation(item,service);});};
+    const navigationChanged=()=>{document.querySelectorAll('[data-navigate]').forEach(a=>{const item=S.plan.items.find(i=>i.id===a.dataset.navigate);if(item)a.href=R.navigation(item,service);});};
+    $('navigation-app').onchange=()=>{service=$('navigation-app').value;try{localStorage.setItem('austin:navigation-app',service);}catch(_){};window.AustinPreferences?.set('navigation',service);navigationChanged();};
+    window.addEventListener('storage',event=>{if(event.key==='austin:navigation-app'&&['google','apple','waze'].includes(event.newValue)){service=event.newValue;$('navigation-app').value=service;navigationChanged();}});
     $('plan-route').onclick=async()=>{
       const plan=S.plan;
       if(!R.options(plan).enabled) await change(p=>{p.routing={...R.options(p),enabled:true};});

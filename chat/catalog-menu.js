@@ -18,6 +18,7 @@
       if (external) link.rel = 'noopener';
     } else link.className = 'catalog-soon';
     item.append(link); list.append(item);
+    if(href&&!external&&/^\/(apps|maps)\/[^/]+\/$/.test(href))window.AustinFavorites?.mount(item,{key:'app:'+href,title,kind:'app',url:href});
   }
   function group(holder, title) {
     const details = document.createElement('details'), summary = document.createElement('summary'), list = document.createElement('ul');

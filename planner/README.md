@@ -13,6 +13,7 @@ visitor's physical neighborhood through the existing chat engine.
 | `shared/visit.js` | Page-memory state and navigation between the main map and planner; no browser storage |
 | `shared/session.js` | One shared SDK client per page visit; temporary guest credentials and persistent registered sessions |
 | `shared/account.js` | Site-wide Google/email-code sign-in and sign-out dialog; separate from planner and chat UI |
+| `shared/member.js` / `member-ui.js` | Private Favorites, profile settings and preferences; adding a Favorite to a day uses `PlanStore.select` |
 | `sources.js` | Business/Explore snapshots, stable selection keys, movie occurrences and published timing provenance |
 | `model.js` | Pure Austin-time scheduling and validation; no DOM, network, auth, chat, or routes |
 | `routing.js` | Async route transport, in-memory cache, estimate provider and navigation links |

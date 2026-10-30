@@ -23,6 +23,13 @@ positioned top left. Day Plan opens the date picker and planned-day list;
 Apps opens the catalog categories; Media opens the former Content links.
 The shared header opens the Google/email-code account dialog; the hamburger is removed. Opening one map panel closes the others.
 
+Registered users can edit their nickname, emoji and optional chat picture in
+Account → Profile & privacy (or Chat → Edit profile). The shared member module
+returns only the public display fields; the profile email remains private.
+Pictures require explicit display consent. Guests keep visit-only nicknames.
+Favorite actions beside businesses and Explore listings save privately through
+the account module and never enter a chat room or change map visibility.
+
 ## How an app joins (what the two tours do)
 
 1. In the app's HTML: the `--chat-*` colour variables in `:root` (from the

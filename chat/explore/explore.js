@@ -40,7 +40,19 @@ window.AustinExplore = {
     const $ = s => panel.querySelector(s);
     function save() {
       try { localStorage.setItem('austin-explore-v1', JSON.stringify({ ...state, enabled: [...state.enabled], position: undefined })); } catch (_) { /* storage optional */ }
+      window.AustinPreferences?.set('explore',{enabled:[...state.enabled],when:state.when,price:state.price,kind:state.kind,movieType:state.movieType});
     }
+    window.addEventListener('storage',event=>{
+      if(event.key!=='austin-explore-v1')return;
+      try {
+        const choices=JSON.parse(event.newValue)||{};
+        if(Array.isArray(choices.enabled))state.enabled=new Set(choices.enabled.filter(id=>layers.some(l=>l.id===id)));
+        for(const [key,allowed] of Object.entries({when:['now','tonight','today','weekend','week'],price:['0','10','20'],kind:['all','event','activity','offer'],movieType:['all','imax','dine-in']}))if(allowed.includes(choices[key]))state[key]=choices[key];
+        panel.querySelectorAll('[data-layer]').forEach(el=>{el.checked=state.enabled.has(el.dataset.layer);});
+        panel.querySelectorAll('[data-filter]').forEach(el=>{if(state[el.dataset.filter]!==undefined)el.value=state[el.dataset.filter];});
+        update();layers.filter(l=>state.enabled.has(l.id)).forEach(load);
+      }catch(_){}
+    });
     function open(on, returnFocus = true) {
       panel.hidden = !on; button.setAttribute('aria-expanded', String(on));
       if (on) { window.AustinChatCard?.close(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); }

@@ -12,7 +12,7 @@
 import { COPY, CREDITS } from './copy.js';
 import { esc } from '../../webtour/text.js';
 import { evaluatePosition, nearestPendingStop, ringCoordinates } from '../../webtour/engine.js';
-import { createStore } from '../../webtour/store.js';
+import { createStore } from '../../webtour/store.js?v=20261030c';
 import { createDistanceSession, advanceDistance, resetDistanceSession, clearLastReading, formatMiles } from '../../webtour/distance.js';
 import { PERMISSION_DENIED, createWatch, createWakeLock, geolocationAvailable, getFix } from '../../webtour/geo.js';
 import { createBanner, createDrawer, createPicker, tapOrHold } from '../../webtour/controls.js';
@@ -104,6 +104,7 @@ function boot() {
 
   // ------------------------------------------------------------ chrome
   const banner = createBanner($('banner'));
+  window.addEventListener('austin:tour-save-error',event=>banner.show(event.detail));
   const drawer = createDrawer($('drawer'), $('drawer-backdrop'), CREDITS);
   const picker = createPicker($('picker'), towers, { rows: pickerRows, onPick: pickTower });
   const card = createCard($('card'), {

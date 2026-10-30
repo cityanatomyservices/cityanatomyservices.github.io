@@ -15,6 +15,9 @@
     <div id="account-member" hidden><p>Signed in as <strong id="account-address"></strong></p><p>Your plans save privately to your account. Signing out clears them from this browser view.</p><button type="button" id="account-signout">Sign out on this device</button><button type="button" id="account-discard" hidden>Sign out without saving these changes</button></div>
     <p id="account-status" role="status" aria-live="polite"></p><button type="button" id="account-cancel-google" hidden>Cancel Google sign-in</button>`;
   document.body.append(dialog);
+  const memberHost=document.createElement('div');
+  dialog.querySelector('#account-member').insertBefore(memberHost,dialog.querySelector('#account-signout'));
+  const memberUI=window.AustinMemberUI?.mount(memberHost);
   const $=id=>dialog.querySelector('#'+id);
   let capabilities={google:false,email:false},busy=false,sentTo='',pendingOAuth,request=0;
   const message=text=>{$('account-status').textContent=text;};
@@ -53,13 +56,16 @@
     }catch(_){if(run===request)message('Sign-in options could not load. Please close this box and try again.');}
     controls();
   }
-  button.addEventListener('click',async()=>{
-    render();dialog.showModal();button.setAttribute('aria-expanded','true');message('');
-    try{await session.peek();render();if(!session.registered)await options();}catch(_){message('Could not connect to sign-in. Please try again.');}
-  });
+  async function open(section){
+    render();if(!dialog.open)dialog.showModal();button.setAttribute('aria-expanded','true');message('');
+    try{await session.peek();render();if(!session.registered)await options();else await memberUI?.open(section);}catch(_){message('Could not connect to your account. Please try again.');}
+  }
+  window.AustinAccount={open};
+  button.addEventListener('click',()=>open());
   dialog.querySelector('.account-close').onclick=()=>dialog.close();
   dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
   dialog.addEventListener('close',()=>{
+    memberUI?.close();
     request++;cancelGoogle();$('account-email-form').reset();$('account-code-form').reset();$('account-code-form').hidden=true;sentTo='';
     $('account-discard').hidden=true;button.setAttribute('aria-expanded','false');button.focus({preventScroll:true});
   });
@@ -92,6 +98,7 @@
     await session.peek();render();
     const store=activeStore();
     if(store){await store.ready();await store.sync();}
+    if(dialog.open)await memberUI?.open();
     message(store?.unsaved?'You’re signed in. Your current changes are kept in this browser while online saving retries.':'You’re signed in. Your plans can now be saved across visits.');
   }
   function activeStore(){try{return window.PlanStore||document.getElementById('app-window')?.contentWindow.PlanStore;}catch(_){return null;}}
