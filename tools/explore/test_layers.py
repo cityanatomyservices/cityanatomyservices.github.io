@@ -87,7 +87,7 @@ class Layers(unittest.TestCase):
             row=c.fallout(NOW)[0]
             self.assertEqual(row['end']-row['start'],timedelta(hours=1))
             self.assertEqual(row['end'].day,31)
-        with patch.object(c,'fetch',return_value=b'<p>Calendar temporarily unavailable</p>'):
+        with patch.object(c,'fetch',return_value=b'<p>Calendar temporarily unavailable</p>'), patch('calendar_http.time.sleep'):
             with self.assertRaises(ValueError):c.fallout(NOW)
 
     def test_markets_only_use_explicit_dates(self):

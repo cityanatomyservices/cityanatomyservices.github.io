@@ -5,6 +5,7 @@ import json
 import re
 from urllib.parse import urlencode, urljoin
 from build import ROOT, ZONE, clean, date, fetch
+from calendar_http import read_calendar
 
 CACHE = ROOT/'tools/explore/venue-cache.json'
 
@@ -94,8 +95,11 @@ def fixed_row(title, group, start, end, url, venue, address, **extra):
 
 def fallout(now):
     url = 'https://falloutcomedy.com/comedy-shows/'
-    cards = page(url).find('article','wfea-card-list-item')
-    if not cards: raise ValueError('Fallout calendar cards missing')
+    def calendar(body):
+        cards = Page(body.decode('utf-8')).root.find('article','wfea-card-list-item')
+        if not cards: raise ValueError('Fallout calendar cards missing')
+        return cards
+    cards = read_calendar(url, calendar, fetch)
     rows = []
     for card in cards:
         link = first(first(card,'h3'), 'a')

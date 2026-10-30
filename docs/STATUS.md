@@ -1,5 +1,33 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-30 — scheduled Explore and news refresh recovery
+
+Owner reported failed Explore run `41139567416` at `09eedf6`. The local-calendar
+step failed on Fallout Theater (missing calendar cards) and Saxon Pub (invalid
+JSON); healthy sources and still-valid cached listings were published. Both
+official endpoints returned valid calendars during the investigation. This
+workflow does not use Supabase. The earlier logs did not retain the response
+bodies, so their exact upstream content is unknown.
+
+`calendar_http.py` now validates and retries these two WordPress calendars up
+to three times, with short delays and a fresh public cache query on retries.
+Logs identify the source, response size/type, retry count and recovery. Permanent
+HTTP client errors are not retried. Saxon retries individual pages without
+losing its date/pagination parameters. Persistent failures still fail the job;
+existing per-source retention and expiry limits are unchanged.
+
+Separately found news run `41093561825` failed to push because main advanced
+while it built. Explore and news now use `tools/publish-data.sh`, rebasing and
+retrying publication up to three times. Conflicts still stop publication and
+no force push is used. News uses the same current action versions and pinned
+Ubuntu image as the other maintained workflows.
+
+Validation so far: 64 Python calendar tests and Explore JavaScript checks pass.
+Live local reads returned 24 Fallout records (22 upcoming) and 42 Saxon shows.
+A disposable Git remote test forced a competing push between pull and push:
+the retry preserved both bots' changes. A conflicting feed edit correctly
+stopped without changing the remote. Fresh GitHub runs/deployment are next.
+
 ## 2026-10-30 — place comments and consistent site/map controls
 
 Owner asked for account-only posting on neighborhood businesses and planner

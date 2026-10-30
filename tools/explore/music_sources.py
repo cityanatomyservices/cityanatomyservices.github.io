@@ -12,6 +12,7 @@ from urllib.request import Request, urlopen
 
 from build import ZONE, clean, date, fetch
 from culture_sources import Node, first, fixed_row, local, page
+from calendar_http import read_calendar
 
 # These are non-performance entries that share the venues' music calendars.
 NON_SHOW = re.compile(r'\b(private (?:event|party)|closed|cancelled|canceled|postponed|sold out|'
@@ -39,11 +40,15 @@ def saxon(now):
     base = 'https://thesaxonpub.com/wp-json/tribe/events/v1/events?'
     query = dict(start_date=(now.astimezone(ZONE)-timedelta(days=1)).date(),
                  end_date=(now.astimezone(ZONE)+timedelta(days=14)).date(), per_page=100)
-    data = json.loads(fetch(base+urlencode(query)))
+    def calendar(body):
+        data = json.loads(body)
+        if (not isinstance(data, dict) or not isinstance(data.get('events'), list)
+                or not isinstance(data.get('total_pages'), int) or not 0 <= data['total_pages'] <= 5):
+            raise ValueError('Unexpected Saxon Pub calendar structure or pagination')
+        return data
+    data = read_calendar(base+urlencode(query), calendar, fetch)
     total = int(data['total_pages'])
-    if total > 5:
-        raise ValueError('Unexpected Saxon Pub pagination')
-    batches = [data] + [json.loads(fetch(base+urlencode(dict(query, page=n)))) for n in range(2, total+1)]
+    batches = [data] + [read_calendar(base+urlencode(dict(query, page=n)), calendar, fetch) for n in range(2, total+1)]
     rows = []
     for batch in batches:
         for e in batch['events']:
