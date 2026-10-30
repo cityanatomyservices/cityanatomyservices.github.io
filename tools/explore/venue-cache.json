@@ -587,5 +587,13 @@
     ],
     "matchedAddress": "909 N LAMAR BLVD, AUSTIN, TX, 78703",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=909+N+Lamar+Blvd%2C+Austin%2C+TX+78703&benchmark=Public_AR_Current&format=json"
+  },
+  "3223 E 7th St, Austin TX 78702": {
+    "coordinates": [
+      -97.705391101828,
+      30.25821026852
+    ],
+    "matchedAddress": "3223 E 7TH ST, AUSTIN, TX, 78702",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=3223+E+7th+St%2C+Austin+TX+78702&benchmark=Public_AR_Current&format=json"
   }
 }
