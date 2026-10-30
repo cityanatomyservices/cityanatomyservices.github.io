@@ -1,5 +1,39 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-29 (forty-fifth pass) — growth plan: how austin.chat gets users (research, no site changes)
+
+Owner asked for "anywhere and everywhere I can promote Austin.Chat" plus a plan
+for getting users for the things-to-do list, the Day Planner with its map and
+routing, and the coming free classifieds. Five research agents (local channels,
+search/SEO, social video, classifieds cold start, launch/press/paid/measurement)
+plus a local audit of this repo. Everything is in `docs/growth-plan/`:
+`README.md` (the plan, DRAFT, owner rewrites copy), `austin-chat-growth-plan.pdf`
+(23 pages, printable; `scripts/make_pdf.py` rebuilds it with the OSGeo4W
+python and Chrome), `appendix/00-06` (the research notes, about 250 source
+links, each claim tagged FACT / ESTIMATE / UNCERTAIN).
+
+What the audit found (facts from this repo at f99518b): no robots.txt, no
+sitemap.xml, no meta description on the home page, no Open Graph tags, no
+JSON-LD, no analytics, no web-app manifest; every listing (66 neighborhoods,
+6,688 OSM businesses, 1,955 dated explore items at 390 venues) is drawn by
+JavaScript inside an iframe, so search engines index roughly nothing.
+
+The plan in one line: static pages search can read (one permanent
+`/this-weekend/` page with dated title, 66 neighborhood pages, itinerary
+pages, event leaf pages with Event JSON-LD, built by a GitHub Action like the
+data builds), the owner's videos always pointed at a pre-filled plan link and
+place-tagged for TikTok's Local Feed, a narrow classifieds launch (free stuff
+and garage sales on the map, then student sublets in late April, then
+face-value ticket swaps), free event calendars, a Nextdoor Business Page,
+Airbnb-host QR cards, three press contacts, one Show HN, one $5/day Google
+exact-match test, $0 analytics (Umami Hobby + Cloudflare beacon). Targets
+(ESTIMATE): 2–4k visits/month at month 6, 5–10k at month 12.
+
+NOTHING on the site was changed. NEXT: owner reads the plan and decides;
+week-1 items (robots, sitemap, home-page HTML, OG tags, analytics) are the
+first build work if the plan is accepted. Gaps the owner must close by hand
+are listed in README §9 (Reddit and Facebook rules were unfetchable).
+
 ## 2026-10-26 (forty-fourth pass) — NEW page /models/: five Blender project models in 3D on the map
 
 Owner: the five Blender models in `C:\Dev\Austin_Models_Transfer_Batch`
