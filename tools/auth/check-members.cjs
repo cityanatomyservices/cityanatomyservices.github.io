@@ -98,6 +98,7 @@ const rpc=(member,name,body)=>json(api+'/rest/v1/rpc/'+name,body,headers(member.
 
   await page.getByRole('button',{name:'Account',exact:true}).click();await page.locator('#account-signout').click();await page.waitForFunction(()=>!AustinSession.registered&&AustinMember.state===null);await page.locator('.account-close').click();
   assert.equal(await page.evaluate(()=>AustinMember.has('place:qa-coffee')),false);
+  assert.equal(await page.locator('#member-preview').textContent(),'','Sign-out clears even the closed profile preview');
   await frame.evaluate(async()=>{const {createStore}=await import('/webtour/store.js?v=20261030c');window.qaGuestTour=createStore('cityanatomy:1885murdertour:tour-v1');qaGuestTour.markDone('guest-only');});
   assert.equal(await frame.evaluate(()=>localStorage.getItem('cityanatomy:1885murdertour:tour-v1')),null);
   await page.reload();frame=await ready(page);assert.equal(await page.evaluate(()=>AustinSession.registered),false);

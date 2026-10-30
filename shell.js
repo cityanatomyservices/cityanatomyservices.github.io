@@ -78,7 +78,7 @@
   window.addEventListener('storage',event=>{if(event.key==='theme'){const theme=event.newValue==='dark'?'dark':'light';document.documentElement.dataset.theme=theme;showOffer(theme);}});
 
   const accountStyle=document.createElement('link');accountStyle.rel='stylesheet';accountStyle.href='/shared/account.css?v=20261030c';document.head.append(accountStyle);
-  const memberScript=document.createElement('script');memberScript.src='/shared/member-ui.js?v=20261030c';
+  const memberScript=document.createElement('script');memberScript.src='/shared/member-ui.js?v=20261030d';
   memberScript.onload=()=>{const accountScript=document.createElement('script');accountScript.src='/shared/account.js?v=20261030c';document.body.append(accountScript);};
   document.body.append(memberScript);
 

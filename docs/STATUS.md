@@ -38,7 +38,8 @@ Modules: `shared/member.js` (account data), `member-ui.js` (dialog panels),
 `preferences.js` (display setting sync), `favorite-button.js` (listing action),
 and `member.css`. These remain independent of planner scheduling and chat
 presence. Changed browser assets, map frame URLs, tour modules and shared
-loader references use cache tag `20261030c`.
+loader references use cache tag `20261030c`. The account panel and shell use
+`20261030d` to clear closed profile previews immediately on account changes.
 
 Validation: 60 planner/session/member Node tests and the ticker/Explore checks
 passed (62 test-runner results). Browser checks with disposable accounts passed

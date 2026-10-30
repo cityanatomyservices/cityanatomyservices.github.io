@@ -77,7 +77,11 @@
     $('member-theme').onchange=()=>window.AustinPreferences.set('theme',$('member-theme').value);
     $('member-navigation').onchange=()=>window.AustinPreferences.set('navigation',$('member-navigation').value);
     M.subscribe(section=>{
-      if(M.owner!==seenOwner){seenOwner=M.owner;dirty=false;viewRun++;$('member-favorites-list').replaceChildren();$('member-profile-form').reset();status('profile','');status('favorites','');}
+      if(M.owner!==seenOwner){
+        seenOwner=M.owner;dirty=false;viewRun++;$('member-favorites-list').replaceChildren();$('member-profile-form').reset();
+        $('member-preview').dataset.identityStamp='';$('member-preview').replaceChildren();$('member-progress').replaceChildren();
+        $('member-favorites-count').textContent='';$('member-profile-fields').disabled=true;status('profile','');status('favorites','');
+      }
       if(!opened)return;
       if(['favorites','loaded'].includes(section))favorites();
       if(['profile','loaded'].includes(section))profile(true);
