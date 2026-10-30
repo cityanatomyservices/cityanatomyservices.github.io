@@ -25,20 +25,23 @@ conflict when a preceding run published data while the next run was queued.
 News uses the same current action versions and pinned Ubuntu image as the
 other maintained workflows.
 
-Validation so far: 66 Python calendar tests and Explore JavaScript checks pass.
-Live local reads returned 24 Fallout records (22 upcoming) and 42 Saxon shows.
+Validation: 66 Python calendar tests and Explore JavaScript checks pass.
+Tests cover incomplete/empty/invalid responses, bounded retries, permanent
+access denials, Saxon pagination and DST, and SFC hours/cancellations.
 A disposable Git remote test forced a competing push between pull and push:
 the retry preserved both bots' changes. A conflicting feed edit correctly
-stopped without changing the remote. GitHub run `41142145462` passed every
-calendar (18 upcoming Fallout listings and 42 Saxon shows) but encountered the
-queued-snapshot conflict above. News run `41142148174` passed and published.
-Runs `41142480979` (Explore) and `41142483420` (news) passed with the queued-run
-fix. Queued Explore run `41142498661` checked out the preceding run's fresh
-data and published successfully, but flagged a transient incomplete SFC page.
-The live SFC page still confirms both Saturday markets, 9am–1pm, at the same
-addresses. SFC now has the same bounded retry protection; tests still reject
-changed weekdays/addresses and honor market cancellations. Final verification
-of that addition is next.
+stopped without changing the remote. Queued GitHub run `41142498661` checked
+out the preceding refresh's data and published successfully; its separate SFC
+source error led to the additional market retry protection.
+
+Final Explore run `41142960884` passed every source, tests and publication;
+news run `41142483420` also passed. Final data commit `0f32eef` deployed via
+successful Pages run `41143092451`. Live Austin.chat GeoJSON checks confirmed
+all sources healthy and 18 Fallout shows, 42 Saxon shows and four SFC market
+dates. Final category totals: 36 markets, 210 comedy, 294 music and 207 combined
+events/festivals. Implementation commits: `c3cbde1`, `4fd89b1`, `0456b87`,
+`e66b3ed`. No Supabase changes, new paid services or owner setup are needed.
+No browser assets changed; the existing cache versions remain correct.
 
 ## 2026-10-30 — place comments and consistent site/map controls
 
