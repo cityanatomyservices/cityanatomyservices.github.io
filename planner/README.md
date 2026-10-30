@@ -25,6 +25,13 @@ visitor's physical neighborhood through the existing chat engine.
 | `app.js` | Timeline, preferences, editing, showtime selection, conflict explanations, undo and JSON backup/restore |
 | `chat/widget.js` | Optional lazy-loaded ChatRoom/ChatEngine/ChatPanel; planner has no dependency on those modules |
 
+Route results come from the parent-owned Supabase client. `map.js` clones the
+route GeoJSON into the map iframe's JavaScript realm before handing it to
+MapLibre; its worker serializer rejects plain objects from another window.
+When testing routing, verify that route features render on the map as well as
+checking the reported driving times. `tests/planner/map.test.cjs` covers this
+boundary and drawing routes that arrive before the basemap loads.
+
 Other applications can load shared/visit, shared/session and the five selection scripts from
 `chat/index.html`, then publish:
 

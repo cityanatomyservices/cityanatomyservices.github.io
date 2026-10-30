@@ -24,7 +24,7 @@
   // between them without writing it to storage, a URL, or browser history.
   const routes={
     '/': {src:'/chat/?v=20261030a',title:'Austin.Chat',frameTitle:'Chat map'},
-    '/myplanmap/': {src:'/planner/app.html?v=20261030a',title:'My Plan Map · Austin.Chat',frameTitle:'My Plan Map itinerary'}
+    '/myplanmap/': {src:'/planner/app.html?v=20261030b',title:'My Plan Map · Austin.Chat',frameTitle:'My Plan Map itinerary'}
   };
   if(window===window.top && routes[location.pathname]) {
     let transition=0;

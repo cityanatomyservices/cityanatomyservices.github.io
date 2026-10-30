@@ -1,5 +1,44 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-30 — route line display repaired after shared sign-in change
+
+Owner reported Plan route stopped working on the phone, both as a guest and
+signed in. The decisive symptom was "2 of 2 journeys estimated · 36 min driving"
+with no line on the map. Supabase was responding normally: network 2 was active,
+PostGIS/pgRouting were installed, and guest/registered route RPCs returned HTTP
+200 with valid geometry in about 1–1.3 seconds. No database restart, migration,
+network rebuild, provider change or parcel deletion was needed.
+
+Cause: the parent-owned Supabase client introduced in `f99518b` returns geometry
+objects created in the outer page's JavaScript realm. The iframe's MapLibre
+worker serializer rejected those objects with "can't serialize object of
+unregistered class Object". Driving times still worked; the map source had
+coordinates but zero rendered route features. Reproduced against the live site.
+
+Fix: `planner/map.js` now uses `structuredClone` at the map boundary to copy the
+route FeatureCollection into the iframe's realm before passing it to MapLibre.
+Shared account/guest behavior and scheduling are unchanged. `planner/map.js`,
+the planner iframe URL, and the shared visit loader use cache tag `20261030b`;
+all HTML visit-loader references and the page template were updated. Other
+authentication assets remain at `20261030a`.
+
+Validation: the two new tests in `tests/planner/map.test.cjs` reproduced the
+worker serialization failure before the fix and passed afterward. They cover
+foreign-window LineString/MultiLineString geometry, refresh/clear, and routes
+arriving before the basemap. All **55** planner/session/map tests passed.
+Browser checks against the fixed local code and the real Supabase backend
+confirmed the visible blue line for guests and two journeys for a disposable
+registered account on phone and desktop layouts. Temporary test accounts and
+their data were removed. Rendering was checked with MapLibre's actual rendered
+features and screenshots, not just the "journeys estimated" status.
+
+Next owner check: refresh the planner after the release and confirm the line
+appears. Signed-in plans persist; a guest who wants to retain the current day
+should download it before refreshing, because guest refresh-reset is intended.
+Earlier email inbox confirmation and the owner's real Google consent round trip
+remain unconfirmed in this conversation; see the checkpoint below. Do not
+repeat SMTP-key replacement based on the old invalid direct-password test.
+
 ## 2026-10-30 — resume checkpoint: Google and email sign-in enabled
 
 The owner asked to save the current work and return in a few hours. Start here;

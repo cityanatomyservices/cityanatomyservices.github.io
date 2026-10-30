@@ -46,7 +46,9 @@
     document.getElementById('plan-map').setAttribute('aria-label',`Map with ${routeData.features.length} estimated driving journeys`);
   }
   function routes(legs) {
-    routeData={type:'FeatureCollection',features:legs.filter(l=>l.geometry&&['LineString','MultiLineString'].includes(l.geometry.type)).map(l=>({type:'Feature',properties:{},geometry:l.geometry}))};
+    // The shared Supabase client returns geometry created in the parent window.
+    // MapLibre's worker serializer needs objects from this map's own realm.
+    routeData=structuredClone({type:'FeatureCollection',features:legs.filter(l=>l.geometry&&['LineString','MultiLineString'].includes(l.geometry.type)).map(l=>({type:'Feature',properties:{},geometry:l.geometry}))});
     routeDirty=true;
     drawRoutes();
     if(!picking) document.getElementById('map-caption').textContent=routeData.features.length?'Driving overview · use your navigation app on the road':'Your selected places';
