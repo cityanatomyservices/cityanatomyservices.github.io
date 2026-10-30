@@ -48,6 +48,9 @@ def main():
             api('PATCH', patch)
             config = api()
         print('Email-code templates and callback URL are configured.')
+    # This checks configuration presence, not delivery. Hosted Supabase hides
+    # saved secrets; smtp_pass returned here is not a reusable SMTP password.
+    # Verify delivery through Supabase Auth, never by logging in with this value.
     smtp = all(config.get(key) for key in ['smtp_host', 'smtp_user', 'smtp_pass', 'smtp_admin_email'])
     templates = all('{{ .Token }}' in (config.get(field) or '') for field in fields)
     email = bool(config.get('external_email_enabled') and smtp and templates)

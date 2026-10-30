@@ -49,6 +49,12 @@ uses the existing management token in `~/.supabase/access-token`; it prints
 only readiness flags. `--apply-templates` prepares templates and adds the exact
 site callback URL while retaining existing redirect entries and template links.
 
+Saved SMTP passwords are write-only in hosted Supabase. A value returned by
+the management API can be a protected fingerprint rather than the actual
+Resend key. Do not use it for a direct SMTP login test or write it back into
+the configuration. Verify sending through Supabase Auth with the owner's
+approved test address, then confirm receipt in that inbox.
+
 ## Behavior and module boundaries
 
 - `shared/session.js` owns one SDK client per page visit, shared by same-origin
