@@ -10,7 +10,21 @@ const { chromium } = require('playwright');
     const page = await browser.newPage({ viewport: { width: 1800, height: 1200 }, deviceScaleFactor: 1 });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    await page.goto(pathToFileURL(path.join(folder, 'Map.html')).href + '?print=1');
+    const url = pathToFileURL(path.join(folder, 'Map.html')).href;
+    await page.goto(url);
+    await page.waitForFunction(() => window.__mapReady, null, { timeout: 90000 });
+    const count = await page.locator('.pin').count();
+    if (count) {
+      await page.locator('.pin').first().click();
+      await page.locator('.maplibregl-popup a').first().waitFor();
+      if (await page.locator('.maplibregl-popup a').first().getAttribute('target') !== '_blank') throw new Error('Map links must open in another tab.');
+      await page.locator('.maplibregl-popup-close-button').click();
+      const toggle = page.locator('.chip').first();
+      await toggle.click();
+      await toggle.click();
+      if (await page.locator('.pin').count() !== count) throw new Error('Category toggle failed to restore map places.');
+    }
+    await page.goto(url + '?print=1');
     await page.waitForFunction(() => window.__mapReady, null, { timeout: 90000 });
     await page.evaluate(() => document.fonts.ready);
     const state = await page.evaluate(() => ({ errors: window.__mapErrors, pins: window.__pinCount }));

@@ -31,7 +31,7 @@ map.addControl(new maplibregl.NavigationControl(),'top-left');
 map.on('error',event=>{window.__mapErrors.push(String(event.error?.message||'Map error'));document.querySelector('#error').hidden=false;});
 let markers=[];
 function layoutPins(){
- if(!map.isStyleLoaded())return;
+ if(!map.getSource('pin-leaders')&&!map.isStyleLoaded())return;
  const occupied=[],lines=[],size=document.querySelector('#map').getBoundingClientRect();
  for(const marker of markers){
   const origin=map.project(marker.getLngLat());let position={x:origin.x,y:origin.y};
@@ -76,7 +76,7 @@ function draw(){
   const button=el('button',String(venue.number));button.className='pin';button.type='button';
   button.style.background=categories.length>1?'#304d60':(byId.get(categories[0]).color||'#0067c5');
   button.setAttribute('aria-label','Map pin '+venue.number+': '+records[0].feature.properties.venue+', '+records.length+' listings');
-  button.addEventListener('click',()=>popup(venue,records));
+  button.addEventListener('click',event=>{event.stopPropagation();popup(venue,records);});
   markers.push(new maplibregl.Marker({element:button}).setLngLat(venue.coordinates).addTo(map));
   const item=el('button','#'+venue.number+' · '+records[0].feature.properties.venue+' · '+records.length+' listing'+(records.length===1?'':'s'));
   item.className='place';item.addEventListener('click',()=>{map.easeTo({center:venue.coordinates,zoom:14});popup(venue,records);});list.append(item);
