@@ -72,7 +72,10 @@ cross-map guest transfer passed on the live site, including a desktop check.
 The map browser check no longer intercepts planner JavaScript: an unused
 interceptor could finish during browser teardown and interrupt test cleanup.
 The disposable headless guests from that interrupted cleanup were removed.
-No production code change was needed after the live checks.
+The desktop visual review then found shopping filters covering the new zoom
+control. Zoom now sits beside the open shopping panel; parcel filters sit
+below zoom. The map UI stylesheet/loader, visit loader and affected frames
+use `20261030f` for this placement fix; feature scripts stay at `20261030e`.
 
 ## 2026-10-30 — profiles, private Favorites and saved preferences
 

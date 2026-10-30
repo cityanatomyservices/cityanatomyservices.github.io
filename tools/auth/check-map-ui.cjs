@@ -37,7 +37,7 @@ const rpc=(member,name,body)=>json(api+'/rest/v1/rpc/'+name,body,headers(member.
   if(route==='/apps/moontower/'||route==='/apps/1885/'){
     await f.locator('#ctrlTour').click();await f.locator('#btn-mode').click();await f.waitForFunction(()=>austinMap.getSource('explore-free-cheap')&&austinMap.isStyleLoaded());await f.locator('#ctrlTour').click();await f.locator('#ctrlChat').click();assert.equal(await f.locator('#planner-chat-host').isVisible(),true);await f.locator('#planner-chat-host').getByRole('button',{name:'Close',exact:true}).click();
   }
-  assert.equal(await f.locator('.maplibregl-ctrl-top-left .maplibregl-ctrl-zoom-in').count(),1);assert.equal(await f.locator('.austin-map-ui button').filter({hasText:/^GPS$/}).count(),1);
+  assert.equal(await f.locator('.maplibregl-ctrl-top-left .maplibregl-ctrl-zoom-in').count(),1);await f.locator('.maplibregl-ctrl-top-left .maplibregl-ctrl-zoom-in').click();assert.equal(await f.locator('.austin-map-ui button').filter({hasText:/^GPS$/}).count(),1);
   await page.screenshot({path:'/tmp/austin-'+route.split('/').filter(Boolean).join('-')+'.png'});assert.deepEqual(errors,[]);page.off('pageerror',listener);console.log(route+' frame, menus, GPS label, zoom position and '+(process.env.DESKTOP?'desktop':'phone')+' layout passed.');
  }
  for(const route of ['/apps/','/maps/','/contact/','/content/','/apps/reports/','/budget/summary.html','/apps/reports/austin-bike-shops/report.html']){

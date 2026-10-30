@@ -19,7 +19,7 @@
     const oldStack=$('stack')||root.querySelector('.stack'),legacy=[...root.querySelectorAll('.map-controls,.views')];
     const loading=document.createElement('p');loading.className='map-ui-status';loading.setAttribute('role','status');root.append(loading);
     try{
-      for(const href of ['/chat/style.css?v=20261029v','/chat/explore/explore.css?v=20261028e','/planner/select.css?v=20261029v','/chat/panel.css?v=20261023e','/shared/comments.css?v=20261030e','/shared/map-ui.css?v=20261030e','/appearance.css?v=20261028h'])css(href);
+      for(const href of ['/chat/style.css?v=20261029v','/chat/explore/explore.css?v=20261028e','/planner/select.css?v=20261029v','/chat/panel.css?v=20261023e','/shared/comments.css?v=20261030e','/shared/map-ui.css?v=20261030f','/appearance.css?v=20261028h'])css(href);
       await script('/chat/theme.js?v=20261028g');
       await script('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js',()=>window.supabase);
       for(const [file,version,global] of [['visit','e','AustinVisit'],['session','a','AustinSession'],['member','c','AustinMember'],['preferences','c','AustinPreferences'],['favorite-button','c','AustinFavorites'],['comments','e','AustinComments']])await script(`/shared/${file}.js?v=20261030${version}`,()=>window[global]);
