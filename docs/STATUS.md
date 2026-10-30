@@ -26,8 +26,21 @@ of the site's Google sign-in; do not alter Supabase credentials.
 Local filtering/workbook tests passed (7 Node, 2 Python) and the existing Explore
 model checks passed. Both maps rendered with numbered pins and collision-aware
 label placement. Tonight draft had 102 listings/32 places; Weekend had 281/62.
-The first native Google Sheet was created and read back through the Drive
-connector; final workflow and published-code verification are next.
+Both native Google Sheets were read back through the Drive connector, including
+headers, final rows, research columns, map links and imported formatting. Files
+and destination have owner-only permissions. The final Tonight workflow snapshot
+contains 101 listings/32 places; an earlier 102-listing draft remains in its own
+folder. The decrease reflects an event ending while testing, matching Explore.
+
+Published implementation `7fc86dc`, followed by `1e665be` fixing map-pin click
+propagation and adding browser checks for popups, new-tab links and category
+restore to every export. Already generated HTML maps were repaired in place
+without changing their frozen data, spreadsheet contents or file links. Local
+Tonight and Weekend browser checks pass. Final manual GitHub run `41146991554`
+passed tests, interactive-map checks, image rendering and private Drive upload;
+Pages deployment `41146940671` also passed. A preceding export run also passed.
+No public export files, Google file IDs, credentials or research notes are stored
+in GitHub. There is no daily schedule until the owner asks to enable one.
 
 ## 2026-10-30 — scheduled Explore and news refresh recovery
 
