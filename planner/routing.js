@@ -17,9 +17,11 @@
         return data;
       }
     });
-    try { root.AustinSession.client?.().auth.onAuthStateChange((_event,session)=>{
+    try { const subscription=root.AustinSession.client?.().auth.onAuthStateChange((_event,session)=>{
       if(owner && owner!==session?.user?.id) {owner=session?.user?.id;provider.cancel();provider.clear();}
-    }); } catch(_) { /* The itinerary remains usable without an auth connection. */ }
+    })?.data?.subscription;
+    root.addEventListener('pagehide',()=>{subscription?.unsubscribe();provider.cancel();});
+    } catch(_) { /* The itinerary remains usable without an auth connection. */ }
     root.PlanRouting=Object.assign(provider,{coordinates:api.coordinates,navigation:api.navigation,options:api.options});
   }
 })(typeof globalThis==='object' ? globalThis : this,()=>{

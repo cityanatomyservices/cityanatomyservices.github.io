@@ -15,7 +15,7 @@ function fixture(options={}) {
  const client={auth:{onAuthStateChange:fn=>{events.auth=fn;}}};
  w.AustinSession={client:()=>client,ready:async()=>{if(options.offline)throw new Error('offline');return {user:options.user||{id:owner,is_anonymous:options.anonymous??false}};}};
  w.PlanRepository={
-  load:async(_c,_owner,id)=>{loads++;return remote&&(!id||remote.plan.id===id)?structuredClone(remote):null;},
+  load:async(_c,_owner,id)=>{loads++;if(options.loadError)throw new Error('offline');if(options.load)await options.load();return remote&&(!id||remote.plan.id===id)?structuredClone(remote):null;},
   save:async(_c,e)=>{writes++;if(saveFn)return saveFn(e);if(remote&&remote.revision!==e.revision)throw {code:'PT409',message:'planner_revision_conflict'};remote={...structuredClone(e),revision:e.revision+1,dirty:false};return {revision:remote.revision};}
  };
  const storage=new Proxy({getItem:k=>memory.get(k)||null,setItem:(k,v)=>{if(quota)throw new Error('quota');memory.set(k,v);},removeItem:k=>memory.delete(k)},{ownKeys:()=>[...memory.keys()],getOwnPropertyDescriptor:()=>({enumerable:true,configurable:true})});
@@ -135,5 +135,34 @@ test('completion of an old account upload cannot replace signed-out state',async
   const saving=f.store.sync();await began.promise;f.events.auth('SIGNED_OUT',null);
   pending.resolve();await saving;assert.equal(f.store.plan.items.length,0);
   assert.match(f.store.status,/Temporary plan/);
+ }finally{f.dispose();}
+});
+test('signing in combines guest days with saved account days and keeps the day being planned',async()=>{
+ const options={anonymous:true},f=fixture(options);try{
+  await f.store.chooseDay('2026-12-25');await f.store.select(place('guest stop'),true);
+  const account=M.empty(uuid());M.ensureDay(account,'2026-12-24');account.items=[{...Sources.item(place('saved stop'),uuid()),day:account.date}];
+  f.remote={plan:account,revision:1,dirty:false};options.user={id:uuid(),is_anonymous:false};f.events.auth('SIGNED_IN',{user:options.user});
+  await new Promise(resolve=>setImmediate(resolve));await f.store.ready();await f.store.sync();
+  assert.equal(f.store.temporary,false);assert.equal(f.store.plan.date,'2026-12-25');assert.equal(f.remote.plan.items.length,2);assert.equal(f.store.unsaved,false);
+ }finally{f.dispose();}
+});
+test('a failed account load keeps the guest plan through refresh and combines it before saving',async()=>{
+ const options={anonymous:true},f=fixture(options);try{
+  await f.store.select(place('guest stop'),true);options.user={id:uuid(),is_anonymous:false};options.loadError=true;
+  f.events.auth('SIGNED_IN',{user:options.user});await new Promise(resolve=>setImmediate(resolve));await f.store.ready();await f.store.sync();
+  assert.equal(f.store.plan.items.length,1);assert.equal(f.writes,0);assert.match(f.store.status,/retry to combine/);
+  const account=M.empty(uuid());account.items=[{...Sources.item(place('saved stop'),uuid()),day:account.date}];
+  const reopened=fixture({owner:options.user.id,memory:f.memory,remote:{plan:account,revision:1,dirty:false}});try{
+   await reopened.store.ready();await reopened.store.sync();assert.equal(reopened.remote.plan.items.length,2);assert.equal(reopened.remote.revision,2);
+  }finally{reopened.dispose();}
+ }finally{f.dispose();}
+});
+test('account login preserves a different tab’s guest merge completed during the cloud load',async()=>{
+ const options={anonymous:true},f=fixture(options),started=deferred(),resume=deferred();try{
+  await f.store.select(place('this tab'),true);options.user={id:uuid(),is_anonymous:false};options.load=async()=>{started.resolve();await resume.promise;};
+  f.events.auth('SIGNED_IN',{user:options.user});await started.promise;
+  const other=M.empty(uuid());other.items=[{...Sources.item(place('other tab'),uuid()),day:other.date}];
+  f.memory.set('austin:planner:v1:'+options.user.id,JSON.stringify({plan:other,revision:0,dirty:true,stamp:uuid()}));
+  resume.resolve();await f.store.ready();await f.store.sync();assert.equal(f.remote.plan.items.length,2);
  }finally{f.dispose();}
 });

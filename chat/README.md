@@ -21,7 +21,7 @@ The main map controls are Apps, Media, Day Plan, Chat, Explore, GPS, 2D/3D, sate
 and extents. Zoom and compass use the same MapLibre control as the planner,
 positioned top left. Day Plan opens the date picker and planned-day list;
 Apps opens the catalog categories; Media opens the former Content links.
-The shared header has an inactive Sign In placeholder; the hamburger is removed. Opening one map panel closes the others.
+The shared header opens the Google/email-code account dialog; the hamburger is removed. Opening one map panel closes the others.
 
 ## How an app joins (what the two tours do)
 
@@ -63,7 +63,7 @@ this distinction and clears the prior anonymous saved application data.
 # Planner integration (2026-10-29)
 
 `/shared/visit.js` owns ephemeral page memory; `/shared/session.js` owns the
-Supabase client and anonymous session. Chat's
+shared Supabase client and anonymous/registered session. Chat's
 `auth.js` only adds its profile/name logic. The home map, both tour apps, and
 My Plan Map use this shared session without sharing their application state.
 Load shared/visit.js, then shared/session.js before auth.js. `widget.js` is an optional lazy-loaded

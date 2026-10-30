@@ -11,7 +11,8 @@ visitor's physical neighborhood through the existing chat engine.
 | Module | Owns |
 | --- | --- |
 | `shared/visit.js` | Page-memory state and navigation between the main map and planner; no browser storage |
-| `shared/session.js` | Temporary guest credentials; persistent credentials only for registered accounts |
+| `shared/session.js` | One shared SDK client per page visit; temporary guest credentials and persistent registered sessions |
+| `shared/account.js` | Site-wide Google/email-code sign-in and sign-out dialog; separate from planner and chat UI |
 | `sources.js` | Business/Explore snapshots, stable selection keys, movie occurrences and published timing provenance |
 | `model.js` | Pure Austin-time scheduling and validation; no DOM, network, auth, chat, or routes |
 | `routing.js` | Async route transport, in-memory cache, estimate provider and navigation links |
@@ -98,7 +99,12 @@ immediately on browser closure.
 
 Registered saves retain atomic revisions, conflict resolution and local retry
 copies. JSON v2 download/import remains an explicit way for a visitor to keep
-their own copy. No email/social login UI is included in this release.
+their own copy. The site header provides Google and email-code sign-in; see
+[auth/README.md](../auth/README.md) for provider setup and validation. The current
+guest selections combine with existing saved account days after sign-in.
+If the initial account load fails, the signed-in browser keeps the current
+selection for a later merge instead of creating a competing cloud collection.
+Signing out tries to finish saving; discarding unsaved edits is explicit.
 
 ## Scheduling semantics and current limits
 

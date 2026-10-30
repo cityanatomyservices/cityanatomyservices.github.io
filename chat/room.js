@@ -223,7 +223,7 @@
     if (hooks.onPlace) hooks.onPlace(null);
     if (el.roomLine) el.roomLine.textContent = feature ? fill(COPY.room.inside, { name: neighborhoodName() }) : '';
     showPeople();
-    if (!feature) { await window.ChatEngine.leave(); return; }
+    if (!feature || !me) { await window.ChatEngine.leave(); return; }
     await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) });
     if (!el.placeList) return;                         // the tour apps: no list, no fetch
     const file = feature.properties.id + '.json';
@@ -286,6 +286,25 @@
       me = await window.ChatIdentity.ready();
       if (window.AustinSession.registered) { try { visible = localStorage.getItem('austinchat:visible:' + window.ChatIdentity.userId()) === 'on'; } catch (_) {} }
       showMe(); showVisible(); showPeople();
+
+      window.addEventListener('austin:identity-changing',()=>{
+        me=null;visible=false;
+        window.AustinVisit.set('chat:visible','off');
+        window.ChatEngine.leave();
+        window.ChatPanel.close();window.ChatPanel.clear();
+        showMe();showVisible();onPeople([]);
+      });
+      window.addEventListener('austin:identity-changed',async event=>{
+        me=event.detail;
+        visible=false;
+        if(window.AustinSession.registered) {
+          try {visible=localStorage.getItem('austinchat:visible:'+window.ChatIdentity.userId())==='on';}catch(_){}
+        }
+        window.AustinVisit.set('chat:visible',visible?'on':'off');
+        window.ChatPanel.close();window.ChatPanel.clear();
+        showMe();showVisible();showPeople();
+        if(room)await enter(room);
+      });
 
       if (el.chatBtn) el.chatBtn.addEventListener('click', () => {
         if (window.ChatPanel.isOpen()) window.ChatPanel.close();

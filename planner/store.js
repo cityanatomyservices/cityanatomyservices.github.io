@@ -5,7 +5,7 @@
   const prefix='austin:planner:v1:',guestKey='planner:guest',listeners=new Set();
   const fresh=()=>({plan:M.empty(crypto.randomUUID()),revision:0,dirty:false,stamp:''});
   const temporary='Temporary plan · refresh or close clears it';
-  let owner=null,client=null,key=prefix+'guest',timer,started,conflict=false,registered=false,observedClient,epoch=0;
+  let owner=null,client=null,key=prefix+'guest',timer,started,conflict=false,registered=false,observedClient,authSubscription,epoch=0;
   let status='Opening your plan…',persistent=true,envelope=fresh();
   const copy=value=>structuredClone(value);
   const lock=(name,fn)=>navigator.locks?navigator.locks.request(name,fn):Promise.resolve().then(fn);
@@ -25,7 +25,7 @@
   function observe(authClient) {
     if(observedClient===authClient)return;
     observedClient=authClient;
-    authClient.auth.onAuthStateChange((event,session)=>{
+    authSubscription=authClient.auth.onAuthStateChange((event,session)=>{
       const nextRegistered=session?.user?.is_anonymous===false;
       if(event==='SIGNED_OUT'||(session&&(session.user.id!==owner||nextRegistered!==registered))) {
         const keepGuest=event!=='SIGNED_OUT'&&!registered&&nextRegistered;
@@ -37,12 +37,12 @@
         // Supabase auth callbacks must not await other auth methods.
         if(event!=='SIGNED_OUT')queueMicrotask(()=>ready());
       }
-    });
+    })?.data?.subscription;
   }
   async function start() {
     const run=epoch;
     if(!registered)envelope=read()||envelope;
-    const guest=!registered?copy(envelope):null;
+    let guest=!registered?copy(envelope):null;
     let session,authClient;
     try {
       session=await Promise.race([window.AustinSession.ready(),new Promise((_,reject)=>setTimeout(()=>reject(new Error('Connection timed out')),9000))]);
@@ -52,10 +52,16 @@
       purgeOldCaches(registered?key:null);observe(authClient);
     }catch(_){if(run===epoch){purgeOldCaches(null);status=temporary;notify();}return;}
     if(!registered){status=temporary;persist();notify();return;}
-    if(persistent)envelope=read()||fresh();
+    const cached=persistent?read():null;
+    if(persistent)envelope=cached||fresh();
+    if(envelope.pendingMerge){guest=copy(envelope);delete guest.pendingMerge;envelope=fresh();}
     try {
-      const remote=await R.load(client,owner,read()?envelope.plan.id:null);
+      const remote=await R.load(client,owner,cached&&!cached.pendingMerge?envelope.plan.id:null);
+      await lock('austin-planner-edit',()=>{
       if(run!==epoch)return;
+      // Another open guest tab may have joined this account during the load.
+      const latest=persistent?read():null;
+      if(latest?.dirty&&!latest.pendingMerge&&latest.stamp!==cached?.stamp)envelope=latest;
       if(remote){if(envelope.dirty&&remote.revision!==envelope.revision)conflict=true;else if(!envelope.dirty)envelope=remote;}
       if(guest?.plan.items.length&&!conflict) {
         if(!remote&&!envelope.plan.items.length)envelope={...guest,revision:0};
@@ -63,12 +69,16 @@
         const added=guest.plan.items.filter(i=>!keys.has(`${i.day}:${i.source.key}`));
         if(envelope.plan.items.length+added.length>150||new Set([...envelope.plan.days,...guest.plan.days]).size>60)throw new Error('Guest plan exceeds capacity; its temporary copy is kept.');
         for(const date of guest.plan.days)if(!envelope.plan.days.includes(date)){envelope.plan.days.push(date);envelope.plan.daySettings[date]=guest.plan.daySettings[date];}
-        envelope.plan.items.push(...added);envelope.dirty=true;envelope.stamp=crypto.randomUUID();persist();
+        envelope.plan.items.push(...added);envelope.plan.date=guest.plan.date;envelope.dirty=true;envelope.stamp=crypto.randomUUID();persist();
         if(persistent)V.remove(guestKey);
       }
       status=conflict?'A newer saved plan exists. Choose which copy to keep.':envelope.dirty?'Saving…':remote?'Saved privately · signed-in account':'Ready · your plan is private';
       persist();notify();if(envelope.dirty&&!conflict)queue();
-    }catch(_){if(run===epoch){status='Saved in this browser · online save unavailable';notify();}}
+      });
+    }catch(_){if(run===epoch){
+      if(guest?.plan.items.length&&!envelope.plan.items.length){envelope={...guest,pendingMerge:true,revision:0,dirty:true};persist();client=null;}
+      status=envelope.pendingMerge?'Signed in · saved plans unavailable. Your current plan is kept in this browser; retry to combine them.':'Saved in this browser · online save unavailable';notify();
+    }}
   }
   function ready(){if(!started)started=start();return started;}
   function mutate(fn) { const task=mutateReady(fn);return V.track?V.track(task):task; }
@@ -90,7 +100,7 @@
     });
   }
   async function sync() {
-    if(!registered||!client||conflict||!envelope.dirty)return;
+    if(!registered||!client||conflict||!envelope.dirty||envelope.pendingMerge)return;
     return lock('austin-planner-sync',async()=>{
       const latest=persistent?read():null;if(latest)envelope=latest;
       if(!envelope.dirty||conflict||!registered||!client)return;
@@ -129,7 +139,7 @@
     if(registered&&event.key===key&&persistent){const e=read();if(e){envelope=e;status=e.dirty?'Saving…':'Saved privately · signed-in account';notify();if(e.dirty)queue();}}
   });
   const unsubscribe=V.subscribe(changed=>{if(!registered&&changed===guestKey){const e=read();if(e){envelope=e;status=temporary;notify();}}});
-  window.addEventListener('pagehide',()=>{clearTimeout(timer);unsubscribe();});
+  window.addEventListener('pagehide',()=>{clearTimeout(timer);unsubscribe();authSubscription?.unsubscribe();});
   window.addEventListener('online',()=>{if(!owner){started=null;ready();}else sync();});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden){if(!owner){started=null;ready();}else sync();}});
   window.PlanStore = {
@@ -140,6 +150,7 @@
     chooseDay(date) { return mutate(book => M.ensureDay(book,date)); },
     restore(plan) { return mutate(book => { const id = book.id; Object.assign(book,M.upgrade(plan),{id}); }); },
     get temporary() { return !registered; },
+    get unsaved() { return registered && (envelope.dirty || conflict); },
     get status() { return !registered || persistent ? status : 'Browser storage is unavailable. ' + status; },
     get conflict() { return conflict; },
     subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },

@@ -4,12 +4,12 @@
 // A page is a small HTML file holding only its centre (<main>). This script,
 // loaded at the end of <body>, draws the same header above it and the same
 // social footer below it, so the frame lives in ONE place and every page
-// stays identical. It also draws the Sign In placeholder and runs the day/night
+// stays identical. It also mounts account controls and runs the day/night
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
 // Apps and Media live on the main map (chat/catalog-menu.js), using home.json.
-// Sign In is intentionally inactive until the login flow is added.
+// The account flow lives separately in shared/account.js.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────
   // Day is the default (owner, 2026-09-10); night is remembered once chosen.
@@ -20,7 +20,7 @@
   document.body.insertAdjacentHTML('afterbegin', `
   <header id="top" class="topbar topbar-home">
     <div class="topbar-left">
-      <button class="sign-in-button" type="button" disabled>Sign In</button>
+      <button class="sign-in-button" type="button" aria-haspopup="dialog" aria-controls="account-dialog" aria-expanded="false" disabled>Sign In</button>
     </div>
     <a class="brand brand-center" href="/">Austin.Chat</a>
     <div class="topbar-right">
@@ -74,5 +74,8 @@
     localStorage.setItem('theme', next);
     showOffer(next);
   });
+
+  const accountStyle=document.createElement('link');accountStyle.rel='stylesheet';accountStyle.href='/shared/account.css?v=20261030a';document.head.append(accountStyle);
+  const accountScript=document.createElement('script');accountScript.src='/shared/account.js?v=20261030a';document.body.append(accountScript);
 
 }());
