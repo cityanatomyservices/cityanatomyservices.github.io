@@ -40,8 +40,7 @@ jobs:
           git add chat/data/explore/*.geojson tools/explore/venue-cache.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Refresh Explore map data'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash tools/publish-data.sh
       - name: Report failed imports
         if: steps.events.outcome == 'failure' || steps.movies.outcome == 'failure' || steps.culture.outcome == 'failure'
         run: exit 1

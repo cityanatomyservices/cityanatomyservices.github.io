@@ -17,11 +17,11 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: "22"
       - name: Build feed.geojson
@@ -33,4 +33,4 @@ jobs:
           git add news/feed.geojson
           git diff --cached --quiet && echo "no change" && exit 0
           git commit -m "News feed: $(date -u +%Y-%m-%d)"
-          git push
+          bash tools/publish-data.sh
