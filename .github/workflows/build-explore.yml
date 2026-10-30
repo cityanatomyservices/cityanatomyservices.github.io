@@ -14,6 +14,9 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          # A queued run must include the preceding refresh's published data.
+          ref: main
       - uses: actions/setup-python@v7.1.0
         with:
           python-version: '3.12'

@@ -19,14 +19,20 @@ existing per-source retention and expiry limits are unchanged.
 Separately found news run `41093561825` failed to push because main advanced
 while it built. Explore and news now use `tools/publish-data.sh`, rebasing and
 retrying publication up to three times. Conflicts still stop publication and
-no force push is used. News uses the same current action versions and pinned
-Ubuntu image as the other maintained workflows.
+no force push is used. Queued refreshes check out the latest `main` when their
+job starts, rather than the older trigger snapshot; verification exposed a
+conflict when a preceding run published data while the next run was queued.
+News uses the same current action versions and pinned Ubuntu image as the
+other maintained workflows.
 
 Validation so far: 64 Python calendar tests and Explore JavaScript checks pass.
 Live local reads returned 24 Fallout records (22 upcoming) and 42 Saxon shows.
 A disposable Git remote test forced a competing push between pull and push:
 the retry preserved both bots' changes. A conflicting feed edit correctly
-stopped without changing the remote. Fresh GitHub runs/deployment are next.
+stopped without changing the remote. GitHub run `41142145462` passed every
+calendar (18 upcoming Fallout listings and 42 Saxon shows) but encountered the
+queued-snapshot conflict above. News run `41142148174` passed and published.
+Fresh verification with the queued-run fix is next.
 
 ## 2026-10-30 — place comments and consistent site/map controls
 
