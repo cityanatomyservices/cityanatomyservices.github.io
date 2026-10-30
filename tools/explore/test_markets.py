@@ -29,6 +29,32 @@ class Markets(unittest.TestCase):
     def setUp(self):
         p=patch.object(m,'geocode',return_value=[-97.74,30.27]);p.start();self.addCleanup(p.stop)
 
+    def sfc_page(self):
+        return '''SFC Farmers’ Market Downtown Situated in Republic Square.
+        Hours: Saturdays, 9 AM – 1 PM Republic Square, 422 Guadalupe St, Austin
+        SFC Farmers’ Market at Sunset Valley Located in south Austin.
+        Hours: Saturdays, 9 AM – 1 PM Toney Burger Center, 3200 Jones Rd, Austin
+        Park for Free'''
+
+    def test_sfc_retries_incomplete_response_before_expanding_verified_hours(self):
+        with patch.object(m,'fetch',side_effect=[b'<p>Unavailable</p>',self.sfc_page().encode()]) as get, patch('calendar_http.time.sleep'):
+            rows=m.sfc(NOW)
+        self.assertEqual(len(rows),4)
+        self.assertEqual(get.call_count,2)
+        self.assertEqual({r['venue'] for r in rows},{'Republic Square','Toney Burger Center'})
+        self.assertTrue(all(r['start'].weekday()==5 and r['start'].hour==9 and r['end'].hour==13 for r in rows))
+        self.assertEqual({r['start'].utcoffset() for r in rows},{timedelta(hours=-5),timedelta(hours=-6)})
+
+    def test_sfc_still_rejects_changed_schedule_and_honors_cancellation(self):
+        with patch.object(m,'fetch',return_value=self.sfc_page().replace('Saturdays','Sundays').encode()) as get, patch('calendar_http.time.sleep'):
+            with self.assertRaisesRegex(ValueError,'after 3 attempts'):
+                m.sfc(NOW)
+            self.assertEqual(get.call_count,3)
+        with patch.object(m,'fetch',return_value=self.sfc_page().replace('in Republic Square.','in Republic Square. Temporarily closed.').encode()):
+            rows=m.sfc(NOW)
+        self.assertEqual(len(rows),2)
+        self.assertTrue(all(r['venue']=='Toney Burger Center' for r in rows))
+
     def test_sunshine_saturdays_and_only_third_sunday_with_dst(self):
         html='''Activity SUNSHINE MARKETS See you Saturday! Our story Outdoor markets at
         1101 S. I-35 Georgetown, TX (Floor & Decor parking lot) every Saturday and 3rd Sundays all year round

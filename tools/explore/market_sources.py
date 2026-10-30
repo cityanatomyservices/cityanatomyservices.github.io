@@ -10,6 +10,7 @@ from urllib.parse import quote, urljoin
 
 from build import ZONE, clean, fetch
 from culture_sources import Page, first, geocode, local, page
+from calendar_http import read_calendar
 
 CITIES = ('AUSTIN', 'CEDAR PARK', 'ROUND ROCK', 'GEORGETOWN')
 MARKET = re.compile(r'\b(markets?|mercado|pulga|gear\s*swap)\b', re.I)
@@ -161,19 +162,21 @@ def mueller(now):
 
 def sfc(now):
     url = 'https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/'
-    text = page(url).text()
     sections = [(r'SFC Farmers[’\'] Market Downtown Situated (.*?) SFC Farmers',
                  'SFC Farmers’ Market Downtown', 'Republic Square', '422 Guadalupe St Austin TX 78701', r'422 Guadalupe St, Austin'),
                 (r'SFC Farmers[’\'] Market at Sunset Valley Located (.*?) Park for Free',
                  'SFC Farmers’ Market at Sunset Valley', 'Toney Burger Center', '3200 Jones Rd Austin TX 78745', r'3200 Jones Rd, Austin')]
-    rows = []
-    for pattern, title, venue, address, address_pattern in sections:
-        section = require(text, pattern)[1]
-        require(section, address_pattern)
-        match = require(section, r'Hours: Saturdays, (\d+\s*AM\s*[–-]\s*\d+\s*PM)')
-        if not CANCELLED.search(section):
-            rows.extend(regular(now,title,url,venue,address,[(5,None,match[1],False)]))
-    return rows
+    def calendar(body):
+        text = Page(body.decode('utf-8')).root.text()
+        rows = []
+        for pattern, title, venue, address, address_pattern in sections:
+            section = require(text, pattern)[1]
+            require(section, address_pattern)
+            match = require(section, r'Hours: Saturdays, (\d+\s*AM\s*[–-]\s*\d+\s*PM)')
+            if not CANCELLED.search(section):
+                rows.extend(regular(now,title,url,venue,address,[(5,None,match[1],False)]))
+        return rows
+    return read_calendar(url, calendar, fetch)
 
 
 def farmer_george(now):

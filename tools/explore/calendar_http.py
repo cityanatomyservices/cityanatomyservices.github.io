@@ -7,7 +7,7 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 def read_calendar(url, parse, fetch):
     """Validate the response before accepting it; never treat an error as zero events.
 
-    Used only for the two WordPress calendars that intermittently return empty
+    Used only for public calendar pages that intermittently return empty
     or non-calendar responses. Retry URLs refresh their public page caches;
     they do not bypass authentication or change the requested date range.
     """

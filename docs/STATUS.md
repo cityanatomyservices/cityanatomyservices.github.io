@@ -9,7 +9,7 @@ official endpoints returned valid calendars during the investigation. This
 workflow does not use Supabase. The earlier logs did not retain the response
 bodies, so their exact upstream content is unknown.
 
-`calendar_http.py` now validates and retries these two WordPress calendars up
+`calendar_http.py` now validates and retries these calendars and SFC Markets up
 to three times, with short delays and a fresh public cache query on retries.
 Logs identify the source, response size/type, retry count and recovery. Permanent
 HTTP client errors are not retried. Saxon retries individual pages without
@@ -25,14 +25,20 @@ conflict when a preceding run published data while the next run was queued.
 News uses the same current action versions and pinned Ubuntu image as the
 other maintained workflows.
 
-Validation so far: 64 Python calendar tests and Explore JavaScript checks pass.
+Validation so far: 66 Python calendar tests and Explore JavaScript checks pass.
 Live local reads returned 24 Fallout records (22 upcoming) and 42 Saxon shows.
 A disposable Git remote test forced a competing push between pull and push:
 the retry preserved both bots' changes. A conflicting feed edit correctly
 stopped without changing the remote. GitHub run `41142145462` passed every
 calendar (18 upcoming Fallout listings and 42 Saxon shows) but encountered the
 queued-snapshot conflict above. News run `41142148174` passed and published.
-Fresh verification with the queued-run fix is next.
+Runs `41142480979` (Explore) and `41142483420` (news) passed with the queued-run
+fix. Queued Explore run `41142498661` checked out the preceding run's fresh
+data and published successfully, but flagged a transient incomplete SFC page.
+The live SFC page still confirms both Saturday markets, 9am–1pm, at the same
+addresses. SFC now has the same bounded retry protection; tests still reject
+changed weekdays/addresses and honor market cancellations. Final verification
+of that addition is next.
 
 ## 2026-10-30 — place comments and consistent site/map controls
 
