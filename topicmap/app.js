@@ -345,6 +345,7 @@
       map.on('mouseleave', 'points', () => { map.getCanvas().style.cursor = ''; });
       // the map object, so it can be poked at from the browser console
       // (not window.map: the <div id="map"> already takes that name)
+  window.AustinMapUI?.mount(map);
       window.topicMap = map;
     });
   });

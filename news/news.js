@@ -15,6 +15,7 @@
     zoom: 10.8,
     attributionControl: { compact: true },
   });
+  window.AustinMapUI?.mount(map);
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
 
   const when = (iso) => {

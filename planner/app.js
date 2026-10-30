@@ -56,10 +56,17 @@
     details.append(field(item,'Manual travel allowance if route unavailable (min)','bufferBefore','number',u.bufferBefore ?? '',{min:0,max:240,placeholder:'Use day default'}));
     details.append(field(item,'Parking / extra arrival time (min)','arrivalMinutes','number',u.arrivalMinutes ?? '',{min:0,max:120,placeholder:'Use day default'}));
     details.append(window.PlanRoutePanel.entrance(item));
-    const noteLabel = node('label','My notes'), notes = node('textarea'); notes.value = u.note || ''; notes.maxLength = 2000; notes.dataset.field = 'note'; notes.dataset.item = item.id; noteLabel.append(notes); details.append(noteLabel);
+    const noteLabel = node('label','My private notes'), notes = node('textarea'); notes.value = u.note || ''; notes.maxLength = 2000; notes.dataset.field = 'note'; notes.dataset.item = item.id; noteLabel.append(notes); details.append(noteLabel);
     if (s.provider || s.checked) details.append(node('p',[s.provider,s.checked ? 'Source checked '+fmt(s.checked) : ''].filter(Boolean).join(' · ')));
     details.append(node('p','Saved details are a snapshot. Check the source for cancellations and changed hours.'));
     li.append(details);
+    const discussion=window.AustinComments.mount(li,s,document.querySelector(`[data-item-id="${CSS.escape(item.id)}"] > .place-comments`));
+    if(discussion){
+      const share=node('button','Share note as a public comment','share-note');share.type='button';
+      share.onpointerdown=event=>event.preventDefault();
+      share.onclick=()=>discussion.draft(notes.value);details.append(share);
+      details.append(node('p','Your notes stay private unless you copy them to a public comment and choose Post comment.'));
+    }
     const actions = node('div',null,'stop-actions'), order = node('span',null,'order');
     order.hidden = view !== 'order';
     const orderIndex = S.plan.items.findIndex(i => i.id === item.id);

@@ -72,13 +72,11 @@ h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size
 .stop-actions { flex-wrap: wrap; } .navigate-link { font-weight: 650; }
 #plan-empty { text-align: center; padding: 25px 8px; } #plan-empty h2 { font-size: 20px; margin-bottom: 12px; } #plan-empty p { color: var(--muted); }
 .plan-map-area { grid-column: 2; grid-row: 1; position: relative; min-width: 0; min-height: 0; } #plan-map { position: absolute; inset: 0; }
-.map-tools { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px; right: 55px; }
-.map-tools button { font-size: 12px; box-shadow: 0 2px 6px var(--shadow); }
 .map-caption { position: absolute; left: 10px; bottom: 32px; font-size: 11px; padding: 5px 8px; background: var(--surface); border-radius: 6px; color: var(--muted); pointer-events: none; }
 .map-stop { width: 32px; height: 32px; border: 2px solid white; box-shadow: 0 2px 6px #0005; cursor: pointer; }
 .maplibregl-popup-content { color: var(--text); background: var(--surface); } .maplibregl-popup-content a { color: var(--accent); }
 #map-error { position: absolute; top: 62px; margin: 12px; padding: 10px; background: var(--surface); font-size: 12px; }
-.planner-chat-card { position: absolute; top: 55px; right: 12px; width: min(300px,calc(100% - 24px)); padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; z-index: 10; box-shadow: 0 6px 25px var(--shadow); }
+.planner-chat-card { position: absolute; top: 12px; right: 68px; width: min(320px,calc(100% - 80px)); max-height: calc(100% - 24px); overflow-y: auto; padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; z-index: 10; box-shadow: 0 6px 25px var(--shadow); }
 .planner-chat-card p { font-size: 12px; } .planner-chat-card .chat-btns { display: flex; gap: 5px; }
 .planner-chat-card #chatwin { position: fixed; z-index: 25; }
 [hidden] { display: none !important; }
@@ -87,10 +85,20 @@ h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size
   .planner-layout { --panel-width: min(360px,calc(100% - 44px)); grid-template-columns: minmax(0,1fr); }
   .plan-map-area { grid-column: 1; }
   .plan-panel { position: absolute; inset: 0 auto 0 0; padding: 14px; box-shadow: 3px 0 15px var(--shadow); }
-  .map-caption { font-size: 10px; } .planner-chat-card { position: fixed; top: 65px; max-height: calc(100% - 75px); overflow: auto; }
+  .map-caption { font-size: 10px; } .planner-chat-card { top: 64px; right: 12px; width: calc(100% - 24px); max-height: calc(100% - 76px); }
   .settings-grid { grid-template-columns: 1fr 1fr; } .plan-date { grid-column: 1/-1; }
   .schedule-grid { grid-template-columns: 1fr; } .plan-heading { align-items: start; } h1 { font-size: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .planner-layout,.plan-panel,.panel-closed .plan-panel,.panel-toggle,.panel-toggle svg { transition: none; }
 }
+
+/* The same control/menu modules as the home map, contained in the map pane. */
+.plan-map-area.page { container: page / size; --control: 44px; }
+.plan-map-area .stack { z-index: 4; }
+.plan-map-area .round { flex-shrink: 0; }
+.planner-popup { z-index: 6; }
+.plan-map-area .plan-bar { z-index: 7; }
+.map-caption { z-index: 4; max-width: calc(100% - 85px); }
+#map-control-status { position: absolute; bottom: 30px; left: 12px; right: 65px; z-index: 4; padding: 8px; font-size: 12px; background: var(--surface); border-radius: 8px; }
+#map-control-status:empty { display: none; }

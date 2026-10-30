@@ -1,0 +1,24 @@
+/* Common chrome only: map data and each application's own tools stay intact. */
+.austin-map-surface { --control:44px; --safe-top:0px; font-family:system-ui,sans-serif; }
+.austin-map-surface > .stack.austin-map-ui { position:absolute;inset:12px 12px auto auto;display:flex;flex-direction:column;gap:10px;z-index:8;max-height:calc(100% - 52px);overflow-y:auto;scrollbar-width:none;padding:4px;margin:-4px; }
+.austin-map-ui .round { width:44px;height:44px;min-height:44px;flex-shrink:0;border-radius:50%;box-sizing:border-box;padding:0;display:grid;place-items:center;box-shadow:0 2px 6px var(--shadow);font:700 18px/1.2 system-ui,sans-serif;text-decoration:none; }
+.austin-map-ui .round-text { font-size:13px; }
+.austin-map-ui :is(.apps-control,.media-control,.day-plan-control,.chat-control,.explore-control) { font:600 8px/12px system-ui,sans-serif;align-content:center; }
+.austin-map-ui :is(.apps-control,.media-control,.day-plan-control,.chat-control) svg { fill:none;stroke:currentColor;stroke-width:1.8; }
+.austin-map-surface :is(.catalog-panel,.plan-bar,.explore-panel) { z-index:10; }
+.austin-map-surface .topleft { top:112px;max-height:calc(100% - 124px); }
+.austin-map-surface :is(.raised,#drawer,.data-panel,.filter-panel,.parcel-drawer) { background:var(--surface);color:var(--text);border-color:var(--border); }
+.austin-map-surface .round svg { width:20px;height:20px; }
+.austin-map-surface .planner-chat-card { position:absolute;top:12px;right:68px;z-index:11;width:min(320px,calc(100% - 80px));max-height:calc(100% - 24px);overflow:auto;padding:14px;box-sizing:border-box;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:12px;box-shadow:0 4px 18px var(--shadow);font:13px/1.5 system-ui,sans-serif; }
+.austin-map-surface .planner-chat-card button { border:1px solid var(--border);border-radius:6px;background:var(--finish-raised);color:var(--text);padding:7px;cursor:pointer; }
+.austin-map-surface .planner-chat-card h2 { font:650 18px system-ui,sans-serif; }
+.austin-map-surface .planner-chat-card .chatwin { position:fixed;z-index:20; }
+.map-ui-status { position:absolute;bottom:30px;left:12px;right:70px;z-index:10;padding:8px;border-radius:8px;background:var(--surface);color:var(--text);font:12px/1.4 system-ui,sans-serif; }
+.map-ui-status:empty { display:none; }
+.austin-map-surface #chip { left:52px;right:68px;max-width:420px;justify-content:space-between;font-size:12px;padding:10px; }
+.austin-map-surface #chip-hint { display:none; }
+.austin-map-surface #picker { left:52px;right:68px; }
+.tour-tools label { display:flex;align-items:center;justify-content:space-between;margin:12px 0;font:13px system-ui,sans-serif; }
+.austin-map-surface .planner-chat-card label { display:block;margin:12px 0; }
+[hidden] { display:none!important; }
+@media(max-width:520px){.austin-map-surface .planner-chat-card{top:64px;right:12px;width:calc(100% - 24px);max-height:calc(100% - 76px);}}

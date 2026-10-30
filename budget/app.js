@@ -70,6 +70,7 @@
   });
   map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
   // Compact mode initially opens in MapLibre; start with only the info button.
+  window.AustinMapUI?.mount(map);
   const attribution = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
   if (attribution) { attribution.classList.remove('maplibregl-compact-show'); attribution.removeAttribute('open'); }
 

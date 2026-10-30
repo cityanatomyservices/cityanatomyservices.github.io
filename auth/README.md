@@ -163,3 +163,19 @@ database saves use the real project. It sends no email. Install the existing
 References: [Google and Supabase](https://supabase.com/docs/guides/auth/social-sign-in/auth-google),
 [Supabase email codes](https://supabase.com/docs/guides/auth/auth-email-passwordless),
 [Resend SMTP](https://resend.com/docs/send-with-supabase-smtp).
+
+## Public place comments
+
+Migration `0009_place_comments.sql` stores comments separately from private
+profiles and itinerary notes. `place_comments_list` returns only public
+nickname/emoji/text/timestamps and a caller-specific `mine` flag. Do not open
+profile-table SELECT policies to support comments. Guests may read, while
+registered owners may insert body/source, update only body, or delete their
+own comments. Database limits: 2,000 characters, 20 existing posts from the
+last hour, 1,000 comments/account. These are modest storage/abuse controls,
+not a substitute for moderation. Owners can moderate through the Supabase
+table editor. There are no public moderation keys or service credentials.
+
+`tools/auth/check-comments.cjs [base]` tests real RLS/CRUD with disposable
+accounts and synthetic source keys; it removes the accounts/comments and
+sends no email. Browser drafts are memory-only and clear on account changes.

@@ -4,10 +4,15 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Plan Map</title><link rel="icon" href="data:,">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="/chat/style.css?v=20261029v">
+  <link rel="stylesheet" href="/chat/explore/explore.css?v=20261028e">
+  <link rel="stylesheet" href="/planner/select.css?v=20261029v">
   <link rel="stylesheet" href="/appearance.css?v=20261028h">
-  <link rel="stylesheet" href="/planner/app.css?v=20261029s">
+  <link rel="stylesheet" href="/planner/app.css?v=20261030e">
   <link rel="stylesheet" href="/chat/panel.css?v=20261023e">
   <script src="/chat/theme.js?v=20261028g"></script>
+  <link rel="stylesheet" href="/shared/comments.css?v=20261030e">
+<script src="/shared/map-ui.js?v=20261030e"></script>
 </head>
 <body>
   <main class="planner-layout">
@@ -54,26 +59,55 @@
       <div id="plan-empty" hidden><h2>Your day starts here</h2><p>Check “Day Planner” beside an Explore Austin listing or a neighborhood business. Come back here to choose times and build your day.</p><a class="button primary" href="/" target="_top">Explore Austin →</a></div>
       <p class="plan-footnote">Saving a place doesn’t book admission or make you visible in chat. Check the source for changes before going.</p>
     </section>
-    <section class="plan-map-area" aria-label="Map of your selected places">
+    <section class="plan-map-area page" aria-label="Map of your selected places">
       <div id="plan-map"></div><p id="map-error" hidden>The map couldn’t load. Your itinerary still works.</p>
-      <div class="map-tools"><button id="fit-plan" type="button">Fit my places</button><button id="chat-launch" type="button">Neighborhood chat</button></div>
-      <div class="map-caption" id="map-caption">Your selected places</div>
-      <div id="planner-chat-host"></div>
+      <div class="stack" id="stack">
+      <button class="round apps-control" id="ctrlApps" type="button" aria-expanded="false" aria-controls="apps-panel" aria-label="Apps" title="Apps">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3Z M14 3h7v7h-7Z M3 14h7v7H3Z M14 14h7v7h-7Z"/></svg><span>Apps</span>
+      </button>
+      <button class="round media-control" id="ctrlMedia" type="button" aria-expanded="false" aria-controls="media-panel" aria-label="Media" title="Media">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v16H3Z M10 8l6 4-6 4Z"/></svg><span>Media</span>
+      </button>
+      <button class="round day-plan-control" id="ctrlDayPlan" type="button" aria-expanded="false" aria-controls="day-plan-panel" aria-label="Day Plan" title="Day Plan">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z M7 2v5 M17 2v5 M3 10h18 M8 14h3 M8 17h7"/></svg><span>Day Plan</span>
+      </button>
+      <button class="round chat-control" id="ctrlChat" type="button" aria-expanded="false" aria-controls="planner-chat-host" aria-label="Neighborhood chat" title="Neighborhood chat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3Z M8 8h8 M8 12h5"/></svg><span>Chat</span>
+      </button>
+      <button class="round explore-control" id="ctrlExplore" type="button" aria-expanded="false" aria-controls="explore-panel" aria-label="Explore Austin map layers" title="Explore Austin">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 11 6-11 6L1 8zm-8 11 8 4.4 8-4.4 3 1.6-11 6-11-6z"/></svg><span>Explore</span>
+      </button>
+      <button class="round round-text" id="ctrlLocate" type="button">GPS</button>
+      <button class="round" id="ctrlTilt" type="button" aria-pressed="false">3D</button>
+      <button class="round round-text" id="ctrlSatellite" type="button" aria-pressed="false">Sat</button>
+      <button class="round" id="ctrlExtent" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
+      </button>
+    </div>
+      <p class="map-caption" id="map-caption" role="status" hidden></p>
+      <div id="planner-chat-host" hidden></div>
     </section>
   </main>
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
-  <script src="/shared/visit.js?v=20261030c"></script>
+  <script src="/shared/visit.js?v=20261030e"></script>
   <script src="/shared/session.js?v=20261030a"></script>
   <script src="/shared/member.js?v=20261030c"></script>
   <script src="/shared/preferences.js?v=20261030c"></script>
+  <script src="/shared/comments.js?v=20261030e"></script>
   <script src="/shared/favorite-button.js?v=20261030c"></script>
   <script src="/planner/model.js?v=20261029r"></script><script src="/planner/sources.js?v=20261029r"></script>
   <script src="/planner/repository.js?v=20261029r"></script><script src="/planner/store.js?v=20261030a"></script>
   <script src="/planner/routing.js?v=20261030a"></script>
   <script src="/planner/route-panel.js?v=20261030c"></script>
   <script src="/planner/panel.js?v=20261029s"></script>
-  <script src="/planner/map.js?v=20261030b"></script><script src="/planner/app.js?v=20261029u"></script>
-  <script src="/chat/widget.js?v=20261030c"></script>
+  <script src="/planner/select.js?v=20261030e"></script>
+  <script src="/chat/catalog-menu.js?v=20261030c"></script>
+  <script src="/chat/explore/config.js?v=20261028e"></script>
+  <script src="/chat/explore/model.js?v=20261028e"></script>
+  <script src="/chat/explore/explore.js?v=20261030e"></script>
+  <script src="/planner/controls.js?v=20261030e"></script>
+  <script src="/planner/map.js?v=20261030e"></script><script src="/planner/app.js?v=20261030e"></script>
+  <script src="/chat/widget.js?v=20261030e"></script>
 </body>
 </html>

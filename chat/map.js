@@ -305,6 +305,8 @@
                      `<div class="place-links">${website}${link('google')}${link('apple')}${link('yelp')}</div></div>`)
             .addTo(map);
           window.dispatchEvent(new CustomEvent('austin:planner-target', { detail: { container: placePopup.getElement().querySelector('.place-popup'), provider: 'place', data: place } }));
+          window.AustinComments.mount(placePopup.getElement().querySelector('.place-popup'),window.PlanSources.place(place));
+          window.AustinComments.followPopup(placePopup);
         },
         // everyone visible in the neighborhood, each drawn where they are: at
         // the position they share, else on the neighborhood. Picking a

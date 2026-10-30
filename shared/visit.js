@@ -23,10 +23,10 @@
   // Keep the outer page alive when switching maps, so a guest plan can move
   // between them without writing it to storage, a URL, or browser history.
   const routes={
-    '/': {src:'/chat/?v=20261030c',title:'Austin.Chat',frameTitle:'Chat map'},
-    '/myplanmap/': {src:'/planner/app.html?v=20261030c',title:'My Plan Map · Austin.Chat',frameTitle:'My Plan Map itinerary'}
+    '/': {src:'/chat/?v=20261030e',title:'Austin.Chat',frameTitle:'Chat map'},
+    '/myplanmap/': {src:'/planner/app.html?v=20261030e',title:'My Plan Map · Austin.Chat',frameTitle:'My Plan Map itinerary'}
   };
-  if(window===window.top && routes[location.pathname]) {
+  if(window===window.top) {
     let transition=0;
     visit.navigate=(url,push=true)=>{
       const route=routes[url.pathname],frame=document.getElementById('app-window');

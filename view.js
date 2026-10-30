@@ -44,7 +44,10 @@
   function show(title, src) {
     document.title = title + ' · Austin.Chat';
     frame.title = title;
-    frame.src = src;
+    const target=new URL(src,location.origin);
+    for(const [key,value] of new URLSearchParams(location.search))if(key!=='v')target.searchParams.set(key,value);
+    if(location.hash)target.hash=location.hash;
+    frame.src = target.href;
   }
 
   function missing(text) {

@@ -3,82 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pizza in Austin</title>
+  <title>Pizza in Austin · Austin.Chat</title>
+  <meta name="description" content="Pizza in Austin. Explore locations on the Austin.chat map." />
+  <link rel="canonical" href="https://austin.chat/apps/austin-pizza/" />
   <link href="/style.css?v=20261029v" rel="stylesheet" />
-  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
-  <link href="/shopmap/style.css?v=20261024a" rel="stylesheet" />
   <link rel="stylesheet" href="/appearance.css?v=20261028h" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
-  <script src="/shared/visit.js?v=20261030c"></script>
+  <script src="/shared/visit.js?v=20261030e"></script>
   <script src="/shared/session.js?v=20261030a"></script>
   <script src="/shared/member.js?v=20261030c"></script>
   <script src="/shared/preferences.js?v=20261030c"></script>
   <script src="/shared/favorite-button.js?v=20261030c"></script>
 </head>
 <body>
-  <!-- A SHOPPING APP (owner 2026-10-22): the site's own frame (shell.js draws
-       the header and footer) around a map that looks like the home page's,
-       with the side panel (dropdowns + table) the reports always had, run
-       by the shared engine in /shopmap/. This folder holds only this page,
-       config.js (title, data, fields) and data.geojson (the places).
-       Not a framed page: tools/make-pages.js leaves this file alone. -->
-  <main>
-    <section class="map-hero">
-      <div class="shopmap">
-        <div id="map"></div>
-
-        <!-- left: the side panel — title, the dropdowns, the table; the arrow on
-             its edge slides it away and back (app.js setPanel) -->
-        <aside class="data-panel" id="dataPanel">
-          <div class="panel-head">
-            <h2 id="panelTitle"></h2>
-            <p class="panel-sub" id="panelSub"></p>
-            <div class="result-count" id="resultCount"></div>
-          </div>
-          <div class="filters" id="filters"></div>
-          <!-- Export downloads the rows now in the table as a CSV; Reset puts every dropdown back to All -->
-          <div class="panel-actions">
-            <button class="panel-btn" id="exportBtn" type="button"></button>
-            <button class="panel-btn" id="resetBtn" type="button"></button>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead id="tableHead"></thead>
-              <tbody id="tableBody"></tbody>
-            </table>
-          </div>
-          <!-- the arrow on the panel's edge: part of the panel, so it moves with it and the two always meet -->
-          <button class="panel-toggle" id="panelToggle" type="button" aria-expanded="true" aria-controls="dataPanel">
-            <span class="panel-toggle-arrow" aria-hidden="true"></span>
-          </button>
-        </aside>
-
-        <!-- right: the round control stack, the same as the home map -->
-        <div class="stack">
-          <button class="round" id="ctrlLocate" type="button">&#9678;</button>
-          <button class="round" id="ctrlTilt" type="button" aria-pressed="false">3D</button>
-          <button class="round round-text" id="ctrlSatellite" type="button" aria-pressed="false">Sat</button>
-          <button class="round" id="ctrlExtent" type="button">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
-          </button>
-          <button class="round" id="ctrlZoomIn" type="button">+</button>
-          <button class="round" id="ctrlZoomOut" type="button">&minus;</button>
-        </div>
-
-        <!-- bottom right: the three views -->
-        <div class="views">
-          <button class="view-btn" id="viewStreet" type="button"></button>
-          <button class="view-btn" id="viewNeighborhood" type="button"></button>
-          <button class="view-btn" id="viewCity" type="button"></button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
-  <script src="/shopmap/words.js?v=20261023i"></script>
-  <script src="./config.js?v=20261023i"></script>
-  <script src="/shopmap/app.js?v=20261024a"></script>
-  <script src="/shell.js?v=20261030d"></script>
+  <main><section class="map-hero">
+    <iframe id="app-window" class="app-window" src="/apps/austin-pizza/map.html?v=20261030e" title="Pizza in Austin" allow="geolocation; fullscreen" allowfullscreen></iframe>
+  </section></main>
+  <script src="/shell.js?v=20261030e"></script>
 </body>
 </html>

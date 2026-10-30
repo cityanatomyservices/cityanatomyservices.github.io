@@ -28,9 +28,15 @@
       time.textContent = item.schedule.start ? `${M.local(item.schedule.start).replace('T',' · ')} CT · ${item.schedule.duration} min` : 'Not scheduled yet';
       edit.textContent = 'Edit this stop'; edit.type = 'button';
       edit.addEventListener('click', () => { window.PlanPanel?.open(); const card = document.querySelector(`[data-item-id="${item.id}"]`); card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); card?.querySelector('input,select')?.focus({ preventScroll: true }); });
-      body.append(name,time,edit);
+      body.className='planner-popup-body';
+      const directions=document.createElement('a'),actions=document.createElement('div');actions.className='planner-popup-actions';
+      directions.textContent='Directions · Google Maps ↗';directions.href=window.PlanRouting.navigation(item,'google');directions.target='_blank';directions.rel='noopener noreferrer';
+      actions.append(directions,edit);body.append(name,time,actions);
+      window.AustinComments?.mount(body,item.source);
+      const popup=new maplibregl.Popup({ offset: 20, maxWidth:'320px', className:'planner-popup' }).setDOMContent(body);
+      window.AustinComments?.followPopup(popup);
       const marker = new maplibregl.Marker({ element: button }).setLngLat(coordinates(item))
-        .setPopup(new maplibregl.Popup({ offset: 20 }).setDOMContent(body)).addTo(map);
+        .setPopup(popup).addTo(map);
       markers.push({ id:item.id, marker });
     });
     if (!fitted && items.some(coordinates)) { fit(); fitted = true; }
@@ -51,12 +57,12 @@
     routeData=structuredClone({type:'FeatureCollection',features:legs.filter(l=>l.geometry&&['LineString','MultiLineString'].includes(l.geometry.type)).map(l=>({type:'Feature',properties:{},geometry:l.geometry}))});
     routeDirty=true;
     drawRoutes();
-    if(!picking) document.getElementById('map-caption').textContent=routeData.features.length?'Driving overview · use your navigation app on the road':'Your selected places';
+
   }
   function cancelPick() {
     if(picking&&map) map.off('click',picking);
     picking=null;if(map)map.getCanvas().style.cursor='';
-    document.getElementById('map-caption').textContent=routeData.features.length?'Driving overview · use your navigation app on the road':'Your selected places';
+    document.getElementById('map-caption').hidden=true;
   }
   function pick(item,callback) {
     if(!map) return;
@@ -65,6 +71,7 @@
     window.PlanPanel?.showMap();
     if(coordinates(item)) map.easeTo({center:coordinates(item),zoom:17,duration:400});
     map.getCanvas().style.cursor='crosshair';
+    document.getElementById('map-caption').hidden=false;
     document.getElementById('map-caption').textContent='Click the driving entrance · Esc to cancel';
     document.getElementById('plan-map').scrollIntoView({behavior:'smooth',block:'nearest'});
     picking=event=>{const point=[Number(event.lngLat.lng.toFixed(6)),Number(event.lngLat.lat.toFixed(6))];cancelPick();if(reopen)window.PlanPanel?.open();callback(point);};
@@ -75,8 +82,9 @@
     map = new maplibregl.Map({ container:'plan-map', style:'https://tiles.openfreemap.org/styles/positron', center:[-97.7431,30.2672], zoom:11, attributionControl:false });
     new ResizeObserver(()=>map.resize()).observe(document.getElementById('plan-map'));
     map.addControl(new maplibregl.AttributionControl({ compact:true,customAttribution:'Routing © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>' }), 'bottom-right');
-    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+    map.addControl(new maplibregl.NavigationControl(), 'top-left');
     map.on('load', async () => {
+      window.PlanControls?.init(map,fit,()=>latest.some(coordinates));
       drawRoutes();
       try {
         const response = await fetch('/chat/data/geofences.geojson');
@@ -92,6 +100,5 @@
     map.on('error', () => { if (!map.isStyleLoaded()) document.getElementById('map-error').hidden = false; });
     map.on('idle', () => { document.getElementById('map-error').hidden = true;drawRoutes(); });
   } catch (_) { document.getElementById('map-error').hidden = false; }
-  document.getElementById('fit-plan').addEventListener('click', fit);
   window.PlanMap = { update, focus, routes, pick, fit };
 })();

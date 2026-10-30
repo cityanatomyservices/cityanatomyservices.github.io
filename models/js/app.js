@@ -203,6 +203,7 @@ map.on('load', () => {
   renderLayers();
   renderAbout();
   if (projects.some((p) => p.id === wanted)) pick(wanted);
+  window.AustinMapUI?.mount(map);
   window.modelsMap = map;
   window.modelsLayer = models;   // for checks from the console
 });

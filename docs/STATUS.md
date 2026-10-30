@@ -1,5 +1,71 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-30 — place comments and consistent site/map controls
+
+Owner asked for account-only posting on neighborhood businesses and planner
+items, deliberate sharing of itinerary notes, Google directions on every
+planner popup, removal of the planner's floating cards, and the main page's
+frame and controls across the site. Implemented on the existing GitHub Pages
+site and Supabase project; no billing changes or existing-data deletion.
+
+Applied `0009_place_comments.sql`. `place_comments` is separate from private
+plans/profiles. Stable `place:` / `explore:` keys connect a listing's popup
+and planner thread. Everyone can read the safe RPC projection; only registered
+users can post, edit and delete their own comments. The public projection has
+nickname/emoji/text/timestamps, no email or author UUID. Database column grants
+prevent author/time/source changes; RLS restricts ownership. Text is capped at
+2,000 characters, 20 retained new comments per hour and 1,000 per account.
+Deleting an account cascades its comments. No additional Realtime subscription,
+image upload, AI update process or persistent guest storage was added.
+
+`shared/comments.js` and CSS mount lazy, paginated discussions in neighborhood
+business popups, Explore popups, planner cards and planner map popups. Posts
+are text-only, authors can edit/delete, and Refresh fetches later comments.
+Drafts clear on account changes, including detached popup DOM. **My private
+notes** stay private. **Share note as a public comment** copies to a draft;
+only **Post comment** publishes it. Popup sizing adapts to loaded comments.
+For owner moderation, use Supabase's `place_comments` table; there is no new
+public admin interface or automated moderation system.
+
+Planner popups have a Google Maps directions link opening a new tab (honors a
+chosen entrance). The old Fit my places / Neighborhood chat / Driving overview
+cards are removed. Extents fits the itinerary, Chat opens the shared widget;
+temporary entrance-picking instructions still appear when needed. Route line
+cloning across iframe realms remains intact, including satellite view.
+
+`shared/map-ui.js`, CSS and the control template apply the main map's Apps,
+Media, Day Plan, Chat, Explore, GPS, 2D/3D, satellite and extents controls to
+catalog maps. Zoom/compass is top left. Shopping apps now have an outer shared
+frame and inner `map.html`; their filters/table/popup engine stays unchanged.
+Tours retain their own progress, GPS/travel and chat behavior; extra tour
+settings are grouped under Tour. Explore layers restore after a tour changes
+its basemap. Maps, tours, directories, contact/content and HTML reading pages
+use the Sign In/Account shell; obsolete hamburger markup is removed. Printable
+reports hide the site frame in print. Old standalone map URLs lead to their
+framed public page; `?standalone` keeps an engine accessible for diagnostics.
+News and the Moontower demonstration now also have framed map addresses.
+
+Shared visit navigation carries guest plans from any framed catalog app into
+Day Planner without reloading the outer page; refresh still clears guests.
+Deep links/test parameters pass through catalog frames. Changes use cache tag
+`20261030e`; shared authentication/member assets remain at their existing tags.
+`tools/make-pages.js` preserves the shopping wrappers and regenerates the
+standard catalog wrappers. If refreshing generated reading documents, retain
+the shared frame assets and print exclusion; the report template includes them.
+
+Validation: 62 Node test results passed, including scheduling, persistence,
+route serialization, profiles, ticker and Explore. Disposable-account browser
+checks passed real comment CRUD, guest read/denied writes, owner isolation,
+column/length/rate limits, literal HTML rendering, explicit note sharing,
+draft reset, shared business/planner threads, Google links and actual route
+rendering on phone layouts. Shared menus were checked on all seven shopping
+apps, both tours, budget, AISD, data centers, models, parcels, news and the
+Moontower demo. Guest selections survive catalog → planner navigation. Existing
+auth checks passed real OTP verification, cloud restore, account isolation,
+cross-tab/offline sign-out and simulated Google consent. No real emails sent;
+test accounts and their comments were removed. Repeatable checks:
+`tools/auth/check-comments.cjs` and `tools/auth/check-map-ui.cjs`.
+
 ## 2026-10-30 — profiles, private Favorites and saved preferences
 
 Owner approved building the proposed account features while retaining GitHub

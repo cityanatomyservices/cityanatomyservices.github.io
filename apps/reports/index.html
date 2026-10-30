@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reports • City Anatomy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
-  <link href="/style.css?v=20261023e" rel="stylesheet" />
   <style>
     .apps-page {
       max-width: 1120px;
@@ -143,28 +142,17 @@
       .cards-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <link href="/style.css?v=20261029v" rel="stylesheet" />
+  <link rel="stylesheet" href="/appearance.css?v=20261028h" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
+  <script src="/shared/visit.js?v=20261030e"></script>
+  <script src="/shared/session.js?v=20261030a"></script>
+  <script src="/shared/member.js?v=20261030c"></script>
+  <script src="/shared/preferences.js?v=20261030c"></script>
+  <script src="/shared/favorite-button.js?v=20261030c"></script>
 </head>
 <body>
-  <header id="top" class="topbar">
-    <div class="topbar-left">
-      <a class="brand" href="/index.html">City Anatomy</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="nav-toggle-bar"></span>
-      </button>
-      <nav class="primary-nav" aria-label="Main navigation">
-        <a href="/apps/">Apps</a>
-        <a href="/content/">Content</a>
-      </nav>
-    </div>
-    <div class="topbar-right">
-      <button class="theme-toggle" type="button" aria-label="Toggle color scheme">
-        <span class="toggle-icon">☀️</span>
-        <span class="toggle-label">Light</span>
-      </button>
-    </div>
-  </header>
-
-  <main class="apps-page" id="main-content">
+<main class="apps-page" id="main-content">
 
     <div class="apps-hero">
       <p class="content-kicker">Product Reports</p>
@@ -174,13 +162,11 @@
 
     <div id="reports-sections"></div>
 
-    <footer class="page-footer">
-      <p>&copy; 2025 City Anatomy &bull; Powered by <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a></p>
-    </footer>
+
 
   </main>
 
-  <script src="/page.js?v=20261023e"></script>
+  <script src="/shell.js?v=20261030e"></script>
   <script>
     (function () {
       const CATEGORY_ORDER = ['Shopping', 'Recreation', 'City Government'];

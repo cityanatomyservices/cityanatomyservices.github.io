@@ -202,3 +202,20 @@ cross-tab updates, showtimes, mobile sizes, both themes, optional chat, backup/
 restore and cloud reconnection. Supabase tests with disposable anonymous users
 verified owner isolation, stale-write rollback, generated geography and deletion;
 those test users and their data were removed afterward.
+
+## Public comments and shared map controls (2026-10-30)
+
+`shared/comments.js` is independent of PlanStore and ChatRoom. Planner cards
+and map popups mount discussions using `item.source.key`; neighborhood and
+Explore popups use the same source adapters. Personal notes never become
+public automatically: sharing copies a draft and requires Post comment.
+The schema is `0009_place_comments.sql`, with registered-only owner mutations
+and a safe public read RPC. Refresh/Older comments load on demand; no new
+Realtime channel. Google Maps links use `PlanRouting.navigation(item,'google')`.
+
+`planner/controls.js` handles display controls; `chat/catalog-menu.js`,
+`chat/explore/*` and `planner/select.js` supply the same menus as the home map.
+Extents replaces the old Fit my places card, and Chat uses the lazy widget.
+`shared/map-ui.js` applies those menus to other catalog engines, with the
+same outer shell and guest-preserving iframe navigation. Tour-specific
+controls and the planner drawer remain independent of the common menus.

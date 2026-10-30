@@ -32,6 +32,7 @@ if (!stops || !style) {
     interactive: false,
   });
 
+  window.AustinMapUI?.mount(map);
   // The style ships "towers"/"illumination" EMPTY on purpose — fill them now,
   // and again after any style reload, or the map renders a city with no towers.
   function redraw() {

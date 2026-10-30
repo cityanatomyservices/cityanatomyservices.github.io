@@ -8,7 +8,7 @@
 // button. Nothing here is page-specific; the home page adds home.js for its
 // map window.
 //
-// Apps and Media live on the main map (chat/catalog-menu.js), using home.json.
+// All map pages use the same Apps and Media menus (chat/catalog-menu.js).
 // The account flow lives separately in shared/account.js.
 (function () {
   // ── day / night, before anything paints ──────────────────────────────────

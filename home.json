@@ -51,18 +51,18 @@
           "title": "Moontower",
           "kind": "apps",
           "slug": "moontower",
-          "blurb": "Austin, 1895 — light them all",
+          "blurb": "Austin, 1895 \u2014 light them all",
           "src": "/moontower/",
-          "app": "/moontowertour/app.html?v=20261030c",
+          "app": "/moontowertour/app.html?v=20261030e",
           "category": "Walking and Biking Apps"
         },
         {
           "title": "The 1885 Murder Tour",
           "kind": "apps",
           "slug": "1885",
-          "blurb": "Austin, 1885 — The Servant Girl Murders",
-          "src": "/1885murdertour/app.html?v=20261030c",
-          "app": "/1885murdertour/app.html?v=20261030c",
+          "blurb": "Austin, 1885 \u2014 The Servant Girl Murders",
+          "src": "/1885murdertour/app.html?v=20261030e",
+          "app": "/1885murdertour/app.html?v=20261030e",
           "category": "Walking and Biking Apps"
         },
         {
@@ -109,6 +109,18 @@
           "src": "/models/",
           "app": "/models/",
           "category": "Metro Apps"
+        },
+        {
+          "title": "Austin News Map",
+          "slug": "news",
+          "kind": "maps",
+          "app": "/news/?v=20261030e"
+        },
+        {
+          "title": "Moontower demonstration",
+          "slug": "moontower-demo",
+          "kind": "maps",
+          "app": "/moontower/?v=20261030e"
         }
       ],
       "open": true

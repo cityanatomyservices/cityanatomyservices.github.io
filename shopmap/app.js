@@ -315,6 +315,7 @@
       // the opening move: the City view, tilting up like the home map
       setTilt(true);
       map.easeTo({ pitch: PITCH, duration: 1800 });
+  window.AustinMapUI?.mount(map);
       window.shopMap = map;
     });
   });

@@ -112,9 +112,11 @@ window.AustinExplore = {
         actions.append(link('Directions ↗', `https://www.google.com/maps/dir/?api=1&destination=${destination}`), link('Report a change ↗', '/contact/'));
         article.append(actions, node('p', `${p.source} · Checked ${format(p.checked)} CT`));
         window.dispatchEvent(new CustomEvent('austin:planner-target', { detail: { container: article, provider: 'explore', data: item } }));
+        window.AustinComments?.mount(article,window.PlanSources.feature(item));
         body.append(article);
       }
       popup = new maplibregl.Popup({ maxWidth: '310px', offset: 14, className: 'explore-popup' }).setLngLat(at).setDOMContent(body).addTo(map);
+      window.AustinComments?.followPopup(popup);
       activeIds = items.map(f => f.properties.id);
       activeStamp = stamp(items);
     }
@@ -200,7 +202,8 @@ window.AustinExplore = {
         const features = matches.filter(f => f.properties.exploreLayer === layer.id);
         const signature = features.map(f => f.properties.id).join('|');
         if (signatures.get(layer.id) !== signature) {
-          map.getSource(`explore-${layer.id}`).setData(M.venues(features)); signatures.set(layer.id, signature);
+          const source=map.getSource(`explore-${layer.id}`);
+          if(source){source.setData(M.venues(features)); signatures.set(layer.id, signature);}
         }
       }
       if (activeIds.some(id => !matches.some(f => f.properties.id === id))) closePopup();
@@ -226,6 +229,17 @@ window.AustinExplore = {
       else errors.add(layer.id);
       busy.delete(layer.id); update();
     }
+    function ensureLayers(layer) {
+      const source=`explore-${layer.id}`;
+      if(map.getSource(source))return;
+      map.addSource(source, { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, cluster: true, clusterRadius: 42, clusterMaxZoom: 14, clusterProperties: { eventCount: ['+', ['get', 'eventCount']] } });
+      map.addLayer({ id: source + '-clusters', type: 'circle', source, filter: ['has', 'point_count'], paint: { 'circle-color': layer.color || '#0067c5', 'circle-radius': 19, 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
+      map.addLayer({ id: source + '-counts', type: 'symbol', source, filter: ['has', 'point_count'], layout: { 'text-field': ['to-string', ['get', 'eventCount']], 'text-size': 12, 'text-font': ['Noto Sans Bold'], 'text-allow-overlap': true }, paint: { 'text-color': '#fff' } });
+      map.addLayer({ id: source + '-points', type: 'circle', source, filter: ['!', ['has', 'point_count']], paint: { 'circle-color': ['match', ['get', 'kind'], 'activity', '#087f70', 'offer', '#9a4b00', 'movie', '#7844a8', layer.color || '#0067c5'], 'circle-radius': 12, 'circle-stroke-width': 2, 'circle-stroke-color': '#fff' } });
+      map.addLayer({ id: source + '-labels', type: 'symbol', source, filter: ['!', ['has', 'point_count']], layout: { 'text-field': ['get', 'label'], 'text-font': ['Noto Sans Bold'], 'text-size': 11, 'text-allow-overlap': true }, paint: { 'text-color': '#fff' } });
+      signatures.delete(layer.id);
+    }
+    map.on('style.load',()=>{for(const layer of layers)ensureLayers(layer);update();});
     for (const layer of layers) {
       const source = `explore-${layer.id}`;
       const label = node('label', undefined, 'explore-layer'), checkbox = document.createElement('input');
@@ -237,11 +251,7 @@ window.AustinExplore = {
       const text = node('strong', layer.title), count = node('span', '', 'explore-tile-count'), tick = node('span', '✓', 'explore-tile-check'); tick.setAttribute('aria-hidden','true');
       label.append(checkbox, icon, text, count, tick); $('.explore-layers').append(label);
       checkbox.addEventListener('change', () => { checkbox.checked ? state.enabled.add(layer.id) : state.enabled.delete(layer.id); save(); limit = 30; update(); if (checkbox.checked) load(layer); });
-      map.addSource(source, { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, cluster: true, clusterRadius: 42, clusterMaxZoom: 14, clusterProperties: { eventCount: ['+', ['get', 'eventCount']] } });
-      map.addLayer({ id: source + '-clusters', type: 'circle', source, filter: ['has', 'point_count'], paint: { 'circle-color': layer.color || '#0067c5', 'circle-radius': 19, 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
-      map.addLayer({ id: source + '-counts', type: 'symbol', source, filter: ['has', 'point_count'], layout: { 'text-field': ['to-string', ['get', 'eventCount']], 'text-size': 12, 'text-font': ['Noto Sans Bold'], 'text-allow-overlap': true }, paint: { 'text-color': '#fff' } });
-      map.addLayer({ id: source + '-points', type: 'circle', source, filter: ['!', ['has', 'point_count']], paint: { 'circle-color': ['match', ['get', 'kind'], 'activity', '#087f70', 'offer', '#9a4b00', 'movie', '#7844a8', layer.color || '#0067c5'], 'circle-radius': 12, 'circle-stroke-width': 2, 'circle-stroke-color': '#fff' } });
-      map.addLayer({ id: source + '-labels', type: 'symbol', source, filter: ['!', ['has', 'point_count']], layout: { 'text-field': ['get', 'label'], 'text-font': ['Noto Sans Bold'], 'text-size': 11, 'text-allow-overlap': true }, paint: { 'text-color': '#fff' } });
+      ensureLayers(layer);
       map.on('click', source + '-clusters', async e => {
         const f = e.features[0];
         try { const zoom = await map.getSource(source).getClusterExpansionZoom(f.properties.cluster_id); map.easeTo({ center: f.geometry.coordinates, zoom, duration: 500 }); } catch (_) { /* source may have refreshed */ }

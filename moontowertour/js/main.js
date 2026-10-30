@@ -607,6 +607,7 @@ function boot() {
   $('btn-zoom-out').setAttribute('aria-label', COPY.zoomOut);
   $('btn-zoom-out').addEventListener('click', () => map.zoomTo(map.getZoom() - 1, { duration: 250 }));
 
+  window.AustinMapUI?.mount(map);
   $('btn-info').setAttribute('aria-label', COPY.aboutOpen);
   $('btn-info').addEventListener('click', drawer.open);
   $('drawer-title').textContent = COPY.aboutTitle;

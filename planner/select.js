@@ -23,6 +23,11 @@
     if(on)day.focus({preventScroll:true});else if(returnFocus||bar.contains(document.activeElement))button.focus({preventScroll:true});
   }
   window.AustinDayPlan={close:()=>show(false)};
+  if(window.PlanPanel)open.addEventListener('click',event=>{
+    event.preventDefault();show(false);window.PlanPanel.open();
+    document.getElementById('plan-day').scrollIntoView({block:'nearest'});
+    document.getElementById('plan-day').focus({preventScroll:true});
+  });
   button.addEventListener('click',()=>show(bar.hidden));close.addEventListener('click',()=>show(false,true));
   bar.addEventListener('keydown',event=>{if(event.key==='Escape')show(false,true);});
   async function choose(date){try{await store.chooseDay(date);notice.textContent=`Planning ${dateLabel(date)}. Dated events keep their published day.`;}catch(e){notice.textContent=e.message;}}
