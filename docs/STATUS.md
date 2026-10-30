@@ -1,5 +1,28 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-30 — owner sign-in verified; route line confirmed
+
+The owner confirmed the repaired route line appears on their device and asked
+whether their current sign-in works. A read-only check of the nominated account
+confirmed a registered, email-verified Google identity, successful sign-in,
+recent session activity and saved planner data. No account details, identifiers
+or itinerary contents are recorded here. The actual owner Google sign-in check
+listed as pending in older checkpoints is now complete; direct observation of
+their browser was not available.
+
+`node tools/auth/check-browser.cjs https://austin.chat` passed against the
+deployed site: real email-code verification with disposable accounts, guest
+selection merge, cloud restore after removing the local plan cache, cross-tab
+sign-out, account isolation, offline local sign-out and responsive account UI.
+Google popup/callback checks also passed with simulated provider consent.
+The test sent no email and removed all disposable accounts. The owner's account
+and plans were not modified. Google and email configuration-presence checks
+also passed; actual receipt of a sign-in email remains unconfirmed.
+
+No site code or Supabase configuration changes were required for this check.
+The route fix in `15151a6` deployed successfully and rendered routes in live
+phone-sized and desktop browser checks before the owner's confirmation.
+
 ## 2026-10-30 — route line display repaired after shared sign-in change
 
 Owner reported Plan route stopped working on the phone, both as a guest and
