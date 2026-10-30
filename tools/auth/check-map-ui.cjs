@@ -1,5 +1,5 @@
-/* Real Storage/RLS/account integration using only disposable accounts.
-   No email is sent. Never logs session tokens or touches an owner's profile. */
+/* Shared map/frame browser checks. Uses disposable guests; no email,
+   private-account reads or production user-data changes. */
 const {chromium}=require('../video/node_modules/playwright-core');
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),crypto=require('node:crypto');
 const base=process.argv[2]||'http://127.0.0.1:8765',ref='aqbyxpiwugcvoephsvpm',api=`https://${ref}.supabase.co`;
@@ -18,8 +18,7 @@ async function account(){
   return {id:u.id,email,session};
 }
 async function contextFor(member){
-  const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
-  await context.route('**/planner/map.js?*',async route=>{const response=await route.fetch();await route.fulfill({response,body:'const TestMap=maplibregl.Map;maplibregl.Map=class extends TestMap{constructor(...args){super(...args);window.__memberTestMap=this;}};\n'+await response.text()});});
+  const context=await browser.newContext({viewport:process.env.DESKTOP?{width:1440,height:900}:{width:390,height:844},isMobile:!process.env.DESKTOP,hasTouch:!process.env.DESKTOP});
   if(member)await context.addInitScript(s=>{if(window===window.top&&!sessionStorage.getItem('qa-initialized')){localStorage.setItem('sb-aqbyxpiwugcvoephsvpm-auth-token',JSON.stringify(s));sessionStorage.setItem('qa-initialized','yes');}},member.session);
   context.on('response',async r=>{if(r.url().includes('/auth/v1/signup'))try{const d=await r.json();if(d.user?.id)users.add(d.user.id);}catch(_){};});
   return context;
@@ -39,7 +38,7 @@ const rpc=(member,name,body)=>json(api+'/rest/v1/rpc/'+name,body,headers(member.
     await f.locator('#ctrlTour').click();await f.locator('#btn-mode').click();await f.waitForFunction(()=>austinMap.getSource('explore-free-cheap')&&austinMap.isStyleLoaded());await f.locator('#ctrlTour').click();await f.locator('#ctrlChat').click();assert.equal(await f.locator('#planner-chat-host').isVisible(),true);await f.locator('#planner-chat-host').getByRole('button',{name:'Close',exact:true}).click();
   }
   assert.equal(await f.locator('.maplibregl-ctrl-top-left .maplibregl-ctrl-zoom-in').count(),1);assert.equal(await f.locator('.austin-map-ui button').filter({hasText:/^GPS$/}).count(),1);
-  await page.screenshot({path:'/tmp/austin-'+route.split('/').filter(Boolean).join('-')+'.png'});assert.deepEqual(errors,[]);page.off('pageerror',listener);console.log(route+' frame, menus, GPS label, zoom position and phone layout passed.');
+  await page.screenshot({path:'/tmp/austin-'+route.split('/').filter(Boolean).join('-')+'.png'});assert.deepEqual(errors,[]);page.off('pageerror',listener);console.log(route+' frame, menus, GPS label, zoom position and '+(process.env.DESKTOP?'desktop':'phone')+' layout passed.');
  }
  for(const route of ['/apps/','/maps/','/contact/','/content/','/apps/reports/','/budget/summary.html','/apps/reports/austin-bike-shops/report.html']){
   await page.goto(base+route);await page.getByRole('button',{name:/^(Sign In|Account)$/}).waitFor();assert.equal(await page.locator('.nav-toggle,.menu-toggle').count(),0);assert.equal(await page.locator('.topbar-home').count(),1);assert.equal(await page.locator('.home-footer').count(),1);

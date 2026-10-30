@@ -66,6 +66,14 @@ cross-tab/offline sign-out and simulated Google consent. No real emails sent;
 test accounts and their comments were removed. Repeatable checks:
 `tools/auth/check-comments.cjs` and `tools/auth/check-map-ui.cjs`.
 
+Published implementation: `5b3641a`; GitHub Pages and Check My Plan Map passed.
+Live comment/routing checks passed. Catalog, tour, reading-page frames and
+cross-map guest transfer passed on the live site, including a desktop check.
+The map browser check no longer intercepts planner JavaScript: an unused
+interceptor could finish during browser teardown and interrupt test cleanup.
+The disposable headless guests from that interrupted cleanup were removed.
+No production code change was needed after the live checks.
+
 ## 2026-10-30 — profiles, private Favorites and saved preferences
 
 Owner approved building the proposed account features while retaining GitHub
