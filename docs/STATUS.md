@@ -1,5 +1,34 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-30 — private Explore spreadsheet and map exports
+
+Owner requested all categories from Explore's Tonight selection and Friday's
+Weekend selection for Substack research, with a map. Clarification: **manual
+exports only for now**, no automatic daily/Friday schedule.
+
+`tools/explore-export/` reuses the real Explore configuration and filtering
+model. No public site controls change. The manual `Export Explore for Substack`
+workflow creates a new private Drive folder and native Google spreadsheet per
+run, plus numbered interactive HTML map, PNG image and GeoJSON. All collected
+properties, original category variants, movie showtimes and source metadata
+are preserved. Research columns E–H are blank and editable. Future exports
+never replace existing research. Read `tools/explore-export/README.md` for use,
+privacy, source-freshness handling and setup.
+
+Existing owner Drive authorization is restricted to `drive.file`. A dedicated
+private export folder was created and the connection is held only in the
+encrypted `EXPLORE_EXPORT_DRIVE_CONFIG` GitHub secret. Google occasionally
+throttles the existing shared rclone OAuth client; verification now retries
+temporary quotas. Rclone says that shared client is retiring during 2026, so
+it should be migrated to a dedicated Google OAuth client. This is independent
+of the site's Google sign-in; do not alter Supabase credentials.
+
+Local filtering/workbook tests passed (7 Node, 2 Python) and the existing Explore
+model checks passed. Both maps rendered with numbered pins and collision-aware
+label placement. Tonight draft had 102 listings/32 places; Weekend had 281/62.
+The first native Google Sheet was created and read back through the Drive
+connector; final workflow and published-code verification are next.
+
 ## 2026-10-30 — scheduled Explore and news refresh recovery
 
 Owner reported failed Explore run `41139567416` at `09eedf6`. The local-calendar

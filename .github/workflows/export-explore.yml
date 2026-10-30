@@ -1,0 +1,78 @@
+name: Export Explore for Substack
+on:
+  workflow_dispatch:
+    inputs:
+      selection:
+        description: Which Explore selection should be exported?
+        type: choice
+        options:
+          - tonight
+          - weekend
+        default: tonight
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: explore-private-export
+  cancel-in-progress: false
+jobs:
+  export:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Install export tools
+        run: |
+          python -m pip install -r tools/explore-export/requirements.txt
+          npm ci --prefix tools/explore-export --ignore-scripts --no-audit --no-fund
+          cd tools/explore-export
+          npx playwright install --with-deps chromium
+      - name: Install verified Drive uploader
+        working-directory: ${{ runner.temp }}
+        run: |
+          curl --fail --silent --show-error --location --retry 3 -o rclone.zip https://downloads.rclone.org/v1.75.0/rclone-v1.75.0-linux-amd64.zip
+          echo 'aa2804e08f48250e71009c727124b6341cd0288465804a9a09d14663cabafbaa  rclone.zip' | sha256sum --check
+          unzip -q rclone.zip
+          mkdir -p "$RUNNER_TEMP/bin"
+          cp rclone-v1.75.0-linux-amd64/rclone "$RUNNER_TEMP/bin/rclone"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      - name: Check export rules
+        run: |
+          node --test tools/explore-export/test-export.cjs
+          python -m unittest discover -s tools/explore-export -p 'test_*.py'
+      - name: Collect all categories
+        env:
+          EXPORT_SELECTION: ${{ inputs.selection }}
+        run: node tools/explore-export/export.cjs --when "$EXPORT_SELECTION" --out "$RUNNER_TEMP/explore-export"
+      - name: Render numbered map
+        run: node tools/explore-export/render.cjs "$RUNNER_TEMP/explore-export"
+      - name: Save private spreadsheet and maps
+        env:
+          EXPORT_DRIVE_CONFIG: ${{ secrets.EXPLORE_EXPORT_DRIVE_CONFIG }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          content = os.environ.get('EXPORT_DRIVE_CONFIG', '')
+          if not content:
+              raise SystemExit('The private Drive export connection has not been configured.')
+          path = Path(os.environ['RUNNER_TEMP']) / 'explore-drive.conf'
+          fd = os.open(path, os.O_CREAT | os.O_TRUNC | os.O_WRONLY, 0o600)
+          with os.fdopen(fd, 'w') as output:
+              output.write(content)
+          PY
+          python tools/explore-export/publish.py "$RUNNER_TEMP/explore-export" --config "$RUNNER_TEMP/explore-drive.conf"
+      - name: Remove temporary export connection
+        if: always()
+        run: rm -f "$RUNNER_TEMP/explore-drive.conf"

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Austin.chat · Explore export</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#172b39;font:15px/1.5 system-ui,sans-serif}header{padding:22px 28px 14px;border-bottom:1px solid #dce3e8}h1{font-size:28px;margin:0 0 5px}p{margin:4px 0}.muted{color:#526472}.brand{font-size:12px;letter-spacing:.12em;font-weight:700;color:#126d79}#legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.chip{border:1px solid #cfd9de;background:white;border-radius:20px;padding:6px 12px;font:inherit;color:inherit;cursor:pointer}.chip[aria-pressed=false]{opacity:.45}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.layout{display:grid;grid-template-columns:320px 1fr;height:calc(100vh - 235px);min-height:450px}aside{overflow:auto;border-right:1px solid #dce3e8;padding:12px}#map{height:100%;min-width:0}.place{display:block;width:100%;border:0;border-bottom:1px solid #eee;background:#fff;text-align:left;padding:12px;font:inherit;cursor:pointer}.place:hover,.place:focus{background:#eef6f8}.pin{width:31px;height:31px;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px #0007;color:white;font:700 13px system-ui;cursor:pointer;display:grid;place-items:center}.maplibregl-popup-content{max-height:65vh;overflow:auto;padding:18px!important;font:14px/1.5 system-ui}.maplibregl-popup-content h2{font-size:18px;margin:0 0 8px}.maplibregl-popup-content article{padding:10px 0;border-top:1px solid #ddd}.maplibregl-popup-content h3{font-size:16px;margin:0 0 4px}.maplibregl-popup-content a{color:#086b80}footer{padding:10px 28px;color:#526472;font-size:12px}#warnings{color:#8b4f08;font-size:13px}#error{position:absolute;z-index:5;background:#fff4dc;padding:15px}body.print aside{display:none}body.print .layout{grid-template-columns:1fr;height:calc(100vh - 230px)}body.print .chip{border:0;padding:3px 8px;pointer-events:none}body.print header{padding:22px 32px 12px}body.print h1{font-size:34px}body.print .pin{width:34px;height:34px;font-size:14px}body.print footer{font-size:14px}body.print #legend{margin-top:10px}
+@media(max-width:650px){header{padding:14px}h1{font-size:23px}.layout{grid-template-columns:1fr;height:65vh}aside{display:none}footer{padding:10px 14px}.chip{font-size:12px}}
+</style></head><body>
+<header><div class="brand">AUSTIN.CHAT / EXPLORE AUSTIN</div><h1 id="title"></h1><p id="window"></p><p class="muted" id="summary"></p><p id="warnings"></p><div id="legend"></div></header>
+<div class="layout"><aside aria-label="Places in this export" id="places"></aside><main id="map" aria-label="Map of exported listings"></main></div>
+<footer id="caption"></footer><p id="error" hidden>Map tiles could not load. Open this file with an internet connection.</p>
+<script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
+<script>
+'use strict';
+const data = /*SNAPSHOT_DATA*/null;
+const byId = new Map(data.layers.map(l=>[l.id,l]));
+const enabled = new Set(data.layers.map(l=>l.id));
+const format = value => new Intl.DateTimeFormat('en-US',{timeZone:data.zone,dateStyle:'medium',timeStyle:'short'}).format(new Date(value));
+const el = (tag,text) => {const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
+const link = (label,url) => {const a=el('a',label);if(/^https?:\/\//.test(url)){a.href=url;a.target='_blank';a.rel='noopener noreferrer';}return a;};
+if(new URLSearchParams(location.search).has('print'))document.body.classList.add('print');
+document.title=data.title;
+document.querySelector('#title').textContent=(data.when==='tonight'?'Tonight':'This weekend')+' in Austin · '+data.day;
+document.querySelector('#window').textContent=format(data.windowStart)+' – '+format(data.windowEnd)+' · Austin time';
+document.querySelector('#summary').textContent=data.records.length+' listings · '+data.venues.length+' places · Numbers match the spreadsheet’s Map pin column';
+document.querySelector('#caption').textContent='Snapshot: '+format(data.exported)+' CT · Austin.chat · Check organizer links for tickets and changes. Crowded pin labels are offset; lines mark their locations. Map: OpenFreeMap / © OpenMapTiles / © OpenStreetMap contributors.';
+document.querySelector('#warnings').textContent=data.warnings.length?'Some source updates were delayed. See the spreadsheet’s Sources tab.':'';
+window.__mapErrors=[];
+const map=new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/positron',center:[-97.743,30.267],zoom:10,attributionControl:true,preserveDrawingBuffer:true});
+map.addControl(new maplibregl.NavigationControl(),'top-left');
+map.on('error',event=>{window.__mapErrors.push(String(event.error?.message||'Map error'));document.querySelector('#error').hidden=false;});
+let markers=[];
+function layoutPins(){
+ if(!map.isStyleLoaded())return;
+ const occupied=[],lines=[],size=document.querySelector('#map').getBoundingClientRect();
+ for(const marker of markers){
+  const origin=map.project(marker.getLngLat());let position={x:origin.x,y:origin.y};
+  const clear=p=>p.x>22&&p.y>22&&p.x<size.width-22&&p.y<size.height-22&&occupied.every(q=>Math.hypot(p.x-q.x,p.y-q.y)>=38);
+  if(!clear(position)){
+   search:for(let ring=1;ring<=15;ring++)for(let step=0;step<ring*12;step++){
+    const angle=step/(ring*12)*Math.PI*2,candidate={x:origin.x+ring*20*Math.cos(angle),y:origin.y+ring*20*Math.sin(angle)};
+    if(clear(candidate)){position=candidate;break search;}
+   }
+  }
+  occupied.push(position);marker.setOffset([position.x-origin.x,position.y-origin.y]);
+  if(Math.hypot(position.x-origin.x,position.y-origin.y)>1)lines.push({type:'Feature',geometry:{type:'LineString',coordinates:[marker.getLngLat().toArray(),map.unproject(position).toArray()]},properties:{}});
+ }
+ const collection={type:'FeatureCollection',features:lines};
+ if(map.getSource('pin-leaders'))map.getSource('pin-leaders').setData(collection);
+ else{map.addSource('pin-leaders',{type:'geojson',data:collection});map.addLayer({id:'pin-leaders',type:'line',source:'pin-leaders',paint:{'line-color':'#476979','line-width':1.2,'line-opacity':0.7}});}
+}
+function popup(venue,records){
+ const body=el('section');body.append(el('h2','#'+venue.number+' · '+(records[0].feature.properties.venue||'Location')));
+ body.append(el('p',records[0].feature.properties.address||''));
+ for(const record of records){
+  const p=record.feature.properties,article=el('article');
+  article.append(el('h3','Listing '+record.number+' · '+p.title));
+  article.append(el('p',byId.get(p.exploreLayer).title+' · '+(p.priceLabel||'Check admission')));
+  article.append(el('p',p.kind==='movie'?'Movie showtimes below':format(p.start)+(p.endKnown===false?' · End time not published':' – '+format(p.end))));
+  if(p.description)article.append(el('p',p.description));
+  if(p.conditions)article.append(el('p',p.conditions));
+  article.append(link('Organizer / details ↗',p.url));
+  for(const show of p.showtimes||[]){const line=el('p');line.append(link(format(show.start)+(show.format?' · '+show.format:'')+' ↗',show.url));article.append(line);}
+  body.append(article);
+ }
+ body.append(link('Google Maps directions ↗','https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(venue.coordinates[1]+','+venue.coordinates[0])));
+ new maplibregl.Popup({maxWidth:'420px'}).setLngLat(venue.coordinates).setDOMContent(body).addTo(map);
+}
+function draw(){
+ markers.forEach(m=>m.remove());markers=[];
+ const list=document.querySelector('#places');list.replaceChildren();
+ for(const venue of data.venues){
+  const records=venue.records.map(n=>data.records[n-1]).filter(r=>enabled.has(r.feature.properties.exploreLayer));
+  if(!records.length)continue;
+  const categories=[...new Set(records.map(r=>r.feature.properties.exploreLayer))];
+  const button=el('button',String(venue.number));button.className='pin';button.type='button';
+  button.style.background=categories.length>1?'#304d60':(byId.get(categories[0]).color||'#0067c5');
+  button.setAttribute('aria-label','Map pin '+venue.number+': '+records[0].feature.properties.venue+', '+records.length+' listings');
+  button.addEventListener('click',()=>popup(venue,records));
+  markers.push(new maplibregl.Marker({element:button}).setLngLat(venue.coordinates).addTo(map));
+  const item=el('button','#'+venue.number+' · '+records[0].feature.properties.venue+' · '+records.length+' listing'+(records.length===1?'':'s'));
+  item.className='place';item.addEventListener('click',()=>{map.easeTo({center:venue.coordinates,zoom:14});popup(venue,records);});list.append(item);
+ }
+ layoutPins();
+}
+for(const layer of data.layers){
+ const count=data.records.filter(r=>r.feature.properties.exploreLayer===layer.id).length;
+ const b=el('button');b.className='chip';b.type='button';b.setAttribute('aria-pressed','true');
+ const dot=el('span');dot.className='dot';dot.style.background=layer.color||'#0067c5';b.append(dot,document.createTextNode(layer.title+' · '+count));
+ b.addEventListener('click',()=>{if(enabled.has(layer.id))enabled.delete(layer.id);else enabled.add(layer.id);b.setAttribute('aria-pressed',String(enabled.has(layer.id)));draw();});
+ document.querySelector('#legend').append(b);
+}
+draw();
+if(data.venues.length){const bounds=new maplibregl.LngLatBounds();data.venues.forEach(v=>bounds.extend(v.coordinates));map.fitBounds(bounds,{padding:65,maxZoom:13,duration:0});}
+map.on('load',layoutPins);map.on('moveend',layoutPins);
+map.once('idle',()=>{window.__mapReady=true;window.__pinCount=markers.length;});
+</script></body></html>
