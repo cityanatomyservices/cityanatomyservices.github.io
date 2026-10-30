@@ -1,12 +1,12 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-30T22:41:55.123073+00:00",
+ "generated": "2026-10-30T23:03:26.686319+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
    "url": "https://falloutcomedy.com/comedy-shows/",
-   "ok": false,
-   "failures": 1,
+   "ok": true,
+   "failures": 0,
    "count": 0
   },
   {
@@ -137,7 +137,7 @@
     "end": "2026-10-31T17:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-30T22:41:55.123073+00:00",
+    "checked": "2026-10-30T23:03:26.686319+00:00",
     "expires": "2026-10-31T17:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -168,7 +168,7 @@
     "end": "2026-10-31T12:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-30T22:41:55.123073+00:00",
+    "checked": "2026-10-30T23:03:26.686319+00:00",
     "expires": "2026-10-31T12:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
