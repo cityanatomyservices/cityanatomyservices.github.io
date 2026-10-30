@@ -1,5 +1,127 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-30 — resume checkpoint: Google and email sign-in enabled
+
+The owner asked to save the current work and return in a few hours. Start here;
+older sections below describe earlier versions of the interface. No new feature
+or redesign was requested at this pause.
+
+### Where the project stands
+
+- Public site: <https://austin.chat>; planner: <https://austin.chat/myplanmap/>.
+  GitHub Pages hosting stays, with Cloudflare managing the domain/DNS.
+- Repository: `cityanatomyservices/cityanatomyservices.github.io`, branch `main`.
+  Local checkout: `C:\Dev\projects\cityanatomyservices\cityanatomyservices.github.io`
+  (`/mnt/c/Dev/projects/cityanatomyservices/cityanatomyservices.github.io` in WSL).
+- Existing Supabase project: `aqbyxpiwugcvoephsvpm`. The site uses its public
+  publishable key; management credentials and provider secrets stay private.
+  Do not replace the project, remove parcels, or rebuild the routing network
+  merely to resume authentication work.
+- Feature commits: `4e63bc1` (temporary guests and map controls), `cb658c1`
+  (Media control and Sign In placeholder), `f99518b` (Google/email-code account
+  implementation), and `773d31c` (enable email with the configured Resend sender).
+  Subsequent scheduled Explore/news/sports data commits are expected.
+- Google is configured in Supabase and its button is available on the live site.
+  Email is enabled in deployed `auth/config.json` (`emailEnabled: true`). Both
+  options were checked in the live account dialog, including mobile layout.
+- The owner verified `login.austin.chat` in Resend through Cloudflare. SMTP is
+  configured in Supabase: host `smtp.resend.com`, port `465`, user `resend`,
+  sender `no-reply@login.austin.chat`, sender name `Austin.chat`. The Resend
+  API key is stored only as Supabase's SMTP password. Use Resend's free plan.
+- The confirmation and magic-link templates contain `{{ .Token }}`. Email
+  sign-in uses a one-time code, with no user password. Google is the only
+  OAuth provider requested. Setup details: [auth/README.md](../auth/README.md).
+
+### First things to finish when the owner returns
+
+1. Confirm whether the authorized test email arrived in the owner's nominated
+   inbox (or spam). One real request was submitted through the deployed site's
+   email form; Supabase returned HTTP 200 and the form advanced to code entry.
+   Inbox receipt has **not** been confirmed. Do not equate the accepted request
+   with confirmed inbox delivery, and do not send more test emails unprompted.
+2. Have the owner perform a real email login in their own browser: Sign In →
+   enter email → Email me a code → enter the fresh code on the site. Do not ask
+   them to paste a sign-in code or API key into chat. Then confirm a selected
+   plan survives refresh when signed in and is cleared from view on sign-out.
+3. Have the owner try the real Google consent/login flow. Provider availability
+   is checked; the actual owner-account consent round trip is still unverified.
+   If Google blocks a public user, check the OAuth app's audience/test-user
+   settings and redirect configuration before changing site code.
+4. After those checks, ask which site improvement the owner wants next. The
+   separate growth plan is saved in [growth-plan/README.md](growth-plan/README.md)
+   with [a printable PDF](growth-plan/austin-chat-growth-plan.pdf). Its proposed
+   SEO, analytics, promotion and classifieds work has not been implemented by
+   the authentication task; do not treat those proposals as approved work.
+
+**Important correction from the last session:** a direct SMTP check incorrectly
+used the value returned by Supabase's management API as if it were the original
+password. Hosted Supabase hides stored secrets; the returned values appeared
+as protected 64-character fingerprints. Those direct tests returned 535, which
+did **not** establish that the owner's Resend key was invalid. The owner was
+unnecessarily asked to replace it; the mistake was explained and apologized
+for. The subsequent real request through Supabase succeeded. Do not repeat the
+direct-password test or ask for another key on that basis. This caveat is also
+recorded in `auth/README.md` and `tools/auth/configure.py`.
+
+### Behavior and preferences to preserve
+
+- Guests automatically receive a temporary anonymous identity. Their itinerary,
+  nickname and visibility are held in page memory and reset on refresh/reopen.
+  Display preferences remain remembered. Only registered accounts persist
+  login credentials and private saved plans. There is no persistent guest plan
+  in localStorage, sessionStorage, a cookie or a URL.
+- Navigation between the main map and planner keeps the outer page alive so
+  guest selections survive that navigation and Back. A new visit starts fresh.
+  Guest auth records still support protected APIs; scoped cleanup removes
+  inactive tagged guest accounts after at least 24 hours. This is not a promise
+  of immediate deletion of Supabase security logs.
+- Sign-in merges current guest selections into the account's saved days;
+  failed cloud loads preserve selections for retry. Sign-out saves outstanding
+  edits first or offers an explicit discard choice. Different accounts stay
+  isolated. Google names and private email addresses are not public chat names.
+- A Day Planner view covers one Austin day, 5 AM to 4:59 AM the following day.
+  Multiple days are supported as separate selected days. Scheduling, routing,
+  account UI and neighborhood chat stay modular. Selecting a destination never
+  claims the visitor is physically there or changes chat presence.
+- Routing is for static travel-time planning. Google Maps, Apple Maps or Waze
+  handle driving navigation. Existing Supabase/PostGIS routing and parcel data
+  remain in place; see [routing docs](../tools/routing/README.md).
+- Main-map controls include Apps, Media, Day Plan, Chat, Explore and GPS; zoom
+  is a standard control at top left. Apps/Media replace the former hamburger
+  sections. The header has Sign In/Account, and the planner drawer collapses.
+  Keep the Contact page. Light mode uses white surfaces. Existing Explore and
+  ticker sources update through scheduled code; no AI subscription is needed.
+
+### Code and validation to pick up
+
+- `shared/visit.js`: visit memory and map/planner navigation.
+- `shared/session.js`: one parent-owned Supabase client shared with child
+  frames; guest memory versus persistent registered sessions; cross-tab logout.
+- `shared/account.js` / `.css`: account dialog, Google popup/PKCE, email codes,
+  sign-out. `auth/callback/`: same-origin callback relay with attempt validation.
+- `planner/store.js`: merging, account-scoped persistence, revision conflicts
+  and retry. `chat/auth.js` / `room.js`: nickname and visibility reset/rejoin.
+- Current auth release asset tag is `20261030a`; SDK is pinned to 2.118.0.
+  Follow `CLAUDE.md` cache-version rules when changing browser assets.
+- Before activation, **53 planner/session Node tests passed**, as did the real
+  guest-privacy/routing browser checks. The committed browser integration check
+  passed actual Supabase OTP verification, guest/account merge, cloud restore,
+  two-account isolation, cross-tab/offline sign-out, and phone layouts. Its
+  Google consent and email delivery are simulated; distinguish them from the
+  later single real email request and the still-pending owner checks above.
+- Useful commands: `node --test tests/planner/*.test.cjs`;
+  `python3 tools/auth/configure.py` (configuration-presence flags only);
+  `node tools/auth/check-browser.cjs http://127.0.0.1:8765` (disposable accounts,
+  no real email sent). Start a local static server if needed; see auth docs for
+  Playwright/Chromium prerequisites. Do not rely on old `/tmp` test scripts or
+  an old preview process still running.
+- The existing local management token is read by the helper, not embedded in
+  code. Never print it or commit it. Normal repo credential-helper pushes work;
+  fetch first to incorporate scheduled data commits, then push `main` normally.
+- `773d31c` completed GitHub Pages deployment successfully. This checkpoint
+  changes documentation only; it does not require rerunning functional tests
+  or reapplying database migrations.
+
 ## 2026-10-29 (forty-fifth pass) — growth plan: how austin.chat gets users (research, no site changes)
 
 Owner asked for "anywhere and everywhere I can promote Austin.Chat" plus a plan
