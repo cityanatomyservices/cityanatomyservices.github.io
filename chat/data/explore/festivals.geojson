@@ -1,12 +1,12 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-31T13:07:04.601383+00:00",
+ "generated": "2026-10-31T19:34:50.843408+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
    "url": "https://falloutcomedy.com/comedy-shows/",
-   "ok": false,
-   "failures": 1,
+   "ok": true,
+   "failures": 0,
    "count": 0
   },
   {
@@ -21,7 +21,7 @@
    "url": "https://www.meanwhilebeer.com/events",
    "ok": true,
    "failures": 0,
-   "count": 1
+   "count": 0
   },
   {
    "name": "Austin Flea",
@@ -98,7 +98,7 @@
    "url": "https://www.austintexas.gov/ace/events",
    "ok": true,
    "failures": 0,
-   "count": 0
+   "count": 2
   },
   {
    "name": "Shoal Creek Conservancy",
@@ -137,7 +137,7 @@
     "end": "2026-10-31T17:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
     "expires": "2026-10-31T17:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -149,33 +149,64 @@
   },
   {
    "type": "Feature",
-   "id": "c50f75ec798d68fd03c0",
+   "id": "d70c1720b9ff8e7a9588",
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.730163891198,
-     30.209126472341
+     -97.757459131456,
+     30.154350520888
     ]
    },
    "properties": {
-    "id": "c50f75ec798d68fd03c0",
-    "title": "Halloween Carnival",
-    "venue": "Meanwhile Brewing",
-    "address": "3901 Promontory Point Dr Austin TX",
+    "id": "d70c1720b9ff8e7a9588",
+    "title": "Festival of Good",
+    "venue": "Baythorne Park",
+    "address": "5601 Baythorne Dr. Austin TX",
     "kind": "listing",
     "theme": "festivals",
-    "start": "2026-10-31T12:00:00-05:00",
-    "end": "2026-10-31T12:00:01-05:00",
-    "endKnown": false,
+    "start": "2026-11-14T10:00:00-06:00",
+    "end": "2026-11-14T14:00:00-06:00",
+    "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-10-31T12:00:00-05:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
-    "url": "https://www.meanwhilebeer.com/events/halloween-carnival",
-    "source": "Meanwhile Brewing",
+    "url": "https://www.austintexas.gov/arts-culture/events/festival-good-0",
+    "source": "Austin Center for Events",
     "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "24e79eede4af087a2843",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.724827393709,
+     30.249957048156
+    ]
+   },
+   "properties": {
+    "id": "24e79eede4af087a2843",
+    "title": "Texas Craft Brewers Festival",
+    "venue": "Fiesta Gardens",
+    "address": "2100 Jesse E. Segovia Street Austin TX",
+    "kind": "listing",
+    "theme": "festivals",
+    "start": "2026-11-14T12:00:00-06:00",
+    "end": "2026-11-14T18:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/ace/events/texas-craft-brewers-festival",
+    "source": "Austin Center for Events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   }
  ]

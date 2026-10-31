@@ -1,12 +1,12 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-31T13:07:04.601383+00:00",
+ "generated": "2026-10-31T19:34:50.843408+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
    "url": "https://falloutcomedy.com/comedy-shows/",
-   "ok": false,
-   "failures": 1,
+   "ok": true,
+   "failures": 0,
    "count": 0
   },
   {
@@ -28,7 +28,7 @@
    "url": "https://www.austinflea.net/",
    "ok": true,
    "failures": 0,
-   "count": 2
+   "count": 3
   },
   {
    "name": "UT Austin",
@@ -42,21 +42,21 @@
    "url": "https://nextdoor.com/pages/santas-sun-market-georgetown-tx/",
    "ok": true,
    "failures": 0,
-   "count": 2
+   "count": 3
   },
   {
    "name": "SoCo Makers Market",
    "url": "https://www.socomakersmarket.com/",
    "ok": true,
    "failures": 0,
-   "count": 6
+   "count": 7
   },
   {
    "name": "Austin Makers Collective",
    "url": "https://www.austinmakerscollective.com/about-3",
    "ok": true,
    "failures": 0,
-   "count": 6
+   "count": 7
   },
   {
    "name": "Texas Farmers’ Market at Bell",
@@ -91,7 +91,7 @@
    "url": "https://yarrowandsageatx.com/pages/calendar",
    "ok": true,
    "failures": 0,
-   "count": 5
+   "count": 6
   },
   {
    "name": "The Front Market / Future Front",
@@ -130,105 +130,12 @@
     "end": "2026-10-31T15:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
     "expires": "2026-10-31T15:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austinmakerscollective.com/about-3",
     "source": "Austin Makers Collective",
-    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "fb57d8585c140eb2bf4d",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.823088749302,
-     30.509054775682
-    ]
-   },
-   "properties": {
-    "id": "fb57d8585c140eb2bf4d",
-    "title": "Texas Farmers’ Market at Bell — Cedar Park",
-    "venue": "Texas Farmers’ Market at Bell — Cedar Park",
-    "address": "200 S Bell Blvd Cedar Park TX 78613",
-    "kind": "listing",
-    "theme": "pop-up-markets",
-    "start": "2026-10-31T09:00:00-05:00",
-    "end": "2026-10-31T13:00:00-05:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-10-31T13:00:00-05:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://texasfarmersmarket.org/farmers-markets-and-events",
-    "source": "Texas Farmers’ Market at Bell",
-    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "666e50372d03fad39fd6",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746940539285,
-     30.2674352781
-    ]
-   },
-   "properties": {
-    "id": "666e50372d03fad39fd6",
-    "title": "SFC Farmers’ Market Downtown",
-    "venue": "Republic Square",
-    "address": "422 Guadalupe St Austin TX 78701",
-    "kind": "listing",
-    "theme": "pop-up-markets",
-    "start": "2026-10-31T09:00:00-05:00",
-    "end": "2026-10-31T13:00:00-05:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-10-31T13:00:00-05:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",
-    "source": "SFC Farmers’ Markets",
-    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "fb4a66aaffba52f3ea11",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.808652592196,
-     30.227975705669
-    ]
-   },
-   "properties": {
-    "id": "fb4a66aaffba52f3ea11",
-    "title": "SFC Farmers’ Market at Sunset Valley",
-    "venue": "Toney Burger Center",
-    "address": "3200 Jones Rd Austin TX 78745",
-    "kind": "listing",
-    "theme": "pop-up-markets",
-    "start": "2026-10-31T09:00:00-05:00",
-    "end": "2026-10-31T13:00:00-05:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-10-31T13:00:00-05:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",
-    "source": "SFC Farmers’ Markets",
     "description": "Regular published schedule; check the organizer for weather and holiday changes.",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -254,7 +161,7 @@
     "end": "2026-10-31T15:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
     "expires": "2026-10-31T15:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -285,43 +192,12 @@
     "end": "2026-10-31T17:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
     "expires": "2026-10-31T17:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.socomakersmarket.com/",
     "source": "SoCo Makers Market",
-    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "8fa1e70c4a1f26f713f1",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.690843172551,
-     30.530909584109
-    ]
-   },
-   "properties": {
-    "id": "8fa1e70c4a1f26f713f1",
-    "title": "Round Rock Farmers Market",
-    "venue": "Rock Creek Center — Round Rock",
-    "address": "2111 N Interstate 35 Round Rock TX 78664",
-    "kind": "listing",
-    "theme": "pop-up-markets",
-    "start": "2026-10-31T10:00:00-05:00",
-    "end": "2026-10-31T14:00:00-05:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-10-31T14:00:00-05:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.farmergeorge.market/",
-    "source": "Farmer George",
     "description": "Regular published schedule; check the organizer for weather and holiday changes.",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -347,7 +223,7 @@
     "end": "2026-10-31T16:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
     "expires": "2026-10-31T16:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -378,39 +254,8 @@
     "end": "2026-10-31T16:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
     "expires": "2026-10-31T16:00:00-05:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://yarrowandsageatx.com/pages/calendar",
-    "source": "Austin Witches Market / Yarrow & Sage",
-    "description": "Dated market from the organizer’s calendar. Check event details for entry and age restrictions.",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "fb70d9ffcae82d006584",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.874355546749,
-     30.407014941946
-    ]
-   },
-   "properties": {
-    "id": "fb70d9ffcae82d006584",
-    "title": "Witches Market @ Oasis Texas Brewing Company",
-    "venue": "Oasis Texas Brewing Company",
-    "address": "6650 Comanche Trail Suite #301, Austin TX 78732",
-    "kind": "listing",
-    "theme": "pop-up-markets",
-    "start": "2026-10-31T16:00:00-05:00",
-    "end": "2026-10-31T20:00:00-05:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-10-31T20:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://yarrowandsageatx.com/pages/calendar",
@@ -440,8 +285,39 @@
     "end": "2026-10-31T21:00:00-05:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
     "expires": "2026-10-31T21:00:00-05:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://yarrowandsageatx.com/pages/calendar",
+    "source": "Austin Witches Market / Yarrow & Sage",
+    "description": "Dated market from the organizer’s calendar. Check event details for entry and age restrictions.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fb70d9ffcae82d006584",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.874355546749,
+     30.407014941946
+    ]
+   },
+   "properties": {
+    "id": "fb70d9ffcae82d006584",
+    "title": "Witches Market @ Oasis Texas Brewing Company",
+    "venue": "Oasis Texas Brewing Company",
+    "address": "6650 Comanche Trail Suite #301, Austin TX 78732",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-10-31T16:00:00-05:00",
+    "end": "2026-10-31T20:00:00-05:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-10-31T20:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://yarrowandsageatx.com/pages/calendar",
@@ -471,8 +347,8 @@
     "end": "2026-11-01T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austinmakerscollective.com/about-3",
@@ -502,8 +378,8 @@
     "end": "2026-11-01T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://texasfarmersmarket.org/mueller",
@@ -533,8 +409,8 @@
     "end": "2026-11-01T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.socomakersmarket.com/",
@@ -564,8 +440,8 @@
     "end": "2026-11-01T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://futurefronttexas.org/events/2024/7/18/hotsummernights-s962z-weyxx",
@@ -595,8 +471,8 @@
     "end": "2026-11-01T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://futurefronttexas.org/events/2024/7/18/hotsummernights-s962z-weyxx-p23s8",
@@ -626,8 +502,8 @@
     "end": "2026-11-06T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.socomakersmarket.com/",
@@ -657,8 +533,8 @@
     "end": "2026-11-06T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austinmakerscollective.com/about-3",
@@ -688,8 +564,8 @@
     "end": "2026-11-07T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austinmakerscollective.com/about-3",
@@ -719,8 +595,8 @@
     "end": "2026-11-07T13:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://texasfarmersmarket.org/farmers-markets-and-events",
@@ -750,8 +626,8 @@
     "end": "2026-11-07T13:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",
@@ -781,8 +657,8 @@
     "end": "2026-11-07T13:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",
@@ -812,8 +688,8 @@
     "end": "2026-11-07T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://nextdoor.com/pages/santas-sun-market-georgetown-tx/",
@@ -843,8 +719,8 @@
     "end": "2026-11-07T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.socomakersmarket.com/",
@@ -874,8 +750,8 @@
     "end": "2026-11-07T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.farmergeorge.market/",
@@ -905,8 +781,8 @@
     "end": "2026-11-07T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://yarrowandsageatx.com/pages/calendar",
@@ -936,8 +812,8 @@
     "end": "2026-11-07T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austinflea.net/",
@@ -967,8 +843,8 @@
     "end": "2026-11-07T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://yarrowandsageatx.com/pages/calendar",
@@ -998,8 +874,8 @@
     "end": "2026-11-08T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austinmakerscollective.com/about-3",
@@ -1029,8 +905,8 @@
     "end": "2026-11-08T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://texasfarmersmarket.org/mueller",
@@ -1060,8 +936,8 @@
     "end": "2026-11-08T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.socomakersmarket.com/",
@@ -1091,8 +967,8 @@
     "end": "2026-11-08T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.cmwbrewery.com/event?event=8py0-vd14",
@@ -1122,8 +998,8 @@
     "end": "2026-11-13T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.socomakersmarket.com/",
@@ -1153,13 +1029,292 @@
     "end": "2026-11-13T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-10-31T13:07:04.601383+00:00",
-    "expires": "2026-11-01T13:07:04.601383+00:00",
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austinmakerscollective.com/about-3",
     "source": "Austin Makers Collective",
     "description": "Regular published schedule; check the organizer for weather and holiday changes.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c57724436a7357caa32f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746595409587,
+     30.257706738806
+    ]
+   },
+   "properties": {
+    "id": "c57724436a7357caa32f",
+    "title": "RivCo Pop Up — Austin Makers Collective",
+    "venue": "Cork & Brew Market — RivCo",
+    "address": "343 S Congress Ave Austin TX 78704",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T09:00:00-06:00",
+    "end": "2026-11-14T15:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austinmakerscollective.com/about-3",
+    "source": "Austin Makers Collective",
+    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3738758bfae154bae68c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.823088749302,
+     30.509054775682
+    ]
+   },
+   "properties": {
+    "id": "3738758bfae154bae68c",
+    "title": "Texas Farmers’ Market at Bell — Cedar Park",
+    "venue": "Texas Farmers’ Market at Bell — Cedar Park",
+    "address": "200 S Bell Blvd Cedar Park TX 78613",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T09:00:00-06:00",
+    "end": "2026-11-14T13:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://texasfarmersmarket.org/farmers-markets-and-events",
+    "source": "Texas Farmers’ Market at Bell",
+    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "56311a117d9fed3a7755",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746940539285,
+     30.2674352781
+    ]
+   },
+   "properties": {
+    "id": "56311a117d9fed3a7755",
+    "title": "SFC Farmers’ Market Downtown",
+    "venue": "Republic Square",
+    "address": "422 Guadalupe St Austin TX 78701",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T09:00:00-06:00",
+    "end": "2026-11-14T13:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",
+    "source": "SFC Farmers’ Markets",
+    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f28591f52df323555c01",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.808652592196,
+     30.227975705669
+    ]
+   },
+   "properties": {
+    "id": "f28591f52df323555c01",
+    "title": "SFC Farmers’ Market at Sunset Valley",
+    "venue": "Toney Burger Center",
+    "address": "3200 Jones Rd Austin TX 78745",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T09:00:00-06:00",
+    "end": "2026-11-14T13:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",
+    "source": "SFC Farmers’ Markets",
+    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6b789d3d126c9e3d96bc",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.690212760904,
+     30.63401999627
+    ]
+   },
+   "properties": {
+    "id": "6b789d3d126c9e3d96bc",
+    "title": "Sunshine Markets — Georgetown",
+    "venue": "Floor & Decor parking lot — Georgetown",
+    "address": "1101 S Interstate 35 Georgetown TX 78626",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T10:00:00-06:00",
+    "end": "2026-11-14T15:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://nextdoor.com/pages/santas-sun-market-georgetown-tx/",
+    "source": "Sunshine Markets",
+    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2f2006cc21372ef3bc6a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.749892057191,
+     30.248852878064
+    ]
+   },
+   "properties": {
+    "id": "2f2006cc21372ef3bc6a",
+    "title": "SoCo Makers Market & Vintage Annex",
+    "venue": "SoCo Makers Market",
+    "address": "1501 S Congress Ave Austin TX 78704",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T10:00:00-06:00",
+    "end": "2026-11-14T17:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.socomakersmarket.com/",
+    "source": "SoCo Makers Market",
+    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "197c715adbcd607076a7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.690843172551,
+     30.530909584109
+    ]
+   },
+   "properties": {
+    "id": "197c715adbcd607076a7",
+    "title": "Round Rock Farmers Market",
+    "venue": "Rock Creek Center — Round Rock",
+    "address": "2111 N Interstate 35 Round Rock TX 78664",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T10:00:00-06:00",
+    "end": "2026-11-14T14:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.farmergeorge.market/",
+    "source": "Farmer George",
+    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e248eea96a6b012dec86",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.717926811993,
+     30.325710710294
+    ]
+   },
+   "properties": {
+    "id": "e248eea96a6b012dec86",
+    "title": "Austin Flea at Tx Craft Brewers Festival",
+    "venue": "Tx Craft Brewers Festival",
+    "address": "6015 Dillard Cir. Austin TX",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T12:00:00-06:00",
+    "end": "2026-11-14T18:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austinflea.net/",
+    "source": "Austin Flea",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "cf1c0f3ab59f8cd56483",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.756740996338,
+     30.235115423958
+    ]
+   },
+   "properties": {
+    "id": "cf1c0f3ab59f8cd56483",
+    "title": "Witches Market @ The Great Outdoors",
+    "venue": "The Great Outdoors",
+    "address": "2730 S Congress Ave, Austin TX 78704",
+    "kind": "listing",
+    "theme": "pop-up-markets",
+    "start": "2026-11-14T12:00:00-06:00",
+    "end": "2026-11-14T16:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-10-31T19:34:50.843408+00:00",
+    "expires": "2026-11-01T19:34:50.843408+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://yarrowandsageatx.com/pages/calendar",
+    "source": "Austin Witches Market / Yarrow & Sage",
+    "description": "Dated market from the organizer’s calendar. Check event details for entry and age restrictions.",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   }
