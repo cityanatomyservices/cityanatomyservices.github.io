@@ -25,10 +25,11 @@ Both boundaries start off and load only when selected; refresh and sign-out
 clear them. Enabling a boundary leaves the map camera in place. The original
 opening camera, 3D tilt, basemap and neighborhood behavior are unchanged.
 
-ZIP codes reuse `/datacenters/data/zipcodes.geojson` (103 regional areas), and
-council districts reuse `/budget/data/council_districts.geojson` (10 districts).
-These are the existing compact local snapshots, with their original fields
-and geometry. ZIP codes have dashed purple outlines; districts have solid
+ZIP codes use `/chat/data/zipcodes.geojson`: the owner's selected Austin-only
+dataset `49ja-3mqz`, downloaded on 2026-10-31 (44 ZIP areas, all Austin). The
+complete source geometry and properties are retained; see `data/README.md`.
+Council districts reuse `/budget/data/council_districts.geojson` (10 districts).
+ZIP codes have dashed purple outlines; districts have solid
 orange outlines; both have labels and white halos for legibility on imagery.
 The panel links to their Austin Open Data sources. These are geographic
 reference layers and do not affect chat rooms, GPS or plan selection.

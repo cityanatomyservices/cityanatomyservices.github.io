@@ -23,7 +23,7 @@ window.AustinMapLayers = {
     }, true);
 
     const boundaries = [
-      { id: 'zip', url: '/datacenters/data/zipcodes.geojson?v=20260912b', field: 'zipcode', color: '#7543aa', prefix: '', name: 'ZIP codes' },
+      { id: 'zip', url: '/chat/data/zipcodes.geojson?v=20261031d', field: 'zipcode', color: '#7543aa', prefix: '', name: 'ZIP codes' },
       { id: 'council', url: '/budget/data/council_districts.geojson?v=20260912h', field: 'district_number', color: '#b54b12', prefix: 'District ', name: 'council districts' }
     ];
     function draw(layer) {

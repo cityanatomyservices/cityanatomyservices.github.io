@@ -87,6 +87,6 @@ export const CREDITS = [
   { label: 'City Anatomy', detail: 'austin.chat', url: 'https://austin.chat' },
   { label: 'TikTok', detail: '@anatomy.city', url: 'https://www.tiktok.com/@anatomy.city' },
   { label: 'X', detail: '@anatomycity', url: 'https://x.com/anatomycity' },
-  { label: 'Substack', detail: '@cityanatomy', url: 'https://cityanatomy.substack.com' },
+  { label: 'Substack', detail: '@austindotchat', url: 'https://austindotchat.substack.com/' },
   { label: 'Patreon', detail: '/cityanatomy', url: 'https://www.patreon.com/cityanatomy' },
 ];

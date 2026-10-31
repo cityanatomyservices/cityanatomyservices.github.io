@@ -7,7 +7,7 @@
 // style). ALL map styling stays in the style file, never here. The one thing
 // the page adds to the map is the visitor's own location dot.
 
-import { COPY, CREDITS } from './copy.js';
+import { COPY, CREDITS } from './copy.js?v=20261031d';
 import { stopDisplayName } from './names.js';
 import { esc } from '../../webtour/text.js';
 import { evaluatePosition, metersToStop } from '../../webtour/engine.js';

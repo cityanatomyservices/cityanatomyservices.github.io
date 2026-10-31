@@ -1,5 +1,33 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-31 — Austin-only ZIP layer and updated Substack links
+
+Owner supplied Austin Open Data dataset `49ja-3mqz` to replace the main map's
+broader regional ZIP layer. `chat/data/zipcodes.geojson` is a complete download
+of that dataset: 44 MultiPolygon features, 44 unique ZIP codes, all identifying
+Austin, TX. Original geometry and properties are retained; only whitespace was
+compacted (152 KB). The main Map panel loads this file and links to the supplied
+dataset page. The layer remains off by default. Regional ZIP snapshots used
+by other maps and council district data are unchanged. Source/download details
+are recorded in `chat/data/README.md`.
+
+Owner also changed the Substack destination to
+`https://austindotchat.substack.com/` and authorized updating it everywhere.
+The shared footer icon, content/Media catalog and both tour credit panels use
+the new address. Tour credit display handles now read `@austindotchat`. The old
+publication URL no longer appears in the repository. Other publications' news
+sources are unchanged. Changed scripts, tour modules, frame references and
+the shared navigation loader use `20261031d` to refresh existing browsers.
+
+Validation: source row count, unique ZIP codes, Austin/TX attributes, geometry
+types and coordinate bounds checked. The complete Map layers browser check
+passed locally at 1280 px and 390 px with the new data, including actual map
+rendering, city-field checks, defaults/reset, failed-load retry and unchanged
+catalog controls. A separate browser check verified the new footer links on
+the home, contact, shopping and both tour pages, the shopping Media link, and
+both tour credit links/handles. Syntax and whitespace checks passed. Browser
+checks use simulated/blocked auth and change no production accounts.
+
 ## 2026-10-31 — main-map button order and Map layers panel
 
 Owner follow-up: the stack button now says **Map**, including its accessible

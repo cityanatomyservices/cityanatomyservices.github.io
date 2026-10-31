@@ -9,7 +9,7 @@
 // and the visitor's own location dot, all drawn only in the style's reserved
 // arc colours.
 
-import { COPY, CREDITS } from './copy.js';
+import { COPY, CREDITS } from './copy.js?v=20261031d';
 import { esc } from '../../webtour/text.js';
 import { evaluatePosition, nearestPendingStop, ringCoordinates } from '../../webtour/engine.js';
 import { createStore } from '../../webtour/store.js?v=20261030c';

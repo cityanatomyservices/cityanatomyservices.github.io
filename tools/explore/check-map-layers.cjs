@@ -44,9 +44,10 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   await f.locator('#ctrlSatellite').click();assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');
   await f.locator('#ctrlExtent').click();await f.waitForFunction(()=>!chatMap.isMoving()&&chatMap.getPitch()===0);assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'false');
   const camera=await f.evaluate(()=>({center:chatMap.getCenter().toArray(),zoom:chatMap.getZoom()}));
-  for(const [input,id,count] of [['layerZipCodes','zip',103],['layerCouncilDistricts','council',10]]){
+  for(const [input,id,count] of [['layerZipCodes','zip',44],['layerCouncilDistricts','council',10]]){
    await f.locator('#'+input).check();await f.waitForFunction(id=>chatMap.getLayer('boundary-'+id+'-line')&&chatMap.getLayoutProperty('boundary-'+id+'-line','visibility')==='visible',id);
    assert.equal(await f.evaluate(async id=>(await chatMap.getSource('boundary-'+id).getData()).features.length,id),count);
+   if(id==='zip')assert.deepEqual(await f.evaluate(async()=>[...new Set((await chatMap.getSource('boundary-zip').getData()).features.map(f=>f.properties.city))]),['Austin']);
    await f.waitForFunction(id=>chatMap.queryRenderedFeatures({layers:['boundary-'+id+'-line']}).length>0,id);
   }
   assert.deepEqual(await f.evaluate(()=>({center:chatMap.getCenter().toArray(),zoom:chatMap.getZoom()})),camera,'boundary toggles do not move the map');
@@ -59,10 +60,10 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   await page.reload();f=await ready(page);assert.equal(await f.locator('[data-boundary]:checked').count(),0);assert.equal(await f.evaluate(()=>!!chatMap.getSource('boundary-zip')||!!chatMap.getSource('boundary-council')),false);
   assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');
   // A failed load is actionable and retrying the toggle succeeds.
-  await context.route('**/datacenters/data/zipcodes.geojson?*',route=>route.fulfill({status:503,body:'Unavailable'}),{times:1});
+  await context.route('**/chat/data/zipcodes.geojson?*',route=>route.fulfill({status:503,body:'Unavailable'}),{times:1});
   await layersOpen(f);await f.locator('#layerZipCodes').click();await f.locator('[data-boundary-status=zip]').filter({hasText:'Could not load'}).waitFor();assert.equal(await f.locator('#layerZipCodes').isChecked(),false);
   let release;const gate=new Promise(resolve=>{release=resolve;});
-  await context.route('**/datacenters/data/zipcodes.geojson?*',async route=>{await gate;await route.continue();},{times:1});
+  await context.route('**/chat/data/zipcodes.geojson?*',async route=>{await gate;await route.continue();},{times:1});
   await f.locator('#layerZipCodes').check();await f.locator('[data-boundary-status=zip]').filter({hasText:'Loading'}).waitFor();await f.locator('#layerZipCodes').uncheck();release();
   await f.waitForFunction(()=>!document.querySelector('[data-boundary-status=zip]').textContent);
   await f.locator('#layerZipCodes').check();await f.waitForFunction(()=>chatMap.getLayer('boundary-zip-line')&&chatMap.getLayoutProperty('boundary-zip-line','visibility')==='visible');

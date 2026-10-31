@@ -1,4 +1,23 @@
-# chat/data/ — neighborhood geofences for the chat map
+# chat/data/ — boundaries and places for the chat map
+
+## zipcodes.geojson — Austin ZIP areas (owner-selected, 2026-10-31)
+
+Downloaded from [Boundaries: City of Austin Zip Codes](https://data.austintexas.gov/City-Government/Boundaries-City-of-Austin-Zip-Codes/49ja-3mqz/about_data),
+dataset `49ja-3mqz`, provided by Austin Open Data with USPS source attribution.
+Download: `https://data.austintexas.gov/resource/49ja-3mqz.geojson?$limit=50000`.
+
+The snapshot has 44 features and 44 unique ZIP codes; every row identifies
+Austin, TX. All geometries are MultiPolygon, longitude/latitude.
+The full source geometry and properties are retained, with JSON whitespace
+compacted (about 152 KB). Labels use `zipcode`. This is the portal's selected
+ZIP-area dataset; it is not an additional clip to municipal boundaries.
+
+The main map's Map panel loads this file only when ZIP codes is enabled. It
+replaces the broader 103-area regional snapshot for the main map; files used
+by other maps are unchanged. To refresh, download the same source, check the
+row count and ZIP/city fields, and bump the data URL in `../map-layers.js`.
+
+## Neighborhoods
 
 `neighborhoods.geojson` — the City of Austin **Neighborhoods** layer
 (neighborhood planning areas), downloaded unchanged from the Austin Open

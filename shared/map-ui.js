@@ -66,7 +66,7 @@
       if(!existing.ctrlExtent)$('ctrlExtent').onclick=()=>map.fitBounds(currentBounds,{padding:50,pitch:0,bearing:0,duration:600});
       (existing.ctrlExtent||$('ctrlExtent')).setAttribute('aria-label','Show map extent');
       await script('/planner/select.js?v=20261030e');
-      await script('/chat/catalog-menu.js?v=20261030c');
+      await script('/chat/catalog-menu.js?v=20261031d');
       await script('/chat/explore/config.js?v=20261028e');await script('/chat/explore/model.js?v=20261028e');await script('/chat/explore/explore.js?v=20261031a');
       await window.AustinExplore.init(map);
       const existingChat=$('btn-chat');
