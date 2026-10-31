@@ -28,6 +28,11 @@ the home, contact, shopping and both tour pages, the shopping Media link, and
 both tour credit links/handles. Syntax and whitespace checks passed. Browser
 checks use simulated/blocked auth and change no production accounts.
 
+Published implementation `40cd3ff`; Pages run `41231128714` and Check My Plan
+Map `41231129086` passed. Live checks confirm the ZIP GeoJSON exactly matches
+the downloaded 44-area snapshot, the footer/catalog/tour modules use the new
+Substack URL, and the homepage serves the new frame and script versions.
+
 ## 2026-10-31 — main-map button order and Map layers panel
 
 Owner follow-up: the stack button now says **Map**, including its accessible
