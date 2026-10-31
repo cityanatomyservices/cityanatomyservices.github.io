@@ -38,6 +38,11 @@ mode. A catalog shopping map retained its old order and working Media menu
 at both widths. Tests simulate authentication and make no production account
 changes. The same command accepts the live site URL after deployment.
 
+Published implementation `2902613`; Pages deployment `41229593299` and Check
+My Plan Map `41229593850` passed. The homepage serves `20261031b`, and the
+complete Map layers browser check passed against `https://austin.chat` at
+both desktop and phone widths, including unchanged catalog controls.
+
 ## 2026-10-31 — blank main map for signed-out visits
 
 Owner reported points remaining on the main map after refreshing while signed
