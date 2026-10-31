@@ -41,12 +41,13 @@ test('frames reuse their parent client without adding another authentication lif
  assert.equal(frame.api,parent.api);assert.equal(frame.authOptions,undefined);
 });
 test('explicit sign-in persists only a member session; sign-out clears private browser state',async()=>{
- const f=fixture();await f.api.ready();f.visit.set('planner:guest','temporary stops');f.visit.set('chat:identity','nickname');
+ const f=fixture();await f.api.ready();f.visit.set('planner:guest','temporary stops');f.visit.set('chat:identity','nickname');f.visit.set('explore:guest','temporary layers');
  const member={user:{id:'member',is_anonymous:false,email:'test@example.invalid'},access_token:'member-access',refresh_token:'member-refresh',provider_token:'unused-google-access'};
  f.signIn(member);assert.equal(f.api.registered,true);assert.equal(JSON.parse(f.local.get(key)).provider_token,undefined);
  f.local.set('austin:planner:v1:member','private stops');f.local.set('theme','dark');
  await f.api.signOut();assert.equal(f.local.has(key),false);assert.equal(f.visit.get('planner:guest'),null);assert.equal(f.visit.get('chat:identity'),null);
  assert.equal(f.local.has('austin:planner:v1:member'),false);assert.equal(f.local.get('theme'),'dark');
+ assert.equal(f.visit.get('explore:guest'),null);
  assert.equal((await f.api.ready()).user.is_anonymous,true);assert.equal(f.local.has(key),false);
  assert.equal(f.authOptions.flowType,'pkce');assert.equal(f.authOptions.detectSessionInUrl,false);
 });

@@ -1,5 +1,33 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-31 — blank main map for signed-out visits
+
+Owner reported points remaining on the main map after refreshing while signed
+out. Explore was restoring `austin-explore-v1` from localStorage for everybody
+and enabling Free & cheap even for a fresh guest. Guests now start with every
+Explore category off, ignore old persistent Explore settings and keep their
+choices/search/filter state only in `AustinVisit` memory. Switching framed
+maps keeps the current visit; refresh, reopening and new tabs start blank.
+Guest plan selections already follow this lifetime and still clear on refresh.
+
+Sign-out immediately clears Explore points, popups, search and filters, cancels
+pending location callbacks and removes the guest Explore cache even when its
+map is not currently mounted. Feed responses that finish later cannot enable
+cleared categories. Guests ignore other tabs' persistent Explore changes.
+Registered category defaults and browser/account preference saving remain as
+before; the owner has not yet chosen new signed-in behavior. Other display
+settings retain their existing behavior. No database or account data changes.
+
+Validation: planner/session/member Node suites, Explore model checks and
+changed-module syntax checks passed. `tools/explore/check-guest-reset.cjs`
+passed in Chromium against the local homepage, including clean and legacy
+guest storage, actual map-source contents, working category selections,
+main map → planner → main map navigation, refresh clearing both pins and guest
+plans, new tabs, ignored storage events, registered preference restore and
+sign-out. Auth and feeds are intercepted fixtures: no accounts or production
+data are created or modified. The blank signed-out homepage was visually
+checked. Updated module, loader and map-frame references use `20261031a`.
+
 ## 2026-10-30 — private Explore spreadsheet and map exports
 
 Owner requested all categories from Explore's Tonight selection and Friday's

@@ -44,7 +44,9 @@ the account module and never enter a chat room or change map visibility.
 Guest nicknames, credentials and visibility are temporary. The home map and
 planner share them while switching within the same page visit; refresh/reopen
 starts fresh. Visibility starts OFF. Registered accounts can retain their
-profile and visibility preference. Display preferences stay in browser storage.
+profile and visibility preference. Guest Explore layers and filters last only
+for the visit and reset to a blank map on refresh or sign-out. Other display
+preferences stay in browser storage.
 Guest messages are broadcast live but not written to saved history; registered
 messages keep the existing 30-day history behavior. Migration `0007` enforces
 this distinction and clears the prior anonymous saved application data.

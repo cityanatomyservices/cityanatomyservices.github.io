@@ -78,7 +78,8 @@ approved test address, then confirm receipt in that inbox.
 - Sign-out attempts to save outstanding itinerary edits first. If saving fails,
   the dialog offers an explicit discard action. Other registered tabs follow
   sign-out; an anonymous account in one tab does not sign another tab in.
-- Guest plans still reset on refresh/reopen. Display preferences remain.
+- Guest plans and Explore layers/filters reset on refresh/reopen. Sign-out also
+  clears Explore pins immediately. Other display preferences remain.
 
 ## Profiles, Favorites and account preferences (2026-10-30)
 

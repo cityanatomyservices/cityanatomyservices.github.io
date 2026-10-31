@@ -1,15 +1,25 @@
 /* Optional map themes. Reading/locating never joins a chat or shares presence. */
 window.AustinExplore = {
-  init(map) {
+  async init(map) {
     const M = window.ExploreModel, layers = window.EXPLORE_LAYERS;
-    const saved = (() => { try { return JSON.parse(localStorage.getItem('austin-explore-v1')) || {}; } catch (_) { return {}; } })();
-    const state = { enabled: new Set(Array.isArray(saved.enabled) ? saved.enabled.map(id => id === 'festivals' ? 'events' : id).filter(id => layers.some(l => l.id === id)) : layers.filter(l => l.defaultOn).map(l => l.id)),
+    const session = window.AustinSession, visit = window.AustinVisit, guestKey = 'explore:guest';
+    // Resolve identity before reading persistent choices. An unresolved or
+    // signed-out visit must never paint a previous visitor's map layers.
+    await session?.peek().catch(() => null);
+    let owner = session?.registered ? session.user.id : null;
+    function initialState() {
+      let saved;
+      try { saved = JSON.parse(owner ? localStorage.getItem('austin-explore-v1') : visit?.get(guestKey)); } catch (_) {}
+      saved ||= {};
+      return { enabled: new Set(Array.isArray(saved.enabled) ? saved.enabled.map(id => id === 'festivals' ? 'events' : id).filter(id => layers.some(l => l.id === id)) : owner ? layers.filter(l => l.defaultOn).map(l => l.id) : []),
       when: ['now', 'tonight', 'today', 'weekend', 'week'].includes(saved.when) ? saved.when : 'week',
       price: ['0', '10', '20'].includes(saved.price) ? saved.price : '20',
       kind: ['all', 'event', 'activity', 'offer'].includes(saved.kind) ? saved.kind : 'all',
       movieType: ['all', 'imax', 'dine-in'].includes(saved.movieType) ? saved.movieType : 'all',
       query: typeof saved.query === 'string' ? saved.query.slice(0, 100) : '',
       where: saved.where === 'map' ? 'map' : 'all', radius: '3', position: null };
+    }
+    const state = initialState();
     const data = new Map(), busy = new Set(), errors = new Set(), signatures = new Map();
     let matches = [], limit = 30, popup = null, activeIds = [], activeStamp = '', locateAttempt = 0;
     const button = document.getElementById('ctrlExplore');
@@ -39,18 +49,24 @@ window.AustinExplore = {
     document.querySelector('.page').append(panel);
     const $ = s => panel.querySelector(s);
     function save() {
-      try { localStorage.setItem('austin-explore-v1', JSON.stringify({ ...state, enabled: [...state.enabled], position: undefined })); } catch (_) { /* storage optional */ }
-      window.AustinPreferences?.set('explore',{enabled:[...state.enabled],when:state.when,price:state.price,kind:state.kind,movieType:state.movieType});
+      const value = JSON.stringify({ ...state, enabled: [...state.enabled], position: undefined });
+      if (session?.registered) {
+        try { localStorage.setItem('austin-explore-v1', value); } catch (_) { /* storage optional */ }
+        window.AustinPreferences?.set('explore',{enabled:[...state.enabled],when:state.when,price:state.price,kind:state.kind,movieType:state.movieType});
+      } else visit?.set(guestKey, value);
+    }
+    function applyControls() {
+      panel.querySelectorAll('[data-layer]').forEach(el=>{el.checked=state.enabled.has(el.dataset.layer);});
+      panel.querySelectorAll('[data-filter]').forEach(el=>{if(state[el.dataset.filter]!==undefined)el.value=state[el.dataset.filter];});
+      update(); layers.filter(l=>state.enabled.has(l.id)).forEach(load);
     }
     window.addEventListener('storage',event=>{
-      if(event.key!=='austin-explore-v1')return;
+      if(event.key!=='austin-explore-v1' || !session?.registered)return;
       try {
         const choices=JSON.parse(event.newValue)||{};
         if(Array.isArray(choices.enabled))state.enabled=new Set(choices.enabled.filter(id=>layers.some(l=>l.id===id)));
         for(const [key,allowed] of Object.entries({when:['now','tonight','today','weekend','week'],price:['0','10','20'],kind:['all','event','activity','offer'],movieType:['all','imax','dine-in']}))if(allowed.includes(choices[key]))state[key]=choices[key];
-        panel.querySelectorAll('[data-layer]').forEach(el=>{el.checked=state.enabled.has(el.dataset.layer);});
-        panel.querySelectorAll('[data-filter]').forEach(el=>{if(state[el.dataset.filter]!==undefined)el.value=state[el.dataset.filter];});
-        update();layers.filter(l=>state.enabled.has(l.id)).forEach(load);
+        applyControls();
       }catch(_){}
     });
     function open(on, returnFocus = true) {
@@ -302,6 +318,16 @@ window.AustinExplore = {
     }
     $('.explore-more').addEventListener('click', () => { limit += 30; refreshList(); });
     map.on('moveend', () => { if (state.where === 'map') update(); });
+    const unsubscribe = session?.subscribe(() => {
+      const nextOwner = session.registered ? session.user.id : null;
+      if (nextOwner === owner) return;
+      owner = nextOwner; visit?.remove(guestKey);
+      Object.assign(state, initialState());
+      locateAttempt++; limit = 30; closePopup(); open(false, false);
+      $('.explore-radius').hidden = true; $('.explore-location').textContent = '';
+      applyControls();
+    });
+    window.addEventListener('pagehide', () => unsubscribe?.(), { once: true });
     update(); layers.filter(l => state.enabled.has(l.id)).forEach(load);
     setInterval(update, 60000);
     setInterval(() => { if (!document.hidden) layers.filter(l => state.enabled.has(l.id)).forEach(load); }, 5 * 60000);

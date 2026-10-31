@@ -73,7 +73,7 @@
         if(visit.closed)return;
         const changedAccount=registered(current)&&current.user.id!==session?.user?.id;
         if(event==='SIGNED_OUT'||changedAccount) {
-          visit.remove('chat:identity');visit.remove('chat:visible');visit.remove('planner:guest');
+          visit.remove('chat:identity');visit.remove('chat:visible');visit.remove('planner:guest');visit.remove('explore:guest');
           try {for(const key of Object.keys(localStorage)) {
             if(key.startsWith('austin:planner:v1:') || key.startsWith('austinchat:visible:'))localStorage.removeItem(key);
           }}catch(_){}

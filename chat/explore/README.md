@@ -2,10 +2,13 @@
 
 The main page loads the chat map. Its **Explore** button (top right) opens a
 tile menu with Free & cheap, Movies, Live Music, Live Comedy, Pop up markets,
-and Events & Festivals. Free & cheap starts on; all other categories start
-off. Any combination can be selected, and the combined map/list updates
-immediately. Layer
-choices and filters are remembered locally. A previously selected Events or
+and Events & Festivals. Guests start with every category off. Their layer
+choices and filters last only for the current page visit, including navigation
+between framed maps; refreshing, reopening or signing out clears them. Old
+browser settings and another tab's saved categories cannot restore guest pins.
+Registered visitors retain the existing saved-preference behavior, with Free &
+cheap on when no categories have been saved. Any combination can be selected,
+and the combined map/list updates immediately. A previously selected Events or
 Festivals card enables the combined card; saved Parks selections are discarded.
 Nothing in Explore changes chat
 identity, rooms, visibility or presence. Near me requests a location only when
@@ -457,6 +460,7 @@ Run from repository root:
 python3 -m pip install -r tools/explore/requirements.txt
 python3 -m unittest discover -s tools/explore -p 'test_*.py'
 node tools/explore/test-model.cjs
+node tools/explore/check-guest-reset.cjs
 python3 tools/explore/build.py
 python3 tools/explore/build_movies.py
 python3 tools/explore/build_layers.py
@@ -464,3 +468,9 @@ python3 tools/explore/build_layers.py
 
 UI changes require version bumps in `chat/index.html`; changes to that frame
 also bump the homepage iframe query. Follow the root cache/deployment rules.
+
+`check-guest-reset.cjs` serves the local checkout and checks the real homepage
+in Chromium. Pass `https://austin.chat` to check the deployed site after Pages
+finishes. Auth and event feeds use fixtures, so the check creates no accounts
+and changes no production data. It covers clean/legacy guest storage, map
+navigation, refresh, tab isolation, plan reset, registered restore and sign-out.
