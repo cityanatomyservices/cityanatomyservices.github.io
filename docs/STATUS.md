@@ -28,6 +28,11 @@ sign-out. Auth and feeds are intercepted fixtures: no accounts or production
 data are created or modified. The blank signed-out homepage was visually
 checked. Updated module, loader and map-frame references use `20261031a`.
 
+Published implementation `9453160`; Pages run `41225676654` and Check My Plan
+Map run `41225677053` passed. The deployed homepage shows the new asset/frame
+versions. The same complete browser regression passed against `https://austin.chat`,
+including old saved categories, refresh, tab isolation and sign-out.
+
 ## 2026-10-30 — private Explore spreadsheet and map exports
 
 Owner requested all categories from Explore's Tonight selection and Friday's
