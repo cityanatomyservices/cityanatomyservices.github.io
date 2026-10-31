@@ -1,0 +1,23 @@
+/* Main map only; the other maps retain their current controls. */
+.stack .map-layers-control { gap: 0; align-content: center; font-size: 8px; line-height: 12px; }
+.map-layers-control svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.map-layers-panel { width: min(340px, calc(100% - 80px)); }
+.map-layers-group { display: grid; gap: 8px; border: 0; margin: 14px 0 0; padding: 0; min-width: 0; }
+.map-layers-group legend { padding: 0 0 8px; color: var(--muted); font-size: 11px; font-weight: 650; }
+.map-view-toggle, .map-layers-action { display: flex; align-items: center; gap: 10px; min-height: 42px; width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 9px; background: var(--finish-raised); color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.map-view-toggle::after { content: 'Off'; margin-left: auto; color: var(--muted); font-size: 11px; }
+.map-view-toggle[aria-pressed='true'] { background: var(--finish-selected); border-color: var(--accent); }
+.map-view-toggle[aria-pressed='true']::after { content: 'On'; color: var(--accent); font-weight: 650; }
+.map-view-toggle:hover, .map-layers-action:hover, .map-boundary-option:hover { background: var(--finish-hover); }
+.map-layers-action svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.map-boundary-option { display: flex; align-items: center; gap: 9px; min-height: 42px; padding: 0 8px; border-radius: 8px; cursor: pointer; }
+.map-boundary-option input { width: 17px; height: 17px; margin: 0; flex: none; accent-color: var(--accent); cursor: pointer; }
+.map-boundary-option:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 1px; }
+.map-boundary-swatch { width: 20px; border-top: 3px solid; flex: none; }
+.map-boundary-zip { border-color: #9763ce; border-top-style: dashed; }
+.map-boundary-council { border-color: #d57541; }
+.map-boundary-status { margin: 0 8px; color: var(--muted); font-size: 11px; }
+.map-boundary-status:empty { display: none; }
+.map-layer-sources { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+.map-layers-panel .map-layer-sources summary { border: 0; padding: 4px 0; font-size: 11px; font-weight: 400; }
+.map-layers-panel .map-layer-sources a { padding: 6px 0; color: var(--muted); }

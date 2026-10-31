@@ -17,11 +17,36 @@ part of the same chat. One small file per job; nothing is abstract.
 | `catalog-menu.js` | the Apps and Media buttons and expandable categories, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
-The main map controls are Apps, Media, Day Plan, Chat, Explore, GPS, 2D/3D, satellite
-and extents. Zoom and compass use the same MapLibre control as the planner,
-positioned top left. Day Plan opens the date picker and planned-day list;
-Apps opens the catalog categories; Media opens the former Content links.
+The main map controls are Explore, Day Plan, Chat, Apps, GPS and Map layers,
+in that order. Map layers groups the 3D-view and satellite toggles, Show map
+extent, and optional ZIP code/city council district boundaries. Its panel is
+implemented in `map-layers.js` and `map-layers.css`, loaded only by this page.
+Both boundaries start off and load only when selected; refresh and sign-out
+clear them. Enabling a boundary leaves the map camera in place. The original
+opening camera, 3D tilt, basemap and neighborhood behavior are unchanged.
+
+ZIP codes reuse `/datacenters/data/zipcodes.geojson` (103 regional areas), and
+council districts reuse `/budget/data/council_districts.geojson` (10 districts).
+These are the existing compact local snapshots, with their original fields
+and geometry. ZIP codes have dashed purple outlines; districts have solid
+orange outlines; both have labels and white halos for legibility on imagery.
+The panel links to their Austin Open Data sources. These are geographic
+reference layers and do not affect chat rooms, GPS or plan selection.
+
+Other maps retain Apps, Media, Day Plan, Chat, Explore, GPS, 2D/3D, satellite
+and extents until the owner asks to extend the main-map changes. The catalog
+module skips a menu when its button is absent, so the main map creates no
+Media panel. Other maps still create their existing Media menu.
+
+Zoom and compass use the same MapLibre control as the planner, positioned
+top left. Day Plan opens the date picker and planned-day list;
+Apps opens the catalog categories.
 The shared header opens the Google/email-code account dialog; the hamburger is removed. Opening one map panel closes the others.
+
+`node tools/explore/check-map-layers.cjs` checks the main-map controls, real
+boundary rendering, phone/desktop layouts, refresh, failed-load retries and
+catalog isolation. Pass the site URL to check a finished deployment. Account
+requests use fixtures and never create or change production accounts.
 
 Registered users can edit their nickname, emoji and optional chat picture in
 Account → Profile & privacy (or Chat → Edit profile). The shared member module

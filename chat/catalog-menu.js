@@ -27,6 +27,7 @@
   }
   function menu(name, render, directory) {
     const id = name.toLowerCase(), button = document.getElementById('ctrl' + name);
+    if (!button) return;
     const panel = document.createElement('section');
     panel.id = id + '-panel'; panel.className = 'catalog-panel'; panel.hidden = true;
     panel.setAttribute('aria-labelledby', id + '-heading');

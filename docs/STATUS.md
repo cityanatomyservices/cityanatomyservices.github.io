@@ -1,5 +1,43 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-31 — main-map button order and Map layers panel
+
+Owner requested this iteration on the main map only; extend it to other maps
+only after the owner finishes choosing the main-map changes. The right stack
+is now Explore, Day Plan, Chat, Apps, GPS, Map layers. Media is removed from
+this page. The new panel contains 3D view, satellite imagery, Show map extent,
+ZIP codes and City council districts. Opening it closes the other main-map
+panels; opening another stack panel closes it. Escape and the close button
+return focus to Map layers.
+
+The original basemap, opening camera/tilt and neighborhood behavior remain.
+The view buttons reuse the existing map handlers; Show map extent still fits
+Austin flat and north-up. Boundary layers start off, load only on demand and
+never persist to browser/account storage. Refresh and sign-out clear them;
+turning them on does not move the camera. Existing ZIP polygons from
+`datacenters/data/zipcodes.geojson` (103 regional areas) have purple dashed
+outlines; `budget/data/council_districts.geojson` (10 districts) has orange
+solid outlines. Both have labels and white halos; their source links are in
+the panel. Existing GeoJSON files were reused without edits. The budget
+council file retains polygon geometry for every district; another existing
+compact copy includes a GeometryCollection, so it was not selected.
+
+Implementation: new main-only `chat/map-layers.js` and CSS, main-map HTML and
+map wiring. `catalog-menu.js` skips missing buttons so removing Media creates
+no orphan panel; maps with Media retain their menu. Other maps' button order,
+panels and engines are unchanged. Navigation-loader version references were
+updated so returning to the main map loads its new frame. Main assets/frame
+use `20261031b`; shared map UI/control template is unchanged.
+
+Validation: syntax checks and the complete existing guest-reset browser check
+passed. `tools/explore/check-map-layers.cjs` passed at 1280 px and 390 px with
+actual ZIP/district data: button order, panel closing/focus, 2D/3D, satellite,
+extent, both rendered boundary layers, stable camera, refresh, failed-load
+retry and toggling while loading. Screenshots were reviewed in light/dark
+mode. A catalog shopping map retained its old order and working Media menu
+at both widths. Tests simulate authentication and make no production account
+changes. The same command accepts the live site URL after deployment.
+
 ## 2026-10-31 — blank main map for signed-out visits
 
 Owner reported points remaining on the main map after refreshing while signed

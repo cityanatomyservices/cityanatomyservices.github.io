@@ -133,8 +133,7 @@
       attribution.removeAttribute('open');
     }
 
-    // the control stack (right edge, same set as the walking-tour apps):
-    // GPS, 2D/3D, satellite, extents
+    // GPS stays in the stack; display controls live in the Map layers panel.
     $('ctrlLocate').title = COPY.ui.locate;
     $('ctrlLocate').setAttribute('aria-label', 'GPS: ' + COPY.ui.locate);
     $('ctrlSatellite').title = COPY.ui.satellite;
@@ -170,7 +169,6 @@
     // The map opens tilted: it rises to the pitch once the style has loaded.
     let tilted = true;
     const showTilt = () => {
-      $('ctrlTilt').textContent = tilted ? '2D' : '3D';
       $('ctrlTilt').title = tilted ? COPY.ui.to2d : COPY.ui.to3d;
       $('ctrlTilt').setAttribute('aria-pressed', String(tilted));
       $('ctrlTilt').classList.toggle('is-on', tilted);
@@ -342,6 +340,7 @@
 
       // the map object, so it can be poked at from the browser console
       window.chatMap = map;
+      window.AustinMapLayers.init(map);
       window.AustinExplore.init(map);
     });
   });
