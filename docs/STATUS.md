@@ -1,5 +1,15 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-31 — YouTube social-bar destination
+
+Owner requested that every YouTube link in the social media bars point to
+`https://www.youtube.com/channel/UC2ITzNUJIanC_vzmHZdZs9Q`. Updated the shared
+footer icon in `shell.js`, plus the five legacy report social bars and their
+report template (those still had placeholder links). Every page/template
+loading the shared shell now references `20261031e`. The links open in a new
+tab. Syntax and a complete social-icon markup/version audit passed.
+
+
 ## 2026-10-31 — Austin-only ZIP layer and updated Substack links
 
 Owner supplied Austin Open Data dataset `49ja-3mqz` to replace the main map's
