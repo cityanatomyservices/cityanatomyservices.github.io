@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-10-30T23:12:19.716646+00:00",
+ "generated": "2026-10-31T06:22:53.223788+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
@@ -89,15 +89,15 @@
   {
    "name": "City of Austin cultural centers",
    "url": "https://www.austintexas.gov/arts-culture/events",
-   "ok": true,
-   "failures": 0,
+   "ok": false,
+   "failures": 1,
    "count": 1
   },
   {
    "name": "Austin Center for Events",
    "url": "https://www.austintexas.gov/ace/events",
-   "ok": true,
-   "failures": 0,
+   "ok": false,
+   "failures": 1,
    "count": 0
   },
   {
@@ -168,7 +168,7 @@
     "end": "2026-10-31T12:00:01-05:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-10-30T23:12:19.716646+00:00",
+    "checked": "2026-10-31T06:22:53.223788+00:00",
     "expires": "2026-10-31T12:00:00-05:00",
     "price": null,
     "priceLabel": "Check admission",
