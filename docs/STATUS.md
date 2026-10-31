@@ -1,5 +1,22 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-10-31 — A.C logo favicon
+
+Owner supplied `Burnt Orange A.C. Circle Logo.png` (1254 × 1254) as the new
+site favicon. Resized the supplied artwork with Lanczos resampling, retaining
+its colors and white corners: root `favicon.ico` includes 16, 32, and 48 px
+images; `favicon-16x16.png` and `favicon-32x32.png` support browser tabs;
+`apple-touch-icon.png` is 180 px for phone bookmarks. All 60 public HTML
+pages and maintained page/report templates now explicitly reference these
+shared icons with cache version `20261031f`, replacing blank and older icons.
+Regenerated framed pages with `node tools/make-pages.js`.
+
+Validation: checked every changed HTML file for favicon-only changes and
+valid asset references, decoded all ICO frames and PNG sizes, and visually
+checked the 32 px icon. Chromium loaded and decoded each icon on the home,
+contact, shopping app, and legacy report pages. Browser checks blocked
+scripts and external requests, with no production account activity.
+
 ## 2026-10-31 — YouTube social-bar destination
 
 Owner requested that every YouTube link in the social media bars point to
