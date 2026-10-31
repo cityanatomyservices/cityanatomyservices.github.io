@@ -2,6 +2,10 @@
 
 ## 2026-10-31 — main-map button order and Map layers panel
 
+Owner follow-up: the stack button now says **Map**, including its accessible
+name and tooltip. The panel title remains Map layers. Only the button label
+and navigation/frame cache versions changed (`20261031c`).
+
 Owner requested this iteration on the main map only; extend it to other maps
 only after the owner finishes choosing the main-map changes. The right stack
 is now Explore, Day Plan, Chat, Apps, GPS, Map layers. Media is removed from

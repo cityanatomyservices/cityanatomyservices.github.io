@@ -17,8 +17,8 @@ part of the same chat. One small file per job; nothing is abstract.
 | `catalog-menu.js` | the Apps and Media buttons and expandable categories, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
-The main map controls are Explore, Day Plan, Chat, Apps, GPS and Map layers,
-in that order. Map layers groups the 3D-view and satellite toggles, Show map
+The main map controls are Explore, Day Plan, Chat, Apps, GPS and Map,
+in that order. Map opens the Map layers panel, which groups the 3D-view and satellite toggles, Show map
 extent, and optional ZIP code/city council district boundaries. Its panel is
 implemented in `map-layers.js` and `map-layers.css`, loaded only by this page.
 Both boundaries start off and load only when selected; refresh and sign-out
