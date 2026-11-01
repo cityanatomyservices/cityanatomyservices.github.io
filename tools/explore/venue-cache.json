@@ -651,5 +651,13 @@
     ],
     "matchedAddress": "1300 E 4TH ST, AUSTIN, TX, 78702",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1300+E+4th+St%2C+Austin+TX+78702&benchmark=Public_AR_Current&format=json"
+  },
+  "10300 Springdale Rd, Austin TX 78754": {
+    "coordinates": [
+      -97.646395842733,
+      30.347186732861
+    ],
+    "matchedAddress": "10300 SPRINGDALE RD, AUSTIN, TX, 78754",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=10300+Springdale+Rd%2C+Austin+TX+78754&benchmark=Public_AR_Current&format=json"
   }
 }
