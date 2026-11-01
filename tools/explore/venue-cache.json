@@ -643,5 +643,13 @@
     ],
     "matchedAddress": "301 WEST AVE, AUSTIN, TX, 78701",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=301+West+Ave%2C+Austin%2C+TX+78701&benchmark=Public_AR_Current&format=json"
+  },
+  "1300 E 4th St, Austin TX 78702": {
+    "coordinates": [
+      -97.730245486621,
+      30.262286295883
+    ],
+    "matchedAddress": "1300 E 4TH ST, AUSTIN, TX, 78702",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1300+E+4th+St%2C+Austin+TX+78702&benchmark=Public_AR_Current&format=json"
   }
 }
