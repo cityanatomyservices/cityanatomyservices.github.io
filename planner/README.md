@@ -1,4 +1,4 @@
-# My Plan Map
+# Austin day Planner
 
 `/myplanmap/` uses the existing site frame and embeds `/planner/app.html`.
 The home map adds checkboxes beside Explore listings, neighborhood businesses
@@ -20,6 +20,52 @@ route lines, add/remove, day switching, late responses, GPS, style reloads,
 navigation, refresh and sign-out, without production account writes. Pass
 `https://austin.chat` after Pages finishes to check the deployed version.
 
+## Export the selected day
+
+The heading's Export button opens a native modal dialog with one radio choice:
+Google Calendar, Google Maps, Apple Calendar or Apple Maps. Users can change
+the choice before or after exporting; the dialog remains open. Export reads
+the current selected day and never edits it or writes to an external account.
+Changing the day or receiving a changed plan clears previously prepared links.
+The existing all-days JSON backup/restore remains under day settings.
+
+Both calendars receive an RFC 5545 `.ics` download with one event per scheduled
+visit, using the user's arrival and duration, location, source link and notes.
+UTC date-times preserve Austin's actual instants through DST and next-morning
+visits. Event UIDs remain stable across repeat exports. Text is escaped and
+folded at UTF-8 boundaries, and events carry `CLASS:PRIVATE`. Untimed/wrong-day
+stops are listed as excluded; unknown times never become invented appointments.
+Unconfirmed visit lengths are labeled in event descriptions. These are imported
+copies, not subscriptions or automatic calendar synchronization.
+
+Map exports create ordered driving-route links using the same source/entrance
+coordinates as the planner. Scheduled stops come first by time, then untimed
+stops in preferred order. Missing locations are explicitly listed; set a driving
+entrance to include them. Google links contain at most five stops (three
+intermediate waypoints), matching its mobile-browser limit. Apple links use
+the unified `/directions` URL with repeated `waypoint` parameters, at most
+15 points (a source plus 14 stops). Longer days are split into numbered parts
+that share boundary stops so every leg is retained. The map app calculates its
+own directions. Apple's link retains the day's avoid-tolls preference; Google
+Maps URLs do not document that preference, so the dialog asks users to check it
+there. Map links contain locations only, without private notes.
+
+Verified format references (2026-11-02):
+
+- [Google Calendar import](https://support.google.com/calendar/answer/37118?hl=en): import `.ics` on a computer under Settings → Import & export.
+- [Apple Calendar import](https://support.apple.com/guide/calendar/icl1023/mac): on Mac, File → Import.
+- [Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started): directions, ordered waypoints, mobile limits and URL encoding.
+- [Apple unified Maps URLs](https://developer.apple.com/documentation/mapkit/unified-map-urls): multistop directions, iOS 18.4+/macOS 15.4+, and toll preferences.
+- [Apple multistop routes](https://support.apple.com/guide/iphone/iph837d13d03/ios): up to 14 stops along a route.
+- [RFC 5545](https://datatracker.ietf.org/doc/html/rfc5545): calendar syntax, escaping, UTC event dates, UIDs and UTF-8 folding.
+
+`tests/planner/export.test.cjs` covers day isolation, edited schedules, DST,
+unknown times, Unicode/escaping, stable IDs, entrances, long routes and empty
+plans. `node tools/planner/check-export.cjs [https://austin.chat]` checks real
+downloads and intercepted map-link navigation at desktop/phone sizes in both
+themes, exclusive choices, repeat exports, day changes, edits, empty states,
+modal sizing, Escape and focus restoration. It blocks production account writes.
+
 ## Module boundaries
 
 | Module | Owns |
@@ -31,6 +77,7 @@ navigation, refresh and sign-out, without production account writes. Pass
 | `sources.js` | Business/Explore/meeting snapshots, stable selection keys, movie occurrences and published timing provenance |
 | `model.js` | Pure Austin-time scheduling and validation; no DOM, network, auth, chat, or routes |
 | `routing.js` | Async route transport, in-memory cache, estimate provider and navigation links |
+| `export.js` / `export-ui.js` | Selected-day calendar serialization, bounded map-route links and the export dialog |
 | `route-panel.js` | Route controls, travel blocks, arrival-point editing and fitting scheduled visits |
 | `repository.js` | Supabase planner RPC names and response validation |
 | `store.js` | Guest visit memory; registered-account cache/cloud saves, subscriptions and revision conflicts |

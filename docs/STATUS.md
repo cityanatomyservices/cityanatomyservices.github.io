@@ -1,5 +1,47 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-02 — Austin day Planner exports
+
+Started only after completing and live-verifying the preceding map-marker fix,
+as requested. Renamed the planner panel, browser/frame titles and visit-navigation
+title to "Austin day Planner". The new heading Export button opens a native
+modal with mutually exclusive Google Calendar, Google Maps, Apple Calendar and
+Apple Maps radio choices. Users can change the destination before or after each
+export without closing the dialog. Each export reads only the selected day;
+the existing all-days JSON backup/restore is retained.
+
+Researched current official Google/Apple format documentation and RFC 5545;
+links and limits are recorded in `planner/README.md`. Both calendar options
+download `.ics` files containing scheduled visits with edited arrivals,
+durations, locations, source links and notes. UTC times preserve Austin instants
+through DST; stable event UIDs, escaping and Unicode-safe folding support repeat
+exports. No start time is invented. Unconfirmed durations are labeled. The
+dialog shows excluded untimed/out-of-day items, import instructions and that
+imports are copies rather than live synchronization.
+
+Map options create driving-route links from source/entrance coordinates in
+scheduled order, then untimed preferred order. Stops missing coordinates are
+explicitly listed. Google routes split at five points for mobile-browser limits;
+Apple unified URLs split at 15 points. Parts share boundary stops, retaining all
+legs. Apple receives avoid-tolls; Google's documented URL interface lacks that
+preference, so the dialog says to check it in Maps. Map apps calculate their own
+routes; private notes are absent from these links. No external account writes,
+new credentials, database migrations or backend changes are involved.
+
+Validation: 73 planner tests pass, including nine new export tests for day
+isolation, edited times, DST folds/gaps, unknown times, stable UIDs, Unicode,
+escaping, entrance overrides and up to 150 stops without dropped route legs.
+`tools/planner/check-export.cjs` passes at 1280/390 px: real downloads for both
+calendars, exclusive choices/repeat exports, intercepted links for both maps,
+day switching, live edits, empty-day states, light/dark layout, Escape and focus
+return. All eight browser-download fixtures also parse without errors using the
+independent `icalendar` 7.3.0 parser. Screenshots reviewed. External calendar
+account imports/native Apple app execution are not automated. Asset/loaders and
+navigation frames advance to `20261102d`.
+
+The full selected-stop map regression also passes again at 1280/390 px for
+guests and registered visitors. Publication/live checks follow this checkpoint.
+
 ## 2026-11-02 — Planner map contains only selected stops
 
 Fixed the planner restoring Explore categories as map layers, which displayed

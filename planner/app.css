@@ -19,7 +19,9 @@ p { margin: 0 0 10px; } a { color: var(--accent); } h1,h2,h3 { line-height: 1.2;
 .panel-toggle svg { transition: transform .2s ease; }
 .panel-closed .panel-toggle svg { transform: rotate(180deg); }
 .panel-toggle:focus-visible { outline-offset: -3px; }
-.plan-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.plan-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.plan-heading-actions { display: flex; align-items: center; gap: 8px; }
+.plan-heading-actions button { font-size: 12px; }
 .eyebrow { margin: 0 0 4px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: 10px; font-weight: 700; }
 h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size: 12px; white-space: nowrap; }
 .intro { color: var(--muted); margin: 12px 0; font-size: 13px; }
@@ -102,3 +104,27 @@ h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size
 .map-caption { z-index: 4; max-width: calc(100% - 85px); }
 #map-control-status { position: absolute; bottom: 30px; left: 12px; right: 65px; z-index: 4; padding: 8px; font-size: 12px; background: var(--surface); border-radius: 8px; }
 #map-control-status:empty { display: none; }
+
+.export-dialog { width: min(520px,calc(100% - 24px)); max-height: calc(100% - 24px); overflow-y: auto; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+.export-dialog::backdrop { background: #102a2188; }
+.export-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.export-heading h2 { font-size: 22px; }
+#export-close { padding: 2px 10px; font-size: 24px; }
+.export-dialog p,.export-dialog li,.export-dialog summary,#export-guide { font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+#export-day,#export-help { color: var(--muted); }
+.export-formats { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; border: 0; padding: 0; margin: 16px 0; }
+.export-formats legend { font-size: 12px; font-weight: 650; margin-bottom: 8px; }
+.export-formats label { flex-direction: row; align-items: center; gap: 8px; padding: 12px 10px; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; background: var(--finish-raised); color: var(--text); }
+.export-formats label:has(input:checked) { border-color: var(--accent); background: var(--finish-soft); }
+.export-formats input { appearance: auto; flex: none; width: 17px; height: 17px; padding: 0; margin: 0; accent-color: var(--accent); }
+.export-formats strong,.export-formats small { display: block; }
+.export-formats small { margin-top: 4px; font-size: 11px; color: var(--muted); }
+#export-summary { font-weight: 650; }
+#export-skipped { margin-bottom: 12px; color: var(--muted); }
+#export-action { display: block; width: 100%; margin: 16px 0 10px; }
+#export-status { color: var(--accent); }
+#export-results section { border-top: 1px solid var(--border); padding: 12px 0; }
+#export-results h3 { font-size: 15px; }
+#export-results ol { padding-left: 22px; }
+#export-results .button { font-size: 12px; }
+@media (max-width: 400px) { .export-dialog { padding: 14px; } .export-formats label { gap: 6px; padding: 10px 7px; } }

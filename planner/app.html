@@ -7,17 +7,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261031f" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261031f" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Plan Map</title>
+  <title>Austin day Planner</title>
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
   <link rel="stylesheet" href="/chat/style.css?v=20261029v">
   <link rel="stylesheet" href="/chat/explore/explore.css?v=20261102c">
   <link rel="stylesheet" href="/planner/select.css?v=20261029v">
   <link rel="stylesheet" href="/appearance.css?v=20261028h">
-  <link rel="stylesheet" href="/planner/app.css?v=20261030e">
+  <link rel="stylesheet" href="/planner/app.css?v=20261102d">
   <link rel="stylesheet" href="/chat/panel.css?v=20261023e">
   <script src="/chat/theme.js?v=20261028g"></script>
   <link rel="stylesheet" href="/shared/comments.css?v=20261030e">
-<script src="/shared/map-ui.js?v=20261102c"></script>
+<script src="/shared/map-ui.js?v=20261102d"></script>
 </head>
 <body>
   <main class="planner-layout">
@@ -25,7 +25,7 @@
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="m14 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <section id="plan-panel" class="plan-panel" aria-label="Itinerary">
-      <header class="plan-heading"><div><p class="eyebrow">A day in Austin</p><h1>My Plan Map</h1></div><a class="button" href="/" target="_top">+ Add places</a></header>
+      <header class="plan-heading"><div><p class="eyebrow">A day in Austin</p><h1>Austin day Planner</h1></div><div class="plan-heading-actions"><a class="button" href="/" target="_top">+ Add places</a><button type="button" id="export-plan" aria-haspopup="dialog" aria-controls="export-dialog" disabled>Export</button></div></header>
       <p class="intro">Choose a day, then arrange its stops. Each day has its own itinerary.</p>
       <div class="save-line"><span id="save-status" role="status">Opening your plan…</span><button type="button" id="retry-save" class="text-button">Retry save</button></div>
       <div id="save-conflict" hidden><p>A newer copy was saved elsewhere. Your edits are still in this browser.</p><button type="button" id="keep-local">Save this copy</button> <button type="button" id="use-remote">Use saved copy</button></div>
@@ -93,9 +93,24 @@
       <div id="planner-chat-host" hidden></div>
     </section>
   </main>
+  <dialog id="export-dialog" class="export-dialog" aria-labelledby="export-title" aria-describedby="export-day">
+    <div class="export-heading"><h2 id="export-title">Export this day</h2><button type="button" id="export-close" aria-label="Close export">×</button></div>
+    <p id="export-day"></p>
+    <fieldset class="export-formats"><legend>Choose one destination</legend>
+      <label><input type="radio" name="export-format" value="google-calendar" checked autofocus><span><strong>Google Calendar</strong><small>Calendar file (.ics)</small></span></label>
+      <label><input type="radio" name="export-format" value="google-maps"><span><strong>Google Maps</strong><small>Driving-route links</small></span></label>
+      <label><input type="radio" name="export-format" value="apple-calendar"><span><strong>Apple Calendar</strong><small>Calendar file (.ics)</small></span></label>
+      <label><input type="radio" name="export-format" value="apple-maps"><span><strong>Apple Maps</strong><small>Driving-route links</small></span></label>
+    </fieldset>
+    <p id="export-summary" role="status"></p>
+    <details id="export-skipped" hidden></details>
+    <p id="export-help"></p><a id="export-guide" target="_blank" rel="noopener noreferrer"></a>
+    <button type="button" id="export-action" class="primary">Download .ics</button>
+    <p id="export-status" role="status" aria-live="polite"></p><div id="export-results"></div>
+  </dialog>
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
-  <script src="/shared/visit.js?v=20261102c"></script>
+  <script src="/shared/visit.js?v=20261102d"></script>
   <script src="/shared/session.js?v=20261031a"></script>
   <script src="/shared/member.js?v=20261030c"></script>
   <script src="/shared/preferences.js?v=20261030c"></script>
@@ -113,6 +128,7 @@
   <script src="/chat/explore/explore.js?v=20261102c"></script>
   <script src="/planner/controls.js?v=20261102c"></script>
   <script src="/planner/map.js?v=20261030e"></script><script src="/planner/app.js?v=20261102b"></script>
+  <script src="/planner/export.js?v=20261102d"></script><script src="/planner/export-ui.js?v=20261102d"></script>
   <script src="/chat/widget.js?v=20261030e"></script>
 </body>
 </html>

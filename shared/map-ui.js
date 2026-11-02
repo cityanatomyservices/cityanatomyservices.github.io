@@ -22,7 +22,7 @@
       for(const href of ['/chat/style.css?v=20261029v','/chat/explore/explore.css?v=20261102c','/planner/select.css?v=20261029v','/chat/panel.css?v=20261023e','/shared/comments.css?v=20261030e','/shared/map-ui.css?v=20261030f','/appearance.css?v=20261028h'])css(href);
       await script('/chat/theme.js?v=20261028g');
       await script('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js',()=>window.supabase);
-      for(const [file,version,global] of [['visit','20261102c','AustinVisit'],['session','20261031a','AustinSession'],['member','20261030c','AustinMember'],['preferences','20261030c','AustinPreferences'],['favorite-button','20261030c','AustinFavorites'],['comments','20261030e','AustinComments']])await script(`/shared/${file}.js?v=${version}`,()=>window[global]);
+      for(const [file,version,global] of [['visit','20261102d','AustinVisit'],['session','20261031a','AustinSession'],['member','20261030c','AustinMember'],['preferences','20261030c','AustinPreferences'],['favorite-button','20261030c','AustinFavorites'],['comments','20261030e','AustinComments']])await script(`/shared/${file}.js?v=${version}`,()=>window[global]);
       for(const [file,version,global] of [['model','20261102b','PlanModel'],['sources','20261102b','PlanSources'],['repository','20261029r','PlanRepository'],['store','20261030a','PlanStore']])await script(`/planner/${file}.js?v=${version}`,()=>window[global]);
       const response=await fetch('/shared/map-controls.html?v=20261030e');if(!response.ok)throw new Error('Map controls could not load.');
       const template=document.createElement('template');template.innerHTML=await response.text();const stack=template.content.firstElementChild;stack.classList.add('austin-map-ui');
