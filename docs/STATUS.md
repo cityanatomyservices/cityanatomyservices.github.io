@@ -40,7 +40,11 @@ account imports/native Apple app execution are not automated. Asset/loaders and
 navigation frames advance to `20261102d`.
 
 The full selected-stop map regression also passes again at 1280/390 px for
-guests and registered visitors. Publication/live checks follow this checkpoint.
+guests and registered visitors. Published implementation `01b37f9`; Pages
+deployment `41493388847` and Check My Plan Map `41493390393` succeeded. Both
+homepage and planner HTML serve `20261102d`. The complete export browser check
+also passed against the live site at 1280/390 px, including real repeated
+calendar downloads and intercepted Google/Apple map navigation.
 
 ## 2026-11-02 — Planner map contains only selected stops
 
