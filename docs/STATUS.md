@@ -30,7 +30,13 @@ Hall, map layers and email reminder controls. Full same-map guest/member checks
 passed at 1280 and 390 pixels: selected-only pins, chat-marker suppression,
 rendered routes, late results, day switching, entrance picking, GPS, browser
 history, saved-account reload and sign-out. Browser fixtures block real Supabase
-writes. Deployment verification is pending.
+writes.
+
+Published as `c37dcc4`; planner CI and Pages run `41539948551` succeeded.
+Verified root/chat/legacy HTML advertises `20261102g` before fetching new asset
+URLs; all 14 changed application JS/CSS files match the committed bytes. The
+same-map phone guest regression also passed on https://austin.chat after deploy.
+No task-specific work remains.
 
 
 ## 2026-11-02 — Resend connected; email reminders active
