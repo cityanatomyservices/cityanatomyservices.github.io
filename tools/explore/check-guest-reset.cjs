@@ -59,10 +59,10 @@ let browser,local;
   }
   async function blank(f){
     await f.waitForFunction(()=>austinExplore.visibleItems.length===0&&!document.querySelector('[data-layer]:checked'));
-    assert.equal(await f.locator('[data-filter=query]').inputValue(),'');
-    assert.equal(await f.locator('[data-filter=where]').inputValue(),'all');
+    assert.equal(await f.locator('#explore-panel [data-filter=query]').inputValue(),'');
+    assert.equal(await f.locator('#explore-panel [data-filter=where]').inputValue(),'all');
     assert.equal(await f.locator('#explore-panel').isHidden(),true);
-    await f.waitForFunction(async()=> (await Promise.all(EXPLORE_LAYERS.map(l=>chatMap.getSource('explore-'+l.id).getData()))).every(data=>data.features.length===0));
+    assert.equal(await f.evaluate(async()=> (await Promise.all(EXPLORE_LAYERS.map(l=>chatMap.getSource('explore-'+l.id).getData()))).every(data=>data.features.length===0)),true,'every Explore source is empty');
   }
   for(const legacy of [false,true]){
     const c=await context({legacy}),page=await c.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -71,7 +71,7 @@ let browser,local;
     await f.locator('#ctrlExplore').click();await f.locator('label:has([data-layer=free-cheap])').click();
     await f.waitForFunction(()=>austinExplore.visibleItems.length===1);
     assert.equal(await page.evaluate(k=>localStorage.getItem(k),storageKey),stored,'guest choices never update persistent storage');
-    await f.locator('[data-filter=query]').fill('Fixture');
+    await f.locator('#explore-panel [data-filter=query]').fill('Fixture');
     await f.evaluate(async()=>{await PlanStore.ready();await PlanStore.select({key:'place:fixture',title:'Temporary stop',kind:'place',timing:'unknown',coordinates:[-97.743,30.267]},true);});
     await page.evaluate(()=>AustinVisit.navigate(new URL('/myplanmap/',location.origin)));
     await page.waitForURL('**/myplanmap/');
@@ -79,7 +79,7 @@ let browser,local;
     await planner.waitForFunction(()=>window.PlanStore);await planner.evaluate(()=>PlanStore.ready());
     assert.equal(await planner.evaluate(()=>PlanStore.book.items.length),1);
     await page.locator('.brand').click();await page.waitForURL(base+'/');f=await frame(page);
-    await f.waitForFunction(()=>austinExplore.visibleItems.length===1);assert.equal(await f.locator('[data-filter=query]').inputValue(),'Fixture');
+    await f.waitForFunction(()=>austinExplore.visibleItems.length===1);assert.equal(await f.locator('#explore-panel [data-filter=query]').inputValue(),'Fixture');
     await page.reload();f=await frame(page);await blank(f);
     await f.evaluate(()=>PlanStore.ready());assert.equal(await f.evaluate(()=>PlanStore.book.items.length),0);
     // Another tab's persistent choices cannot enable layers in a guest tab.

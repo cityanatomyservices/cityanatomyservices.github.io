@@ -1,6 +1,6 @@
 /* Optional map themes. Reading/locating never joins a chat or shares presence. */
 window.AustinExplore = {
-  async init(map) {
+  async init(map, { mapMarkers = true } = {}) {
     const M = window.ExploreModel, layers = window.EXPLORE_LAYERS;
     const session = window.AustinSession, visit = window.AustinVisit, guestKey = 'explore:guest';
     // Resolve identity before reading persistent choices. An unresolved or
@@ -24,7 +24,7 @@ window.AustinExplore = {
     let matches = [], limit = 30, popup = null, activeIds = [], activeStamp = '', locateAttempt = 0;
     const button = document.getElementById('ctrlExplore');
     const panel = document.createElement('section'); panel.className = 'explore-panel'; panel.id = 'explore-panel'; panel.hidden = true;
-    panel.setAttribute('aria-label', 'Explore Austin map layers');
+    panel.setAttribute('aria-label', mapMarkers ? 'Explore Austin map layers' : 'Explore Austin listings');
     panel.innerHTML = `<div class="explore-header"><h2>Explore Austin</h2><button class="explore-close" aria-label="Close Explore" type="button">×</button></div>
       <div class="explore-scroll">
       <div class="explore-times" role="group" aria-label="When to explore">
@@ -104,8 +104,7 @@ window.AustinExplore = {
     };
     function closePopup() { if (popup) popup.remove(); popup = null; activeIds = []; activeStamp = ''; }
     const stamp = items => JSON.stringify(items.map(f => f.properties));
-    function showItems(items, at) {
-      closePopup();
+    function detailsBody(items, at) {
       const body = node('div', undefined, 'explore-popup-body');
       body.append(node('h3', items.length > 1 ? items[0].properties.venue : items[0].properties.title));
       if (items.length > 1) body.append(node('p', `${items.length} matching listings here`));
@@ -131,7 +130,11 @@ window.AustinExplore = {
         window.AustinComments?.mount(article,window.PlanSources.feature(item));
         body.append(article);
       }
-      popup = new maplibregl.Popup({ maxWidth: '310px', offset: 14, className: 'explore-popup' }).setLngLat(at).setDOMContent(body).addTo(map);
+      return body;
+    }
+    function showItems(items, at) {
+      closePopup();
+      popup = new maplibregl.Popup({ maxWidth: '310px', offset: 14, className: 'explore-popup' }).setLngLat(at).setDOMContent(detailsBody(items, at)).addTo(map);
       window.AustinComments?.followPopup(popup);
       activeIds = items.map(f => f.properties.id);
       activeStamp = stamp(items);
@@ -165,7 +168,19 @@ window.AustinExplore = {
         if (category) { const badge = node('small', category.title, 'explore-category'); badge.style.color = category.color || '#0067c5'; b.append(badge); }
         b.append(node('strong', p.title), node('small', ['movie','park'].includes(p.kind) ? timing(p) : `${p.priceLabel} · ${timing(p)}`, 'explore-price'), node('small', p.kind === 'park' ? p.address : p.venue));
         if (state.where === 'near' && state.position) b.append(node('small', `${M.miles(state.position, f.geometry.coordinates).toFixed(1)} miles away · straight-line distance`));
+        let details;
+        if (!mapMarkers) b.setAttribute('aria-expanded', 'false');
         b.addEventListener('click', () => {
+          // The planner owns its map: browsing a listing must not add a pin,
+          // open a map popup or move away from the selected day's stops.
+          if (!mapMarkers) {
+            if (!details) {
+              details = detailsBody([f], f.geometry.coordinates);
+              details.classList.add('explore-inline-details'); details.hidden = true; li.append(details);
+            }
+            details.hidden = !details.hidden; b.setAttribute('aria-expanded', String(!details.hidden));
+            return;
+          }
           open(false);
           map.easeTo({ center: f.geometry.coordinates, zoom: Math.max(15, map.getZoom()), duration: 600 });
           showItems([f], f.geometry.coordinates);
@@ -203,7 +218,7 @@ window.AustinExplore = {
         [Math.max(...points.map(c => c[0])), Math.max(...points.map(c => c[1]))]
       ] : null;
       const nextCoverage = JSON.stringify(coverage);
-      if (coverageStamp !== nextCoverage) { coverageStamp = nextCoverage; map.fire('explorebounds', { bounds: coverage }); }
+      if (mapMarkers && coverageStamp !== nextCoverage) { coverageStamp = nextCoverage; map.fire('explorebounds', { bounds: coverage }); }
       const b = map.getBounds();
       const options = { ...state, bounds: [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()] };
       matches = [];
@@ -214,7 +229,7 @@ window.AustinExplore = {
       // A public UT concert may also qualify for Free & cheap. Show its more
       // specific selected category once, in both the map and combined list.
       matches = M.filter([...new Map(matches.map(f => [f.properties.id, f])).values()], options);
-      for (const layer of layers) {
+      for (const layer of mapMarkers ? layers : []) {
         const features = matches.filter(f => f.properties.exploreLayer === layer.id);
         const signature = features.map(f => f.properties.id).join('|');
         if (signatures.get(layer.id) !== signature) {
@@ -246,6 +261,7 @@ window.AustinExplore = {
       busy.delete(layer.id); update();
     }
     function ensureLayers(layer) {
+      if (!mapMarkers) return;
       const source=`explore-${layer.id}`;
       if(map.getSource(source))return;
       map.addSource(source, { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, cluster: true, clusterRadius: 42, clusterMaxZoom: 14, clusterProperties: { eventCount: ['+', ['get', 'eventCount']] } });
@@ -267,6 +283,7 @@ window.AustinExplore = {
       const text = node('strong', layer.title), count = node('span', '', 'explore-tile-count'), tick = node('span', '✓', 'explore-tile-check'); tick.setAttribute('aria-hidden','true');
       label.append(checkbox, icon, text, count, tick); $('.explore-layers').append(label);
       checkbox.addEventListener('change', () => { checkbox.checked ? state.enabled.add(layer.id) : state.enabled.delete(layer.id); save(); limit = 30; update(); if (checkbox.checked) load(layer); });
+      if (!mapMarkers) continue;
       ensureLayers(layer);
       map.on('click', source + '-clusters', async e => {
         const f = e.features[0];
@@ -305,7 +322,8 @@ window.AustinExplore = {
                 if (attempt !== locateAttempt || state.where !== 'near') return;
                 state.position = [position.coords.longitude, position.coords.latitude];
                 $('.explore-location').textContent = 'Distance uses your location only on this device.';
-                map.easeTo({ center: state.position, zoom: 12, duration: 600 }); update();
+                if (mapMarkers) map.easeTo({ center: state.position, zoom: 12, duration: 600 });
+                update();
               }, () => {
                 if (attempt !== locateAttempt) return;
                 state.position = null; $('.explore-location').textContent = 'Location unavailable or permission declined. Choose This map area to browse without it.'; update();

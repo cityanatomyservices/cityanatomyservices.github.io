@@ -1,5 +1,34 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-02 — Planner map contains only selected stops
+
+Fixed the planner restoring Explore categories as map layers, which displayed
+unselected listings alongside planned stops. `AustinExplore.init` now accepts
+`{mapMarkers:false}`; the planner opts in to list-only browsing. Categories,
+filters, source details and selection checkboxes remain available. Details
+expand inside the list without moving the planner map or opening map popups.
+Explore creates no planner sources/layers, including on style reload or data
+refresh. Planner GPS centers the view without leaving an extra marker. The
+existing selected-day markers, entrance editing and route rendering remain
+owned by the planner. Main/catalog Explore pins keep their default behavior.
+
+Shared assets and every loader/template were advanced to `20261102c` where
+needed, including both visit-navigation frame URLs. No data imports, database
+or routing service changes. All 64 planner tests passed. New fixture-backed
+`tools/planner/check-map.cjs` reproduced the bug before the fix and passes at
+1280/390 px for guests and registered visitors: selected-only markers, inline
+browsing and add/remove, actual rendered routes with correct endpoint requests,
+style reload, GPS, empty-day switching, a late route response, return navigation,
+refresh and sign-out. Main-map pin/popups also pass. Existing guest-state
+browser checks pass after scoping search selectors to Explore (City Hall has
+its own search); source emptiness assertions now await actual source data.
+Screenshots reviewed. Browser fixtures prevent production account writes.
+
+Publishing and live verification follow this checkpoint. Owner's next request,
+to begin after this fix is finished: rename the panel to "Austin day Planner"
+and add an export dialog with mutually exclusive Google Calendar, Google Maps,
+Apple Calendar and Apple Maps options. Research supported formats first.
+
 ## 2026-11-02 — Public Meetings in dated day plans
 
 Owner requested the same Day Planner checkbox on City Hall Public Meetings,

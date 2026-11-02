@@ -7,6 +7,19 @@ Selecting a place never calls ChatRoom, joins a room, changes visibility, or
 claims the visitor is at that place. The planner's optional chat button uses the
 visitor's physical neighborhood through the existing chat engine.
 
+Only the selected day's itinerary stops with coordinates appear as markers on
+the planner map. Route lines connect that day's scheduled stops. Explore runs
+with `AustinExplore.init(map, {mapMarkers:false})`: saved category choices still
+populate its list, but never add sources, layers, map popups or camera changes.
+Listing details expand inside the panel, where the usual selection checkboxes
+remain available. GPS centers the view without leaving a separate marker.
+
+`node tools/planner/check-map.cjs` checks this boundary in Chromium at desktop
+and phone sizes with guest/member, event and route fixtures. It checks rendered
+route lines, add/remove, day switching, late responses, GPS, style reloads,
+navigation, refresh and sign-out, without production account writes. Pass
+`https://austin.chat` after Pages finishes to check the deployed version.
+
 ## Module boundaries
 
 | Module | Owns |

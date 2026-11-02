@@ -14,6 +14,13 @@ Nothing in Explore changes chat
 identity, rooms, visibility or presence. Near me requests a location only when
 selected, keeps coordinates in memory and does not send them to the server.
 
+The day planner initializes Explore with `{mapMarkers:false}`. Its categories,
+filters and selection checkboxes still work, with listing details expanded
+inside the panel. This mode creates no Explore map sources, layers or popups
+and does not move the map when browsing or filtering nearby listings. The
+planner alone owns its selected-stop markers and route lines. Other maps keep
+the default Explore pin behavior.
+
 ## Files and adding layers
 
 - `config.js`: layer registry. Add a title, description, stable ID and GeoJSON
