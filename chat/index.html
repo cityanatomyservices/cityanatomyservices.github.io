@@ -37,8 +37,9 @@
   <script src="./theme.js?v=20261028g"></script>
   <link rel="stylesheet" href="/planner/select.css?v=20261029v">
   <link rel="stylesheet" href="/planner/app.css?v=20261102g">
+  <link rel="stylesheet" href="/classifieds/style.css?v=20261102h">
   <link rel="stylesheet" href="/shared/comments.css?v=20261030e">
-<script src="/shared/map-ui.js?v=20261102g"></script>
+<script src="/shared/map-ui.js?v=20261102h"></script>
 </head>
 <body>
   <div class="page">
@@ -75,6 +76,9 @@
       </button>
       <button class="round city-hall-control" id="ctrlCityHall" type="button" aria-expanded="false" aria-controls="city-hall-panel" aria-label="City Hall" title="City Hall">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 8 10-6 10 6Z M4 10v9 M9 10v9 M15 10v9 M20 10v9 M2 21h20"/></svg><span>City Hall</span>
+      </button>
+      <button class="round classifieds-control" id="ctrlClassifieds" type="button" aria-expanded="false" aria-controls="classifieds-panel" aria-label="Free classifieds" title="Free classifieds">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v18H4Z M8 7h8 M8 11h8 M8 15h5 M8 18h3"/></svg><span>Classifieds</span>
       </button>
       <button class="round apps-control" id="ctrlApps" type="button" aria-expanded="false" aria-controls="apps-panel" aria-label="Apps" title="Apps">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3Z M14 3h7v7h-7Z M3 14h7v7H3Z M14 14h7v7h-7Z"/></svg><span>Apps</span>
@@ -179,7 +183,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
   <script src="./copy.js?v=20261028i"></script>
   <script src="./config.js?v=20261029a"></script>
-  <script src="/shared/visit.js?v=20261102g"></script>
+  <script src="/shared/visit.js?v=20261102h"></script>
   <script src="/shared/session.js?v=20261031a"></script>
   <script src="/shared/member.js?v=20261030c"></script>
   <script src="/shared/preferences.js?v=20261030c"></script>
@@ -200,7 +204,7 @@
   <script src="/planner/store.js?v=20261030a"></script>
   <script src="/planner/routing.js?v=20261030a"></script>
   <script src="/planner/map.js?v=20261102g"></script>
-  <script src="/planner/panel.js?v=20261102g"></script>
+  <script src="/planner/panel.js?v=20261102h"></script>
   <script src="/planner/route-panel.js?v=20261102g"></script>
   <script src="/planner/app.js?v=20261102g"></script>
   <script src="/planner/export.js?v=20261102e"></script>
@@ -210,6 +214,10 @@
   <script src="./map-layers.js?v=20261102g"></script>
   <script src="./city-hall/model.js?v=20261102a"></script>
   <script src="./city-hall/city-hall.js?v=20261102f"></script>
+  <script src="/classifieds/model.js?v=20261102h"></script>
+  <script src="/classifieds/client.js?v=20261102h"></script>
+  <script src="/classifieds/ui.js?v=20261102h"></script>
+  <script src="/classifieds/panel.js?v=20261102h"></script>
   <script src="./map.js?v=20261102g"></script>
 </body>
 </html>

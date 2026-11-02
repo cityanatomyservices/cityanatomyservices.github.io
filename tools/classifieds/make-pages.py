@@ -1,0 +1,43 @@
+"""Generate the classifieds directory and category shells (never ad contents)."""
+from pathlib import Path
+from html import escape
+ROOT = Path(__file__).resolve().parents[2]
+CATEGORIES = [('for-sale','For Sale'),('free','Free Stuff'),('services','Services'),('housing','Housing'),('jobs','Jobs'),('gigs','Gigs'),('community','Community'),('lost-found','Lost & Found')]
+for slug, title in [('', 'Free classifieds'), *CATEGORIES]:
+    route = '/classifieds/' + (slug + '/' if slug else '')
+    out = ROOT / route.strip('/') / 'index.html'
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(f'''<!doctype html>
+<html lang="en" data-classifieds-category="{slug}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{escape(title) + ' · ' if slug else ''}Free classifieds · Austin.Chat</title>
+  <link rel="canonical" href="https://austin.chat{route}">
+  <link rel="icon" href="/favicon.ico?v=20261031f">
+  <link rel="stylesheet" href="/style.css?v=20261029v">
+  <link rel="stylesheet" href="/appearance.css?v=20261028h">
+  <link rel="stylesheet" href="/classifieds/style.css?v=20261102h">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
+  <script src="/shared/visit.js?v=20261102h"></script>
+  <script src="/shared/session.js?v=20261031a"></script>
+  <script src="/shared/member.js?v=20261030c"></script>
+  <script src="/shared/preferences.js?v=20261030c"></script>
+  <script src="/shared/favorite-button.js?v=20261030c"></script>
+</head>
+<body>
+  <main class="classifieds-page">
+    <nav aria-label="Classifieds navigation"><a href="/">← Austin map</a>{'<a href="/classifieds/">All classifieds</a>' if slug else ''}</nav>
+    <h1>{escape(title)}</h1>
+    <div id="classifieds-host"></div>
+    <noscript>Enable JavaScript, then create an account or sign in to use free classifieds.</noscript>
+  </main>
+  <script src="/shell.js?v=20261102g"></script>
+  <script src="/classifieds/model.js?v=20261102h"></script>
+  <script src="/classifieds/client.js?v=20261102h"></script>
+  <script src="/classifieds/ui.js?v=20261102h"></script>
+  <script src="/classifieds/page.js?v=20261102h"></script>
+</body>
+</html>
+''')
+print('Wrote the classifieds directory and eight category pages.')

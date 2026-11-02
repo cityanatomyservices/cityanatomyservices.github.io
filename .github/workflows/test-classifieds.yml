@@ -1,0 +1,40 @@
+name: Check free classifieds
+on:
+  push:
+    branches: [main]
+    paths: ['classifieds/**', 'tests/classifieds/**', 'tools/classifieds/**', 'supabase/migrations/*classifieds.sql', '.github/workflows/test-classifieds.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: classifieds-ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: classifieds-ci-only
+      PGDATABASE: postgres
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Model and account isolation
+        run: node --test tests/classifieds/*.test.cjs
+      - name: Browser syntax
+        run: for file in classifieds/*.js; do node --check "$file"; done
+      - name: Database ownership, guest denial and one-ad limit
+        run: |
+          psql -v ON_ERROR_STOP=1 -f tests/classifieds/bootstrap.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/0011_classifieds.sql
+          psql -v ON_ERROR_STOP=1 -f tests/classifieds/database.sql

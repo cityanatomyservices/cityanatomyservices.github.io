@@ -29,7 +29,7 @@ async function ready(page) {
     page.setDefaultTimeout(30000); page.on('pageerror', e => errors.push(e.message));
     page.on('request', r => { if (r.url().includes('/chat/data/city-hall.json')) cityRequests.push(r.url()); });
     await page.goto(base); let f = await ready(page);
-    assert.deepEqual(await f.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)), ['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlCityHall','ctrlApps','ctrlLocate','ctrlMapLayers']);
+    assert.deepEqual(await f.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)), ['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlCityHall','ctrlClassifieds','ctrlApps','ctrlLocate','ctrlMapLayers']);
     assert.equal(cityRequests.length,0,'City Hall data loads only on opening');
     // A failed request is explicit and retryable.
     await context.route('**/chat/data/city-hall.json', route => route.fulfill({status:503,body:'Unavailable'}), {times:1});

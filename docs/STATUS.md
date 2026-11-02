@@ -1,6 +1,43 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
 
+## 2026-11-02 — Self-managed free classifieds
+
+Owner requested a main-page classifieds button and category pages, then clarified:
+**no email field, no automatic contact details and no content policing**. Treat
+ads as public notes for signed-in members. Authors may put any contact details
+they choose in the text. Keep the earlier sign-in requirement: guests see only
+an account/sign-in note rather than categories, counts or ad contents.
+
+Implemented a main-map Classifieds box after City Hall, a `/classifieds/`
+directory and eight category pages: For Sale, Free Stuff, Services, Housing, Jobs,
+Gigs, Community, Lost & Found. Category counts come from the database. New ads
+choose a category before a two-field form: title and paragraph. One active ad per
+account across all categories. Owners see their ad as an editable form; everyone
+else sees plain text. Owners can change category, save, delete and post again.
+No photos, uploads, email relay, phone/location fields, contact-text filters,
+moderation queue or expiry. Account email is never returned by the ad API or
+copied into a post. Limits are 100 title / 1,000 paragraph characters; all content
+is rendered as text, including author-entered HTML.
+
+`0011_classifieds.sql` is installed. Private schema/tables have RLS and no browser
+schema/table access. Registered confirmed Auth records are required even for
+reads/counts. Owner uniqueness, transaction locks, and ad ID/revision checks
+prevent duplicates, cross-account edits and stale-form overwrites. Browser state
+is memory-only and clears on sign-out/account changes; late responses are ignored.
+No changes to existing users, plans, email delivery or other data tables.
+
+Validation: 98 planner/reminder/classifieds unit tests; real PostgreSQL role tests
+run inside a rolled-back transaction (no test ads or Auth users remain); live
+anonymous RPC denial verified. Fixture browsers passed the classifieds guest and
+member flows at 1280/390px, including category counts/pages, inline own-ad editing,
+read-only other ads, selected contact text, literal HTML, pagination, conflicts,
+delete/repost controls and sign-out. Existing map-layer and City Hall checks passed.
+Asset version `20261102h`; shared changes elsewhere are cache references/navigation,
+not new controls on other maps. See `classifieds/README.md` and its deployment/test
+tools. Frontend publishing and final deployed checks are pending.
+
+
 ## 2026-11-02 — Day Planner integrated into the main map
 
 The main page’s Day Plan button now opens the full Austin day Planner editor.

@@ -17,8 +17,10 @@ part of the same chat. One small file per job; nothing is abstract.
 | `catalog-menu.js` | the Apps and Media buttons and expandable categories, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
-The main map controls are Explore, Day Plan, Chat, City Hall, Apps, GPS and Map,
-in that order. [City Hall](city-hall/README.md) opens four cards for public
+The main map controls are Explore, Day Plan, Chat, City Hall, Classifieds, Apps, GPS and Map,
+in that order. [Free classifieds](../classifieds/README.md) opens a member-only
+category directory and the owner’s editable, text-only ad. Category links open
+separate pages; other map layouts retain their existing controls. [City Hall](city-hall/README.md) opens four cards for public
 meetings, city announcements, issued permits and recent site-plan applications.
 Its official city sources refresh every three hours through GitHub Actions.
 Map opens the Map layers panel, which groups the 3D-view and satellite toggles, Show map
