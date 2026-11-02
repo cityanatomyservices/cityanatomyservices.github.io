@@ -1,13 +1,13 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-02T06:52:44.709995+00:00",
+ "generated": "2026-11-02T19:48:01.441265+00:00",
  "sources": [
   {
    "name": "Austin Public Library",
    "url": "https://library.austintexas.gov/events-feed.xml",
-   "ok": true,
-   "failures": 0,
-   "count": 273
+   "ok": false,
+   "failures": 1,
+   "count": 262
   },
   {
    "name": "UT Austin",
@@ -52,180 +52,6 @@
     "description": "Explore the exhibits and grounds on a self-guided visit.",
     "conditions": "Free admission for individuals and families. Group programs may differ. Check the official site for weather, holiday or special-event closures.",
     "expires": "2026-11-02T17:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "288bd81cf838c0276488",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.762382002,
-     30.248673996
-    ]
-   },
-   "properties": {
-    "id": "288bd81cf838c0276488",
-    "title": "Talk Time",
-    "url": "https://library.austintexas.gov/event/talk-time/talk-time-7775446",
-    "venue": "Twin Oaks Branch",
-    "address": "1800 S Fifth St",
-    "start": "2026-11-02T09:30:00-06:00",
-    "end": "2026-11-02T11:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Improve your English conversation.Talk Time is a program for English conversation practice with other English language learners and English speaking volunteers. No registration is necessary. The program is open to any ad",
-    "conditions": "Adults (ages 18+) Talk Time · Check the organizer for registration or capacity limits.",
-    "expires": "2026-11-02T11:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "f3468d8b164bc901fb04",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.733440966,
-     30.259904992
-    ]
-   },
-   "properties": {
-    "id": "f3468d8b164bc901fb04",
-    "title": "Nature Sensory Playgroup",
-    "url": "https://library.austintexas.gov/event/early-literacy-playgroup/nature-sensory-playgroup-7788289",
-    "venue": "Terrazas Branch",
-    "address": "1105 E Cesar Chavez St",
-    "start": "2026-11-02T10:00:00-06:00",
-    "end": "2026-11-02T11:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Bring your young child inside the library to engage in nature sensory play. We will have sand, water, acorns , tree cookies, and clay!",
-    "conditions": "Babies (ages 0-1) Toddlers (ages 1-3) Preschoolers (ages 3-5) Early Literacy Playgroup",
-    "expires": "2026-11-02T11:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "dacbaef63bd198435dbd",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.751692979,
-     30.266101984
-    ]
-   },
-   "properties": {
-    "id": "dacbaef63bd198435dbd",
-    "title": "All Ages Storytime",
-    "url": "https://library.austintexas.gov/event/all-ages-storytime/all-ages-storytime-7785827",
-    "venue": "Central Library",
-    "address": "710 W Cesar Chavez St",
-    "start": "2026-11-02T10:00:00-06:00",
-    "end": "2026-11-02T10:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Storytime for children aged 5 and under and their parents, featuring stories, songs, fingerplays, and rhymes. Program length can vary.",
-    "conditions": "Babies (ages 0-1) Toddlers (ages 1-3) Preschoolers (ages 3-5) All Ages Storytime",
-    "expires": "2026-11-02T10:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "a623d2e46bae5da84ce1",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.76762396,
-     30.298259994
-    ]
-   },
-   "properties": {
-    "id": "a623d2e46bae5da84ce1",
-    "title": "Books and Babies",
-    "url": "https://library.austintexas.gov/event/books-and-babies/books-and-babies-7784599",
-    "venue": "Howson Branch",
-    "address": "2500 Exposition Blvd",
-    "start": "2026-11-02T11:00:00-06:00",
-    "end": "2026-11-02T12:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "A lapsit storytime program especially for non-walking babies 0-12 months and their caregivers. Very short stories are interspersed with songs, rhymes, and fingerplays for babies and parents. A brief playtime follows. Pro",
-    "conditions": "Babies (ages 0-1) Books and Babies",
-    "expires": "2026-11-02T12:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "c937dbc59a037e186b97",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.666558995,
-     30.308688004
-    ]
-   },
-   "properties": {
-    "id": "c937dbc59a037e186b97",
-    "title": "All Ages Storytime - Read, sing, dance, and play with us!",
-    "url": "https://library.austintexas.gov/event/all-ages-storytime/all-ages-storytime-7776986",
-    "venue": "University Hills Branch",
-    "address": "4721 Loyola Ln",
-    "start": "2026-11-02T11:00:00-06:00",
-    "end": "2026-11-02T12:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Come have a good time at storytime with fun books, nice people, and lots of toys! We do the \"focused\" part of the program in the beginning with 20-30 minutes (depending on the kids' energy that day) of reading and litera",
-    "conditions": "Babies (ages 0-1) Toddlers (ages 1-3) Preschoolers (ages 3-5) Kids (ages 6-10) All Ages Storytime",
-    "expires": "2026-11-02T12:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "3d0dfbdab9c61f8db757",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.742100981,
-     30.186620001
-    ]
-   },
-   "properties": {
-    "id": "3d0dfbdab9c61f8db757",
-    "title": "Computer classes with Austin Free-Net - Clases de computación con Austin FreeNet",
-    "url": "https://library.austintexas.gov/event/basic-computer-skills/computer-classes-austin-free-net-7789229",
-    "venue": "Southeast Branch",
-    "address": "5803 Nuckols Crossing Rd",
-    "start": "2026-11-02T12:30:00-06:00",
-    "end": "2026-11-02T13:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "English & Spanish Beginner Technology WorkshopAustin Free-Net, in partnership with the Southeast Community Library, presents a weekly beginner-friendly technology workshop in both English and Spanish. This class is desig",
-    "conditions": "Adults (ages 18+) Basic Computer Skills Español",
-    "expires": "2026-11-02T13:30:00-06:00"
    }
   },
   {
@@ -829,12 +655,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T13:30:00-06:00",
     "endKnown": true
    }
   },
@@ -1091,12 +917,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -1121,12 +947,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -2398,12 +2224,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -3182,12 +3008,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -3676,12 +3502,12 @@
     "price": 15.0,
     "priceLabel": "$5 – 15",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -4402,12 +4228,12 @@
     "price": 20.0,
     "priceLabel": "$10 – 20",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -4519,12 +4345,12 @@
     "price": 15.0,
     "priceLabel": "$5 – 15",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -6057,12 +5883,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -6435,12 +6261,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -7683,12 +7509,12 @@
     "price": 15.0,
     "priceLabel": "$5 – 15",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -8177,12 +8003,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -8265,12 +8091,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   },
@@ -8295,12 +8121,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-02T06:52:44.709995+00:00",
+    "checked": "2026-11-02T19:48:01.441265+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-03T06:52:44.709995+00:00",
+    "expires": "2026-11-03T19:48:01.441265+00:00",
     "endKnown": false
    }
   }
