@@ -1,12 +1,12 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-01T22:27:26.631142+00:00",
+ "generated": "2026-11-02T06:53:21.796323+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
    "url": "https://falloutcomedy.com/comedy-shows/",
-   "ok": true,
-   "failures": 0,
+   "ok": false,
+   "failures": 1,
    "count": 0
   },
   {
@@ -137,8 +137,8 @@
     "end": "2026-11-14T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-01T22:27:26.631142+00:00",
-    "expires": "2026-11-02T22:27:26.631142+00:00",
+    "checked": "2026-11-02T06:53:21.796323+00:00",
+    "expires": "2026-11-03T06:53:21.796323+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/arts-culture/events/festival-good-0",
@@ -168,8 +168,8 @@
     "end": "2026-11-14T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-01T22:27:26.631142+00:00",
-    "expires": "2026-11-02T22:27:26.631142+00:00",
+    "checked": "2026-11-02T06:53:21.796323+00:00",
+    "expires": "2026-11-03T06:53:21.796323+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/ace/events/texas-craft-brewers-festival",
@@ -199,8 +199,8 @@
     "end": "2026-11-15T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-01T22:27:26.631142+00:00",
-    "expires": "2026-11-02T22:27:26.631142+00:00",
+    "checked": "2026-11-02T06:53:21.796323+00:00",
+    "expires": "2026-11-03T06:53:21.796323+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/the-art-of-print/",
