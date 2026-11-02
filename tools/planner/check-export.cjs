@@ -93,10 +93,14 @@ async function download(page,f,name){
   await f.locator('#export-close').click();await f.locator('#undo').click();await f.waitForFunction(()=>PlanStore.plan.items[0].schedule.duration===90);
   const visitId=await page.evaluate(()=>AustinVisit.id),selected=await f.evaluate(()=>JSON.stringify(PlanStore.book));
   await page.locator('.brand').click();await page.waitForURL(base+'/');
+  // The outer History API URL changes before the iframe finishes navigating.
+  await f.waitForFunction(()=>location.pathname==='/chat/'&&document.readyState==='complete'&&window.PlanStore&&window.austinExplore);
   await page.evaluate(()=>{const a=document.createElement('a');a.href='/myplanmap/';document.body.append(a);a.click();a.remove();});
-  await page.waitForURL(base+'/dayplan/');f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.PlanStore);await f.evaluate(()=>PlanStore.ready());
+  await page.waitForURL(base+'/dayplan/');await f.waitForFunction(()=>location.pathname==='/planner/app.html'&&document.readyState==='complete'&&window.PlanStore&&window.PlanExport);await f.evaluate(()=>PlanStore.ready());
   assert.equal(await page.evaluate(()=>AustinVisit.id),visitId,'legacy in-site link keeps the guest visit');assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),selected);
-  await page.goBack();await page.waitForURL(base+'/');await page.goForward();await page.waitForURL(base+'/dayplan/');
+  await page.goBack();await page.waitForURL(base+'/');await f.waitForFunction(()=>location.pathname==='/chat/'&&document.readyState==='complete'&&window.PlanStore&&window.austinExplore);
+  await page.goForward();await page.waitForURL(base+'/dayplan/');await f.waitForFunction(()=>location.pathname==='/planner/app.html'&&document.readyState==='complete'&&window.PlanStore&&window.PlanExport);await f.evaluate(()=>PlanStore.ready());
+  assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),selected,'Back/Forward preserves the dated plans');
   const direct=await context.newPage();await direct.goto(base+'/planner/app.html');await direct.waitForURL(base+'/dayplan/');await direct.close();
   assert.deepEqual(errors,[]);await context.close();console.log(`${width}px: /dayplan/ and legacy redirects, date labels, one plan per day, exports, relocated allowance/backup/restore, undo, guest navigation, themes and accessibility passed.`);
  }

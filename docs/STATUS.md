@@ -30,8 +30,14 @@ per-date manual allowances, repeated calendar/map exports, JSON download,
 invalid/valid restore and Undo, old in-site links preserving guest memory,
 Back/Forward and standalone planner URL redirect. The full selected-stop map
 regression passes for guests and registered visitors at both widths. Screenshots
-reviewed; browser fixtures prevent production account writes. Publication and
-live verification follow this checkpoint.
+reviewed; browser fixtures prevent production account writes.
+
+Published implementation `2ac2ee3`; Pages deployment `41498917395` and Check
+My Plan Map `41498918379` succeeded. Homepage and `/dayplan/` serve `20261102e`,
+and `/myplanmap/` serves the redirect. The full expanded export/navigation check
+passes on the live site at 1280/390 px. Its navigation waits now check the loaded
+iframe document, since the outer History API URL changes before that document
+finishes loading and Back/Forward may cancel an intermediate navigation.
 
 ## 2026-11-02 — Austin day Planner exports
 
