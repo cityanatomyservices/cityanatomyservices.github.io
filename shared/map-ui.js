@@ -23,7 +23,7 @@
       await script('/chat/theme.js?v=20261028g');
       await script('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js',()=>window.supabase);
       for(const [file,version,global] of [['visit','20261031a','AustinVisit'],['session','20261031a','AustinSession'],['member','20261030c','AustinMember'],['preferences','20261030c','AustinPreferences'],['favorite-button','20261030c','AustinFavorites'],['comments','20261030e','AustinComments']])await script(`/shared/${file}.js?v=${version}`,()=>window[global]);
-      for(const [file,version,global] of [['model','20261029r','PlanModel'],['sources','20261029r','PlanSources'],['repository','20261029r','PlanRepository'],['store','20261030a','PlanStore']])await script(`/planner/${file}.js?v=${version}`,()=>window[global]);
+      for(const [file,version,global] of [['model','20261102b','PlanModel'],['sources','20261102b','PlanSources'],['repository','20261029r','PlanRepository'],['store','20261030a','PlanStore']])await script(`/planner/${file}.js?v=${version}`,()=>window[global]);
       const response=await fetch('/shared/map-controls.html?v=20261030e');if(!response.ok)throw new Error('Map controls could not load.');
       const template=document.createElement('template');template.innerHTML=await response.text();const stack=template.content.firstElementChild;stack.classList.add('austin-map-ui');
       const existing={ctrlLocate:$('ctrlLocate')||$('btn-locate'),ctrlTilt:$('ctrlTilt')||$('btn-tilt'),ctrlSatellite:$('ctrlSatellite'),ctrlExtent:$('ctrlExtent')||$('btn-extents')};
@@ -65,7 +65,7 @@
       (existing.ctrlSatellite||$('ctrlSatellite')).setAttribute('aria-label','Satellite imagery');
       if(!existing.ctrlExtent)$('ctrlExtent').onclick=()=>map.fitBounds(currentBounds,{padding:50,pitch:0,bearing:0,duration:600});
       (existing.ctrlExtent||$('ctrlExtent')).setAttribute('aria-label','Show map extent');
-      await script('/planner/select.js?v=20261030e');
+      await script('/planner/select.js?v=20261102b');
       await script('/chat/catalog-menu.js?v=20261031d');
       await script('/chat/explore/config.js?v=20261028e');await script('/chat/explore/model.js?v=20261028e');await script('/chat/explore/explore.js?v=20261031a');
       await window.AustinExplore.init(map);

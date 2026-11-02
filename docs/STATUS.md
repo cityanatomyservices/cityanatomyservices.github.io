@@ -1,5 +1,41 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-02 — Public Meetings in dated day plans
+
+Owner requested the same Day Planner checkbox on City Hall Public Meetings,
+with automatic grouping into one plan per day and a dropdown for reviewing
+other days. Confirmed this collection model already exists: each plan runs
+5 AM–5 AM Austin time (5:00 AM–4:59 AM displayed), following the local clock
+through DST. Kept those boundaries and the existing guest/account lifetime.
+
+Public meeting rows now mount the shared planner checkbox through
+`PlanSelection.mount` and the new `PlanSources.meeting` adapter. Selecting a
+meeting creates or joins its dated plan and selects that day for review; all
+other days and edits remain. Unchecking removes only that meeting. Selection
+is deduplicated by the official occurrence URL within its day. The existing
+planned-day dropdowns and timing/conflict editor are reused. City Hall stays
+on the main map only; the shared navigation/planner loaders were versioned
+so all routes load compatible scripts (`20261102b`).
+
+Published starts carry into the itinerary. The initial 60-minute duration is
+explicitly unconfirmed because the city feed does not supply finishes. A
+meeting with only a date routes to its announced date (not the prior day at
+midnight), remains unscheduled, and asks the user to check the agenda and enter
+the time. Build my day cannot invent that start; once entered, it is preserved
+as an appointment during building/fitting. Existing overlap, travel-buffer and
+outside-day checks continue to apply. Source links, board and location text
+are retained; no coordinates or finish times are guessed. No database schema,
+City Hall importer or scheduled workflow changes are required.
+
+Validation: all 64 planner/member/session/routing/model tests passed, including
+new meeting-date, stable-key, unknown-time, conflict-edit and guest/registered
+multi-day persistence cases. `tools/city-hall/check-planner.cjs` passed at 1280
+and 390 px: preserve today's edits, add a new future day, join more meetings to
+that day, use both dropdowns, edit a duration to resolve an overlap, enter a
+missing time, return home, restore checkbox state, uncheck and refresh a guest.
+The existing complete City Hall browser check also passed at both widths.
+Screenshots were reviewed. Browser tests block production account requests.
+
 ## 2026-11-02 — City Hall on the main map
 
 Owner requested a City Hall button immediately below Chat on the main map

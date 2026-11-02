@@ -133,3 +133,29 @@ test('movie choices and published events resolve to their actual plan day',()=>{
   assert.equal(M.targetDay(source,'2026-10-31'),'2026-10-31');
   assert.equal(M.targetDay({timing:'fixed',start:'2026-10-31T02:00:00-05:00'},'2026-11-10'),'2026-10-30');
 });
+test('public meetings keep published times, stable keys and an unconfirmed duration',()=>{
+  const row={id:'first-import',title:'Council meeting',url:'https://www.austintexas.gov/council/2026/20261105-reg',date:'2026-11-05T10:00:00-06:00',dateOnly:false,location:'City Hall'};
+  const source=S.meeting(row),item=S.item(source,id());
+  assert.equal(M.targetDay(source,'2026-10-31'),'2026-11-05');
+  assert.equal(item.schedule.start,row.date);assert.equal(item.schedule.durationConfirmed,false);
+  assert.equal(source.end,null);assert.equal(source.endKnown,false);assert.equal(source.coordinates,null);
+  assert.equal(S.meeting({...row,id:'new-import',date:'2026-11-05T10:30:00-06:00'}).key,source.key);
+});
+test('a date-only meeting selects its announced date and waits for a confirmed time',()=>{
+  const row={id:'tba',title:'Committee meeting',url:'https://www.austintexas.gov/council/2026/20261104-phc',date:'2026-11-04T00:00:00-06:00',dateOnly:true};
+  const source=S.meeting(row),item=S.item(source,id());
+  assert.equal(M.targetDay(source,'2026-11-03'),'2026-11-04','midnight must not route into the preceding 5 AM day');
+  assert.equal(M.targetDay(source,'2026-11-10'),'2026-11-04');
+  const p={...plan([]),date:'2026-11-04',items:[{...item,day:'2026-11-04'}]};
+  assert.equal(M.build(p).items[0].schedule.start,null);
+  assert.match(M.check(p).issues.get(item.id).find(x=>x.code==='unscheduled').text,/agenda/);
+  p.items[0].schedule.start=M.instant('2026-11-04T13:00');
+  assert.equal(M.build(p).items[0].schedule.start,p.items[0].schedule.start,'a user-confirmed meeting time is an appointment');
+});
+test('meeting overlaps are reported and visit-length edits resolve them on that day',()=>{
+  const source=(name,time)=>S.meeting({id:name,title:name,url:`https://www.austintexas.gov/events/${name}`,date:`2026-10-31T${time}:00-05:00`,dateOnly:false});
+  const a=S.item(source('Council','10:00'),id()),b=S.item(source('Board','10:30'),id());
+  const p=plan([a,b]);assert.equal(M.check(p).conflicts,2);
+  p.items[0].schedule.duration=10;p.items[0].schedule.durationConfirmed=true;
+  assert.equal(M.check(p).conflicts,0);assert.equal(M.build(p).items[1].schedule.start,b.source.start);
+});

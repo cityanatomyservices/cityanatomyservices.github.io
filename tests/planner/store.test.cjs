@@ -93,6 +93,31 @@ test('dated event selection creates its published day rather than moving the eve
   await f.store.chooseDay('2026-11-10');assert.equal(f.store.plan.items[0].source.title,'Cafe');
  }finally{f.dispose();}
 });
+test('meeting selections create or join their dated plan while preserving today and private saves',async()=>{
+ for(const anonymous of [true,false]){
+  const f=fixture({anonymous});try{
+   await f.store.chooseDay('2026-11-02');await f.store.select(place('Today coffee'),true);
+   await f.store.edit(p=>{p.items[0].schedule.note='Keep today unchanged';p.items[0].schedule.duration=25;});
+   const today=f.store.plan;
+   const source=(name,date,dateOnly=false)=>Sources.meeting({id:name,title:name,date,dateOnly,url:`https://www.austintexas.gov/events/${name}`});
+   const a=source('Next-week','2026-11-09T10:00:00-06:00'),b=source('Same-day','2026-11-09T11:00:00-06:00'),c=source('Time-TBA','2026-11-09T00:00:00-06:00',true);
+   assert.equal(await f.store.select(a,true),'2026-11-09');
+   await f.store.edit(p=>{p.items[0].schedule.duration=40;p.items[0].schedule.note='Review this meeting';});
+   await f.store.chooseDay('2026-11-02');assert.equal(f.store.has(a),true);
+   await f.store.select(b,true);assert.equal(f.store.plan.items.length,2);
+   await f.store.chooseDay('2026-11-08');await f.store.select(c,true);
+   assert.equal(f.store.plan.date,'2026-11-09');assert.equal(f.store.plan.items.length,3);
+   await f.store.select(a,true);assert.equal(f.store.plan.items.length,3,'same meeting never duplicates');
+   assert.equal(f.store.plan.items[0].schedule.note,'Review this meeting');assert.equal(f.store.plan.items[0].schedule.duration,40);
+   await f.store.chooseDay('2026-11-02');assert.deepEqual(f.store.plan.items,today.items);
+   await f.store.select(b,false);assert.equal(f.store.plan.date,'2026-11-02');
+   assert.equal(f.store.days.find(d=>d.date==='2026-11-09').count,2);
+   await f.store.sync();assert.equal(M.valid(f.store.book),true);
+   if(anonymous){assert.equal(f.writes,0);assert.equal(f.loads,0);}
+   else{assert.equal(f.remote.plan.items.length,3);assert.deepEqual(f.remote.plan.items,f.store.book.items);}
+  }finally{f.dispose();}
+ }
+});
 test('a stale editor cannot edit another selected day or change a stop date',async()=>{
  const f=fixture({offline:true});try{
   await f.store.chooseDay('2026-10-31');await f.store.select(place('Cafe'),true);

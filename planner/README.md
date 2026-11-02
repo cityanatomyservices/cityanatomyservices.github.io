@@ -1,7 +1,8 @@
 # My Plan Map
 
 `/myplanmap/` uses the existing site frame and embeds `/planner/app.html`.
-The home map adds checkboxes beside Explore listings and neighborhood businesses.
+The home map adds checkboxes beside Explore listings, neighborhood businesses
+and City Hall public meetings.
 Selecting a place never calls ChatRoom, joins a room, changes visibility, or
 claims the visitor is at that place. The planner's optional chat button uses the
 visitor's physical neighborhood through the existing chat engine.
@@ -14,7 +15,7 @@ visitor's physical neighborhood through the existing chat engine.
 | `shared/session.js` | One shared SDK client per page visit; temporary guest credentials and persistent registered sessions |
 | `shared/account.js` | Site-wide Google/email-code sign-in and sign-out dialog; separate from planner and chat UI |
 | `shared/member.js` / `member-ui.js` | Private Favorites, profile settings and preferences; adding a Favorite to a day uses `PlanStore.select` |
-| `sources.js` | Business/Explore snapshots, stable selection keys, movie occurrences and published timing provenance |
+| `sources.js` | Business/Explore/meeting snapshots, stable selection keys, movie occurrences and published timing provenance |
 | `model.js` | Pure Austin-time scheduling and validation; no DOM, network, auth, chat, or routes |
 | `routing.js` | Async route transport, in-memory cache, estimate provider and navigation links |
 | `route-panel.js` | Route controls, travel blocks, arrival-point editing and fitting scheduled visits |
@@ -47,6 +48,13 @@ Use a sibling container beside a place's button, never a checkbox nested inside
 a navigation button. Other source types can add an adapter in sources.js. The
 optional chat widget can mount into its own host; load shared/visit.js,
 Supabase JS and shared/session.js first. Existing home/tour maps continue using their own chat UI.
+
+City Hall mounts only the planner action with
+`PlanSelection.mount(container, PlanSources.meeting(record))`. It uses the same
+checkbox, checked-state synchronization and selection/removal path as Explore.
+It does not trigger the separate Explore Favorites/public-comment listeners.
+Meeting keys use the official occurrence URL; snapshots preserve the date,
+board, location text and agenda link without inventing coordinates or a finish.
 
 ## Storage
 
@@ -132,6 +140,13 @@ Signing out tries to finish saving; discarding unsaved edits is explicit.
   select/create their actual plan day rather than moving published dates.
   Movies retain only showtime choices within the selected day; movie listings
   spanning the boundary can be saved to either applicable day.
+- Public meetings select/create their dated plan and join any stops already
+  there; other days and their edits stay intact. Date-only meetings use their
+  announced calendar date, not midnight on the previous 5 AM plan day. They
+  remain unscheduled until the visitor checks the agenda and enters a time.
+  Build/Fit preserves a confirmed meeting time. Published start times are fixed,
+  unknown finishes carry an unconfirmed 60-minute duration, and overlaps/travel
+  gaps use the existing review and editing controls.
 - Availability windows restrict a full visit, including overnight hours. No
   stop-level date controls or editable day boundaries are presented.
 - Expiry timestamps are never used as unknown event/movie finish times. Movie

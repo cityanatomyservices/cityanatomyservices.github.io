@@ -35,5 +35,14 @@
       duration: Math.max(1, Math.min(1440, duration || 60)), durationConfirmed: !!known, locked: false,
       showtime: null, windowStart: null, windowEnd: null, bufferBefore: null, note: '' } };
   }
-  return { place, feature, item };
+  function meeting(p) {
+    return { key: `meeting:${p.url}`, sourceId: p.id, kind: 'meeting',
+      timing: p.dateOnly ? 'unknown' : 'fixed', title: p.title,
+      venue: p.board || '', address: p.location || '', coordinates: null,
+      description: p.description || '', url: p.url, provider: 'City of Austin',
+      checked: p.checked || null, captured: new Date().toISOString(),
+      start: p.dateOnly ? null : p.date, end: null, endKnown: false,
+      validFrom: p.dateOnly ? p.date : null, hoursUnknown: false };
+  }
+  return { place, feature, meeting, item };
 });

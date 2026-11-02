@@ -43,9 +43,7 @@
     button.title=`Day Plan · ${store.plan.items.length} ${store.plan.items.length===1?'stop':'stops'} on ${dateLabel(store.plan.date)}`;
     document.querySelectorAll('.plan-select input').forEach(input=>{const source=inputs.get(input);if(source){input.checked=store.has(source);input.title=`Plan for ${dateLabel(window.PlanModel.targetDay(source,store.plan.date))}`;}});
   }
-  window.addEventListener('austin:planner-target', event => {
-    const { container, provider, data } = event.detail;
-    const source = provider === 'place' ? window.PlanSources.place(data) : window.PlanSources.feature(data);
+  function mount(container, source) {
     const label = document.createElement('label'); label.className = 'plan-select';
     const input = document.createElement('input'); input.type = 'checkbox'; input.dataset.planKey = source.key;
     inputs.set(input,source);
@@ -58,6 +56,13 @@
       catch (error) { label.title = error.message; alert(error.message); }
       finally { input.disabled = false; refresh(); }
     });
+    return label;
+  }
+  window.PlanSelection = { mount };
+  window.addEventListener('austin:planner-target', event => {
+    const { container, provider, data } = event.detail;
+    const source = provider === 'place' ? window.PlanSources.place(data) : window.PlanSources.feature(data);
+    mount(container, source);
   });
   store.subscribe(refresh); refresh(); store.ready().then(refresh);
 })();

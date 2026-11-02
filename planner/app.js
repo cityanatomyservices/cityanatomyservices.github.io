@@ -31,7 +31,7 @@
     title.append(number,node('h2',s.title)); li.append(title,node('p',[s.venue,s.address].filter(Boolean).join(' · '),'stop-venue'));
     const published = s.kind === 'movie' ? 'Choose one of the published showtimes below.' : s.timing === 'fixed'
       ? `Published: ${fmt(s.start)}${s.endKnown ? ' – ' + fmt(s.end) : ' · finish not supplied'}`
-      : s.timing === 'window' ? `Visit window: ${fmt(s.start)} – ${fmt(s.end)}` : 'Flexible visit · verify opening hours';
+      : s.timing === 'window' ? `Visit window: ${fmt(s.start)} – ${fmt(s.end)}` : s.kind === 'meeting' ? 'Meeting time not published · check the agenda and enter the confirmed time' : 'Flexible visit · verify opening hours';
     li.append(node('p',published,'source-timing'));
     const grid = node('div',null,'schedule-grid');
     if (s.kind === 'movie') {

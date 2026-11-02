@@ -1,4 +1,4 @@
-/* Loaded only by the home map. City Hall is a read-only, visit-local list. */
+/* Loaded only by the home map. Meeting selections use the shared day planner. */
 window.AustinCityHall = {
   init() {
     const button = document.getElementById('ctrlCityHall');
@@ -99,6 +99,9 @@ window.AustinCityHall = {
         }
         article.append(sourceLink(r.category === 'meetings' ? 'Meeting details & agenda ↗' : 'Official city record ↗', r.url));
         li.append(article); list.append(li);
+        if (r.category === 'meetings') window.PlanSelection.mount(li, window.PlanSources.meeting({
+          ...r, checked: feed.sources.find(s => s.id === r.source)?.checked
+        }));
       }
       $('.city-hall-more').hidden = matches.length <= limit;
       const sources = $('.city-hall-sources'); sources.replaceChildren();

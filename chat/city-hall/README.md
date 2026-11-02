@@ -1,12 +1,28 @@
 # City Hall — main map only
 
 The **City Hall** button follows Chat on the home map. Its four cards open
-read-only lists using Explore's surfaces, with search, council-district and
+official city lists using Explore's surfaces, with search, council-district and
 meeting-board filters. Selecting a card shows that category; selecting it again
 closes its list. Opening City Hall closes the other main-map panels and vice
 versa. Escape/Close returns focus to the button. Choices live only in page
-memory, and no pins, accounts, GPS, browser storage or database writes are used.
+memory. Public Meetings includes the same **Day Planner** checkbox as Explore.
+Checking it adds a saved snapshot to that meeting's plan day, creating the day
+if needed or joining its existing stops. Unchecking removes only that meeting.
+Guest plans stay in visit memory; registered plans save privately through the
+existing planner. No City Hall pins or GPS requests are added.
 The other maps keep their controls until the owner requests an extension.
+
+Meeting snapshots use `PlanSources.meeting` and `PlanSelection.mount`. Their
+stable key is the official occurrence URL, so changing an import ID or source
+time does not duplicate a selection on the same day. Published starts are fixed;
+finish times are unknown, and the initial 60-minute visit is an unconfirmed
+estimate the user can edit. Date-only meetings select their announced date
+instead of treating midnight as a start on the previous plan day. They remain
+unscheduled until the user checks the agenda and enters a time; Build my day
+does not invent one. Once entered, that meeting time is an appointment. The
+planner's existing 5 AM–5 AM Austin-time days and conflict review are preserved.
+Locations are retained as text; no coordinates are inferred. Saved meetings
+survive feed expiry and still link to the source for cancellations and changes.
 
 ## Lists and sources
 
@@ -79,6 +95,7 @@ python3 -m unittest discover -s tools/city-hall -p 'test_*.py'
 node tools/city-hall/test-model.cjs
 python3 tools/city-hall/build.py
 node tools/city-hall/check-browser.cjs
+node tools/city-hall/check-planner.cjs
 node tools/explore/check-map-layers.cjs
 ```
 
@@ -88,3 +105,9 @@ categories, filters, pagination, links, panel exclusivity, focus, expiration,
 refresh and the absence of City Hall on a catalog map. Pass the deployed site
 URL as its first argument to repeat against production. Screenshots go to
 `/tmp/city-hall-*.png`.
+
+The planner browser check uses a controlled meeting feed and blocks account
+requests. At both widths it checks adding meetings to a new/existing date,
+retaining today's edits, dropdown navigation, unknown-time handling, editing
+visit lengths to resolve conflicts, unchecking, returning to the list and guest
+refresh. Both browser commands accept the live site URL after deployment.

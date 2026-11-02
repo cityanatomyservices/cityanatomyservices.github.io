@@ -38,6 +38,9 @@
   }
   const onDay = (date, value) => { const [a,b] = bounds({date}), t=Date.parse(value); return t >= a && t < b; };
   function targetDay(source, preferred) {
+    // A date-only meeting belongs to its announced date, even when midnight
+    // overlaps the preceding 5 AM plan day. Midnight is not a meeting time.
+    if (source.kind === 'meeting' && source.validFrom && !source.start) return day(source.validFrom);
     if (source.kind === 'movie') {
       const shows = source.showtimes || [];
       if (shows.some(s => onDay(preferred,s.start))) return preferred;
@@ -85,7 +88,7 @@
     return book;
   }
   function fixedStart(item) {
-    return item.source.kind === 'movie' ? item.schedule.showtime : item.source.timing === 'fixed' ? item.source.start : null;
+    return item.source.kind === 'movie' ? item.schedule.showtime : item.source.timing === 'fixed' ? item.source.start : item.source.kind === 'meeting' ? item.schedule.start : null;
   }
   function windows(item, plan) {
     const [a,b] = bounds(plan), s = item.source, u = item.schedule;
@@ -116,7 +119,7 @@
       else item.schedule.start = null;
     }
     for (const item of items) {
-      if (placed.includes(item) || (item.source.kind === 'movie' && !item.schedule.showtime)) continue;
+      if (placed.includes(item) || (item.source.kind === 'movie' && !item.schedule.showtime) || (item.source.kind === 'meeting' && !fixedStart(item))) continue;
       const [from, until] = windows(item, result), length = duration(item) * minute;
       if (!finite(from) || !finite(until) || until <= from) continue;
       let cursor = from;
@@ -138,7 +141,7 @@
     const [dayStart,dayEnd] = bounds(plan);
     for (const item of items) {
       const s = item.source, u = item.schedule, [a,b] = interval(item), [opens,closes] = windows(item, plan);
-      if (!u.start) add(item, 'unscheduled', s.kind === 'movie' && !u.showtime ? 'Choose a movie showtime.' : 'Not scheduled. Build your day or set an arrival time.', 'error');
+      if (!u.start) add(item, 'unscheduled', s.kind === 'movie' && !u.showtime ? 'Choose a movie showtime.' : s.kind === 'meeting' ? 'Meeting time is not confirmed. Check the agenda and enter an arrival time.' : 'Not scheduled. Build your day or set an arrival time.', 'error');
       else if (!Number.isFinite(a)) add(item, 'invalid-time', 'Choose a valid arrival time.', 'error');
       else {
         if (a < dayStart || b > dayEnd) add(item, 'outside-day', 'This visit goes outside the 5 AM–5 AM plan day. Adjust its time or length.', 'error');
@@ -149,7 +152,7 @@
       if (!u.durationConfirmed) add(item, 'duration', 'Visit length is an estimate; check or adjust it.');
       if (s.kind === 'movie') add(item, 'trailers', 'Allow for trailers and arrival. Confirm the finish time with the cinema.');
       if (s.hoursUnknown && !(u.windowStart && u.windowEnd)) add(item, 'hours', s.hoursText ? 'Published hours need checking for this date; enter an availability window.' : 'Opening hours are unknown. Check the venue and enter an availability window.');
-      if (s.timing === 'fixed' && !s.endKnown && s.kind !== 'movie') add(item, 'end', 'The organizer has not supplied a finish time.');
+      if ((s.timing === 'fixed' || s.kind === 'meeting') && !s.endKnown && s.kind !== 'movie') add(item, 'end', 'The organizer has not supplied a finish time.');
     }
     const scheduled = items.filter(i => i.schedule.start && Number.isFinite(interval(i)[0])).sort((a,b) => interval(a)[0] - interval(b)[0]);
     // Check every overlapping pair, including a long event enclosing several stops.
