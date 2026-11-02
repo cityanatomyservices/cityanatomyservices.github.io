@@ -44,6 +44,18 @@ screenshots and adjusted narrow card titles. Main-frame/module versions use
 returning home from another page loads the new frame; other pages' controls
 and content are unchanged.
 
+Published implementation `d24215b`. Pages deployment `41479107253` and Check
+My Plan Map `41479111249` passed. Manual Refresh City Hall run `41479152904`
+passed every source and published snapshot `483a263`; its Pages deployment
+`41479236766` also passed. Live main-page checks passed at 1280 and 390 px,
+including every category/filter, retries, expiry, focus and unchanged catalog
+controls. The live snapshot reports all seven sources healthy.
+
+The default Git credential lacks the workflow scope. Publishing the new
+workflow used the already configured cityanatomyservices GitHub CLI sign-in,
+which has that permission, via a one-command credential-helper override.
+No persistent credential configuration was changed.
+
 ## 2026-10-31 — A.C logo favicon
 
 Owner supplied `Burnt Orange A.C. Circle Logo.png` (1254 × 1254) as the new
