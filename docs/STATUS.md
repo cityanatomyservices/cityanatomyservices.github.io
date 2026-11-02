@@ -35,7 +35,15 @@ read-only other ads, selected contact text, literal HTML, pagination, conflicts,
 delete/repost controls and sign-out. Existing map-layer and City Hall checks passed.
 Asset version `20261102h`; shared changes elsewhere are cache references/navigation,
 not new controls on other maps. See `classifieds/README.md` and its deployment/test
-tools. Frontend publishing and final deployed checks are pending.
+tools.
+
+Published as `63731e3`. Pages run `41542806734`, classifieds CI (including a
+fresh PostgreSQL service), and planner CI succeeded. Verified new-version HTML
+before requesting `20261102h` assets; all nine changed application JS/CSS files
+match the committed bytes. Home/chat/directory/all eight category URLs work.
+The full guest/member classifieds browser checks also passed on the deployed
+site at desktop and phone sizes with all Supabase requests intercepted. No
+production ads or accounts were created by those browser checks. Work complete.
 
 
 ## 2026-11-02 — Day Planner integrated into the main map
