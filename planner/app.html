@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="/chat/explore/explore.css?v=20261102c">
   <link rel="stylesheet" href="/planner/select.css?v=20261029v">
   <link rel="stylesheet" href="/appearance.css?v=20261028h">
-  <link rel="stylesheet" href="/planner/app.css?v=20261102d">
+  <link rel="stylesheet" href="/planner/app.css?v=20261102e">
   <link rel="stylesheet" href="/chat/panel.css?v=20261023e">
   <script src="/chat/theme.js?v=20261028g"></script>
   <link rel="stylesheet" href="/shared/comments.css?v=20261030e">
-<script src="/shared/map-ui.js?v=20261102d"></script>
+<script src="/shared/map-ui.js?v=20261102e"></script>
 </head>
 <body>
   <main class="planner-layout">
@@ -33,16 +33,6 @@
       <p class="day-boundary">5:00 AM–4:59 AM the following morning · Austin time</p>
       <p class="overnight-help">Times before 5 AM belong to the following morning.</p>
       <dialog id="day-dialog"><form id="add-day-form"><h2>Add a plan day</h2><label>Date<input id="new-day-date" type="date" required min="2020-01-01" max="2099-12-31"></label><p>Each day runs from 5 AM until 5 AM the following morning. Existing days keep their own stops.</p><div class="build-row"><button type="button" id="cancel-day">Cancel</button><button type="submit" class="primary">Open day</button></div></form></dialog>
-      <details id="day-settings" open><summary id="day-settings-label">Day settings</summary><form id="plan-settings">
-        <label class="plan-name">Day name<input name="name" maxlength="100" required aria-label="Day name"></label>
-        <details class="plan-options"><summary>Manual travel allowance & saving</summary>
-          <label>Minutes when no route is available<input name="bufferMinutes" type="number" min="0" max="240" step="5" required></label>
-          <p>This manual allowance is used until a journey is calculated, or when a route is unavailable. Calculated journeys use driving time plus your arrival allowance below.</p>
-          <p id="plan-storage-help">Guest plans last only for this visit. Refreshing or closing the page clears them. Download all days if you want to keep your own copy.</p>
-          <button type="button" id="download-plan">Download all days</button>
-          <button type="button" id="import-plan">Restore downloaded days</button><input type="file" id="import-file" accept="application/json,.json" hidden aria-label="Import a downloaded Austin plan">
-        </details>
-      </form></details>
       <div class="build-row"><button type="button" id="build-day" class="primary">Build my day</button><button type="button" id="undo" disabled>Undo</button></div>
       <p class="build-help">Fixed starts and locked stops stay put. Flexible stops fill the gaps in your preferred order.</p>
       <section class="route-panel" aria-label="Travel planning">
@@ -52,6 +42,7 @@
           <label class="lock-label"><input id="route-enabled" type="checkbox">Include driving estimates</label>
           <label class="lock-label"><input id="avoid-tolls" type="checkbox">Avoid toll roads</label>
           <label>Parking / extra arrival minutes per stop<input id="arrival-minutes" type="number" min="0" max="120" step="1" value="10"></label>
+          <label>Minutes when no route is available<input id="manual-buffer" type="number" min="0" max="240" step="5" required></label>
           <label>Open navigation in<select id="navigation-app"><option value="google">Google Maps</option><option value="apple">Apple Maps</option><option value="waze">Waze</option></select></label>
           <p>Estimates cover journeys between scheduled stops. Your trip to the first stop and your trip home are not included. Navigation opens from your current location.</p>
         </details>
@@ -107,28 +98,34 @@
     <p id="export-help"></p><a id="export-guide" target="_blank" rel="noopener noreferrer"></a>
     <button type="button" id="export-action" class="primary">Download .ics</button>
     <p id="export-status" role="status" aria-live="polite"></p><div id="export-results"></div>
+    <details class="export-backup"><summary>Backup & restore all days</summary>
+      <p id="plan-storage-help">Guest plans last only for this visit. Refreshing or closing the page clears them. Download all days if you want to keep your own copy.</p>
+      <div class="export-backup-actions"><button type="button" id="download-plan">Download all days</button><button type="button" id="import-plan">Restore downloaded days</button></div>
+      <input type="file" id="import-file" accept="application/json,.json" hidden aria-label="Import a downloaded Austin plan">
+      <p id="backup-status" role="status"></p>
+    </details>
   </dialog>
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
-  <script src="/shared/visit.js?v=20261102d"></script>
+  <script src="/shared/visit.js?v=20261102e"></script>
   <script src="/shared/session.js?v=20261031a"></script>
   <script src="/shared/member.js?v=20261030c"></script>
   <script src="/shared/preferences.js?v=20261030c"></script>
   <script src="/shared/comments.js?v=20261030e"></script>
   <script src="/shared/favorite-button.js?v=20261030c"></script>
-  <script src="/planner/model.js?v=20261102b"></script><script src="/planner/sources.js?v=20261102b"></script>
+  <script src="/planner/model.js?v=20261102e"></script><script src="/planner/sources.js?v=20261102b"></script>
   <script src="/planner/repository.js?v=20261029r"></script><script src="/planner/store.js?v=20261030a"></script>
   <script src="/planner/routing.js?v=20261030a"></script>
   <script src="/planner/route-panel.js?v=20261030c"></script>
   <script src="/planner/panel.js?v=20261029s"></script>
-  <script src="/planner/select.js?v=20261102b"></script>
+  <script src="/planner/select.js?v=20261102e"></script>
   <script src="/chat/catalog-menu.js?v=20261031d"></script>
   <script src="/chat/explore/config.js?v=20261028e"></script>
   <script src="/chat/explore/model.js?v=20261028e"></script>
   <script src="/chat/explore/explore.js?v=20261102c"></script>
   <script src="/planner/controls.js?v=20261102c"></script>
-  <script src="/planner/map.js?v=20261030e"></script><script src="/planner/app.js?v=20261102b"></script>
-  <script src="/planner/export.js?v=20261102d"></script><script src="/planner/export-ui.js?v=20261102d"></script>
+  <script src="/planner/map.js?v=20261030e"></script><script src="/planner/app.js?v=20261102e"></script>
+  <script src="/planner/export.js?v=20261102e"></script><script src="/planner/export-ui.js?v=20261102e"></script>
   <script src="/chat/widget.js?v=20261030e"></script>
 </body>
 </html>

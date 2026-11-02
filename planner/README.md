@@ -1,6 +1,14 @@
 # Austin day Planner
 
-`/myplanmap/` uses the existing site frame and embeds `/planner/app.html`.
+`/dayplan/` uses the existing site frame and embeds `/planner/app.html`.
+The former `/myplanmap/` address redirects to `/dayplan/`; in-site links using
+the old path are normalized by `AustinVisit` without ending a guest's visit.
+Each plan is identified by its date, with one plan per 5 AM–5 AM Austin day.
+There is no day-name field or separate day-settings section. Manual travel
+allowance lives under Driving & arrival options; all-days backup/restore is
+under Export. New stored names default to the date. Older name fields remain
+compatible with saved plans and backups, but are never used for display or
+calendar export labels.
 The home map adds checkboxes beside Explore listings, neighborhood businesses
 and City Hall public meetings.
 Selecting a place never calls ChatRoom, joins a room, changes visibility, or
@@ -27,11 +35,13 @@ Google Calendar, Google Maps, Apple Calendar or Apple Maps. Users can change
 the choice before or after exporting; the dialog remains open. Export reads
 the current selected day and never edits it or writes to an external account.
 Changing the day or receiving a changed plan clears previously prepared links.
-The existing all-days JSON backup/restore remains under day settings.
+All-days JSON backup/restore is available in the dialog's collapsed
+Backup & restore all days section. Import errors and completion messages are
+shown inside the dialog; Undo restores the previous collection.
 
 Both calendars receive an RFC 5545 `.ics` download with one event per scheduled
 visit, using the user's arrival and duration, location, source link and notes.
-UTC date-times preserve Austin's actual instants through DST and next-morning
+The calendar name uses the plan date. UTC date-times preserve Austin's actual instants through DST and next-morning
 visits. Event UIDs remain stable across repeat exports. Text is escaped and
 folded at UTF-8 boundaries, and events carry `CLASS:PRIVATE`. Untimed/wrong-day
 stops are listed as excluded; unknown times never become invented appointments.
@@ -64,7 +74,10 @@ unknown times, Unicode/escaping, stable IDs, entrances, long routes and empty
 plans. `node tools/planner/check-export.cjs [https://austin.chat]` checks real
 downloads and intercepted map-link navigation at desktop/phone sizes in both
 themes, exclusive choices, repeat exports, day changes, edits, empty states,
-modal sizing, Escape and focus restoration. It blocks production account writes.
+modal sizing, Escape and focus restoration. It also checks old-address redirects,
+date-only labels, opening an existing day without duplication, the relocated
+manual allowance and backup/restore controls, undo, and guest-state preservation
+through old in-site links and Back/Forward. It blocks production account writes.
 
 ## Module boundaries
 

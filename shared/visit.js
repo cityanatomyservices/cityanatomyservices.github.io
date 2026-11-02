@@ -23,12 +23,16 @@
   // Keep the outer page alive when switching maps, so a guest plan can move
   // between them without writing it to storage, a URL, or browser history.
   const routes={
-    '/': {src:'/chat/?v=20261102d',title:'Austin.Chat',frameTitle:'Chat map'},
-    '/myplanmap/': {src:'/planner/app.html?v=20261102d',title:'Austin day Planner · Austin.Chat',frameTitle:'Austin day Planner itinerary'}
+    '/': {src:'/chat/?v=20261102e',title:'Austin.Chat',frameTitle:'Chat map'},
+    '/dayplan/': {src:'/planner/app.html?v=20261102e',title:'Austin day Planner · Austin.Chat',frameTitle:'Austin day Planner itinerary'}
   };
   if(window===window.top) {
     let transition=0;
     visit.navigate=(url,push=true)=>{
+      // Old in-site links must keep the live visit, including a guest's plan.
+      if(url.origin===location.origin&&['/myplanmap','/myplanmap/','/myplanmap/index.html','/dayplan','/dayplan/index.html'].includes(url.pathname)){
+        url=new URL(url.href);url.pathname='/dayplan/';
+      }
       const route=routes[url.pathname],frame=document.getElementById('app-window');
       if(url.origin!==location.origin || !route || !frame || url.hash)return false;
       if(push && location.pathname===url.pathname)return true;
@@ -36,6 +40,7 @@
       visit.settled().then(()=>{
         if(visit.closed||request!==transition)return;
         if(push)history.pushState(null,'',url.pathname+url.search);
+        else if(location.pathname!==url.pathname)history.replaceState(null,'',url.pathname+url.search);
         document.title=route.title;
         document.querySelector('link[rel=canonical]')?.setAttribute('href',url.href);
         frame.title=route.frameTitle;

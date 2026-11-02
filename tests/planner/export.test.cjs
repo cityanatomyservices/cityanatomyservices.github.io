@@ -9,6 +9,7 @@ test('calendar contains only this day, uses edited times and durations, and keep
   a.schedule.duration=37;b.schedule.note='Bring a camera';
   const p=plan([b,other,a]),before=JSON.stringify(p),file=E.calendar(p,now),text=unfold(file.text);
   assert.equal(file.filename,'austin-day-2026-10-31.ics');assert.equal(file.type,'text/calendar;charset=utf-8');
+  assert.match(text,/X-WR-CALNAME:2026-10-31\r\n/);assert.ok(!text.includes('My Austin day'));
   assert.equal((text.match(/BEGIN:VEVENT/g)||[]).length,2);assert.ok(!text.includes('tomorrow'));
   assert.ok(text.indexOf('SUMMARY:first')<text.indexOf('SUMMARY:second'));
   assert.match(text,/DTSTART:20261031T140000Z\r\nDTEND:20261031T143700Z/);

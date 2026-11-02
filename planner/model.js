@@ -78,7 +78,7 @@
   function ensureDay(book,date) {
     if (!instant(date+'T12:00')) throw new Error('Choose a valid plan day.');
     if (!book.days.includes(date)) book.days.push(date);
-    book.daySettings[date] ||= {name:'My Austin day',bufferMinutes:20};
+    book.daySettings[date] ||= {name:date,bufferMinutes:20};
     book.date = date;
   }
   function replaceDay(book, view) {
@@ -204,7 +204,7 @@
   }
   function empty(id) {
     const date = planDay();
-    return { id, schemaVersion:2, name: 'My Austin day', date, days:[date],daySettings:{[date]:{name:'My Austin day',bufferMinutes:20}},dayStart: '05:00', dayEnd: '05:00', bufferMinutes: 20, items: [] };
+    return { id, schemaVersion:2, name: date, date, days:[date],daySettings:{[date]:{name:date,bufferMinutes:20}},dayStart: '05:00', dayEnd: '05:00', bufferMinutes: 20, items: [] };
   }
   function valid(plan) {
     const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;

@@ -83,7 +83,7 @@ const rpc=(member,name,body)=>json(api+'/rest/v1/rpc/'+name,body,headers(member.
   await page.locator('.account-close').click();
   await frame.evaluate(async()=>{const {createStore}=await import('/webtour/store.js?v=20261030c');window.qaTour=createStore('cityanatomy:1885murdertour:tour-v1');qaTour.markDone('qa-stop');});await page.evaluate(()=>AustinVisit.settled());
   assert.ok((await rpc(a,'member_load',{})).progress.some(p=>p.tour==='1885'&&p.stop_id==='qa-stop'));
-  const fresh=await contextFor(a),restored=await fresh.newPage();await restored.goto(base+'/myplanmap/');const rf=await ready(restored);
+  const fresh=await contextFor(a),restored=await fresh.newPage();await restored.goto(base+'/dayplan/');const rf=await ready(restored);
   assert.equal(await restored.evaluate(()=>AustinMember.state.favorites.length),1);assert.equal(await restored.evaluate(()=>localStorage.getItem('theme')),'dark');assert.equal(await rf.evaluate(()=>PlanStore.plan.items.length),1);
   assert.ok(await restored.evaluate(()=>AustinMember.state.progress.some(p=>p.stop_id==='qa-stop')));
   await rf.evaluate(async()=>{await PlanStore.select({key:'qa-route-end',title:'The Domain',kind:'place',timing:'unknown',coordinates:[-97.7236,30.4019]},true);});

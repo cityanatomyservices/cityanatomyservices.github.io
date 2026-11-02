@@ -33,15 +33,25 @@ async function download(page,f,name){
   });
   await context.route(/^https:\/\/(www\.google\.com\/maps\/dir\/|maps\.apple\.com\/directions)/,route=>route.fulfill({contentType:'text/html',body:'<title>Export destination fixture</title>Route link received'}));
   const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base+'/myplanmap/');const f=await(await page.locator('#app-window').elementHandle()).contentFrame();
+  await page.goto(base+'/myplanmap/?from=bookmark#saved');await page.waitForURL(base+'/dayplan/?from=bookmark#saved');
+  assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),'https://austin.chat/dayplan/');
+  let f=await(await page.locator('#app-window').elementHandle()).contentFrame();
   await f.waitForFunction(()=>window.PlanExport&&window.PlanStore);await f.evaluate(()=>PlanStore.ready());await f.evaluate(p=>PlanStore.restore(p),p);
   assert.equal(await f.locator('h1').textContent(),'Austin day Planner');assert.equal(await page.title(),'Austin day Planner · Austin.Chat');
+  assert.equal(await f.locator('#day-settings,#plan-settings,input[name=name]').count(),0,'day naming/settings section is removed');
+  await f.locator('#add-day').click();await f.locator('#new-day-date').fill(p.date);await f.locator('#add-day-form [type=submit]').click();
+  assert.equal(await f.evaluate(()=>PlanStore.days.length),2,'opening an existing date never creates another plan');
+  await f.locator('.route-options > summary').click();await f.locator('#manual-buffer').fill('35');await f.locator('#manual-buffer').press('Tab');
+  await f.waitForFunction(()=>PlanStore.plan.bufferMinutes===35);await f.locator('.route-options > summary').click();
+  await page.screenshot({path:`/tmp/austin-dayplan-simple-${width}.png`});
   const before=await f.evaluate(()=>JSON.stringify(PlanStore.book));
   await f.locator('#export-plan').click();assert.equal(await f.locator('#export-dialog').evaluate(d=>d.open),true);
+  assert.equal(await f.locator('#export-day').textContent(),new Intl.DateTimeFormat('en-US',{timeZone:M.zone,weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(new Date(M.instant(p.date+'T12:00'))),'legacy custom name is never displayed');
   assert.equal(await f.locator('[name=export-format]:checked').count(),1);assert.equal(await f.locator('[name=export-format]:checked').inputValue(),'google-calendar');
   assert.match(await f.locator('#export-summary').textContent(),/^6 scheduled visits/);
   assert.match(await f.locator('#export-skipped').textContent(),/Untimed stop/);
   const google=await download(page,f,`austin-export-${width}-google`);assert.equal((google.match(/BEGIN:VEVENT/g)||[]).length,6);assert.ok(!google.includes('Tomorrow only'));assert.ok(google.includes('Notes\\, punctuation\\; and café 🦊'));
+  assert.ok(google.includes('X-WR-CALNAME:'+p.date+'\r\n'));
   assert.equal(await f.locator('#export-dialog').evaluate(d=>d.open),true);
   await f.locator('[value=apple-calendar]').check();assert.equal(await f.locator('[name=export-format]:checked').count(),1);
   const apple=await download(page,f,`austin-export-${width}-apple`);assert.equal(apple.replace(/^DTSTAMP:.*\r\n/gm,''),google.replace(/^DTSTAMP:.*\r\n/gm,''));
@@ -60,15 +70,34 @@ async function download(page,f,name){
   await page.locator('.theme-toggle').click();await f.locator('#export-dialog').evaluate(d=>d.scrollTop=0);await page.screenshot({path:`/tmp/austin-export-maps-dark-${width}.png`});
   await f.locator('#export-dialog').press('Escape');await f.waitForFunction(()=>!document.querySelector('#export-dialog').open&&document.activeElement.id==='export-plan');
   await f.locator('#plan-day').selectOption(p.days[1]);await f.locator('#export-plan').click();await f.locator('[value=google-calendar]').check();
+  assert.equal(await f.locator('#manual-buffer').inputValue(),'20','manual allowance stays specific to each date');
   const tomorrow=await download(page,f,`austin-export-${width}-tomorrow`);assert.equal((tomorrow.match(/BEGIN:VEVENT/g)||[]).length,1);assert.ok(tomorrow.includes('Tomorrow only'));
   // Changing the day while open (for example through a synced edit) cannot
   // leave the prior day's export results or download active.
   await f.evaluate(day=>PlanStore.chooseDay(day),M.nextDay(p.days[1]));assert.equal(await f.locator('#export-action').isDisabled(),true);assert.equal(await f.locator('#export-results a').count(),0);
+  assert.equal(await f.evaluate(()=>PlanStore.plan.name),M.nextDay(p.days[1]),'new day defaults to its date');
   await f.locator('[value=apple-maps]').check();assert.equal(await f.locator('#export-action').isDisabled(),true);
   await f.locator('#export-close').click();await f.locator('#plan-day').selectOption(p.date);
   await f.evaluate(()=>PlanStore.edit(plan=>{plan.items[0].schedule.duration=37;}));
   await f.locator('#export-plan').click();await f.locator('[value=apple-calendar]').check();
   const edited=await download(page,f,`austin-export-${width}-edited`);const end=new Date(Date.parse(p.items[0].schedule.start)+37*60000).toISOString().replace(/[-:]/g,'').replace('.000','');assert.ok(edited.includes('DTEND:'+end));
-  assert.deepEqual(errors,[]);await context.close();console.log(`${width}px: rename, exclusive choices, repeated ICS downloads, route links, limits, day isolation, edits, empty days, themes and dialog accessibility passed.`);
+  // Backup/restore moved into Export, keeping the main itinerary compact.
+  await f.locator('.export-backup > summary').click();const backupWait=page.waitForEvent('download');await f.locator('#download-plan').click();const backup=await backupWait;
+  const original=await f.evaluate(()=>PlanStore.book),saved=JSON.parse(fs.readFileSync(await backup.path(),'utf8'));assert.deepEqual(saved.plan,original);
+  await f.locator('#import-file').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{}')});await f.waitForFunction(()=>document.querySelector('#backup-status').textContent.includes('not a supported'));
+  assert.deepEqual(await f.evaluate(()=>PlanStore.book),original);
+  await f.evaluate(()=>PlanStore.edit(p=>{p.items[0].schedule.duration=90;}));
+  await f.locator('#import-file').setInputFiles({name:'backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(saved))});
+  await f.waitForFunction(()=>document.querySelector('#backup-status').textContent.startsWith('Downloaded days restored'));
+  assert.equal(await f.evaluate(()=>PlanStore.plan.items[0].schedule.duration),37);assert.equal(await f.evaluate(()=>PlanStore.book.items.length),original.items.length);
+  await f.locator('#export-close').click();await f.locator('#undo').click();await f.waitForFunction(()=>PlanStore.plan.items[0].schedule.duration===90);
+  const visitId=await page.evaluate(()=>AustinVisit.id),selected=await f.evaluate(()=>JSON.stringify(PlanStore.book));
+  await page.locator('.brand').click();await page.waitForURL(base+'/');
+  await page.evaluate(()=>{const a=document.createElement('a');a.href='/myplanmap/';document.body.append(a);a.click();a.remove();});
+  await page.waitForURL(base+'/dayplan/');f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.PlanStore);await f.evaluate(()=>PlanStore.ready());
+  assert.equal(await page.evaluate(()=>AustinVisit.id),visitId,'legacy in-site link keeps the guest visit');assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),selected);
+  await page.goBack();await page.waitForURL(base+'/');await page.goForward();await page.waitForURL(base+'/dayplan/');
+  const direct=await context.newPage();await direct.goto(base+'/planner/app.html');await direct.waitForURL(base+'/dayplan/');await direct.close();
+  assert.deepEqual(errors,[]);await context.close();console.log(`${width}px: /dayplan/ and legacy redirects, date labels, one plan per day, exports, relocated allowance/backup/restore, undo, guest navigation, themes and accessibility passed.`);
  }
 }finally{if(browser)await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}})().catch(error=>{console.error(error.stack);process.exitCode=1;});

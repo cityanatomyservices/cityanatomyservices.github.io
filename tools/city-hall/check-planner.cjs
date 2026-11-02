@@ -51,7 +51,7 @@ async function frame(page,home=false){
     await f.waitForFunction(day=>PlanStore.plan.date===day,today);
     assert.deepEqual(await f.evaluate(()=>PlanStore.plan.items),original);
     await f.locator('#day-plan-saved').selectOption(future);
-    await f.locator('.plan-open').click();await page.waitForURL('**/myplanmap/');f=await frame(page);
+    await f.locator('.plan-open').click();await page.waitForURL('**/dayplan/');f=await frame(page);
     await f.waitForFunction(()=>document.querySelectorAll('#plan-items .plan-item').length===3);
     assert.equal(await f.locator('#plan-day').inputValue(),future);
     assert.equal(await f.evaluate(()=>PlanModel.check(PlanStore.plan).conflicts),3);

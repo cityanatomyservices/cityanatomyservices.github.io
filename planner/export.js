@@ -29,7 +29,7 @@
   function calendar(plan,now=Date.now()){
     const prepared=prepare(plan,'google-calendar');
     if(!prepared.items.length)throw new Error('Set an arrival time for at least one stop on this day.');
-    const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Austin.Chat//Austin day Planner//EN','CALSCALE:GREGORIAN',`X-WR-CALNAME:${text(plan.name||'Austin day Planner')}`,`X-WR-TIMEZONE:${M.zone}`];
+    const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Austin.Chat//Austin day Planner//EN','CALSCALE:GREGORIAN',`X-WR-CALNAME:${text(plan.date)}`,`X-WR-TIMEZONE:${M.zone}`];
     for(const item of prepared.items){
       const s=item.source,u=item.schedule,p=point(item),url=sourceUrl(s.showtimes?.find(show=>show.start===u.showtime)?.url||s.url);
       const description=[`Planned visit from Austin day Planner · ${plan.date}.`,u.durationConfirmed===false?'Visit length is unconfirmed; check the source.':'',s.conditions,u.note,url?'Source: '+url:''].filter(Boolean).join('\n\n');

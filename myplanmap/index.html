@@ -1,28 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico?v=20261031f" sizes="16x16 32x32 48x48" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261031f" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261031f" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261031f" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Austin day Planner · Austin.Chat</title>
-  <meta name="description" content="Build your Austin day with saved events and places, a personal map, and a schedule you can adjust." />
-  <link rel="canonical" href="https://austin.chat/myplanmap/" />
-  <link href="/style.css?v=20261029v" rel="stylesheet" />
-  <link rel="stylesheet" href="/appearance.css?v=20261028h" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
-  <script src="/shared/visit.js?v=20261102d"></script>
-  <script src="/shared/session.js?v=20261031a"></script>
-  <script src="/shared/member.js?v=20261030c"></script>
-  <script src="/shared/preferences.js?v=20261030c"></script>
-  <script src="/shared/favorite-button.js?v=20261030c"></script>
+  <link rel="canonical" href="https://austin.chat/dayplan/">
+  <script>location.replace('/dayplan/'+location.search+location.hash);</script>
+  <meta http-equiv="refresh" content="0; url=/dayplan/">
 </head>
-<body>
-  <main><section class="map-hero">
-    <iframe id="app-window" class="app-window" src="/planner/app.html?v=20261102d" title="Austin day Planner itinerary" allow="geolocation; fullscreen" allowfullscreen></iframe>
-  </section></main>
-  <script src="/shell.js?v=20261031e"></script>
-</body>
+<body><p><a href="/dayplan/">Open Austin day Planner</a></p></body>
 </html>

@@ -1,5 +1,38 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-02 — /dayplan/ and date-only plan labels
+
+Owner requested the public slug `/dayplan/` and removal of the "Day name,
+manual allowance & backup" section to simplify the itinerary. The full frame
+now lives at `dayplan/index.html`. `myplanmap/index.html` is a small redirect
+with a canonical link and no-JavaScript fallback; its script preserves query
+and fragment. Main/catalog planner links, Favorites fallback, standalone-engine
+redirects and visit navigation now target `/dayplan/`. AustinVisit normalizes
+legacy in-site URLs while retaining the guest visit and its selected plans.
+Internal implementation stays under `planner/`; account/storage keys are stable.
+
+Removed the day-name field and its settings wrapper. Each day's dropdown and
+export heading use the date; `.ics` calendar names also use the date. New stored
+names default to the ISO date. Legacy name fields stay compatible with existing
+accounts/backups but do not appear in the UI or calendar labels. The existing
+one-plan-per-date model and 5 AM–5 AM Austin boundaries continue to apply.
+
+Manual travel allowance moved into the existing collapsed Driving & arrival
+options. All-days JSON backup/restore moved into a collapsed section within
+Export, with download/restore/error feedback there and working Undo. No
+database migration or account data rewrite. Shared scripts, all referencing
+pages/templates and both navigation frame URLs use `20261102e` where changed.
+
+Validation: 73 Node tests and browser module syntax pass. Expanded export
+browser checks pass at 1280/390 px: old bookmark/query/fragment redirect,
+canonical URL, date-only labels despite legacy names, existing-date reuse,
+per-date manual allowances, repeated calendar/map exports, JSON download,
+invalid/valid restore and Undo, old in-site links preserving guest memory,
+Back/Forward and standalone planner URL redirect. The full selected-stop map
+regression passes for guests and registered visitors at both widths. Screenshots
+reviewed; browser fixtures prevent production account writes. Publication and
+live verification follow this checkpoint.
+
 ## 2026-11-02 — Austin day Planner exports
 
 Started only after completing and live-verifying the preceding map-marker fix,

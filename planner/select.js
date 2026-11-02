@@ -11,7 +11,7 @@
   const day=document.createElement('input');day.id='day-plan-date';day.type='date';day.min='2020-01-01';day.max='2099-12-31';day.setAttribute('aria-label','Choose a day to plan');label.append(day);
   const savedLabel=document.createElement('label');savedLabel.textContent='Planned days';
   const saved=document.createElement('select');saved.id='day-plan-saved';saved.setAttribute('aria-label','Open a planned day');savedLabel.append(saved);
-  const open=document.createElement('a');open.className='plan-open';open.href='/myplanmap/';open.target='_top';
+  const open=document.createElement('a');open.className='plan-open';open.href='/dayplan/';open.target='_top';
   const privacy=document.createElement('span');privacy.className='plan-selection-notice';privacy.textContent='Guest plan · refresh or close clears it';
   const notice=document.createElement('span');notice.className='plan-selection-notice';notice.setAttribute('role','status');
   bar.append(header,label,savedLabel,open,privacy,notice);document.querySelector('.page').append(bar);

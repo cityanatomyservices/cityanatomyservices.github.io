@@ -1,6 +1,6 @@
 (() => {
   const S = window.PlanStore, M = window.PlanModel, routing = window.PlanRouting;
-  const $ = id => document.getElementById(id), form = $('plan-settings');
+  const $ = id => document.getElementById(id);
   let undo, signature = '', mapSignature = '', view = 'timeline', shownDay;
   const fmt = value => value ? new Intl.DateTimeFormat('en-US',{ timeZone:M.zone,month:'short',day:'numeric',hour:'numeric',minute:'2-digit' }).format(new Date(value)) : '';
   const dayLabel = date => new Intl.DateTimeFormat('en-US',{timeZone:M.zone,weekday:'short',month:'short',day:'numeric',year:'numeric'}).format(new Date(M.instant(date+'T12:00')));
@@ -95,8 +95,7 @@
     const active = document.activeElement;
     const focus = active?.dataset.field ? [active.dataset.item,active.dataset.field] : null;
     const open = new Set([...document.querySelectorAll('.stop-details[open]')].map(e => e.dataset.details));
-    for (const name of ['name','bufferMinutes']) if (form.elements[name] !== active || changedDay) form.elements[name].value = plan[name];
-    $('day-settings-label').textContent = 'Day name, manual allowance & backup';
+    if ($('manual-buffer') !== active || changedDay) $('manual-buffer').value = plan.bufferMinutes;
     $('plan-day').replaceChildren(...S.days.map(d => { const option=node('option',`${dayLabel(d.date)} · ${d.count} stops`); option.value=d.date;return option; }));
     $('plan-day').value=plan.date;
     const result = M.check(plan,routing);
@@ -118,7 +117,6 @@
     if (pins !== mapSignature) { window.PlanMap.update(displayed,changedDay); mapSignature = pins; }
     window.PlanRoutePanel.update(plan,result);
   }
-  form.addEventListener('submit', e => e.preventDefault());
   $('plan-day').onchange = async event => { try { await S.chooseDay(event.target.value); } catch(e) { message(e.message); } };
   $('add-day').onclick = () => { $('new-day-date').value = M.nextDay(S.plan.date); $('day-dialog').showModal(); };
   $('cancel-day').onclick = () => $('day-dialog').close();
@@ -128,11 +126,11 @@
   };
   $('view-timeline').onclick = () => { view = 'timeline'; render(); };
   $('view-order').onclick = () => { view = 'order'; render(); message('Use the arrows to set your preference, then Build my day. Locked arrivals and fixed starts stay put.'); };
-  form.addEventListener('change', event => {
-    if (!event.target.name || !event.target.reportValidity()) return;
-    const name = event.target.name, value = event.target.value;
-    change(plan => { plan[name] = name === 'bufferMinutes' ? Number(value) : value; });
-  });
+  $('manual-buffer').onchange = event => {
+    if (!event.target.reportValidity()) return;
+    const value = Number(event.target.value);
+    change(plan => { plan.bufferMinutes = value; });
+  };
   $('plan-items').addEventListener('change', event => {
     const el = event.target, name = el.dataset.field, id = el.dataset.item;
     if (!name || !el.reportValidity()) return;
@@ -167,7 +165,8 @@
   $('use-remote').onclick = () => S.resolve(false).catch(e => message(e.message));
   $('download-plan').onclick = () => {
     const blob = new Blob([JSON.stringify({ format:'austin-chat-plan-v2',exported:new Date().toISOString(),plan:S.book },null,2)],{type:'application/json'});
-    const url = URL.createObjectURL(blob), a = node('a'); a.href = url; a.download = `austin-plan-${S.plan.date}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(url),1000);
+    const url = URL.createObjectURL(blob), a = node('a'); a.href = url; a.download = `austin-plan-${S.plan.date}.json`; $('export-dialog').append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url),1000);
+    $('backup-status').textContent = 'All days downloaded. Use this file to restore your plans later.';
   };
   $('import-plan').onclick = () => $('import-file').click();
   $('import-file').onchange = async event => {
@@ -180,16 +179,14 @@
       const before=S.book; restored.items.forEach(i => { i.id=crypto.randomUUID(); });
       await S.restore(restored); undo={book:before}; $('undo').disabled=false;
       message('Downloaded days restored. Undo returns to your previous days.');
-    } catch (error) { message(error.message); }
+      $('backup-status').textContent = 'Downloaded days restored. Close Export to review them. Undo returns to your previous days.';
+    } catch (error) { $('backup-status').textContent = error.message; }
     event.target.value = '';
   };
   window.PlanRoutePanel.init({change,message});
   routing.subscribe(()=>queueMicrotask(render));
   S.subscribe(render); render();
-  const mobile = matchMedia('(max-width: 680px)');
-  const foldSettings = () => { $('day-settings').open = !mobile.matches; };
-  foldSettings(); mobile.addEventListener('change', foldSettings);
-  const controls = [...document.querySelectorAll('#plan-settings input,#plan-settings button,#build-day,#add-day,#plan-day')];
+  const controls = [...document.querySelectorAll('#manual-buffer,#download-plan,#import-plan,#build-day,#add-day,#plan-day')];
   controls.forEach(e => { e.disabled = true; });
   S.ready().then(() => { controls.forEach(e => { e.disabled = false; }); signature = ''; render(); });
 })();

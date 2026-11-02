@@ -62,7 +62,7 @@ async function signOut(page){await page.getByRole('button',{name:'Account',exact
  assert.equal(await frame.evaluate(email=>document.body.innerText.includes(email),a.email),false);
  await page.evaluate(()=>{for(const key of Object.keys(localStorage))if(key.startsWith('austin:planner:'))localStorage.removeItem(key);});
  await page.reload();frame=await ready(page);assert.equal(await frame.evaluate(()=>PlanStore.plan.items.length),2);assert.equal(await page.evaluate(()=>AustinSession.registered),true);
- const other=await context.newPage();await other.goto(base+'/myplanmap/');const otherFrame=await ready(other);assert.equal(await otherFrame.evaluate(()=>PlanStore.plan.items.length),2);
+ const other=await context.newPage();await other.goto(base+'/dayplan/');const otherFrame=await ready(other);assert.equal(await otherFrame.evaluate(()=>PlanStore.plan.items.length),2);
  await signOut(page);await frame.waitForFunction(()=>PlanStore.temporary&&PlanStore.plan.items.length===0);await otherFrame.waitForFunction(()=>PlanStore.temporary&&PlanStore.plan.items.length===0);
  await addStop(frame,'Guest addition for B');await emailSignIn(page,b.email,()=>sentCode);await frame.waitForFunction(()=>!PlanStore.temporary&&!PlanStore.unsaved);
  assert.deepEqual((await frame.evaluate(()=>PlanStore.book.items.map(i=>i.source.title))).sort(),['Already saved in B','Guest addition for B']);

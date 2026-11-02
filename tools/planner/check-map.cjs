@@ -61,7 +61,7 @@ async function routeCount(f,count){
   await f.locator('#ctrlExplore').click();if(!await f.locator('[data-layer=free-cheap]').isChecked())await f.locator('[data-layer=free-cheap]').check();
   await f.waitForFunction(()=>austinExplore.visibleItems.length===3);
   for(const name of ['Selected first stop','Selected second stop'])await f.getByRole('checkbox',{name:`Add ${name} to Day Planner`,exact:true}).check();
-  await f.locator('#explore-panel .explore-close').click();await f.locator('#ctrlDayPlan').click();await f.locator('.plan-open').click();await page.waitForURL('**/myplanmap/');f=await frame(page,true);
+  await f.locator('#explore-panel .explore-close').click();await f.locator('#ctrlDayPlan').click();await f.locator('.plan-open').click();await page.waitForURL('**/dayplan/');f=await frame(page,true);
   await f.waitForFunction(()=>austinExplore.visibleItems.length===3);
   await ownMap(f,2);await routeCount(f,0);
   await f.locator('#plan-route').click();await routeCount(f,1);
@@ -94,7 +94,7 @@ async function routeCount(f,count){
   assert.equal(await f.locator('.explore-popup h3').textContent(),'Selected first stop');
   assert.equal(await f.locator('.explore-popup .plan-select input').isChecked(),true);
   await f.locator('.explore-popup .maplibregl-popup-close-button').click();
-  await f.locator('#ctrlDayPlan').click();await f.locator('.plan-open').click();await page.waitForURL('**/myplanmap/');f=await frame(page,true);await ownMap(f,2);
+  await f.locator('#ctrlDayPlan').click();await f.locator('.plan-open').click();await page.waitForURL('**/dayplan/');f=await frame(page,true);await ownMap(f,2);
   if(member)await f.evaluate(()=>PlanStore.sync());
   await page.reload();f=await frame(page,true);await ownMap(f,member?2:0);
   if(member){await page.evaluate(()=>AustinSession.signOut());await ownMap(f,0);await routeCount(f,0);}

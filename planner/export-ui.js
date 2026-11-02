@@ -14,7 +14,7 @@
   function render(){
     const plan=S.plan,format=selected(),p=E.prepare(plan,format);current=format;lastPlan=JSON.stringify(plan);
     const date=new Intl.DateTimeFormat('en-US',{timeZone:PlanModel.zone,weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(new Date(PlanModel.instant(plan.date+'T12:00')));
-    $('export-day').textContent=`${date} · ${plan.name}`;
+    $('export-day').textContent=date;
     $('export-summary').textContent=p.items.length?`${p.items.length} ${p.calendar?'scheduled visit':'located stop'}${p.items.length===1?'':'s'} ready to export from this day.`:p.calendar?'Set an arrival time for at least one stop on this day.':'Add a stop with a map location, or set its driving entrance on the map.';
     $('export-help').textContent=descriptions[format][0];$('export-guide').href=descriptions[format][1];
     $('export-guide').textContent=`${labels[format]} instructions ↗`;
