@@ -23,7 +23,7 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   const page=await context.newPage(),errors=[],boundaryRequests=[];page.setDefaultTimeout(45000);page.on('pageerror',e=>errors.push(e.message));
   page.on('request',r=>{if(/\/(zipcodes|council_districts)\.geojson/.test(r.url()))boundaryRequests.push(r.url());});
   await page.goto(base);let f=await ready(page);
-  assert.deepEqual(await f.locator('#stack > button').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps','ctrlLocate','ctrlMapLayers']);
+  assert.deepEqual(await f.locator('#stack > button').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlCityHall','ctrlApps','ctrlLocate','ctrlMapLayers']);
   assert.equal(await f.locator('#ctrlMedia,#media-panel').count(),0);assert.equal(await f.locator('#map-layers-panel').isHidden(),true);
   assert.equal(boundaryRequests.length,0,'boundaries are not downloaded by default');
   assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');
@@ -33,7 +33,7 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
    await layersOpen(f);await f.locator('#'+control).click();assert.equal(await f.locator('#map-layers-panel').isHidden(),true);assert.equal(await f.locator('#'+panel).isVisible(),true);
    // Existing phone Explore/Day Plan panels span the map and cover lower
    // controls; use their normal close buttons before switching on a phone.
-   if(width<500&&control==='ctrlExplore')await f.locator('.explore-close').click();
+   if(width<500&&control==='ctrlExplore')await f.locator('#explore-panel .explore-close').click();
    if(width<500&&control==='ctrlDayPlan')await f.getByRole('button',{name:'Close Day Plan',exact:true}).click();
    await f.locator('#ctrlMapLayers').click();assert.equal(await f.locator('#'+panel).isHidden(),true);assert.equal(await f.locator('#map-layers-panel').isVisible(),true);
   }

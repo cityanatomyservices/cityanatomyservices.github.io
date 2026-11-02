@@ -33,7 +33,7 @@
   let placePopup = null;        // a picked business's popup (set further down); reopening the card closes it
   const setCard = (open) => {
     if (!open && $('legend').contains(document.activeElement)) $('ctrlChat').focus({ preventScroll: true });
-    if (open) { window.AustinExplore.close?.(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); }
+    if (open) { window.AustinExplore.close?.(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); window.AustinCityHall?.close?.(); }
     $('legend').hidden = !open;
     $('ctrlChat').setAttribute('aria-expanded', String(open));
     $('ctrlChat').classList.toggle('is-on', open);
@@ -341,6 +341,7 @@
       // the map object, so it can be poked at from the browser console
       window.chatMap = map;
       window.AustinMapLayers.init(map);
+      window.AustinCityHall.init();
       window.AustinExplore.init(map);
     });
   });

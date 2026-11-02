@@ -1,0 +1,18 @@
+const assert = require('node:assert/strict');
+const M = require('../../chat/city-hall/model.js');
+const now = Date.parse('2026-11-02T09:00:00-06:00');
+const row = (id, date, extra = {}) => ({id, title: id, category: 'meetings', date, dateOnly: false, expires: '2026-11-03T09:00:00-06:00', districts: [], scope: 'citywide', board: 'City Council', ...extra});
+const records = [row('later', '2026-11-04T10:00:00-06:00'), row('earlier', '2026-11-02T10:00:00-06:00'), row('unknown time', '2026-11-04T00:00:00-06:00', {dateOnly:true}), row('past', '2026-11-02T08:00:00-06:00'), row('next week', '2026-11-09T10:00:00-06:00'), row('cancelled', '2026-11-04T10:00:00-06:00', {cancelled:true}), row('expired', '2026-11-04T10:00:00-06:00', {expires:'2026-11-02T08:00:00-06:00'})];
+assert.deepEqual(M.filter(records, {category:'meetings'}, now).map(r=>r.id), ['earlier','later','unknown time']);
+assert.equal(M.filter(records, {category:'meetings', district:'1'}, now).length, 3, 'citywide boards remain relevant in every district');
+assert.equal(M.filter(records, {category:'meetings', board:'Planning Commission'}, now).length, 0);
+const permits = [row('district one', '2026-11-01T00:00:00-05:00', {category:'permits', dateOnly:true, scope:'district', districts:['1']}), row('district two', '2026-10-31T00:00:00-05:00', {category:'permits', dateOnly:true, scope:'district', districts:['2']}), row('unknown district', '2026-11-01T00:00:00-05:00', {category:'permits', dateOnly:true, scope:'unknown'}), row('old', '2026-10-26T00:00:00-05:00', {category:'permits', dateOnly:true})];
+assert.deepEqual(M.filter(permits, {category:'permits', district:'1'}, now).map(r=>r.id), ['district one']);
+assert.equal(M.filter(permits, {category:'permits'}, now).length, 3);
+assert.equal(M.filter(permits, {category:'permits', query:'DISTRICT TWO'}, now).length, 1);
+assert.equal(M.day('2026-11-02T03:00:00Z'), '2026-11-01');
+assert.equal(M.shift('2026-10-30',7), '2026-11-06', 'calendar arithmetic crosses DST');
+assert.equal(M.current(row('notice','2026-09-01',{category:'announcements',hearingDate:'2026-11-05'}),now),true);
+for (const url of ['javascript:alert(1)','https://austintexas.gov.evil.test','https://evil.test']) assert.equal(M.safeURL(url),null);
+assert.ok(M.safeURL('https://services.austintexas.gov/edims/document.cfm?id=123'));
+console.log('City Hall model: dates, DST, expiration, sorting, cancellation, district, board, search and source URLs passed.');

@@ -1,0 +1,38 @@
+name: Refresh City Hall
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: city-hall
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tools/city-hall -p 'test_*.py'
+      - run: node tools/city-hall/test-model.cjs
+      - name: Refresh official city sources
+        id: city
+        continue-on-error: true
+        run: python tools/city-hall/build.py
+      - name: Publish city data
+        run: |
+          git config user.name 'austin-city-hall bot'
+          git config user.email 'cityanatomyservices@users.noreply.github.com'
+          git add chat/data/city-hall.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh City Hall data'
+          bash tools/publish-data.sh
+      - name: Report failed imports
+        if: steps.city.outcome == 'failure'
+        run: exit 1

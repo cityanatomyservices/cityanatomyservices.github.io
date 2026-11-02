@@ -1,5 +1,49 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-02 — City Hall on the main map
+
+Owner requested a City Hall button immediately below Chat on the main map
+only, with Explore-style cards for Public Meetings, Public Announcements,
+Permits report and Development. Other maps retain their existing controls.
+The new panel has a searchable list, council-district filter and meeting-board
+filter. Meetings show the next seven Austin calendar days, soonest first;
+citywide meetings remain relevant to every district. Meeting-room location is
+never treated as the jurisdiction. Close/Escape restores focus, and opening
+one map panel closes the others. City Hall does not add map pins or use any
+account, GPS, persistent browser storage or database writes.
+
+Official sources: paginated City boards/commissions and Council event calendars,
+the annual Council/committee agenda index, City news, and Austin Open Data's
+issued construction permits (`3syk-w9eu`), site-plan cases (`mavg-96ck`) and zoning
+notices (`k2wj-4v6p`). A current unified meeting calendar was not found on the
+Open Data portal, so meeting dates come directly from the city website.
+Date-only meetings explicitly say to check the agenda for the time. Permits
+cover the last seven calendar days; news/site-plan filings cover 30 days;
+upcoming zoning notices remain through their hearing date. Development is
+recent applications, not every active project. Applicant/owner/contractor
+contact fields are excluded. See `chat/city-hall/README.md` for exact coverage.
+
+`tools/city-hall/build.py` is a standard-library public-data importer. The new
+Refresh City Hall workflow runs every three hours at minute 17 UTC, with a
+manual trigger. Source failures retain only unexpired last-good rows without
+renewing their check time/expiry; healthy sources still publish, and the job
+reports failure. Meeting snapshots expire after 12 hours, other sources after
+72 hours. The panel shows source freshness, retries failed downloads, and
+removes expired or past listings. Initial imports succeeded for all seven
+sources. No credentials or external account setup are required.
+
+Validation: seven importer tests, model checks (Austin dates/DST, sorting,
+expiry, cancellation, districts, boards, search and official URLs), and all
+six existing planner/member/session suites passed. City Hall browser checks
+passed at 1280 and 390 px using real city records and blocked Supabase requests;
+checked card/list behavior, lazy fetch/retry, filtering, pagination, links,
+exclusive panels, focus, expiration, refresh and catalog isolation. Existing
+Map layers browser regression passed at both widths. Reviewed light/dark
+screenshots and adjusted narrow card titles. Main-frame/module versions use
+`20261102a`. Shared visit-loader references also advance to that version so
+returning home from another page loads the new frame; other pages' controls
+and content are unchanged.
+
 ## 2026-10-31 — A.C logo favicon
 
 Owner supplied `Burnt Orange A.C. Circle Logo.png` (1254 × 1254) as the new
