@@ -24,8 +24,12 @@ browser checks pass after scoping search selectors to Explore (City Hall has
 its own search); source emptiness assertions now await actual source data.
 Screenshots reviewed. Browser fixtures prevent production account writes.
 
-Publishing and live verification follow this checkpoint. Owner's next request,
-to begin after this fix is finished: rename the panel to "Austin day Planner"
+Published implementation `9b4380d`. Pages deployment `41491295155` and Check
+My Plan Map `41491296450` succeeded. Both homepage and planner HTML serve
+`20261102c`; the complete planner-map browser check passed against the live
+site at 1280/390 px for guests and registered visitors.
+
+Owner's next request, to begin after this fix is finished: rename the panel to "Austin day Planner"
 and add an export dialog with mutually exclusive Google Calendar, Google Maps,
 Apple Calendar and Apple Maps options. Research supported formats first.
 
