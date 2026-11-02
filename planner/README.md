@@ -1,8 +1,12 @@
 # Austin day Planner
 
-`/dayplan/` uses the existing site frame and embeds `/planner/app.html`.
-The former `/myplanmap/` address redirects to `/dayplan/`; in-site links using
-the old path are normalized by `AustinVisit` without ending a guest's visit.
+The main page's Day Plan button expands the full editor on its existing map.
+There is no launcher or separate map. Collapse the editor to see the selected
+day's pins and route; Edit day opens it again. Explore, City Hall and the other
+content panels leave planning mode. Map display controls preserve it.
+`/?planner=1` opens the editor directly. `/dayplan/`, `/myplanmap/` and the old
+`/planner/app.html` redirect there, preserving query parameters and fragments.
+In-site links and browser history switch the view without reloading the map.
 Each plan is identified by its date, with one plan per 5 AM–5 AM Austin day.
 There is no day-name field or separate day-settings section. Manual travel
 allowance lives under Driving & arrival options; all-days backup/restore is
@@ -12,15 +16,17 @@ calendar export labels.
 The home map adds checkboxes beside Explore listings, neighborhood businesses
 and City Hall public meetings.
 Selecting a place never calls ChatRoom, joins a room, changes visibility, or
-claims the visitor is at that place. The planner's optional chat button uses the
-visitor's physical neighborhood through the existing chat engine.
+claims the visitor is at that place. Planning-mode GPS centers the map without
+changing chat state or leaving another marker.
 
-Only the selected day's itinerary stops with coordinates appear as markers on
-the planner map. Route lines connect that day's scheduled stops. Explore runs
-with `AustinExplore.init(map, {mapMarkers:false})`: saved category choices still
-populate its list, but never add sources, layers, map popups or camera changes.
-Listing details expand inside the panel, where the usual selection checkboxes
-remain available. GPS centers the view without leaving a separate marker.
+Only the selected day's stops with coordinates appear as markers while planning.
+Route lines connect that day's scheduled stops. `PlanMap.attach(chatMap)` reuses
+the main MapLibre instance. Explore sources are emptied while planning, including
+late feed results; chat business and people markers are removed and late updates
+stay hidden. Opening Explore or City Hall restores discovery and hides plan pins
+and routes. Closing only the editor keeps the selected-day map visible.
+Route requests pause during browsing; late responses cannot revive another day's
+route. Route clearing does not wait for unrelated map tiles or sources to load.
 
 `node tools/planner/check-map.cjs` checks this boundary in Chromium at desktop
 and phone sizes with guest/member, event and route fixtures. It checks rendered
@@ -94,11 +100,11 @@ through old in-site links and Back/Forward. It blocks production account writes.
 | `route-panel.js` | Route controls, travel blocks, arrival-point editing and fitting scheduled visits |
 | `repository.js` | Supabase planner RPC names and response validation |
 | `store.js` | Guest visit memory; registered-account cache/cloud saves, subscriptions and revision conflicts |
-| `select.js` | Main-map Day Plan panel, date picker, planned-day list and Day Planner checkboxes; consumes `austin:planner-target` events |
-| `panel.js` | Collapsible itinerary drawer and focus/accessibility state; no plan data |
-| `map.js` | Selected-place markers and neighborhood basemap; failure does not disable the itinerary |
+| `select.js` | Shared Day Planner checkboxes and direct editor navigation from catalog maps; consumes `austin:planner-target` events |
+| `panel.js` | Main-map editor, planning/discovery mode, focus and accessibility state |
+| `map.js` | Selected-stop markers and routes on the existing home map; failure does not disable the editor |
 | `app.js` | Timeline, preferences, editing, showtime selection, conflict explanations, undo and JSON backup/restore |
-| `chat/widget.js` | Optional lazy-loaded ChatRoom/ChatEngine/ChatPanel; planner has no dependency on those modules |
+| `redirect.js` | Legacy planner addresses → main-map editor |
 
 Route results come from the parent-owned Supabase client. `map.js` clones the
 route GeoJSON into the map iframe's JavaScript realm before handing it to
@@ -164,11 +170,11 @@ prevents a stale editor from writing into another selected day. `build` and
 `check` also ignore other days if called with a full collection.
 
 Guest plans, credentials, chat nicknames and visibility stay in `AustinVisit`
-page memory. The main map and planner switch their iframe with the History API,
-keeping the outer page alive. This preserves the working plan when moving
-between them or using Back, without writing selections to localStorage,
+page memory. The main map and planner switch view with the History API,
+keeping both the outer page and map iframe alive. This preserves the working plan
+when moving between them or using Back, without writing selections to localStorage,
 sessionStorage, URLs or history state. Refreshing, closing, opening another tab,
-or leaving this pair of pages starts a fresh guest visit. BFCache restoration
+or navigating away from this main-map view starts a fresh guest visit. BFCache restoration
 reloads the page rather than reviving an old guest visit. Display preferences
 (theme, Explore filters and navigation-app choice) remain remembered.
 
@@ -301,9 +307,9 @@ The schema is `0009_place_comments.sql`, with registered-only owner mutations
 and a safe public read RPC. Refresh/Older comments load on demand; no new
 Realtime channel. Google Maps links use `PlanRouting.navigation(item,'google')`.
 
-`planner/controls.js` handles display controls; `chat/catalog-menu.js`,
-`chat/explore/*` and `planner/select.js` supply the same menus as the home map.
-Extents replaces the old Fit my places card, and Chat uses the lazy widget.
+The home map owns display controls and chat. The retired `planner/controls.js`
+is retained for previously cached pages but is no longer loaded. Show day’s stops
+and the Map extent control fit the selected day while planning.
 `shared/map-ui.js` applies those menus to other catalog engines, with the
 same outer shell and guest-preserving iframe navigation. Tour-specific
 controls and the planner drawer remain independent of the common menus.

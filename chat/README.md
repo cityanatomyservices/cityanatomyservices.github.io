@@ -43,8 +43,11 @@ module skips a menu when its button is absent, so the main map creates no
 Media panel. Other maps still create their existing Media menu.
 
 Zoom and compass use the same MapLibre control as the planner, positioned
-top left. Day Plan opens the date picker and planned-day list;
-Apps opens the catalog categories.
+top left. Day Plan expands the full [planner editor](../planner/README.md) on
+this same map, including dated days, scheduling, routing and exports;
+Apps opens the catalog categories. Collapsing the editor keeps selected-day pins
+and routes visible; Explore/City Hall restore discovery. `/dayplan/` redirects
+to the main map with `?planner=1`, preserving existing bookmarks.
 The shared header opens the Google/email-code account dialog; the hamburger is removed. Opening one map panel closes the others.
 
 `node tools/explore/check-map-layers.cjs` checks the main-map controls, real

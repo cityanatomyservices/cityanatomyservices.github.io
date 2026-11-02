@@ -2,6 +2,7 @@
 window.AustinExplore = {
   async init(map, { mapMarkers = true } = {}) {
     const M = window.ExploreModel, layers = window.EXPLORE_LAYERS;
+    let showMarkers=mapMarkers&&!window.PlanPanel?.active;
     const session = window.AustinSession, visit = window.AustinVisit, guestKey = 'explore:guest';
     // Resolve identity before reading persistent choices. An unresolved or
     // signed-out visit must never paint a previous visitor's map layers.
@@ -75,6 +76,7 @@ window.AustinExplore = {
       else if (returnFocus) button.focus();
     }
     window.AustinExplore.close = () => open(false, false);
+    window.AustinExplore.open = () => open(true);
     button.addEventListener('click', () => open(panel.hidden));
     $('.explore-close').addEventListener('click', () => open(false));
     panel.addEventListener('keydown', e => { if (e.key === 'Escape') open(false); });
@@ -133,6 +135,7 @@ window.AustinExplore = {
       return body;
     }
     function showItems(items, at) {
+      if(!showMarkers)return;
       closePopup();
       popup = new maplibregl.Popup({ maxWidth: '310px', offset: 14, className: 'explore-popup' }).setLngLat(at).setDOMContent(detailsBody(items, at)).addTo(map);
       window.AustinComments?.followPopup(popup);
@@ -213,7 +216,7 @@ window.AustinExplore = {
       // Otherwise "This map area" could shrink the pan limit as you move it.
       const points = layers.filter(l => state.enabled.has(l.id))
         .flatMap(l => (data.get(l.id)?.features || []).filter(f => M.valid(f)).map(f => f.geometry.coordinates));
-      const coverage = points.length ? [
+      const coverage = showMarkers&&points.length ? [
         [Math.min(...points.map(c => c[0])), Math.min(...points.map(c => c[1]))],
         [Math.max(...points.map(c => c[0])), Math.max(...points.map(c => c[1]))]
       ] : null;
@@ -230,7 +233,7 @@ window.AustinExplore = {
       // specific selected category once, in both the map and combined list.
       matches = M.filter([...new Map(matches.map(f => [f.properties.id, f])).values()], options);
       for (const layer of mapMarkers ? layers : []) {
-        const features = matches.filter(f => f.properties.exploreLayer === layer.id);
+        const features = showMarkers?matches.filter(f => f.properties.exploreLayer === layer.id):[];
         const signature = features.map(f => f.properties.id).join('|');
         if (signatures.get(layer.id) !== signature) {
           const source=map.getSource(`explore-${layer.id}`);
@@ -286,8 +289,9 @@ window.AustinExplore = {
       if (!mapMarkers) continue;
       ensureLayers(layer);
       map.on('click', source + '-clusters', async e => {
+        if(!showMarkers)return;
         const f = e.features[0];
-        try { const zoom = await map.getSource(source).getClusterExpansionZoom(f.properties.cluster_id); map.easeTo({ center: f.geometry.coordinates, zoom, duration: 500 }); } catch (_) { /* source may have refreshed */ }
+        try { const zoom = await map.getSource(source).getClusterExpansionZoom(f.properties.cluster_id); if(!showMarkers)return; map.easeTo({ center: f.geometry.coordinates, zoom, duration: 500 }); } catch (_) { /* source may have refreshed */ }
       });
       map.on('click', source + '-points', e => {
         const f = e.features[0], key = f.geometry.coordinates.map(n => n.toFixed(5)).join(',');
@@ -297,8 +301,8 @@ window.AustinExplore = {
         if (items.length) showItems(items, f.geometry.coordinates);
       });
       for (const id of [source + '-clusters', source + '-points']) {
-        map.on('mouseenter', id, () => { map.getCanvas().style.cursor = 'pointer'; });
-        map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
+        map.on('mouseenter', id, () => { if(showMarkers)map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', id, () => { if(showMarkers)map.getCanvas().style.cursor = ''; });
       }
     }
     for (const choice of panel.querySelectorAll('[data-when]')) choice.addEventListener('click', () => {
@@ -322,7 +326,7 @@ window.AustinExplore = {
                 if (attempt !== locateAttempt || state.where !== 'near') return;
                 state.position = [position.coords.longitude, position.coords.latitude];
                 $('.explore-location').textContent = 'Distance uses your location only on this device.';
-                if (mapMarkers) map.easeTo({ center: state.position, zoom: 12, duration: 600 });
+                if (showMarkers) map.easeTo({ center: state.position, zoom: 12, duration: 600 });
                 update();
               }, () => {
                 if (attempt !== locateAttempt) return;
@@ -346,6 +350,8 @@ window.AustinExplore = {
       applyControls();
     });
     window.addEventListener('pagehide', () => unsubscribe?.(), { once: true });
+    showMarkers=mapMarkers&&!window.PlanPanel?.active;
+    window.AustinExplore.setMapMarkers=on=>{showMarkers=mapMarkers&&!!on;closePopup();signatures.clear();update();};
     update(); layers.filter(l => state.enabled.has(l.id)).forEach(load);
     setInterval(update, 60000);
     setInterval(() => { if (!document.hidden) layers.filter(l => state.enabled.has(l.id)).forEach(load); }, 5 * 60000);

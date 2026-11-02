@@ -16,7 +16,9 @@
     $('plan-route').onclick=async()=>{
       const plan=S.plan;
       if(!R.options(plan).enabled) await change(p=>{p.routing={...R.options(p),enabled:true};});
-      clearTimeout(timer);await R.calculate(S.plan,{force:true});window.PlanMap?.fit();
+      clearTimeout(timer);const requested=R.signature(S.plan);
+      await R.calculate(S.plan,{force:true});
+      if(window.PlanPanel?.active && R.signature(S.plan)===requested)window.PlanMap?.fit();
     };
     $('fit-travel').onclick=()=>change(plan=>{plan.items=M.fitTravel(plan,R).plan.items;},'Travel fitted into this stop order. Fixed events and locked arrivals were kept. Review the updated times.');
     for(const id of ['route-enabled','avoid-tolls','arrival-minutes']) $(id).onchange=()=>{
@@ -37,7 +39,7 @@
       (options.enabled && legs.length ? `${ready.length} of ${legs.length} journeys estimated${ready.length ? ' · '+ready.reduce((n,l)=>n+l.driveMinutes,0)+' min driving' : ''}${ready.length<legs.length ? ' · check unavailable journeys below' : ''}` : 'Schedule at least two stops, then choose Plan route.');
     window.PlanMap?.routes(options.enabled ? legs.filter(l=>l.status==='ready'&&l.geometry) : []);
     clearTimeout(timer);
-    if(options.enabled && result.scheduled.length>1) timer=setTimeout(()=>R.calculate(S.plan),200);
+    if(window.PlanPanel?.active && options.enabled && result.scheduled.length>1) timer=setTimeout(()=>R.calculate(S.plan),200);
     else if(state.busy) R.cancel();
   }
   function journey(before,after,plan) {

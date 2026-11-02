@@ -1,44 +1,59 @@
-* { box-sizing: border-box; }
-html,body { margin: 0; height: 100%; background: var(--background); color: var(--text); font: 14px/1.45 system-ui,sans-serif; }
-button,input,select,textarea { font: inherit; color: inherit; }
-button,.button { display: inline-block; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: var(--finish-raised); color: var(--text); cursor: pointer; text-decoration: none; }
-button:hover,.button:hover { background: var(--finish-hover); }
-button:disabled { opacity: .5; cursor: default; }
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.primary { background: var(--accent); color: var(--finish-on-accent); border-color: var(--accent); font-weight: 650; }
-.primary:hover { background: var(--accent-light); }
-input,select,textarea { min-width: 0; width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 7px; background: var(--finish-raised); }
-input[type=checkbox] { width: 17px; height: 17px; accent-color: var(--accent); }
-label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
-p { margin: 0 0 10px; } a { color: var(--accent); } h1,h2,h3 { line-height: 1.2; margin: 0; }
-.planner-layout { --panel-width: 420px; --panel-space: var(--panel-width); position: relative; display: grid; grid-template-columns: var(--panel-space) minmax(0,1fr); height: 100%; overflow: hidden; transition: grid-template-columns .2s ease; }
-.planner-layout.panel-closed { --panel-space: 0px; }
-.plan-panel { grid-column: 1; grid-row: 1; width: var(--panel-width); min-height: 0; padding: 20px; overflow: auto; overscroll-behavior: contain; border-right: 1px solid var(--border); background: var(--surface); z-index: 5; transition: transform .2s ease, visibility 0s; }
-.panel-closed .plan-panel { transform: translateX(-100%); visibility: hidden; transition: transform .2s ease, visibility 0s .2s; }
-.panel-toggle { position: absolute; left: var(--panel-space); top: 50%; transform: translateY(-50%); z-index: 6; display: grid; place-items: center; width: 44px; height: 56px; padding: 0; border-left: 0; border-radius: 0 10px 10px 0; background: var(--surface); color: var(--accent); box-shadow: 3px 2px 8px var(--shadow); transition: left .2s ease; }
-.panel-toggle svg { transition: transform .2s ease; }
-.panel-closed .panel-toggle svg { transform: rotate(180deg); }
-.panel-toggle:focus-visible { outline-offset: -3px; }
-.plan-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+/* Full editor on the main map. All form resets stay inside its own panels. */
+:where(#plan-panel,#export-dialog,#day-dialog),:where(#plan-panel,#export-dialog,#day-dialog) * { box-sizing:border-box; }
+#plan-panel { position:absolute; top:12px; right:68px; width:min(440px,calc(100% - 80px)); max-height:calc(100% - 24px); overflow:auto; overscroll-behavior:contain; scroll-padding:120px 0 20px; padding:20px; border:1px solid var(--border); border-radius:16px; background:var(--surface); color:var(--text); box-shadow:0 6px 24px var(--shadow); z-index:10; font:14px/1.45 system-ui,sans-serif; }
+#plan-panel[hidden] { display:none; }
+#plan-panel-close { font-size:24px; padding:2px 10px; }
+.plan-map-actions { display:flex; gap:8px; margin-bottom:10px; }
+#planner-map-toolbar { position:absolute; bottom:12px; left:12px; max-width:calc(100% - 80px); display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border); border-radius:10px; background:var(--surface); color:var(--text); font:12px/1.4 system-ui,sans-serif; z-index:6; box-shadow:0 2px 10px var(--shadow); }
+#planner-map-toolbar[hidden] { display:none; }
+#planner-map-toolbar button { font:inherit; border:1px solid var(--border); border-radius:6px; padding:5px 8px; background:var(--finish-raised); color:var(--text); cursor:pointer; }
+#planner-map-toolbar :focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.map-caption { position:absolute; bottom:68px; left:12px; max-width:calc(100% - 85px); padding:8px; border-radius:6px; background:var(--surface); color:var(--text); z-index:6; pointer-events:none; font:12px/1.4 system-ui,sans-serif; }
+#map-error { position:absolute; top:64px; left:12px; max-width:270px; padding:10px; border-radius:8px; background:var(--surface); color:var(--text); z-index:5; }
+.map-stop { width:32px; height:32px; border:2px solid white !important; box-shadow:0 2px 6px #0005; cursor:pointer; font:700 14px/1 system-ui,sans-serif; }
+.planner-popup { z-index:7; }
+.planner-popup .maplibregl-popup-content { color:var(--text); background:var(--surface); }
+.planner-popup .maplibregl-popup-content a { color:var(--accent); }
+
+:where(#plan-panel,#export-dialog,#day-dialog) button,:where(#plan-panel,#export-dialog,#day-dialog) input,:where(#plan-panel,#export-dialog,#day-dialog) select,:where(#plan-panel,#export-dialog,#day-dialog) textarea { font: inherit; color: inherit; }
+:where(#plan-panel,#export-dialog,#day-dialog) button,:where(#plan-panel,#export-dialog,#day-dialog) .button { display: inline-block; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: var(--finish-raised); color: var(--text); cursor: pointer; text-decoration: none; }
+:where(#plan-panel,#export-dialog,#day-dialog) button:hover,:where(#plan-panel,#export-dialog,#day-dialog) .button:hover { background: var(--finish-hover); }
+:where(#plan-panel,#export-dialog,#day-dialog) button:disabled { opacity: .5; cursor: default; }
+:where(#plan-panel,#export-dialog,#day-dialog) button:focus-visible,:where(#plan-panel,#export-dialog,#day-dialog) a:focus-visible,:where(#plan-panel,#export-dialog,#day-dialog) input:focus-visible,:where(#plan-panel,#export-dialog,#day-dialog) select:focus-visible,:where(#plan-panel,#export-dialog,#day-dialog) summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+:where(#plan-panel,#export-dialog,#day-dialog) .primary { background: var(--accent); color: var(--finish-on-accent); border-color: var(--accent); font-weight: 650; }
+:where(#plan-panel,#export-dialog,#day-dialog) .primary:hover { background: var(--accent-light); }
+:where(#plan-panel,#export-dialog,#day-dialog) input,:where(#plan-panel,#export-dialog,#day-dialog) select,:where(#plan-panel,#export-dialog,#day-dialog) textarea { min-width: 0; width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 7px; background: var(--finish-raised); }
+:where(#plan-panel,#export-dialog,#day-dialog) input[type=checkbox] { width: 17px; height: 17px; accent-color: var(--accent); }
+:where(#plan-panel,#export-dialog,#day-dialog) label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+:where(#plan-panel,#export-dialog,#day-dialog) p { margin: 0 0 10px; }
+:where(#plan-panel,#export-dialog,#day-dialog) a { color: var(--accent); }
+:where(#plan-panel,#export-dialog,#day-dialog) h1,:where(#plan-panel,#export-dialog,#day-dialog) h2,:where(#plan-panel,#export-dialog,#day-dialog) h3 { line-height: 1.2; margin: 0; }
+.plan-heading { position:sticky; top:-20px; margin:-20px -20px 12px; padding:16px 20px 12px; background:var(--surface); border-bottom:1px solid var(--border); z-index:2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
 .plan-heading-actions { display: flex; align-items: center; gap: 8px; }
 .plan-heading-actions button { font-size: 12px; }
-.eyebrow { margin: 0 0 4px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: 10px; font-weight: 700; }
-h1 { font-size: 24px; letter-spacing: -.6px; } .plan-heading .button { font-size: 12px; white-space: nowrap; }
-.intro { color: var(--muted); margin: 12px 0; font-size: 13px; }
+.plan-eyebrow { margin: 0 0 4px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: 10px; font-weight: 700; }
+:where(#plan-panel,#export-dialog,#day-dialog) h1 { font-size: 24px; letter-spacing: -.6px; }
+.plan-heading .button { font-size: 12px; white-space: nowrap; }
+.plan-intro { color: var(--muted); margin: 12px 0; font-size: 13px; }
 .save-line { display: flex; align-items: center; gap: 4px; justify-content: space-between; font-size: 11px; margin-bottom: 14px; color: var(--muted); }
 .text-button { background: none; border: 0; padding: 3px; font-size: 11px; color: var(--accent); }
 #save-conflict { border: 1px solid #ac7627; padding: 10px; margin-bottom: 10px; }
 .plan-day-picker { display: flex; align-items: end; gap: 8px; margin-bottom: 8px; }
-.plan-day-picker label { flex: 1; min-width: 0; } .plan-day-picker select { width: 100%; }
+.plan-day-picker label { flex: 1; min-width: 0; }
+.plan-day-picker select { width: 100%; }
 .plan-day-picker button { font-size: 12px; white-space: nowrap; }
 .day-boundary { font-size: 12px; color: var(--accent); margin-bottom: 4px; }
 .overnight-help { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
 #day-dialog { width: min(360px,calc(100% - 24px)); background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
-#day-dialog::backdrop { background: #102a2177; } #day-dialog h2 { font-size: 20px; margin-bottom: 15px; }
+#day-dialog::backdrop { background: #102a2177; }
+#day-dialog h2 { font-size: 20px; margin-bottom: 15px; }
 #day-dialog p { color: var(--muted); font-size: 12px; margin: 12px 0; }
-summary { cursor: pointer; padding: 4px 0; }
-.build-row { display: flex; gap: 8px; } .build-row .primary { flex: 1; } .build-help { font-size: 11px; color: var(--muted); margin: 8px 0 14px; }
-#plan-message { font-size: 12px; color: var(--accent); } #plan-message:not(:empty) { margin-bottom: 10px; }
+:where(#plan-panel,#export-dialog,#day-dialog) summary { cursor: pointer; padding: 4px 0; }
+.build-row { display: flex; gap: 8px; }
+.build-row .primary { flex: 1; }
+.build-help { font-size: 11px; color: var(--muted); margin: 8px 0 14px; }
+#plan-message { font-size: 12px; color: var(--accent); }
+#plan-message:not(:empty) { margin-bottom: 10px; }
 #plan-summary { padding: 10px 0; border-top: 1px solid var(--border); font-weight: 650; font-size: 12px; }
 #plan-items { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
 .plan-view { display: flex; gap: 4px; padding: 3px; border-radius: 9px; background: var(--finish-soft); margin-bottom: 12px; }
@@ -46,61 +61,44 @@ summary { cursor: pointer; padding: 4px 0; }
 .plan-view button[aria-pressed=true] { background: var(--finish-raised); color: var(--accent); box-shadow: 0 1px 4px var(--shadow); }
 .plan-item { border: 1px solid var(--border); border-radius: 12px; padding: 12px; background: var(--finish-raised); }
 .plan-item.has-conflict { border-left: 3px solid #bf6549; }
-.stop-title { display: flex; gap: 8px; align-items: start; } .stop-title h2 { font-size: 15px; flex: 1; padding: 2px 0; overflow-wrap: anywhere; }
+.stop-title { display: flex; gap: 8px; align-items: start; }
+.stop-title h2 { font-size: 15px; flex: 1; padding: 2px 0; overflow-wrap: anywhere; }
 .stop-number,.map-stop { border-radius: 50%; min-width: 26px; height: 26px; padding: 2px; background: var(--accent); color: var(--finish-on-accent); border: 0; font-weight: 700; text-align: center; }
-.stop-number { cursor: pointer; } .stop-venue { font-size: 12px; color: var(--muted); margin: 5px 0; }
-.source-timing { font-size: 12px; margin: 7px 0; } .schedule-grid { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); gap: 8px; margin-top: 8px; }
-.schedule-grid .full { grid-column: 1/-1; } .lock-label { flex-direction: row; align-items: center; margin: 9px 0 5px; }
-.stop-issues { padding-left: 16px; margin: 8px 0; font-size: 11px; color: var(--muted); } .stop-issues .error { color: #b64e33; font-weight: 600; }
+.stop-number { cursor: pointer; }
+.stop-venue { font-size: 12px; color: var(--muted); margin: 5px 0; }
+.source-timing { font-size: 12px; margin: 7px 0; }
+.schedule-grid { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); gap: 8px; margin-top: 8px; }
+.schedule-grid .full { grid-column: 1/-1; }
+.lock-label { flex-direction: row; align-items: center; margin: 9px 0 5px; }
+.stop-issues { padding-left: 16px; margin: 8px 0; font-size: 11px; color: var(--muted); }
+.stop-issues .error { color: #b64e33; font-weight: 600; }
 :root[data-theme=dark] .stop-issues .error { color: #ffab94; }
 .stop-actions { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 12px; }
-.stop-actions button { padding: 5px 8px; font-size: 12px; } .stop-actions .order { display: flex; gap: 3px; }
-.stop-details { font-size: 12px; margin: 8px 0; color: var(--muted); } .stop-details label { margin: 8px 0; }
-.stop-details p { overflow-wrap: anywhere; } .stop-details textarea { resize: vertical; min-height: 55px; }
+.stop-actions button { padding: 5px 8px; font-size: 12px; }
+.stop-actions .order { display: flex; gap: 3px; }
+.stop-details { font-size: 12px; margin: 8px 0; color: var(--muted); }
+.stop-details label { margin: 8px 0; }
+.stop-details p { overflow-wrap: anywhere; }
+.stop-details textarea { resize: vertical; min-height: 55px; }
 .plan-footnote { font-size: 11px; color: var(--muted); margin: 18px 0 0; }
 .route-panel { border: 1px solid var(--border); border-radius: 10px; background: var(--finish-soft); padding: 10px; margin-bottom: 14px; }
 .route-panel .build-row button { font-size: 12px; }
 #route-status { margin: 9px 0 5px; font-size: 12px; }
-.route-options { font-size: 12px; } .route-options label { margin: 8px 0; }
+.route-options { font-size: 12px; }
+.route-options label { margin: 8px 0; }
 .route-options p,.route-disclaimer { font-size: 11px; color: var(--muted); margin: 8px 0 0; }
 .travel-leg { margin: 0 6px; border-left: 3px solid var(--accent); padding: 3px 10px; font-size: 12px; overflow-wrap: anywhere; }
-.travel-leg p { margin: 4px 0; } .travel-detail { color: var(--muted); font-size: 11px; }
-.travel-conflict { border-color: #bf6549; } .travel-unavailable { border-left-style: dashed; }
+.travel-leg p { margin: 4px 0; }
+.travel-detail { color: var(--muted); font-size: 11px; }
+.travel-conflict { border-color: #bf6549; }
+.travel-unavailable { border-left-style: dashed; }
 .entrance-controls { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
 .entrance-controls button { font-size: 11px; padding: 6px; }
-.stop-actions { flex-wrap: wrap; } .navigate-link { font-weight: 650; }
-#plan-empty { text-align: center; padding: 25px 8px; } #plan-empty h2 { font-size: 20px; margin-bottom: 12px; } #plan-empty p { color: var(--muted); }
-.plan-map-area { grid-column: 2; grid-row: 1; position: relative; min-width: 0; min-height: 0; } #plan-map { position: absolute; inset: 0; }
-.map-caption { position: absolute; left: 10px; bottom: 32px; font-size: 11px; padding: 5px 8px; background: var(--surface); border-radius: 6px; color: var(--muted); pointer-events: none; }
-.map-stop { width: 32px; height: 32px; border: 2px solid white; box-shadow: 0 2px 6px #0005; cursor: pointer; }
-.maplibregl-popup-content { color: var(--text); background: var(--surface); } .maplibregl-popup-content a { color: var(--accent); }
-#map-error { position: absolute; top: 62px; margin: 12px; padding: 10px; background: var(--surface); font-size: 12px; }
-.planner-chat-card { position: absolute; top: 12px; right: 68px; width: min(320px,calc(100% - 80px)); max-height: calc(100% - 24px); overflow-y: auto; padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; z-index: 10; box-shadow: 0 6px 25px var(--shadow); }
-.planner-chat-card p { font-size: 12px; } .planner-chat-card .chat-btns { display: flex; gap: 5px; }
-.planner-chat-card #chatwin { position: fixed; z-index: 25; }
-[hidden] { display: none !important; }
-@media (max-width: 680px) {
-  .intro { display: none; }
-  .planner-layout { --panel-width: min(360px,calc(100% - 44px)); grid-template-columns: minmax(0,1fr); }
-  .plan-map-area { grid-column: 1; }
-  .plan-panel { position: absolute; inset: 0 auto 0 0; padding: 14px; box-shadow: 3px 0 15px var(--shadow); }
-  .map-caption { font-size: 10px; } .planner-chat-card { top: 64px; right: 12px; width: calc(100% - 24px); max-height: calc(100% - 76px); }
-  .schedule-grid { grid-template-columns: 1fr; } .plan-heading { align-items: start; } h1 { font-size: 22px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .planner-layout,.plan-panel,.panel-closed .plan-panel,.panel-toggle,.panel-toggle svg { transition: none; }
-}
-
-/* The same control/menu modules as the home map, contained in the map pane. */
-.plan-map-area.page { container: page / size; --control: 44px; }
-.plan-map-area .stack { z-index: 4; }
-.plan-map-area .round { flex-shrink: 0; }
-.planner-popup { z-index: 6; }
-.plan-map-area .plan-bar { z-index: 7; }
-.map-caption { z-index: 4; max-width: calc(100% - 85px); }
-#map-control-status { position: absolute; bottom: 30px; left: 12px; right: 65px; z-index: 4; padding: 8px; font-size: 12px; background: var(--surface); border-radius: 8px; }
-#map-control-status:empty { display: none; }
-
+.stop-actions { flex-wrap: wrap; }
+.navigate-link { font-weight: 650; }
+#plan-empty { text-align: center; padding: 25px 8px; }
+#plan-empty h2 { font-size: 20px; margin-bottom: 12px; }
+#plan-empty p { color: var(--muted); }
 .export-dialog { width: min(520px,calc(100% - 24px)); max-height: calc(100% - 24px); overflow-y: auto; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
 .export-dialog::backdrop { background: #102a2188; }
 .export-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
@@ -126,4 +124,17 @@ summary { cursor: pointer; padding: 4px 0; }
 .export-backup { border-top: 1px solid var(--border); padding-top: 10px; margin-top: 14px; color: var(--muted); }
 .export-backup-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
 .export-backup-actions button { font-size: 12px; }
-@media (max-width: 400px) { .export-dialog { padding: 14px; } .export-formats label { gap: 6px; padding: 10px 7px; } }
+@media (max-width: 400px) {
+.export-dialog { padding: 14px; }
+.export-formats label { gap: 6px; padding: 10px 7px; } }
+
+@media(max-width:680px) {
+  #plan-panel { top:64px; right:12px; width:calc(100% - 24px); max-height:calc(100% - 76px); padding:14px; }
+  #plan-panel h1 { font-size:22px; }
+  #plan-panel .plan-heading { top:-14px; margin:-14px -14px 12px; padding:12px 14px; }
+  #plan-panel .schedule-grid { grid-template-columns:1fr; }
+}
+
+.map-stop { height:32px; }
+
+#export-dialog,#day-dialog { font:14px/1.45 system-ui,sans-serif; }

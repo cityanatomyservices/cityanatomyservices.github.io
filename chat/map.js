@@ -98,11 +98,11 @@
     // The limits keep the chat neighborhoods on screen. Selected Explore
     // layers can also contain nearby cities, so include their actual locations
     // while they are enabled. The extents button still returns to Austin.
-    let exploreBox = null;
-    const coverageBox = () => exploreBox ? [
-      [Math.min(box[0][0], exploreBox[0][0]), Math.min(box[0][1], exploreBox[0][1])],
-      [Math.max(box[1][0], exploreBox[1][0]), Math.max(box[1][1], exploreBox[1][1])]
-    ] : box;
+    let exploreBox = null, planBox = null, planning=!!window.PlanPanel?.active;
+    const coverageBox = () => {
+      const areas=[box,exploreBox,planBox].filter(Boolean);
+      return [[Math.min(...areas.map(b=>b[0][0])),Math.min(...areas.map(b=>b[0][1]))],[Math.max(...areas.map(b=>b[1][0])),Math.max(...areas.map(b=>b[1][1]))]];
+    };
     // the limits (owner 2026-10-22): no zooming out past the covered area, and
     // the map can be pushed almost off the screen but never all the way —
     // a tenth of the screen (keepOnScreen) must still show it. The pan
@@ -123,6 +123,7 @@
       exploreBox = e.bounds;
       limitZoom(); keepInView();
     });
+    map.on('plannerbounds', e=>{planBox=e.bounds;limitZoom();keepInView();});
     map.on('zoomend', keepInView);
     map.on('resize', () => { limitZoom(); keepInView(); });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
@@ -144,7 +145,7 @@
       const cam = map.cameraForBounds(box, { padding: CFG.fitPadding, bearing: 0 });
       if (cam) map.easeTo({ ...cam, pitch: 0, duration: 700 });
     };
-    $('ctrlExtent').addEventListener('click', cityView);
+    $('ctrlExtent').addEventListener('click',()=>planning?window.PlanMap.fit():cityView());
 
     // Opening neighborhood view and street zoom used when choosing a place.
     const V = CFG.views;
@@ -231,11 +232,12 @@
       // the opening move: from all of Austin flat, fly in over downtown
       // and tilt up (the owner's reference view); showTilt keeps the button
       // reading 2D while the map is tilted
-      neighborhoodView(CFG.openTiltMs);
+      if(!planning)neighborhoodView(CFG.openTiltMs);
 
       // hover: tint the polygon under the pointer
       let hovered = null;
       map.on('mousemove', 'geofence-fill', (e) => {
+        if(planning)return;
         const f = e.features && e.features[0];
         if (!f || f.id === hovered) return;
         if (hovered !== null) map.setFeatureState({ source: 'geofences', id: hovered }, { hover: false });
@@ -244,6 +246,7 @@
         map.getCanvas().style.cursor = 'pointer';
       });
       map.on('mouseleave', 'geofence-fill', () => {
+        if(planning)return;
         if (hovered !== null) map.setFeatureState({ source: 'geofences', id: hovered }, { hover: false });
         hovered = null;
         map.getCanvas().style.cursor = '';
@@ -252,6 +255,7 @@
       // click: the tapped neighborhood's border darkens (one at a time)
       let selected = null;
       map.on('click', 'geofence-fill', (e) => {
+        if(planning)return;
         // An Explore pin belongs to its event, not to the polygon underneath it.
         const exploreLayers = (window.EXPLORE_LAYERS || []).flatMap(l => [`explore-${l.id}-points`, `explore-${l.id}-clusters`]).filter(id => map.getLayer(id));
         if (exploreLayers.length && map.queryRenderedFeatures(e.point, { layers: exploreLayers }).length) return;
@@ -274,7 +278,7 @@
           if (before) map.setFeatureState({ source: 'geofences', id: before.properties.id }, { room: false });
           if (!feature) return;
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
-          flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
+          if(!planning)flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
         },
         // the business you picked: the map goes there at street level (flat)
         // and a popup names it with Google Maps,
@@ -283,7 +287,7 @@
         onPlace(place) {
           if (placeMarker) { placeMarker.remove(); placeMarker = null; }
           if (placePopup) { placePopup.remove(); placePopup = null; }
-          if (!place) return;
+          if (!place || planning) return;
           setCard(false);                              // the card folds so the map and popup are in view (owner 2026-10-22)
           const at = [place.lng, place.lat];
           placeMarker = new maplibregl.Marker({ color: CFG.roomColor }).setLngLat(at).addTo(map);
@@ -320,17 +324,34 @@
               m.getElement().textContent = p.emoji;
               markers[p.handle] = m;
             }
-            markers[p.handle].setLngLat(at).addTo(map);
+            markers[p.handle].setLngLat(at);
+            if(!planning)markers[p.handle].addTo(map);
             seen[p.handle] = true;
           });
           Object.keys(markers).forEach((h) => { if (!seen[h]) { markers[h].remove(); delete markers[h]; } });
         }
       } });
 
+      map.on('plannermode',event=>{
+        if(planning!==event.active)map.stop();planning=event.active;
+        window.AustinExplore.setMapMarkers?.(!planning);
+        if(planning){placeMarker?.remove();placePopup?.remove();placePopup=null;}
+        else if(placeMarker)placeMarker.addTo(map);
+        Object.values(markers).forEach(marker=>planning?marker.remove():marker.addTo(map));
+        map.getCanvas().style.cursor='';
+      });
+
       // find me: back to where YOU are (picking a business never moves you,
       // owner 2026-10-22); without a GPS reading, your neighborhood; without
       // that, ask for the location again
       $('ctrlLocate').addEventListener('click', () => {
+        if(planning){
+          window.PlanMap.cancelPick();
+          const status=$('map-caption');status.hidden=false;status.textContent='Finding your location…';
+          if(!navigator.geolocation){status.textContent='Location is unavailable on this device.';return;}
+          navigator.geolocation.getCurrentPosition(p=>{if(!planning)return;map.easeTo({center:[p.coords.longitude,p.coords.latitude],zoom:15,duration:600});status.hidden=true;},()=>{if(planning)status.textContent='Location unavailable. You can still browse the map.';},{timeout:12000,maximumAge:60000});
+          return;
+        }
         const here = window.ChatEngine.position;
         const r = window.ChatRoom.room;
         if (here) map.easeTo({ center: here, zoom: Math.max(map.getZoom(), V.street.zoom - 1), duration: 900 });
@@ -342,7 +363,8 @@
       window.chatMap = map;
       window.AustinMapLayers.init(map);
       window.AustinCityHall.init();
+      window.PlanMap.attach(map);
       window.AustinExplore.init(map);
     });
-  });
+  }).catch(()=>{$('map-error').hidden=false;});
 })();

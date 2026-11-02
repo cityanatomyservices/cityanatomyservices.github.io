@@ -29,12 +29,12 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');
   assert.ok(await f.evaluate(()=>chatMap.getPitch()>50));
   await f.evaluate(()=>{window.boundaryErrors=[];chatMap.on('error',e=>{if(/boundary-|zipcodes|council_districts/.test(e.error?.message||''))boundaryErrors.push(e.error.message);});});
-  for(const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','day-plan-panel'],['ctrlChat','legend'],['ctrlApps','apps-panel']]){
+  for(const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','plan-panel'],['ctrlChat','legend'],['ctrlApps','apps-panel']]){
    await layersOpen(f);await f.locator('#'+control).click();assert.equal(await f.locator('#map-layers-panel').isHidden(),true);assert.equal(await f.locator('#'+panel).isVisible(),true);
    // Existing phone Explore/Day Plan panels span the map and cover lower
    // controls; use their normal close buttons before switching on a phone.
    if(width<500&&control==='ctrlExplore')await f.locator('#explore-panel .explore-close').click();
-   if(width<500&&control==='ctrlDayPlan')await f.getByRole('button',{name:'Close Day Plan',exact:true}).click();
+   if(width<500&&control==='ctrlDayPlan')await f.getByRole('button',{name:'Hide planner',exact:true}).click();
    await f.locator('#ctrlMapLayers').click();assert.equal(await f.locator('#'+panel).isHidden(),true);assert.equal(await f.locator('#map-layers-panel').isVisible(),true);
   }
   await f.locator('#map-layers-close').press('Escape');assert.equal(await f.locator('#map-layers-panel').isHidden(),true);assert.equal(await f.locator('#ctrlMapLayers').evaluate(el=>el===document.activeElement),true);

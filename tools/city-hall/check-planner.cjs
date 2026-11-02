@@ -36,7 +36,7 @@ async function frame(page,home=false){
       await PlanStore.edit(p=>{p.items[0].schedule.note='Keep my current day';p.items[0].schedule.duration=25;});
     },today);
     const original=await f.evaluate(()=>PlanStore.plan.items);
-    await f.locator('#ctrlCityHall').click();await f.locator('[data-category=meetings]').click();
+    await f.locator('#ctrlCityHall').click();if(await f.locator('[data-category=meetings]').getAttribute('aria-pressed')!=='true')await f.locator('[data-category=meetings]').click();
     const first=()=>f.getByRole('checkbox',{name:'Add Future council meeting to Day Planner',exact:true});
     const second=()=>f.getByRole('checkbox',{name:'Add Future board meeting to Day Planner',exact:true});
     const tba=()=>f.getByRole('checkbox',{name:'Add Meeting awaiting a time to Day Planner',exact:true});
@@ -46,12 +46,12 @@ async function frame(page,home=false){
     await f.waitForFunction(()=>PlanStore.plan.items.length===3);
     assert.equal(await f.locator('#city-hall-panel .plan-select').count(),3);
     await f.locator('#city-hall-panel .explore-close').click();await f.locator('#ctrlDayPlan').click();
-    assert.deepEqual(await f.locator('#day-plan-saved option').evaluateAll(options=>options.map(o=>o.value).filter(Boolean)),[today,future]);
-    await f.locator('#day-plan-saved').selectOption(today);
+    assert.deepEqual(await f.locator('#plan-day option').evaluateAll(options=>options.map(o=>o.value).filter(Boolean)),[today,future]);
+    await f.locator('#plan-day').selectOption(today);
     await f.waitForFunction(day=>PlanStore.plan.date===day,today);
     assert.deepEqual(await f.evaluate(()=>PlanStore.plan.items),original);
-    await f.locator('#day-plan-saved').selectOption(future);
-    await f.locator('.plan-open').click();await page.waitForURL('**/dayplan/');f=await frame(page);
+    await f.locator('#plan-day').selectOption(future);
+    assert.equal(await f.locator('#day-plan-panel,.plan-open').count(),0);await page.waitForURL('**/?planner=1');
     await f.waitForFunction(()=>document.querySelectorAll('#plan-items .plan-item').length===3);
     assert.equal(await f.locator('#plan-day').inputValue(),future);
     assert.equal(await f.evaluate(()=>PlanModel.check(PlanStore.plan).conflicts),3);
@@ -71,8 +71,8 @@ async function frame(page,home=false){
     await f.locator('#plan-day').selectOption(future);await f.waitForFunction(day=>PlanStore.plan.date===day,future);
     assert.deepEqual(await f.evaluate(()=>PlanStore.plan.items),saved);
     await page.screenshot({path:`/tmp/city-hall-planner-${width}.png`});
-    await page.locator('.brand').click();await page.waitForURL(base+'/');f=await frame(page,true);
-    await f.locator('#ctrlCityHall').click();await f.locator('[data-category=meetings]').click();
+    await page.locator('.brand').click();await page.waitForURL(base+'/');assert.equal(await f.evaluate(()=>PlanPanel.active),false);
+    await f.locator('#ctrlCityHall').click();if(await f.locator('[data-category=meetings]').getAttribute('aria-pressed')!=='true')await f.locator('[data-category=meetings]').click();
     await first().waitFor();assert.equal(await first().isChecked(),true);assert.equal(await second().isChecked(),true);
     // Re-rendering a filtered list must preserve selection and avoid duplicates.
     await f.locator('#city-hall-panel [data-filter=query]').fill('council');assert.equal(await first().isChecked(),true);

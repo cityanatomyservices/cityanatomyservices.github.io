@@ -50,7 +50,7 @@
         const actions=node('div',undefined,'member-favorite-actions'),href=safeLink(source.url);
         if(href){const link=node('a',source.kind==='app'?'Open app ↗':'Details ↗');link.href=href;link.target=source.kind==='app'?'_top':'_blank';link.rel='noopener noreferrer';actions.append(link);}
         if(Array.isArray(source.coordinates)&&source.kind!=='app')actions.append(action('Add to Day Planner',async event=>{
-          const s=store();if(!s){status('favorites','Open Day Planner, then return to Account → Favorites to add this stop.');const link=node('a','Open Day Planner');link.href='/dayplan/';$('member-favorites-status').append(' ',link);return;}
+          const s=store();if(!s){status('favorites','Open Day Planner, then return to Account → Favorites to add this stop.');const link=node('a','Open Day Planner');link.href='/?planner=1';$('member-favorites-status').append(' ',link);return;}
           const b=event.currentTarget;b.disabled=true;
           try{const day=await s.select(source,true);status('favorites',`Added to your plan for ${day}. Dated events keep their published day.`);}catch(e){status('favorites',e.message);}finally{b.disabled=false;}
         }));

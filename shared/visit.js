@@ -20,32 +20,41 @@
     window.addEventListener('pageshow',event=>{if(event.persisted)location.reload();});
   }
   const visit=window.AustinVisit;
-  // Keep the outer page alive when switching maps, so a guest plan can move
-  // between them without writing it to storage, a URL, or browser history.
-  const routes={
-    '/': {src:'/chat/?v=20261102f',title:'Austin.Chat',frameTitle:'Chat map'},
-    '/dayplan/': {src:'/planner/app.html?v=20261102f',title:'Austin day Planner · Austin.Chat',frameTitle:'Austin day Planner itinerary'}
-  };
+  // The main map owns both discovery and the full planner. In-site aliases
+  // change its panel without replacing the iframe or ending a guest visit.
+  const aliases=['/myplanmap','/myplanmap/','/myplanmap/index.html','/dayplan','/dayplan/','/dayplan/index.html','/planner/app.html'];
   if(window===window.top) {
     let transition=0;
-    visit.navigate=(url,push=true)=>{
-      // Old in-site links must keep the live visit, including a guest's plan.
-      if(url.origin===location.origin&&['/myplanmap','/myplanmap/','/myplanmap/index.html','/dayplan','/dayplan/index.html'].includes(url.pathname)){
-        url=new URL(url.href);url.pathname='/dayplan/';
-      }
-      const route=routes[url.pathname],frame=document.getElementById('app-window');
-      if(url.origin!==location.origin || !route || !frame || url.hash)return false;
-      if(push && location.pathname===url.pathname)return true;
+    const plannerURL=on=>{const url=new URL(location.href);if(on)url.searchParams.set('planner','1');else url.searchParams.delete('planner');return url;};
+    const remember=on=>{
+      visit.set('main:planner',String(on));
+      document.title=on?'Austin day Planner · Austin.Chat':'Austin.Chat';
+    };
+    visit.plannerView=on=>{
+      if(location.pathname!=='/')return;
+      const url=plannerURL(on);if(url.href!==location.href)history.pushState(null,'',url.pathname+url.search+url.hash);
+      remember(on);
+    };
+    if(location.pathname==='/')remember(new URLSearchParams(location.search).get('planner')==='1');
+    visit.navigate=(input,push=true)=>{
+      const url=new URL(input.href),frame=document.getElementById('app-window');
+      if(url.origin!==location.origin||!frame)return false;
+      if(aliases.includes(url.pathname)){url.pathname='/';url.searchParams.set('planner','1');}
+      if(url.pathname!=='/')return false;
       const request=++transition;
       visit.settled().then(()=>{
         if(visit.closed||request!==transition)return;
-        if(push)history.pushState(null,'',url.pathname+url.search);
-        else if(location.pathname!==url.pathname)history.replaceState(null,'',url.pathname+url.search);
-        document.title=route.title;
-        document.querySelector('link[rel=canonical]')?.setAttribute('href',url.href);
-        frame.title=route.frameTitle;
-        // replace avoids adding a second, iframe-only history entry.
-        frame.contentWindow.location.replace(route.src);
+        if(push&&url.href!==location.href)history.pushState(null,'',url.pathname+url.search+url.hash);
+        else if(!push&&url.href!==location.href)history.replaceState(null,'',url.pathname+url.search+url.hash);
+        const on=url.searchParams.get('planner')==='1';remember(on);
+        document.querySelector('link[rel=canonical]')?.setAttribute('href',url.origin+'/');
+        frame.title='Explore and plan Austin';
+        try {
+          if(['/chat/','/chat/index.html'].includes(frame.contentWindow.location.pathname)){
+            frame.contentWindow.PlanPanel?.setView(on);return;
+          }
+        }catch(_){}
+        frame.contentWindow.location.replace('/chat/?v=20261102g');
       });
       return true;
     };

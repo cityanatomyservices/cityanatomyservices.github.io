@@ -1,6 +1,38 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
 
+## 2026-11-02 — Day Planner integrated into the main map
+
+The main page’s Day Plan button now opens the full Austin day Planner editor.
+Removed the small launcher and the separately rendered planner map. The home
+MapLibre instance stays alive through editing, discovery, old in-site links and
+Back/Forward. Date selection, one plan per 5 AM–5 AM Austin day, scheduling,
+conflict review, routing, entrance edits, exports and backups remain available.
+The heading/close control stays visible while scrolling on phones.
+
+Collapsing the editor keeps the selected day’s pins/routes and a small Edit day /
+Explore toolbar visible. Explore, City Hall, Chat and Apps leave planning mode;
+Map display controls preserve it. Planning displays only selected stops, empties
+Explore sources even on late refresh, and removes chat business/people markers
+including late updates. GPS centers without adding a marker or changing chat
+state. Route requests pause while browsing. Day changes, removal and sign-out
+clear stale routes without waiting for unrelated map sources to finish loading.
+
+`/dayplan/`, `/myplanmap/` and `/planner/app.html` are lightweight redirects to
+`/?planner=1`, retaining other query parameters and fragments. Existing bookmarks
+continue working. Catalog maps retain their layouts; their Day Plan buttons now
+open this editor directly. No database migrations, account changes, notifications
+or real test emails were needed. Shared asset references use `20261102g`.
+
+Local validation: 92 planner/reminder unit tests; JavaScript syntax and diff
+checks; fixture-based desktop/phone checks for exports, meeting planning, City
+Hall, map layers and email reminder controls. Full same-map guest/member checks
+passed at 1280 and 390 pixels: selected-only pins, chat-marker suppression,
+rendered routes, late results, day switching, entrance picking, GPS, browser
+history, saved-account reload and sign-out. Browser fixtures block real Supabase
+writes. Deployment verification is pending.
+
+
 ## 2026-11-02 — Resend connected; email reminders active
 
 Owner reported that the Resend API was connected. Verified the deployed

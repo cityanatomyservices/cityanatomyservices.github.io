@@ -77,7 +77,7 @@ async function ready(page) {
     await f.locator('#city-hall-panel .explore-close').press('Escape');
     assert.equal(await f.locator('#city-hall-panel').isHidden(),true);
     assert.equal(await f.locator('#ctrlCityHall').evaluate(el=>el===document.activeElement),true);
-    for (const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','day-plan-panel'],['ctrlChat','legend'],['ctrlApps','apps-panel'],['ctrlMapLayers','map-layers-panel']]) {
+    for (const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','plan-panel'],['ctrlChat','legend'],['ctrlApps','apps-panel'],['ctrlMapLayers','map-layers-panel']]) {
       await f.locator('#'+control).click();
       // Phone panels cover the stack. Dispatch exercises the same capture and
       // button listeners; the visible close buttons are checked separately.

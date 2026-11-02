@@ -33,8 +33,8 @@ async function download(page,f,name){
   });
   await context.route(/^https:\/\/(www\.google\.com\/maps\/dir\/|maps\.apple\.com\/directions)/,route=>route.fulfill({contentType:'text/html',body:'<title>Export destination fixture</title>Route link received'}));
   const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base+'/myplanmap/?from=bookmark#saved');await page.waitForURL(base+'/dayplan/?from=bookmark#saved');
-  assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),'https://austin.chat/dayplan/');
+  await page.goto(base+'/myplanmap/?from=bookmark#saved');await page.waitForURL(base+'/?from=bookmark&planner=1#saved');
+  assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),'https://austin.chat/');
   let f=await(await page.locator('#app-window').elementHandle()).contentFrame();
   await f.waitForFunction(()=>window.PlanExport&&window.PlanStore);await f.evaluate(()=>PlanStore.ready());await f.evaluate(p=>PlanStore.restore(p),p);
   assert.equal(await f.locator('h1').textContent(),'Austin day Planner');assert.equal(await page.title(),'Austin day Planner · Austin.Chat');
@@ -96,12 +96,12 @@ async function download(page,f,name){
   // The outer History API URL changes before the iframe finishes navigating.
   await f.waitForFunction(()=>location.pathname==='/chat/'&&document.readyState==='complete'&&window.PlanStore&&window.austinExplore);
   await page.evaluate(()=>{const a=document.createElement('a');a.href='/myplanmap/';document.body.append(a);a.click();a.remove();});
-  await page.waitForURL(base+'/dayplan/');await f.waitForFunction(()=>location.pathname==='/planner/app.html'&&document.readyState==='complete'&&window.PlanStore&&window.PlanExport);await f.evaluate(()=>PlanStore.ready());
+  await page.waitForURL(base+'/?planner=1');await f.waitForFunction(()=>location.pathname==='/chat/'&&document.readyState==='complete'&&window.PlanStore&&window.PlanExport);await f.evaluate(()=>PlanStore.ready());
   assert.equal(await page.evaluate(()=>AustinVisit.id),visitId,'legacy in-site link keeps the guest visit');assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),selected);
   await page.goBack();await page.waitForURL(base+'/');await f.waitForFunction(()=>location.pathname==='/chat/'&&document.readyState==='complete'&&window.PlanStore&&window.austinExplore);
-  await page.goForward();await page.waitForURL(base+'/dayplan/');await f.waitForFunction(()=>location.pathname==='/planner/app.html'&&document.readyState==='complete'&&window.PlanStore&&window.PlanExport);await f.evaluate(()=>PlanStore.ready());
+  await page.goForward();await page.waitForURL(base+'/?planner=1');await f.waitForFunction(()=>location.pathname==='/chat/'&&document.readyState==='complete'&&window.PlanStore&&window.PlanExport);await f.evaluate(()=>PlanStore.ready());
   assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),selected,'Back/Forward preserves the dated plans');
-  const direct=await context.newPage();await direct.goto(base+'/planner/app.html');await direct.waitForURL(base+'/dayplan/');await direct.close();
+  const direct=await context.newPage();await direct.goto(base+'/planner/app.html');await direct.waitForURL(base+'/?planner=1');await direct.close();
   assert.deepEqual(errors,[]);await context.close();console.log(`${width}px: /dayplan/ and legacy redirects, date labels, one plan per day, exports, relocated allowance/backup/restore, undo, guest navigation, themes and accessibility passed.`);
  }
 }finally{if(browser)await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}})().catch(error=>{console.error(error.stack);process.exitCode=1;});

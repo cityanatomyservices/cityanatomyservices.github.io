@@ -77,7 +77,7 @@
       order.append(button);
     }
     const remove = node('button','Remove'); remove.type = 'button'; remove.setAttribute('aria-label',`Remove ${s.title}`);
-    remove.onclick = () => change(plan => { plan.items = plan.items.filter(i => i.id !== item.id); },`${s.title} removed. You can undo or add it again from the main map.`);
+    remove.onclick = () => change(plan => { plan.items = plan.items.filter(i => i.id !== item.id); },`${s.title} removed. You can undo or add it again from Explore.`);
     const selectedShow = s.showtimes?.find(show => show.start === u.showtime);
     actions.append(order,link('Source ↗',selectedShow?.url || s.url),window.PlanRoutePanel.navigation(item),remove); li.append(actions);
     return li;
@@ -183,6 +183,7 @@
     } catch (error) { $('backup-status').textContent = error.message; }
     event.target.value = '';
   };
+  window.addEventListener('austin:planner-view',()=>{signature='';render();});
   window.PlanRoutePanel.init({change,message});
   routing.subscribe(()=>queueMicrotask(render));
   S.subscribe(render); render();
