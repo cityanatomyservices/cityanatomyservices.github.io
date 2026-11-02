@@ -13,11 +13,19 @@ email address. The existing Auth SMTP configuration is for sign-in messages;
 it does not give Edge functions access to its stored, write-only API key.
 GitHub Actions still refreshes the event feeds and runs regression tests.
 
-## Remaining owner setup: connect the existing Resend account
+<a id="remaining-owner-setup-connect-the-existing-resend-account"></a>
 
-The database, functions and paused schedule are deployed. Sending stays disabled
-until a real sending key is supplied. Visitors see “Email reminders are being
-set up”; no checkbox claims that an unavailable reminder has been scheduled.
+## Resend connection and setup
+
+**Active as of November 2, 2026.** The Resend key, sender and enable flag are
+stored in Supabase Edge secrets, the public readiness check returns true, and
+the every-minute Cron job is active. Recent worker calls return HTTP 200 with
+no failed or overdue jobs. Actual Resend acceptance and inbox delivery still
+need verification when a scheduled email is sent.
+
+The steps below are for reconnecting or rotating the sending key. If sending
+is paused or required secrets are absent, visitors see “Email reminders are
+being set up”; unavailable reminders cannot be selected.
 
 1. In [Resend API keys](https://resend.com/api-keys), create a sending key
    restricted to the already verified `login.austin.chat` domain. No new SMS

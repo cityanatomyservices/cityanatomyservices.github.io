@@ -1,6 +1,26 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
 
+## 2026-11-02 — Resend connected; email reminders active
+
+Owner reported that the Resend API was connected. Verified the deployed
+configuration without reading or printing secret values: `RESEND_API_KEY`,
+`REMINDER_FROM`, `REMINDERS_ENABLED` and the existing private Cron credential
+are present. The public reminder availability endpoint returns `{enabled:true}`.
+`austin-email-reminders` is already active on its every-minute schedule; no
+activation change or secret replacement was needed.
+
+Recent Cron invocations succeeded, and the email worker returned HTTP 200
+with no failures. Existing pending jobs are scheduled in the future; none
+are overdue or marked failed/skipped. No reminder has been submitted to Resend
+yet, so key authorization for actual sending and inbox delivery remain
+unverified until a scheduled send. No test message was sent to a person, and
+no user selections, recipients or delivery times were changed or logged.
+The activation instructions below are historical; the operational setup guide
+now records the active state. No application code or asset-version change.
+
+
+
 ## 2026-11-02 — Email-only event reminders
 
 Owner first requested email + SMS, then explicitly switched to **email only**.
