@@ -36,6 +36,11 @@ missing time, return home, restore checkbox state, uncheck and refresh a guest.
 The existing complete City Hall browser check also passed at both widths.
 Screenshots were reviewed. Browser tests block production account requests.
 
+Published implementation `fd78c07`; Pages deployment `41483515223` and Check
+My Plan Map `41483517209` passed. The homepage serves `20261102b`. The complete
+meeting/planner browser scenario also passed against the live site at 1280
+and 390 px, including existing-day preservation and editing conflicts.
+
 ## 2026-11-02 — City Hall on the main map
 
 Owner requested a City Hall button immediately below Chat on the main map
