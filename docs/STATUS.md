@@ -60,7 +60,14 @@ pass both widths (guest and member for the map).
 Asset revisions for changed files and every referencing page/template are
 `20261102f`; test HTTP servers now serve `.mjs` with JavaScript MIME.
 
-Publishing and final live checks are in progress.
+Published implementation `6943289`. Pages run `41508490644`, planner checks
+`41508490924`, and email reminder checks `41508490954` all succeeded. Live
+homepage HTML serves `20261102f`; the shared `.mjs` serves JavaScript MIME and
+`/reminders/` is available. Full reminder browser checks also pass on the live
+site at 1280/390 px, including explicit cancellation without sign-in. The public
+backend readiness endpoint returns `{enabled:false}` as intended. Sending
+activation and actual provider/inbox delivery are the only remaining setup
+steps; all implementation, deployment and automated checks are complete.
 
 ## 2026-11-02 — /dayplan/ and date-only plan labels
 
