@@ -8,7 +8,7 @@
   const store=()=>{try{return window.PlanStore||document.getElementById('app-window')?.contentWindow.PlanStore;}catch(_){return null;}};
   window.AustinMemberUI={mount(host){
     const root=node('section',undefined,'member-controls');
-    root.innerHTML=`<div class="member-tabs" role="group" aria-label="Account sections"><button type="button" data-member-tab="profile" aria-pressed="true">Profile & privacy</button><button type="button" data-member-tab="favorites" aria-pressed="false">Favorites</button><button type="button" data-member-tab="settings" aria-pressed="false">Preferences</button></div>
+    root.innerHTML=`<div class="member-tabs" role="group" aria-label="Account sections"><button type="button" data-member-tab="profile" aria-pressed="true">Profile & privacy</button><button type="button" data-member-tab="favorites" aria-pressed="false">Favorites</button><button type="button" data-member-tab="reminders" aria-pressed="false">Reminders</button><button type="button" data-member-tab="settings" aria-pressed="false">Preferences</button></div>
       <section data-member-panel="profile"><p class="account-help">Use any nickname. Your email and Google identity stay private. A nickname is still linked to your account so your things can be saved.</p>
         <form id="member-profile-form"><fieldset id="member-profile-fields" disabled>
           <label>Profile name<input id="member-handle" autocomplete="nickname" minlength="3" maxlength="30" required></label>
@@ -23,13 +23,15 @@
           <button type="submit" id="member-save-profile">Save profile</button>
         </fieldset></form><p id="member-profile-status" role="status"></p></section>
       <section data-member-panel="favorites" hidden><p>Keep places, events and apps for later. Your Favorites are private and do not reserve a place or add it to your day.</p><p id="member-favorites-count"></p><div id="member-favorites-list"></div><p id="member-favorites-status" role="status"></p></section>
+      <section data-member-panel="reminders" hidden><div id="member-reminders"></div></section>
       <section data-member-panel="settings" hidden><p>Your Explore categories, ticker choices, appearance and navigation app save to your account when you change them.</p><label>Appearance<select id="member-theme"><option value="light">Light</option><option value="dark">Dark</option></select></label><label>Navigation app<select id="member-navigation"><option value="google">Google Maps</option><option value="apple">Apple Maps</option><option value="waze">Waze</option></select></label><p class="account-help">Choose Explore categories on the map and ticker topics with the ticker’s settings button.</p><div id="member-progress"></div><p id="member-preferences-status" role="status"></p></section>
       <button type="button" id="member-retry" hidden>Retry loading account details</button>`;
     host.append(root);
+    const reminders=window.AustinReminders.mountAccount(root.querySelector("#member-reminders"));
     const $=id=>root.querySelector('#'+id);let busy=false,dirty=false,seenOwner=null,opened=false,tab='profile',viewRun=0;
     M.emojis.forEach(emoji=>{const o=node('option',emoji);o.value=emoji;$('member-emoji').append(o);});
     const status=(section,text)=>{$('member-'+section+'-status').textContent=text;};
-    function showTab(value){tab=value;root.querySelectorAll('[data-member-panel]').forEach(n=>{n.hidden=n.dataset.memberPanel!==tab;});root.querySelectorAll('[data-member-tab]').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.memberTab===tab)));if(tab==='favorites')favorites();}
+    function showTab(value){tab=value;root.querySelectorAll('[data-member-panel]').forEach(n=>{n.hidden=n.dataset.memberPanel!==tab;});root.querySelectorAll('[data-member-tab]').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.memberTab===tab)));if(tab==='favorites')favorites();if(tab==='reminders')reminders.open();}
     root.querySelectorAll('[data-member-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.memberTab));
     function preview(){const p=M.state?.profile;M.paintIdentity($('member-preview'),{handle:$('member-handle').value||'Your nickname',emoji:$('member-emoji').value},{own:true,photo:!!p?.avatar_path&&$('member-show-photo').checked});}
     function profile(fill=false){

@@ -23,8 +23,8 @@
   // Keep the outer page alive when switching maps, so a guest plan can move
   // between them without writing it to storage, a URL, or browser history.
   const routes={
-    '/': {src:'/chat/?v=20261102e',title:'Austin.Chat',frameTitle:'Chat map'},
-    '/dayplan/': {src:'/planner/app.html?v=20261102e',title:'Austin day Planner · Austin.Chat',frameTitle:'Austin day Planner itinerary'}
+    '/': {src:'/chat/?v=20261102f',title:'Austin.Chat',frameTitle:'Chat map'},
+    '/dayplan/': {src:'/planner/app.html?v=20261102f',title:'Austin day Planner · Austin.Chat',frameTitle:'Austin day Planner itinerary'}
   };
   if(window===window.top) {
     let transition=0;

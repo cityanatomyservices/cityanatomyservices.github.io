@@ -5,6 +5,10 @@ and email codes. GitHub Pages continues hosting the entire public site.
 Google's client secret and Resend's API key stay in Supabase. The browser uses
 only the project's existing publishable key.
 
+Event reminders use separate Edge functions and a Resend sending secret;
+see [email reminder setup and operations](../tools/reminders/README.md).
+They do not change the sign-in SMTP configuration.
+
 ## Owner setup: Google
 
 1. In [Google Auth Platform](https://console.cloud.google.com/auth/overview),

@@ -1,0 +1,11 @@
+.email-reminder { margin:5px 8px 10px; font:12px/1.45 system-ui,sans-serif; color:var(--text,#183d38); }
+.email-reminder label { display:flex; align-items:center; gap:7px; min-height:30px; font-weight:500; flex-wrap:wrap; }
+.email-reminder input[type=checkbox] { appearance:auto; width:17px; height:17px; margin:0; accent-color:var(--accent,#007d73); flex:none; }
+.email-reminder select { max-width:100%; min-height:32px; font:inherit; color:inherit; background:var(--surface,#fff); border:1px solid var(--border,#ccd6d2); border-radius:5px; }
+.email-reminder small { display:block; opacity:.85; }
+.email-reminder button { font:inherit; color:inherit; background:transparent; border:0; text-decoration:underline; cursor:pointer; padding:5px 0; }
+.email-reminder :focus-visible { outline:2px solid var(--accent,#007d73); outline-offset:2px; }
+.reminder-account-item { border-top:1px solid var(--border,#ccd6d2); padding:12px 0; overflow-wrap:anywhere; }
+.reminder-account-item p { margin:5px 0; font-size:13px; }
+
+@media(max-width:480px) { .member-tabs button { flex-basis:calc(50% - 5px); } }

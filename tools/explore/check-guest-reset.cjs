@@ -11,7 +11,7 @@ function session(anonymous=false){
   return {access_token:encode({alg:'HS256',typ:'JWT'})+'.'+encode({sub:id,exp,role:'authenticated',is_anonymous:anonymous})+'.fixture',refresh_token:crypto.randomUUID(),expires_at:exp,expires_in:3600,token_type:'bearer',user};
 }
 async function server(){
-  const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.geojson':'application/json','.svg':'image/svg+xml'};
+  const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.geojson':'application/json','.svg':'image/svg+xml'};
   const s=http.createServer((req,res)=>{
     let file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));
     if(!file.startsWith(root+path.sep)&&file!==root){res.writeHead(403).end();return;}

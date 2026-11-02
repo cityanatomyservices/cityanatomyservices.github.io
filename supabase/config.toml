@@ -1,0 +1,10 @@
+project_id = "austin-chat"
+
+# Authentication is checked inside each function. The reminder endpoint also
+# supports public readiness and token-based unsubscribe; the worker requires
+# a separate random secret known only to Cron and the Edge runtime.
+[functions.reminders]
+verify_jwt = false
+
+[functions.reminder-send]
+verify_jwt = false

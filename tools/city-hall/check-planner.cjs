@@ -4,7 +4,7 @@ const assert = require('node:assert/strict'), fs = require('node:fs'), path = re
 const M = require('../../planner/model.js'), root = path.resolve(__dirname,'../..');
 let browser, server;
 async function serve() {
-  const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.geojson':'application/json','.svg':'image/svg+xml'};
+  const types = {'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.geojson':'application/json','.svg':'image/svg+xml'};
   server=http.createServer((req,res)=>{
     let file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));
     if(file!==root&&!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}

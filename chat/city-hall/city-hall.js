@@ -99,6 +99,7 @@ window.AustinCityHall = {
         }
         article.append(sourceLink(r.category === 'meetings' ? 'Meeting details & agenda ↗' : 'Official city record ↗', r.url));
         li.append(article); list.append(li);
+        window.dispatchEvent(new CustomEvent('austin:reminder-target', {detail:{container:li,provider:'city-hall',data:r}}));
         if (r.category === 'meetings') window.PlanSelection.mount(li, window.PlanSources.meeting({
           ...r, checked: feed.sources.find(s => s.id === r.source)?.checked
         }));

@@ -164,5 +164,5 @@
     }catch(error){cancelGoogle();message(errorMessage(error));}
   };
   session.subscribe(()=>render());
-  session.peek().then(render).catch(()=>{button.disabled=false;});
+  session.peek().then(()=>{render();if(new URLSearchParams(location.search).get('account')==='reminders')open('reminders');}).catch(()=>{button.disabled=false;});
 })();

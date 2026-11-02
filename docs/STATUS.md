@@ -1,5 +1,67 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+
+## 2026-11-02 — Email-only event reminders
+
+Owner first requested email + SMS, then explicitly switched to **email only**.
+Use the same 24-hour and 2-hour offsets for email. Only events with a published
+start time qualify; do not add a phone field or any SMS setup.
+
+Added unchecked Email reminders controls to timed Explore cards/popups and
+City Hall Public Meetings. Movie cards select an individual showtime; each
+occurrence is independent. Ongoing activities/opening hours, parks, all-day
+listings and date-only municipal records have no reminder control. Within
+24 hours only the 2-hour send is scheduled; within 2 hours new selections are
+disabled with an explanation. Account → Reminders lists upcoming selections
+and delivery states, with cancellation per event or for all events. Selection
+is independent of the Day Planner. Mobile account tabs use two columns.
+
+Supabase migration `0010_event_reminders.sql` and Edge functions `reminders`
+and `reminder-send` are deployed. Private tables have RLS and no browser-role
+grants; authenticated Edge calls own enrollment, reads and cancellation.
+Recipient comes from the confirmed Auth account, and event contents/start time
+are verified against fixed repository feed URLs. The worker rechecks source
+freshness, cancellation and occurrence identity, skips changed/expired events,
+uses locked job claims and persistent idempotency keys/payloads, and caps
+retries at five attempts / 15 minutes after the intended time. Plain-text email
+uses the card's contents and a simple subject. Token-based unsubscribe uses a
+confirmation GET redirect to `/reminders/#token` and cancellation POST; account
+cancellation verifies owner. The static confirmation page removes the token
+from history and only sends after the visitor clicks; Supabase rewrites HTML
+responses to plain text, so the page stays on GitHub Pages.
+The active worker purges event records/payloads 30 days after each event.
+
+**Sending is NOT active.** The existing Resend Auth SMTP key is write-only and
+not accessible to Edge functions. No `RESEND_API_KEY` or reminder sender secret
+was available. `austin-email-reminders` Cron is installed and paused; a private
+random credential is stored in Vault and Edge secrets. One manual scheduler
+invocation returned HTTP 200 / `{enabled:false}`. Readiness controls truthfully
+say “Email reminders are being set up” until configuration is complete.
+No real email, billing, DNS or Auth SMTP changes occurred.
+
+Remaining owner setup: create/reuse a Resend sending key restricted to the
+verified `login.austin.chat` domain and run
+`python3 tools/reminders/configure.py --enable` (hidden key prompt). This saves
+Edge secrets and activates Cron. The dashboard alternative and verification
+steps are in `tools/reminders/README.md`. Do not ask the owner to paste a key
+into chat. Actual provider/inbox delivery remains unverified until setup.
+
+Validation: all 87 Node tests pass (73 planner + 14 reminders). New desktop/
+phone browser checks pass at 1280/390 px, including stale-load protection,
+save failure rollback, independent movie showtimes, popup/frame consistency,
+City Hall, cancellation, unavailable sender, and sign-out privacy. Screenshots
+reviewed. Live backend checks with disposable confirmed example.invalid accounts
+pass isolation, denied direct grants, exact offsets, duplicate enrollment,
+late selection, cross-account cancellation denial, unsubscribe and worker auth;
+concurrent claims yielded one job. All fixtures were deleted (zero reminder
+rows remain). No provider requests or emails were made by these checks.
+The existing City Hall planner regression and selected-stop map checks also
+pass both widths (guest and member for the map).
+Asset revisions for changed files and every referencing page/template are
+`20261102f`; test HTTP servers now serve `.mjs` with JavaScript MIME.
+
+Publishing and final live checks are in progress.
+
 ## 2026-11-02 — /dayplan/ and date-only plan labels
 
 Owner requested the public slug `/dayplan/` and removal of the "Day name,

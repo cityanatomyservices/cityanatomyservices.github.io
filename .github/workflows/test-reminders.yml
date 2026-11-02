@@ -1,0 +1,26 @@
+name: Check email reminders
+on:
+  push:
+    branches: [main]
+    paths: ['reminders/**', 'shared/reminder*', 'supabase/functions/**', 'supabase/migrations/*reminders.sql', 'tests/reminders/**', 'tools/reminders/**', '.github/workflows/test-reminders.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Timing, trusted events, authorization, unsubscribe and delivery retries
+        run: node --test tests/reminders/*.test.mjs
+      - name: Browser and server module syntax
+        run: |
+          node --check shared/reminders.js
+          node --check reminders/unsubscribe.js
+          node --check shared/reminder-model.mjs
+          for file in supabase/functions/*/*.mjs; do node --check "$file"; done
+          python3 -m py_compile tools/reminders/configure.py
