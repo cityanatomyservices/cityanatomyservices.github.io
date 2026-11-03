@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-03T02:53:49.746782+00:00",
+  "generated": "2026-11-03T10:48:52.771853+00:00",
   "sources": [
     {
       "name": "KUT",
       "publisher": "kut",
       "url": "https://www.kut.org/austin.rss",
       "ok": true,
-      "count": 8
+      "count": 7
     },
     {
       "name": "KXAN",
@@ -61,7 +61,7 @@
       "name": "The Daily Texan",
       "publisher": "daily-texan",
       "url": "https://thedailytexan.com/category/news/feed/",
-      "ok": true,
+      "ok": false,
       "count": 8
     },
     {
@@ -155,15 +155,6 @@
       "category": "headlines",
       "published": "2026-10-27T17:35:26+00:00",
       "expires": "2026-11-03T17:35:26+00:00",
-      "publisher": "kut"
-    },
-    {
-      "title": "Austin director's documentary explores how Bill Wittliff brought Hollywood to Texas",
-      "url": "https://www.kut.org/life-arts/2026-10-27/austin-tx-film-festival-bill-wittliff-documentary-elizabeth-mims",
-      "source": "KUT",
-      "category": "headlines",
-      "published": "2026-10-27T10:01:00+00:00",
-      "expires": "2026-11-03T10:01:00+00:00",
       "publisher": "kut"
     },
     {
@@ -500,21 +491,30 @@
       "publisher": "community-impact"
     },
     {
+      "title": "Austin police respond to deadly crash Monday night on MoPac Expressway northbound",
+      "url": "https://www.kvue.com/article/news/local/deadly-crash-mopac-expressway-northbound-monday-night-austin-police-response-2100-block/269-138b04bc-5bb6-4a8c-844a-23be92342abe",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-03T10:37:31+00:00",
+      "expires": "2026-11-10T10:37:31+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Forecast: Overnight storms, then cooler for the rest of the week",
+      "url": "https://www.kvue.com/article/weather/forecast/austin-weather-central-texas-forecast/269-43840919",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-03T05:20:22+00:00",
+      "expires": "2026-11-10T05:20:22+00:00",
+      "publisher": "kvue"
+    },
+    {
       "title": "Silver Alert issued for 77-year-old Austin man",
       "url": "https://www.kvue.com/article/news/local/silver-alert-missing-man-wood-chase-trail/269-2238524d-0722-4925-b806-ef8e3ccca587",
       "source": "KVUE",
       "category": "headlines",
       "published": "2026-11-03T02:41:37+00:00",
       "expires": "2026-11-10T02:41:37+00:00",
-      "publisher": "kvue"
-    },
-    {
-      "title": "Forecast: Storms move into Central Texas tonight ahead of cooler weather",
-      "url": "https://www.kvue.com/article/weather/forecast/austin-weather-central-texas-forecast/269-43840919",
-      "source": "KVUE",
-      "category": "headlines",
-      "published": "2026-11-03T01:06:24+00:00",
-      "expires": "2026-11-10T01:06:24+00:00",
       "publisher": "kvue"
     },
     {
@@ -560,15 +560,6 @@
       "category": "headlines",
       "published": "2026-11-02T22:47:07+00:00",
       "expires": "2026-11-09T22:47:07+00:00",
-      "publisher": "kvue"
-    },
-    {
-      "title": "Taylor voters name robot mowers that maintain cemetery grounds",
-      "url": "https://www.kvue.com/article/news/local/williamson-county/taylor-robot-mowers-cemetery-names/269-9a9fdf39-ed45-43ee-a00c-df823e03402d",
-      "source": "KVUE",
-      "category": "headlines",
-      "published": "2026-11-02T19:11:57+00:00",
-      "expires": "2026-11-09T19:11:57+00:00",
       "publisher": "kvue"
     },
     {
