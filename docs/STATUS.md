@@ -5,8 +5,16 @@
 Owner requested exactly Free and Pro ($8/month), with the paid tier set up
 first. They confirmed an existing Stripe account. The site has Supabase
 sign-in but no membership billing integration. A Stripe integration is
-available and was suggested; connection is not yet confirmed. The owner was
-also asked which benefits Pro should include; that answer is pending.
+available and was suggested; connection is not yet confirmed.
+
+Owner defined Pro benefits: Austin 1885, Moontower Walking, and all apps in
+the current Shopping Apps group. Those nine catalog records now carry
+`requiredPlan: "pro"`; future paid apps can use the same field. In the Apps
+panel, append the exact words "Pro App" after each paid app name, gray out
+those entries for Free members and enable them for Pro. The catalog metadata
+is preparatory; the existing renderers do not yet apply labels or restrictions.
+The Shopping Apps group includes all seven report records, including its
+Recreation and Dining entries. See the billing notes for the exact list.
 
 [Billing setup notes](../billing/README.md) record the agreed tiers, product
 configuration and remaining integration work. No Stripe product, checkout,
@@ -15,8 +23,11 @@ After connection, inspect the existing catalog before creating the monthly
 price and connect billing securely to the existing Supabase accounts.
 
 Next, the Apps button should be gray/unavailable for signed-out visitors and
-open normally for signed-in members. The stated requirement includes both
-Free and Pro members; this UI change is still pending.
+open normally for signed-in Free or Pro members. Those button states and the
+per-app labels/gray states remain pending the billing integration. Direct app
+URLs and public static assets must be considered when enforcing paid access;
+disabling menu links alone is not an access boundary. The owner requested the
+paid tier first, so restrictions have not been activated on the live site.
 
 ## 2026-11-04 — Classifieds footer follows the ads
 
