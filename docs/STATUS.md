@@ -37,14 +37,21 @@ map layers and catalog isolation, all six rendered icons, meeting planning,
 and email reminders. The full main-map planner regression passes for guests and
 members at both widths, including GPS, rendered routes, late responses, day
 switching, browser history, refresh and sign-out. Screenshots reviewed.
-Implementation is committed as `b70954c`, rebased over the automatic ticker
-refresh `bd6afc5`. The owner completed GitHub CLI authorization for
-`cityanatomyservices`; repository write access is verified. Publishing is now
-in progress. Use the GitHub CLI credential helper for this push to avoid this
-laptop's stale VS Code askpass helper. No live assets under the new version
-were requested. Remaining checks: wait for Pages, check root/chat HTML for
-`20261104a`, then verify assets and repeat the fixture icon/City Hall browser
-checks against `https://austin.chat` before recording publication as complete.
+Published as `e549004` (implementation `b70954c`, rebased over the automatic
+ticker refresh `bd6afc5`). Pages run `41917818935`, classifieds CI
+`41917819699`, planner CI `41917819712`, and reminder CI `41917819720` all
+succeeded. Root/chat HTML advertised `20261104a` before requesting the new
+asset URLs; all 18 changed JS/CSS files match the committed bytes.
+Live fixture browsers passed all six rendered category icons, shared-venue
+details and style reloads, City Hall categories/date filters/sorting/layout,
+and guest/member Classifieds controls at both 1280px and 390px. Test account
+and database requests were intercepted; no production records were changed.
+Publication and verification are complete.
+
+This laptop's GitHub CLI is now signed in as `cityanatomyservices`, with write
+access verified. For future pushes, use the GitHub CLI credential helper with
+the stale VS Code askpass helper disabled if necessary. The connected GitHub
+app may still use its separate account; browser sign-in does not switch it.
 
 Changed assets and their HTML/template/dynamic-loader references use
 `20261104a`. Browser checks now find installed Chromium on Windows or Linux
