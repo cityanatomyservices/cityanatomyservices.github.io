@@ -19,7 +19,9 @@ selected, keeps coordinates in memory and does not send them to the server.
 
 Individual map markers use the exact icon paths and colors from their category
 cards: price tag, clapperboard, music note, microphone, shopping bag and ticket.
-A white outline keeps them readable over either basemap. Numbered clusters remain;
+A white circle with a gray border keeps them readable over either basemap. Each
+marker has a 48px click/tap area; the white space around the icon opens its popup.
+Numbered clusters remain;
 multiple listings at one venue show a small count beside the icon and share a popup.
 Icon images are recreated after a base-style reload. City Hall and Classifieds
 retain their list-only behavior and do not invent locations or pins.
@@ -35,7 +37,8 @@ local to each section. A member's selected date syncs with their other Explore
 display preferences; guest choices still reset on refresh/sign-out.
 
 `node tools/explore/check-icons.cjs [site URL]` verifies all six rendered icons,
-shared-venue popups, desktop/phone and satellite/dark views, and style reloads.
+clicks/taps around the circle edges, shared-venue popups, desktop/phone and
+satellite/dark views, and style reloads.
 
 The day planner initializes Explore with `{mapMarkers:false}`. Its categories,
 filters and selection checkboxes still work, with listing details expanded

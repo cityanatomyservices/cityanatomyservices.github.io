@@ -139,17 +139,17 @@ window.AustinExplore = {
       'pop-up-markets': '<path d="M4 7h16l1 14H3Z M8 9V6a4 4 0 0 1 8 0v3"/>',
       events: '<path d="M3 5h18v5a2 2 0 0 0 0 4v5H3v-5a2 2 0 0 0 0-4Z M15 5v2 M15 10v4 M15 17v2"/>'
     };
-    // The card and map share these exact paths. A white outline keeps the
-    // symbols readable over streets, buildings and satellite imagery.
+    // Keep the card's paths and colors inside a white circle. The 48px symbol
+    // bounds make its entire background clickable, including on touch screens.
     const markerImages = new Map();
     if (mapMarkers) await Promise.all(layers.map(async layer => {
       const paths = icons[layer.id] || icons.events;
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="-4 -4 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round"><g stroke="white" stroke-width="4.5">${paths}</g><g stroke="${layer.color || '#ab6b00'}" stroke-width="1.8">${paths}</g></svg>`;
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="22" fill="white" stroke="#64748b" stroke-width="1.25"/><g transform="translate(12 12)" stroke="${layer.color || '#ab6b00'}" stroke-width="2.2">${paths}</g></svg>`;
       const img = new Image();
       await new Promise((resolve, reject) => { img.onload = resolve; img.onerror = reject; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
-      const canvas = document.createElement('canvas'); canvas.width = canvas.height = 64;
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = 96;
       const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0);
-      markerImages.set(layer.id, ctx.getImageData(0, 0, 64, 64));
+      markerImages.set(layer.id, ctx.getImageData(0, 0, 96, 96));
     }));
     function closePopup() { if (popup) popup.remove(); popup = null; activeIds = []; activeStamp = ''; }
     const stamp = items => JSON.stringify(items.map(f => f.properties));
@@ -184,7 +184,7 @@ window.AustinExplore = {
     function showItems(items, at) {
       if(!showMarkers)return;
       closePopup();
-      popup = new maplibregl.Popup({ maxWidth: '310px', offset: 14, className: 'explore-popup' }).setLngLat(at).setDOMContent(detailsBody(items, at)).addTo(map);
+      popup = new maplibregl.Popup({ maxWidth: '310px', offset: 26, className: 'explore-popup' }).setLngLat(at).setDOMContent(detailsBody(items, at)).addTo(map);
       window.AustinComments?.followPopup(popup);
       activeIds = items.map(f => f.properties.id);
       activeStamp = stamp(items);
@@ -321,7 +321,7 @@ window.AustinExplore = {
       map.addLayer({ id: source + '-clusters', type: 'circle', source, filter: ['has', 'point_count'], paint: { 'circle-color': layer.color || '#0067c5', 'circle-radius': 19, 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
       map.addLayer({ id: source + '-counts', type: 'symbol', source, filter: ['has', 'point_count'], layout: { 'text-field': ['to-string', ['get', 'eventCount']], 'text-size': 12, 'text-font': ['Noto Sans Bold'], 'text-allow-overlap': true }, paint: { 'text-color': '#fff' } });
       map.addLayer({ id: source + '-points', type: 'symbol', source, filter: ['!', ['has', 'point_count']], layout: { 'icon-image': icon, 'icon-size': 1, 'icon-allow-overlap': true, 'icon-ignore-placement': true } });
-      map.addLayer({ id: source + '-labels', type: 'symbol', source, filter: ['all', ['!', ['has', 'point_count']], ['>', ['get', 'eventCount'], 1]], layout: { 'text-field': ['to-string', ['get', 'eventCount']], 'text-font': ['Noto Sans Bold'], 'text-size': 11, 'text-offset': [1, -1], 'text-allow-overlap': true, 'text-ignore-placement': true }, paint: { 'text-color': layer.color || '#0067c5', 'text-halo-color': '#fff', 'text-halo-width': 2 } });
+      map.addLayer({ id: source + '-labels', type: 'symbol', source, filter: ['all', ['!', ['has', 'point_count']], ['>', ['get', 'eventCount'], 1]], layout: { 'text-field': ['to-string', ['get', 'eventCount']], 'text-font': ['Noto Sans Bold'], 'text-size': 11, 'text-offset': [1.75, -1.6], 'text-allow-overlap': true, 'text-ignore-placement': true }, paint: { 'text-color': layer.color || '#0067c5', 'text-halo-color': '#fff', 'text-halo-width': 2 } });
       signatures.delete(layer.id);
     }
     map.on('style.load',()=>{for(const layer of layers)ensureLayers(layer);update();});

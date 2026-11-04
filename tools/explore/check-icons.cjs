@@ -44,12 +44,23 @@ async function serve(){
     await page.screenshot({path:'/tmp/explore-icons-'+width+'.png'});
     await f.evaluate(()=>document.documentElement.dataset.theme='dark');await f.locator('#ctrlMapLayers').click();await f.locator('#ctrlSatellite').click();await f.locator('#map-layers-close').click();
     await page.screenshot({path:'/tmp/explore-icons-'+width+'-satellite-dark.png'});
+    // Hit the white background outside each glyph, including real phone taps.
+    const edges=[[20,0],[0,20],[-20,0],[0,-20],[14,14],[-14,-14]];
+    for(let i=0;i<ids.length;i++){
+      const at=await f.evaluate(({i,edge})=>{const p=chatMap.project([-97.745+(i%3)*.0018,30.266+Math.floor(i/3)*.002]);return{x:p.x+edge[0],y:p.y+edge[1]};},{i,edge:edges[i]});
+      if(width>=500){await f.locator('#map').hover({position:at});await f.waitForFunction(()=>chatMap.getCanvas().style.cursor==='pointer');}
+      await f.locator('#map')[width<500?'tap':'click']({position:at});
+      await f.locator('.explore-popup').waitFor();
+      assert.ok((await f.locator('.explore-popup').innerText()).includes('Fixture '+ids[i]),ids[i]+' background opens its popup');
+      await f.locator('.explore-popup .maplibregl-popup-close-button').click();
+      await f.waitForFunction(()=>!chatMap.isMoving());
+    }
     // An icon still opens all events sharing its venue without selecting chat.
     const at=await f.evaluate(()=>{const p=chatMap.project([-97.7414,30.266]);return{x:p.x,y:p.y};});
     await f.locator('#map').click({position:at});await f.locator('.explore-popup').waitFor();assert.match(await f.locator('.explore-popup').innerText(),/Fixture live-music/);assert.match(await f.locator('.explore-popup').innerText(),/Second concert/);
     // Reloading the base style re-creates the icon images, symbols and listeners.
     await f.evaluate(()=>chatMap.setStyle(MAP_CONFIG.basemap));
     await f.waitForFunction(()=>chatMap.hasImage('explore-live-music-icon')&&chatMap.getLayer('explore-live-music-points')?.type==='symbol');
-    assert.deepEqual(errors,[]);await context.close();console.log(width+'px: all six card icons rendered, co-located counts/details, satellite/dark styling and style reload passed.');
+    assert.deepEqual(errors,[]);await context.close();console.log(width+'px: all six card icons rendered, circle-edge clicks/taps, co-located counts/details, satellite/dark styling and style reload passed.');
   }
 }finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});
