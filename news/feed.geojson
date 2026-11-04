@@ -1,41 +1,143 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-03T18:09:59.860Z",
- "placed": 47,
- "total": 105,
+ "generated": "2026-11-04T18:20:10.914Z",
+ "placed": 48,
+ "total": 106,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Democratic election upsets could reshape Texas' expanding local immigration enforcement program",
+    "link": "https://www.kxan.com/investigations/democratic-election-upsets-could-reshape-texas-expanding-local-immigration-enforcement-program/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-04T18:06:44.000Z",
+    "summary": "A sweeping Democratic upset in Texas could disrupt Republican efforts to expand local immigration enforcement, putting two key parts of the state's partnership with U.S. Immigration and Customs Enforcement under new leadership — and raising questions about the future of millions in government funding for participating police agencies.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Nice weather today, cold front Thursday into Friday",
+    "link": "https://www.kxan.com/weather/forecast/seasonable-today-next-cold-front-arrives-tomorrow/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-04T18:05:41.000Z",
+    "summary": "Pleasant Wednesday afternoon with plenty of sunshine. A pattern change is on the horizon, with a cold front moving through Thursday into Friday with weekend rain chances. — Meteorologist Tommy House",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Nathan Johnson to speak with KXAN on taking Texas attorney general post",
+    "link": "https://www.kxan.com/news/texas-politics/nathan-johnson-to-speak-with-kxan-on-taking-texas-attorney-general-post/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-04T17:57:36.000Z",
+    "summary": "Former Democratic state senator Nathan Johnson is set to become the next Texas attorney general in January, promising a new era of transparency and consumer protection following Ken Paxton's departure from the office.",
+    "place": null,
+    "placeKind": null
+   }
+  },
   {
    "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.6,
-     30.65
+     -98.0867,
+     30.1902
     ]
    },
    "properties": {
-    "title": "Free service road coming to Williamson County 183A",
-    "link": "https://www.kxan.com/news/free-service-road-coming-to-williamson-county-183a/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-03T16:36:01.000Z",
-    "summary": "A construction project is set to bridge a gap in Williamson County by building a new three-mile service road along the 183a toll road. Starting at Avery Ranch Blvd and extending to SH 29 in Liberty Hill, the free alternative aims to accommodate increasing regional development. Work on the road and an accompanying shared-use path began last July and is scheduled to conclude in 2029.",
-    "place": "Williamson County",
-    "placeKind": "county"
+    "title": "Dripping Springs ranch offers 17 acres on Onion Creek for $3.7M",
+    "link": "https://austin.culturemap.com/news/real-estate/hc-carter-camphouse-for-sale/",
+    "outlet": "CultureMap",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-04T17:01:55.000Z",
+    "summary": "A spacious property for sale in the bustling Austin suburb of Dripping Springs is now offering just over 17 acres of land for $3.7 million. The HC Carter Camphouse , located at 1601 Creek Road , presents a rare opportunity for its next owners to live less than two miles from downtown Dripping Springs. The 17.03-acre ranch was once part of a much larger, 205-acre ranch that contained \"one of the fi",
+    "place": "Dripping Springs",
+    "placeKind": "city"
    }
   },
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Voted in the midterm? Adopt a pet for free in Austin",
-    "link": "https://www.kxan.com/news/your-local-election-hq/voted-in-the-midterm-adopt-a-pet-for-free-in-austin/",
+    "title": "Defendant in insanity case's interactions with first responders",
+    "link": "https://www.kxan.com/news/local/austin/defendant-in-insanity-cases-interactions-with-first-responders/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-03T16:10:01.000Z",
-    "summary": "Austin Animal Services will waive all adoption fees for individuals who present an I Voted sticker from the 2026 midterm elections by November 8.",
+    "published": "2026-11-04T15:53:59.000Z",
+    "summary": "More video was played in court this week of Shane James' interactions with police and medics after police arrested him the night of Dec. 5, 2023.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8203,
+     30.5052
+    ]
+   },
+   "properties": {
+    "title": "Fun, food and fitness: check out 16 Cedar Park business updates to know",
+    "link": "https://communityimpact.com/cedar-park/business/fun-food-and-fitness-check-out-16-cedar-park-business-updates-to-know/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-04T14:43:00.000Z",
+    "summary": "",
+    "place": "Cedar Park",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6789,
+     30.5083
+    ]
+   },
+   "properties": {
+    "title": "Once Upon a Child opening to Round Rock shoppers Nov. 5",
+    "link": "https://communityimpact.com/round-rock/business/once-upon-a-child-opening-to-round-rock-shoppers-nov-5/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-04T13:33:23.000Z",
+    "summary": "",
+    "place": "Round Rock",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "A November to Remember: Who has the best Heisman Trophy odds?",
+    "link": "https://www.kxan.com/sports-general/a-november-to-remember-who-has-the-best-heisman-trophy-odds/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-04T13:30:00.000Z",
+    "summary": "November has arrived, and the race for college football's most prestigious individual award is entering its final stretch.",
     "place": null,
     "placeKind": null
    }
@@ -44,13 +146,13 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Austinites to vote on $295M bonds, city charter amendments",
-    "link": "https://www.kxan.com/news/your-local-election-hq/austinites-to-vote-on-295m-bonds-city-charter-amendments/",
+    "title": "Texas faces physical road test at Missouri as Longhorns enter final stretch",
+    "link": "https://www.kxan.com/sports/texas-faces-physical-road-test-at-missouri-as-longhorns-enter-final-stretch/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-03T16:00:00.000Z",
-    "summary": "Voters will decide on park and library funding as well as possibly a mandated, independent audit of Austin's budget.",
+    "published": "2026-11-04T13:00:00.000Z",
+    "summary": "Texas has regained momentum with consecutive wins, but the Longhorns’ toughest challenge may be maintaining it away from home.",
     "place": null,
     "placeKind": null
    }
@@ -59,13 +161,49 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Meet Austin's city council candidates for the November election",
-    "link": "https://www.kxan.com/news/your-local-election-hq/meet-austins-city-council-candidates-for-the-november-election/",
+    "title": "Hinojosa, Talarico, Eckhardt celebrate wins at Austin Whataburger",
+    "link": "https://www.kxan.com/news/local/austin/hinojosa-talarico-eckhardt-celebrate-wins-at-austin-whataburger/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-03T16:00:00.000Z",
-    "summary": "There are 10 council districts in Austin. Council members serve four-year terms. Every two years, half of the council seats are up for election.",
+    "published": "2026-11-04T12:32:42.000Z",
+    "summary": "A late-night stop at Whataburger capped off a historic night in Texas.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -98.0867,
+     30.1902
+    ]
+   },
+   "properties": {
+    "title": "Dripping Springs Community Foundation funds local nonprofits and projects",
+    "link": "https://communityimpact.com/southwest-austin-dripping-springs/business/dripping-springs-community-foundation-funds-local-nonprofits-and-projects/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-04T12:00:00.000Z",
+    "summary": "",
+    "place": "Dripping Springs",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "'I am the money girl now' says new elected Texas Comptroller",
+    "link": "https://www.kxan.com/news/texas-politics/i-am-the-money-girl-now-says-new-elected-texas-comptroller/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-04T11:48:22.000Z",
+    "summary": "Sarah Eckhardt declared victory Tuesday night against Republican Don Huffines.",
     "place": null,
     "placeKind": null
    }
@@ -74,13 +212,124 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Opposing political groups go head-to-head on Austin's Prop I",
-    "link": "https://www.kxan.com/news/local/austin/opposing-political-groups-go-head-to-head-on-austins-prop-i/",
+    "title": "'Texas is Talarico Country': UT students celebrate statewide Democratic wins",
+    "link": "https://www.kxan.com/news/local/texas-is-talarico-country-ut-students-celebrate-statewide-democratic-wins/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-03T16:00:00.000Z",
-    "summary": "Two political groups in Austin are at odds over a charter amendment proposition on the November ballot, and both held press conferences on Wednesday to share why they support or oppose the measure.",
+    "published": "2026-11-04T09:05:45.000Z",
+    "summary": "For hundreds of college students in Austin, Tuesday night became a night to celebrate. After James Talarico won the race for U.S. Senate and Gina Hinojosa claimed victory in the race for governor, election night celebrations started in West Campus.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Nathan Johnson promises 'new era' for AG office",
+    "link": "https://www.kxan.com/news/your-local-election-hq/nathan-johnson-promises-new-era-for-ag-office/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-04T08:53:05.000Z",
+    "summary": "There were hugs, cheers and gasps of \"Texas is turning blue\" at the watch party for Nathan Johnson, the Democratic candidate for attorney general who promised a \"new era\" for the office.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7403,
+     30.2747
+    ]
+   },
+   "properties": {
+    "title": "Shouting, honking and dancing: Revelers descend on Texas Capitol to celebrate Democratic wins",
+    "link": "https://www.texastribune.org/2026/11/04/texas-election-2026-celebration-capitol/",
+    "outlet": "Texas Tribune",
+    "group": "government",
+    "color": "#d9a95a",
+    "published": "2026-11-04T07:49:18.000Z",
+    "summary": "The election marked the first time many had witnessed a Democrat win a major election in Texas. The post Shouting, honking and dancing: Revelers descend on Texas Capitol to celebrate Democratic wins appeared first on The Texas Tribune .",
+    "place": "Texas Capitol",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Proposition I has failed. Here are results for the other Austin props on the ballot",
+    "link": "https://austincurrent.org/2026/11/04/prop-i-austin-tx-election-results-proposition-audit-ballot-texas/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T06:43:18.000Z",
+    "summary": "There are eight propositions on the Nov. 3 ballot that would amend the city of Austin’s charter, but Prop I has gotten the most attention. The post Proposition I has failed. Here are results for the other Austin props on the ballot appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "José Velásquez, Neha Shah appear headed to runoff in Austin City Council District 3 contest",
+    "link": "https://austincurrent.org/2026/11/04/austin-tx-district-3-city-council-election-results-2026/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T06:22:41.000Z",
+    "summary": "Challengers have pounced on Velásquez's initial support of the city's planned Dog's Head development in the leadup to Election Day. The post José Velásquez, Neha Shah appear headed to runoff in Austin City Council District 3 contest appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin City Council District 1 race appears headed for runoff",
+    "link": "https://austincurrent.org/2026/11/04/austin-tx-district-1-city-council-election-results-2026/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T06:05:39.000Z",
+    "summary": "In a crowded field of six, candidates Amber Goodwin and Misael Ramos currently hold the most votes, each with about a third of the early vote total. The post Austin City Council District 1 race appears headed for runoff appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Greg Abbott lost because he became a RINO, Trump says",
+    "link": "https://www.texastribune.org/2026/11/03/texas-trump-abbott-loss-comment-rino-election-2026/",
+    "outlet": "Texas Tribune",
+    "group": "government",
+    "color": "#d9a95a",
+    "published": "2026-11-04T05:33:46.000Z",
+    "summary": "The president’s late-night rebuke came the same day he praised Abbott as “strong and highly respected.” The post Greg Abbott lost because he became a RINO, Trump says appeared first on The Texas Tribune .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin City Council District 5 race appears headed for runoff",
+    "link": "https://austincurrent.org/2026/11/03/austin-tx-city-council-district-5-election-results-2026/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T05:25:17.000Z",
+    "summary": "The runoff election would take place on Dec. 12. The post Austin City Council District 5 race appears headed for runoff appeared first on Austin Current .",
     "place": null,
     "placeKind": null
    }
@@ -95,14 +344,14 @@
     ]
    },
    "properties": {
-    "title": "Voting resumes quickly after fire alarm pulled at UT Austin",
-    "link": "https://www.kxan.com/news/your-local-election-hq/voting-resumes-quickly-after-fire-alarm-pulled-at-ut-austin/",
-    "outlet": "KXAN",
+    "title": "Zo Qadri leads in Austin City Council District 9 Contest",
+    "link": "https://austincurrent.org/2026/11/03/austin-tx-district-9-city-council-election-results-2026/",
+    "outlet": "Austin Current",
     "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-03T15:43:20.000Z",
-    "summary": "The Student Union was briefly evacuated, but voting resumed quickly, per a UT Austin source",
-    "place": "UT Austin",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T05:22:05.000Z",
+    "summary": "The winner of the election will represent a swath of Central Austin that includes downtown, the University of Texas and the Texas Capitol, serving a four-year term that begins in January. The post Zo Qadri leads in Austin City Council District 9 Contest appeared first on Austin Current .",
+    "place": "University of Texas",
     "placeKind": "campus"
    }
   },
@@ -110,13 +359,70 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Central Texas school districts call bond elections to improve facilities",
-    "link": "https://www.kxan.com/news/your-local-election-hq/central-texas-school-districts-call-bond-elections-to-improve-facilities/",
-    "outlet": "KXAN",
+    "title": "Pamela Mathai, Cynthia Soliz advance to runoff for AISD’s District 9 seat",
+    "link": "https://austincurrent.org/2026/11/03/austin-austinisd-district9-election-trustee/",
+    "outlet": "Austin Current",
     "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-03T15:30:00.000Z",
-    "summary": "Voters in some Central Texas school districts will decide whether to approve bond propositions on the Nov. 3 ballot.",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T05:02:22.000Z",
+    "summary": "The District 9 At-Large seat is one of the Austin school district’s two districtwide representative positions. The post Pamela Mathai, Cynthia Soliz advance to runoff for AISD’s District 9 seat appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79,
+     30.4
+    ]
+   },
+   "properties": {
+    "title": "Austin ISD voters re-elect Hunter for District 1, choose Neufeld for District 4",
+    "link": "https://austincurrent.org/2026/11/03/aisd-schoolboard-takeover-district4-district1/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T04:50:30.000Z",
+    "summary": "District 1 represents central and northeast Austin and District 4 represents central and northwest Austin The post Austin ISD voters re-elect Hunter for District 1, choose Neufeld for District 4 appeared first on Austin Current .",
+    "place": "Northwest Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.735,
+     30.27
+    ]
+   },
+   "properties": {
+    "title": "Sarah Dille, Laurie Solis win Districts 6, 7 seats on Austin ISD school board",
+    "link": "https://austincurrent.org/2026/11/03/austin-austinisd-district6-election-trustee/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T04:41:31.000Z",
+    "summary": "Austin ISD’s District 6 traces south Interstate 35, from south central Austin to the boundaries of Hays County, and District 7 represents southwest Austin. The post Sarah Dille, Laurie Solis win Districts 6, 7 seats on Austin ISD school board appeared first on Austin Current .",
+    "place": "Interstate 35",
+    "placeKind": "road"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Voters endorse $295 million bond investments in parks, libraries",
+    "link": "https://www.kut.org/austin/2026-11-03/early-voters-endorse-295-million-bond-investments-in-parks-libraries",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T04:41:31.000Z",
+    "summary": "Propositions A and B sailed to easy victories, each garnering more than 60% of the vote.",
     "place": null,
     "placeKind": null
    }
@@ -125,13 +431,13 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Central Texas school districts ask voters for tax rate approval",
-    "link": "https://www.kxan.com/news/education/central-texas-schools-turn-to-voters-for-tax-rate-approval/",
-    "outlet": "KXAN",
+    "title": "Voters endorse $295 million bond investments in parks, libraries",
+    "link": "https://austincurrent.org/2026/11/03/austin-election-bond-package-property-taxes/",
+    "outlet": "Austin Current",
     "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-03T15:00:00.000Z",
-    "summary": "There are five districts in Central Texas who are calling for a Voter-Approval Tax Rate Election, or VATRE for the upcoming election.",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T04:21:42.000Z",
+    "summary": "Propositions A and B sailed to easy victories, each garnering more than 60% of the vote. The post Voters endorse $295 million bond investments in parks, libraries appeared first on Austin Current .",
     "place": null,
     "placeKind": null
    }
@@ -140,15 +446,372 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Election Day in Texas: Live updates as voters head to the polls",
-    "link": "https://www.kxan.com/news/your-local-election-hq/nov-2026-election-live-updates/",
-    "outlet": "KXAN",
+    "title": "Vikki Goodwin defeats Dan Patrick in Texas lieutenant governor race",
+    "link": "https://www.kut.org/politics/2026-11-03/goodwin-leads-texas-lieutenant-governor-race-as-early-results-come-in",
+    "outlet": "KUT",
     "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-03T12:22:39.000Z",
-    "summary": "It's Election Day in Texas! Millions of voters across the state are casting their ballots in the Nov. 3, 2026, general election.",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T02:33:09.000Z",
+    "summary": "Lt. Gov. Dan Patrick conceded the race in a statement late Tuesday.",
     "place": null,
     "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "James Talarico defeats Ken Paxton, giving Democrats their first U.S. Senate win in Texas since 1988",
+    "link": "https://www.texastribune.org/2026/11/03/texas-ken-paxton-james-talarico-us-senate-elections-2026/",
+    "outlet": "Texas Tribune",
+    "group": "government",
+    "color": "#d9a95a",
+    "published": "2026-11-04T01:37:28.000Z",
+    "summary": "The Austin state lawmaker ran on a message that America’s true fault line is between not the left and the right, but the wealthy and everyone else. He had not yet been born when Texas last elected a Democrat to the U.S. Senate. The post James Talarico defeats Ken Paxton, giving Democrats their first U.S. Senate win in Texas since 1988 appeared first on The Texas Tribune .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Ryan Alter to face David Weinberg in runoff for Austin City Council District 5",
+    "link": "https://www.kut.org/politics/2026-11-03/austin-tx-city-council-district-5-election-results-2026",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T01:01:05.000Z",
+    "summary": "Alter has represented District 5, which includes parts of South and Southwest Austin, since being elected in 2022, but now he's looking at a runoff next month.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Zo Qadri avoids runoff, secures a second term for Austin City Council District 9",
+    "link": "https://www.kut.org/politics/2026-11-03/austin-tx-district-9-city-council-election-results-2026",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T00:53:17.000Z",
+    "summary": "Qadri narrowly avoided a runoff by earning just over 51% of the vote in a crowded five-person race to represent Central Austin.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Montserrat Garibay wins race for Texas House District 49",
+    "link": "https://www.kut.org/politics/2026-11-03/austin-texas-house-district-49-election-results",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T00:44:09.000Z",
+    "summary": "Montserrat Garibay won the solidly blue district. Arshia Papari ran on the Green Party ticket and there was no Republican candidate.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6,
+     30.65
+    ]
+   },
+   "properties": {
+    "title": "Democrats sweep all contested races in Williamson County elections",
+    "link": "https://www.kut.org/politics/2026-11-03/williamson-county-tx-election-results-2026",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T00:32:34.000Z",
+    "summary": "Democrats won all four county-wide contested races, including the races for county judge and county commissioner for Precinct 4.",
+    "place": "Williamson County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "Congressman Greg Casar wins, Prop I backers lose in Travis County elections",
+    "link": "https://www.kut.org/austin/2026-11-03/travis-county-tx-2026-election-results",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T00:31:01.000Z",
+    "summary": "Voters weighed in on five City Council seats, several state House and school board positions and the next House District 37 representative. Here are the results.",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7431,
+     30.269
+    ]
+   },
+   "properties": {
+    "title": "Traffic Fatality in the 4200 block of S. Congress Avenue",
+    "link": "https://www.austintexas.gov/police/news/traffic-fatality-4200-block-s-congress-avenue",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-04T00:00:00.000Z",
+    "summary": "<p><strong>Case:</strong><span> 26-3051634</span><br><br><strong>Time:</strong><span> 6:44 p.m.</span><br><br><strong>Date:</strong><span> Sunday, November 1, 2026&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><strong>Location:</strong><span> 4200 block of S. Congress Avenue</span><br><br><strong>Deceased:</strong><span> Unidentified Black female</span><br><br><strong>Suspect (arrested):</strong><span> Ol",
+    "place": "Congress Avenue",
+    "placeKind": "street"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Traffic Fatality in the 4100 block of S. 1st Street",
+    "link": "https://www.austintexas.gov/police/news/traffic-fatality-4100-block-s-1st-street",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-04T00:00:00.000Z",
+    "summary": "<p><strong>Case: </strong><span>26-3050136</span><br><br><strong>Time:</strong><span> 12:52 a.m.</span><br><br><strong>Date:</strong><span> Sunday, November 1, 2026&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><strong>Location:</strong><span> 4100 block of S. 1st Street</span><br><br><strong>Deceased:</strong><span> Unidentified White female</span><br><span>&nbsp;</span><br><span>On Sunday, November 1, 2",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Traffic Fatality in the 8000 block of N. IH 35 SB",
+    "link": "https://www.austintexas.gov/police/news/traffic-fatality-8000-block-n-ih-35-sb",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-04T00:00:00.000Z",
+    "summary": "<p><strong>Case: </strong><span>26-3050048</span><br><br><strong>Time:</strong><span> 12:20 a.m.</span><br><br><strong>Date: </strong><span>Sunday, November 1, 2026&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><strong>Location:</strong><span> 8000 block of N. IH 35 SB</span><br><br><strong>Deceased:</strong><span> Gabbrielle Pousset, White female, 08/31/01</span><br><span>&nbsp;</span><br><span>On Sunday",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "APD Seeks Community’s Assistance with Aggravated Robbery Investigation",
+    "link": "https://www.austintexas.gov/police/news/apd-seeks-communitys-assistance-aggravated-robbery-investigation-2",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-04T00:00:00.000Z",
+    "summary": "<p><strong>Case:</strong> 26-2110572<br><br><strong>Date:</strong> Thursday, July 30, 2026<br><br><strong>Time:</strong> 10:15 a.m.<br><br><strong>Location:</strong> 400 Grove Boulevard (Secret Beach, Roy Guerrero Park)<br><br>The Austin Police (APD) Robbery Unit is seeking the public’s assistance in identifying a suspect involved in a robbery that occurred on Thursday, July 30, 2026, near Secret ",
+    "place": "Austin Police",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Selena Xie leads in race for Austin City Council District 8",
+    "link": "https://www.kut.org/politics/2026-11-03/austin-tx-district-8-city-council-election-results-2026",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T00:00:00.000Z",
+    "summary": "The winner of the race will replace outgoing Council Member Paige Ellis, who served two terms.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.718,
+     30.265
+    ]
+   },
+   "properties": {
+    "title": "José Velásquez, Neha Shah headed to runoff in Austin City Council District 3 contest",
+    "link": "https://www.kut.org/politics/2026-11-03/austin-tx-district-3-city-council-election-results-2026",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T00:00:00.000Z",
+    "summary": "Incumbent José Velásquez faces Neha Shah amidst backlash for his initial support of the city-backed Dog's Head development coming to the East Austin district.",
+    "place": "East Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Goodwin and Ramos headed to runoff in Austin City Council District 1 race",
+    "link": "https://www.kut.org/politics/2026-11-03/austin-tx-district-1-city-council-election-results-2026",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-04T00:00:00.000Z",
+    "summary": "Amber Goodwin and Misael Ramos will face off in a runoff election on Dec. 12.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Find your Austin election 2026 results here",
+    "link": "https://austincurrent.org/2026/11/03/austin-2026-election-results/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-03T23:37:45.000Z",
+    "summary": "Voting ends today. Find results to the races that matter to Austin here. The post Find your Austin election 2026 results here appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Check out these 7 Liberty Hill-area business updates",
+    "link": "https://communityimpact.com/leander-liberty-hill/business/check-out-these-7-liberty-hill-area-business-updates/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-03T22:38:05.000Z",
+    "summary": "New restaurants are coming to Liberty Hill while an ice cream business closed in October.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79,
+     30.4
+    ]
+   },
+   "properties": {
+    "title": "Balcones Canyonlands Preserve to expand with 6.89-acre acquisition in Northwest Austin",
+    "link": "https://communityimpact.com/northwest-austin/government/balcones-canyonlands-preserve-to-expand-with-6-89-acre-acquisition-in-northwest-austin/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-03T21:13:42.000Z",
+    "summary": "",
+    "place": "Northwest Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Apartments, fire station: Check out 5 major Austin-area permits filed this week",
+    "link": "https://communityimpact.com/bastrop-cedar-creek/development/apartments-fire-station-check-out-5-major-austin-area-permits-filed-this-week/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-11-03T21:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Frost Bank opens 2nd New Braunfels location",
+    "link": "https://communityimpact.com/new-braunfels/business/frost-bank-opens-2nd-new-braunfels-location/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-03T21:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Mahj House to celebrate one-year anniversary",
+    "link": "https://communityimpact.com/lake-travis-westlake/business/mahj-house-to-celebrate-one-year-anniversary/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-03T20:59:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Chip and Joanna Gaines list fixed-up Lake Waco mansion for $7.4M",
+    "link": "https://austin.culturemap.com/news/real-estate/gaines-fixer-upper-mansion-sale/",
+    "outlet": "CultureMap",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-03T20:47:25.000Z",
+    "summary": "A Waco estate that will star in Chip and Joanna Gaines’ latest TV series, Fixer Upper: Chip Bought a Mansion , has gone on the market for $7.4 million. The more than 14,000-square-foot mansion sits on a 5.7-acre site at 5305 Hillcrest Dr. that boasts views of Lake Waco. The listing , held by Amanda Nesbitt of the Gaineses’ Magnolia Realty, says the home “will be thoughtfully reimagined to reveal a",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8531,
+     30.5788
+    ]
+   },
+   "properties": {
+    "title": "Chick-fil-A now open on Leander, Liberty Hill border on Kauffman Loop",
+    "link": "https://communityimpact.com/leander-liberty-hill/business/chick-fil-a-now-open-on-leander-liberty-hill-border-on-kauffman-loop/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-03T20:29:38.000Z",
+    "summary": "",
+    "place": "Leander",
+    "placeKind": "city"
    }
   },
   {
@@ -162,21 +825,6 @@
     "color": "#f0c27a",
     "published": "2026-11-03T12:00:00.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Cooler weather and clear skies behind cold front",
-    "link": "https://www.kxan.com/weather/forecast/storms-clear-through-the-morning-cooler-temperatures/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-03T11:11:23.000Z",
-    "summary": "The front has come and gone and now we are left with clearing skies, cooler weather, and stronger winds to wrap up your election day. - Freddy Vela",
     "place": null,
     "placeKind": null
    }
@@ -200,6 +848,27 @@
     "summary": "To win, Paxton needs to keep the margin close in Collin County, his political home base. Talarico must earn epic returns in Travis County, the bluest part of the state. The post Ken Paxton and James Talarico close their Senate campaigns on home turf appeared first on The Texas Tribune .",
     "place": "Travis County",
     "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "APD Detectives Search for a Suspect in Connection to a Robbery",
+    "link": "https://www.austintexas.gov/police/news/apd-detectives-search-suspect-connection-robbery-8",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-03T00:00:00.000Z",
+    "summary": "<p><strong>Case:</strong><span> 26-2820945</span><br><span>&nbsp;</span><br><strong>Date:</strong><span> Friday, October 9, 2026</span><br><span>&nbsp;</span><br><strong>Time:</strong><span> 1:55 p.m.</span><br><span>&nbsp;</span><br><strong>Location:</strong><span> 5600 block of N. Lamar Blvd.</span><br><span>&nbsp;</span><br><span>The Austin Police (APD) Robbery Unit is requesting the community’",
+    "place": "Austin Police",
+    "placeKind": "landmark"
    }
   },
   {
@@ -366,57 +1035,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Some Burnet and Webb parents say they were misled into signing school closure petitions. Will the signatures count?",
-    "link": "https://austincurrent.org/2026/11/02/burnet-webb-school-closures-tea-takeover/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-11-02T11:30:00.000Z",
-    "summary": "TEA requires Austin ISD to verify that parents weren’t misled before certifying school closure petitions. The post Some Burnet and Webb parents say they were misled into signing school closure petitions. Will the signatures count? appeared first on Austin Current .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Liberty Hill’s Sweet Retreat TX Ice Cream closing Oct. 31",
-    "link": "https://communityimpact.com/leander-liberty-hill/business/liberty-hill-s-sweet-retreat-tx-ice-cream-closing-oct-31/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-02T11:16:34.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin venues show their spirit by raising money for aging musicians during HOMEcoming campaign",
-    "link": "https://www.kut.org/life-arts/2026-11-02/austin-tx-homecoming-aging-musicians-venues-fundraiser",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-11-02T11:01:00.000Z",
-    "summary": "Twenty venues will contribute to the nonprofit Housing Opportunities for Musicians and Entertainers this month through ticket sales, specialty purchases and donations.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.771,
      30.264
     ]
@@ -522,93 +1140,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Flood of F1 police escorts prompts online outrage, calls for changes to state law",
-    "link": "https://austincurrent.org/2026/10/30/austin-f1-texas-law-police-escorts/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-30T21:31:03.000Z",
-    "summary": "A swarm of F1 police escorts frustrated Austin drivers and raised safety concerns over the weekend, prompting local officials to call for legislative changes. The post Flood of F1 police escorts prompts online outrage, calls for changes to state law appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746,
-     30.245
-    ]
-   },
-   "properties": {
-    "title": "Austin ISD school board races bring in contributions totaling over $145,000",
-    "link": "https://austincurrent.org/2026/10/30/austin-austinisd-board-trustees-election-campaign-finance/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-30T21:00:17.000Z",
-    "summary": "The figure represents amounts raised by 13 candidates in both monetary and in-kind distributions. The post Austin ISD school board races bring in contributions totaling over $145,000 appeared first on Austin Current .",
-    "place": "Austin ISD",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Australian-themed sports bar opens in New Braunfels",
-    "link": "https://communityimpact.com/new-braunfels/business/australian-themed-sports-bar-opens-in-new-braunfels/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-30T21:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Check out 20 business updates in New Braunfels",
-    "link": "https://communityimpact.com/new-braunfels/business/check-out-business-updates-in-new-braunfels/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-30T20:55:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.72,
-     30.38
-    ]
-   },
-   "properties": {
-    "title": "Crunch Fitness continues to expand with another North Austin location",
-    "link": "https://communityimpact.com/northwest-austin/business/crunch-fitness-continues-to-expand-with-another-north-austin-location/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-30T19:15:00.000Z",
-    "summary": "",
-    "place": "North Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -626,51 +1157,6 @@
     "summary": "",
     "place": "Spicewood",
     "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Webb PTA votes to delete posts challenging school closure petition, deepening divisions",
-    "link": "https://austincurrent.org/2026/10/30/austin-austinisd-parent-petition-webb/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-30T17:43:32.000Z",
-    "summary": "A disputed leadership election and a 12-7 vote expose a deeper fight over whose voices represent Webb families. The post Webb PTA votes to delete posts challenging school closure petition, deepening divisions appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "UT medical school, subdivision expansion, business news: 6 trending Austin updates",
-    "link": "https://communityimpact.com/central-austin/business/ut-medical-school-subdivision-expansion-business-news-6-trending-austin-updates/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-30T17:27:24.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Hutto gains food truck, comic book store: Read these 6 business updates",
-    "link": "https://communityimpact.com/pflugerville-hutto/business/hutto-gains-food-truck-comic-book-store-read-these-6-business-updates/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-30T16:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -699,27 +1185,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Redemption Hill Church building under construction in Georgetown area",
-    "link": "https://communityimpact.com/georgetown/business/redemption-hill-church-building-under-construction-in-georgetown-area/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-10-30T11:00:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.738,
      30.268
     ]
@@ -734,72 +1199,6 @@
     "summary": "<p><strong>Case:</strong><span> 26-2790466</span><br><br><strong>Date: </strong><span>March 2026 -&nbsp;October 2026</span><br><br><strong>Location: </strong><span>The Dainty Dillo – 3201 E Cesar Chavez Street</span><br><br><span>The Austin Police (APD) Commercial Burglary Unit is requesting the public's assistance with identifying a suspect connected to a series of burglaries from the time span o",
     "place": "Austin Police",
     "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Traffic Fatality in the 10200 Block of Menchaca Road",
-    "link": "https://www.austintexas.gov/police/news/traffic-fatality-10200-block-menchaca-road",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-30T00:00:00.000Z",
-    "summary": "<p><strong>Case:</strong> 26-3021647<br><br><strong>Time:</strong>&nbsp;10:35 p.m.<br><br><strong>Date: </strong>Thursday, October 29, 2026&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br><br><strong>Location: </strong>10200 Block of Menchaca Road<br><br><strong>Deceased:</strong>&nbsp;Martinez, Samuel Gustavo, W/M, 17 YOA<br>&nbsp;<br>On Thursday, October 29, 2026, at approximately 10:37 p.m.,",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Traffic Fatality in the 8400 Block of Loyola Lane",
-    "link": "https://www.austintexas.gov/police/news/traffic-fatality-8400-block-loyola-lane",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-30T00:00:00.000Z",
-    "summary": "<p><strong>Case:</strong> 26-3021300<br><br><strong>Time:</strong>&nbsp;6:49 p.m.<br><br><strong>Date: </strong>Thursday, October 29, 2026&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br><strong>Location:</strong>&nbsp;8400 Block of Loyola Lane&nbsp;<br><br><strong>Deceased:</strong> Unidentified Black male<br>&nbsp;<br>On Thursday, October 29, 2026, at approxi",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.77989,
-     30.23767
-    ]
-   },
-   "properties": {
-    "title": "APD Detectives Search for a Suspect in Connection to a Robbery",
-    "link": "https://www.austintexas.gov/police/news/apd-detectives-search-suspect-connection-robbery-7",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-30T00:00:00.000Z",
-    "summary": "<p><strong>Case: </strong><span>26-2831128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br><span>&nbsp;</span><br><strong>Date: </strong><span>Saturday, October 10, 2026</span><br><span>&nbsp;</span><br><strong>Time:</strong><span> 4:40 p.m.</span><br><span>&nbsp;</span><br><strong>Location: </strong><span>4001 South Lamar Boulevard</span><br><span>&nbsp;</s",
-    "place": "South Lamar",
-    "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Traffic Fatality at 9511 N. Lamar Blvd",
-    "link": "https://www.austintexas.gov/police/news/traffic-fatality-9511-n-lamar-blvd",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-30T00:00:00.000Z",
-    "summary": "<p><strong>Case:</strong><span> 26-3020118</span><br><br><strong>Time:</strong><span> 2:17 a.m.</span><br><br><strong>Date: </strong><span>Thursday, October 29, 2026&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><strong>Location:</strong><span> 9511 N Lamar Blvd (Parking Lot)</span><br><br><strong>Deceased:</strong><span> Unidentified White male</span>",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -912,57 +1311,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "APD pushes for legislative solutions after Formula 1 police escorts zoom through Austin",
-    "link": "https://www.kut.org/austin/2026-10-29/police-escort-cota-formula-1-f1-us-grand-prix-austin-tx-motorcade",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-29T19:35:03.000Z",
-    "summary": "The Austin Police Department is contacting its law enforcement partners after social media video showed motorcades escorting attendees for the F1 U.S. Grand Prix this past weekend.",
-    "place": "Austin Police",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin is on its way to becoming a 'super-aged society,' demographer says",
-    "link": "https://www.kut.org/news/2026-10-29/demographics-austin-tx-seniors-population-aging",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-29T19:27:23.000Z",
-    "summary": "Lila Valencia discusses what the data shows about the local senior population and its future growth.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "A surge in tax revenue from short-term rentals could boost arts funding in Austin",
-    "link": "https://austincurrent.org/2026/10/29/austin-tx-short-term-rentals-occupancy-tax-arts-music-grants/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-29T17:14:04.000Z",
-    "summary": "City figures show hotel occupancy tax collections from STRs more than tripled over two years to $23.7 million, offsetting a decline in collections from hotels and other lodging. The post A surge in tax revenue from short-term rentals could boost arts funding in Austin appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "New townhome community on Menchaca completes construction",
@@ -972,36 +1320,6 @@
     "color": "#5fc4b6",
     "published": "2026-10-29T11:00:00.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Ella is new to Austin. There are too many things to do here. She wants your recommendations",
-    "link": "https://www.kut.org/austin/2026-10-29/austin-tx-ella-newcomer-recommendations",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-29T10:01:00.000Z",
-    "summary": "Austin can be an overwhelming place for a newcomer looking for things to do and food to try. Help us help Ella find her new favorite places in her adopted city.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "A surge in tax revenue from short-term rentals could boost arts funding in Austin",
-    "link": "https://www.kut.org/life-arts/2026-10-29/austin-tx-short-term-rentals-occupancy-tax-arts-music-grants",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-29T10:01:00.000Z",
-    "summary": "City figures show tax collections from STRs more than tripled over two years to $23.7 million, offsetting a decline in tax revenue from hotels. Without that growth, money for arts and music grants would have shrunk.",
     "place": null,
     "placeKind": null
    }
@@ -1032,27 +1350,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.79,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "Austin Watershed Protection Stocks More Grass Carp in Lake Austin to Help Manage Hydrilla",
-    "link": "https://www.austintexas.gov/watershed-protection/news/austin-watershed-protection-stocks-more-grass-carp-lake-austin-help-0",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-29T00:00:00.000Z",
-    "summary": "<p paraid=\"1309285387\" paraeid=\"{7b5a4198-ac8f-4a99-9377-168c497a6104}{6}\"><span data-contrast=\"auto\" xml:lang=\"EN-US\" lang=\"EN-US\">Austin Watershed Protection released an additional 7,091 sterile grass carp into Lake Austin on October 29 to help manage hydrilla, a non-native aquatic plant. The grass carp were released near Jessica Hollis Park, Walsh Boat Ramp, and Bull Creek where there is the mo",
-    "place": "Lake Austin",
-    "placeKind": "lake"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.9414,
      29.8833
     ]
@@ -1067,21 +1364,6 @@
     "summary": "",
     "place": "San Marcos",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Who won the money race? Austin council candidates submit final campaign finance report before election",
-    "link": "https://austincurrent.org/2026/10/28/texas-austin-election-city-council-campaign-fundraise-2/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-28T21:50:00.000Z",
-    "summary": "Candidates were required to submit campaign finance forms eight days ahead of the elections. Here’s how much they’ve earned and spent this year. The post Who won the money race? Austin council candidates submit final campaign finance report before election appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1118,27 +1400,6 @@
     "summary": "City Council candidates on Monday October 26th filed their last campaign finance reports ahead of the November 3rd election. The reports reveal amounts of contributions, expenditures, loans, and cash on hand through October 24th. In the aggregate, the 18 candidates who raised money have collectively loaned their campaigns more than $350,000, racked up contributions of […]",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8772,
-     29.9891
-    ]
-   },
-   "properties": {
-    "title": "Kyle to restore habitat along Plum Creek",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/government/kyle-to-restore-habitat-along-plum-creek/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-28T20:24:12.000Z",
-    "summary": "",
-    "place": "Kyle",
-    "placeKind": "city"
    }
   },
   {
@@ -1185,21 +1446,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Burnet and Webb could close. Their communities stand to lose more than schools.",
-    "link": "https://austincurrent.org/2026/10/28/austin-austinisd-burnet-webb-petition/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-28T10:30:00.000Z",
-    "summary": "After the two schools received their fifth failing rating this summer, one message is clear: Burnet and Webb middle schools will not be the same next year. The post Burnet and Webb could close. Their communities stand to lose more than schools. appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -1217,21 +1463,6 @@
     "summary": "Real estate investment firm Asana Partners is adding retail and dining space to The Arboretum, a well-known shopping center in Northwest Austin. A press release says updates to the property will \"reflect the surrounding Great Hills neighborhood.\" Right now, the announcement is only that plans have been finalized; construction won't begin until spring of 2027. It will build a retail outparcel — a n",
     "place": "Northwest Austin",
     "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Frustration over school takeovers, vouchers could sway Texas voters in close governor’s race",
-    "link": "https://austincurrent.org/2026/10/27/greg-abbott-gina-hinojosa-education-texas-governor-election-2026/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-27T23:24:10.000Z",
-    "summary": "As Democrat Gina Hinojosa focuses on “saving” public schools, Republican Gov. Greg Abbott has emphasized property tax cuts in the final weeks of the campaign. The post Frustration over school takeovers, vouchers could sway Texas voters in close governor’s race appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1329,42 +1560,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.769,
-     30.267
-    ]
-   },
-   "properties": {
-    "title": "Zilker Park's Great Lawn will partially reopen this weekend following delays from a muddy ACL Fest",
-    "link": "https://www.kut.org/austin/2026-10-27/austin-tx-zilker-park-reopening-acl-delays",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-27T19:39:17.000Z",
-    "summary": "Austin Parks and Recreation staff said maintenance crews have used the last few weeks to complete lawn recovery efforts and work to ensure the grass regrows.",
-    "place": "Zilker Park",
-    "placeKind": "park"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin’s beloved 800-pound dinosaur is relocated as Wheatsville Guadalupe closes",
-    "link": "https://www.kut.org/austin/2026-10-27/austin-tx-wheatsville-guadalupe-closes-mangia-mangiasaurus-dinosaur-sculpture",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-27T17:35:26.000Z",
-    "summary": "After more than four decades, the co-op shut down the location due to declining sales, rising rent and uncertainty about construction in the area. Dozens of people gathered to watch Mangiasaurus get pulled off the roof.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "The final spending stretch",
@@ -1374,36 +1569,6 @@
     "color": "#e8b35e",
     "published": "2026-10-27T16:30:02.000Z",
     "summary": "And Save Austin Now's reporting woes continue.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Roadwork ahead? CTXGO helps you navigate traffic and earn up to $150.",
-    "link": "https://austincurrent.org/2026/10/27/roadwork-ahead-ctxgo-helps-you-navigate-traffic-and-earn-up-to-150/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-27T14:30:19.000Z",
-    "summary": "CTXGO helps you plan around construction and earn rewards for trying a new way to work. The post Roadwork ahead? CTXGO helps you navigate traffic and earn up to $150. appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin director's documentary explores how Bill Wittliff brought Hollywood to Texas",
-    "link": "https://www.kut.org/life-arts/2026-10-27/austin-tx-film-festival-bill-wittliff-documentary-elizabeth-mims",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-27T10:01:00.000Z",
-    "summary": "The late writer’s devotion to the place that made him comes through every frame of A Man of Vision: The Bill Wittliff Story, premiering Sunday during the Austin Film Festival.",
     "place": null,
     "placeKind": null
    }
@@ -1497,27 +1662,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.6411,
-     30.1327
-    ]
-   },
-   "properties": {
-    "title": "A weekend at F1: Our favorite photos from the paddock",
-    "link": "https://www.kut.org/sports/2026-10-26/cota-f1-photos-austin-tx-formula-1-texas-circuit-of-the-americas",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-26T20:06:39.000Z",
-    "summary": "Hundreds of thousands of spectators filled into Austin's Circuit of the Americas this past weekend.",
-    "place": "Circuit of the Americas",
-    "placeKind": "venue"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.72,
      30.38
     ]
@@ -1545,21 +1689,6 @@
     "color": "#5fc4b6",
     "published": "2026-10-26T15:39:00.000Z",
     "summary": "It happens to the best of us: you have a fun day planned downtown, and out of nowhere, a Texas thunderstorm rolls in and you are back in planning mode again. Don’t let the rain ruin your day! When you... The post Rainy Day in Austin appeared first on Downtown Austin Alliance .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "With Muny in play, the city golf course is in the spotlight once again",
-    "link": "https://www.kut.org/austin/2026-10-26/with-muny-in-play-the-city-golf-course-is-in-the-spotlight-once-again",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-10-26T15:37:51.000Z",
-    "summary": "As the city tries to secure the future of the historic golf course, Muny’s history as a civil rights landmark is back in the limelight.",
     "place": null,
     "placeKind": null
    }
@@ -1700,21 +1829,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "WilCo officials advance Regional Water Infrastructure Plan",
-    "link": "https://communityimpact.com/georgetown/development/wilco-officials-advance-regional-water-infrastructure-plan/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-10-22T20:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Austin leads the U.S. as the most affordable metro for living alone",
     "link": "https://austin.culturemap.com/news/real-estate/best-metros-for-living-alone/",
     "outlet": "CultureMap",
@@ -1765,99 +1879,6 @@
     "published": "2026-10-21T21:11:34.000Z",
     "summary": "A look at the candidates in District 5.",
     "place": "South Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.76776,
-     30.25608
-    ]
-   },
-   "properties": {
-    "title": "SolarWinds Leases 100K-SF of Austin Midrise Office Space",
-    "link": "https://www.connectcre.com/stories/solarwinds-leases-100k-sf-of-austin-midrise-office-space/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-10-21T15:46:37.000Z",
-    "summary": "Tech company SolarWinds signed a 100,000-square-foot lease at Zilker Point, where the company will relocate its global headquarters from its existing Austin office. The lease represents just over half of Zilker Point’s approximately 195,000 square feet of Class A office space. Generation Commercial Properties is the building owner. SolarWinds is expected to move into Zilker ... The post SolarWinds",
-    "place": "Zilker",
-    "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas Comptroller Don Huffines issues series of “executive orders,” raising questions about his office’s authority",
-    "link": "https://www.texastribune.org/2026/10/21/texas-comptroller-don-huffines-executive-orders/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-10-21T10:00:00.000Z",
-    "summary": "The authority to issue executive orders traditionally belongs to the chief executive, like the governor or a county judge. The post Texas Comptroller Don Huffines issues series of “executive orders,” raising questions about his office’s authority appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.736,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "City of Austin Council Message Board • Creating a Task Force to Save Red River",
-    "link": "https://austincouncilforum.org/viewtopic.php?p=4987#p4987",
-    "outlet": "Council Message Board",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-20T21:58:01.000Z",
-    "summary": "Council Members-- For decades, the City of Austin has been committed to sustaining and improving the Red River community. Even with commitment, we aren't where we want to be or should be. Now, more than ever, we need to double down on our commitment to support our venues, our musicians, and to preserve the culture that makes the \"Music Mile\" the epicenter of the Live Music Capital of the World. We",
-    "place": "Red River",
-    "placeKind": "street"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "These 10 Austin neighborhoods are perfect for a fall walk",
-    "link": "https://austin.culturemap.com/news/city-life/neighborhoods-to-walk-in/",
-    "outlet": "CultureMap",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-10-20T21:22:13.000Z",
-    "summary": "Even after a surprisingly bearable Austin summer, locals are taking to the streets to enjoy the newly arrived fall weather. Lest the novelty wear off in your immediate neighborhood, we're here with some ideas on where to stroll next. Austin's citywide Walk Score — a standardized measure of how easy or pleasant it is to walk in cities across the U.S. — is a middling 42. This is not, on the whole, a",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.718,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "The different flavors of East Austin politics",
-    "link": "https://www.austinpolitics.net/the-different-flavors-of-east-austin-politics/",
-    "outlet": "Austin Politics",
-    "group": "government",
-    "color": "#e8b35e",
-    "published": "2026-10-20T20:10:35.000Z",
-    "summary": "The race for District 1 is something of a tapestry of East Austin politics, showcasing different factions and trends that I've observed in my 11 years covering City Hall. I find it very hard to meaningfully evaluate candidates with no records. You can talk to them and look",
-    "place": "East Austin",
     "placeKind": "district"
    }
   }
