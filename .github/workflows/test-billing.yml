@@ -40,4 +40,4 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0012_billing.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/database.sql
       - name: Deployment helper syntax
-        run: python3 -m py_compile tools/billing/configure.py
+        run: python3 -m py_compile tools/billing/configure.py tools/billing/prepare-webhook.py

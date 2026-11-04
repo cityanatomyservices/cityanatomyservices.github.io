@@ -24,8 +24,8 @@ use `2026-10-28.endive` per request without changing account-wide API settings.
 Also created and retrieved live product `prod_VZLfx6PwAYLksw` and price
 `price_1UYCyLPylm4UechMwGuCKwdH`, with the same USD 800-cent monthly settings.
 The live catalog was checked for existing Austin.chat products/prices first.
-The CLI is currently in live mode; explicitly switch to the authorized sandbox
-before test operations. In the new CLI, omitting `--live` does not switch modes.
+The CLI is currently in test mode after explicitly switching to the authorized
+sandbox. In the new CLI, omitting `--live` does not switch modes.
 
 Owner defined Pro benefits: Austin 1885, Moontower Walking, and all apps in
 the current Shopping Apps group. Those nine catalog records now carry
@@ -53,14 +53,32 @@ permission and lease tests passed in billing CI run `41930400705` for commit
 syntax, Python helper compilation and diff checks passed. The backend
 foundation is committed and pushed; no browser assets changed.
 
-These backend changes are not yet installed in Supabase. This laptop has no
-Supabase management token or CLI login. Supabase CLI 3.0.0 is available via
-`npx`; a browser sign-in flow was started and the owner was asked for its short
-verification code. Do not save the flow URL/code in the repo. The deployment
-helper is `tools/billing/configure.py`; it preflights SQL with rollback and
-deploys only the new functions. Runtime Stripe credentials, portal configuration
-and webhook endpoint still need setup after Supabase access. No site UI or
-paid restrictions have been enabled. See billing notes for the launch sequence.
+Supabase CLI 3.0.0 authorization is now complete on this laptop. Access to the
+existing project was verified. `tools/billing/configure.py --deploy` passed
+the hosted SQL preflight with rolled-back fixtures, installed migration 0012,
+and deployed only the new `billing` and `stripe-webhook` functions. Both are
+ACTIVE (version 2), with handler-level auth/signature checks. Endpoint checks
+passed: unauthenticated checkout 401, foreign origin 403, unsupported method
+405, unconfigured webhook 503. No sign-in codes or credentials are in the repo.
+
+Created test portal `bpc_1UYDFWPylm4UechMi7mK5NgH` for invoice history, payment
+method updates and cancellation at period end. This was the first portal in
+the empty test catalog, so Stripe automatically marked it as the test default.
+No existing configuration was replaced; no live portal was changed/created.
+Test webhook `we_1UYDGcPylm4UechMvq87q7Al` is created and DISABLED until the
+runtime key is configured. Its signing secret was captured directly into
+Supabase without printing or committing it. Supabase now holds
+`AUSTIN_STRIPE_WEBHOOK_SECRET`, `AUSTIN_STRIPE_PORTAL`, `BILLING_MODE=test`,
+and `BILLING_CHECKOUT_ENABLED=false`. Reproducible preparation helper:
+`tools/billing/prepare-webhook.py` (syntax checked).
+
+Remaining credential: `AUSTIN_STRIPE_KEY`. The owner was asked to create a
+restricted test-mode key in Stripe and paste it directly into Supabase Edge
+secrets, never chat. Requested runtime scopes: Customers, Checkout Sessions
+and Customer Portal write; Prices, Subscriptions and Invoices read. Verify
+scope sufficiency with a real sandbox checkout once saved. Test users also
+need explicit `BILLING_TEST_USERS` IDs before testing. No UI, checkout or paid
+restrictions have been enabled. See billing notes for the launch sequence.
 
 Next, the Apps button should be gray/unavailable for signed-out visitors and
 open normally for signed-in Free or Pro members. Those button states and the

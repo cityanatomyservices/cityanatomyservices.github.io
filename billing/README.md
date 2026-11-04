@@ -10,8 +10,8 @@ paid tier first, then change access to the Apps button.
 
 The owner's existing Stripe account is connected to the CLI in both test and
 live modes. Both Pro products and monthly prices have been created and verified.
-Billing backend code is prepared, but has not been deployed to Supabase or
-connected to the site UI. Checkout is disabled by default. No customer,
+The billing database and Edge functions are deployed to Supabase. They are
+not yet connected to the site UI. Checkout is disabled. No customer,
 subscription or charge has been created by this work.
 
 ## Local Stripe tooling
@@ -29,6 +29,8 @@ installed for Codex CLI. Test and live authorization are complete.
 Use the CLI's browser login flow; never save pairing
 codes, access tokens or secret keys in this repository. A fresh terminal may
 be needed to pick up the new PATH; the executable's full path also works.
+Supabase CLI 3.0.0 browser authorization also succeeded on this laptop, and
+project access was verified. Its login is stored by the CLI outside the repo.
 
 ## Stripe product configuration
 
@@ -99,6 +101,29 @@ This foundation is not yet the site's completed paid-membership feature.
 No frontend checkout button or app access rule has been activated.
 
 ## Connection and launch steps
+
+Completed on this laptop: Supabase CLI sign-in, hosted SQL preflight (all
+fixtures rolled back), migration installation, and deployment of both Edge
+functions. Both functions are active with gateway JWT checking disabled;
+the handlers enforce their own authentication/signatures. Live endpoint
+checks confirm guest checkout returns 401, foreign origins return 403,
+unsupported methods return 405, and an unconfigured webhook returns 503.
+
+Test-mode portal `bpc_1UYDFWPylm4UechMi7mK5NgH` is configured for invoice
+history, payment method updates and cancellation at period end. It was the
+first configuration in an empty test catalog, so Stripe automatically marked
+it as the test default. No existing portal was replaced, and no live portal
+configuration has been created or changed.
+
+Test webhook `we_1UYDGcPylm4UechMvq87q7Al` was created and paused pending the
+runtime key. Its signing secret and the portal ID are stored in Supabase,
+along with `BILLING_MODE=test` and `BILLING_CHECKOUT_ENABLED=false`.
+`tools/billing/prepare-webhook.py` records the reproducible setup and reuses
+an existing endpoint without printing its secret. The owner was asked to
+create a restricted test API key and save it directly in Supabase under
+`AUSTIN_STRIPE_KEY`; this key is still missing. No test user IDs are configured.
+
+The sequence below remains the reference for a new laptop or subsequent launch:
 
 1. Sign in to Supabase CLI on this laptop:
    `npx --yes supabase@3.0.0 login --agent no --output-format text`.
