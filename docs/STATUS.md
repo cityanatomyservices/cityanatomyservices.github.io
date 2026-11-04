@@ -5,7 +5,14 @@
 Owner requested exactly Free and Pro ($8/month), with the paid tier set up
 first. They confirmed an existing Stripe account. The site has Supabase
 sign-in but no membership billing integration. A Stripe integration is
-available and was suggested; connection is not yet confirmed.
+available and was suggested; connection is not yet confirmed. Stripe CLI
+1.55.8 is now installed and working on this Windows ARM laptop using the
+official Windows x86_64 executable (published checksum verified); the npm
+wrapper was incompatible and was removed. The executable is under
+`%LOCALAPPDATA%\Programs\StripeCLI` and its folder is on the user PATH.
+`stripe agent setup --client codex --yes` succeeded and status confirms the
+Stripe plugin is installed for Codex CLI. Browser authorization was started
+but is still pending; verify `stripe login list` before using the account.
 
 Owner defined Pro benefits: Austin 1885, Moontower Walking, and all apps in
 the current Shopping Apps group. Those nine catalog records now carry

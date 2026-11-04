@@ -12,6 +12,22 @@ The owner already has a Stripe account. Its connection to this session is
 pending. Pro benefits are defined below. No payment product,
 checkout, subscription or paid entitlement has been created by this work.
 
+## Local Stripe tooling
+
+Stripe CLI **1.55.8** is installed on this laptop at
+`%LOCALAPPDATA%\Programs\StripeCLI\stripe.exe`, and its directory is in the
+user PATH. The npm wrapper rejects Windows ARM64, so the official Windows
+x86_64 executable was installed and verified against Stripe's published
+SHA-256 checksum. It runs successfully on this laptop. The incompatible npm
+wrapper was removed.
+
+`stripe agent setup --client codex --yes` completed successfully;
+`stripe agent setup --client codex --status` confirms the Stripe plugin is
+installed for Codex CLI. Installation is separate from account authorization,
+which is still pending. Use the CLI's browser login flow; never save pairing
+codes, access tokens or secret keys in this repository. A fresh terminal may
+be needed to pick up the new PATH; the executable's full path also works.
+
 ## Stripe product to configure
 
 - Product name: **Austin.chat Pro**.
