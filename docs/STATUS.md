@@ -1,5 +1,23 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-04 — Free / Pro membership setup in progress
+
+Owner requested exactly Free and Pro ($8/month), with the paid tier set up
+first. They confirmed an existing Stripe account. The site has Supabase
+sign-in but no membership billing integration. A Stripe integration is
+available and was suggested; connection is not yet confirmed. The owner was
+also asked which benefits Pro should include; that answer is pending.
+
+[Billing setup notes](../billing/README.md) record the agreed tiers, product
+configuration and remaining integration work. No Stripe product, checkout,
+subscription, database migration or paid feature has been created or enabled.
+After connection, inspect the existing catalog before creating the monthly
+price and connect billing securely to the existing Supabase accounts.
+
+Next, the Apps button should be gray/unavailable for signed-out visitors and
+open normally for signed-in members. The stated requirement includes both
+Free and Pro members; this UI change is still pending.
+
 ## 2026-11-04 — Classifieds footer follows the ads
 
 Owner reported the page bottom appearing inside classified ads. Standalone
