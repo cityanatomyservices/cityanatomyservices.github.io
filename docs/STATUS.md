@@ -16,9 +16,13 @@ sorting, drafts, conflicts and sign-out checks also pass. Screenshots reviewed;
 JS syntax and diff checks pass. No production records were changed.
 
 The stylesheet, frame/return loaders and their page/template references use
-`20261104c`; other asset versions remain unchanged. Publishing is in progress:
-wait for Pages and new-version HTML before requesting assets, then check the
-three changed assets and repeat the live fixture/footer checks.
+`20261104c`; other asset versions remain unchanged. Published as `00230e4`.
+Pages run `41920932606`, classifieds CI `41920933383` and planner CI
+`41920932904` succeeded. Root/chat, directory and all eight category pages
+advertised the new version before assets were requested; all three changed
+assets match committed bytes. Live guest/member browser checks, including
+every footer scenario above, passed at desktop and phone sizes. Publication
+and verification are complete.
 
 ## 2026-11-04 — Larger, clickable Explore icon circles
 
