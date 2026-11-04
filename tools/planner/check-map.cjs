@@ -11,8 +11,10 @@ async function serve(){
 function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/1000)+3600,enc=x=>Buffer.from(JSON.stringify(x)).toString('base64url');return {access_token:enc({alg:'HS256',typ:'JWT'})+'.'+enc({sub:id,exp,role:'authenticated',is_anonymous:!member})+'.fixture',refresh_token:crypto.randomUUID(),expires_in:3600,expires_at:exp,token_type:'bearer',user:{id,is_anonymous:!member,aud:'authenticated',role:'authenticated',app_metadata:{},user_metadata:{}}};}
 async function frame(page,planner=false){const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(planner?()=>window.chatMap&&window.austinExplore&&window.PlanStore:()=>window.chatMap&&window.austinExplore&&window.PlanStore,{}, {timeout:45000});await f.evaluate(()=>PlanStore.ready());return f;}
 async function control(f,id,width){
- if(width<500)for(const selector of ['#plan-panel-close','#explore-panel .explore-close','#city-hall-panel .explore-close'])if(await f.locator(selector).isVisible())await f.locator(selector).click();
+ if(width<500)for(const selector of ['#plan-panel-close','#explore-panel .explore-close','#explore-panel .explore-close'])if(await f.locator(selector).isVisible())await f.locator(selector).click();
+ if(id==='ctrlCityHall'&&await f.locator('#explore-panel').isHidden())await f.locator('#ctrlExplore').click();
  await f.locator('#'+id).click();
+ if(id==='ctrlExplore')for(const card of ['ctrlCityHall','ctrlClassifieds'])if(await f.locator('#'+card).getAttribute('aria-expanded')==='true')await f.locator('#'+card).click();
 }
 async function ownMap(f,count){
  await f.waitForFunction(n=>document.querySelectorAll('#map .map-stop').length===n,count);
@@ -34,7 +36,7 @@ async function routeCount(f,count){
  const points=[[-97.7431,30.2672],[-97.7408,30.279],[-97.712,30.3]];
  const features=points.map((coordinates,i)=>({type:'Feature',geometry:{type:'Point',coordinates},properties:{id:'map-fixture-'+i,title:['Selected first stop','Selected second stop','Unselected listing'][i],venue:'Fixture venue',address:'Austin',kind:'event',price:0,priceLabel:'Free',url:'https://example.invalid/event-'+i,source:'Fixture calendar',checked:new Date(now).toISOString(),start:M.instant(`${day}T${[10,12,14][i]}:00`),end:M.instant(`${day}T${[11,13,15][i]}:00`),expires:new Date(now+86400000).toISOString()}}));
  const feed={type:'FeatureCollection',generated:new Date(now).toISOString(),sources:[],features};
- browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||path.join(os.homedir(),'.cache/ms-playwright/chromium-1234/chrome-linux64/chrome'),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  for(const width of process.env.TEST_WIDTH?[Number(process.env.TEST_WIDTH)]:[1280,390])for(const member of process.env.TEST_MEMBER?[process.env.TEST_MEMBER==='true']:[false,true]){
   const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500}),active=session(member),guest=session(false),rpcCalls=[];
   let remote=null,held=null,holdNext=false;
@@ -122,4 +124,4 @@ async function routeCount(f,count){
   assert.deepEqual(errors,[]);await context.close();
   console.log(`${width}px ${member?'registered':'guest'}: selected stops only, Explore browse/add/remove, GPS, routes, late response, day switching, removal, navigation, refresh and sign-out passed.`);
  }
-}finally{if(browser)await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}})().catch(error=>{console.error(error.stack);process.exitCode=1;});
+}finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(error=>{console.error(error.stack);process.exitCode=1;});

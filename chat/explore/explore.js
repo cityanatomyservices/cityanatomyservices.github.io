@@ -2,6 +2,8 @@
 window.AustinExplore = {
   async init(map, { mapMarkers = true } = {}) {
     const M = window.ExploreModel, layers = window.EXPLORE_LAYERS;
+    const main = document.documentElement.hasAttribute('data-main-planner');
+    const sections = new Map(); let activeSection = '';
     let showMarkers=mapMarkers&&!window.PlanPanel?.active;
     const session = window.AustinSession, visit = window.AustinVisit, guestKey = 'explore:guest';
     // Resolve identity before reading persistent choices. An unresolved or
@@ -13,7 +15,8 @@ window.AustinExplore = {
       try { saved = JSON.parse(owner ? localStorage.getItem('austin-explore-v1') : visit?.get(guestKey)); } catch (_) {}
       saved ||= {};
       return { enabled: new Set(Array.isArray(saved.enabled) ? saved.enabled.map(id => id === 'festivals' ? 'events' : id).filter(id => layers.some(l => l.id === id)) : owner ? layers.filter(l => l.defaultOn).map(l => l.id) : []),
-      when: ['now', 'tonight', 'today', 'weekend', 'week'].includes(saved.when) ? saved.when : 'week',
+      when: ['now', 'tonight', 'today', 'weekend', 'week', 'all', 'date'].includes(saved.when) ? saved.when : 'week',
+      date: /^\d{4}-\d{2}-\d{2}$/.test(saved.date || '') ? saved.date : '',
       price: ['0', '10', '20'].includes(saved.price) ? saved.price : '20',
       kind: ['all', 'event', 'activity', 'offer'].includes(saved.kind) ? saved.kind : 'all',
       movieType: ['all', 'imax', 'dine-in'].includes(saved.movieType) ? saved.movieType : 'all',
@@ -31,11 +34,15 @@ window.AustinExplore = {
       <div class="explore-times" role="group" aria-label="When to explore">
         <button type="button" data-when="now">Now</button><button type="button" data-when="tonight">Tonight</button><button type="button" data-when="weekend">Weekend</button><button type="button" data-when="week">This week</button>
       </div><div class="explore-layers" role="group" aria-label="Choose map categories"></div>
+      ${main ? `<fieldset class="explore-filters explore-dates"><legend class="explore-sr">When to explore</legend>
+        <label>Date range<select data-filter="when"><option value="now">Now / 2 hours</option><option value="tonight">Tonight</option><option value="today">Today</option><option value="weekend">This weekend</option><option value="week">This week</option><option value="all">All dates</option><option value="date">Choose a date</option></select></label>
+        <label>On date<input type="date" data-filter="date" aria-label="On date"></label></fieldset>` : ''}
+      <div class="explore-event-content">
       <div class="explore-browse"><label><span class="explore-sr">Search listings</span><input type="search" data-filter="query" maxlength="100" placeholder="Search names or places"></label>
         <label><span class="explore-sr">Where</span><select data-filter="where"><option value="all">All locations</option><option value="map">This map area</option><option value="near">Near me</option></select></label></div>
       <details class="explore-options"><summary>More filters</summary>
       <fieldset class="explore-filters">
-        <label>Date range<select data-filter="when"><option value="now">Now / next 2 hours</option><option value="tonight">Tonight</option><option value="today">Today</option><option value="weekend">This weekend</option><option value="week">Next 7 days</option></select></label>
+        ${main ? '' : '<label>Date range<select data-filter="when"><option value="now">Now / next 2 hours</option><option value="tonight">Tonight</option><option value="today">Today</option><option value="weekend">This weekend</option><option value="week">Next 7 days</option><option value="all">All dates</option><option value="date">Choose a date</option></select></label><label>On date<input type="date" data-filter="date" aria-label="On date"></label>'}
         <label class="explore-radius" hidden>Distance<select data-filter="radius"><option value="1">Within 1 mile</option><option value="3">Within 3 miles</option><option value="5">Within 5 miles</option></select></label>
         <label data-for-layer="free-cheap">Free & cheap price<select data-filter="price"><option value="0">Free</option><option value="10">$10 or less</option><option value="20">$20 or less</option></select></label>
         <label data-for-layer="free-cheap">Free & cheap type<select data-filter="kind"><option value="all">Everything</option><option value="event">Events</option><option value="activity">Activities</option><option value="offer">Local offers</option></select></label>
@@ -46,37 +53,65 @@ window.AustinExplore = {
       <p class="explore-note explore-count" role="status"></p><ul class="explore-results"></ul>
       <button type="button" class="explore-more" hidden>Show more</button>
       <details class="explore-sources"><summary>Sources & freshness</summary><div class="explore-freshness"></div>
-      <p class="explore-note">Times are in Austin time. Check the organizer before going: reservations, age limits, parking or extra activities may cost more. Free & cheap requires a confirmed admission price. Movie and event prices vary; follow the source for tickets and availability. Only published schedules are listed. Report corrections through <a href="/contact/" target="_blank" rel="noopener">Contact</a>.</p></details></div>`;
+      <p class="explore-note">Times are in Austin time. Check the organizer before going: reservations, age limits, parking or extra activities may cost more. Free & cheap requires a confirmed admission price. Movie and event prices vary; follow the source for tickets and availability. Only published schedules are listed. Report corrections through <a href="/contact/" target="_blank" rel="noopener">Contact</a>.</p></details></div></div>`;
     document.querySelector('.page').append(panel);
     const $ = s => panel.querySelector(s);
     function save() {
       const value = JSON.stringify({ ...state, enabled: [...state.enabled], position: undefined });
       if (session?.registered) {
         try { localStorage.setItem('austin-explore-v1', value); } catch (_) { /* storage optional */ }
-        window.AustinPreferences?.set('explore',{enabled:[...state.enabled],when:state.when,price:state.price,kind:state.kind,movieType:state.movieType});
+        window.AustinPreferences?.set('explore',{enabled:[...state.enabled],when:state.when,date:state.date,price:state.price,kind:state.kind,movieType:state.movieType});
       } else visit?.set(guestKey, value);
     }
     function applyControls() {
       panel.querySelectorAll('[data-layer]').forEach(el=>{el.checked=state.enabled.has(el.dataset.layer);});
-      panel.querySelectorAll('[data-filter]').forEach(el=>{if(state[el.dataset.filter]!==undefined)el.value=state[el.dataset.filter];});
+      panel.querySelectorAll('[data-filter]').forEach(el=>{if(!el.closest('[data-explore-section]')&&state[el.dataset.filter]!==undefined)el.value=state[el.dataset.filter];});
       update(); layers.filter(l=>state.enabled.has(l.id)).forEach(load);
+      for (const section of sections.values()) section.view.setTime?.(time());
     }
     window.addEventListener('storage',event=>{
       if(event.key!=='austin-explore-v1' || !session?.registered)return;
       try {
         const choices=JSON.parse(event.newValue)||{};
         if(Array.isArray(choices.enabled))state.enabled=new Set(choices.enabled.filter(id=>layers.some(l=>l.id===id)));
-        for(const [key,allowed] of Object.entries({when:['now','tonight','today','weekend','week'],price:['0','10','20'],kind:['all','event','activity','offer'],movieType:['all','imax','dine-in']}))if(allowed.includes(choices[key]))state[key]=choices[key];
+        for(const [key,allowed] of Object.entries({when:['now','tonight','today','weekend','week','all','date'],price:['0','10','20'],kind:['all','event','activity','offer'],movieType:['all','imax','dine-in']}))if(allowed.includes(choices[key]))state[key]=choices[key];
+        state.date = /^\d{4}-\d{2}-\d{2}$/.test(choices.date || '') ? choices.date : '';
         applyControls();
       }catch(_){}
     });
     function open(on, returnFocus = true) {
       panel.hidden = !on; button.setAttribute('aria-expanded', String(on));
-      if (on) { window.AustinChatCard?.close(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); }
+      if (on) { window.AustinChatCard?.close(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); window.AustinMapLayers?.close(); sections.get(activeSection)?.view.refresh?.(); }
       else if (returnFocus) button.focus();
     }
     window.AustinExplore.close = () => open(false, false);
     window.AustinExplore.open = () => open(true);
+    const time = () => ({ when: state.when, date: state.date });
+    function selectSection(id) {
+      activeSection = id;
+      button.classList.toggle('is-on', state.enabled.size > 0 || !!id);
+      $('.explore-event-content').hidden = !!id;
+      for (const [key, section] of sections) {
+        const selected = key === id;
+        section.host.hidden = !selected;
+        section.tile.classList.toggle('is-selected', selected);
+        section.tile.setAttribute('aria-expanded', String(selected));
+        section.tile.setAttribute('aria-pressed', String(selected));
+      }
+      sections.get(id)?.view.refresh?.();
+      closePopup();
+    }
+    window.AustinExplore.addSection = ({ id, buttonId, title, icon, mount }) => {
+      const tile = node('button', undefined, 'explore-layer explore-section-tile'); tile.type = 'button'; tile.id = buttonId;
+      tile.setAttribute('aria-controls', id + '-panel'); tile.setAttribute('aria-expanded', 'false'); tile.setAttribute('aria-pressed', 'false');
+      tile.innerHTML = `<span class="explore-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${icon}</svg></span><strong>${title}</strong><span class="explore-tile-check" aria-hidden="true">✓</span>`;
+      const host = node('section', undefined, 'explore-section'); host.id = id + '-panel'; host.dataset.exploreSection = id; host.hidden = true;
+      $('.explore-layers').append(tile); $('.explore-scroll').append(host);
+      const section = { tile, host, view: {} }; sections.set(id, section);
+      section.view = mount(host, { time, active: () => activeSection === id && !panel.hidden });
+      tile.addEventListener('click', () => { selectSection(activeSection === id ? '' : id); });
+      return { close: () => { if (activeSection === id) window.AustinExplore.close(); } };
+    };
     button.addEventListener('click', () => open(panel.hidden));
     $('.explore-close').addEventListener('click', () => open(false));
     panel.addEventListener('keydown', e => { if (e.key === 'Escape') open(false); });
@@ -104,6 +139,18 @@ window.AustinExplore = {
       'pop-up-markets': '<path d="M4 7h16l1 14H3Z M8 9V6a4 4 0 0 1 8 0v3"/>',
       events: '<path d="M3 5h18v5a2 2 0 0 0 0 4v5H3v-5a2 2 0 0 0 0-4Z M15 5v2 M15 10v4 M15 17v2"/>'
     };
+    // The card and map share these exact paths. A white outline keeps the
+    // symbols readable over streets, buildings and satellite imagery.
+    const markerImages = new Map();
+    if (mapMarkers) await Promise.all(layers.map(async layer => {
+      const paths = icons[layer.id] || icons.events;
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="-4 -4 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round"><g stroke="white" stroke-width="4.5">${paths}</g><g stroke="${layer.color || '#ab6b00'}" stroke-width="1.8">${paths}</g></svg>`;
+      const img = new Image();
+      await new Promise((resolve, reject) => { img.onload = resolve; img.onerror = reject; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = 64;
+      const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0);
+      markerImages.set(layer.id, ctx.getImageData(0, 0, 64, 64));
+    }));
     function closePopup() { if (popup) popup.remove(); popup = null; activeIds = []; activeStamp = ''; }
     const stamp = items => JSON.stringify(items.map(f => f.properties));
     function detailsBody(items, at) {
@@ -145,9 +192,10 @@ window.AustinExplore = {
     function refreshList() {
       const list = $('.explore-results'); list.replaceChildren();
       const on = state.enabled.size > 0;
-      $('.explore-filters').disabled = !on;
+      $('.explore-event-content .explore-filters').disabled = !on;
       for (const el of panel.querySelectorAll('[data-when]')) el.setAttribute('aria-pressed', String(state.when === el.dataset.when));
       $('[data-filter="when"]').value = state.when;
+      $('[data-filter="date"]').value = state.date;
       $('.explore-time-note').textContent = state.when === 'now' ? 'Happening now or starting within two hours.' : state.when === 'tonight' ? 'Tonight: 6 PM–3 AM, Austin time.' : '';
       for (const input of panel.querySelectorAll('[data-layer]')) {
         input.closest('.explore-layer').classList.toggle('is-selected', input.checked);
@@ -155,7 +203,7 @@ window.AustinExplore = {
         count.textContent = input.checked && data.has(input.dataset.layer) ? matches.filter(f => f.properties.exploreLayer === input.dataset.layer).length : '';
       }
       for (const el of panel.querySelectorAll('[data-for-layer]')) el.hidden = !state.enabled.has(el.dataset.forLayer);
-      button.classList.toggle('is-on', on);
+      button.classList.toggle('is-on', on || !!activeSection);
       const suffix = state.where === 'near' ? ` within ${state.radius} miles` : state.where === 'map' ? ' in this map area' : ' across the Austin area';
       const loading = [...busy].some(id => state.enabled.has(id));
       $('.explore-count').textContent = !on ? 'Turn on a layer to explore.' : matches.length
@@ -266,12 +314,14 @@ window.AustinExplore = {
     function ensureLayers(layer) {
       if (!mapMarkers) return;
       const source=`explore-${layer.id}`;
+      const icon = source + '-icon';
+      if (!map.hasImage(icon)) map.addImage(icon, markerImages.get(layer.id), { pixelRatio: 2 });
       if(map.getSource(source))return;
       map.addSource(source, { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, cluster: true, clusterRadius: 42, clusterMaxZoom: 14, clusterProperties: { eventCount: ['+', ['get', 'eventCount']] } });
       map.addLayer({ id: source + '-clusters', type: 'circle', source, filter: ['has', 'point_count'], paint: { 'circle-color': layer.color || '#0067c5', 'circle-radius': 19, 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
       map.addLayer({ id: source + '-counts', type: 'symbol', source, filter: ['has', 'point_count'], layout: { 'text-field': ['to-string', ['get', 'eventCount']], 'text-size': 12, 'text-font': ['Noto Sans Bold'], 'text-allow-overlap': true }, paint: { 'text-color': '#fff' } });
-      map.addLayer({ id: source + '-points', type: 'circle', source, filter: ['!', ['has', 'point_count']], paint: { 'circle-color': ['match', ['get', 'kind'], 'activity', '#087f70', 'offer', '#9a4b00', 'movie', '#7844a8', layer.color || '#0067c5'], 'circle-radius': 12, 'circle-stroke-width': 2, 'circle-stroke-color': '#fff' } });
-      map.addLayer({ id: source + '-labels', type: 'symbol', source, filter: ['!', ['has', 'point_count']], layout: { 'text-field': ['get', 'label'], 'text-font': ['Noto Sans Bold'], 'text-size': 11, 'text-allow-overlap': true }, paint: { 'text-color': '#fff' } });
+      map.addLayer({ id: source + '-points', type: 'symbol', source, filter: ['!', ['has', 'point_count']], layout: { 'icon-image': icon, 'icon-size': 1, 'icon-allow-overlap': true, 'icon-ignore-placement': true } });
+      map.addLayer({ id: source + '-labels', type: 'symbol', source, filter: ['all', ['!', ['has', 'point_count']], ['>', ['get', 'eventCount'], 1]], layout: { 'text-field': ['to-string', ['get', 'eventCount']], 'text-font': ['Noto Sans Bold'], 'text-size': 11, 'text-offset': [1, -1], 'text-allow-overlap': true, 'text-ignore-placement': true }, paint: { 'text-color': layer.color || '#0067c5', 'text-halo-color': '#fff', 'text-halo-width': 2 } });
       signatures.delete(layer.id);
     }
     map.on('style.load',()=>{for(const layer of layers)ensureLayers(layer);update();});
@@ -285,7 +335,7 @@ window.AustinExplore = {
       icon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${icons[layer.id] || icons.events}</svg>`;
       const text = node('strong', layer.title), count = node('span', '', 'explore-tile-count'), tick = node('span', '✓', 'explore-tile-check'); tick.setAttribute('aria-hidden','true');
       label.append(checkbox, icon, text, count, tick); $('.explore-layers').append(label);
-      checkbox.addEventListener('change', () => { checkbox.checked ? state.enabled.add(layer.id) : state.enabled.delete(layer.id); save(); limit = 30; update(); if (checkbox.checked) load(layer); });
+      checkbox.addEventListener('change', () => { selectSection(''); checkbox.checked ? state.enabled.add(layer.id) : state.enabled.delete(layer.id); save(); limit = 30; update(); if (checkbox.checked) load(layer); });
       if (!mapMarkers) continue;
       ensureLayers(layer);
       map.on('click', source + '-clusters', async e => {
@@ -306,12 +356,18 @@ window.AustinExplore = {
       }
     }
     for (const choice of panel.querySelectorAll('[data-when]')) choice.addEventListener('click', () => {
-      state.when = choice.dataset.when; limit = 30; save(); update();
+      state.when = choice.dataset.when; state.date = ''; limit = 30; save(); update();
+      for (const section of sections.values()) section.view.setTime?.(time());
     });
     for (const select of panel.querySelectorAll('[data-filter]')) {
       select.value = state[select.dataset.filter];
       select.addEventListener(select.tagName === 'INPUT' ? 'input' : 'change', () => {
-        state[select.dataset.filter] = select.value; limit = 30; save();
+        state[select.dataset.filter] = select.value; limit = 30;
+        if (select.dataset.filter === 'date') state.when = select.value ? 'date' : 'all';
+        if (select.dataset.filter === 'when' && state.when !== 'date') state.date = '';
+        if (select.dataset.filter === 'when' && state.when === 'date' && !state.date) { state.date = M.dayKey(Date.now()); $('[data-filter="date"]')?.focus(); }
+        save();
+        if (['date','when'].includes(select.dataset.filter)) for (const section of sections.values()) section.view.setTime?.(time());
         $('.explore-radius').hidden = state.where !== 'near';
         if (select.dataset.filter === 'where') {
           locateAttempt++;
@@ -345,6 +401,7 @@ window.AustinExplore = {
       if (nextOwner === owner) return;
       owner = nextOwner; visit?.remove(guestKey);
       Object.assign(state, initialState());
+      selectSection('');
       locateAttempt++; limit = 30; closePopup(); open(false, false);
       $('.explore-radius').hidden = true; $('.explore-location').textContent = '';
       applyControls();
@@ -352,6 +409,7 @@ window.AustinExplore = {
     window.addEventListener('pagehide', () => unsubscribe?.(), { once: true });
     showMarkers=mapMarkers&&!window.PlanPanel?.active;
     window.AustinExplore.setMapMarkers=on=>{showMarkers=mapMarkers&&!!on;closePopup();signatures.clear();update();};
+    if (main) { window.AustinCityHall.init(); window.AustinClassifieds.init(); }
     update(); layers.filter(l => state.enabled.has(l.id)).forEach(load);
     setInterval(update, 60000);
     setInterval(() => { if (!document.hidden) layers.filter(l => state.enabled.has(l.id)).forEach(load); }, 5 * 60000);

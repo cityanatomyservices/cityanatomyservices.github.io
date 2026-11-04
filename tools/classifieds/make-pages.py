@@ -17,12 +17,12 @@ for slug, title in [('', 'Free classifieds'), *CATEGORIES]:
   <link rel="icon" href="/favicon.ico?v=20261031f">
   <link rel="stylesheet" href="/style.css?v=20261029v">
   <link rel="stylesheet" href="/appearance.css?v=20261028h">
-  <link rel="stylesheet" href="/classifieds/style.css?v=20261102h">
+  <link rel="stylesheet" href="/classifieds/style.css?v=20261104a">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
-  <script src="/shared/visit.js?v=20261102h"></script>
+  <script src="/shared/visit.js?v=20261104a"></script>
   <script src="/shared/session.js?v=20261031a"></script>
   <script src="/shared/member.js?v=20261030c"></script>
-  <script src="/shared/preferences.js?v=20261030c"></script>
+  <script src="/shared/preferences.js?v=20261104a"></script>
   <script src="/shared/favorite-button.js?v=20261030c"></script>
 </head>
 <body>
@@ -32,10 +32,10 @@ for slug, title in [('', 'Free classifieds'), *CATEGORIES]:
     <div id="classifieds-host"></div>
     <noscript>Enable JavaScript, then create an account or sign in to use free classifieds.</noscript>
   </main>
-  <script src="/shell.js?v=20261102g"></script>
-  <script src="/classifieds/model.js?v=20261102h"></script>
-  <script src="/classifieds/client.js?v=20261102h"></script>
-  <script src="/classifieds/ui.js?v=20261102h"></script>
+  <script src="/shell.js?v=20261104a"></script>
+  <script src="/classifieds/model.js?v=20261104a"></script>
+  <script src="/classifieds/client.js?v=20261104a"></script>
+  <script src="/classifieds/ui.js?v=20261104a"></script>
   <script src="/classifieds/page.js?v=20261102h"></script>
 </body>
 </html>

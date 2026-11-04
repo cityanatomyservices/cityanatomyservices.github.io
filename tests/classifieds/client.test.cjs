@@ -30,3 +30,16 @@ test('server conflicts stay visible and allow a later retry',async()=>{
   await assert.rejects(p,/another window/);
   const next=h.api.save('free','Title','Body',2);h.calls[1].resolve({data:{revision:3}});await next;h.api.destroy();
 });
+test('browsing includes later pages before sorting and stops after a category change',async()=>{
+  const h=setup(),p=h.api.browse('community');
+  h.calls[0].resolve({data:{ads:[{id:'first'}],more:true,total:21}});
+  await new Promise(setImmediate);assert.deepEqual(h.calls[1].args,{p_category:'community',p_offset:20});
+  h.calls[1].resolve({data:{ads:[{id:'older'}],more:false,total:2}});assert.deepEqual((await p).ads.map(a=>a.id),['first','older']);
+  let current=true;const stale=h.api.browse('jobs',()=>current);current=false;
+  h.calls[2].resolve({data:{ads:[{id:'stale'}],more:true,total:30}});await assert.rejects(stale,e=>e.changed);assert.equal(h.calls.length,3);h.api.destroy();
+});
+test('sign-out during multi-page browsing aborts and discards private results',async()=>{
+  const h=setup(),p=h.api.browse('jobs');h.calls[0].resolve({data:{ads:[{id:'one'}],more:true,total:30}});
+  await new Promise(setImmediate);h.change(null);assert.ok(h.calls[1].signal.aborted);
+  h.calls[1].resolve({data:{ads:[{id:'private'}],more:false,total:30}});await assert.rejects(p,e=>e.changed);h.api.destroy();
+});

@@ -1,6 +1,4 @@
 /* Main map only; the other maps retain their current controls. */
-.stack .map-layers-control { gap: 0; align-content: center; font-size: 8px; line-height: 12px; }
-.map-layers-control svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .map-layers-panel { width: min(340px, calc(100% - 80px)); }
 .map-layers-group { display: grid; gap: 8px; border: 0; margin: 14px 0 0; padding: 0; min-width: 0; }
 .map-layers-group legend { padding: 0 0 8px; color: var(--muted); font-size: 11px; font-weight: 650; }
@@ -21,3 +19,13 @@
 .map-layer-sources { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
 .map-layers-panel .map-layer-sources summary { border: 0; padding: 4px 0; font-size: 11px; font-weight: 400; }
 .map-layers-panel .map-layer-sources a { padding: 6px 0; color: var(--muted); }
+.map-utilities[hidden] { display: none; }
+.map-utilities button svg { width: 19px; height: 19px; vertical-align: middle; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.map-utilities button.is-on { color: var(--accent); background: var(--finish-selected); }
+.map-utilities button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.map-layers-panel { left: 52px; right: auto; }
+:root[data-main-planner] .topleft { top: 180px; max-height: calc(100% - 192px); }
+@media (max-width: 520px) { .map-layers-panel { width: calc(100% - 120px); } }
+@media (max-width: 520px) {
+  :root[data-main-planner] #apps-panel { left: 52px; right: auto; width: calc(100% - 120px); }
+}

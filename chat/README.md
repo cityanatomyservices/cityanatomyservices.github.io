@@ -17,11 +17,15 @@ part of the same chat. One small file per job; nothing is abstract.
 | `catalog-menu.js` | the Apps and Media buttons and expandable categories, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
-The main map controls are Explore, Day Plan, Chat, City Hall, Classifieds, Apps, GPS and Map,
-in that order. [Free classifieds](../classifieds/README.md) opens a member-only
-category directory and the owner’s editable, text-only ad. Category links open
-separate pages; other map layouts retain their existing controls. [City Hall](city-hall/README.md) opens four cards for public
-meetings, city announcements, issued permits and recent site-plan applications.
+The main map's right column has **Explore, Day Plan, Chat and Apps**, in that
+order. GPS and Map are small square MapLibre controls under the zoom/compass on
+the left. Explore contains [City Hall](city-hall/README.md) and
+[Free classifieds](../classifieds/README.md) cards. Their category dropdowns,
+date sorting and listings stay inside Explore; the shared time-frame buttons,
+All dates and exact-date input apply to the selected card. City Hall retains its
+four categories, district/board/search filters, meeting planner selections and
+reminders. Classifieds retains the sign-in requirement, ad editing and category
+page links. Other map layouts retain their existing control columns.
 Its official city sources refresh every three hours through GitHub Actions.
 Map opens the Map layers panel, which groups the 3D-view and satellite toggles, Show map
 extent, and optional ZIP code/city council district boundaries. Its panel is
@@ -48,7 +52,7 @@ Zoom and compass use the same MapLibre control as the planner, positioned
 top left. Day Plan expands the full [planner editor](../planner/README.md) on
 this same map, including dated days, scheduling, routing and exports;
 Apps opens the catalog categories. Collapsing the editor keeps selected-day pins
-and routes visible; Explore/City Hall restore discovery. `/dayplan/` redirects
+and routes visible; Explore restores discovery. `/dayplan/` redirects
 to the main map with `?planner=1`, preserving existing bookmarks.
 The shared header opens the Google/email-code account dialog; the hamburger is removed. Opening one map panel closes the others.
 

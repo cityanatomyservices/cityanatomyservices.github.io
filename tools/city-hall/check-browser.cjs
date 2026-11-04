@@ -19,94 +19,57 @@ async function ready(page) {
   await frame.waitForFunction(() => window.chatMap && window.austinExplore && window.AustinCityHall?.close, {}, {timeout:45000});
   return frame;
 }
+async function openCity(f){
+  if(await f.locator('#explore-panel').isHidden())await f.locator('#ctrlExplore').click();
+  if(await f.locator('#city-hall-panel').isHidden())await f.locator('#ctrlCityHall').click();
+}
 (async () => { try {
-  const base = process.argv[2] || await serve();
-  browser = await chromium.launch({executablePath:process.env.CHROMIUM_PATH || path.join(os.homedir(),'.cache/ms-playwright/chromium-1234/chrome-linux64/chrome'), args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
-  for (const width of [1280,390]) {
-    const context = await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});
-    await context.route('https://*.supabase.co/**', route => route.fulfill({status:400,json:{message:'No production account access in this check'}}));
-    const page = await context.newPage(), errors = [], cityRequests = [];
-    page.setDefaultTimeout(30000); page.on('pageerror', e => errors.push(e.message));
-    page.on('request', r => { if (r.url().includes('/chat/data/city-hall.json')) cityRequests.push(r.url()); });
-    await page.goto(base); let f = await ready(page);
-    assert.deepEqual(await f.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)), ['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlCityHall','ctrlClassifieds','ctrlApps','ctrlLocate','ctrlMapLayers']);
-    assert.equal(cityRequests.length,0,'City Hall data loads only on opening');
-    // A failed request is explicit and retryable.
-    await context.route('**/chat/data/city-hall.json', route => route.fulfill({status:503,body:'Unavailable'}), {times:1});
-    await f.locator('#ctrlCityHall').click();
-    await f.locator('.city-hall-status').filter({hasText:'unavailable'}).waitFor();
-    await f.locator('.city-hall-retry').click();
-    await f.waitForFunction(()=>document.querySelector('[data-category=meetings] .explore-tile-count').textContent !== '');
-    assert.equal(await f.locator('.city-hall-tile').count(),4);
-    await f.locator('[data-category=meetings]').click();
-    const meetingCount = await f.locator('.city-hall-result').count(); assert.ok(meetingCount > 0);
-    const board = await f.locator('[data-filter=board] option').nth(1).getAttribute('value');
-    await f.locator('[data-filter=board]').selectOption(board);
-    assert.ok(await f.locator('.city-hall-result').count() > 0);
-    assert.ok((await f.locator('.city-hall-meta').allTextContents()).some(t=>t.includes(board)));
-    await f.locator('[data-filter=district]').selectOption('1');
-    assert.ok(await f.locator('.city-hall-result').count()>0,'Citywide meetings remain visible by district');
-    await f.locator('[data-filter=board]').selectOption('');
-    await f.locator('[data-filter=district]').selectOption('');
-    await f.locator('#city-hall-panel [data-filter=query]').fill('no such city meeting xyz');
-    assert.equal(await f.locator('.city-hall-result').count(),0);
-    await f.locator('#city-hall-panel [data-filter=query]').fill('');
-    assert.equal(await f.locator('.city-hall-result').count(),meetingCount);
-    const cityBounds = await f.locator('#city-hall-panel').boundingBox();
-    assert.ok(cityBounds.x>=0 && cityBounds.x+cityBounds.width<=width && cityBounds.height<900);
-    await page.screenshot({path:`/tmp/city-hall-meetings-${width}.png`});
-    for (const category of ['announcements','permits','development']) {
-      await f.locator(`[data-category=${category}]`).click();
-      assert.ok(await f.locator('.city-hall-result').count()>0,`${category} has city records`);
-      assert.equal(await f.locator('.city-hall-board').isHidden(),true);
-      for (const link of await f.locator('.city-hall-result a').evaluateAll(as=>as.map(a=>({url:a.href,target:a.target})))) {
-        assert.equal(link.target,'_blank'); assert.match(new URL(link.url).hostname,/(^|\.)austintexas\.gov$/);
-      }
-      if (category === 'permits') {
-        assert.equal(await f.locator('.city-hall-result').count(),30);
-        await f.locator('.city-hall-more').click(); assert.equal(await f.locator('.city-hall-result').count(),60);
-        await f.locator('[data-filter=district]').selectOption('1');
-        const meta = await f.locator('.city-hall-meta').allTextContents();
-        assert.ok(meta.some(t=>t.includes('District 1'))); assert.ok(!meta.some(t=>/District (?:[2-9]|10)(?: ·|$)/.test(t)));
-        await f.locator('[data-filter=district]').selectOption('');
-      }
+  const base=process.argv[2]||await serve(),dates=require('../../chat/explore/model.js'),today=dates.dayKey(Date.now());
+  const shift=n=>new Date(Date.parse(today+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
+  const instant=(n,h=12)=>new Date(dates.dateWindow({when:'date',date:shift(n)})[0]+h*3600000).toISOString();
+  const row=(id,category,n,extra={})=>({id,title:id,category,source:category,url:'https://www.austintexas.gov/events/'+id,date:instant(n),dateOnly:false,expires:new Date(Date.now()+86400000).toISOString(),scope:'citywide',districts:[],board:'City Council',...extra});
+  const records=[row('Tomorrow meeting','meetings',1),row('Later meeting','meetings',3),row('Unknown time meeting','meetings',1,{dateOnly:true,date:instant(1,0)}),row('Recent city news','announcements',-2),row('Older city news','announcements',-15),row('New site plan','development',-1),row('Older site plan','development',-20),...Array.from({length:65},(_,i)=>row('Permit '+String(i).padStart(2,'0'),'permits',-i%6,{dateOnly:true,scope:'district',districts:[String(i%2+1)]}))];
+  const snapshot={version:1,generated:new Date().toISOString(),records,sources:['meetings','announcements','permits','development'].map(id=>({id,category:id,title:id,url:'https://www.austintexas.gov/news',checked:new Date().toISOString(),ok:true}))};
+  browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+  for(const width of [1280,390]){
+    const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});
+    await context.route('https://*.supabase.co/**',r=>r.fulfill({status:400,json:{message:'Fixture: no production account access'}}));
+    let fail=true,expired=false,requests=0;
+    await context.route('**/chat/data/city-hall.json',r=>{requests++;if(fail){fail=false;return r.fulfill({status:503,body:'Unavailable'});}return r.fulfill({json:expired?{...snapshot,records:records.map(r=>({...r,expires:'2000-01-01T00:00:00Z'}))}:snapshot});});
+    const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
+    await page.goto(base);let f=await ready(page);
+    assert.deepEqual(await f.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps']);
+    assert.equal(requests,0);await openCity(f);await f.locator('.city-hall-status').filter({hasText:'unavailable'}).waitFor();await f.locator('.city-hall-retry').click();
+    await f.waitForFunction(()=>document.querySelectorAll('.city-hall-result').length===3);
+    assert.equal(await f.locator('#city-hall-panel [data-filter=category] option').count(),4);
+    await f.locator('[data-filter=board]').selectOption('City Council');await f.locator('[data-filter=district]').selectOption('1');assert.equal(await f.locator('.city-hall-result').count(),3);
+    await f.locator('[data-filter=board]').selectOption('');await f.locator('[data-filter=district]').selectOption('');
+    await f.locator('#city-hall-panel [data-filter=query]').fill('no such meeting');assert.equal(await f.locator('.city-hall-result').count(),0);await f.locator('#city-hall-panel [data-filter=query]').fill('');
+    await f.locator('[data-filter=date]').fill(shift(1));assert.equal(await f.locator('.city-hall-result').count(),2);
+    await f.locator('[data-when=week]').click();assert.equal(await f.locator('.city-hall-result').count(),3);assert.equal(await f.locator('[data-filter=date]').inputValue(),'');
+    await f.locator('#city-hall-panel [data-filter=category]').selectOption('announcements');assert.equal(await f.locator('.city-hall-result').count(),1);
+    await f.locator('[data-filter=when]').selectOption('all');assert.equal(await f.locator('.city-hall-result').count(),2);
+    await f.locator('#city-hall-panel [data-filter=sort]').selectOption('asc');assert.match(await f.locator('.city-hall-result').first().innerText(),/Older city news/);
+    await f.locator('#city-hall-panel [data-filter=sort]').selectOption('desc');assert.match(await f.locator('.city-hall-result').first().innerText(),/Recent city news/);
+    await f.locator('[data-filter=date]').fill(shift(-15));assert.equal(await f.locator('.city-hall-result').count(),1);assert.match(await f.locator('.city-hall-result').innerText(),/Older city news/);
+    await f.locator('[data-when=week]').click();
+    for(const category of ['permits','development']){
+      await f.locator('#city-hall-panel [data-filter=category]').selectOption(category);assert.ok(await f.locator('.city-hall-result').count()>0);assert.equal(await f.locator('.city-hall-board').isHidden(),true);
+      if(category==='permits'){assert.equal(await f.locator('.city-hall-result').count(),30);await f.locator('.city-hall-more').click();assert.equal(await f.locator('.city-hall-result').count(),60);await f.locator('[data-filter=district]').selectOption('1');assert.ok(!(await f.locator('.city-hall-meta').allTextContents()).some(t=>t.includes('District 2')));await f.locator('[data-filter=district]').selectOption('');}
     }
-    await f.locator('[data-category=meetings]').click();
-    await f.evaluate(()=>document.documentElement.dataset.theme='dark');
-    await page.screenshot({path:`/tmp/city-hall-dark-${width}.png`});
-    await f.locator('#city-hall-panel .explore-close').press('Escape');
-    assert.equal(await f.locator('#city-hall-panel').isHidden(),true);
-    assert.equal(await f.locator('#ctrlCityHall').evaluate(el=>el===document.activeElement),true);
-    for (const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','plan-panel'],['ctrlChat','legend'],['ctrlApps','apps-panel'],['ctrlMapLayers','map-layers-panel']]) {
-      await f.locator('#'+control).click();
-      // Phone panels cover the stack. Dispatch exercises the same capture and
-      // button listeners; the visible close buttons are checked separately.
-      await f.locator('#ctrlCityHall').dispatchEvent('click');
-      assert.equal(await f.locator('#'+panel).isHidden(),true);
-      assert.equal(await f.locator('#city-hall-panel').isVisible(),true);
-      await f.locator('#'+control).dispatchEvent('click');
-      assert.equal(await f.locator('#city-hall-panel').isHidden(),true);
-      assert.equal(await f.locator('#'+panel).isVisible(),true);
-      await f.locator('#'+control).dispatchEvent('click');
+    await f.locator('#city-hall-panel [data-filter=category]').selectOption('meetings');
+    for(const a of await f.locator('.city-hall-result a').evaluateAll(as=>as.map(a=>({url:a.href,target:a.target})))){assert.equal(a.target,'_blank');assert.equal(new URL(a.url).hostname,'www.austintexas.gov');}
+    const bounds=await f.locator('#explore-panel').boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width&&bounds.height<900);
+    await f.locator('.explore-scroll').evaluate(el=>el.scrollTop=0);await page.screenshot({path:'/tmp/city-hall-meetings-'+width+'.png'});
+    await f.evaluate(()=>document.documentElement.dataset.theme='dark');await page.screenshot({path:'/tmp/city-hall-dark-'+width+'.png'});
+    await f.locator('#explore-panel .explore-close').press('Escape');assert.equal(await f.locator('#city-hall-panel').isHidden(),true);assert.equal(await f.locator('#ctrlExplore').evaluate(el=>el===document.activeElement),true);
+    for(const [control,panel] of [['ctrlDayPlan','plan-panel'],['ctrlChat','legend'],['ctrlApps','apps-panel'],['ctrlMapLayers','map-layers-panel']]){
+      await openCity(f);await f.locator('#explore-panel .explore-close').click();await f.locator('#'+control).click();assert.equal(await f.locator('#'+panel).isVisible(),true);await openCity(f);assert.equal(await f.locator('#'+panel).isHidden(),true);
     }
-    await page.reload(); f = await ready(page);
-    assert.equal(await f.locator('#city-hall-panel').isHidden(),true);
-    await f.locator('#ctrlCityHall').click();
-    assert.equal(await f.locator('.city-hall-tile[aria-pressed=true]').count(),0);
-    // Expired meetings must never be advertised as current.
-    await f.locator('#city-hall-panel .explore-close').click();
-    const snapshot = JSON.parse(fs.readFileSync(path.join(root,'chat/data/city-hall.json')));
-    snapshot.records.forEach(r=>{r.expires='2000-01-01T00:00:00Z';});
-    await context.route('**/chat/data/city-hall.json',route=>route.fulfill({json:snapshot}),{times:1});
-    await page.reload(); f=await ready(page); await f.locator('#ctrlCityHall').click();
-    await f.waitForFunction(()=>document.querySelector('[data-category=meetings] .explore-tile-count').textContent==='0');
-    await f.locator('[data-category=meetings]').click();assert.equal(await f.locator('.city-hall-result').count(),0);
-    assert.deepEqual(errors,[]);
-    await page.goto(base+'/apps/austin-pizza/');
-    const catalog=await(await page.locator('#app-window').elementHandle()).contentFrame();await catalog.locator('[data-map-ui-ready=true]').waitFor();
-    assert.equal(await catalog.locator('#ctrlCityHall,#city-hall-panel').count(),0);
-    console.log(`${width}px: City Hall placement, lazy load/retry, four categories, filters, pagination, links, layout, exclusive panels, focus, refresh, expiration and catalog isolation passed.`);
-    await context.close();
+    await f.locator('#ctrlClassifieds').click();assert.equal(await f.locator('#city-hall-panel').isHidden(),true);assert.equal(await f.locator('#classifieds-panel').isVisible(),true);
+    await f.locator('#ctrlCityHall').click();assert.equal(await f.locator('#classifieds-panel').isHidden(),true);assert.equal(await f.locator('#city-hall-panel').isVisible(),true);
+    await f.locator('[data-layer=movies]').check();assert.equal(await f.locator('#city-hall-panel').isHidden(),true);assert.equal(await f.locator('.explore-event-content').isVisible(),true);
+    expired=true;await page.reload();f=await ready(page);assert.equal(await f.locator('#city-hall-panel').isHidden(),true);await openCity(f);await f.locator('.city-hall-status').filter({hasText:'0 upcoming meetings'}).waitFor();assert.equal(await f.locator('.city-hall-result').count(),0);
+    assert.deepEqual(errors,[]);await context.close();console.log(width+'px: City Hall inside Explore, dropdowns, date windows/sort, retries, pagination, safe links, focus, exclusivity, expired data and layout passed.');
   }
-} finally { if(browser)await browser.close(); if(server)await new Promise(resolve=>server.close(resolve)); }
-})().catch(e=>{console.error(e.stack);process.exitCode=1;});
+}finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

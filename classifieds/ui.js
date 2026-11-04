@@ -50,7 +50,8 @@
     else {content.append(node('p','Choose a category for your ad.'));const choices=node('div',null,'classifieds-choices');for(const c of M.categories){const b=button(c.title);b.onclick=()=>show(c.id);choices.append(b);}content.append(choices);}
     dialog.showModal();
   }
-  function mount(root,{category=null,active=()=>true}={}){
+  function mount(root,{category=null,active=()=>true,browse=false,time=()=>({when:'all'})}={}){
+    if(browse)category=M.categories[0].id;
     root.classList.add('classifieds-content');
     const guest=node('div',null,'classifieds-guest'),note=node('p','Create an account or sign in to use free classifieds.');
     const login=button('Create an account / sign in');login.onclick=signIn;guest.append(note,login);
@@ -59,10 +60,34 @@
     const actions=node('div',null,'classifieds-actions'),post=button('Post your free ad'),refresh=button('Refresh ads');post.className='classifieds-primary';actions.append(post,refresh);
     const status=node('p',null,'classifieds-status');status.setAttribute('role','status');
     const directory=node('div',null,'classifieds-categories'),mine=node('div'),ads=node('div',null,'classifieds-ads'),more=button('Show more ads');more.hidden=true;
-    member.append(intro,actions,status,directory,mine,ads,more);root.append(guest,member);
-    let data=null,offset=0,request=0,rows=[],loading=false,notice='';
+    const filters=node('fieldset',null,'explore-filters classifieds-filters'),categoryLabel=node('label','Classifieds category'),categorySelect=node('select'),sortLabel=node('label','Sort by date'),sortSelect=node('select'),dateNote=node('p',null,'classifieds-help');
+    categorySelect.dataset.classifiedsFilter='category';sortSelect.dataset.classifiedsFilter='sort';
+    categorySelect.setAttribute('aria-label','Classifieds category');sortSelect.setAttribute('aria-label','Sort by date');
+    for(const c of M.categories)categorySelect.add(new Option(c.title,c.id));categorySelect.value=category;
+    sortSelect.add(new Option('Newest first','desc'));sortSelect.add(new Option('Oldest first','asc'));
+    categoryLabel.append(categorySelect);sortLabel.append(sortSelect);filters.append(categoryLabel,sortLabel);filters.hidden=!browse;dateNote.hidden=!browse;
+    member.append(filters,dateNote,intro,actions,status,directory,mine,ads,more);root.append(guest,member);
+    let data=null,offset=0,request=0,rows=[],loading=false,notice='',limit=20;
     function auth(){guest.hidden=C.registered;member.hidden=!C.registered;}
-    function clear(){request++;data=null;rows=[];offset=0;loading=false;directory.replaceChildren();mine.replaceChildren();ads.replaceChildren();more.hidden=true;status.textContent='';post.hidden=true;if(dialog.open)dialog.close();auth();}
+    function clear(){request++;data=null;rows=[];offset=0;limit=20;loading=false;directory.replaceChildren();mine.replaceChildren();ads.replaceChildren();more.hidden=true;status.textContent='';post.hidden=true;for(const option of categorySelect.options)option.textContent=categoryTitle(option.value);if(dialog.open)dialog.close();auth();}
+    function renderAds(){
+      ads.replaceChildren();
+      let visible=rows;
+      if(browse){
+        const value=time(),[first,last]=window.ExploreModel.dateWindow(value,Date.now(),true);
+        visible=M.filter(rows,{first,last,sort:sortSelect.value});
+        dateNote.textContent=value.when==='week'?'Posted in the past 7 days.':value.when==='now'?'Posted in the past two hours.':value.when==='all'?'All posting dates.':value.when==='date'?'Posted on '+value.date+'.':'Posting dates use the time frame above, in Austin time.';
+        status.textContent=notice||`${visible.length} matching ${visible.length===1?'ad':'ads'} in ${categoryTitle(category)}${data.truncated?' · This category exceeds the browsing limit; only the newest 10,020 ads are available.':''}`;notice='';
+      }
+      if(category){
+        if(!visible.length)ads.append(node('p',browse?'No ads match this category and date. Try All dates or another category.':'No ads in this category yet.'));
+        for(const ad of (browse?visible.slice(0,limit):visible).filter(ad=>!ad.mine)){
+          const article=node('article',null,'classifieds-ad'),posted=node('time',date(ad.created_at));posted.dateTime=ad.created_at;
+          article.append(node('h2',ad.title),node('p',ad.body),posted);ads.append(article);
+        }
+      }
+      more.hidden=browse?visible.length<=limit:!category||!data.more;
+    }
     function render(){
       auth();directory.replaceChildren();mine.replaceChildren();ads.replaceChildren();
       post.hidden=!!data.mine;
@@ -70,31 +95,32 @@
         if(!category||data.mine.category===category)mine.append(form(data.mine,data.mine.category));
         else mine.append(link('Edit your ad in '+categoryTitle(data.mine.category),data.mine.category));
       }
-      if(!category){
+      if(browse){
+        for(const option of categorySelect.options){const c=data.categories.find(c=>c.id===option.value);option.textContent=categoryTitle(option.value)+(c?` (${c.count})`:'');}
+        directory.append(link('Open '+categoryTitle(category)+' page ↗',category));
+      }else if(!category){
         directory.append(node('h3','Browse categories'));
         const list=node('ul');for(const c of data.categories){const item=node('li'),a=link(c.title,c.id);a.append(node('span',`${c.count} ${c.count===1?'ad':'ads'}`));item.append(a);list.append(item);}directory.append(list);
-      }else{
-        const shown=rows.filter(ad=>!ad.mine);
-        if(!rows.length)ads.append(node('p','No ads in this category yet.'));
-        for(const ad of shown){const article=node('article',null,'classifieds-ad');article.append(node('h2',ad.title),node('p',ad.body),node('time',date(ad.created_at)));ads.append(article);}
       }
-      more.hidden=!category||!data.more;
+      renderAds();
     }
     async function load(append=false){
       const run=++request;if(!C.registered){clear();return;}auth();loading=true;refresh.disabled=true;more.disabled=true;post.disabled=true;status.textContent='Loading classifieds…';
       try{
-        const nextOffset=append?offset+20:0,result=await C.read(category,nextOffset);
+        const nextOffset=append?offset+20:0,result=await (browse?C.browse(category,()=>run===request):C.read(category,nextOffset));
         if(run!==request||!C.registered)return;
         data=result;offset=nextOffset;rows=append?[...rows,...result.ads.filter(a=>!rows.some(r=>r.id===a.id))]:result.ads;render();
-        status.textContent=notice||(category?`${result.total} ${result.total===1?'ad':'ads'} in ${categoryTitle(category)}`:'');notice='';
+        if(!browse){status.textContent=notice||(category?`${result.total} ${result.total===1?'ad':'ads'} in ${categoryTitle(category)}`:'');notice='';}
       }catch(e){if(run===request&&!e.changed)status.textContent=e.message;}
       finally{if(run===request){loading=false;refresh.disabled=false;more.disabled=false;post.disabled=!data;}}
     }
-    post.onclick=()=>compose(category);refresh.onclick=()=>load();more.onclick=()=>{if(!loading)load(true);};
+    post.onclick=()=>compose(browse?null:category);refresh.onclick=()=>{limit=20;load();};more.onclick=()=>{if(!loading){if(browse){limit+=20;renderAds();}else load(true);}};
+    categorySelect.onchange=()=>{category=categorySelect.value;limit=20;rows=[];ads.replaceChildren();directory.replaceChildren();mine.replaceChildren();more.hidden=true;load();};
+    sortSelect.onchange=()=>{limit=20;if(data)renderAds();};
     const unsub=C.subscribe(event=>{if(event.type==='identity'){clear();if(active()&&C.registered)load();}else if(active()){notice=event.message||'';load();}else clear();});
     const ready=C.ready().then(()=>{auth();if(active()&&C.registered)load();}).catch(()=>{status.textContent='Account unavailable. Try signing in again.';});
     window.addEventListener('pagehide',()=>{unsub();clear();},{once:true});
-    return {refresh:async()=>{await ready;if(C.registered)load();else auth();},clear};
+    return {refresh:async()=>{await ready;if(C.registered){if(!data&&!loading)load();else if(data&&browse&&!loading)renderAds();}else auth();},setTime:()=>{limit=20;if(data&&browse&&!loading)renderAds();},clear};
   }
   C.subscribe(event=>{if(event.type==='identity'&&dialog.open)dialog.close();});
   window.addEventListener('pagehide',()=>C.destroy(),{once:true});

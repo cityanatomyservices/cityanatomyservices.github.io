@@ -11,12 +11,12 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
 async function frame(page){const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.AustinClassifieds&&window.chatMap&&window.austinExplore);return f;}
 (async()=>{try{
  const base=process.argv[2]||await serve();
- browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||path.join(os.homedir(),'.cache/ms-playwright/chromium-1234/chrome-linux64/chrome'),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  for(const width of [1280,390])for(const member of [false,true]){
   const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500}),active=session(member),guest=session(false),calls=[],errors=[];
   let own=null,loggedOut=false,holdRead=false,releaseRead;
   const other=(category,title,body='A note written by another member.')=>({id:crypto.randomUUID(),category,title,body,created_at:new Date().toISOString(),updated_at:new Date().toISOString(),mine:false,revision:null});
-  const others=[other('for-sale','<img src=x onerror=alert(1)>','Email chosen@example.invalid if interested.'),other('services','Help with gardening'),...Array.from({length:22},(_,i)=>other('community','Community note '+(i+1)))];
+  const others=[other('for-sale','<img src=x onerror=alert(1)>','Email chosen@example.invalid if interested.'),other('services','Help with gardening'),...Array.from({length:22},(_,i)=>({...other('community','Community note '+(i+1)),created_at:new Date(Date.now()-i*86400000).toISOString()}))];
   await context.addInitScript(({active,member})=>{if(member&&window===window.top&&!sessionStorage.getItem('classifieds-fixture')){sessionStorage.setItem('classifieds-fixture','1');localStorage.setItem('sb-aqbyxpiwugcvoephsvpm-auth-token',JSON.stringify(active));}},{active,member});
   await context.route('https://*.supabase.co/**',async route=>{
    const p=new URL(route.request().url()).pathname,body=route.request().postDataJSON();
@@ -44,7 +44,7 @@ async function frame(page){const f=await(await page.locator('#app-window').eleme
    return route.fulfill({status:400,json:{message:'No production requests in this test.'}});
   });
   const page=await context.newPage();page.setDefaultTimeout(30000);page.on('pageerror',e=>{errors.push(e.message);console.error(e.stack);});page.on('dialog',d=>d.accept());
-  await page.goto(base+'/');let f=await frame(page);await f.locator('#ctrlClassifieds').click();
+  await page.goto(base+'/');let f=await frame(page);await f.locator('#ctrlExplore').click();await f.locator('#ctrlClassifieds').click();
   const panel=f.locator('#classifieds-panel');await panel.waitFor();
   if(!member){
    assert.match(await panel.innerText(),/Create an account or sign in/);assert.equal(await panel.locator('.classifieds-categories a:visible').count(),0);assert.equal(calls.length,0);
@@ -52,18 +52,32 @@ async function frame(page){const f=await(await page.locator('#app-window').eleme
    await page.goto(base+'/classifieds/for-sale/');await page.locator('.classifieds-guest').waitFor();assert.equal(await page.locator('.classifieds-ad').count(),0);assert.equal(calls.length,0);
    await page.screenshot({path:`/tmp/classifieds-guest-${width}.png`});
   }else{
-   await panel.locator('.classifieds-categories a').first().waitFor();assert.equal(await panel.locator('.classifieds-categories a').count(),8);
-   assert.match(await panel.getByRole('link',{name:/For Sale/}).innerText(),/1 ad/);
+   await panel.locator('.classifieds-categories a').first().waitFor();assert.equal(await panel.locator('[data-classifieds-filter=category] option').count(),8);
+   assert.match(await panel.locator('[data-classifieds-filter=category] option[value=for-sale]').innerText(),/\(1\)/);
    await panel.getByRole('button',{name:'Post your free ad',exact:true}).click();const dialog=f.locator('.classifieds-dialog');await dialog.getByRole('button',{name:'For Sale',exact:true}).click();
    assert.equal(await dialog.locator('input,textarea,select').count(),2);assert.equal(await dialog.locator('input[type=email],input[type=file]').count(),0);
    await dialog.getByLabel('Title',{exact:true}).fill('My desk');await dialog.getByLabel('Paragraph',{exact:true}).fill('A useful desk. Write to chosen@example.invalid or call (512) 555-0123. Pickup at 123 Main Street.');
    await dialog.getByRole('button',{name:'Post free ad',exact:true}).click();await dialog.waitFor({state:'hidden'});await panel.locator('.classifieds-editor').waitFor();
    assert.equal(await panel.getByLabel('Title',{exact:true}).inputValue(),'My desk');assert.equal(await panel.getByRole('button',{name:'Post your free ad',exact:true}).isVisible(),false);
-   assert.match(await panel.getByRole('link',{name:/For Sale/}).innerText(),/2 ads/);
+   assert.match(await panel.locator('[data-classifieds-filter=category] option[value=for-sale]').innerText(),/\(2\)/);
    assert.ok(!await panel.innerText().then(t=>t.includes('private-account@example.invalid')));
+   // Date sorting must include records beyond the API's first page.
+   await panel.getByLabel('Classifieds category',{exact:true}).selectOption('community');
+   await f.locator('[data-filter=when]').selectOption('all');
+   await panel.locator('.classifieds-status').filter({hasText:'22 matching ads'}).waitFor();
+   await panel.getByLabel('Sort by date',{exact:true}).selectOption('asc');
+   assert.equal(await panel.locator('.classifieds-ad h2').first().textContent(),'Community note 22');
+   await panel.getByLabel('Sort by date',{exact:true}).selectOption('desc');
+   assert.equal(await panel.locator('.classifieds-ad h2').first().textContent(),'Community note 1');
+   await panel.getByRole('button',{name:'Show more ads',exact:true}).click();assert.equal(await panel.locator('.classifieds-ad').count(),22);
+   const oldDate=await f.evaluate(value=>ExploreModel.dayKey(value),others.at(-1).created_at);
+   await f.locator('[data-filter=date]').fill(oldDate);assert.equal(await panel.locator('.classifieds-ad').count(),1);assert.equal(await panel.locator('.classifieds-ad h2').textContent(),'Community note 22');
+   await f.locator('[data-when=week]').click();assert.equal(await panel.locator('.classifieds-ad').count(),7);
+   await panel.getByLabel('Classifieds category',{exact:true}).selectOption('for-sale');await panel.locator('.classifieds-editor').waitFor();
+   await panel.getByLabel('Title',{exact:true}).fill('Unsaved draft');await f.locator('[data-filter=when]').selectOption('all');assert.equal(await panel.getByLabel('Title',{exact:true}).inputValue(),'Unsaved draft');
    await panel.evaluate(p=>p.scrollTop=0);await page.screenshot({path:`/tmp/classifieds-panel-${width}.png`});
    // Programmatic planner opening also closes classifieds on the same map.
-   await f.evaluate(()=>PlanPanel.open());assert.equal(await panel.isVisible(),false);await f.locator('#plan-panel-close').click();await f.locator('#ctrlClassifieds').click();assert.equal(await f.evaluate(()=>PlanPanel.active),false);
+   await f.evaluate(()=>PlanPanel.open());assert.equal(await panel.isVisible(),false);await f.locator('#plan-panel-close').click();await f.locator('#ctrlExplore').click();if(await f.locator('#ctrlClassifieds').getAttribute('aria-expanded')!=='true')await f.locator('#ctrlClassifieds').click();assert.equal(await f.evaluate(()=>PlanPanel.active),false);
    await panel.getByRole('link',{name:/For Sale/}).click();await page.waitForURL(base+'/classifieds/for-sale/');await page.locator('.classifieds-editor').waitFor();
    assert.equal(await page.locator('.classifieds-ad').count(),1);assert.equal(await page.locator('.classifieds-ad input,.classifieds-ad textarea,.classifieds-ad img').count(),0);assert.equal(await page.locator('.classifieds-ad h2').textContent(),'<img src=x onerror=alert(1)>');
    assert.equal(await page.getByLabel('Title',{exact:true}).inputValue(),'My desk');
@@ -84,4 +98,4 @@ async function frame(page){const f=await(await page.locator('#app-window').eleme
   }
   assert.deepEqual(errors,[]);await context.close();console.log(`${width}px ${member?'member':'guest'}: classifieds visibility, account boundaries and ${member?'create/edit/delete, category counts/pages, text-only rendering, pagination, conflicts and sign-out':'sign-in prompt and direct-page gate'} passed.`);
  }
-}finally{if(browser)await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}})().catch(e=>{console.error(e.stack);process.exitCode=1;});
+}finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

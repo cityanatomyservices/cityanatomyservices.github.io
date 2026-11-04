@@ -36,13 +36,8 @@
 .classifieds-page h1 { font-size:clamp(26px,5vw,38px); line-height:1.2; margin:18px 0; }
 .classifieds-page nav { display:flex; flex-wrap:wrap; gap:16px; font-size:13px; }
 .classifieds-page nav a { color:var(--accent); }
-#classifieds-panel { width:min(410px,calc(100% - 80px)); }
-.stack .classifieds-control { font-size:7px; line-height:11px; align-content:center; gap:0; }
-.classifieds-control svg { fill:none; stroke:currentColor; stroke-width:1.7; }
 @media(max-width:520px) {
-  #classifieds-panel { top:64px; right:12px; width:calc(100% - 24px); max-height:calc(100% - 76px); }
   .classifieds-editor { padding:12px; }
   .classifieds-dialog { padding:16px; }
 }
 .classifieds-editor input,.classifieds-editor textarea { font-weight:400; }
-#classifieds-panel > .catalog-heading { position:sticky; top:-12px; margin:-12px -12px 10px; padding:12px; background:var(--surface); z-index:2; }

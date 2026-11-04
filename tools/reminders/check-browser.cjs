@@ -15,7 +15,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   const movie=feature('Test movie',{kind:'movie',price:null,tags:['dine-in'],showtimes:[{start:at(60),url:'https://example.invalid/first'},{start:at(62),url:'https://example.invalid/second'}],start:at(60),end:at(64)});
   const meeting=(id,dateOnly=false)=>({id,title:id,category:'meetings',source:'fixture',url:'https://www.austintexas.gov/events/'+id.replaceAll(' ','-'),date:at(72),dateOnly,expires:at(24),scope:'citywide',districts:[],board:'Fixture Board',location:'Austin City Hall'});
   const meetings=[meeting('Council meeting'),meeting('Time pending',true)],events=[...features,...[movie]].flatMap(f=>M.occurrences('explore',f)).concat(meetings.flatMap(r=>M.occurrences('city-hall',r)));
-  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||path.join(os.homedir(),'.cache/ms-playwright/chromium-1234/chrome-linux64/chrome'),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+  browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   for(const width of [1280,390]){
     const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500}),active=session(true),guest=session(false);
     let rows=[],enabled=true,subscriptions=0,holdStatus=false,releaseStatus=null,failNext=false,cancellations=0;
@@ -59,7 +59,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
     assert.equal(subscriptions,1);assert.match(await result('Timed event').innerText(),/24 hours before and 2 hours before/);
     await result('Timed event').locator('.explore-result').click();await f.locator('.explore-popup .email-reminder input').waitFor();assert.equal(await f.locator('.explore-popup .email-reminder input').isChecked(),true);
     await f.locator('.maplibregl-popup-close-button').click();
-    if(await f.locator('#explore-panel .explore-close').isVisible())await f.locator('#explore-panel .explore-close').click();await f.locator('#ctrlCityHall').click();await f.locator('[data-category=meetings]').click();
+    if(await f.locator('#explore-panel').isHidden())await f.locator('#ctrlExplore').click();await f.locator('#ctrlCityHall').click();await f.locator('#city-hall-panel [data-filter=category]').selectOption('meetings');
     await f.locator('#city-hall-list .email-reminder input').check();assert.equal(await f.locator('#city-hall-list .email-reminder input').count(),1);
     await f.waitForFunction(()=>AustinReminderStore.state.reminders.length===2);
     await page.getByRole('button',{name:'Account',exact:true}).click();await page.locator('[data-member-tab=reminders]').click();
@@ -68,7 +68,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
     await page.screenshot({path:`/tmp/reminder-account-${width}.png`});
     await page.locator('#member-reminders').getByRole('button',{name:'Cancel all reminders',exact:true}).click();await page.waitForFunction(()=>AustinReminderStore.state.reminders.length===0);
     await page.locator('.account-close').click();assert.equal(await f.locator('#city-hall-list .email-reminder input').isChecked(),false);
-    await f.locator('#city-hall-panel .explore-close').click();await f.locator('#ctrlExplore').click();
+    await f.locator('#explore-panel .explore-close').click();await f.locator('#ctrlExplore').click();await f.locator('#ctrlCityHall').click();
     failNext=true;await timed.click();await result('Timed event').getByText('Try again later.').waitFor();assert.equal(await timed.isChecked(),false,'Failed saves roll back the checkbox');
     await f.locator('[data-layer=movies]').check();await f.locator('#explore-panel .email-reminder select').waitFor();
     const movieRow=result('Test movie'),selector=movieRow.locator('.email-reminder select'),check=movieRow.locator('.email-reminder input');
@@ -88,4 +88,4 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
     assert.deepEqual(errors,[]);await context.close();
     console.log(`${width}px: timed-only controls, late cutoff, popup sync, City Hall, account cancellation, independent movie showtimes, provider readiness and sign-out privacy passed.`);
   }
-}finally{if(browser)await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}})().catch(e=>{console.error(e.stack);process.exitCode=1;});
+}finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

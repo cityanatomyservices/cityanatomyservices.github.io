@@ -128,13 +128,17 @@
     map.on('resize', () => { limitZoom(); keepInView(); });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
     map.addControl(new maplibregl.NavigationControl(), 'top-left');
+    map.addControl({
+      onAdd() { const controls = $('map-utilities'); controls.hidden = false; return controls; },
+      onRemove() { $('map-utilities')?.remove(); }
+    }, 'top-left');
     const attribution = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
     if (attribution) {                 // start with only the info button, not the open strip
       attribution.classList.remove('maplibregl-compact-show');
       attribution.removeAttribute('open');
     }
 
-    // GPS stays in the stack; display controls live in the Map layers panel.
+    // GPS and Map use the same small control group as the navigation buttons.
     $('ctrlLocate').title = COPY.ui.locate;
     $('ctrlLocate').setAttribute('aria-label', 'GPS: ' + COPY.ui.locate);
     $('ctrlSatellite').title = COPY.ui.satellite;
@@ -362,7 +366,6 @@
       // the map object, so it can be poked at from the browser console
       window.chatMap = map;
       window.AustinMapLayers.init(map);
-      window.AustinCityHall.init();
       window.PlanMap.attach(map);
       window.AustinExplore.init(map);
     });

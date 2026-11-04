@@ -8,5 +8,9 @@
     if(!clean(body)||clean(body).length>1000)return 'Use a paragraph of 1–1,000 characters.';
     return '';
   }
-  return {categories,clean,validate};
+  function filter(ads, { first = -Infinity, last = Infinity, sort = 'desc' } = {}) {
+    return ads.filter(ad => { const date = Date.parse(ad.created_at); return Number.isFinite(date) && date >= first && date < last; })
+      .sort((a,b) => (Date.parse(a.created_at) - Date.parse(b.created_at) || a.id.localeCompare(b.id)) * (sort === 'asc' ? 1 : -1));
+  }
+  return {categories,clean,validate,filter};
 });

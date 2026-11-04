@@ -27,7 +27,12 @@
     }
     return [today, today + 6];
   }
-  function timeWindow(when, now) {
+  function timeWindow(when, now, date) {
+    if (when === 'all') return [-Infinity, Infinity];
+    if (when === 'date' && /^\d{4}-\d{2}-\d{2}$/.test(date || '')) {
+      const day = Date.parse(date + 'T00:00:00Z') / 86400000;
+      if (Number.isFinite(day)) return [austinInstant(day), austinInstant(day + 1)];
+    }
     if (when === 'now') return [now, now + 2 * 3600000];
     if (when === 'tonight') {
       let day = dayNumber(now);
@@ -37,6 +42,13 @@
     }
     const [first,last] = windowDays(when,now);
     return [austinInstant(first), austinInstant(last+1)];
+  }
+  // Posts look back; scheduled activities look ahead. Exact dates and the
+  // named evening/weekend use the same Austin calendar boundaries for both.
+  function dateWindow({ when = 'all', date = '' } = {}, now = Date.now(), past = false) {
+    if (past && when === 'week') return [austinInstant(dayNumber(now) - 6), austinInstant(dayNumber(now) + 1)];
+    if (past && when === 'now') return [now - 2 * 3600000, now + 1];
+    return timeWindow(when, now, date);
   }
   function miles(a, b) {
     const r = Math.PI / 180;
@@ -57,7 +69,7 @@
       && Date.parse(p.end) > now && Date.parse(p.expires) > now;
   }
   function filter(features, options, now = Date.now()) {
-    const [first, last] = timeWindow(options.when, now);
+    const [first, last] = timeWindow(options.when, now, options.date);
     return features.map(f => {
       if (f?.properties?.kind !== 'movie' || !Array.isArray(f.properties.showtimes)) return f;
       const showtimes = f.properties.showtimes.filter(s => Date.parse(s?.start) > now && Date.parse(s.start) >= first && Date.parse(s.start) < last);
@@ -104,7 +116,7 @@
     }
     return { type: 'FeatureCollection', features: [...groups.values()] };
   }
-  const api = { dayKey, windowDays, timeWindow, miles, valid, filter, venues };
+  const api = { dayKey, windowDays, timeWindow, dateWindow, miles, valid, filter, venues };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.ExploreModel = api;
 })(typeof window === 'undefined' ? globalThis : window);

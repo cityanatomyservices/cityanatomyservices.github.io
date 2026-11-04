@@ -25,9 +25,23 @@
     const id=identity();writing=true;
     return track((async()=>{try{const data=await call(name,{p_owner_id:id,...args});notify({type:'saved',message:name==='classifieds_delete'?'Your ad was deleted.':'Your ad was saved.'});return data;}finally{writing=false;}})());
   }
+  async function browse(category, current = () => true) {
+    // Read the whole chosen category before sorting/filtering: an old ad on
+    // page two must still appear. Uses the existing member-only paginated API.
+    const version = epoch, id = identity();
+    let offset = 0, rows = [], result;
+    do {
+      if (!current() || version !== epoch || id !== identity()) throw changed();
+      result = await call('classifieds_read', { p_category: category, p_offset: offset });
+      if (!current() || version !== epoch || id !== identity()) throw changed();
+      rows.push(...result.ads); offset += 20;
+    } while (result.more && offset <= 10000);
+    return { ...result, ads: [...new Map(rows.map(ad => [ad.id, ad])).values()], truncated: result.total > rows.length };
+  }
   return {
     ready,get registered(){return !!identity();},
     read:(category=null,offset=0)=>call('classifieds_read',{p_category:category,p_offset:offset}),
+    browse,
     save:(category,title,body,revision=0,id=null)=>write('classifieds_save',{p_category:category,p_title:title,p_body:body,p_expected_revision:revision,p_expected_id:id}),
     remove:(revision,id)=>write('classifieds_delete',{p_expected_revision:revision,p_expected_id:id}),
     subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn);},

@@ -1,5 +1,48 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-04 — Explore organization and category map icons
+
+Owner requested four main-map controls on the right: Explore, Day Plan, Chat
+and Apps. City Hall and Classifieds now live as cards inside Explore. GPS and
+Map are native-size square controls under zoom/compass on the left; Map opens
+the existing layers/view/extent box. The chat and phone Apps panels leave the
+left controls accessible. Other maps retain their control columns.
+
+City Hall uses a dropdown for its four existing categories, retains district,
+board and search filters, and adds date sorting. Classifieds has its eight
+categories with counts, newest/oldest sorting, and the existing member-only
+ad controls and standalone links. Explore's time buttons, All dates and exact
+On date input apply to both sections. Owner confirmed past seven days for
+published posts and upcoming seven for meetings/events. Zoning notices use
+their hearing date; date-only records match their Austin calendar day.
+Filtering and sorting preserve unsaved ad drafts. Member date choices sync
+with Explore preferences; guest/reset behavior remains intact.
+
+Owner then requested category icons in place of Explore dots. Individual
+markers now reuse each card's SVG paths and color, with a white outline for
+legibility. Cluster numbers and co-located-event counts/popups remain; images
+and symbols recover after a style reload. City Hall/Classifieds retain their
+list-only behavior. No backend migrations or production-account writes.
+
+Classifieds sorting reads all existing RPC pages for the selected category
+before filtering locally, then displays 20 matches at a time. Account/category
+changes discard late results. The API's existing 10,020-ad limit is surfaced
+if reached. New test coverage includes older ads beyond the first server page,
+exact dates, daylight-saving changes and multi-page account races.
+
+Validation: all 104 planner/reminder/classifieds unit tests, Explore and
+City Hall model suites, JS syntax and diff checks pass. Desktop/phone fixture
+browsers pass City Hall filters, Classifieds CRUD/date sorting/drafts/sign-out,
+map layers and catalog isolation, all six rendered icons, meeting planning,
+and email reminders. The full main-map planner regression passes for guests and
+members at both widths, including GPS, rendered routes, late responses, day
+switching, browser history, refresh and sign-out. Screenshots reviewed.
+Deployment verification is pending.
+
+Changed assets and their HTML/template/dynamic-loader references use
+`20261104a`. Browser checks now find installed Chromium on Windows or Linux
+through `tools/browser.cjs`, retaining the `CHROMIUM_PATH` override.
+
 
 ## 2026-11-02 — Self-managed free classifieds
 

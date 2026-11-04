@@ -7,7 +7,7 @@
     if(key==='theme')return value==='dark'?'dark':'light';
     if(key==='navigation')return ['google','apple','waze'].includes(value)?value:'google';
     if(!value||typeof value!=='object'||Array.isArray(value))return {};
-    if(key==='explore')return Object.fromEntries(['enabled','when','price','kind','movieType'].filter(k=>value[k]!==undefined).map(k=>[k,value[k]]));
+    if(key==='explore')return Object.fromEntries(['enabled','when','date','price','kind','movieType'].filter(k=>value[k]!==undefined).map(k=>[k,value[k]]));
     return JSON.parse(JSON.stringify(value));
   }
   function apply(key,value) {

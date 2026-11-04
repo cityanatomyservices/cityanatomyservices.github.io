@@ -2,7 +2,10 @@
 
 The main page loads the chat map. Its **Explore** button (top right) opens a
 tile menu with Free & cheap, Movies, Live Music, Live Comedy, Pop up markets,
-and Events & Festivals. Guests start with every category off. Their layer
+and Events & Festivals. The home map also has City Hall and Classifieds cards,
+which display their lists and category dropdowns inside this same panel. Opening
+one hides the other list; selecting an event card returns to the event list.
+Existing event-layer choices remain intact. Guests start with every category off. Their layer
 choices and filters last only for the current page visit, including navigation
 between framed maps; refreshing, reopening or signing out clears them. Old
 browser settings and another tab's saved categories cannot restore guest pins.
@@ -13,6 +16,26 @@ Festivals card enables the combined card; saved Parks selections are discarded.
 Nothing in Explore changes chat
 identity, rooms, visibility or presence. Near me requests a location only when
 selected, keeps coordinates in memory and does not send them to the server.
+
+Individual map markers use the exact icon paths and colors from their category
+cards: price tag, clapperboard, music note, microphone, shopping bag and ticket.
+A white outline keeps them readable over either basemap. Numbered clusters remain;
+multiple listings at one venue show a small count beside the icon and share a popup.
+Icon images are recreated after a base-style reload. City Hall and Classifieds
+retain their list-only behavior and do not invent locations or pins.
+
+On the home map, the date row adds **All dates** and **On date**. Exact dates use
+the full Austin calendar day, including daylight-saving changes. The owner chose
+past seven days for classifieds/issued permits/city news/site-plan filings, and
+upcoming seven days for events/meetings. Now looks back two hours for posts and
+ahead two hours for scheduled starts. Tonight and Weekend keep the named Austin
+date windows. Zoning notices use the hearing date. Source retention and expiry
+still apply; All dates means all available records. Category/sort choices stay
+local to each section. A member's selected date syncs with their other Explore
+display preferences; guest choices still reset on refresh/sign-out.
+
+`node tools/explore/check-icons.cjs [site URL]` verifies all six rendered icons,
+shared-venue popups, desktop/phone and satellite/dark views, and style reloads.
 
 The day planner initializes Explore with `{mapMarkers:false}`. Its categories,
 filters and selection checkboxes still work, with listing details expanded

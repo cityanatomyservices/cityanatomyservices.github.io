@@ -54,7 +54,7 @@
   ticker.setAttribute('aria-label', 'Austin news, weather and events');
   document.querySelector('.home-footer').before(ticker);
   const tickerScript = document.createElement('script');
-  tickerScript.src = '/ticker/ticker.js?v=20261030c';
+  tickerScript.src = '/ticker/ticker.js?v=20261104a';
   document.body.append(tickerScript);
 
   // ── the day / night button ───────────────────────────────────────────────

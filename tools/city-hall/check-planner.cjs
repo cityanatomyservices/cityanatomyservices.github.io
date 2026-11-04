@@ -23,7 +23,7 @@ async function frame(page,home=false){
   const meeting=(id,title,time,dateOnly=false)=>({id,title,category:'meetings',source:'fixture',url:`https://www.austintexas.gov/events/${id}`,date:M.instant(`${future}T${time}`),dateOnly,expires:new Date(now+86400000).toISOString(),scope:'citywide',districts:[],board:'Fixture Board',location:'Austin City Hall · 301 W. 2nd Street'});
   const rows=[meeting('first','Future council meeting','10:00'),meeting('second','Future board meeting','10:30'),meeting('tba','Meeting awaiting a time','00:00',true)];
   const snapshot={version:1,generated:new Date(now).toISOString(),sources:[{id:'fixture',title:'City calendar fixture',url:'https://www.austintexas.gov/boards-commissions/events',category:'meetings',checked:new Date(now).toISOString(),ok:true}],records:rows};
-  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||path.join(os.homedir(),'.cache/ms-playwright/chromium-1234/chrome-linux64/chrome'),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+  browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   for(const width of [1280,390]){
     const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});
     await context.route('https://*.supabase.co/**',route=>route.fulfill({status:400,json:{message:'No production account requests in this check'}}));
@@ -36,7 +36,7 @@ async function frame(page,home=false){
       await PlanStore.edit(p=>{p.items[0].schedule.note='Keep my current day';p.items[0].schedule.duration=25;});
     },today);
     const original=await f.evaluate(()=>PlanStore.plan.items);
-    await f.locator('#ctrlCityHall').click();if(await f.locator('[data-category=meetings]').getAttribute('aria-pressed')!=='true')await f.locator('[data-category=meetings]').click();
+    await f.locator('#ctrlExplore').click();if(await f.locator('#ctrlCityHall').getAttribute('aria-expanded')!=='true')await f.locator('#ctrlCityHall').click();await f.locator('#city-hall-panel [data-filter=category]').selectOption('meetings');
     const first=()=>f.getByRole('checkbox',{name:'Add Future council meeting to Day Planner',exact:true});
     const second=()=>f.getByRole('checkbox',{name:'Add Future board meeting to Day Planner',exact:true});
     const tba=()=>f.getByRole('checkbox',{name:'Add Meeting awaiting a time to Day Planner',exact:true});
@@ -45,7 +45,7 @@ async function frame(page,home=false){
     await second().check();await tba().check();
     await f.waitForFunction(()=>PlanStore.plan.items.length===3);
     assert.equal(await f.locator('#city-hall-panel .plan-select').count(),3);
-    await f.locator('#city-hall-panel .explore-close').click();await f.locator('#ctrlDayPlan').click();
+    await f.locator('#explore-panel .explore-close').click();await f.locator('#ctrlDayPlan').click();
     assert.deepEqual(await f.locator('#plan-day option').evaluateAll(options=>options.map(o=>o.value).filter(Boolean)),[today,future]);
     await f.locator('#plan-day').selectOption(today);
     await f.waitForFunction(day=>PlanStore.plan.date===day,today);
@@ -72,7 +72,7 @@ async function frame(page,home=false){
     assert.deepEqual(await f.evaluate(()=>PlanStore.plan.items),saved);
     await page.screenshot({path:`/tmp/city-hall-planner-${width}.png`});
     await page.locator('.brand').click();await page.waitForURL(base+'/');assert.equal(await f.evaluate(()=>PlanPanel.active),false);
-    await f.locator('#ctrlCityHall').click();if(await f.locator('[data-category=meetings]').getAttribute('aria-pressed')!=='true')await f.locator('[data-category=meetings]').click();
+    await f.locator('#ctrlExplore').click();if(await f.locator('#ctrlCityHall').getAttribute('aria-expanded')!=='true')await f.locator('#ctrlCityHall').click();await f.locator('#city-hall-panel [data-filter=category]').selectOption('meetings');
     await first().waitFor();assert.equal(await first().isChecked(),true);assert.equal(await second().isChecked(),true);
     // Re-rendering a filtered list must preserve selection and avoid duplicates.
     await f.locator('#city-hall-panel [data-filter=query]').fill('council');assert.equal(await first().isChecked(),true);
@@ -85,4 +85,4 @@ async function frame(page,home=false){
     assert.deepEqual(errors,[]);await context.close();
     console.log(`${width}px: meeting checkboxes, automatic new/same-day plans, dropdown navigation, existing-day preservation, timing review, conflict resolution, removal, selection restore and guest reset passed.`);
   }
-}finally{if(browser)await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}})().catch(e=>{console.error(e.stack);process.exitCode=1;});
+}finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

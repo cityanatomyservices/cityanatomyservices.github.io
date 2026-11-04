@@ -12,7 +12,7 @@ async function ready(page){const f=await(await page.locator('#app-window').eleme
 async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())await f.locator('#ctrlMapLayers').click();}
 (async()=>{try{
  const base=process.argv[2]||await serve();
- browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||path.join(os.homedir(),'.cache/ms-playwright/chromium-1234/chrome-linux64/chrome'),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  for(const width of [1280,390]){
   const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});
   await context.route('https://*.supabase.co/**',route=>{
@@ -23,7 +23,10 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   const page=await context.newPage(),errors=[],boundaryRequests=[];page.setDefaultTimeout(45000);page.on('pageerror',e=>errors.push(e.message));
   page.on('request',r=>{if(/\/(zipcodes|council_districts)\.geojson/.test(r.url()))boundaryRequests.push(r.url());});
   await page.goto(base);let f=await ready(page);
-  assert.deepEqual(await f.locator('#stack > button').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlCityHall','ctrlClassifieds','ctrlApps','ctrlLocate','ctrlMapLayers']);
+  assert.deepEqual(await f.locator('#stack > button').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps']);
+  assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlLocate').count(),1);
+  assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlMapLayers').count(),1);
+  assert.equal(await f.locator('#explore-panel #ctrlCityHall,#explore-panel #ctrlClassifieds').count(),2);
   assert.equal(await f.locator('#ctrlMedia,#media-panel').count(),0);assert.equal(await f.locator('#map-layers-panel').isHidden(),true);
   assert.equal(boundaryRequests.length,0,'boundaries are not downloaded by default');
   assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');
@@ -75,4 +78,4 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   assert.equal(await catalog.locator('#ctrlMapLayers').count(),0);await catalog.locator('#ctrlMedia').click();assert.equal(await catalog.locator('#media-panel').isVisible(),true);
   console.log(`${width}px: catalog map retains its existing button order and Media menu.`);await context.close();
  }
-}finally{if(browser)await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}})().catch(e=>{console.error(e.stack);process.exitCode=1;});
+}finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

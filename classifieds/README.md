@@ -1,6 +1,10 @@
 # Free classifieds
 
-The home map's Classifieds button opens a category directory with live ad counts.
+The home map's Classifieds card is inside Explore. A category dropdown includes
+live ad counts; newest/oldest sorting and the shared Explore time frames and exact
+date filter use the original posting date. Editing an ad does not advance its date.
+The default This week shows the past seven Austin calendar days; All dates shows
+all available ads. Filtering/sorting does not discard the owner's unsaved draft.
 `/classifieds/` is the standalone directory; each category has its own page, such
 as `/classifieds/for-sale/`. Anonymous visitors see only a create-account/sign-in
 message in the box and on category pages. Categories and ads require a registered,
@@ -69,3 +73,10 @@ migration and database checks in one rolled-back transaction. `--install` then
 applies the migration after checks pass. It reads the existing management token
 from the local credential file without printing it. It refuses to replay an
 already installed schema. Changes afterward should use a new migration.
+
+Map browsing uses the existing member-only `classifieds_read` RPC and follows
+all pages of the chosen category before filtering/sorting, then displays 20 matches
+at a time. This includes matching older ads beyond the first server page without
+a database change. Category switches and account changes discard in-flight results.
+The API's existing 10,020-row browsing cap is surfaced if a category exceeds it.
+Standalone category pages keep their existing server pagination and URLs.

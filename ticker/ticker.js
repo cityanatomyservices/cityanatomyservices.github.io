@@ -6,7 +6,7 @@
   await Promise.all([
     import('/ticker/model.js?v=20261028f'),
     import('/chat/explore/config.js?v=20261028e'),
-    import('/chat/explore/model.js?v=20261028e'),
+    import('/chat/explore/model.js?v=20261104a'),
   ]);
   const M = window.TickerModel, layers = window.EXPLORE_LAYERS;
   const categories = { ...M.topics, ...Object.fromEntries(layers.map(layer => [layer.id, layer.title])) };

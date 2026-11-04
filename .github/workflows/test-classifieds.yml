@@ -2,7 +2,7 @@ name: Check free classifieds
 on:
   push:
     branches: [main]
-    paths: ['classifieds/**', 'tests/classifieds/**', 'tools/classifieds/**', 'supabase/migrations/*classifieds.sql', '.github/workflows/test-classifieds.yml']
+    paths: ['classifieds/**', 'tests/classifieds/**', 'tools/classifieds/**', 'chat/explore/model.js', 'chat/city-hall/model.js', 'supabase/migrations/*classifieds.sql', '.github/workflows/test-classifieds.yml']
   workflow_dispatch:
 permissions:
   contents: read

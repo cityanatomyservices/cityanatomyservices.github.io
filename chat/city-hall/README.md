@@ -1,10 +1,13 @@
 # City Hall — main map only
 
-The **City Hall** button follows Chat on the home map. Its four cards open
-official city lists using Explore's surfaces, with search, council-district and
-meeting-board filters. Selecting a card shows that category; selecting it again
-closes its list. Opening City Hall closes the other main-map panels and vice
-versa. Escape/Close returns focus to the button. Choices live only in page
+The **City Hall** card lives inside Explore on the home map. Its category dropdown
+selects Public Meetings, Public Announcements, Permits report or Development.
+Search, council-district and meeting-board filters remain. Shared Explore time
+frames, All dates and On date filter the selected category; Sort by date supports
+ascending/descending order. This week uses the next seven days for meetings and
+the past seven for published records. Zoning notices use their hearing date.
+Source windows below still bound what is available. Escape/Close closes Explore
+and returns focus to its main control. Choices live only in page
 memory. Public Meetings includes the same **Day Planner** checkbox as Explore.
 Checking it adds a saved snapshot to that meeting's plan day, creating the day
 if needed or joining its existing stops. Unchecking removes only that meeting.

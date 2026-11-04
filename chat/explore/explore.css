@@ -75,3 +75,12 @@
   .explore-layer { gap: 6px; }
   .explore-times button { font-size: 11px; }
 }
+.explore-event-content[hidden], .explore-section[hidden] { display: none !important; }
+.explore-section { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 4px; }
+.explore-section > h3 { font-size: 16px; margin: 12px 0 8px; }
+.explore-section-tile { text-align: left; }
+.explore-section-tile .explore-tile-check { margin-left: auto; }
+.explore-dates { margin-top: 14px; }
+.explore-section .classifieds-content { font-size: 13px; }
+.explore-section .classifieds-ad h2 { font-size: 15px; }
+.explore-section .classifieds-categories > a { display: inline-block; margin: 8px 0; font-size: 12px; }
