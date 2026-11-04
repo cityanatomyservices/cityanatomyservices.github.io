@@ -71,6 +71,9 @@ Supabase without printing or committing it. Supabase now holds
 `AUSTIN_STRIPE_WEBHOOK_SECRET`, `AUSTIN_STRIPE_PORTAL`, `BILLING_MODE=test`,
 and `BILLING_CHECKOUT_ENABLED=false`. Reproducible preparation helper:
 `tools/billing/prepare-webhook.py` (syntax checked).
+Saved as `a16da53`; billing CI `41931362481` and Pages deployment
+`41931362248` passed. Re-running the helper reused the existing disabled
+webhook and preserved its secret. No browser assets changed.
 
 Remaining credential: `AUSTIN_STRIPE_KEY`. The owner was asked to create a
 restricted test-mode key in Stripe and paste it directly into Supabase Edge
