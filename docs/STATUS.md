@@ -16,8 +16,12 @@ syntax and diff checks pass. No production account/data requests were made.
 Changed scripts and their direct/dynamic/template references use `20261104b`:
 Explore, the shared map loader and the return-to-chat loader; the homepage
 iframe query is also bumped. Other application files retain their versions.
-Publishing is in progress. Wait for Pages and new-version root/chat HTML
-before checking the three changed JS assets and live circle-edge interactions.
+Published as `5e63fea`. Pages run `41919625202`, classifieds CI `41919626071`
+and planner CI `41919626117` succeeded. Root/chat HTML advertised the new
+version before assets were requested; all three changed JS files match the
+committed bytes. Live desktop/phone checks passed every category's circle-edge
+click/tap, shared-venue details, satellite/dark styling and style reloads.
+Publication and verification are complete.
 
 ## 2026-11-04 — Explore organization and category map icons
 
