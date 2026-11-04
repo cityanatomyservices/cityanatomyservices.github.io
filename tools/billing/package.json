@@ -1,0 +1,7 @@
+{
+  "name": "austin-chat-billing-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node --test ../../tests/billing/*.test.mjs"},
+  "dependencies": {"stripe": "23.1.0"}
+}

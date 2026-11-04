@@ -1,0 +1,43 @@
+name: Check membership billing
+on:
+  push:
+    branches: [main]
+    paths: ['billing/**', 'supabase/functions/**', 'supabase/migrations/*billing.sql', 'tests/billing/**', 'tools/billing/**', '.github/workflows/test-billing.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: billing-ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: billing-ci-only
+      PGDATABASE: postgres
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Install pinned Stripe SDK for real signature verification
+        run: npm ci --prefix tools/billing --ignore-scripts --no-audit --no-fund
+      - name: Checkout retries, account isolation, subscription lifecycle and webhook signatures
+        run: node --test tests/billing/*.test.mjs
+      - name: Database permissions, live/test isolation and concurrent-update fencing
+        run: |
+          psql -v ON_ERROR_STOP=1 -f tests/classifieds/bootstrap.sql
+          psql -v ON_ERROR_STOP=1 -c 'create role service_role;'
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/0012_billing.sql
+          psql -v ON_ERROR_STOP=1 -f tests/billing/database.sql
+      - name: Deployment helper syntax
+        run: python3 -m py_compile tools/billing/configure.py

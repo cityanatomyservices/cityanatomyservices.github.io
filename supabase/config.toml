@@ -8,3 +8,11 @@ verify_jwt = false
 
 [functions.reminder-send]
 verify_jwt = false
+
+# Billing validates the registered Supabase user; Stripe verifies its raw body
+# with a webhook signature. Neither endpoint trusts gateway JWT parsing alone.
+[functions.billing]
+verify_jwt = false
+
+[functions.stripe-webhook]
+verify_jwt = false

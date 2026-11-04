@@ -8,10 +8,11 @@ paid tier first, then change access to the Apps button.
 | Free | $0 |
 | Pro | $8 USD per month |
 
-The owner's existing Stripe account is connected to the CLI in sandbox mode.
-The sandbox Pro product and monthly price have been created and verified.
-Live-mode authorization is pending. No live product, checkout, subscription
-or paid entitlement has been created by this work.
+The owner's existing Stripe account is connected to the CLI in both test and
+live modes. Both Pro products and monthly prices have been created and verified.
+Billing backend code is prepared, but has not been deployed to Supabase or
+connected to the site UI. Checkout is disabled by default. No customer,
+subscription or charge has been created by this work.
 
 ## Local Stripe tooling
 
@@ -24,8 +25,8 @@ wrapper was removed.
 
 `stripe agent setup --client codex --yes` completed successfully;
 `stripe agent setup --client codex --status` confirms the Stripe plugin is
-installed for Codex CLI. Sandbox authorization is complete; live authorization
-is pending. Use the CLI's browser login flow; never save pairing
+installed for Codex CLI. Test and live authorization are complete.
+Use the CLI's browser login flow; never save pairing
 codes, access tokens or secret keys in this repository. A fresh terminal may
 be needed to pick up the new PATH; the executable's full path also works.
 
@@ -51,6 +52,14 @@ Requests use API version `2026-10-28.endive`, verified against the current
 Stripe API documentation; no account-wide API version was changed. Tax
 behavior is still unspecified; tax configuration remains part of live setup.
 
+Verified live objects:
+
+- Product: `prod_VZLfx6PwAYLksw`.
+- Price: `price_1UYCyLPylm4UechMwGuCKwdH`.
+- Same lookup key and monthly USD 800-cent configuration; `livemode: true`.
+- The live catalog was checked for an existing matching Austin.chat product
+  before creating this product. Both modes were retrieved to verify settings.
+
 Inspect the connected Stripe catalog before creating anything, and reuse an
 existing matching product/price if present. Validate in a Stripe sandbox
 before enabling live checkout. Do not add other paid levels, yearly prices,
@@ -60,6 +69,86 @@ Stripe supports product/price setup in its [Dashboard or API](https://docs.strip
 Use [hosted Checkout for subscriptions](https://docs.stripe.com/billing/subscriptions/build-subscriptions?payment-ui=checkout&ui=stripe-hosted)
 and its [customer portal](https://docs.stripe.com/customer-management/integrate-customer-portal)
 for members to manage billing.
+
+## Prepared backend
+
+`supabase/migrations/0012_billing.sql` stores customer/subscription associations
+in a private schema. Browser accounts can only call `membership_read()` for
+their own live entitlement; all mutation RPCs require the service role. Free
+is the default, and test purchases can never grant live Pro. A paid-through
+deadline also expires access if a renewal event is delayed. Account deletion
+is restricted while a billing association exists: cancel any subscription
+before deliberately removing that association and deleting the Auth account.
+
+`billing` is an authenticated Edge function accepting only `status`, `checkout`
+and `portal`. It verifies the user with Supabase, fixes the price and return
+URLs on the server, and creates a dedicated Austin.chat Stripe customer.
+It never links existing Substack customers by matching email. Repeated clicks
+reuse checkout; existing subscriptions go to the portal. A persisted nonce,
+Stripe idempotency keys and fenced account leases protect retries/concurrency.
+
+`stripe-webhook` verifies the raw request with Stripe SDK 23.1.0, then fetches
+current subscriptions instead of applying potentially stale event snapshots.
+Duplicate or reversed events therefore reconcile current state. Processing
+failures return 503 so Stripe retries. The shared lease prevents checkout and
+webhook workers overwriting one another. Paid active subscriptions grant Pro;
+failed/unpaid/trial/paused subscriptions do not. Cancellation at period end
+keeps access until the paid-through date. Unrelated account events are ignored.
+
+This foundation is not yet the site's completed paid-membership feature.
+No frontend checkout button or app access rule has been activated.
+
+## Connection and launch steps
+
+1. Sign in to Supabase CLI on this laptop:
+   `npx --yes supabase@3.0.0 login --agent no --output-format text`.
+   Browser sign-in alone does not connect the CLI. Use its verification flow;
+   do not put access tokens or Stripe API keys in chat or this repository.
+2. After the billing CI suite passes, run
+   `python tools/billing/configure.py --deploy`. It checks SQL permissions and
+   leases using rolled-back fixtures before installing the initial migration,
+   and deploys only `billing` and `stripe-webhook` using the API bundler.
+   It does not change existing sign-in, reminders or other functions.
+3. Create an Austin.chat-specific Stripe portal configuration with payment
+   method updates, invoice history and cancellation at period end. Keep plan
+   changes disabled, use `https://austin.chat/?billing=return`, and pass its
+   configuration ID explicitly. Do not alter account-wide/Substack defaults.
+4. Register `https://aqbyxpiwugcvoephsvpm.supabase.co/functions/v1/stripe-webhook`
+   in the intended Stripe mode with API version `2026-10-28.endive` and the
+   event names in `_shared/billing.mjs`'s `EVENTS`. Capture its signing secret
+   directly into Supabase secrets; never print it or commit it.
+5. Create a dedicated restricted Stripe API key. Runtime access needs Customers
+   write, Checkout Sessions write, Customer Portal write, and Prices,
+   Subscriptions and Invoices read. Verify the exact scope requirements using
+   a sandbox checkout and portal request. Setup operations for webhook/portal
+   configuration can use the authorized CLI instead of broader runtime rights.
+   Run `python tools/billing/configure.py --connect test` in a private terminal
+   to store the test key, signing secret and portal ID in Supabase Edge secrets.
+   The script hides secret input, uses a temporary transport file outside the
+   repo, deletes it immediately, and leaves checkout disabled. Dashboard entry
+   into Supabase Edge secrets is also supported.
+6. Set `BILLING_TEST_USERS` to the confirmed Auth IDs allowed to test. Only
+   those users can access test billing. After connecting the forthcoming UI,
+   enable `BILLING_CHECKOUT_ENABLED` for sandbox testing. Exercise successful
+   and failed payments, retries, renewals, cancellation and direct app URLs.
+7. Finish authenticated delivery of the Pro apps before collecting money.
+   Confirm tax treatment with the owner before adding Stripe Tax; automatic
+   collection is not configured. Then connect matching live credentials and
+   webhook, verify live price/account readiness, and enable live checkout.
+   After launch, use a separate test deployment rather than switching the live
+   webhook's runtime back to test mode.
+
+Secrets: `AUSTIN_STRIPE_KEY`, `AUSTIN_STRIPE_WEBHOOK_SECRET`,
+`AUSTIN_STRIPE_PORTAL`, `BILLING_MODE`, `BILLING_CHECKOUT_ENABLED`,
+`BILLING_TEST_USERS`. Supabase supplies its own URL and service role key.
+CLI authorization is for this laptop; do not extract its temporary credential
+for the deployed application. A missing key/portal/signing secret keeps checkout
+unavailable. A successful return URL never changes membership.
+
+Validation: `npm ci --prefix tools/billing --ignore-scripts` followed by
+`node --test tests/billing/*.test.mjs`. The GitHub billing workflow also runs
+the migration and permission/lease tests against an isolated PostgreSQL 17
+database. SQL bootstrap files are for CI only, never the hosted database.
 
 ## Site integration still needed
 
