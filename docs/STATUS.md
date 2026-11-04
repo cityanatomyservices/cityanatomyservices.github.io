@@ -37,7 +37,16 @@ map layers and catalog isolation, all six rendered icons, meeting planning,
 and email reminders. The full main-map planner regression passes for guests and
 members at both widths, including GPS, rendered routes, late responses, day
 switching, browser history, refresh and sign-out. Screenshots reviewed.
-Deployment verification is pending.
+Implementation is committed locally as `0281fcf`, but publishing is blocked by
+this laptop's GitHub identity: both GitHub CLI and the connected GitHub app use
+`atxmapdata`; the repository API reports `push: false`. The remote remains at
+`68316f1`. A push also encountered a stale VS Code askpass helper; a noninteractive
+retry confirmed no usable credential for `cityanatomyservices`. The owner needs
+to sign in with an account that can write this repository, or grant `atxmapdata`
+write access. No live assets under the new version were requested. Once access
+is available: push main, wait for Pages, check root/chat HTML for `20261104a`,
+then verify assets and repeat the fixture icon/City Hall browser checks against
+`https://austin.chat` before recording publication as complete.
 
 Changed assets and their HTML/template/dynamic-loader references use
 `20261104a`. Browser checks now find installed Chromium on Windows or Linux
