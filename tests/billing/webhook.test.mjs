@@ -37,6 +37,13 @@ test('Sandbox is restricted to explicitly listed account IDs',()=>{
   assert.equal(runtime(k=>settings[k],Stripe).allowed({id:'alice'}),true);
   assert.equal(runtime(k=>settings[k],Stripe).allowed({id:'mallory'}),false);
 });
+test('Live credentials can be staged without replacing the working test configuration',()=>{
+  const staged={...env,AUSTIN_STRIPE_LIVE_KEY:'rk_live_'+randomBytes(24).toString('hex'),
+    AUSTIN_STRIPE_LIVE_WEBHOOK_SECRET:'whsec_'+randomBytes(24).toString('hex'),AUSTIN_STRIPE_LIVE_PORTAL:'bpc_live_fixture'};
+  assert.equal(runtime(k=>staged[k],Stripe).ready(),true);
+  staged.BILLING_MODE='live';assert.equal(runtime(k=>staged[k],Stripe).ready(),true);
+  delete staged.AUSTIN_STRIPE_LIVE_KEY;assert.equal(runtime(k=>staged[k],Stripe).ready(),false);
+});
 test('Backend verifies registered identity with Supabase and never accepts an anonymous account',async()=>{
   const req=new Request('https://edge.invalid',{headers:{Authorization:'Bearer user-token'}});
   for(const user of [{id:'alice',is_anonymous:true,email:'alice@example.invalid',email_confirmed_at:'date'},

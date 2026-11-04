@@ -29,7 +29,7 @@ def stripe(*args):
     if result.returncode:
         raise SystemExit('Stripe setup failed. No response bodies or credentials were printed.')
     try:
-        value = json.loads(result.stdout)
+        value = json.loads(result.stdout[result.stdout.index('{'):])
     except ValueError:
         raise SystemExit('Stripe returned an unexpected response; no credentials printed.') from None
     if isinstance(value, dict) and value.get('error'):

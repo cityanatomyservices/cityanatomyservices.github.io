@@ -2,6 +2,45 @@
 
 ## 2026-11-04 — Free / Pro membership setup in progress
 
+Latest checkpoint: the owner saved `AUSTIN_STRIPE_KEY` in Supabase. Its test-mode
+permissions were verified with actual hosted Stripe Checkout and portal sessions.
+A Stripe test-card payment succeeded; a signed webhook granted test Pro, while
+the browser's live membership RPC stayed Free. Repeat checkout reused its session;
+an active subscriber was sent to the portal. Period-end cancellation retained
+paid access, and immediate cancellation's webhook removed Pro. All synthetic
+Auth users and Stripe customers were removed; checkout is disabled again and
+the test allowlist is `none`. No real money moved. The test webhook is now enabled.
+The manual harness is `tools/billing/check-sandbox.py` (never ordinary CI).
+
+The Account panel now has Free and Pro ($8/month), current membership,
+upgrade/manage-billing actions and cancellation timing. It rechecks the server
+after a Stripe return, never trusts the return URL, clears state on account
+switch/sign-out and retries brief webhook contention. Test Pro cannot unlock
+live membership. Ordinary members see “Pro sign-up is coming soon” until launch.
+The shell, account script and new membership assets/references use `20261104d`.
+42 Node tests, desktop/phone UI fixtures and full Account-dialog integration
+fixtures pass. The shared billing runtime was redeployed to support separately
+staged live credentials; all hosted database preflight fixtures rolled back.
+
+Live portal `bpc_1UYDmUPylm4UechM0BBIEx3p` and live webhook
+`we_1UYDmVPylm4UechMuIWp8adD` are prepared. The live webhook is DISABLED.
+Its signing secret and portal ID are already stored in Supabase as
+`AUSTIN_STRIPE_LIVE_WEBHOOK_SECRET` and `AUSTIN_STRIPE_LIVE_PORTAL`.
+This was the first live portal configuration, so Stripe automatically marked
+it as the default; no preexisting configuration was replaced. Preparation is
+reproducible through `tools/billing/prepare-live.py`, which restores CLI mode.
+The active runtime and CLI remain in test mode. No live customer, subscription
+or charge has been created.
+
+NEXT REQUIRED CREDENTIAL: the owner was asked to save a restricted live key
+as `AUSTIN_STRIPE_LIVE_KEY` in Supabase, retaining the test key. Requested scopes
+match the verified test key: Customers, Checkout Sessions and Customer Portal
+write; Prices, Subscriptions and Invoices read. Check whether it was saved
+before asking again. Finish the requested Apps states and direct-entry access
+handling before enabling live checkout; those changes remain pending. Tax
+configuration remains unspecified. The older setup history below records how
+this point was reached; its pending-key/deployment statements are superseded.
+
 Owner requested exactly Free and Pro ($8/month), with the paid tier set up
 first. They confirmed an existing Stripe account. The site has Supabase
 sign-in but no membership billing integration. A Stripe integration is

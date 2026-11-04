@@ -18,6 +18,9 @@
   const memberHost=document.createElement('div');
   dialog.querySelector('#account-member').insertBefore(memberHost,dialog.querySelector('#account-signout'));
   const memberUI=window.AustinMemberUI?.mount(memberHost);
+  const membershipHost=document.createElement('div');
+  dialog.querySelector('#account-member').insertBefore(membershipHost,memberHost);
+  const membershipUI=window.AustinMembershipUI?.mount(membershipHost);
   const $=id=>dialog.querySelector('#'+id);
   let capabilities={google:false,email:false},busy=false,sentTo='',pendingOAuth,request=0;
   const message=text=>{$('account-status').textContent=text;};
@@ -58,7 +61,7 @@
   }
   async function open(section){
     render();if(!dialog.open)dialog.showModal();button.setAttribute('aria-expanded','true');message('');
-    try{await session.peek();render();if(!session.registered)await options();else await memberUI?.open(section);}catch(_){message('Could not connect to your account. Please try again.');}
+    try{await session.peek();render();if(!session.registered)await options();else {await Promise.all([memberUI?.open(section),membershipUI?.open()]);if(section==='membership')membershipUI?.focus();}}catch(_){message('Could not connect to your account. Please try again.');}
   }
   window.AustinAccount={open};
   button.addEventListener('click',()=>open());
@@ -66,6 +69,7 @@
   dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
   dialog.addEventListener('close',()=>{
     memberUI?.close();
+    membershipUI?.close();
     request++;cancelGoogle();$('account-email-form').reset();$('account-code-form').reset();$('account-code-form').hidden=true;sentTo='';
     $('account-discard').hidden=true;button.setAttribute('aria-expanded','false');button.focus({preventScroll:true});
   });
@@ -98,7 +102,7 @@
     await session.peek();render();
     const store=activeStore();
     if(store){await store.ready();await store.sync();}
-    if(dialog.open)await memberUI?.open();
+    if(dialog.open)await Promise.all([memberUI?.open(),membershipUI?.open()]);
     message(store?.unsaved?'You’re signed in. Your current changes are kept in this browser while online saving retries.':'You’re signed in. Your plans can now be saved across visits.');
   }
   function activeStore(){try{return window.PlanStore||document.getElementById('app-window')?.contentWindow.PlanStore;}catch(_){return null;}}
@@ -164,5 +168,12 @@
     }catch(error){cancelGoogle();message(errorMessage(error));}
   };
   session.subscribe(()=>render());
-  session.peek().then(()=>{render();if(new URLSearchParams(location.search).get('account')==='reminders')open('reminders');}).catch(()=>{button.disabled=false;});
+  session.peek().then(()=>{
+    render();const params=new URLSearchParams(location.search);
+    if(params.get('account')==='reminders')open('reminders');
+    if(params.get('account')==='membership'||['success','return','cancel'].includes(params.get('billing'))){
+      // Return URLs only reopen the account; the server decides membership.
+      open('membership');const url=new URL(location.href);url.searchParams.delete('billing');history.replaceState(null,'',url);
+    }
+  }).catch(()=>{button.disabled=false;});
 })();

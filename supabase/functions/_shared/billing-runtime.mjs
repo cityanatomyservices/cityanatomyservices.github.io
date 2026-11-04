@@ -1,6 +1,8 @@
 import {service,problem,API_VERSION} from './billing.mjs';
 export function runtime(env,Stripe,fetcher=fetch) {
-  const mode=env('BILLING_MODE')||'test',key=env('AUSTIN_STRIPE_KEY'),signing=env('AUSTIN_STRIPE_WEBHOOK_SECRET');
+  const mode=env('BILLING_MODE')||'test',prefix='AUSTIN_STRIPE_'+mode.toUpperCase()+'_';
+  const key=env(prefix+'KEY')||env('AUSTIN_STRIPE_KEY'),signing=env(prefix+'WEBHOOK_SECRET')||env('AUSTIN_STRIPE_WEBHOOK_SECRET');
+  const portal=env(prefix+'PORTAL')||env('AUSTIN_STRIPE_PORTAL');
   const base=env('SUPABASE_URL'),admin=env('SUPABASE_SERVICE_ROLE_KEY');
   const ready=()=>['test','live'].includes(mode)&&!!key&&new RegExp(`^[rs]k_${mode}_`).test(key)&&!!base&&!!admin;
   const request=async(path,{token=admin,body}={})=>{
@@ -16,8 +18,8 @@ export function runtime(env,Stripe,fetcher=fetch) {
     save:(mode,owner,lease,fields)=>rpc('billing_save',{p_mode:mode,p_owner:owner,p_lease:lease,p_fields:fields}),
     release:(mode,owner,lease)=>rpc('billing_release',{p_mode:mode,p_owner:owner,p_lease:lease})};
   const stripe=ready()?new Stripe(key,{apiVersion:API_VERSION,httpClient:Stripe.createFetchHttpClient(),timeout:10000,maxNetworkRetries:0}):null;
-  const billing=stripe?service({stripe,db,mode,portal:env('AUSTIN_STRIPE_PORTAL'),
-    checkoutEnabled:env('BILLING_CHECKOUT_ENABLED')==='true'&&!!signing&&!!env('AUSTIN_STRIPE_PORTAL')}):null;
+  const billing=stripe?service({stripe,db,mode,portal,
+    checkoutEnabled:env('BILLING_CHECKOUT_ENABLED')==='true'&&!!signing&&!!portal}):null;
   async function user(req) {
     const token=req.headers.get('Authorization')?.match(/^Bearer (.+)$/i)?.[1];
     if(!token)throw problem(401,'Sign in to manage your membership.');

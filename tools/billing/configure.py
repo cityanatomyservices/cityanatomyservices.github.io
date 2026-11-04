@@ -103,8 +103,9 @@ def main():
         portal = input('Austin.chat billing portal configuration ID: ').strip()
         if not key.startswith('rk_'+mode+'_') or not signing.startswith('whsec_') or not portal.startswith('bpc_'):
             raise SystemExit('Key, webhook or portal format did not match; nothing uploaded.')
-        settings = {'AUSTIN_STRIPE_KEY': key, 'AUSTIN_STRIPE_WEBHOOK_SECRET': signing,
-                    'AUSTIN_STRIPE_PORTAL': portal, 'BILLING_MODE': mode, 'BILLING_CHECKOUT_ENABLED': 'false'}
+        prefix = 'AUSTIN_STRIPE_LIVE_' if mode == 'live' else 'AUSTIN_STRIPE_'
+        settings = {prefix+'KEY': key, prefix+'WEBHOOK_SECRET': signing,
+                    prefix+'PORTAL': portal, 'BILLING_MODE': mode, 'BILLING_CHECKOUT_ENABLED': 'false'}
         if mode == 'test':
             owners = input('Confirmed Supabase test account IDs (comma-separated UUIDs): ').strip()
             if not owners or any(not re.fullmatch(r'[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}', item.strip()) for item in owners.split(',')):

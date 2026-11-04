@@ -79,8 +79,14 @@
 
   const accountStyle=document.createElement('link');accountStyle.rel='stylesheet';accountStyle.href='/shared/account.css?v=20261030c';document.head.append(accountStyle);
   const memberScript=document.createElement('script');memberScript.src='/shared/member-ui.js?v=20261102g';
-  memberScript.onload=()=>{const accountScript=document.createElement('script');accountScript.src='/shared/account.js?v=20261102f';document.body.append(accountScript);};
+  memberScript.onload=()=>{const accountScript=document.createElement('script');accountScript.src='/shared/account.js?v=20261104d';document.body.append(accountScript);};
   const reminderScript=document.createElement('script');reminderScript.src='/shared/reminders.js?v=20261102f';
-  reminderScript.onload=()=>document.body.append(memberScript);document.body.append(reminderScript);
+  reminderScript.onload=()=>{
+    const style=document.createElement('link');style.rel='stylesheet';style.href='/shared/membership.css?v=20261104d';document.head.append(style);
+    const model=document.createElement('script');model.src='/shared/membership.js?v=20261104d';
+    model.onload=()=>{const ui=document.createElement('script');ui.src='/shared/membership-ui.js?v=20261104d';
+      ui.onload=()=>document.body.append(memberScript);ui.onerror=()=>document.body.append(memberScript);document.body.append(ui);};
+    model.onerror=()=>document.body.append(memberScript);document.body.append(model);
+  };document.body.append(reminderScript);
 
 }());

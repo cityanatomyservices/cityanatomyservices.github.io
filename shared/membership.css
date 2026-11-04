@@ -1,0 +1,12 @@
+.membership-card{margin:16px 0;padding:14px 0;border-top:1px solid var(--border)}
+.membership-card h3{margin:0;font-size:16px}
+.membership-current{font-weight:650}
+.membership-levels{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.membership-levels>div{padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--finish-raised)}
+.membership-levels strong,.membership-levels span{display:block}
+.membership-levels span{margin-top:3px;font-size:17px;font-weight:600}
+.membership-levels p{margin:8px 0 0;font-size:12px}
+.membership-detail,.membership-message{font-size:12px;color:var(--muted)}
+.membership-actions{display:flex;flex-wrap:wrap;gap:8px}
+.membership-message:empty{display:none}
+@media(max-width:360px){.membership-levels{grid-template-columns:1fr}}

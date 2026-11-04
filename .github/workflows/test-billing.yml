@@ -2,7 +2,7 @@ name: Check membership billing
 on:
   push:
     branches: [main]
-    paths: ['billing/**', 'supabase/functions/**', 'supabase/migrations/*billing.sql', 'tests/billing/**', 'tools/billing/**', '.github/workflows/test-billing.yml']
+    paths: ['billing/**', 'shared/membership*', 'shared/account.js', 'supabase/functions/**', 'supabase/migrations/*billing.sql', 'tests/billing/**', 'tools/billing/**', '.github/workflows/test-billing.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -40,4 +40,9 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0012_billing.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/database.sql
       - name: Deployment helper syntax
-        run: python3 -m py_compile tools/billing/configure.py tools/billing/prepare-webhook.py
+        run: |
+          python3 -m py_compile tools/billing/configure.py tools/billing/prepare-webhook.py tools/billing/prepare-live.py tools/billing/check-sandbox.py
+          node --check shared/membership.js
+          node --check shared/membership-ui.js
+          node --check shared/account.js
+          node --check tools/billing/checkout-browser.cjs

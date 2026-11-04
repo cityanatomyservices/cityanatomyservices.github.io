@@ -10,9 +10,12 @@ paid tier first, then change access to the Apps button.
 
 The owner's existing Stripe account is connected to the CLI in both test and
 live modes. Both Pro products and monthly prices have been created and verified.
-The billing database and Edge functions are deployed to Supabase. They are
-not yet connected to the site UI. Checkout is disabled. No customer,
-subscription or charge has been created by this work.
+The billing database and Edge functions are deployed to Supabase and connected
+to a new Membership section in Account. Public checkout is disabled while
+launch setup continues. Hosted Checkout, portal access, payment webhooks and
+cancellation were verified with disposable sandbox accounts. Those customers
+and Auth users were removed afterward. No live customer, subscription or
+charge has been created by this work.
 
 ## Local Stripe tooling
 
@@ -97,8 +100,12 @@ webhook workers overwriting one another. Paid active subscriptions grant Pro;
 failed/unpaid/trial/paused subscriptions do not. Cancellation at period end
 keeps access until the paid-through date. Unrelated account events are ignored.
 
-This foundation is not yet the site's completed paid-membership feature.
-No frontend checkout button or app access rule has been activated.
+The Account UI shows exactly Free and Pro, offers hosted upgrade/management
+when the backend is enabled, and refreshes membership after a Stripe return.
+It handles account changes and sign-out without retaining another user's
+billing state. Regular members currently see “Pro sign-up is coming soon.”
+This is not yet the completed paid-membership feature: app access rules and
+live payment activation remain pending.
 
 ## Connection and launch steps
 
@@ -115,13 +122,25 @@ first configuration in an empty test catalog, so Stripe automatically marked
 it as the test default. No existing portal was replaced, and no live portal
 configuration has been created or changed.
 
-Test webhook `we_1UYDGcPylm4UechMvq87q7Al` was created and paused pending the
-runtime key. Its signing secret and the portal ID are stored in Supabase,
+Test webhook `we_1UYDGcPylm4UechMvq87q7Al` is enabled and its signed delivery
+has been verified. Its signing secret and portal ID are stored in Supabase,
 along with `BILLING_MODE=test` and `BILLING_CHECKOUT_ENABLED=false`.
 `tools/billing/prepare-webhook.py` records the reproducible setup and reuses
 an existing endpoint without printing its secret. The owner was asked to
-create a restricted test API key and save it directly in Supabase under
-`AUSTIN_STRIPE_KEY`; this key is still missing. No test user IDs are configured.
+create a restricted test API key and saved it directly in Supabase under
+`AUSTIN_STRIPE_KEY`. That key's checkout, customer, price, invoice, subscription
+and portal permissions passed the hosted sandbox integration test. The temporary
+allowlist was cleared to `none` and checkout disabled after testing.
+
+Live portal `bpc_1UYDmUPylm4UechM0BBIEx3p` and webhook
+`we_1UYDmVPylm4UechMuIWp8adD` are staged, with the webhook disabled.
+The live portal was the first configuration in its catalog and Stripe marked
+it as default automatically; no earlier configuration was replaced.
+`AUSTIN_STRIPE_LIVE_PORTAL` and `AUSTIN_STRIPE_LIVE_WEBHOOK_SECRET` are stored
+in Supabase. The owner was asked to save the remaining runtime key as
+`AUSTIN_STRIPE_LIVE_KEY`. Mode-specific credentials take precedence over the
+original generic test names, so live setup does not overwrite the working
+test configuration. `BILLING_MODE` remains `test` until launch work is complete.
 
 The sequence below remains the reference for a new laptop or subsequent launch:
 
@@ -153,7 +172,7 @@ The sequence below remains the reference for a new laptop or subsequent launch:
    repo, deletes it immediately, and leaves checkout disabled. Dashboard entry
    into Supabase Edge secrets is also supported.
 6. Set `BILLING_TEST_USERS` to the confirmed Auth IDs allowed to test. Only
-   those users can access test billing. After connecting the forthcoming UI,
+   those users can access test billing. With the Account UI connected,
    enable `BILLING_CHECKOUT_ENABLED` for sandbox testing. Exercise successful
    and failed payments, retries, renewals, cancellation and direct app URLs.
 7. Finish authenticated delivery of the Pro apps before collecting money.
@@ -165,7 +184,8 @@ The sequence below remains the reference for a new laptop or subsequent launch:
 
 Secrets: `AUSTIN_STRIPE_KEY`, `AUSTIN_STRIPE_WEBHOOK_SECRET`,
 `AUSTIN_STRIPE_PORTAL`, `BILLING_MODE`, `BILLING_CHECKOUT_ENABLED`,
-`BILLING_TEST_USERS`. Supabase supplies its own URL and service role key.
+`BILLING_TEST_USERS`, and the three `AUSTIN_STRIPE_LIVE_*` names listed above.
+Supabase supplies its own URL and service role key.
 CLI authorization is for this laptop; do not extract its temporary credential
 for the deployed application. A missing key/portal/signing secret keeps checkout
 unavailable. A successful return URL never changes membership.
@@ -174,6 +194,15 @@ Validation: `npm ci --prefix tools/billing --ignore-scripts` followed by
 `node --test tests/billing/*.test.mjs`. The GitHub billing workflow also runs
 the migration and permission/lease tests against an isolated PostgreSQL 17
 database. SQL bootstrap files are for CI only, never the hosted database.
+
+The manual `tools/billing/check-sandbox.py` harness creates two temporary
+confirmed Auth users without sending email, briefly enables checkout for only
+one account, completes hosted Checkout with a Stripe test card, verifies signed
+payment/cancellation webhooks and live/test isolation, then removes all test
+users/customers and disables checkout in `finally`. It uses Supabase CLI's
+authorized server key in memory without printing or storing it. Do not run it
+after live billing begins; use a separate test deployment. Failed payments are
+covered by the unit lifecycle tests; no real card details are used.
 
 ## Site integration still needed
 
