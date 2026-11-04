@@ -32,7 +32,9 @@
 .classifieds-heading h2 { font-size:22px; margin:0; }
 .classifieds-heading button { padding:3px 10px; font-size:24px; }
 .classifieds-dialog .classifieds-editor { padding:0; background:none; border:0; }
-.classifieds-page { width:min(760px,calc(100% - 36px)); margin:28px auto 60px; }
+/* Let standalone pages grow past the viewport so ads cannot overlap the footer. */
+html[data-classifieds-category] body { height:auto; }
+.classifieds-page { flex:1 0 auto; min-height:auto; width:min(760px,calc(100% - 36px)); margin:28px auto 60px; }
 .classifieds-page h1 { font-size:clamp(26px,5vw,38px); line-height:1.2; margin:18px 0; }
 .classifieds-page nav { display:flex; flex-wrap:wrap; gap:16px; font-size:13px; }
 .classifieds-page nav a { color:var(--accent); }

@@ -9,6 +9,19 @@ async function serve(){
 }
 function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/1000)+3600,enc=x=>Buffer.from(JSON.stringify(x)).toString('base64url');return {access_token:enc({alg:'HS256',typ:'JWT'})+'.'+enc({sub:id,exp,role:'authenticated',is_anonymous:!member})+'.fixture',refresh_token:crypto.randomUUID(),expires_in:3600,expires_at:exp,token_type:'bearer',user:{id,email:member?'private-account@example.invalid':undefined,email_confirmed_at:member?new Date().toISOString():null,is_anonymous:!member,aud:'authenticated',role:'authenticated',app_metadata:{},user_metadata:{}}};}
 async function frame(page){const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.AustinClassifieds&&window.chatMap&&window.austinExplore);return f;}
+async function checkFooter(page,label){
+ await page.locator('.ticker-bar').waitFor();
+ const layout=await page.evaluate(()=>{
+  const box=selector=>document.querySelector(selector).getBoundingClientRect();
+  const content=box('#classifieds-host'),main=box('.classifieds-page'),ticker=box('#austin-ticker'),footer=box('.page-footer');
+  return {contentBottom:content.bottom,mainBottom:main.bottom,tickerTop:ticker.top,tickerBottom:ticker.bottom,footerTop:footer.top,footerBottom:footer.bottom+scrollY,pageBottom:document.documentElement.scrollHeight,viewport:innerHeight};
+ });
+ assert.ok(layout.mainBottom>=layout.contentBottom-1,label+': page must contain the ads '+JSON.stringify(layout));
+ assert.ok(layout.tickerTop>=layout.contentBottom,label+': news strip must follow the ads');
+ assert.ok(layout.footerTop>=layout.tickerBottom-1,label+': footer must follow the news strip');
+ assert.ok(layout.footerBottom>=layout.viewport-1,label+': footer must reach the bottom on short pages');
+ assert.ok(Math.abs(layout.footerBottom-layout.pageBottom)<=1,label+': footer must end the document');
+}
 (async()=>{try{
  const base=process.argv[2]||await serve();
  browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
@@ -50,6 +63,7 @@ async function frame(page){const f=await(await page.locator('#app-window').eleme
    assert.match(await panel.innerText(),/Create an account or sign in/);assert.equal(await panel.locator('.classifieds-categories a:visible').count(),0);assert.equal(calls.length,0);
    await panel.getByRole('button',{name:'Create an account / sign in'}).click();await page.locator('#account-dialog').waitFor({state:'visible'});await page.locator('.account-close').click();
    await page.goto(base+'/classifieds/for-sale/');await page.locator('.classifieds-guest').waitFor();assert.equal(await page.locator('.classifieds-ad').count(),0);assert.equal(calls.length,0);
+   await checkFooter(page,'signed-out page');
    await page.screenshot({path:`/tmp/classifieds-guest-${width}.png`});
   }else{
    await panel.locator('.classifieds-categories a').first().waitFor();assert.equal(await panel.locator('[data-classifieds-filter=category] option').count(),8);
@@ -81,6 +95,7 @@ async function frame(page){const f=await(await page.locator('#app-window').eleme
    await panel.getByRole('link',{name:/For Sale/}).click();await page.waitForURL(base+'/classifieds/for-sale/');await page.locator('.classifieds-editor').waitFor();
    assert.equal(await page.locator('.classifieds-ad').count(),1);assert.equal(await page.locator('.classifieds-ad input,.classifieds-ad textarea,.classifieds-ad img').count(),0);assert.equal(await page.locator('.classifieds-ad h2').textContent(),'<img src=x onerror=alert(1)>');
    assert.equal(await page.getByLabel('Title',{exact:true}).inputValue(),'My desk');
+   await checkFooter(page,'owner editor and another ad');
    await page.getByLabel('Title',{exact:true}).fill('My updated desk');await page.getByRole('button',{name:'Save changes',exact:true}).click();await page.getByText('Your ad was saved.',{exact:true}).waitFor();
    await page.reload();await page.locator('.classifieds-editor').waitFor();assert.equal(await page.getByLabel('Title',{exact:true}).inputValue(),'My updated desk');
    // A stale form keeps the user's draft and does not overwrite a newer ad.
@@ -91,7 +106,11 @@ async function frame(page){const f=await(await page.locator('#app-window').eleme
    await page.getByRole('link',{name:'Edit your ad in Services'}).click();await page.waitForURL(base+'/classifieds/services/');await page.locator('.classifieds-editor').waitFor();assert.equal(await page.locator('.classifieds-ad').count(),1);
    await page.screenshot({path:`/tmp/classifieds-category-${width}.png`});await page.locator('.theme-toggle').click();await page.screenshot({path:`/tmp/classifieds-category-dark-${width}.png`});
    await page.getByRole('button',{name:'Delete your ad',exact:true}).click();await page.getByRole('button',{name:'Post your free ad',exact:true}).waitFor();assert.equal(own,null);
+   await checkFooter(page,'one ad');
+   await page.goto(base+'/classifieds/housing/');await page.getByText('No ads in this category yet.',{exact:true}).waitFor();await checkFooter(page,'empty category');
+   await page.goto(base+'/classifieds/');await page.locator('.classifieds-categories a').first().waitFor();await checkFooter(page,'category directory');
    await page.goto(base+'/classifieds/community/');await page.waitForFunction(()=>document.querySelectorAll('.classifieds-ad').length===20);await page.getByRole('button',{name:'Show more ads'}).click();await page.waitForFunction(()=>document.querySelectorAll('.classifieds-ad').length===22);assert.equal(await page.getByRole('button',{name:'Show more ads'}).isVisible(),false);
+   await checkFooter(page,'22 ads after pagination');await page.locator('.page-footer').scrollIntoViewIfNeeded();await page.screenshot({path:`/tmp/classifieds-footer-${width}.png`});
    holdRead=true;await page.getByRole('button',{name:'Refresh ads',exact:true}).click();for(let i=0;i<100&&!releaseRead;i++)await new Promise(r=>setTimeout(r,20));assert.ok(releaseRead);
    await page.evaluate(()=>AustinSession.signOut());releaseRead();await page.locator('.classifieds-guest').waitFor();assert.equal(await page.locator('.classifieds-ad,.classifieds-editor').count(),0);assert.equal(await page.locator('.classifieds-dialog').isVisible(),false);
    const before=calls.length;await page.reload();await page.locator('.classifieds-guest').waitFor();assert.equal(await page.locator('.classifieds-ad').count(),0);assert.equal(calls.length,before);

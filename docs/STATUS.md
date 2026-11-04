@@ -1,5 +1,25 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-04 — Classifieds footer follows the ads
+
+Owner reported the page bottom appearing inside classified ads. Standalone
+classifieds pages inherited the map frame's fixed body height and shrinking
+main area, allowing long content to overflow beneath the ticker/footer.
+Scoped classifieds CSS now lets the body grow and prevents the main content
+from shrinking below its ads. The ticker and social footer follow all content;
+short pages still fill the viewport with the footer at its bottom.
+
+The new browser layout checks reproduced the overlap before the fix and pass
+afterward at 1280px/390px: signed out, empty category, one ad, owner editor,
+directory and 22 ads after pagination. Existing fixture CRUD, account isolation,
+sorting, drafts, conflicts and sign-out checks also pass. Screenshots reviewed;
+JS syntax and diff checks pass. No production records were changed.
+
+The stylesheet, frame/return loaders and their page/template references use
+`20261104c`; other asset versions remain unchanged. Publishing is in progress:
+wait for Pages and new-version HTML before requesting assets, then check the
+three changed assets and repeat the live fixture/footer checks.
+
 ## 2026-11-04 — Larger, clickable Explore icon circles
 
 Owner found the bare category icons difficult to see and tap. Each icon now

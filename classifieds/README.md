@@ -10,6 +10,10 @@ as `/classifieds/for-sale/`. Anonymous visitors see only a create-account/sign-i
 message in the box and on category pages. Categories and ads require a registered,
 confirmed account at the database boundary as well as in the UI.
 
+Standalone pages grow with their ads and owner editor. The news strip and
+social footer follow all content, staying at the viewport bottom on short
+pages and below the last ad on long pages, including after pagination.
+
 Owner's final direction (2026-11-02): a self-managed notice board, called
 classifieds. **No email field, automatic email disclosure or content policing.**
 The author chooses a category, then writes a title and one paragraph. They can
@@ -65,7 +69,8 @@ following [Supabase function guidance](https://supabase.com/docs/guides/database
 - `tests/classifieds/database.sql`: role-based integration checks. All fake Auth
   records and ads roll back. CI uses a disposable PostgreSQL service and the
   minimal Auth contract in `bootstrap.sql`; never run that bootstrap in Supabase.
-- `node tools/classifieds/check-browser.cjs [site URL]`: guest/member flows at
+- `node tools/classifieds/check-browser.cjs [site URL]`: guest/member flows and
+  footer placement with no ads, one ad, an owner editor and paginated ads at
   desktop/phone sizes with mocked Auth/ads; no actual emails or production writes.
 
 For initial deployment only, `python3 tools/classifieds/deploy.py` stages the
