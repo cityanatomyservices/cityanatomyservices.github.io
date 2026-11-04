@@ -48,7 +48,10 @@ entitlements, fix price/customer/redirect choices on the server, reuse
 checkout sessions, and reconcile current Stripe state under fenced account
 leases. A successful redirect never grants Pro. Default checkout is disabled.
 The 33 Node tests pass, including actual SDK signature verification. PostgreSQL
-permission and lease tests are included in the new billing CI workflow.
+permission and lease tests passed in billing CI run `41930400705` for commit
+`932cc32`; email reminder CI run `41930400738` also passed. Local module
+syntax, Python helper compilation and diff checks passed. The backend
+foundation is committed and pushed; no browser assets changed.
 
 These backend changes are not yet installed in Supabase. This laptop has no
 Supabase management token or CLI login. Supabase CLI 3.0.0 is available via
