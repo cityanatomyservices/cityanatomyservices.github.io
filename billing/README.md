@@ -8,9 +8,10 @@ paid tier first, then change access to the Apps button.
 | Free | $0 |
 | Pro | $8 USD per month |
 
-The owner already has a Stripe account. Its connection to this session is
-pending. Pro benefits are defined below. No payment product,
-checkout, subscription or paid entitlement has been created by this work.
+The owner's existing Stripe account is connected to the CLI in sandbox mode.
+The sandbox Pro product and monthly price have been created and verified.
+Live-mode authorization is pending. No live product, checkout, subscription
+or paid entitlement has been created by this work.
 
 ## Local Stripe tooling
 
@@ -23,18 +24,32 @@ wrapper was removed.
 
 `stripe agent setup --client codex --yes` completed successfully;
 `stripe agent setup --client codex --status` confirms the Stripe plugin is
-installed for Codex CLI. Installation is separate from account authorization,
-which is still pending. Use the CLI's browser login flow; never save pairing
+installed for Codex CLI. Sandbox authorization is complete; live authorization
+is pending. Use the CLI's browser login flow; never save pairing
 codes, access tokens or secret keys in this repository. A fresh terminal may
 be needed to pick up the new PATH; the executable's full path also works.
 
-## Stripe product to configure
+## Stripe product configuration
 
 - Product name: **Austin.chat Pro**.
 - Flat recurring price: **800 USD cents**, every **one month**.
 - One membership per signed-in site account.
 - Keep Free as the site's default membership; no zero-dollar Stripe
   subscription is needed for Free users.
+
+Verified sandbox objects (not live payment identifiers):
+
+- Product: `prod_VZLVebM4SPstbL`.
+- Price: `price_1UYCoYPylm4UechMfDQJur0b`.
+- Price lookup key: `austin_chat_pro_monthly_usd`.
+- Price: active, `livemode: false`, USD 800 cents, monthly interval count 1,
+  licensed quantity, no trial. No signup fee was added.
+
+The sandbox catalog was empty before setup. Product creation used an
+idempotency key and the price was retrieved afterward to verify its settings.
+Requests use API version `2026-10-28.endive`, verified against the current
+Stripe API documentation; no account-wide API version was changed. Tax
+behavior is still unspecified; tax configuration remains part of live setup.
 
 Inspect the connected Stripe catalog before creating anything, and reuse an
 existing matching product/price if present. Validate in a Stripe sandbox

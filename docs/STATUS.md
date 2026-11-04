@@ -5,14 +5,23 @@
 Owner requested exactly Free and Pro ($8/month), with the paid tier set up
 first. They confirmed an existing Stripe account. The site has Supabase
 sign-in but no membership billing integration. A Stripe integration is
-available and was suggested; connection is not yet confirmed. Stripe CLI
+available and was suggested. Stripe CLI
 1.55.8 is now installed and working on this Windows ARM laptop using the
 official Windows x86_64 executable (published checksum verified); the npm
 wrapper was incompatible and was removed. The executable is under
 `%LOCALAPPDATA%\Programs\StripeCLI` and its folder is on the user PATH.
 `stripe agent setup --client codex --yes` succeeded and status confirms the
-Stripe plugin is installed for Codex CLI. Browser authorization was started
-but is still pending; verify `stripe login list` before using the account.
+Stripe plugin is installed for Codex CLI. Browser authorization succeeded for
+the existing account's sandbox. `stripe whoami --format json` and catalog
+reads confirmed access. Live mode is not authorized yet; a reauthorization
+flow was started so the owner can add it. Check `stripe login list` before
+making live requests; do not print CLI credentials/configuration.
+
+Created and retrieved the sandbox Austin.chat Pro product
+`prod_VZLVebM4SPstbL` and monthly USD 800-cent price
+`price_1UYCoYPylm4UechMfDQJur0b`, lookup key `austin_chat_pro_monthly_usd`.
+The sandbox catalog had no products. No trial or signup fee was added. Calls
+use `2026-10-28.endive` per request without changing account-wide API settings.
 
 Owner defined Pro benefits: Austin 1885, Moontower Walking, and all apps in
 the current Shopping Apps group. Those nine catalog records now carry
@@ -24,10 +33,11 @@ The Shopping Apps group includes all seven report records, including its
 Recreation and Dining entries. See the billing notes for the exact list.
 
 [Billing setup notes](../billing/README.md) record the agreed tiers, product
-configuration and remaining integration work. No Stripe product, checkout,
-subscription, database migration or paid feature has been created or enabled.
-After connection, inspect the existing catalog before creating the monthly
-price and connect billing securely to the existing Supabase accounts.
+configuration and remaining integration work. Only the sandbox product/price
+exist: no live product, checkout, subscription, database migration or paid
+feature has been enabled. After live authorization, inspect the live catalog
+before creating the monthly price and connect billing securely to the existing
+Supabase accounts. Tax settings remain unconfigured.
 
 Next, the Apps button should be gray/unavailable for signed-out visitors and
 open normally for signed-in Free or Pro members. Those button states and the
