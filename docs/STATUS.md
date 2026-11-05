@@ -1,48 +1,68 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
-## 2026-11-04 ? Pro apps: authenticated delivery and live launch verification
+## 2026-11-04 ? Free / Pro is live; hosted Pro apps protected
 
-Owner explicitly approved protecting direct hosted app access as well as gray
-buttons. Nine Pro apps now use private Supabase Storage through the `pro-app`
-Edge function. Every file request checks confirmed live Pro membership; expired,
-Free and signed-out accounts cannot download it. A same-origin service worker
-preserves the original iframe URLs and relative imports, holds login tokens only
-in memory, and never persists private resources. Source remains in this public
-GitHub repository; this protects hosted app access, not downloadable GitHub source.
+The owner approved protecting direct hosted app access. The completed release
+is on main (`5392508`) and live on https://austin.chat/. GitHub Pages now uses
+**workflow** publishing through `Publish Austin.chat`; never switch back to
+legacy publishing because that would expose the protected app files again.
+The existing domain is unchanged and automated feed updates still republish.
 
-Apps is disabled for guests. Signed-in Free/Pro members can open the panel;
-all nine paid entries have ?Pro App? appended and are disabled for Free members.
-The app directory and direct wrapper pages use the same membership rules.
-Changed assets and every HTML/dynamic reference use `20261104e`.
+There are exactly two plans: Free and Pro ($8 USD monthly). Apps is gray and
+disabled for guests. Signed-in members can open it; the nine selected paid
+entries carry ?Pro App? and are gray/unlaunchable for Free members. These are
+Austin 1885, Moontower Walking and all seven Shopping Apps entries. The app
+directory and canonical wrappers also enforce membership. Existing map and
+catalog controls pass desktop and phone regression checks. Changed client
+assets and all references use `20261104e`.
 
-The owner saved `AUSTIN_STRIPE_LIVE_KEY`; a read-only deployed check verified
-its $8 monthly price and cancellation portal. Runtime is LIVE, checkout is still
-DISABLED pending published-browser checks. Live webhook remains DISABLED;
-test webhook needs disabling before activation. The CLI stays in test mode.
-No live Stripe customer, subscription or charge has been created.
+**LIVE PAYMENTS ENABLED.** The owner saved the restricted live key, which was
+verified through the deployed backend. Stripe account charge readiness and the
+800-cent monthly price passed launch checks. `BILLING_MODE=live`,
+`BILLING_CHECKOUT_ENABLED=true`, `BILLING_TEST_USERS=none`. The live webhook
+`we_1UYDmVPylm4UechMuIWp8adD` is enabled; test webhook
+`we_1UYDGcPylm4UechMvq87q7Al` is disabled. Test credentials are retained.
+The CLI remains in test mode, independently of the production runtime.
+No live Stripe customer, subscription, purchase or charge was created by this
+work. Hosted sandbox payment, actual signed webhooks and cancellation had
+already passed. Do not run the production sandbox harness after launch;
+use a separate test deployment. Automatic tax collection was not configured.
 
-Private release package: 9 apps / 45 files / 864,562 bytes. Storage has a
-restrictive anon/authenticated policy even if a permissive policy is added later.
-Hosted tests confirmed guest/Free rejection, direct Storage rejection, all 45
-Pro resource hashes/MIMEs/no-store headers, and revocation with a retained login
-token. All synthetic accounts/entitlements were removed. The 49 Node tests,
-Account and membership browser fixtures, catalog states and private-worker
-browser fixture pass. See `tools/billing/check-private-apps.py --browser` for
-manual hosted validation with an isolated temporary Auth account (no Stripe
-objects or email). Do not print/store its credentials.
+The nine Pro apps have 45 private files (864,562 bytes) in Supabase Storage.
+Each `pro-app` function request checks confirmed live Pro membership. A
+restrictive Storage policy denies direct anon/authenticated access even with
+broad permissive policies. The service worker preserves app URLs/imports,
+holds login tokens in memory only and never caches private resources.
+GitHub remains a **public source repository** as discussed with the owner;
+this protects hosted app access, not downloadable GitHub source/history.
 
-The new `Publish Austin.chat` workflow builds a Pages artifact excluding all
-private resources; it also republishes after successful feed-update workflows.
-Before its first push, switch Pages `build_type` from legacy to workflow.
-Never return to legacy publishing: that would expose the app files again.
-`tools/billing/package-apps.py --upload` must run after changing Pro sources or
-catalog before publishing; the build refuses stale manifests. Keep source,
-manifest and private release in sync. See billing/README.md for details.
+Verification for `5392508`: billing CI `41940022389`, classifieds
+`41940022371`, reminders `41940022284`, planner `41940022695` and Pages
+`41940022297` all passed. The 49 Node tests include Stripe signatures and
+Pro asset checks; CI also checks SQL permissions/leases and Storage policy.
+Published HTML was verified before fetching the new versioned assets.
+All 45 raw hosted resources and nine older query-string entry URLs return 404.
+Hosted API checks rejected guest/Free and direct Storage requests, delivered
+all 45 matching resource hashes/MIMEs for Pro, then rejected the same retained
+login token after revocation. Live browser checks opened **all nine apps**,
+verified nine enabled Pro links, sign-out gating and an empty CacheStorage.
+The published phone Free flow also passed: Apps opens, nine paid links are
+locked, exactly two plans appear, the $8 upgrade button is enabled, and the
+direct app wrapper stays gated. Temporary Auth accounts and synthetic
+entitlements were removed; SQL confirmed zero tagged test users and zero
+live/test billing associations. No emails were sent. Desktop/phone membership
+and Account fixtures also passed.
 
-NEXT: finish browser checks, commit/push, verify Pages success and HTML version
-before fetching new assets, then verify public raw files return 404 and all nine
-Pro apps open. After that enable live webhook/checkout and disable test webhook.
-Record final launch status here. Older checkpoints below are historical.
+Maintenance: after changing Pro sources/catalog, run
+`python3 tools/billing/package-apps.py --upload`, commit source and generated
+`billing/pro-assets.json` together, then publish. Build refuses a stale
+manifest. New app types may need their resources added to the packager.
+`check-private-apps.py --browser` runs manual hosted checks. The updated
+`verify-live.py --enabled --browser` checks Free membership and its upgrade
+UI without changing activation settings or making a purchase.
+See [billing/README.md](../billing/README.md) for current operations.
+Older checkpoints below are historical; their pending setup statements
+are superseded by this completed launch.
 
 ## 2026-11-04 — Free / Pro membership setup in progress
 

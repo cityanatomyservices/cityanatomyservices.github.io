@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Verify the live Stripe key through the backend without creating a Stripe customer.
 
-Checkout stays disabled. Uses one temporary, confirmed Supabase account with
-no email sent, then removes it. Intended only for initial launch preparation.
+Never changes activation settings. Uses one temporary, confirmed Supabase
+account with no email sent, then removes it. No Stripe objects are created.
 """
+import argparse
 import importlib.util
 import json
 from pathlib import Path
 import secrets
+import subprocess
 import uuid
 
 spec=importlib.util.spec_from_file_location('sandbox_check',Path(__file__).with_name('check-sandbox.py'))
@@ -16,8 +18,11 @@ spec.loader.exec_module(check)
 
 
 def main():
-    rows=json.loads(check.configure.query("select count(*) as total from billing_private.members where mode='live'",True))
-    if rows[0]['total']: raise SystemExit('Initial launch check only; live billing records already exist.')
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--enabled',action='store_true',help='Expect live checkout enabled')
+    parser.add_argument('--browser',action='store_true',help='Check the published Free UI; requires --enabled')
+    args=parser.parse_args()
+    if args.browser and not args.enabled:parser.error('--browser requires --enabled')
     keys=json.loads(check.configure.cli('projects','api-keys','--remote='+check.configure.PROJECT,'--reveal','--output','json'))
     admin=next(row['api_key'] for row in keys if row.get('name')=='service_role')
     owner=None
@@ -29,10 +34,13 @@ def main():
         owner=user['id']
         status,auth=check.http('/auth/v1/token?grant_type=password',{'email':email,'password':password})
         assert status==200,'Could not authenticate verification account'
-        check.configure.store_secrets({'BILLING_MODE':'live','BILLING_CHECKOUT_ENABLED':'false'})
         status,result=check.http('/functions/v1/billing',{'action':'status'},auth['access_token'])
-        assert status==200 and result.get('mode')=='live' and result.get('plan')=='free' and result.get('checkoutEnabled') is False,'Live read-only configuration check failed'
-        print('Live key verified: $8 USD monthly price and cancellation portal match. Checkout remains disabled.')
+        assert status==200 and result.get('mode')=='live' and result.get('plan')=='free' and result.get('checkoutEnabled') is args.enabled,'Live read-only configuration check failed'
+        print('Live key verified: $8 USD monthly price and cancellation portal match; checkout '+('enabled' if args.enabled else 'disabled')+'.',flush=True)
+        if args.browser:
+            run=subprocess.run(['node',str(Path(__file__).with_name('check-free-browser.cjs'))],input=json.dumps(auth),capture_output=True,text=True,encoding='utf-8',timeout=150,cwd=check.ROOT)
+            print(run.stdout[:3000],flush=True)
+            if run.returncode:raise RuntimeError('Free browser verification failed: '+run.stderr[-1000:])
     finally:
         if owner:
             status,_=check.http('/auth/v1/admin/users/'+owner,admin=admin,method='DELETE')
