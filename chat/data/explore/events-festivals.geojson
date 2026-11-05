@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-05T01:51:11.072053+00:00",
+ "generated": "2026-11-05T11:32:49.452537+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
@@ -21,7 +21,7 @@
    "url": "https://www.meanwhilebeer.com/events",
    "ok": true,
    "failures": 0,
-   "count": 14
+   "count": 15
   },
   {
    "name": "Austin Flea",
@@ -33,9 +33,9 @@
   {
    "name": "UT Austin",
    "url": "https://calendar.utexas.edu/",
-   "ok": true,
-   "failures": 0,
-   "count": 136
+   "ok": false,
+   "failures": 1,
+   "count": 130
   },
   {
    "name": "The Contemporary Austin",
@@ -91,7 +91,7 @@
    "url": "https://www.austintexas.gov/arts-culture/events",
    "ok": true,
    "failures": 0,
-   "count": 20
+   "count": 19
   },
   {
    "name": "Austin Center for Events",
@@ -116,223 +116,6 @@
   }
  ],
  "features": [
-  {
-   "type": "Feature",
-   "id": "2ecfdec31343a70975d6",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.732996,
-     30.286256
-    ]
-   },
-   "properties": {
-    "id": "2ecfdec31343a70975d6",
-    "title": "Adraint Bereal: As It Appears",
-    "venue": "Visual Arts Center, Art Building (ART)",
-    "address": "2301 San Jacinto Boulevard",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-04T00:00:00-06:00",
-    "end": "2026-11-05T00:00:00-06:00",
-    "endKnown": true,
-    "allDay": true,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-05T00:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://calendar.utexas.edu/event/adraint-bereal-as-it-appears-6538",
-    "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "6e43b22286862bde6c12",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.732996,
-     30.286256
-    ]
-   },
-   "properties": {
-    "id": "6e43b22286862bde6c12",
-    "title": "Experimental Seeing: Russell Lee’s Pedagogical Legacy",
-    "venue": "Visual Arts Center, Art Building (ART)",
-    "address": "2301 San Jacinto Boulevard",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-04T00:00:00-06:00",
-    "end": "2026-11-05T00:00:00-06:00",
-    "endKnown": true,
-    "allDay": true,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-05T00:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://calendar.utexas.edu/event/experimental-seeing-russell-lees-pedagogical-legacy-2240",
-    "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "4ef56ef5774c567744d3",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.732996,
-     30.286256
-    ]
-   },
-   "properties": {
-    "id": "4ef56ef5774c567744d3",
-    "title": "Fieldwork Projects: Constructed Realities: A Slice of Time-Art Through Student Visions",
-    "venue": "Visual Arts Center, Art Building (ART)",
-    "address": "2301 San Jacinto Boulevard",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-04T00:00:00-06:00",
-    "end": "2026-11-05T00:00:00-06:00",
-    "endKnown": true,
-    "allDay": true,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-05T00:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://calendar.utexas.edu/event/fieldwork-projects-constructed-realities-a-slice-of-time-art-through-student-visions-1654",
-    "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "2ff0acacf6459d916da0",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.732996,
-     30.286256
-    ]
-   },
-   "properties": {
-    "id": "2ff0acacf6459d916da0",
-    "title": "How to Grow the Cowpea: Survival Strategies from the U.S. South",
-    "venue": "Visual Arts Center, Art Building (ART)",
-    "address": "2301 San Jacinto Boulevard",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-04T00:00:00-06:00",
-    "end": "2026-11-05T00:00:00-06:00",
-    "endKnown": true,
-    "allDay": true,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-05T00:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://calendar.utexas.edu/event/how-to-grow-the-cowpea-survival-strategies-from-the-ussouth-4729",
-    "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "0b9bcb5a25ae9c5190fc",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.727669,
-     30.284239
-    ]
-   },
-   "properties": {
-    "id": "0b9bcb5a25ae9c5190fc",
-    "title": "Revolutions and Constitutions: Nation-Building in the Americas after 1776",
-    "venue": "Benson Latin American Collection",
-    "address": "2300 Red River Street",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-04T00:00:00-06:00",
-    "end": "2026-11-05T00:00:00-06:00",
-    "endKnown": true,
-    "allDay": true,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-05T00:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://calendar.utexas.edu/event/revolutions-and-constitutions-nation-building-in-the-americas-after-1776",
-    "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "ebcb632c70915b216805",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.734467,
-     30.285898
-    ]
-   },
-   "properties": {
-    "id": "ebcb632c70915b216805",
-    "title": "The Visit",
-    "venue": "B. Iden Payne Theatre, F. Loren Winship Drama Building (WIN)",
-    "address": "305 East 23rd Street",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-04T00:00:00-06:00",
-    "end": "2026-11-05T00:00:00-06:00",
-    "endKnown": true,
-    "allDay": true,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-05T00:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://calendar.utexas.edu/event/the-visit",
-    "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "a324e3a3b3e225484d10",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.755856298164,
-     30.260429470086
-    ]
-   },
-   "properties": {
-    "id": "a324e3a3b3e225484d10",
-    "title": "Artist Talk: Bella Cheng and Faith Chonko",
-    "venue": "Dougherty Arts Center",
-    "address": "1110 Barton Springs Rd. Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-04T19:00:00-06:00",
-    "end": "2026-11-04T21:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-04T21:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.austintexas.gov/dougherty/events/artist-talk-bella-cheng-and-faith-chonko",
-    "source": "City of Austin cultural centers",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
   {
    "type": "Feature",
    "id": "2bf4fa0b318dfce7865d",
@@ -521,6 +304,37 @@
   },
   {
    "type": "Feature",
+   "id": "098b1f9c8f38b5073e17",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.741124614438,
+     30.262062978194
+    ]
+   },
+   "properties": {
+    "id": "098b1f9c8f38b5073e17",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at The Confluence",
+    "venue": "Grandpa's Lakeview Terrace (71 1/2 Trinity St.) — Waterloo Greenway",
+    "address": "71 1/2 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-05T09:00:00-06:00",
+    "end": "2026-11-05T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-05T11:00:00-06:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/4-volunteer-opportunity-monarch-butterfly-tagging-at-the-confluence/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
    "id": "d4cb930fc88acba096b7",
    "geometry": {
     "type": "Point",
@@ -583,37 +397,6 @@
   },
   {
    "type": "Feature",
-   "id": "098b1f9c8f38b5073e17",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.741124614438,
-     30.262062978194
-    ]
-   },
-   "properties": {
-    "id": "098b1f9c8f38b5073e17",
-    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at The Confluence",
-    "venue": "Grandpa's Lakeview Terrace (71 1/2 Trinity St.) — Waterloo Greenway",
-    "address": "71 1/2 Trinity St Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-05T09:00:00-06:00",
-    "end": "2026-11-05T11:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-05T11:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://waterloogreenway.org/events/4-volunteer-opportunity-monarch-butterfly-tagging-at-the-confluence/",
-    "source": "Waterloo Greenway programs",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "662930b5bd2a37bb8c8c",
    "geometry": {
     "type": "Point",
@@ -633,7 +416,7 @@
     "end": "2026-11-05T19:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
     "expires": "2026-11-05T19:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -912,14 +695,45 @@
     "end": "2026-11-06T08:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/6-year-anniversary-day-one",
     "source": "Meanwhile Brewing",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "06f720f0f321f670a883",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.741124614438,
+     30.262062978194
+    ]
+   },
+   "properties": {
+    "id": "06f720f0f321f670a883",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at The Confluence",
+    "venue": "Grandpa's Lakeview Terrace (71 1/2 Trinity St.) — Waterloo Greenway",
+    "address": "71 1/2 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-06T09:00:00-06:00",
+    "end": "2026-11-06T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/5-volunteer-opportunity-monarch-butterfly-tagging-at-the-confluence/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -986,37 +800,6 @@
   },
   {
    "type": "Feature",
-   "id": "06f720f0f321f670a883",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.741124614438,
-     30.262062978194
-    ]
-   },
-   "properties": {
-    "id": "06f720f0f321f670a883",
-    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at The Confluence",
-    "venue": "Grandpa's Lakeview Terrace (71 1/2 Trinity St.) — Waterloo Greenway",
-    "address": "71 1/2 Trinity St Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-06T09:00:00-06:00",
-    "end": "2026-11-06T11:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://waterloogreenway.org/events/5-volunteer-opportunity-monarch-butterfly-tagging-at-the-confluence/",
-    "source": "Waterloo Greenway programs",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "1cd2a37646bc4661b445",
    "geometry": {
     "type": "Point",
@@ -1036,8 +819,8 @@
     "end": "2026-11-06T11:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/dougherty/events/art-cahoots-dougherty-arts-center-0",
@@ -1067,8 +850,8 @@
     "end": "2026-11-06T13:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/lunch-learn-intuitive-practices/",
@@ -1129,8 +912,8 @@
     "end": "2026-11-06T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thestoryoftexas.com/events/educator-workshop-ncc-20261106/",
@@ -1160,8 +943,8 @@
     "end": "2026-11-06T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.canopyaustin.com/happenings-/celebrate-the-24th-anniversary-of-the-austin-studio-tour-with-almost-real-things",
@@ -1191,8 +974,8 @@
     "end": "2026-11-06T19:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/volley-ball-free-play",
@@ -1222,8 +1005,8 @@
     "end": "2026-11-06T23:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/macc/events/con-mucho-amor-queer-quince-bobby-pudrido",
@@ -1501,8 +1284,8 @@
     "end": "2026-11-07T08:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/anniversary-volleyball-tournament",
@@ -1532,8 +1315,8 @@
     "end": "2026-11-07T16:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thestoryoftexas.com/events/educator-workshop-ncc-20261107/",
@@ -1563,14 +1346,138 @@
     "end": "2026-11-07T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/6-year-anniversary-day-two",
     "source": "Meanwhile Brewing",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "601f40c78155eccbb11f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.775753950919,
+     30.281825189003
+    ]
+   },
+   "properties": {
+    "id": "601f40c78155eccbb11f",
+    "title": "Start with Art Weaving Wonder",
+    "venue": "Lake Austin H-E-B",
+    "address": "2652 Lake Austin Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thecontemporaryaustin.org/event/start-with-art-weaving-wonder/",
+    "source": "The Contemporary Austin",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ff075d3bc6b94509d5b8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727079678149,
+     30.306666891813
+    ]
+   },
+   "properties": {
+    "id": "ff075d3bc6b94509d5b8",
+    "title": "Naturalists at the Ney: It's My Park Day",
+    "venue": "Elisabet Ney Museum",
+    "address": "304 E. 44th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T12:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.austintexas.gov/ney/events/naturalists-ney-its-my-park-day",
+    "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1a93ba2d166ff4f5b592",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.748364698465,
+     30.30454096087
+    ]
+   },
+   "properties": {
+    "id": "1a93ba2d166ff4f5b592",
+    "title": "It’s My Park Day along Shoal Creek",
+    "venue": "Seiders Springs Park",
+    "address": "1380 W 34th St, Austin, TX 78731",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://shoalcreekconservancy.org/event/its-my-park-day-along-shoal-creek-12/",
+    "source": "Shoal Creek Conservancy",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b186aebaa7fd7eef15b9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736001445175,
+     30.272657464501
+    ]
+   },
+   "properties": {
+    "id": "b186aebaa7fd7eef15b9",
+    "title": "Morning Glories: Diwali",
+    "venue": "Meredith Heritage Tree Deck — Waterloo Greenway",
+    "address": "500 E 12th St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-07T09:00:00-06:00",
+    "end": "2026-11-07T12:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/morning-glories-diwali/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -1606,130 +1513,6 @@
   },
   {
    "type": "Feature",
-   "id": "601f40c78155eccbb11f",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.775753950919,
-     30.281825189003
-    ]
-   },
-   "properties": {
-    "id": "601f40c78155eccbb11f",
-    "title": "Start with Art Weaving Wonder",
-    "venue": "Lake Austin H-E-B",
-    "address": "2652 Lake Austin Blvd Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-07T09:00:00-06:00",
-    "end": "2026-11-07T11:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thecontemporaryaustin.org/event/start-with-art-weaving-wonder/",
-    "source": "The Contemporary Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "ff075d3bc6b94509d5b8",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.727079678149,
-     30.306666891813
-    ]
-   },
-   "properties": {
-    "id": "ff075d3bc6b94509d5b8",
-    "title": "Naturalists at the Ney: It's My Park Day",
-    "venue": "Elisabet Ney Museum",
-    "address": "304 E. 44th St Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-07T09:00:00-06:00",
-    "end": "2026-11-07T12:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.austintexas.gov/ney/events/naturalists-ney-its-my-park-day",
-    "source": "City of Austin cultural centers",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "1a93ba2d166ff4f5b592",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.748364698465,
-     30.30454096087
-    ]
-   },
-   "properties": {
-    "id": "1a93ba2d166ff4f5b592",
-    "title": "It’s My Park Day along Shoal Creek",
-    "venue": "Seiders Springs Park",
-    "address": "1380 W 34th St, Austin, TX 78731",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-07T09:00:00-06:00",
-    "end": "2026-11-07T11:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://shoalcreekconservancy.org/event/its-my-park-day-along-shoal-creek-12/",
-    "source": "Shoal Creek Conservancy",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "b186aebaa7fd7eef15b9",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.736001445175,
-     30.272657464501
-    ]
-   },
-   "properties": {
-    "id": "b186aebaa7fd7eef15b9",
-    "title": "Morning Glories: Diwali",
-    "venue": "Meredith Heritage Tree Deck — Waterloo Greenway",
-    "address": "500 E 12th St Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-07T09:00:00-06:00",
-    "end": "2026-11-07T12:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://waterloogreenway.org/events/morning-glories-diwali/",
-    "source": "Waterloo Greenway programs",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "8c6f7bdcae1c674b6a60",
    "geometry": {
     "type": "Point",
@@ -1749,8 +1532,8 @@
     "end": "2026-11-07T12:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/dougherty/events/its-my-park-day-garden-clean-out-and-wildflower-meadow",
@@ -1780,8 +1563,8 @@
     "end": "2026-11-07T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/ace/events/cyclovia-atx",
@@ -1811,8 +1594,8 @@
     "end": "2026-11-07T12:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/macc/events/casa-de-la-cultura-hecho-en-casa",
@@ -1842,8 +1625,8 @@
     "end": "2026-11-07T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://blantonmuseum.org/?event=ut-mindfulness-summit-2026-finding-our-whimsy",
@@ -1873,8 +1656,8 @@
     "end": "2026-11-07T13:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/macc/events/opening-reception-land-free-home-brave-franklin-mendez",
@@ -1904,8 +1687,8 @@
     "end": "2026-11-07T13:15:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/arts-culture/events/aarc-returning-river-community-movement-workshop",
@@ -1935,8 +1718,8 @@
     "end": "2026-11-07T16:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.canopyaustin.com/happenings-/november-open-canopy",
@@ -1966,8 +1749,8 @@
     "end": "2026-11-07T16:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/old-bakery/events/glenn-towery-retrospective",
@@ -2028,8 +1811,8 @@
     "end": "2026-11-07T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://blantonmuseum.org/?event=public-tour-highlights-of-the-blantons-collection-63",
@@ -2059,8 +1842,8 @@
     "end": "2026-11-07T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.canopyaustin.com/happenings-/sage-studio-annual-fundraiser-party-at-the-playhouse",
@@ -2090,8 +1873,8 @@
     "end": "2026-11-07T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/ace/events/q2-stadium-austin-fc-vs-portland",
@@ -2214,8 +1997,8 @@
     "end": "2026-11-07T21:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/art-dinner-afterparty-2026/",
@@ -2431,8 +2214,8 @@
     "end": "2026-11-08T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/6-year-anniversary-day-three",
@@ -2462,8 +2245,8 @@
     "end": "2026-11-08T09:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/volleyball-free-play-2",
@@ -2524,8 +2307,8 @@
     "end": "2026-11-08T10:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/sunday-yoga-with-practice-yoga-austin-9",
@@ -2555,8 +2338,8 @@
     "end": "2026-11-08T17:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/ney/events/hyde-park-historic-homes-tours",
@@ -2586,8 +2369,8 @@
     "end": "2026-11-08T12:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/guided-brewery-tour-2",
@@ -2617,8 +2400,8 @@
     "end": "2026-11-08T13:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/guided-brewery-tour",
@@ -2679,8 +2462,8 @@
     "end": "2026-11-08T16:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://blantonmuseum.org/?event=public-tour-shadows-on-stone-portraits-of-colonial-mexican-architecture-2",
@@ -2877,6 +2660,37 @@
   },
   {
    "type": "Feature",
+   "id": "d9830fd993568beb4226",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736642031789,
+     30.274093162077
+    ]
+   },
+   "properties": {
+    "id": "d9830fd993568beb4226",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at Waterloo Park",
+    "venue": "Lebermann Plaza — Waterloo Greenway",
+    "address": "1301 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-09T09:00:00-06:00",
+    "end": "2026-11-09T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/4-volunteer-opportunity-monarch-butterfly-tagging-at-waterloo-park/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
    "id": "d9f12f20306d7487c290",
    "geometry": {
     "type": "Point",
@@ -2939,37 +2753,6 @@
   },
   {
    "type": "Feature",
-   "id": "d9830fd993568beb4226",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.736642031789,
-     30.274093162077
-    ]
-   },
-   "properties": {
-    "id": "d9830fd993568beb4226",
-    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at Waterloo Park",
-    "venue": "Lebermann Plaza — Waterloo Greenway",
-    "address": "1301 Trinity St Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-09T09:00:00-06:00",
-    "end": "2026-11-09T11:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://waterloogreenway.org/events/4-volunteer-opportunity-monarch-butterfly-tagging-at-waterloo-park/",
-    "source": "Waterloo Greenway programs",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "74d36a51cb516ccb5eca",
    "geometry": {
     "type": "Point",
@@ -3020,8 +2803,8 @@
     "end": "2026-11-09T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/ticketed-class-clay-incense-holders-with-katie-ann-clay",
@@ -3268,8 +3051,8 @@
     "end": "2026-11-10T11:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://peasepark.org/events/2026/11/10/livesremembered",
@@ -3299,8 +3082,8 @@
     "end": "2026-11-10T12:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/macc/events/casa-de-la-cultura-colorin-colorado-0",
@@ -3330,11 +3113,42 @@
     "end": "2026-11-10T13:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://blantonmuseum.org/?event=public-tour-modern-artists",
+    "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9966aed814abacd4e859",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "9966aed814abacd4e859",
+    "title": "Visita guiada pública [EN ESPAÑOL] – Artistas Modernos",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-10T14:00:00-06:00",
+    "end": "2026-11-10T15:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=visita-guiada-publica-en-espanol-artistas-modernos",
     "source": "Blanton Museum of Art",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
@@ -3367,37 +3181,6 @@
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/digital-scholars-in-practice-musics-of-latin-america-oer-textbook-initiative",
     "source": "UT Austin",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "9966aed814abacd4e859",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.737412985242,
-     30.280543915375
-    ]
-   },
-   "properties": {
-    "id": "9966aed814abacd4e859",
-    "title": "Visita guiada pública [EN ESPAÑOL] – Artistas Modernos",
-    "venue": "Blanton Museum of Art",
-    "address": "200 E Martin Luther King Jr Blvd Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-10T14:00:00-06:00",
-    "end": "2026-11-10T15:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://blantonmuseum.org/?event=visita-guiada-publica-en-espanol-artistas-modernos",
-    "source": "Blanton Museum of Art",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -3516,8 +3299,8 @@
     "end": "2026-11-10T19:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://peasepark.org/events/2026/11/10/soundbath-sona-shala",
@@ -3547,8 +3330,8 @@
     "end": "2026-11-10T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.preservationaustin.org/events/2026-pmas",
@@ -3578,8 +3361,8 @@
     "end": "2026-11-10T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/tuesday-trivia-91",
@@ -3857,8 +3640,8 @@
     "end": "2026-11-11T10:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://peasepark.org/events/2026/11/11/toddler-yoga",
@@ -3981,8 +3764,8 @@
     "end": "2026-11-11T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/deep-listening-sessions-nov11/",
@@ -4148,6 +3931,37 @@
   },
   {
    "type": "Feature",
+   "id": "83ab70cc28462824f759",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736642031789,
+     30.274093162077
+    ]
+   },
+   "properties": {
+    "id": "83ab70cc28462824f759",
+    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at Waterloo Park",
+    "venue": "Lebermann Plaza — Waterloo Greenway",
+    "address": "1301 Trinity St Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-12T09:00:00-06:00",
+    "end": "2026-11-12T11:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://waterloogreenway.org/events/5-volunteer-opportunity-monarch-butterfly-tagging-at-waterloo-park/",
+    "source": "Waterloo Greenway programs",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
    "id": "8483eabeff67219e0a74",
    "geometry": {
     "type": "Point",
@@ -4210,37 +4024,6 @@
   },
   {
    "type": "Feature",
-   "id": "83ab70cc28462824f759",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.736642031789,
-     30.274093162077
-    ]
-   },
-   "properties": {
-    "id": "83ab70cc28462824f759",
-    "title": "Volunteer Opportunity: Monarch Butterfly Tagging at Waterloo Park",
-    "venue": "Lebermann Plaza — Waterloo Greenway",
-    "address": "1301 Trinity St Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-12T09:00:00-06:00",
-    "end": "2026-11-12T11:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://waterloogreenway.org/events/5-volunteer-opportunity-monarch-butterfly-tagging-at-waterloo-park/",
-    "source": "Waterloo Greenway programs",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "6b5cd5fece4f6d13e99c",
    "geometry": {
     "type": "Point",
@@ -4260,12 +4043,43 @@
     "end": "2026-11-12T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://blantonmuseum.org/?event=public-tour-haas-brothers-uncanny-valley-4",
     "source": "Blanton Museum of Art",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bfdc1c11022e7def46fe",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.752650361864,
+     30.274059419089
+    ]
+   },
+   "properties": {
+    "id": "bfdc1c11022e7def46fe",
+    "title": "Shoal Creek Business Owners Flood Forum",
+    "venue": "Shoal Creek Saloon",
+    "address": "909 N Lamar Blvd, Austin, TX 78703",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-12T16:00:00-06:00",
+    "end": "2026-11-12T18:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://shoalcreekconservancy.org/event/shoal-creek-business-owners-flood-forum/",
+    "source": "Shoal Creek Conservancy",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4303,37 +4117,6 @@
   },
   {
    "type": "Feature",
-   "id": "bfdc1c11022e7def46fe",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.752650361864,
-     30.274059419089
-    ]
-   },
-   "properties": {
-    "id": "bfdc1c11022e7def46fe",
-    "title": "Shoal Creek Business Owners Flood Forum",
-    "venue": "Shoal Creek Saloon",
-    "address": "909 N Lamar Blvd, Austin, TX 78703",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-12T16:00:00-06:00",
-    "end": "2026-11-12T18:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://shoalcreekconservancy.org/event/shoal-creek-business-owners-flood-forum/",
-    "source": "Shoal Creek Conservancy",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "aa3df5f990cfbc33c9d6",
    "geometry": {
     "type": "Point",
@@ -4353,8 +4136,8 @@
     "end": "2026-11-12T17:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/ticketed-class-glass-fused-ornaments-with-tak-tak",
@@ -4384,8 +4167,8 @@
     "end": "2026-11-12T19:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/macc/events/frijolebeans-play-raul-garza",
@@ -4663,8 +4446,8 @@
     "end": "2026-11-13T11:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/arts-culture/events/art-cahoots-little-walnut-creek-branch-library",
@@ -4787,8 +4570,8 @@
     "end": "2026-11-13T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/carver/events/living-memory-opening-reception",
@@ -4818,8 +4601,8 @@
     "end": "2026-11-13T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/ney/events/celestial-evening-ney",
@@ -4849,8 +4632,8 @@
     "end": "2026-11-13T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://waterloogreenway.org/events/creek-show/",
@@ -4880,8 +4663,8 @@
     "end": "2026-11-13T19:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/volleyball-free-play-6",
@@ -4942,8 +4725,8 @@
     "end": "2026-11-13T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/brew-pauls-drag-show-farewell-edition",
@@ -5159,12 +4942,43 @@
     "end": "2026-11-14T11:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/ace/events/heart-stroke-walk",
     "source": "Austin Center for Events",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5af5631fd09b2eed5cb9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.751470364463,
+     30.267704699424
+    ]
+   },
+   "properties": {
+    "id": "5af5631fd09b2eed5cb9",
+    "title": "November Creekside Neighbors Volunteer Cleanup",
+    "venue": "The Independent",
+    "address": "301 West Ave, Austin, TX 78701",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-14T09:00:00-06:00",
+    "end": "2026-11-14T10:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://shoalcreekconservancy.org/event/creekside-neighbors-volunteer-cleanup/",
+    "source": "Shoal Creek Conservancy",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -5202,37 +5016,6 @@
   },
   {
    "type": "Feature",
-   "id": "5af5631fd09b2eed5cb9",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.751470364463,
-     30.267704699424
-    ]
-   },
-   "properties": {
-    "id": "5af5631fd09b2eed5cb9",
-    "title": "November Creekside Neighbors Volunteer Cleanup",
-    "venue": "The Independent",
-    "address": "301 West Ave, Austin, TX 78701",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-14T09:00:00-06:00",
-    "end": "2026-11-14T10:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://shoalcreekconservancy.org/event/creekside-neighbors-volunteer-cleanup/",
-    "source": "Shoal Creek Conservancy",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "d70c1720b9ff8e7a9588",
    "geometry": {
     "type": "Point",
@@ -5252,8 +5035,8 @@
     "end": "2026-11-14T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/arts-culture/events/festival-good-0",
@@ -5283,8 +5066,8 @@
     "end": "2026-11-14T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/second-saturdays-are-for-families-fuzzy-frenzy/",
@@ -5314,8 +5097,8 @@
     "end": "2026-11-14T11:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://peasepark.org/events/2026/11/14/lives-remembered",
@@ -5345,8 +5128,8 @@
     "end": "2026-11-14T11:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://peasepark.org/events/2026/11/14/puppet-show",
@@ -5376,8 +5159,8 @@
     "end": "2026-11-14T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/ace/events/texas-craft-brewers-festival",
@@ -5407,8 +5190,8 @@
     "end": "2026-11-14T16:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://blantonmuseum.org/?event=family-art-adventures-november-2026",
@@ -5438,12 +5221,43 @@
     "end": "2026-11-14T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/carver/events/ancestry-101-introduction",
     "source": "City of Austin cultural centers",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "625fffe73eb366599f55",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.737412985242,
+     30.280543915375
+    ]
+   },
+   "properties": {
+    "id": "625fffe73eb366599f55",
+    "title": "Public Tour – Art of Latin America",
+    "venue": "Blanton Museum of Art",
+    "address": "200 E Martin Luther King Jr Blvd Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-14T17:30:00-06:00",
+    "end": "2026-11-14T18:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://blantonmuseum.org/?event=public-tour-art-of-latin-america-33",
+    "source": "Blanton Museum of Art",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -5481,37 +5295,6 @@
   },
   {
    "type": "Feature",
-   "id": "625fffe73eb366599f55",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.737412985242,
-     30.280543915375
-    ]
-   },
-   "properties": {
-    "id": "625fffe73eb366599f55",
-    "title": "Public Tour – Art of Latin America",
-    "venue": "Blanton Museum of Art",
-    "address": "200 E Martin Luther King Jr Blvd Austin TX",
-    "kind": "listing",
-    "theme": "events",
-    "start": "2026-11-14T17:30:00-06:00",
-    "end": "2026-11-14T18:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://blantonmuseum.org/?event=public-tour-art-of-latin-america-33",
-    "source": "Blanton Museum of Art",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "8d76019efef976718cf0",
    "geometry": {
     "type": "Point",
@@ -5531,8 +5314,8 @@
     "end": "2026-11-14T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://waterloogreenway.org/events/creek-show/",
@@ -5791,6 +5574,37 @@
   },
   {
    "type": "Feature",
+   "id": "00558b98de576e6913e6",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "00558b98de576e6913e6",
+    "title": "Volleyball Free Play",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "events",
+    "start": "2026-11-15T09:00:00-06:00",
+    "end": "2026-11-15T09:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/volleyball-free-play-3",
+    "source": "Meanwhile Brewing",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
    "id": "7c9481580ea4f05dc624",
    "geometry": {
     "type": "Point",
@@ -5841,8 +5655,8 @@
     "end": "2026-11-15T10:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://peasepark.org/events/2026/11/22/sunday-social",
@@ -5872,8 +5686,8 @@
     "end": "2026-11-15T12:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/dougherty/events/cut-it-out-collage-workshop",
@@ -5903,8 +5717,8 @@
     "end": "2026-11-15T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/the-art-of-print/",
@@ -5934,8 +5748,8 @@
     "end": "2026-11-15T15:15:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://blantonmuseum.org/?event=blanton-live-the-haas-brothers",
@@ -5965,8 +5779,8 @@
     "end": "2026-11-15T16:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/dougherty/events/artist-talk-dougherty-arts-center-artists-residence",
@@ -6058,8 +5872,8 @@
     "end": "2026-11-15T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://waterloogreenway.org/events/creek-show/",
@@ -6368,8 +6182,8 @@
     "end": "2026-11-16T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://waterloogreenway.org/events/creek-show/",
@@ -6678,8 +6492,8 @@
     "end": "2026-11-17T13:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://blantonmuseum.org/?event=public-tour-highlights-of-the-blantons-collection-62",
@@ -6771,8 +6585,8 @@
     "end": "2026-11-17T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://waterloogreenway.org/events/creek-show/",
@@ -6802,8 +6616,8 @@
     "end": "2026-11-17T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/dougherty/events/navigating-jcb-gallery-open-call-exhibits",
@@ -6833,8 +6647,8 @@
     "end": "2026-11-18T10:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://peasepark.org/events/2026/11/18/toddler-yoga",
@@ -6864,8 +6678,8 @@
     "end": "2026-11-18T20:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/design-minded-a-shared-vision-for-downtown/",
@@ -6895,8 +6709,8 @@
     "end": "2026-11-18T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://waterloogreenway.org/events/creek-show/",
@@ -6926,8 +6740,8 @@
     "end": "2026-11-18T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/dougherty/events/dac-nights-see-spot-paint",

@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-05T01:51:11.072053+00:00",
+ "generated": "2026-11-05T11:32:49.452537+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
@@ -33,8 +33,8 @@
   {
    "name": "UT Austin",
    "url": "https://calendar.utexas.edu/",
-   "ok": true,
-   "failures": 0,
+   "ok": false,
+   "failures": 1,
    "count": 0
   },
   {
@@ -137,8 +137,8 @@
     "end": "2026-11-14T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/arts-culture/events/festival-good-0",
@@ -168,8 +168,8 @@
     "end": "2026-11-14T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.austintexas.gov/ace/events/texas-craft-brewers-festival",
@@ -199,8 +199,8 @@
     "end": "2026-11-15T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-05T01:51:11.072053+00:00",
-    "expires": "2026-11-06T01:51:11.072053+00:00",
+    "checked": "2026-11-05T11:32:49.452537+00:00",
+    "expires": "2026-11-06T11:32:49.452537+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/the-art-of-print/",
