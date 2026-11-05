@@ -32,6 +32,20 @@ function periodEnd(subscription,price) {
 export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.now,uuid=()=>crypto.randomUUID()}) {
   if(!['test','live'].includes(mode))throw new Error('Billing mode is required');
   const price=PRICES[mode];
+  let configuration;
+  async function configured() {
+    if(configuration)return configuration;
+    const task=(async()=>{
+      const actual=await stripe.prices.retrieve(price);
+      if(!actual.active||actual.livemode!==(mode==='live')||actual.currency!=='usd'||actual.unit_amount!==800||
+        actual.recurring?.interval!=='month'||actual.recurring?.interval_count!==1)throw new Error('Unexpected Pro price');
+      if(!portal)throw problem(503,'Billing management is being set up.');
+      const settings=await stripe.billingPortal.configurations.retrieve(portal);
+      if(!settings.active||settings.livemode!==(mode==='live')||!settings.features?.subscription_cancel?.enabled||
+        settings.features.subscription_cancel.mode!=='at_period_end')throw new Error('Unexpected billing portal');
+    })();configuration=task;
+    try{await task;}catch(error){if(configuration===task)configuration=null;throw error;}
+  }
   async function locked(owner,fn) {
     let row=await db.claim(mode,owner);
     const lease=row.lease_id;
@@ -55,9 +69,7 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
   async function checkout(user) {
     if(!checkoutEnabled)throw problem(503,'Pro membership is being set up.');
     return locked(user.id,async(get,save)=>{
-      const configured=await stripe.prices.retrieve(price);
-      if(!configured.active||configured.livemode!==(mode==='live')||configured.currency!=='usd'||configured.unit_amount!==800||
-        configured.recurring?.interval!=='month'||configured.recurring?.interval_count!==1)throw new Error('Unexpected Pro price');
+      await configured();
       if(!get().customer_id) {
         // Dedicated Austin.chat customer; never reuse a Substack customer by email.
         // Keep request parameters stable when recovering a failed database write.
@@ -86,6 +98,7 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
     });
   }
   async function status(user) {
+    await configured();
     const row=await db.load(mode,user.id,null);
     if(!row?.customer_id)return {...membership(row,now()),checkoutEnabled,mode};
     return locked(user.id,async(get,save)=>{

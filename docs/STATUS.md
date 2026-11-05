@@ -1,5 +1,49 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-04 ? Pro apps: authenticated delivery and live launch verification
+
+Owner explicitly approved protecting direct hosted app access as well as gray
+buttons. Nine Pro apps now use private Supabase Storage through the `pro-app`
+Edge function. Every file request checks confirmed live Pro membership; expired,
+Free and signed-out accounts cannot download it. A same-origin service worker
+preserves the original iframe URLs and relative imports, holds login tokens only
+in memory, and never persists private resources. Source remains in this public
+GitHub repository; this protects hosted app access, not downloadable GitHub source.
+
+Apps is disabled for guests. Signed-in Free/Pro members can open the panel;
+all nine paid entries have ?Pro App? appended and are disabled for Free members.
+The app directory and direct wrapper pages use the same membership rules.
+Changed assets and every HTML/dynamic reference use `20261104e`.
+
+The owner saved `AUSTIN_STRIPE_LIVE_KEY`; a read-only deployed check verified
+its $8 monthly price and cancellation portal. Runtime is LIVE, checkout is still
+DISABLED pending published-browser checks. Live webhook remains DISABLED;
+test webhook needs disabling before activation. The CLI stays in test mode.
+No live Stripe customer, subscription or charge has been created.
+
+Private release package: 9 apps / 45 files / 864,562 bytes. Storage has a
+restrictive anon/authenticated policy even if a permissive policy is added later.
+Hosted tests confirmed guest/Free rejection, direct Storage rejection, all 45
+Pro resource hashes/MIMEs/no-store headers, and revocation with a retained login
+token. All synthetic accounts/entitlements were removed. The 49 Node tests,
+Account and membership browser fixtures, catalog states and private-worker
+browser fixture pass. See `tools/billing/check-private-apps.py --browser` for
+manual hosted validation with an isolated temporary Auth account (no Stripe
+objects or email). Do not print/store its credentials.
+
+The new `Publish Austin.chat` workflow builds a Pages artifact excluding all
+private resources; it also republishes after successful feed-update workflows.
+Before its first push, switch Pages `build_type` from legacy to workflow.
+Never return to legacy publishing: that would expose the app files again.
+`tools/billing/package-apps.py --upload` must run after changing Pro sources or
+catalog before publishing; the build refuses stale manifests. Keep source,
+manifest and private release in sync. See billing/README.md for details.
+
+NEXT: finish browser checks, commit/push, verify Pages success and HTML version
+before fetching new assets, then verify public raw files return 404 and all nine
+Pro apps open. After that enable live webhook/checkout and disable test webhook.
+Record final launch status here. Older checkpoints below are historical.
+
 ## 2026-11-04 — Free / Pro membership setup in progress
 
 Latest checkpoint: the owner saved `AUSTIN_STRIPE_KEY` in Supabase. Its test-mode

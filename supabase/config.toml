@@ -16,3 +16,7 @@ verify_jwt = false
 
 [functions.stripe-webhook]
 verify_jwt = false
+
+# Every asset request checks a confirmed user's live, paid membership.
+[functions.pro-app]
+verify_jwt = false

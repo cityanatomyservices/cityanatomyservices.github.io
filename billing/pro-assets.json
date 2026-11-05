@@ -1,0 +1,268 @@
+{
+  "release": "47eb560de0e4b7cf97b778fdd0ae8a5a723f9bef927fd086273785aca3c1cdfb",
+  "apps": {
+    "/apps/moontower/": {
+      "title": "Moontower",
+      "entry": "/moontowertour/app.html"
+    },
+    "/apps/1885/": {
+      "title": "The 1885 Murder Tour",
+      "entry": "/1885murdertour/app.html"
+    },
+    "/apps/austin-horseback-riding/": {
+      "title": "Recreational Horseback Riding in Greater Austin",
+      "entry": "/apps/austin-horseback-riding/map.html"
+    },
+    "/apps/austin-golf-courses/": {
+      "title": "Golf in the Austin Region",
+      "entry": "/apps/austin-golf-courses/map.html"
+    },
+    "/apps/austin-bike-shops/": {
+      "title": "E-Bike and Bicycle Shops in Greater Austin",
+      "entry": "/apps/austin-bike-shops/map.html"
+    },
+    "/apps/austin-vintage-guitar/": {
+      "title": "Vintage and Used Guitar Shops in Greater Austin",
+      "entry": "/apps/austin-vintage-guitar/map.html"
+    },
+    "/apps/austin-toy-stores/": {
+      "title": "Toy Stores & Children's Specialty Retailers in Greater Austin",
+      "entry": "/apps/austin-toy-stores/map.html"
+    },
+    "/apps/PoolOpenings/": {
+      "title": "Austin Pool Openings",
+      "entry": "/apps/PoolOpenings/map.html"
+    },
+    "/apps/austin-pizza/": {
+      "title": "Pizza in Austin",
+      "entry": "/apps/austin-pizza/map.html"
+    }
+  },
+  "files": {
+    "/1885murdertour/app.html": {
+      "sha256": "2579c70b34b7adb346cf8538f4d16d2117f2d51fc3d953c738de98d6803edd04",
+      "size": 16518,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/1885murdertour/js/card.js": {
+      "sha256": "dffa694a624c67ede4d6592b39dd6d27cf7d1c26881f44e358dfa9d5d77d40cd",
+      "size": 2595,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/js/chat.js": {
+      "sha256": "93a98eff4e06f952a83fa0e86fbe25aec984e0c1e99bf7c4043d467b502ba800",
+      "size": 612,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/js/copy.js": {
+      "sha256": "afd17f6c106ed7854a91480f1347d8b0711e4ca6ccf46d6734a913d7498a1658",
+      "size": 4038,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/js/main.js": {
+      "sha256": "c77f2eedea21ea65bf0a2c08434dd31bfe32f13cd978c55c9283ae20f25016b1",
+      "size": 19360,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/js/names.js": {
+      "sha256": "470212dbdbe881a9990c1e3645f64632be09e57b02a6d9eaab78543bd3c3e87c",
+      "size": 528,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/js/story.js": {
+      "sha256": "80f4510a4a472189893ec80104e0dd8177fa560408f58ddaedbde7c3fb1fd75e",
+      "size": 5013,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/vendor/routes.js": {
+      "sha256": "1fcd8d8b33691ec0c1655f47426c971e62c1c483da2ca1303020d7dce3a8b6d5",
+      "size": 65317,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/vendor/stops-content.js": {
+      "sha256": "3a4b2a423b07514c237c6523440b878048af91cf25bc03d4679797c7f4b8ffd1",
+      "size": 22509,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/vendor/stops.js": {
+      "sha256": "8eb692ac683ed7c7f0e87bd9ebbfc152e5b4bc182a0818ac52c09fc167c88683",
+      "size": 11560,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/vendor/style-day.js": {
+      "sha256": "fbf4991574279b04a02648e4dfd4bd79af6d14752c43aa986a22233bca32c8a3",
+      "size": 42324,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/1885murdertour/vendor/style-night.js": {
+      "sha256": "024443dcdafd9ae309726fb28801e7cf28144378793f57480fa1cbc673141b96",
+      "size": 41702,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/austin-bike-shops/config.js": {
+      "sha256": "adbb4ba67ef8f2dac46fd1782d53d918ad76b3757feb9f891ba060948266fbe9",
+      "size": 1808,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/austin-bike-shops/data.geojson": {
+      "sha256": "c187176ac0d286d4d38f586492a621eceea419c6a4aab554a34bb3eb32a4f268",
+      "size": 30882,
+      "mime": "application/geo+json"
+    },
+    "/apps/austin-bike-shops/map.html": {
+      "sha256": "e89bb73343b8acb74c1b1cccb441f3f8cbd5d602ccb984b7ebbe1b708c2618de",
+      "size": 3550,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/apps/austin-golf-courses/config.js": {
+      "sha256": "67dcf4a4d2166f970446d6d0192b593f1e5ffbaeda2c235fe23245a5c2a81df3",
+      "size": 1613,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/austin-golf-courses/data.geojson": {
+      "sha256": "352d9014b9c84901e426a52ea2f0992aa3db24cba996e1ccd75029de9f6d9c28",
+      "size": 12644,
+      "mime": "application/geo+json"
+    },
+    "/apps/austin-golf-courses/map.html": {
+      "sha256": "b59740450c92413438a1d7a43371f6299ca3d56c5212e25ab30754df36ea3f4a",
+      "size": 3533,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/apps/austin-horseback-riding/config.js": {
+      "sha256": "c8d7f0c7a1ebb1f1569594ca3b2b01b0e256acba33b4475a1d04cdff5a4f3e3b",
+      "size": 1722,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/austin-horseback-riding/data.geojson": {
+      "sha256": "78646bc9a2c83270786d20ae12bc1939e031f578396fdd2bb097ff1203650353",
+      "size": 14518,
+      "mime": "application/geo+json"
+    },
+    "/apps/austin-horseback-riding/map.html": {
+      "sha256": "c89c68af4cc47d62e779343f1a23a9b9ff13f1568a15bb77a6881874b06fd0b3",
+      "size": 3555,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/apps/austin-pizza/config.js": {
+      "sha256": "e0de5cc1c3a19cb8311f7cbe971508e7210c1947c78c9745272c8165cc684556",
+      "size": 2228,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/austin-pizza/data.geojson": {
+      "sha256": "2c2f390a288fbe1b1c976cd51d09dec882ec3a6586ea645c664c7d05a2d2045c",
+      "size": 184510,
+      "mime": "application/geo+json"
+    },
+    "/apps/austin-pizza/map.html": {
+      "sha256": "fd42e2bc0d6adbc17e3b228a82e13ed7d39113c766b6903088954041ed210d9e",
+      "size": 3523,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/apps/austin-toy-stores/config.js": {
+      "sha256": "595c634461aae12664c562724139b876be943e7b12765497671723fc359353de",
+      "size": 1845,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/austin-toy-stores/data.geojson": {
+      "sha256": "ab1e0c21935083f91767183ff04e38f762a469f9104e62a134356e7e57ea5afe",
+      "size": 29543,
+      "mime": "application/geo+json"
+    },
+    "/apps/austin-toy-stores/map.html": {
+      "sha256": "c592acdc5339be66e027336a3668fa6123450e27ea1882d14dd568d4e29f39bf",
+      "size": 3569,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/apps/austin-vintage-guitar/config.js": {
+      "sha256": "2be4f974e135b4715f75e7b8d3b440047495e2be06c2734022cdb739f1938fed",
+      "size": 1634,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/austin-vintage-guitar/data.geojson": {
+      "sha256": "07b37bfa2276925652788691b28310a0ec55d482ac03d77a6f8841844ec5300e",
+      "size": 14182,
+      "mime": "application/geo+json"
+    },
+    "/apps/austin-vintage-guitar/map.html": {
+      "sha256": "8d9afe0a4817e080b59f5c896a81660a6813ad5821e8051d7341216e89afee3a",
+      "size": 3555,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/apps/PoolOpenings/config.js": {
+      "sha256": "1cddc4c12ffea49d1ceec0b8c24b0019d44b1050f46531df63b28fd3bd75f399",
+      "size": 1735,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/PoolOpenings/data.geojson": {
+      "sha256": "91b5597052d573bcc77e66da907c558dfa8004ee01e74f458ed691ed21fd02c4",
+      "size": 37509,
+      "mime": "application/geo+json"
+    },
+    "/apps/PoolOpenings/map.html": {
+      "sha256": "3404d9340746ad936f6e3b6463b26f75846ff42a8651949cc93dc92cb131df13",
+      "size": 3528,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/moontowertour/app.html": {
+      "sha256": "fdec010b455b438722ecaa5c7c52e24831e5bc288e34ece67b8deb2bee77febe",
+      "size": 16110,
+      "mime": "text/html; charset=utf-8"
+    },
+    "/moontowertour/js/card.js": {
+      "sha256": "cfcf7187833ed08f724eb3a12f65e4a363cadec167420ef5f14d98e97daa2731",
+      "size": 2162,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/js/chat.js": {
+      "sha256": "93a98eff4e06f952a83fa0e86fbe25aec984e0c1e99bf7c4043d467b502ba800",
+      "size": 612,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/js/copy.js": {
+      "sha256": "228c998532accddaef8fdf9cd2cd4054313fd4fe08a3fd59a2a577da681bd5b1",
+      "size": 4535,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/js/main.js": {
+      "sha256": "2956bd6da25556efbe9172a402148c6e5f37c9d8be91a31824919a9e64f28505",
+      "size": 26693,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/js/status.js": {
+      "sha256": "79b0303752d3d111d9998dffa159e0c596d0dacf793853e3b29c1af4b6f7033f",
+      "size": 442,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/js/story.js": {
+      "sha256": "7c1781b23d270003f66abe227ae05c031d03920661f381b109343905ac05450a",
+      "size": 3550,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/js/strike.js": {
+      "sha256": "a82be7dac5dd6d9628cfc893936219ca48fb2a76865938cfdcef45f3601208ac",
+      "size": 3478,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/vendor/routes.js": {
+      "sha256": "b4ec7ded5a083ee4bb288aa8b244ff2edb7d793d68e2e9c916074ee187e2664e",
+      "size": 105280,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/vendor/stops.js": {
+      "sha256": "e0a908a180664f28604e46cb1ad76585441e4b9da619abf364491e5b17276c8a",
+      "size": 22970,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/vendor/style-day.js": {
+      "sha256": "74666d0e901dd98afcd15f295d4e4aa05416e149768d51a73cc25d5539242229",
+      "size": 42428,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/moontowertour/vendor/style-night.js": {
+      "sha256": "8886d418c841b172ad66a22020982ec9185933931c8cc54f708f2431cdfd1e99",
+      "size": 43040,
+      "mime": "text/javascript; charset=utf-8"
+    }
+  }
+}

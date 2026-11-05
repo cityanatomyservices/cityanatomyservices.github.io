@@ -83,8 +83,10 @@
   const reminderScript=document.createElement('script');reminderScript.src='/shared/reminders.js?v=20261102f';
   reminderScript.onload=()=>{
     const style=document.createElement('link');style.rel='stylesheet';style.href='/shared/membership.css?v=20261104d';document.head.append(style);
-    const model=document.createElement('script');model.src='/shared/membership.js?v=20261104d';
+    const model=document.createElement('script');model.src='/shared/membership.js?v=20261104e';
     model.onload=()=>{const ui=document.createElement('script');ui.src='/shared/membership-ui.js?v=20261104d';
+      const appStyle=document.createElement('link');appStyle.rel='stylesheet';appStyle.href='/shared/pro-apps.css?v=20261104e';document.head.append(appStyle);
+      const apps=document.createElement('script');apps.src='/shared/pro-apps.js?v=20261104e';document.body.append(apps);
       ui.onload=()=>document.body.append(memberScript);ui.onerror=()=>document.body.append(memberScript);document.body.append(ui);};
     model.onerror=()=>document.body.append(memberScript);document.body.append(model);
   };document.body.append(reminderScript);

@@ -32,7 +32,8 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');
   assert.ok(await f.evaluate(()=>chatMap.getPitch()>50));
   await f.evaluate(()=>{window.boundaryErrors=[];chatMap.on('error',e=>{if(/boundary-|zipcodes|council_districts/.test(e.error?.message||''))boundaryErrors.push(e.error.message);});});
-  for(const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','plan-panel'],['ctrlChat','legend'],['ctrlApps','apps-panel']]){
+  assert.equal(await f.locator('#ctrlApps').isDisabled(),true,'Guests must sign in to open Apps');
+  for(const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','plan-panel'],['ctrlChat','legend']]){
    await layersOpen(f);await f.locator('#'+control).click();assert.equal(await f.locator('#map-layers-panel').isHidden(),true);assert.equal(await f.locator('#'+panel).isVisible(),true);
    // Existing phone Explore/Day Plan panels span the map and cover lower
    // controls; use their normal close buttons before switching on a phone.
@@ -72,8 +73,10 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   await f.locator('#layerZipCodes').check();await f.waitForFunction(()=>chatMap.getLayer('boundary-zip-line')&&chatMap.getLayoutProperty('boundary-zip-line','visibility')==='visible');
   assert.deepEqual(errors,[]);
   console.log(`${width}px: order, exclusive panels, view controls, both real boundary layers, stable camera, light/dark layout, refresh, failed-load retry and pending-load toggles passed.`);
-  // Catalog maps retain their previous controls and have no new Map layers panel.
-  await page.goto(base+'/apps/austin-pizza/');const catalog=await(await page.locator('#app-window').elementHandle()).contentFrame();await catalog.locator('[data-map-ui-ready=true]').waitFor();
+  // The public wrapper is gated; render the source locally to check its controls.
+  await page.goto(base+'/apps/austin-pizza/');await page.locator('.pro-app-gate p').filter({hasText:'Sign in'}).waitFor();
+  assert.equal(await page.locator('#app-window').isHidden(),true);
+  await page.goto(base+'/apps/austin-pizza/map.html');const catalog=page;await catalog.locator('[data-map-ui-ready=true]').waitFor();
   assert.deepEqual(await catalog.locator('#stack > button').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlApps','ctrlMedia','ctrlDayPlan','ctrlChat','ctrlExplore','ctrlLocate','ctrlTilt','ctrlSatellite','ctrlExtent']);
   assert.equal(await catalog.locator('#ctrlMapLayers').count(),0);await catalog.locator('#ctrlMedia').click();assert.equal(await catalog.locator('#media-panel').isVisible(),true);
   console.log(`${width}px: catalog map retains its existing button order and Media menu.`);await context.close();

@@ -2,7 +2,7 @@
 (() => {
   try {
     if(window.parent!==window&&window.parent.AustinSession===window.AustinSession&&window.parent.AustinMembership){
-      window.AustinMembership=window.parent.AustinMembership;return;
+      window.AustinMembership=window.parent.AustinMembership;window.dispatchEvent?.(new Event('austin-membership-ready'));return;
     }
   }catch(_){}
   const S=window.AustinSession,listeners=new Set();
@@ -56,6 +56,7 @@
     window.location.assign(url.href);
   }
   window.AustinMembership={load,checkout:()=>openBilling('checkout'),manage:()=>openBilling('portal'),
-    get state(){return state;},subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn);}};
+    get state(){return identity()===owner?state:null;},subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn);}};
   S?.subscribe(()=>{if(identity()!==owner)reset();});
+  window.dispatchEvent?.(new Event('austin-membership-ready'));
 })();

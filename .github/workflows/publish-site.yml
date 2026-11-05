@@ -1,0 +1,37 @@
+name: Publish Austin.chat
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Refresh City Hall', 'Refresh Explore map layers', 'Build news map feed', 'Refresh Austin neighborhood businesses', 'Refresh Texas sports scores', 'Refresh Austin ticker', 'Render Report Promo Videos', 'Render City Intro Video', 'Export Explore for Substack']
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+      - name: Build public site without private Pro resources
+        run: python3 tools/billing/build-site.py _site
+      - uses: actions/configure-pages@v6.0.0
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: _site
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1

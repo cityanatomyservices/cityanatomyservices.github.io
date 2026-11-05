@@ -106,3 +106,6 @@
 
 .catalog-panel .catalog-soon { display: block; padding: 9px 4px; color: var(--muted); }
 .catalog-panel .catalog-media-links { border-top: 1px solid var(--border); padding: 4px 0 0; }
+.apps-control:disabled{opacity:.38;cursor:default}
+.catalog-panel .catalog-locked{color:var(--muted,#747f7c);opacity:.55;cursor:default;text-decoration:none}
+.catalog-membership{font-size:12px;line-height:1.5}

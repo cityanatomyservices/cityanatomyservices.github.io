@@ -7,12 +7,31 @@
     return response.json();
   }
   function catalog() {
-    if (!home) home = read('/home.json?v=20261031d').catch(error => { home = null; throw error; });
+    if (!home) home = read('/home.json?v=20261104e').catch(error => { home = null; throw error; });
     return home;
   }
-  function add(list, title, href, external = false) {
+  const registered=()=>window.AustinSession?.registered===true;
+  const pro=()=>registered()&&window.AustinMembership?.state?.plan==='pro'&&Date.parse(window.AustinMembership.state.paidThrough)>Date.now();
+  function access() {
+    const button=document.getElementById('ctrlApps');
+    if(button){button.disabled=!registered();button.title=registered()?'Apps':'Sign in to use Apps';}
+    if(!registered())window.AustinApps?.close();
+    document.querySelectorAll('[data-pro-app]').forEach(link=>{
+      const enabled=pro();link.classList.toggle('catalog-locked',!enabled);link.setAttribute('aria-disabled',String(!enabled));
+      if(enabled){link.href=link.dataset.proApp;link.removeAttribute('tabindex');}else{link.removeAttribute('href');link.tabIndex=-1;}
+    });
+    const offer=document.querySelector('.catalog-membership');if(offer)offer.hidden=pro();
+  }
+  function bindMembership(){window.AustinMembership?.subscribe(access);access();}
+  window.addEventListener('austin-membership-ready',bindMembership);
+  window.AustinSession?.subscribe(access);if(window.AustinMembership)bindMembership();
+  window.AustinSession?.peek().then(access).catch(access);
+  function add(list, title, href, external = false, requiredPlan) {
     const item = document.createElement('li'), link = document.createElement(href ? 'a' : 'span');
-    link.textContent = title;
+    link.textContent = title+(requiredPlan==='pro'?' — Pro App':'');
+    if(requiredPlan==='pro'){
+      link.dataset.proApp=href;link.addEventListener('click',event=>{if(!pro())event.preventDefault();});
+    }
     if (href) {
       link.href = href; link.target = external ? '_blank' : '_top';
       if (external) link.rel = 'noopener';
@@ -32,7 +51,7 @@
     panel.id = id + '-panel'; panel.className = 'catalog-panel'; panel.hidden = true;
     panel.setAttribute('aria-labelledby', id + '-heading');
     panel.innerHTML = `<div class="catalog-heading"><h2 id="${id}-heading">${name}</h2><button class="catalog-close" type="button" aria-label="Close ${name}">×</button></div>
-      ${directory ? `<a href="${directory}" target="_top">All ${id} →</a>` : ''}<div class="catalog-groups"></div><p class="catalog-status" role="status"></p>`;
+      ${directory ? `<a href="${directory}" target="_top">All ${id} →</a>` : ''}${name==='Apps'?'<p class="catalog-membership">Pro apps require Pro. <a href="/?account=membership" target="_top">Membership — $8/month</a></p>':''}<div class="catalog-groups"></div><p class="catalog-status" role="status"></p>`;
     document.querySelector('.page').append(panel);
     const groups = panel.querySelector('.catalog-groups'), status = panel.querySelector('.catalog-status');
     let loaded = false, loading = false;
@@ -42,12 +61,13 @@
       try {
         const fragment = document.createDocumentFragment();
         await render(await catalog(), fragment);
-        groups.replaceChildren(fragment); loaded = true; status.textContent = '';
+        groups.replaceChildren(fragment); loaded = true; status.textContent = '';access();
       } catch (_) {
         status.textContent = `Could not load ${id}. Close and reopen to retry.`;
       } finally { loading = false; }
     }
     function show(open, returnFocus = false) {
+      if(open&&name==='Apps'&&!registered())return;
       if (open) {
         for (const other of ['AustinApps', 'AustinMedia', 'AustinDayPlan', 'AustinChatCard', 'AustinExplore']) {
           if (other !== 'Austin' + name) window[other]?.close?.();
@@ -55,7 +75,7 @@
       }
       panel.hidden = !open;
       button.setAttribute('aria-expanded', String(open)); button.classList.toggle('is-on', open);
-      if (open) { panel.querySelector('.catalog-close').focus({ preventScroll: true }); load(); }
+      if (open) { panel.querySelector('.catalog-close').focus({ preventScroll: true }); load();if(name==='Apps')window.AustinMembership?.load().then(access).catch(access); }
       else {
         panel.querySelectorAll('details').forEach(details => { details.open = false; });
         if (returnFocus || panel.contains(document.activeElement)) button.focus({ preventScroll: true });
@@ -65,9 +85,10 @@
     button.addEventListener('click', () => show(panel.hidden));
     panel.querySelector('.catalog-close').addEventListener('click', () => show(false, true));
     panel.addEventListener('keydown', event => { if (event.key === 'Escape') show(false, true); });
+    access();
   }
   menu('Apps', async (data, holder) => {
-    const reports = await read('/apps/reports/reports.json'), lists = new Map();
+    const reports = await read('/apps/reports/reports.json?v=20261104e'), lists = new Map();
     const listFor = name => {
       if (!lists.has(name)) lists.set(name, group(holder, name));
       return lists.get(name);
@@ -78,9 +99,9 @@
       const kind = app.kind || 'apps';
       // Uncategorised maps stay with the former Content links, now in Media.
       if (kind === 'maps' && !lists.has(app.category)) return;
-      add(listFor(app.category || 'Apps'), app.title, `/${kind}/${app.slug}/`);
+      add(listFor(app.category || 'Apps'), app.title, `/${kind}/${app.slug}/`,false,app.requiredPlan);
     });
-    reports.forEach(report => add(listFor(data.reportsCategory || 'Shopping Apps'), report.title, `/${data.reportsKind || 'maps'}/${report.id}/`));
+    reports.forEach(report => add(listFor(data.reportsCategory || 'Shopping Apps'), report.title, `/${data.reportsKind || 'maps'}/${report.id}/`,false,report.requiredPlan));
   }, '/apps/');
   menu('Media', (data, holder) => {
     const maps = group(holder, 'Maps'), appCategories = new Set(data.categories || []);

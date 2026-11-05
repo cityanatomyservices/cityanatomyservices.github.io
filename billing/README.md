@@ -204,7 +204,7 @@ authorized server key in memory without printing or storing it. Do not run it
 after live billing begins; use a separate test deployment. Failed payments are
 covered by the unit lifecycle tests; no real card details are used.
 
-## Site integration still needed
+## Site integration
 
 The site already uses Supabase Auth and Edge functions. Associate each Stripe
 customer with the verified Supabase account ID on the server. Checkout and
@@ -241,6 +241,46 @@ The selected records now carry `requiredPlan: "pro"` in `home.json` and
 `apps/reports/reports.json`. Future Pro apps should use the same explicit
 field. Their existing catalog/category controls where they appear; new Pro
 apps should automatically receive the label and access rule from this field.
-This metadata is preparatory: the current renderers do not yet apply it.
-Gray states, labels, server membership checks and paid access are still
-pending the billing integration, respecting the owner's paid-tier-first order.
+The catalog and directory apply these rules automatically. Direct wrappers also
+check membership before loading the protected app.
+
+
+## Protected hosted delivery
+
+The owner approved direct hosted access protection. Source is still saved in
+this **public GitHub repository** and can be downloaded from GitHub. The live
+site delivers the nine apps only to confirmed, currently paid Pro accounts.
+This is hosted access control; it does not make the public source private.
+
+`billing/pro-assets.json` lists each app and its private resources. The build
+omits those resources from GitHub Pages. They live in the private `pro-apps`
+Supabase bucket, under immutable content release prefixes. Migration 0013
+prevents anon/authenticated Storage access even with broad permissive policies.
+The `pro-app` function checks the caller's live membership and only serves
+manifest-listed files. It never issues public/signed file URLs.
+
+The root service worker restores trusted MIME types so apps retain their
+original URLs, relative imports and query strings. Access tokens are held only
+in worker memory and refreshed from the existing Auth session. Files have
+`private, no-store`; neither tokens nor app bytes go into CacheStorage. Free
+users see the membership gate at canonical `/apps/<slug>/` links. Old raw app
+URLs return 404 without a Pro-authorized worker.
+
+For a Pro source or catalog change:
+
+1. Update the existing source in the repo and mark the catalog `requiredPlan: "pro"`.
+2. Run `python3 tools/billing/package-apps.py --upload` with the authorized CLI.
+   It packages/upload hashes, applies Storage protection, and records the active
+   release secret. Credentials remain in memory and are never printed.
+3. Commit the source and generated manifest together. The Pages builder refuses
+   a mismatched catalog/source manifest. New kinds of apps may require adding
+   their resource files to the packager before publication.
+4. Push main and wait for **Publish Austin.chat**. Pages must use the workflow
+   publishing source; legacy publishing would expose the source files again.
+5. Validate direct public denial and authenticated functionality after deployment.
+
+The Pages workflow also runs after existing feed-update jobs, preserving their
+automatic publication. `check-private-apps.py` verifies the hosted API with a
+short-lived synthetic Auth account and entitlement, then removes both; add
+`--browser` only after Pages publishes the matching assets. It does not create
+Stripe customers or take real payments. Ordinary CI has no production keys.

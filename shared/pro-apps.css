@@ -1,0 +1,8 @@
+.map-hero{position:relative}
+.app-window[hidden]{display:none}
+.pro-app-gate{position:absolute;inset:0;min-height:260px;display:grid;place-items:center;padding:24px;background:var(--surface,#fff);color:var(--text,#17322b);text-align:center;font:15px/1.5 system-ui,sans-serif}
+.pro-app-gate[hidden]{display:none}
+.pro-app-gate>div{max-width:360px}
+.pro-app-gate h2{margin:0 0 10px;font-size:24px}
+.pro-app-gate button{padding:10px 16px;border:1px solid var(--border,#c1cec9);border-radius:8px;background:var(--finish-raised,#f6faf8);color:inherit;font:inherit;cursor:pointer}
+.pro-app-gate button:disabled{opacity:.5;cursor:default}

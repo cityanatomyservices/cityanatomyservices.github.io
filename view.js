@@ -18,15 +18,15 @@
   const name = parts[1] || '';
 
   Promise.all([
-    fetch('/home.json?v=20261031d').then((r) => (r.ok ? r.json() : null)).catch(() => null),
-    fetch('/apps/reports/reports.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])
+    fetch('/home.json?v=20261104e').then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    fetch('/apps/reports/reports.json?v=20261104e').then((r) => (r.ok ? r.json() : [])).catch(() => [])
   ]).then(([data, reports]) => {
     const chip = ((data && data.chips) || []).find((c) => c.label === 'Apps');
     const app = ((chip && chip.cards) || []).find((a) => a.slug === name && (a.kind || 'apps') === kind);
     const reportsKind = (data && data.reportsKind) || 'maps';
     const report = kind === reportsKind ? (reports || []).find((r) => r.id === name) : null;
     if (app || report) {
-      show(app ? app.title : report.title, app ? (app.app || app.src) : '/apps/reports/' + report.id + '/');
+      show(app ? app.title : report.title, app ? (app.app || app.src) : '/apps/reports/' + report.id + '/', (app||report).requiredPlan);
       return;
     }
     // No entry in the data files: look inside the folder (folder.js) and show
@@ -41,13 +41,16 @@
       .catch(() => missing('Nothing called "' + name + '" under /' + kind + '/ — check the address.'));
   });
 
-  function show(title, src) {
+  function show(title, src, requiredPlan) {
     document.title = title + ' · Austin.Chat';
     frame.title = title;
     const target=new URL(src,location.origin);
     for(const [key,value] of new URLSearchParams(location.search))if(key!=='v')target.searchParams.set(key,value);
     if(location.hash)target.hash=location.hash;
-    frame.src = target.href;
+    if(requiredPlan==='pro'){
+      frame.dataset.proSrc=target.href;
+      if(window.AustinProApps)window.AustinProApps.mount(frame,target.href);
+    }else frame.src = target.href;
   }
 
   function missing(text) {

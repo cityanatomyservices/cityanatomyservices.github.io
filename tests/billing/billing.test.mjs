@@ -19,7 +19,8 @@ function fixture({rows=[],subscriptions=[],enabled=true}={}) {
     customers:{async create(params,options){calls.push(['customer',params,options]);return {id:'cus_'+params.metadata.supabase_user_id};}},
     subscriptions:{list(params){calls.push(['list',params]);return (async function*(){yield*subscriptions;})();}},
     checkout:{sessions:{async retrieve(id){return sessions.get(id);},async create(params,options){calls.push(['checkout',params,options]);if(idempotency.has(options.idempotencyKey))return idempotency.get(options.idempotencyKey);const session={id:'cs_'+(++creates),status:'open',expires_at:end,url:'https://checkout.stripe.com/'+creates};sessions.set(session.id,session);idempotency.set(options.idempotencyKey,session);return session;}}},
-    billingPortal:{sessions:{async create(params){calls.push(['portal',params]);return {url:'https://billing.stripe.com/portal'};}}}
+    billingPortal:{configurations:{async retrieve(){return {active:true,livemode:false,features:{subscription_cancel:{enabled:true,mode:'at_period_end'}}};}},
+      sessions:{async create(params){calls.push(['portal',params]);return {url:'https://billing.stripe.com/portal'};}}}
   };
   return {service:service({stripe,db,mode:'test',portal:'bpc_site',checkoutEnabled:enabled,now:()=>NOW,uuid:()=> 'next-nonce'}),
     stripe,db,records,calls,sessions,subscriptions,failNextSave:()=>{failSave=true;},creates:()=>creates};
