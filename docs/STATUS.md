@@ -4,7 +4,9 @@
 
 Owner requested reciprocal membership: $8/month site Pro includes paid Austin.chat
 Substack access, and all paid monthly, annual or founding Substack plans include
-site Pro. Fulfillment and renewal reconciliation are manual, using the same
+site Pro. After checking the public $5/month Substack plan, the owner explicitly
+chose to retain Substack's current prices. Do not change them to match the site.
+Fulfillment and renewal reconciliation are manual, using the same
 confirmed email. Substack comps are still performed in its publisher dashboard.
 The Account panel explains the bundle and manual activation. No Substack
 subscription, email, Stripe customer or charge was created by this work.
@@ -42,6 +44,19 @@ business data and in-flight sign-out. Hosted disposable-user API checks proved
 guest/member denial, owner report access, Substack Pro/private-app delivery,
 duplicate-checkout rejection, grant revocation and immediate admin revocation.
 All temporary Auth accounts, grants and related history were removed.
+
+Release `9f8ed85` passed Pages (42058171250), dashboard (42058171268), billing
+(42058171180), planner, classifieds and reminder CI. The named owner is the sole
+dashboard administrator; zero disposable dashboard users remain.
+
+HANDOFF: owner is shutting down and asked to save everything. Published homepage
+and `/dashboard` redirect/HTML were verified after Pages completed. The live
+guest dashboard gate works and opens the real Account dialog. The immediate
+post-open assertion found the email field disabled; this may be provider/config
+loading, since the check did not wait for it. Next session: wait for the Account
+sign-in form to finish loading on desktop/phone, confirm it becomes usable,
+and fix it if needed. Do not send a sign-in code without the owner's request.
+Local dashboard/account fixtures and hosted API authorization checks passed.
 
 See [dashboard operation](../dashboard/README.md) and
 [Substack fulfillment and renewal instructions](../billing/SUBSTACK.md).
