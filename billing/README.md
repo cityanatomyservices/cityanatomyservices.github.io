@@ -3,6 +3,10 @@
 Owner direction: exactly **Free** and **Pro ($8 USD per month)**. There is no
 annual plan, trial, signup fee or other paid level.
 
+Pro includes paid Austin.chat Substack access through a manual comp. All paid
+monthly, annual and founding Substack plans also include site Pro after manual
+verification. See the [private report and grant workflow](SUBSTACK.md).
+
 The membership backend, Account UI and protected Pro apps are deployed.
 Hosted Checkout, portal access, signed payment webhooks, duplicate checkout
 prevention and cancellation passed sandbox integration tests. The owner's
@@ -40,8 +44,9 @@ Both prices are active, 800 USD cents every one month, with lookup key
 `austin_chat_pro_monthly_usd`. Portals allow invoices, payment method updates
 and cancellation at period end; plan changes are disabled. These were the
 first configurations in their mode catalogs, so Stripe marked them default;
-no existing portal configuration was replaced. Existing Substack customers
-are never matched or changed. Each site member gets a dedicated customer.
+no existing portal configuration was replaced. Existing Substack Stripe customers
+are never reused or changed. Owner-verified Substack access is stored separately;
+each member who purchases directly on the site gets a dedicated customer.
 Automatic tax collection is not configured; no tax settings were changed.
 
 The integration uses Stripe SDK **23.1.0** and API **2026-10-28.endive** per

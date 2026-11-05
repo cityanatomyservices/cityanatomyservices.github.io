@@ -38,8 +38,12 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f tests/classifieds/bootstrap.sql
           psql -v ON_ERROR_STOP=1 -c 'create role service_role bypassrls;'
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0012_billing.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/0014_substack_billing.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/database.sql
+          psql -v ON_ERROR_STOP=1 -f tests/billing/substack.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/storage.sql
+      - name: Private report destinations, spreadsheet safety and verified dates
+        run: python3 -m unittest discover -s tests/billing -p 'test_*.py'
       - name: Deployment helper syntax
         run: |
           python3 -m py_compile tools/billing/*.py

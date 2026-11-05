@@ -5,7 +5,8 @@
     root.innerHTML=`<h3 id="membership-heading" class="membership-heading" tabindex="-1">Membership</h3>
       <p class="membership-current" role="status">Loading membership…</p>
       <div class="membership-levels"><div><strong>Free</strong><span>$0</span><p>Explore Austin, save your Day Plan, and use Free apps.</p></div>
-      <div><strong>Pro</strong><span>$8 / month</span><p>Austin 1885, Moontower Walking, and the Shopping Apps.</p></div></div>
+      <div><strong>Pro</strong><span>$8 / month</span><p>Austin 1885, Moontower Walking, the Shopping Apps, and paid access to Austin.chat on Substack.</p></div></div>
+      <p class="membership-bundle">Pay on either service for access to both. Use the same email on Austin.chat and <a href="https://austindotchat.substack.com/" target="_blank" rel="noopener">Substack</a>. Cross-service access is activated manually: <a href="/contact/" target="_top">contact us</a> after subscribing. Monthly, annual, and founding paid Substack plans include Pro.</p>
       <p class="membership-detail">Pro renews monthly. Cancel anytime in Manage billing.</p>
       <div class="membership-actions"><button type="button" class="membership-upgrade" disabled>Get Pro — $8/month</button>
       <button type="button" class="membership-manage" hidden>Manage billing</button><button type="button" class="membership-retry" hidden>Try again</button></div>
@@ -18,13 +19,15 @@
       $('upgrade').hidden=state?.plan==='pro';$('manage').hidden=!state?.hasBilling;
       $('manage').disabled=busy||!!state?.billingUnavailable;
       if(!state){$('current').textContent='Loading membership…';$('detail').textContent='Pro renews monthly. Cancel anytime in Manage billing.';$('message').textContent='';return;}
-      $('current').textContent='Your plan: '+(state.plan==='pro'?'Pro':'Free');
+      $('current').textContent='Your plan: '+(state.plan==='pro'?'Pro':'Free')+(state.source==='substack'?' — included with Substack':'');
       if(state.testMode)$('message').textContent='Test billing — no real payments. Test purchases do not unlock live Pro apps.';
       else if(!state.checkoutEnabled&&state.plan!=='pro')$('message').textContent='Pro sign-up is coming soon.';
       else $('message').textContent='';
       if(state.plan==='pro'&&state.paidThrough){
         const date=new Intl.DateTimeFormat(undefined,{dateStyle:'medium'}).format(new Date(state.paidThrough));
-        $('detail').textContent=state.cancelAtPeriodEnd?'Pro remains available through '+date+'. Your plan then returns to Free.':'Pro renews monthly. Paid through '+date+'.';
+        if(state.source==='substack')$('detail').textContent='Substack access verified through '+date+'. Renewals are updated manually. Manage your subscription on Substack.';
+        else if(state.source==='both')$('detail').textContent='Pro is available through '+date+'. You have site billing and verified Substack access. Review your subscriptions to avoid paying twice.';
+        else $('detail').textContent=state.cancelAtPeriodEnd?'Pro remains available through '+date+'. Your plan then returns to Free.':'Pro renews monthly. Paid through '+date+'.';
       }else $('detail').textContent='Pro renews monthly. Cancel anytime in Manage billing.';
     }
     async function refresh(){

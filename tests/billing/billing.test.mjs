@@ -5,9 +5,10 @@ import {handler} from '../../supabase/functions/billing/handler.mjs';
 const NOW=Date.parse('2026-11-04T12:00:00Z'),end=Math.floor(NOW/1000)+86400;
 const paid=(overrides={})=>({id:'sub_site',status:'active',items:{data:[{price:{id:PRICES.test},current_period_end:end}]},latest_invoice:{status:'paid'},...overrides});
 
-function fixture({rows=[],subscriptions=[],enabled=true}={}) {
+function fixture({rows=[],subscriptions=[],enabled=true,mode='test',substack=null}={}) {
   const records=new Map(rows.map(row=>[row.owner_id,{...row}])),calls=[];let creates=0,failSave=false;
   const db={
+    async substack(owner){calls.push(['substack',owner]);return substack;},
     async load(mode,owner,customer){const row=owner?records.get(owner):[...records.values()].find(r=>r.customer_id===customer);return row?{...row}:null;},
     async claim(mode,owner){let row=records.get(owner);if(!row){row={owner_id:owner,mode,checkout_nonce:'nonce',status:'none'};records.set(owner,row);}if(row.lease_id)throw problem(409,'Busy');row.lease_id='lease';return {...row};},
     async save(mode,owner,lease,fields){if(failSave&&fields.checkout_id){failSave=false;throw new Error('Database disconnected');}const row=records.get(owner);assert.equal(row.lease_id,lease);Object.assign(row,fields);return {...row};},
@@ -15,14 +16,14 @@ function fixture({rows=[],subscriptions=[],enabled=true}={}) {
   };
   const sessions=new Map(),idempotency=new Map();
   const stripe={
-    prices:{async retrieve(id){return {id,active:true,livemode:false,currency:'usd',unit_amount:800,recurring:{interval:'month',interval_count:1}};}},
+    prices:{async retrieve(id){return {id,active:true,livemode:mode==='live',currency:'usd',unit_amount:800,recurring:{interval:'month',interval_count:1}};}},
     customers:{async create(params,options){calls.push(['customer',params,options]);return {id:'cus_'+params.metadata.supabase_user_id};}},
     subscriptions:{list(params){calls.push(['list',params]);return (async function*(){yield*subscriptions;})();}},
     checkout:{sessions:{async retrieve(id){return sessions.get(id);},async create(params,options){calls.push(['checkout',params,options]);if(idempotency.has(options.idempotencyKey))return idempotency.get(options.idempotencyKey);const session={id:'cs_'+(++creates),status:'open',expires_at:end,url:'https://checkout.stripe.com/'+creates};sessions.set(session.id,session);idempotency.set(options.idempotencyKey,session);return session;}}},
-    billingPortal:{configurations:{async retrieve(){return {active:true,livemode:false,features:{subscription_cancel:{enabled:true,mode:'at_period_end'}}};}},
+    billingPortal:{configurations:{async retrieve(){return {active:true,livemode:mode==='live',features:{subscription_cancel:{enabled:true,mode:'at_period_end'}}};}},
       sessions:{async create(params){calls.push(['portal',params]);return {url:'https://billing.stripe.com/portal'};}}}
   };
-  return {service:service({stripe,db,mode:'test',portal:'bpc_site',checkoutEnabled:enabled,now:()=>NOW,uuid:()=> 'next-nonce'}),
+  return {service:service({stripe,db,mode,portal:'bpc_site',checkoutEnabled:enabled,now:()=>NOW,uuid:()=> 'next-nonce'}),
     stripe,db,records,calls,sessions,subscriptions,failNextSave:()=>{failSave=true;},creates:()=>creates};
 }
 
@@ -31,6 +32,24 @@ test('Free default, paid Pro, and expiration are determined by server time',()=>
   const row=entitlement([paid()],PRICES.test,NOW);
   assert.equal(membership(row,NOW).plan,'pro');
   assert.equal(membership(row,end*1000).plan,'free');
+});
+
+test('Verified Substack access blocks live checkout before any Stripe or billing mutation',async()=>{
+  const f=fixture({mode:'live',substack:{paidThrough:new Date(end*1000).toISOString()}});
+  await assert.rejects(f.service.checkout({id:'alice'}),{status:409});
+  assert.deepEqual(f.calls,[['substack','alice']]);assert.equal(f.records.size,0);assert.equal(f.creates(),0);
+});
+test('Missing or expired Substack access permits live checkout at the existing price',async()=>{
+  const f=fixture({mode:'live'});await f.service.checkout({id:'alice'});
+  assert.equal(f.creates(),1);assert.equal(f.calls.find(c=>c[0]==='checkout')[1].line_items[0].price,PRICES.live);
+});
+test('Substack lookup failure cannot bypass duplicate-payment protection',async()=>{
+  const f=fixture({mode:'live'});f.db.substack=async()=>{throw new Error('Unavailable');};
+  await assert.rejects(f.service.checkout({id:'alice'}));assert.equal(f.records.size,0);assert.equal(f.creates(),0);
+});
+test('Substack live access does not alter isolated sandbox billing',async()=>{
+  const f=fixture({substack:{paidThrough:new Date(end*1000).toISOString()}});await f.service.checkout({id:'alice'});
+  assert.equal(f.creates(),1);assert.equal(f.calls.some(c=>c[0]==='substack'),false);
 });
 for(const state of ['trialing','past_due','unpaid','incomplete','incomplete_expired','canceled','paused'])test(state+' does not grant Pro',()=>{
   assert.equal(membership(entitlement([paid({status:state})],PRICES.test,NOW),NOW).plan,'free');

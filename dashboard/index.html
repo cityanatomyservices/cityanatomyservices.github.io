@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="same-origin">
+  <title>Dashboard · Austin.Chat</title>
+  <link rel="icon" href="/favicon.ico?v=20261031f">
+  <link rel="stylesheet" href="/style.css?v=20261029v">
+  <link rel="stylesheet" href="/appearance.css?v=20261028h">
+  <link rel="stylesheet" href="/dashboard/style.css?v=20261105b">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
+  <script src="/shared/visit.js?v=20261104c"></script>
+  <script src="/shared/session.js?v=20261031a"></script>
+  <script src="/shared/member.js?v=20261030c"></script>
+  <script src="/shared/preferences.js?v=20261104a"></script>
+  <script src="/shared/favorite-button.js?v=20261030c"></script>
+</head>
+<body>
+  <main class="dashboard page-main">
+    <div class="dashboard-title"><div><p class="page-kicker">Owner workspace</p><h1>Dashboard</h1></div><span class="private-badge">Private access</span></div>
+    <section id="dashboard-gate" class="dashboard-card" aria-live="polite"><p id="gate-message">Checking access…</p><button id="dashboard-signin" type="button" hidden>Sign in</button><button id="access-retry" type="button" hidden>Try again</button></section>
+    <div id="dashboard-content" hidden>
+      <section class="dashboard-card">
+        <div class="section-title"><h2>Reports</h2><span id="report-count"></span></div>
+        <form id="query-form">
+          <div class="report-choice"><label>Find a report<input id="report-find" type="search" placeholder="Memberships, chat, places…" autocomplete="off"></label><label>Report<select id="report" required></select></label></div>
+          <p id="report-description" class="dashboard-help"></p>
+          <div class="query-filters">
+            <label>Search report<input id="search" type="search" maxlength="200" placeholder="Email, name, words or ID" autocomplete="off"></label>
+            <label>From date (UTC)<input id="date-from" type="date"></label>
+            <label>Through date (UTC)<input id="date-to" type="date"></label>
+            <label id="room-filter" hidden>Exact chat room<input id="room" maxlength="200" placeholder="Neighborhood or business room ID"></label>
+          </div>
+          <div class="dashboard-actions"><button class="primary" id="run-query" type="submit">Run report</button><button id="export" type="button" disabled>Export to Excel</button><button id="cancel" type="button" hidden>Cancel</button></div>
+        </form>
+      </section>
+      <section class="dashboard-card results-card" aria-labelledby="results-heading">
+        <div class="section-title"><h2 id="results-heading">Results</h2><span id="result-summary">Choose a report to begin.</span></div>
+        <p id="query-status" role="status" aria-live="polite"></p>
+        <div class="results-scroll" tabindex="0" aria-label="Report results"><table id="results"><thead></thead><tbody></tbody></table></div>
+        <div class="pagination"><button id="previous" type="button" disabled>Previous</button><span id="page-number"></span><button id="next" type="button" disabled>Next</button></div>
+        <p class="dashboard-help">Excel exports include all matching rows, up to 50,000 per file. Narrow large reports with filters. Downloads stay on your device. Saved chat covers the existing 30-day retention window.</p>
+      </section>
+      <details class="dashboard-card" id="membership-tools">
+        <summary>Substack membership access</summary>
+        <p>Verify a paid monthly, annual or founding subscription in <a href="https://austindotchat.substack.com/publish/subscribers" target="_blank" rel="noopener">Substack</a>, then grant included site Pro through its paid-through time. The member must first sign in to Austin.chat with the same email.</p>
+        <form id="grant-form">
+          <div class="query-filters"><label>Subscriber email<input id="grant-email" type="email" required autocomplete="off"></label><label>Paid Substack plan<select id="grant-plan"><option value="monthly">Monthly</option><option value="annual">Annual</option><option value="founding">Founding</option></select></label><label>Paid through (your local time)<input id="grant-until" type="datetime-local" required></label></div>
+          <label class="verify-check"><input id="grant-verified" type="checkbox" required> I verified this paid Substack subscription and its paid-through date.</label>
+          <div class="dashboard-actions"><button type="submit" id="grant-button">Grant or renew site Pro</button><button type="button" id="revoke-button">Revoke Substack-derived access</button></div>
+        </form>
+        <p id="grant-status" role="status" aria-live="polite"></p>
+        <p class="dashboard-help">For site-paid subscribers, run “Site-paid members for Substack” and add their included comp in Substack manually. Review renewals and expirations as well as new members. These controls never charge, refund or cancel a paid subscription.</p>
+      </details>
+    </div>
+  </main>
+  <script src="/shell.js?v=20261105b"></script>
+  <script src="/dashboard/vendor/xlsx-0.20.3.min.js"></script>
+  <script type="module" src="/dashboard/app.js?v=20261105b"></script>
+</body>
+</html>

@@ -1,0 +1,1082 @@
+[
+  {
+    "id": "data:AISD/data/campuses.geojson",
+    "title": "Campuses",
+    "section": "AISD",
+    "key": "features",
+    "dateField": null,
+    "url": "/AISD/data/campuses.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:AISD/data/city_limits.geojson",
+    "title": "City Limits",
+    "section": "AISD",
+    "key": "features",
+    "dateField": null,
+    "url": "/AISD/data/city_limits.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:AISD/data/council_districts.geojson",
+    "title": "Council Districts",
+    "section": "AISD",
+    "key": "features",
+    "dateField": null,
+    "url": "/AISD/data/council_districts.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:AISD/data/links.geojson",
+    "title": "Links",
+    "section": "AISD",
+    "key": "features",
+    "dateField": null,
+    "url": "/AISD/data/links.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:AISD/data/zones.geojson",
+    "title": "Zones",
+    "section": "AISD",
+    "key": "features",
+    "dateField": null,
+    "url": "/AISD/data/zones.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:budget/data/council_districts.geojson",
+    "title": "Council Districts",
+    "section": "Budget",
+    "key": "features",
+    "dateField": null,
+    "url": "/budget/data/council_districts.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:budget/data/zipcodes.geojson",
+    "title": "Zipcodes",
+    "section": "Budget",
+    "key": "features",
+    "dateField": null,
+    "url": "/budget/data/zipcodes.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/austin_energy_service_area.geojson",
+    "title": "Austin Energy Service Area",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/austin_energy_service_area.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/city_limits.geojson",
+    "title": "City Limits",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/city_limits.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/council_districts.geojson",
+    "title": "Council Districts",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/council_districts.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/datacenters.geojson",
+    "title": "Datacenters",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/datacenters.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/groundwater_districts.geojson",
+    "title": "Groundwater Districts",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/groundwater_districts.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/major_aquifers.geojson",
+    "title": "Major Aquifers",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/major_aquifers.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/power_plants.geojson",
+    "title": "Power Plants",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/power_plants.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/substations.geojson",
+    "title": "Substations",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/substations.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/surface_water_intakes.geojson",
+    "title": "Surface Water Intakes",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/surface_water_intakes.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/transmission_lines.geojson",
+    "title": "Transmission Lines",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/transmission_lines.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/wastewater_outfalls.geojson",
+    "title": "Wastewater Outfalls",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/wastewater_outfalls.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/water_planning_areas.geojson",
+    "title": "Water Planning Areas",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/water_planning_areas.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/watersheds_huc8.geojson",
+    "title": "Watersheds Huc8",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/watersheds_huc8.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:datacenters/data/zipcodes.geojson",
+    "title": "Zipcodes",
+    "section": "Datacenters",
+    "key": "features",
+    "dateField": null,
+    "url": "/datacenters/data/zipcodes.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/explore/events.geojson",
+    "title": "Events",
+    "section": "Explore",
+    "key": "features",
+    "dateField": "start",
+    "url": "/chat/data/explore/events.geojson",
+    "description": "Published dataset. Dates filter start."
+  },
+  {
+    "id": "data:chat/data/explore/events-festivals.geojson",
+    "title": "Events Festivals",
+    "section": "Explore",
+    "key": "features",
+    "dateField": "start",
+    "url": "/chat/data/explore/events-festivals.geojson",
+    "description": "Published dataset. Dates filter start."
+  },
+  {
+    "id": "data:chat/data/explore/festivals.geojson",
+    "title": "Festivals",
+    "section": "Explore",
+    "key": "features",
+    "dateField": "start",
+    "url": "/chat/data/explore/festivals.geojson",
+    "description": "Published dataset. Dates filter start."
+  },
+  {
+    "id": "data:chat/data/explore/free-cheap.geojson",
+    "title": "Free Cheap",
+    "section": "Explore",
+    "key": "features",
+    "dateField": "start",
+    "url": "/chat/data/explore/free-cheap.geojson",
+    "description": "Published dataset. Dates filter start."
+  },
+  {
+    "id": "data:chat/data/explore/live-comedy.geojson",
+    "title": "Live Comedy",
+    "section": "Explore",
+    "key": "features",
+    "dateField": "start",
+    "url": "/chat/data/explore/live-comedy.geojson",
+    "description": "Published dataset. Dates filter start."
+  },
+  {
+    "id": "data:chat/data/explore/live-music.geojson",
+    "title": "Live Music",
+    "section": "Explore",
+    "key": "features",
+    "dateField": "start",
+    "url": "/chat/data/explore/live-music.geojson",
+    "description": "Published dataset. Dates filter start."
+  },
+  {
+    "id": "data:chat/data/explore/movies.geojson",
+    "title": "Movies",
+    "section": "Explore",
+    "key": "features",
+    "dateField": "start",
+    "url": "/chat/data/explore/movies.geojson",
+    "description": "Published dataset. Dates filter start."
+  },
+  {
+    "id": "data:chat/data/explore/parks.geojson",
+    "title": "Parks",
+    "section": "Explore",
+    "key": "features",
+    "dateField": null,
+    "url": "/chat/data/explore/parks.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/explore/pop-up-markets.geojson",
+    "title": "Pop Up Markets",
+    "section": "Explore",
+    "key": "features",
+    "dateField": "start",
+    "url": "/chat/data/explore/pop-up-markets.geojson",
+    "description": "Published dataset. Dates filter start."
+  },
+  {
+    "id": "data:chat/data/places/allandale.json",
+    "title": "Allandale",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/allandale.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/barton-hills.json",
+    "title": "Barton Hills",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/barton-hills.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/bouldin-creek.json",
+    "title": "Bouldin Creek",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/bouldin-creek.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/brentwood.json",
+    "title": "Brentwood",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/brentwood.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/central-east-austin.json",
+    "title": "Central East Austin",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/central-east-austin.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/chestnut.json",
+    "title": "Chestnut",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/chestnut.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/coronado-hills.json",
+    "title": "Coronado Hills",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/coronado-hills.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/crestview.json",
+    "title": "Crestview",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/crestview.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/dawson.json",
+    "title": "Dawson",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/dawson.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/downtown.json",
+    "title": "Downtown",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/downtown.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/east-cesar-chavez.json",
+    "title": "East Cesar Chavez",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/east-cesar-chavez.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/east-congress.json",
+    "title": "East Congress",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/east-congress.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/east-oak-hill.json",
+    "title": "East Oak Hill",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/east-oak-hill.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/franklin-park.json",
+    "title": "Franklin Park",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/franklin-park.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/galindo.json",
+    "title": "Galindo",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/galindo.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/garrison-park.json",
+    "title": "Garrison Park",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/garrison-park.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/gateway.json",
+    "title": "Gateway",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/gateway.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/georgian-acres.json",
+    "title": "Georgian Acres",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/georgian-acres.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/govalle.json",
+    "title": "Govalle",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/govalle.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/hancock.json",
+    "title": "Hancock",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/hancock.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/heritage-hills.json",
+    "title": "Heritage Hills",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/heritage-hills.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/highland.json",
+    "title": "Highland",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/highland.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/holly.json",
+    "title": "Holly",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/holly.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/hyde-park.json",
+    "title": "Hyde Park",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/hyde-park.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/johnston-terrace.json",
+    "title": "Johnston Terrace",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/johnston-terrace.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/mckinney.json",
+    "title": "Mckinney",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/mckinney.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/mlk.json",
+    "title": "Mlk",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/mlk.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/mlk-183.json",
+    "title": "Mlk 183",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/mlk-183.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/montopolis.json",
+    "title": "Montopolis",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/montopolis.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/north-austin-civic-association.json",
+    "title": "North Austin Civic Association",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/north-austin-civic-association.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/north-burnet.json",
+    "title": "North Burnet",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/north-burnet.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/north-lamar.json",
+    "title": "North Lamar",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/north-lamar.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/north-loop.json",
+    "title": "North Loop",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/north-loop.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/north-shoal-creek.json",
+    "title": "North Shoal Creek",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/north-shoal-creek.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/north-university.json",
+    "title": "North University",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/north-university.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/old-enfield.json",
+    "title": "Old Enfield",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/old-enfield.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/old-west-austin.json",
+    "title": "Old West Austin",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/old-west-austin.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/parker-lane.json",
+    "title": "Parker Lane",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/parker-lane.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/pecan-springs-springdale.json",
+    "title": "Pecan Springs Springdale",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/pecan-springs-springdale.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/pleasant-valley.json",
+    "title": "Pleasant Valley",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/pleasant-valley.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/riverside.json",
+    "title": "Riverside",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/riverside.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/rmma.json",
+    "title": "Rmma",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/rmma.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/rosedale.json",
+    "title": "Rosedale",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/rosedale.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/rosewood.json",
+    "title": "Rosewood",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/rosewood.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/south-lamar.json",
+    "title": "South Lamar",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/south-lamar.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/south-manchaca.json",
+    "title": "South Manchaca",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/south-manchaca.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/south-river-city.json",
+    "title": "South River City",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/south-river-city.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/southeast.json",
+    "title": "Southeast",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/southeast.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/st.-edwards.json",
+    "title": "St. Edwards",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/st.-edwards.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/st.-john.json",
+    "title": "St. John",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/st.-john.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/sweetbriar.json",
+    "title": "Sweetbriar",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/sweetbriar.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/triangle-state.json",
+    "title": "Triangle State",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/triangle-state.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/university-hills.json",
+    "title": "University Hills",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/university-hills.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/upper-boggy-creek.json",
+    "title": "Upper Boggy Creek",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/upper-boggy-creek.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/ut.json",
+    "title": "Ut",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/ut.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/west-austin-neighborhood-group.json",
+    "title": "West Austin Neighborhood Group",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/west-austin-neighborhood-group.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/west-congress.json",
+    "title": "West Congress",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/west-congress.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/west-oak-hill.json",
+    "title": "West Oak Hill",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/west-oak-hill.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/west-university.json",
+    "title": "West University",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/west-university.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/westgate.json",
+    "title": "Westgate",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/westgate.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/windsor-hills.json",
+    "title": "Windsor Hills",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/windsor-hills.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/windsor-park.json",
+    "title": "Windsor Park",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/windsor-park.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/windsor-road.json",
+    "title": "Windsor Road",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/windsor-road.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/wooten.json",
+    "title": "Wooten",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/wooten.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/places/zilker.json",
+    "title": "Zilker",
+    "section": "Neighborhood businesses",
+    "key": "groups",
+    "dateField": null,
+    "url": "/chat/data/places/zilker.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/city-hall.json",
+    "title": "City Hall",
+    "section": "Neighborhoods and City Hall",
+    "key": "records",
+    "dateField": "date",
+    "url": "/chat/data/city-hall.json",
+    "description": "Published dataset. Dates filter date."
+  },
+  {
+    "id": "data:chat/data/geofences.geojson",
+    "title": "Geofences",
+    "section": "Neighborhoods and City Hall",
+    "key": "features",
+    "dateField": null,
+    "url": "/chat/data/geofences.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/neighborhoods.geojson",
+    "title": "Neighborhoods",
+    "section": "Neighborhoods and City Hall",
+    "key": "features",
+    "dateField": null,
+    "url": "/chat/data/neighborhoods.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:chat/data/zipcodes.geojson",
+    "title": "Zipcodes",
+    "section": "Neighborhoods and City Hall",
+    "key": "features",
+    "dateField": null,
+    "url": "/chat/data/zipcodes.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:news/feed.geojson",
+    "title": "Feed",
+    "section": "News",
+    "key": "features",
+    "dateField": "published",
+    "url": "/news/feed.geojson",
+    "description": "Published dataset. Dates filter published."
+  },
+  {
+    "id": "data:apps/austin-bike-shops/data.geojson",
+    "title": "Austin Bike Shops",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "https://raw.githubusercontent.com/cityanatomyservices/cityanatomyservices.github.io/main/apps/austin-bike-shops/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/austin-golf-courses/data.geojson",
+    "title": "Austin Golf Courses",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "https://raw.githubusercontent.com/cityanatomyservices/cityanatomyservices.github.io/main/apps/austin-golf-courses/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/austin-horseback-riding/data.geojson",
+    "title": "Austin Horseback Riding",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "https://raw.githubusercontent.com/cityanatomyservices/cityanatomyservices.github.io/main/apps/austin-horseback-riding/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/austin-pizza/data.geojson",
+    "title": "Austin Pizza",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "https://raw.githubusercontent.com/cityanatomyservices/cityanatomyservices.github.io/main/apps/austin-pizza/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/austin-toy-stores/data.geojson",
+    "title": "Austin Toy Stores",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "https://raw.githubusercontent.com/cityanatomyservices/cityanatomyservices.github.io/main/apps/austin-toy-stores/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/austin-vintage-guitar/data.geojson",
+    "title": "Austin Vintage Guitar",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "https://raw.githubusercontent.com/cityanatomyservices/cityanatomyservices.github.io/main/apps/austin-vintage-guitar/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/shared/Council_Districts.geojson",
+    "title": "Council Districts",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/shared/Council_Districts.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/shared/floodzone.geojson",
+    "title": "Floodzone",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/shared/floodzone.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/PoolOpenings/data.geojson",
+    "title": "PoolOpenings",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "https://raw.githubusercontent.com/cityanatomyservices/cityanatomyservices.github.io/main/apps/PoolOpenings/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/reports/PoolOpenings/data.geojson",
+    "title": "Reports",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/reports/PoolOpenings/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/reports/austin-bike-shops/data.geojson",
+    "title": "Reports",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/reports/austin-bike-shops/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/reports/austin-golf-courses/data.geojson",
+    "title": "Reports",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/reports/austin-golf-courses/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/reports/austin-horseback-riding/data.geojson",
+    "title": "Reports",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/reports/austin-horseback-riding/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/reports/austin-toy-stores/data.geojson",
+    "title": "Reports",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/reports/austin-toy-stores/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/reports/austin-vintage-guitar/data.geojson",
+    "title": "Reports",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/reports/austin-vintage-guitar/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/reports/data.geojson",
+    "title": "Reports",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/reports/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/reports/template/data.geojson",
+    "title": "Reports",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/reports/template/data.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:apps/shared/SecondData.geojson",
+    "title": "SecondData",
+    "section": "Shopping Apps",
+    "key": "features",
+    "dateField": null,
+    "url": "/apps/shared/SecondData.geojson",
+    "description": "Published dataset. No date column; leave date filters blank."
+  },
+  {
+    "id": "data:ticker/feed.json",
+    "title": "Feed",
+    "section": "Ticker",
+    "key": "items",
+    "dateField": "published",
+    "url": "/ticker/feed.json",
+    "description": "Published dataset. Dates filter published."
+  },
+  {
+    "id": "data:ticker/scores.json",
+    "title": "Scores",
+    "section": "Ticker",
+    "key": "items",
+    "dateField": null,
+    "url": "/ticker/scores.json",
+    "description": "Published dataset. No date column; leave date filters blank."
+  }
+]

@@ -21,12 +21,22 @@ window.setMembership=async state=>{AustinMembership.state=state;listener?.(state
    assert.equal(await page.locator('.membership-upgrade').isVisible(),false);assert.equal(await page.locator('.membership-manage').isVisible(),true);
    assert.match(await page.locator('.membership-detail').innerText(),/returns to Free/);
    await page.locator('.membership-manage').click();assert.deepEqual(await page.evaluate(()=>actions),['checkout','portal']);
+   await page.evaluate(()=>setMembership({plan:'pro',source:'substack',paidThrough:'2027-11-05T12:00:00Z',checkoutEnabled:true,hasBilling:false}));
+   assert.match(await page.locator('.membership-current').innerText(),/included with Substack/);
+   assert.match(await page.locator('.membership-detail').innerText(),/verified through.*Renewals are updated manually/);
+   assert.equal(await page.locator('.membership-upgrade').isVisible(),false);assert.equal(await page.locator('.membership-manage').isVisible(),false);
+   assert.match(await page.locator('.membership-bundle').innerText(),/same email/);
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+   await page.screenshot({path:path.join(os.tmpdir(),'austin-substack-membership-'+width+'.png'),fullPage:true});
+   await page.evaluate(()=>setMembership({plan:'pro',source:'both',paidThrough:'2027-11-05T12:00:00Z',checkoutEnabled:true,hasBilling:true}));
+   assert.match(await page.locator('.membership-detail').innerText(),/avoid paying twice/);
+   assert.equal(await page.locator('.membership-manage').isVisible(),true);
    await page.evaluate(()=>setMembership({plan:'free',checkoutEnabled:false,hasBilling:false}));
    assert.equal(await page.locator('.membership-upgrade').isDisabled(),true);assert.match(await page.locator('.membership-message').innerText(),/coming soon/);
    assert.doesNotMatch(await page.locator('.membership-detail').innerText(),/Dec|2026/);
    await page.screenshot({path:path.join(os.tmpdir(),'austin-membership-'+width+'.png'),fullPage:true});
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-   await page.close();console.log(width+'px membership: Free, Pro, cancellation, billing actions and setup state passed');
+   await page.close();console.log(width+'px membership: Free, Pro, Substack, dual subscriptions, cancellation, billing actions and setup state passed');
   }
  }finally{await browser.close();server.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

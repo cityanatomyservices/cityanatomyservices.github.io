@@ -68,6 +68,7 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
   }
   async function checkout(user) {
     if(!checkoutEnabled)throw problem(503,'Pro membership is being set up.');
+    if(mode==='live'&&await db.substack(user.id))throw problem(409,'Your paid Substack membership already includes Pro. Manage that subscription on Substack.');
     return locked(user.id,async(get,save)=>{
       await configured();
       if(!get().customer_id) {

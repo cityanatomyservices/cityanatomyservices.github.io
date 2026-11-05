@@ -13,7 +13,8 @@ export function runtime(env,Stripe,fetcher=fetch) {
     return response.status===204?null:response.json();
   };
   const rpc=(name,body)=>request('/rest/v1/rpc/'+name,{body});
-  const db={load:(mode,owner,customer)=>rpc('billing_load',{p_mode:mode,p_owner:owner,p_customer:customer}),
+  const db={substack:owner=>rpc('billing_substack_access',{p_owner:owner}),
+    load:(mode,owner,customer)=>rpc('billing_load',{p_mode:mode,p_owner:owner,p_customer:customer}),
     claim:(mode,owner)=>rpc('billing_claim',{p_mode:mode,p_owner:owner}),
     save:(mode,owner,lease,fields)=>rpc('billing_save',{p_mode:mode,p_owner:owner,p_lease:lease,p_fields:fields}),
     release:(mode,owner,lease)=>rpc('billing_release',{p_mode:mode,p_owner:owner,p_lease:lease})};

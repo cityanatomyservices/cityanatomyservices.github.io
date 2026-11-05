@@ -1,5 +1,51 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-05 - Private dashboard and manual Substack membership bundle
+
+Owner requested reciprocal membership: $8/month site Pro includes paid Austin.chat
+Substack access, and all paid monthly, annual or founding Substack plans include
+site Pro. Fulfillment and renewal reconciliation are manual, using the same
+confirmed email. Substack comps are still performed in its publisher dashboard.
+The Account panel explains the bundle and manual activation. No Substack
+subscription, email, Stripe customer or charge was created by this work.
+
+The owner-only page is `/dashboard/` (the requested `/dashboard` redirects there).
+It has no menu, footer or catalog link and requests no search indexing. The
+owner's specified existing confirmed account is authorized in a private database
+allowlist; the email is not stored in repository source. Every report and grant
+RPC verifies that account and its current confirmed email. Anonymous and ordinary
+members cannot read private reports or grant access.
+
+The dashboard has 18 database reports and 120 site datasets, search/date/room
+filters, paged previews, and Excel exports of all matches up to 50,000 rows.
+Larger reports require narrower filters, with no silent partial export. It
+includes saved Neighborhood chat within its existing 30-day retention; guest
+broadcasts and already-purged messages are unavailable. Other reports cover
+memberships, comments, classifieds, plans/items, favorites, preferences,
+reminders/delivery, tour progress, parcels, zoning, markets and source freshness.
+Substack access controls grant/renew until a verified date or revoke only that
+source. A current Substack grant blocks a new site checkout. Existing purchases
+are never canceled automatically; review overlapping subscriptions manually.
+
+Migrations 0014 and 0015 are installed. Billing functions are deployed with
+live settings preserved. Grants and audit history are private; Stripe state and
+Substack grants are independent, with automatic expiry and email re-verification.
+No live member was granted or revoked by this work. Owner authorization is the
+only lasting account change. Client shell and membership UI use `20261105b`.
+No private Pro source file changed, so the private app manifest stays unchanged.
+
+Validation: 53 billing Node tests, four private-report Python tests, four XLSX/
+page tests, desktop/phone membership and dashboard checks, full Account fixtures,
+and rolled-back hosted SQL checks passed. The dashboard check downloaded and
+read an actual 521-row XLSX, verified text/formula safety, pagination, flattened
+business data and in-flight sign-out. Hosted disposable-user API checks proved
+guest/member denial, owner report access, Substack Pro/private-app delivery,
+duplicate-checkout rejection, grant revocation and immediate admin revocation.
+All temporary Auth accounts, grants and related history were removed.
+
+See [dashboard operation](../dashboard/README.md) and
+[Substack fulfillment and renewal instructions](../billing/SUBSTACK.md).
+
 ## 2026-11-05 - Rename the map button to Pro Apps
 
 The home map and shared map controls now display **Pro Apps**, with matching
