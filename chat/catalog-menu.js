@@ -14,7 +14,7 @@
   const pro=()=>registered()&&window.AustinMembership?.state?.plan==='pro'&&Date.parse(window.AustinMembership.state.paidThrough)>Date.now();
   function access() {
     const button=document.getElementById('ctrlApps');
-    if(button){button.disabled=!registered();button.title=registered()?'Apps':'Sign in to use Apps';}
+    if(button){button.disabled=!registered();button.title=registered()?'Pro Apps':'Sign in to use Pro Apps';}
     if(!registered())window.AustinApps?.close();
     document.querySelectorAll('[data-pro-app]').forEach(link=>{
       const enabled=pro();link.classList.toggle('catalog-locked',!enabled);link.setAttribute('aria-disabled',String(!enabled));

@@ -1,5 +1,20 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-05 - Rename the map button to Pro Apps
+
+The home map and shared map controls now display **Pro Apps**, with matching
+accessible names and signed-in/guest tooltips. Membership behavior is unchanged.
+The changed catalog/control assets, map loader references and home iframe use
+`20261105a`. The nine private app entry files were repackaged to carry the new
+loader version; commit the generated manifest with the source and retain
+workflow-only Pages publishing described in the previous checkpoint.
+
+Validation: desktop (1280 px) and phone (390 px) browser checks confirmed both
+button variants, accessible labels, guest tooltips and text fit. The existing
+catalog browser check passed guest, Free, Pro, expiry and sign-out cases.
+JavaScript syntax and diff checks passed. The Pages build excluded all 45
+private files and validated the refreshed manifest.
+
 ## 2026-11-04 ? Free / Pro is live; hosted Pro apps protected
 
 The owner approved protecting direct hosted app access. The completed release

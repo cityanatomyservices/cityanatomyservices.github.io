@@ -24,7 +24,7 @@
       await script('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js',()=>window.supabase);
       for(const [file,version,global] of [['visit','20261104c','AustinVisit'],['session','20261031a','AustinSession'],['membership','20261104e','AustinMembership'],['member','20261030c','AustinMember'],['preferences','20261104a','AustinPreferences'],['favorite-button','20261030c','AustinFavorites'],['reminders','20261102f','AustinReminders'],['comments','20261030e','AustinComments']])await script(`/shared/${file}.js?v=${version}`,()=>window[global]);
       for(const [file,version,global] of [['model','20261102e','PlanModel'],['sources','20261102b','PlanSources'],['repository','20261029r','PlanRepository'],['store','20261030a','PlanStore']])await script(`/planner/${file}.js?v=${version}`,()=>window[global]);
-      const response=await fetch('/shared/map-controls.html?v=20261102g');if(!response.ok)throw new Error('Map controls could not load.');
+      const response=await fetch('/shared/map-controls.html?v=20261105a');if(!response.ok)throw new Error('Map controls could not load.');
       const template=document.createElement('template');template.innerHTML=await response.text();const stack=template.content.firstElementChild;stack.classList.add('austin-map-ui');
       const existing={ctrlLocate:$('ctrlLocate')||$('btn-locate'),ctrlTilt:$('ctrlTilt')||$('btn-tilt'),ctrlSatellite:$('ctrlSatellite'),ctrlExtent:$('ctrlExtent')||$('btn-extents')};
       for(const [id,old] of Object.entries(existing))if(old){
@@ -66,7 +66,7 @@
       if(!existing.ctrlExtent)$('ctrlExtent').onclick=()=>map.fitBounds(currentBounds,{padding:50,pitch:0,bearing:0,duration:600});
       (existing.ctrlExtent||$('ctrlExtent')).setAttribute('aria-label','Show map extent');
       await script('/planner/select.js?v=20261102g');
-      await script('/chat/catalog-menu.js?v=20261104e');
+      await script('/chat/catalog-menu.js?v=20261105a');
       await script('/chat/explore/config.js?v=20261028e');await script('/chat/explore/model.js?v=20261104a');await script('/chat/explore/explore.js?v=20261104b');
       await window.AustinExplore.init(map);
       const existingChat=$('btn-chat');
