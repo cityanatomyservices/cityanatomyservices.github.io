@@ -1,20 +1,41 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-05T18:23:06.312Z",
- "placed": 46,
- "total": 110,
+ "generated": "2026-11-06T17:44:34.476Z",
+ "placed": 47,
+ "total": 112,
  "features": [
   {
    "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.79,
+     30.4
+    ]
+   },
+   "properties": {
+    "title": "Foundation Communities opens financial assistance center in Northwest Austin",
+    "link": "https://communityimpact.com/northwest-austin/business/foundation-communities-opens-financial-assistance-center-in-northwest-austin/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-06T17:28:00.000Z",
+    "summary": "",
+    "place": "Northwest Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Cold front arrives tonight, wet weekend ahead",
-    "link": "https://www.kxan.com/weather/forecast/weak-cold-front-brings-gusty-winds-drop-in-temps-late-week/",
+    "title": "Luck Reunion doubling schedule to celebrate 15 years",
+    "link": "https://www.kxan.com/things-to-do/luck-reunion-doubling-schedule-to-celebrate-15-years/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-05T18:11:37.000Z",
-    "summary": "A cold front arrives this evening, bringing gusty winds tonight into Friday. The weekend is trending wetter, with rounds of showers and steady rain likely. — Meteorologist Tommy House",
+    "published": "2026-11-06T16:50:10.000Z",
+    "summary": "To celebrate its 15th year, the festival will be held over two days for the first time. Luck Reunion 2027 is scheduled for March 18 and 19.",
     "place": null,
     "placeKind": null
    }
@@ -23,13 +44,13 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Temperatures, rain totals, severe storms: Explore Austin's 2026 weather data",
-    "link": "https://www.kxan.com/weather/austin-2026-weather-data/",
+    "title": "Cloudy & cooler stretch, periods of rain this weekend",
+    "link": "https://www.kxan.com/weather/forecast/seasonable-friday-while-rain-chances-ramp-up-this-weekend/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-05T16:36:52.000Z",
-    "summary": "KXAN has created charts and graphics to help you keep track of whatever weather 2026 brings.",
+    "published": "2026-11-06T16:48:30.000Z",
+    "summary": "Last night's cold front will bring seasonably cool and comfortable temperatures with gusty winds. Into the weekend, rain chances ramp up with a low-end flood threat. — Meteorologist Tommy House",
     "place": null,
     "placeKind": null
    }
@@ -38,13 +59,13 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Jail letters among new evidence in Austin capital murder trial",
-    "link": "https://www.kxan.com/news/local/austin/jail-letters-among-new-evidence-in-austin-capital-murder-trial/",
+    "title": "How will Democrat leadership impact school funding in Texas?",
+    "link": "https://www.kxan.com/news/education/how-will-democrat-leadership-impact-school-funding/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-05T16:28:16.000Z",
-    "summary": "As prosecutors try to prove Shane James is guilty of murdering six people on Dec. 5, 2023, defense attorneys argue James, a diagnosed schizophrenic, was legally insane at the time.",
+    "published": "2026-11-06T16:29:50.000Z",
+    "summary": "The recent shift in political power has some districts hopeful they will see some changes after this upcoming session.",
     "place": null,
     "placeKind": null
    }
@@ -53,13 +74,454 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "What does the historic blue wave mean for the 'Texas Miracle'?",
-    "link": "https://www.kxan.com/news/business/what-does-the-historic-blue-wave-mean-for-the-texas-miracle/",
+    "title": "Psychologist: Murder suspect's actions driven by 'complex, delusional belief system'",
+    "link": "https://www.kxan.com/news/local/austin/psychologist-murder-suspects-actions-driven-by-complex-delusional-belief-system/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-05T15:30:17.000Z",
-    "summary": "Texas business leaders expressed optimism that the state's strong business environment will continue under democratic leadership.",
+    "published": "2026-11-06T16:25:22.000Z",
+    "summary": "In the capital murder trial for Shane James, who's charged with killing six people on Dec. 5, 2023, a psychologist who has been evaluating him since 2024 took the stand.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Pizzeria closes New Braunfels location",
+    "link": "https://communityimpact.com/new-braunfels/business/pizzeria-closes-new-braunfels-location/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-06T16:15:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Tesla 'winding down' Cybertruck production at Giga Texas",
+    "link": "https://www.kxan.com/news/texas/tesla-winding-down-cybertruck-production-at-giga-texas/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-06T15:02:22.000Z",
+    "summary": "Tesla CEO Elon Musk announced on social media that production of Cybertrucks at the Texas Gigafactory will start \"winding down\" soon.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.74212,
+     30.26902
+    ]
+   },
+   "properties": {
+    "title": "Paramount Theatre announces holiday programming at State Theatre this year",
+    "link": "https://www.kxan.com/news/local/austin/paramount-theatre-announces-holiday-programming-at-state-theatre-this-year/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-06T14:33:07.000Z",
+    "summary": "The Paramount Theatre announced this year's holiday season lineup. Because the Paramount is undergoing renovations right now, the programming will be held at the neighboring historic State Theatre.",
+    "place": "Paramount Theatre",
+    "placeKind": "venue"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Injuries put No. 7 Texas' depth to the test at Missouri",
+    "link": "https://www.kxan.com/sports-general/horns-report/injuries-put-no-7-texas-depth-to-the-test-at-missouri/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-06T14:00:00.000Z",
+    "summary": "With several key players sidelined or questionable, No. 7 Texas will rely on its depth against No. 18 Missouri. Head coach Steve Sarkisian praised the Longhorns' preparation as they navigate mounting injuries.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Artist's son uses her words to examine motherhood in new Texas Performing Arts show",
+    "link": "https://www.kut.org/life-arts/2026-11-06/austin-tx-motherhood-suzanne-bocanegra-texas-performing-arts-artist-lecture",
+    "outlet": "KUT",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-06T13:39:48.000Z",
+    "summary": "The mother-son dynamic adds a layer to Suzanne Bocanegra's unconventional storytelling, raising questions about identity and parental influence.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9414,
+     29.8833
+    ]
+   },
+   "properties": {
+    "title": "From stained glass to thrift stores: Check out 6 business updates in San Marcos",
+    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/from-stained-glass-to-thrift-stores-check-out-6-business-updates-in-san-marcos/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-06T12:00:00.000Z",
+    "summary": "",
+    "place": "San Marcos",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "New boutique hotel opens in downtown with rooftop music series",
+    "link": "https://communityimpact.com/central-austin/business/new-boutique-hotel-opens-in-downtown-with-rooftop-music-series/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-06T06:32:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "City of Austin Council Message Board • Re: Invitation to sign on to EPA PM2.5 Comment Letter",
+    "link": "https://austincouncilforum.org/viewtopic.php?p=4994#p4994",
+    "outlet": "Council Message Board",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-06T04:32:15.000Z",
+    "summary": "On behalf of CM Ellis: Thank you to CMs Alter and Duchen for signing on to this comment letter. We added your signatures and submitted the letter below to the EPA this evening: http://assets.austintexas.gov/austincou ... 222854.pdf Our comment tracking number is mw4-fj9f-yrdh. Statistics: Posted by Julie Montgomery — Thu Nov 05, 2026 10:32 pm",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin pushes to meet affordable housing goals in 'blueprint' rewrite",
+    "link": "https://www.kxan.com/news/austin-pushes-to-meet-affordable-housing-goals-in-blueprint-rewrite/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-06T04:23:45.000Z",
+    "summary": "City council prepares an update to the framework guiding how Austin develops affordable homes.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8531,
+     30.5788
+    ]
+   },
+   "properties": {
+    "title": "Furniture, futsal and fun: 17 Leander business updates for November",
+    "link": "https://communityimpact.com/leander-liberty-hill/business/furniture-futsal-and-fun-17-leander-business-updates-for-november/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-06T04:03:49.000Z",
+    "summary": "",
+    "place": "Leander",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.62,
+     30.439
+    ]
+   },
+   "properties": {
+    "title": "Pet Hospital of Pflugerville opening soon",
+    "link": "https://communityimpact.com/pflugerville-hutto/business/pet-hospital-of-pflugerville-opening-soon/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-06T03:54:19.000Z",
+    "summary": "",
+    "place": "Pflugerville",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Memo: Austin spent $2.3M on homeless encampment program over 4 months",
+    "link": "https://www.kxan.com/news/local/austin/austin-homeless-camp-clearing/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-06T02:57:43.000Z",
+    "summary": "A new city report says Austin's homeless encampment management program conducted 2,347 site visits, removed 732 tons of debris and spent $2.26 million between June and September.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas' defense tasked with containing SEC's leading rusher",
+    "link": "https://www.kxan.com/sports-general/horns-report/texas-defense-tasked-with-containing-secs-leading-rusher/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-06T02:19:34.000Z",
+    "summary": "No. 7 Texas faces a tough test against Missouri running back Jamal Roberts, the SEC's leading rusher. Steve Sarkisian emphasized discipline and tackling as the keys to containing the Tigers' rushing attack.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6,
+     30.65
+    ]
+   },
+   "properties": {
+    "title": "Williamson County Sheriff's Office joins multicounty task force",
+    "link": "https://communityimpact.com/georgetown/government/williamson-county-sheriff-s-office-joins-multicounty-task-force/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-06T00:30:00.000Z",
+    "summary": "",
+    "place": "Williamson County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.69089,
+     30.3088
+    ]
+   },
+   "properties": {
+    "title": "Ghisallo Cycling Initiative’s Cyclovia ATX Happening Nov. 7",
+    "link": "https://www.austintexas.gov/communications/news/ghisallo-cycling-initiatives-cyclovia-atx-happening-nov-7",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-06T00:00:00.000Z",
+    "summary": "<p><strong>Date/Time:</strong> Saturday, Nov. 7, 2026, from 10 a.m. to 2 p.m.<br><strong>Location:</strong> Windsor Park Branch Library<br><strong>Tickets:</strong> The event is free and open to the public<br><strong>Event Website:</strong> <a class=\"ck-page_link\" href=\"https://cycloviaatx.org/\">https://cycloviaatx.org/</a></p><p>Join the City of Austin and Ghisallo Cycling Initiative for the annu",
+    "place": "Windsor Park",
+    "placeKind": "neighborhood"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "City of Austin Council Message Board • Re: The Future of Muny",
+    "link": "https://austincouncilforum.org/viewtopic.php?p=4993#p4993",
+    "outlet": "Council Message Board",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-05T23:35:06.000Z",
+    "summary": "On Behalf of CM Qadri: Colleagues, I share many questions that Council Member Fuentes outlined, particularly regarding the unknowns surrounding the proposal's overall affordable housing strategy. The existing student housing at the site calls into question the need to understand any potential displacement or relocation strategy for current students. We must understand what that looks like. I've re",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8403,
+     30.0852
+    ]
+   },
+   "properties": {
+    "title": "Two Doors Down Bookshop opens on Buda's Main Street",
+    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/two-doors-down-bookshop-opens-on-buda-s-main-street/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-05T22:40:44.000Z",
+    "summary": "",
+    "place": "Buda",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin's new 10-year housing plan could prioritize deeper affordability, unit preservation",
+    "link": "https://communityimpact.com/east-austin/government/austin-s-new-10-year-housing-plan-could-prioritize-deeper-affordability-unit-preservation/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-05T22:36:09.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Georgetown's street patio program moves forward with updates",
+    "link": "https://communityimpact.com/georgetown/development/georgetown-s-street-patio-program-moves-forward-with-updates/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-11-05T22:15:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.77,
+     30.22
+    ]
+   },
+   "properties": {
+    "title": "Impact Family Church celebrates 30 years of faith, fellowship in South Austin",
+    "link": "https://communityimpact.com/southwest-austin-dripping-springs/business/impact-family-church-celebrates-30-years-of-faith-fellowship-in-south-austin/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-05T21:53:38.000Z",
+    "summary": "",
+    "place": "South Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas Diabetes and Endocrinology celebrates 25 years of care",
+    "link": "https://communityimpact.com/central-austin/business/texas-diabetes-and-endocrinology-celebrates-25-years-of-care/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-05T21:25:11.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "City of Austin Council Message Board • Re: The Future of Muny",
+    "link": "https://austincouncilforum.org/viewtopic.php?p=4992#p4992",
+    "outlet": "Council Message Board",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-05T21:23:54.000Z",
+    "summary": "Colleagues, Thank you for starting this discussion. My office shares your gratitude to the donors, staff, and community members who have worked to bring us to this point. Given the significance of this agreement, I also want to emphasize the importance of transparency and a thorough public process, which we owe to our constituents. As we review the proposed changes to the Brackenridge Development ",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "Three new TCAD board members elected",
+    "link": "https://theaustinbulldog.org/three-new-tcad-board-members-elected/",
+    "outlet": "The Austin Bulldog",
+    "group": "government",
+    "color": "#e8b35e",
+    "published": "2026-11-05T21:22:21.000Z",
+    "summary": "Travis County voters elected three new members to serve on the Travis Central Appraisal District’s Board of Directors. Skyler Korgel was elected to Place 1, Brian Pena was elected to Place 2, and Yvonne Munoz was elected to Place 3. Korgel and Pena ran unopposed. Munoz defeated opponent Phil Gorman with 268,662 votes to his […]",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "City of Austin Council Message Board • Invitation to sign on to EPA PM2.5 Comment Letter",
+    "link": "https://austincouncilforum.org/viewtopic.php?p=4991#p4991",
+    "outlet": "Council Message Board",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-05T20:59:51.000Z",
+    "summary": "Colleagues, We are writing to share a comment letter that we intend to submit to EPA today on its upcoming area designations for air quality under the 2024 annual fine particulate matter (PM2.5) standard, and invite you to sign on by 4:30pm. EPA’s review of 2023-25 monitoring data places Travis County at 9.6µg/m³, above the federal standard of 9.0µg/m³, and the EPA’s October 8 letter to Governor A",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "The House by Savor + Sweat coming soon to West Lake Hills",
+    "link": "https://communityimpact.com/lake-travis-westlake/business/the-house-by-savor-sweat-coming-soon-to-west-lake-hills/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-05T19:38:00.000Z",
+    "summary": "",
     "place": null,
     "placeKind": null
    }
@@ -120,63 +582,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.8403,
-     30.0852
-    ]
-   },
-   "properties": {
-    "title": "Buda Economic Development Corporation earns international distinction",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/buda-economic-development-corporation-earns-international-distinction/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-05T12:00:00.000Z",
-    "summary": "",
-    "place": "Buda",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "Entertainment venue InteractX now open in Cedar Park",
-    "link": "https://communityimpact.com/cedar-park/business/entertainment-venue-interactx-now-open-in-cedar-park/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-05T11:11:26.000Z",
-    "summary": "",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Gracie Barra now open in Liberty Hill",
-    "link": "https://communityimpact.com/leander-liberty-hill/business/gracie-barra-now-open-in-liberty-hill/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-05T11:04:14.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.7604,
      30.27003
     ]
@@ -227,72 +632,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Mayor Watson applauds Austin voters for approving $295M park, library bonds",
-    "link": "https://www.kxan.com/news/local/austin/mayor-watson-applauds-austin-voters-for-approving-295m-park-library-bonds/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-05T04:14:17.000Z",
-    "summary": "Voters also rejected a required external audit of city spending, known as \"Prop I.\"",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7394,
-     30.285
-    ]
-   },
-   "properties": {
-    "title": "LBJ Women’s Campaign School celebrates 8 alumni election wins",
-    "link": "https://www.kxan.com/news/local/austin/lbj-womens-campaign-school-alumni-election-wins/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-05T02:48:10.000Z",
-    "summary": "The UT Austin-based LBJ Women’s Campaign School says 16 alumni appeared on election ballots this year, with eight candidates winning their races.",
-    "place": "UT Austin",
-    "placeKind": "campus"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Memo: Austin proposes new plan that could demolish unsafe structures within 96 hours",
-    "link": "https://www.kxan.com/news/memo-austin-proposes-new-plan-that-could-demolish-unsafe-structures-within-96-hours/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-05T01:52:11.000Z",
-    "summary": "In an Oct. 30 memorandum, the Austin Development Services (DSD) proposed a new process for emergency demolitions, citing the new plan could provide a \"proactive mechanism\" to address unsafe structures that pose imminent danger to the community.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin council winners and runoff candidates talk priorities for their districts",
-    "link": "https://www.kxan.com/news/your-local-election-hq/austin-council-winners-and-runoff-candidates-talk-priorities-for-their-districts/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-05T00:51:14.000Z",
-    "summary": "Five of Austin's 10 city council seats were up for election this election cycle. Only two candidates won their races outright, and three will go to runoffs on Dec. 12.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "‘Political punching bag’: After years of conflict, Austin sees an opening with new Democratic leaders",
     "link": "https://austincurrent.org/2026/11/04/texas-democrats-election-state-austin/",
     "outlet": "Austin Current",
@@ -302,27 +641,6 @@
     "summary": "The Austin City Council has been met with great state opposition for over a decade. Members think things are about to change. The post ‘Political punching bag’: After years of conflict, Austin sees an opening with new Democratic leaders appeared first on Austin Current .",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Vehicle-pedestrian crash kills man in north Austin",
-    "link": "https://www.kxan.com/news/local/austin/deadly-vehicle-pedestrian-crash-austin-texas/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-05T00:12:46.000Z",
-    "summary": "Austin Police are investigating a deadly crash involving a vehicle and pedestrian that happened Tuesday in the 700 block of West Longspur Boulevard.",
-    "place": "Austin Police",
-    "placeKind": "landmark"
    }
   },
   {
@@ -380,21 +698,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Texas Democrats discuss the future of school vouchers",
-    "link": "https://www.kxan.com/news/education/democrats-talk-future-of-school-vouchers/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-04T23:28:03.000Z",
-    "summary": "The Democratic shift in power could mean big changes for public education in the Lone Star State.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Two City Council wins, three runoffs",
     "link": "https://theaustinbulldog.org/two-city-council-wins-three-runoffs/",
     "outlet": "The Austin Bulldog",
@@ -415,7 +718,7 @@
     "outlet": "Community Impact",
     "group": "government",
     "color": "#f0c27a",
-    "published": "2026-11-04T22:31:35.000Z",
+    "published": "2026-11-04T22:31:00.000Z",
     "summary": "",
     "place": null,
     "placeKind": null
@@ -444,21 +747,6 @@
   },
   {
    "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Bonfire Yoga Studio offers heated classes to local yogis",
-    "link": "https://communityimpact.com/lake-travis-westlake/business/bonfire-yoga-studio-offers-heated-classes-to-local-yogis/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-04T21:24:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -476,72 +764,6 @@
     "summary": "The Texas governor-elect and former AISD trustee has vowed to replace the state’s education commissioner, who decides state interventions. The post Gina Hinojosa’s victory could change Austin ISD’s fate. But state law may stand in the way. appeared first on Austin Current .",
     "place": "Austin ISD",
     "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Office Depot celebrates 40th anniversary with Austin ribbon cutting",
-    "link": "https://communityimpact.com/central-austin/business/office-depot-celebrates-40th-anniversary-with-austin-ribbon-cutting/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-04T21:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Sister-owned concierge business celebrates 5 years in New Braunfels",
-    "link": "https://communityimpact.com/new-braunfels/business/sister-owned-concierge-business-celebrates-5-years-in-new-braunfels/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-04T21:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "First Convenience Bank now open inside Round Rock H-E-B on University Boulevard",
-    "link": "https://communityimpact.com/round-rock/business/first-convenience-bank-now-open-inside-round-rock-h-e-b-on-university-boulevard/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-04T21:00:00.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Braunfelser now serving German-inspired brews in New Braunfels",
-    "link": "https://communityimpact.com/new-braunfels/business/braunfelser-now-serving-german-inspired-brews-in-new-braunfels/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-04T21:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -628,48 +850,6 @@
     "published": "2026-11-04T17:01:55.000Z",
     "summary": "A spacious property for sale in the bustling Austin suburb of Dripping Springs is now offering just over 17 acres of land for $3.7 million. The HC Carter Camphouse , located at 1601 Creek Road , presents a rare opportunity for its next owners to live less than two miles from downtown Dripping Springs. The 17.03-acre ranch was once part of a much larger, 205-acre ranch that contained \"one of the fi",
     "place": "Dripping Springs",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "Fun, food and fitness: check out 16 Cedar Park business updates to know",
-    "link": "https://communityimpact.com/cedar-park/business/fun-food-and-fitness-check-out-16-cedar-park-business-updates-to-know/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-04T14:43:00.000Z",
-    "summary": "",
-    "place": "Cedar Park",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Once Upon a Child opening to Round Rock shoppers Nov. 5",
-    "link": "https://communityimpact.com/round-rock/business/once-upon-a-child-opening-to-round-rock-shoppers-nov-5/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-04T13:33:23.000Z",
-    "summary": "",
-    "place": "Round Rock",
     "placeKind": "city"
    }
   },
@@ -1049,7 +1229,7 @@
     "group": "government",
     "color": "#f0c27a",
     "published": "2026-11-04T00:00:00.000Z",
-    "summary": "<p><strong>Case: </strong><span>26-3050048</span><br><br><strong>Time:</strong><span> 12:20 a.m.</span><br><br><strong>Date: </strong><span>Sunday, November 1, 2026&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><strong>Location:</strong><span> 8000 block of N. IH 35 SB</span><br><br><strong>Deceased:</strong><span> Gabbrielle Pousset, White female, 08/31/01</span><br><span>&nbsp;</span><br><span>On Sunday",
+    "summary": "<p><strong>Case: </strong><span>26-3050048</span><br><br><strong>Time:</strong><span> 12:20 a.m.</span><br><br><strong>Date: </strong><span>Sunday, November 1, 2026&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><strong>Location:</strong><span> 8000 block of N. IH 35 SB</span><br><br><strong>Deceased:</strong><span> Gabrielle Pousset, White female, 08/31/01</span><br><span>&nbsp;</span><br><span>On Sunday,",
     "place": null,
     "placeKind": null
    }
@@ -1073,27 +1253,6 @@
     "summary": "<p><strong>Case:</strong> 26-2110572<br><br><strong>Date:</strong> Thursday, July 30, 2026<br><br><strong>Time:</strong> 10:15 a.m.<br><br><strong>Location:</strong> 400 Grove Boulevard (Secret Beach, Roy Guerrero Park)<br><br>The Austin Police (APD) Robbery Unit is seeking the public’s assistance in identifying a suspect involved in a robbery that occurred on Thursday, July 30, 2026, near Secret ",
     "place": "Austin Police",
     "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.718,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "José Velásquez, Neha Shah headed to runoff in Austin City Council District 3 contest",
-    "link": "https://www.kut.org/politics/2026-11-03/austin-tx-district-3-city-council-election-results-2026",
-    "outlet": "KUT",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-11-04T00:00:00.000Z",
-    "summary": "Incumbent José Velásquez faces Neha Shah amidst backlash for his initial support of the city-backed Dog's Head development coming to the East Austin district.",
-    "place": "East Austin",
-    "placeKind": "district"
    }
   },
   {
@@ -1181,27 +1340,6 @@
     "summary": "To win, Paxton needs to keep the margin close in Collin County, his political home base. Talarico must earn epic returns in Travis County, the bluest part of the state. The post Ken Paxton and James Talarico close their Senate campaigns on home turf appeared first on The Texas Tribune .",
     "place": "Travis County",
     "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "APD Detectives Search for a Suspect in Connection to a Robbery",
-    "link": "https://www.austintexas.gov/police/news/apd-detectives-search-suspect-connection-robbery-8",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-03T00:00:00.000Z",
-    "summary": "<p><strong>Case:</strong><span> 26-2820945</span><br><span>&nbsp;</span><br><strong>Date:</strong><span> Friday, October 9, 2026</span><br><span>&nbsp;</span><br><strong>Time:</strong><span> 1:55 p.m.</span><br><span>&nbsp;</span><br><strong>Location:</strong><span> 5600 block of N. Lamar Blvd.</span><br><span>&nbsp;</span><br><span>The Austin Police (APD) Robbery Unit is requesting the community’",
-    "place": "Austin Police",
-    "placeKind": "landmark"
    }
   },
   {
@@ -1416,42 +1554,6 @@
     "color": "#e8b35e",
     "published": "2026-10-29T21:35:52.000Z",
     "summary": "Lots of money flying around.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "New utility rates take effect Nov. 1 in Round Rock",
-    "link": "https://communityimpact.com/round-rock/government/new-utility-rates-take-effect-nov-1-in-round-rock/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-29T21:27:48.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin awards $1.2M to support legacy businesses, housing nonprofit",
-    "link": "https://communityimpact.com/central-austin/government/austin-awards-1-2m-to-support-legacy-businesses-housing-nonprofit/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-10-29T21:21:00.000Z",
-    "summary": "",
     "place": null,
     "placeKind": null
    }
@@ -1821,27 +1923,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Officials break ground on Georgetown Customer Service Center, SU 560",
-    "link": "https://communityimpact.com/georgetown/development/officials-break-ground-on-georgetown-customer-service-center-su-560/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-10-26T15:00:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "How a big project became a big fight: The road to Dog’s Head",
@@ -1881,51 +1962,6 @@
     "color": "#e07a99",
     "published": "2026-10-23T20:17:29.000Z",
     "summary": "Austin's transition into a buyer's market has revealed certain pockets where homes are much more likely to sell faster than others. A new real estate report from Redfin details which local neighborhoods have the most competition among homebuyers in Austin. The report's findings show that the five hottest neighborhoods in Austin all reside in highly regarded school districts, have new restaurant op",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Saving Muny could come at a cost as Austin weighs changes to UT land deal",
-    "link": "https://austincurrent.org/2026/10/22/muny-austin-ut-development-environment/",
-    "outlet": "Austin Current",
-    "group": "planning",
-    "color": "#7ad4c8",
-    "published": "2026-10-23T00:50:06.000Z",
-    "summary": "Muny supporters and the city have fought for decades to preserve the 141-acre golf course, the first in the South to be desegregated. The post Saving Muny could come at a cost as Austin weighs changes to UT land deal appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Which PACs are spending?",
-    "link": "https://www.austinpolitics.net/which-pacs-are-spending/",
-    "outlet": "Austin Politics",
-    "group": "government",
-    "color": "#e8b35e",
-    "published": "2026-10-22T23:50:03.000Z",
-    "summary": "And *another* highway in Austin?",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Details about the candidates’ personal finances",
-    "link": "https://theaustinbulldog.org/details-about-the-candidates-personal-finances/",
-    "outlet": "The Austin Bulldog",
-    "group": "government",
-    "color": "#e8b35e",
-    "published": "2026-10-22T20:25:26.000Z",
-    "summary": "“It is the policy of the City that the proper operation of democratic government requires that public officials and employees be independent, impartial and responsible to the people; that governmental decisions and policy be made in proper channels of the governmental structure; that public office not be used for personal gain; and that the public […]",
     "place": null,
     "placeKind": null
    }
