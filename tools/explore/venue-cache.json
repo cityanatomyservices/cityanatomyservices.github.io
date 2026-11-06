@@ -659,5 +659,21 @@
     ],
     "matchedAddress": "10300 SPRINGDALE RD, AUSTIN, TX, 78754",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=10300+Springdale+Rd%2C+Austin+TX+78754&benchmark=Public_AR_Current&format=json"
+  },
+  "2208 Parkway Austin TX": {
+    "coordinates": [
+      -97.754796478855,
+      30.286908447033
+    ],
+    "matchedAddress": "2208 PARKWAY, AUSTIN, TX, 78703",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2208+Parkway+Austin+TX&benchmark=Public_AR_Current&format=json"
+  },
+  "2913 Northland Dr Austin TX": {
+    "coordinates": [
+      -97.751734446611,
+      30.334583351297
+    ],
+    "matchedAddress": "2913 NORTHLAND DR, AUSTIN, TX, 78757",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2913+Northland+Dr+Austin+TX&benchmark=Public_AR_Current&format=json"
   }
 }
