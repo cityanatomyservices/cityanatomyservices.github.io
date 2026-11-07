@@ -699,5 +699,13 @@
     ],
     "matchedAddress": "440 E ST ELMO RD, AUSTIN, TX, 78745",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=440+E+St+Elmo+Rd+Austin+TX&benchmark=Public_AR_Current&format=json"
+  },
+  "6015 Dillard Cir A, Austin TX 78752": {
+    "coordinates": [
+      -97.717926811993,
+      30.325710710294
+    ],
+    "matchedAddress": "6015 DILLARD CIR, AUSTIN, TX, 78752",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=6015+Dillard+Cir+A%2C+Austin+TX+78752&benchmark=Public_AR_Current&format=json"
   }
 }
