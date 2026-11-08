@@ -107,6 +107,15 @@ this distinction and clears the prior anonymous saved application data.
   else. The card goes neighborhood → group → category → business, with
   "N here" counts, and the map shows each visible person on the business
   they picked. `?room=<id>&place=<place id>` picks one for testing.
+## Special Events (2026-11-08)
+
+Explore includes a Special Events category linking to the Austin Studio Tour.
+Event maps reuse this engine with their own extent, numbered stops and full
+planner/export controls. Their single event chat is independent of the GPS
+neighborhood business directory. Business selections stay in event chat.
+The neighborhood-only rule above continues to apply to ordinary maps.
+See [Special Events](../special-events/README.md) for data and coverage details.
+
 # Planner integration (2026-10-29)
 
 `/shared/visit.js` owns ephemeral page memory; `/shared/session.js` owns the

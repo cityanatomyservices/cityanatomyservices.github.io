@@ -66,8 +66,8 @@
       if(!existing.ctrlExtent)$('ctrlExtent').onclick=()=>map.fitBounds(currentBounds,{padding:50,pitch:0,bearing:0,duration:600});
       (existing.ctrlExtent||$('ctrlExtent')).setAttribute('aria-label','Show map extent');
       await script('/planner/select.js?v=20261102g');
-      await script('/chat/catalog-menu.js?v=20261105a');
-      await script('/chat/explore/config.js?v=20261028e');await script('/chat/explore/model.js?v=20261104a');await script('/chat/explore/explore.js?v=20261104b');
+      await script('/chat/catalog-menu.js?v=20261108a');
+      await script('/chat/explore/config.js?v=20261028e');await script('/chat/explore/model.js?v=20261104a');await script('/chat/explore/explore.js?v=20261108a');
       await window.AustinExplore.init(map);
       const existingChat=$('btn-chat');
       if(existingChat){
@@ -76,7 +76,7 @@
         const hide=()=>{card.hidden=true;chat.setAttribute('aria-expanded','false');window.ChatPanel?.close();};
         chat.onclick=()=>{const open=card.hidden;for(const name of ['AustinApps','AustinMedia','AustinDayPlan','AustinExplore'])window[name]?.close?.();card.hidden=!open;chat.setAttribute('aria-expanded',String(open));};close.onclick=hide;
         window.AustinChatCard={close:hide};
-      }else{const host=document.createElement('div');host.id='planner-chat-host';host.hidden=true;root.append(host);await script('/chat/widget.js?v=20261030e');}
+      }else{const host=document.createElement('div');host.id='planner-chat-host';host.hidden=true;root.append(host);await script('/chat/widget.js?v=20261108a');}
       stack.addEventListener('click',event=>{if(tourPanel&&event.target.closest('button')?.id!=='ctrlTour'){tourPanel.hidden=true;$('ctrlTour').setAttribute('aria-expanded','false');}});
       loading.textContent='';root.dataset.mapUiReady='true';
     }catch(error){loading.textContent=error.message+' Reload to retry.';console.error(error);}

@@ -33,7 +33,7 @@
   let placePopup = null;        // a picked business's popup (set further down); reopening the card closes it
   const setCard = (open) => {
     if (!open && $('legend').contains(document.activeElement)) $('ctrlChat').focus({ preventScroll: true });
-    if (open) { window.AustinExplore.close?.(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); window.AustinCityHall?.close?.(); }
+    if (open) { window.AustinEvent?.close(); window.AustinExplore.close?.(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); window.AustinCityHall?.close?.(); }
     $('legend').hidden = !open;
     $('ctrlChat').setAttribute('aria-expanded', String(open));
     $('ctrlChat').classList.toggle('is-on', open);
@@ -82,16 +82,16 @@
   }
 
   // ── start: read the geofences, then build the map fitted to them ─────────
-  fetch(CFG.geofences).then((r) => r.json()).then((geofences) => {
+  Promise.all([fetch(CFG.geofences).then((r) => r.json()), window.AustinEvent?.ready]).then(([geofences, event]) => {
     colourise(geofences.features);
-    const box = boundsOf(geofences.features);
+    const box = event ? event.bounds : boundsOf(geofences.features);
     const byId = (id) => geofences.features.find((f) => f.properties.id === id) || null;
 
     const map = new maplibregl.Map({
       container: 'map',
       style: CFG.basemap,
       bounds: box,
-      fitBoundsOptions: { padding: CFG.fitPadding },
+      fitBoundsOptions: { padding: event ? 60 : CFG.fitPadding, maxZoom: 17 },
       attributionControl: false
     });
 
@@ -236,7 +236,10 @@
       // the opening move: from all of Austin flat, fly in over downtown
       // and tilt up (the owner's reference view); showTilt keeps the button
       // reading 2D while the map is tilted
-      if(!planning)neighborhoodView(CFG.openTiltMs);
+      if (event) {
+        for (const id of ['geofence-fill','geofence-line','geofence-label']) map.setLayoutProperty(id,'visibility','none');
+        setTilt(false);
+      } else if(!planning)neighborhoodView(CFG.openTiltMs);
 
       // hover: tint the polygon under the pointer
       let hovered = null;
@@ -276,9 +279,10 @@
       // on the map where everyone visible in your neighborhood is)
       const markers = Object.create(null);             // arbitrary nickname -> Marker
       let placeMarker = null;                          // the business you picked (its popup: placePopup, above)
-      window.ChatRoom.start(geofences, { hooks: {
+      window.ChatRoom.start(geofences, { event, hooks: {
         // your room: the old one loses its tint, the new one gains it, the map flies there
         onRoom(feature, before) {
+          if (event) return;
           if (before) map.setFeatureState({ source: 'geofences', id: before.properties.id }, { room: false });
           if (!feature) return;
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
@@ -367,7 +371,8 @@
       window.chatMap = map;
       window.AustinMapLayers.init(map);
       window.PlanMap.attach(map);
-      window.AustinExplore.init(map);
+      if (event) window.AustinEvent.init(map);
+      else window.AustinExplore.init(map);
     });
   }).catch(()=>{$('map-error').hidden=false;});
 })();

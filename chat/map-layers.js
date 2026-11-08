@@ -5,7 +5,7 @@ window.AustinMapLayers = {
     const panel = document.getElementById('map-layers-panel');
     const close = document.getElementById('map-layers-close');
     function show(on, returnFocus = false) {
-      if (on) {window.PlanPanel?.close();for (const name of ['AustinExplore', 'AustinChatCard', 'AustinApps']) window[name]?.close?.();}
+      if (on) {window.PlanPanel?.close();for (const name of ['AustinEvent', 'AustinExplore', 'AustinChatCard', 'AustinApps']) window[name]?.close?.();}
       panel.hidden = !on;
       button.setAttribute('aria-expanded', String(on));
       button.classList.toggle('is-on', on);

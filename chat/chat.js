@@ -12,6 +12,7 @@
   const MIN_GAP = 1000;                 // ms between two sends
   const HISTORY = 100;                  // lines read back on joining a room
   let channel = null, nbhd = null, roomId = null, ident = null, visible = false, cbs = {}, lastSend = 0;
+  let generation = 0, roomGeneration = 0;
   let pos = null;                       // your [lng, lat], rounded; shared only while visible
   let sentPos = null;                   // the last one the others were told
   const MOVE = 15;                      // metres you must move before they are told again
@@ -29,16 +30,25 @@
     });
   }
   const announce = () => { if (cbs.onPeople) cbs.onPeople(people()); };
-  const track = () => { sentPos = pos; return channel.track({ handle: ident.handle, emoji: ident.emoji, room: roomId, pos, joinedAt: Date.now() }); };
+  const track = () => { if (!channel || !ident) return Promise.resolve(); sentPos = pos; return channel.track({ handle: ident.handle, emoji: ident.emoji, room: roomId, pos, joinedAt: Date.now() }); };
 
   // the room's recent lines from the table (nothing when signed out or the
   // table is not there yet — the live chat works either way)
   async function history(room) {
+    const attempt = generation, selection = ++roomGeneration;
     const uid = window.ChatIdentity.userId();
     if (!uid || !cbs.onMessage) return;
     const { data } = await getClient().from('messages').select('user_id, handle, emoji, text, created_at')
       .eq('room', room).order('created_at', { ascending: false }).limit(HISTORY);
-    (data || []).reverse().forEach((r) => cbs.onMessage({ handle: r.handle, emoji: r.emoji, text: r.text, t: Date.parse(r.created_at), self: r.user_id === uid }));
+    if (attempt !== generation || selection !== roomGeneration || room !== roomId) return;
+    (data || []).reverse().forEach((r) => cbs.onMessage?.({ handle: r.handle, emoji: r.emoji, text: r.text, t: Date.parse(r.created_at), self: r.user_id === uid }));
+  }
+
+  async function disconnect() {
+    const previous = channel; channel = null; nbhd = roomId = null; cbs = {};
+    if (!previous) return;
+    try { await previous.untrack(); } catch (_) {}
+    try { await getClient().removeChannel(previous); } catch (_) {}
   }
 
   window.addEventListener('pagehide', () => window.ChatEngine.leave());
@@ -46,18 +56,24 @@
     // join a neighborhood room. Visible = put yourself in Presence so the
     // others see you; hidden = listen only. callbacks: onPeople(list), onMessage(m)
     async join(neighborhood, identity, isVisible, callbacks) {
-      await this.leave();
+      const attempt = ++generation;
+      await disconnect();
+      if (attempt !== generation) return;
       nbhd = roomId = neighborhood; ident = identity; visible = isVisible; cbs = callbacks || {};
       channel = getClient().channel('chat:' + neighborhood, { config: { broadcast: { self: false }, presence: { key: identity.handle } } });
+      const joined = channel;
       channel.on('broadcast', { event: 'msg' }, (p) => {
+        if (attempt !== generation) return;
         const m = p.payload;
         if (cbs.onMessage && m && (m.room || nbhd) === roomId) cbs.onMessage(m);   // only your room's lines
       });
-      channel.on('presence', { event: 'sync' }, announce);
+      channel.on('presence', { event: 'sync' }, () => { if (attempt === generation) announce(); });
       await history(roomId);
-      await new Promise((resolve) => channel.subscribe(async (status) => {
+      if (attempt !== generation) return;
+      await new Promise((resolve) => joined.subscribe(async (status) => {
+        if (attempt !== generation) { resolve(); return; }
         if (status === 'SUBSCRIBED') { if (visible) await track(); resolve(); }
-        else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') resolve();
+        else if (['CHANNEL_ERROR','TIMED_OUT','CLOSED'].includes(status)) resolve();
       }));
     },
     // move to another room in the same neighborhood ("<neighborhood>/<place>"
@@ -70,10 +86,8 @@
       await history(roomId);
     },
     async leave() {
-      if (!channel) return;
-      const c = channel; channel = null; nbhd = roomId = null;
-      try { await c.untrack(); } catch (e) { /* already gone */ }
-      try { await getClient().removeChannel(c); } catch (e) { /* already gone */ }
+      generation++; roomGeneration++;
+      await disconnect();
     },
     async setVisible(on) {
       visible = on;

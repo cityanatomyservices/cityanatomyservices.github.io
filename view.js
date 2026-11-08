@@ -18,7 +18,7 @@
   const name = parts[1] || '';
 
   Promise.all([
-    fetch('/home.json?v=20261104e').then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    fetch('/home.json?v=20261108a').then((r) => (r.ok ? r.json() : null)).catch(() => null),
     fetch('/apps/reports/reports.json?v=20261104e').then((r) => (r.ok ? r.json() : [])).catch(() => [])
   ]).then(([data, reports]) => {
     const chip = ((data && data.chips) || []).find((c) => c.label === 'Apps');

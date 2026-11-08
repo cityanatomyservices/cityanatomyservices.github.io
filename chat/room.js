@@ -42,11 +42,12 @@
   const el = {};
   let testRoom = null;          // ?room=<id> joins a neighborhood without GPS (testing)
   let testPlace = null;         // ?place=<id> then picks that business
+  let event = null, directoryRoom = null, directoryData = null, directoryRequest = 0;
 
   const neighborhoodName = () => (room ? room.properties[CFG.nameField] : '');
-  const roomName = () => (place ? place.name + ' · ' + neighborhoodName() : neighborhoodName());
+  const roomName = () => (place && !event ? place.name + ' · ' + neighborhoodName() : neighborhoodName());
   // the room string: "<neighborhood>" or "<neighborhood>/<place>"
-  const roomId = () => (room ? room.properties.id + (place ? '/' + place.id : '') : null);
+  const roomId = () => (room ? room.properties.id + (place && !event ? '/' + place.id : '') : null);
 
   function showMe() {
     if(el.youHandle){if(me)window.AustinMember.paintIdentity(el.youHandle,me);else el.youHandle.textContent='…';}
@@ -66,13 +67,13 @@
     if (el.peopleLine) {
       let line = n === 0 ? '' : n === 1 ? COPY.people.one : fill(COPY.people.many, { n });
       if (room && !visible) line = (line + ' ' + COPY.people.hiddenNote).trim();
-      if (place) line = (fill(COPY.people.atPlace, { place: place.name }) + ' ' + line).trim();
+      if (place && !event) line = (fill(COPY.people.atPlace, { place: place.name }) + ' ' + line).trim();
       el.peopleLine.textContent = room ? line : '';
     }
     const b = el.chatBtn;
     if (b) {
       // a business room opens even when empty; the neighborhood room needs someone else
-      b.disabled = !(room && visible && (n > 0 || place));
+      b.disabled = !(room && visible && (n > 0 || place || event));
       const base = b.dataset.glyph || COPY.chatButton;
       b.textContent = n > 0 ? base + ' ' + n : base;
     }
@@ -133,7 +134,7 @@
       b.dataset.room = person.room;
       if (at) b.dataset.place = JSON.stringify(at);
       const name = document.createElement('span'); name.className = 'place-name';
-      const where = at ? at.name : near ? fill(COPY.places.near, { place: near.name }) : COPY.places.neighborhoodRow;
+      const where = at ? at.name : near ? fill(COPY.places.near, { place: near.name }) : event ? event.title : COPY.places.neighborhoodRow;
       name.textContent = person.emoji + ' ' + person.handle + (person.self ? ' ' + COPY.places.you : '') + ' · ' + where;
       const here = document.createElement('span'); here.className = 'here';   // keeps the row shape; showCounts leaves it empty
       b.append(name, here);
@@ -151,7 +152,7 @@
       placesById[p.id] = p;
       (p.aliases || []).forEach((id) => { placesById[id] = p; });
     });
-    if (!data) return;
+    if (!data && !event) return;
     const row = (text, roomString, cls) => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -171,14 +172,20 @@
       return d;
     };
     list.appendChild(fold(COPY.places.usersVisible, 0, 'place-group users-fold'));
-    list.appendChild(row(COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
+    if (room) list.appendChild(row(event ? 'Event chat · ' + event.title : COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
+    if (event) {
+      const heading = document.createElement('p');
+      heading.textContent = directoryRoom ? 'Businesses in ' + directoryRoom.properties[CFG.nameField] : 'Allow GPS to show businesses in your neighborhood.';
+      list.appendChild(heading);
+    }
+    if (!data) return;
     data.groups.forEach((g) => {
       const total = g.categories.reduce((n, c) => n + c.places.length, 0);
       const gd = fold(g.name, total, 'place-group');
       g.categories.forEach((cat) => {
         const cd = fold(cat.name, cat.places.length, 'place-category');
         cat.places.forEach((p) => {
-          const b = row(p.name, room.properties.id + '/' + p.id, 'place-row');
+          const b = row(p.name, (directoryRoom || room).properties.id + '/' + p.id, 'place-row');
           b.title = p.address || p.name;
           b.dataset.place = JSON.stringify(p);
           const wrapper = document.createElement('div'); wrapper.className = 'plan-place-row';
@@ -204,6 +211,9 @@
   // move to a business room (or back to the neighborhood: picked = null)
   async function choose(picked) {
     place = picked;
+    // Event businesses remain useful map/planner targets; they never split
+    // the event conversation into neighborhood or business rooms.
+    if (event) { if (hooks.onPlace) hooks.onPlace(place); return; }
     window.ChatPanel.close();
     window.ChatPanel.clear();
     if (el.placeList) el.placeList.querySelectorAll('[data-room]').forEach((r) => r.classList.toggle('is-current', r.dataset.room === roomId()));
@@ -221,14 +231,25 @@
     others = [];
     window.ChatPanel.close();
     window.ChatPanel.clear();
-    if (el.placeList) el.placeList.innerHTML = '';
+    if (el.placeList && !event) el.placeList.innerHTML = '';
     if (hooks.onRoom) hooks.onRoom(feature, before);
     if (hooks.onPlace) hooks.onPlace(null);
     if (el.roomLine) el.roomLine.textContent = feature ? fill(COPY.room.inside, { name: neighborhoodName() }) : '';
     showPeople();
+    if (event) showPlaces(directoryData);
     if (!feature || !me) { await window.ChatEngine.leave(); return; }
     await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) });
+    if (event) return;
+    await loadPlaces(feature);
+  }
+
+  async function loadPlaces(feature) {
+    directoryRoom = feature;
+    directoryData = null;
+    const request = ++directoryRequest;
     if (!el.placeList) return;                         // the tour apps: no list, no fetch
+    showPlaces(null);
+    if (!feature) return;
     const file = feature.properties.id + '.json';
     const urls = [CFG.places + file];
     if (CFG.placesLive) urls.push(CFG.placesLive + file);
@@ -243,24 +264,41 @@
     }));
     const data = results.filter((r) => r.status === 'fulfilled').map((r) => r.value)
       .sort((a, b) => String(b.fetched).localeCompare(String(a.fetched)))[0] || null;
-    if (room !== feature) return;                      // you moved on while it loaded
+    if (request !== directoryRequest) return;          // you moved on while it loaded
+    directoryData = data;
     if (hooks.onPlaces) hooks.onPlaces(data);
     showPlaces(data);
     showCounts(window.ChatEngine.people());
     showUsers(window.ChatEngine.people());
-    if (testPlace && data) {
+    if (testPlace && data && !event) {
       const found = allPlaces(data).find((p) => p.id === testPlace || (p.aliases || []).includes(testPlace));
       if (found) await choose(found);
     }
   }
 
-  const status = (s) => { if (s !== 'inside' && el.roomLine) el.roomLine.textContent = COPY.room[s]; };
+  const status = (s) => {
+    if (event && ['denied','off'].includes(s)) { enter(null); loadPlaces(null); }
+    if (s !== 'inside' && el.roomLine) el.roomLine.textContent = event ? ({asking:'Finding your location for event chat…',denied:'Allow location access to join event chat. You can still browse and plan.',off:'Location is unavailable. You can still browse and plan.'}[s] || el.roomLine.textContent) : COPY.room[s];
+  };
 
   // where you are: the phone's GPS, or ?room=<id> for testing at a desk —
   // the room is then fixed, but your marker still follows the GPS if the
   // browser has one
   const sharePosition = (pt) => window.ChatEngine.setPosition(pt);
   function locate() {
+    if (event) {
+      // GPS chooses the directory independently. The event's own polygon
+      // chooses a single channel across every participating neighborhood.
+      window.ChatLocate.start(geofences, loadPlaces, status, pt => {
+        const inside = window.ChatLocate.find({features:[event.area]}, pt);
+        if (room !== inside) {
+          enter(inside);
+        }
+        if (el.roomLine) el.roomLine.textContent = inside ? 'Event-wide chat · ' + event.title : 'Outside the event area. You can still browse stops and plan.';
+        sharePosition(pt);
+      });
+      return;
+    }
     if (testRoom) {
       enter(geofences.features.find((f) => f.properties.id === testRoom) || null);
       window.ChatLocate.start(geofences, () => {}, () => {}, sharePosition);
@@ -275,6 +313,7 @@
     //            hooks: { onRoom(feature, before), onPeople(list, room), onPlaces(data), onPlace(place) } }
     async start(gj, options) {
       geofences = gj;
+      event = options?.event || null;
       hooks = (options && options.hooks) || {};
       const ids = Object.assign({ visibleBtn: 'visibleBtn', chatBtn: 'chatBtn', roomLine: 'roomLine', peopleLine: 'peopleLine', youHandle: 'youHandle', newName: 'newName', placeList: 'placeList' }, options && options.ids);
       Object.keys(ids).forEach((k) => { el[k] = $(ids[k]); });
@@ -335,7 +374,7 @@
       // one listener for the whole list: a tap on a row picks that room
       if (el.placeList) el.placeList.addEventListener('click', (e) => {
         const rowEl = e.target.closest('[data-room]');
-        if (!rowEl || !room) return;
+        if (!rowEl || (!room && !event)) return;
         choose(rowEl.dataset.place ? JSON.parse(rowEl.dataset.place) : null);
       });
       locate();
@@ -343,6 +382,7 @@
 
     locate,                                   // find me again (after a refusal)
     get room() { return room; },
+    get neighborhood() { return directoryRoom; },
     get place() { return place; }
   };
 })();

@@ -18,11 +18,11 @@
     if(history)visit?.plannerView?.(on);
   }
   function open({history=true,focus=true}={}){
-    for(const name of ['AustinClassifieds','AustinExplore','AustinCityHall','AustinChatCard','AustinApps','AustinMedia','AustinMapLayers'])window[name]?.close?.();
+    for(const name of ['AustinEvent','AustinClassifieds','AustinExplore','AustinCityHall','AustinChatCard','AustinApps','AustinMedia','AustinMapLayers'])window[name]?.close?.();
     mode(true,history);drawer(true,focus);
   }
   function leave({history=true}={}){document.querySelectorAll('#day-dialog[open],#export-dialog[open]').forEach(dialog=>dialog.close());drawer(false);mode(false,history);}
-  function explore(){leave();window.AustinExplore.open?.();}
+  function explore(){leave();if(window.AustinEvent)window.AustinEvent.open();else window.AustinExplore.open?.();}
   button.addEventListener('click',()=>{if(panel.hidden)open();else drawer(false);});
   document.getElementById('plan-panel-close').onclick=()=>drawer(false);
   document.getElementById('planner-map-edit').onclick=()=>open();

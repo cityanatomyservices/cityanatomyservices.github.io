@@ -1,5 +1,49 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-08 - Special Events and Austin Studio Tour
+
+The main Explore card now has a Special Events category with a link to
+`/maps/austin-studio-tour/`. This public map has Stops, Plan and Chat controls,
+the existing MapLibre basemap/display controls, and the complete day planner,
+route estimation and Google/Apple calendar/map exports. No Explore button is
+shown on event maps. Configured event bounds replace the main map's extent.
+
+The first dataset contains all 307 currently published organizer map stops,
+with official numbers, coordinates, addresses and source links. The organizer's
+fully loaded index supplies named artists/hosts at 303 stops; the other four
+use the official address. Tour dates are November 14–15 and 21–22, 2026,
+11 AM–5 PM, verified against the homepage, not the stale 2025 Explore SEO title.
+Artist attendance can vary; the UI and exported plans retain the source link
+and attendance note. No nonexistent pins were added to match the publicity's
+309-location count. The source snapshot and refresh procedure are documented
+in [Special Events](../special-events/README.md).
+
+Event chat uses `event-austin-studio-tour-2026` across the configured event
+area. GPS independently updates the neighborhood business directory. Picking
+a business opens its map details without changing the event conversation.
+Leaving coverage or losing location permission leaves chat. Visibility is
+still opt-in; its hint now explains event-wide sharing. Ordinary maps keep
+their neighborhood/business rooms. Late chat histories and channel callbacks
+cannot restore an abandoned room. No database migration or real account,
+message, subscription or billing mutation was required.
+
+The event page is generated from `chat/index.html` by
+`node tools/special-events/make-map.cjs`; regenerate it after shared markup or
+asset-version changes. Event data and UI use `20261108a`, as do changed shared
+scripts and their references. The nine Pro apps were repackaged/uploaded to
+refresh shared chat references; preserve workflow-only Pages publishing.
+
+Validation: 82 planner/domain tests and 53 billing tests passed. The event
+browser harness passed 1280px/390px guest/member cases, real MapLibre pins,
+search, dated selections, rendered route lines, actual two-stop ICS downloads,
+Google/Apple Maps links, GPS directory changes with unchanged event room,
+outside/denied-location chat gating, themes and the main Explore link. Existing
+main-map planner browser regressions passed all four guest/member/viewport
+combinations. Browser account, chat and routing operations used fixtures.
+
+The previous dashboard Account-form loading check below is unrelated and
+remains a follow-up; no sign-in code was sent during this work.
+
 ## 2026-11-05 - Private dashboard and manual Substack membership bundle
 
 Owner requested reciprocal membership: $8/month site Pro includes paid Austin.chat

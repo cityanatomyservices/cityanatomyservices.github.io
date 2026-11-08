@@ -52,7 +52,7 @@
           "kind": "apps",
           "slug": "moontower",
           "requiredPlan": "pro",
-          "blurb": "Austin, 1895 \u2014 light them all",
+          "blurb": "Austin, 1895 — light them all",
           "src": "/moontower/",
           "app": "/moontowertour/app.html?v=20261031d",
           "category": "Walking and Biking Apps"
@@ -62,7 +62,7 @@
           "kind": "apps",
           "slug": "1885",
           "requiredPlan": "pro",
-          "blurb": "Austin, 1885 \u2014 The Servant Girl Murders",
+          "blurb": "Austin, 1885 — The Servant Girl Murders",
           "src": "/1885murdertour/app.html?v=20261031d",
           "app": "/1885murdertour/app.html?v=20261031d",
           "category": "Walking and Biking Apps"
@@ -123,6 +123,14 @@
           "slug": "moontower-demo",
           "kind": "maps",
           "app": "/moontower/?v=20261031d"
+        },
+        {
+          "title": "Austin Studio Tour 2026",
+          "kind": "maps",
+          "slug": "austin-studio-tour",
+          "category": "Special Events",
+          "blurb": "November 14–15 & 21–22 · 11 AM–5 PM. Studio stops, day plans and event-wide chat.",
+          "app": "/special-events/map.html?event=austin-studio-tour-2026&v=20261108a"
         }
       ],
       "open": true
