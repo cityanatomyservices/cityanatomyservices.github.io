@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-08T06:43:58.596140+00:00",
+ "generated": "2026-11-08T16:22:32.788553+00:00",
  "sources": [
   {
    "name": "Alamo Drafthouse",
@@ -21,241 +21,10 @@
    "url": "https://austin.violetcrown.com/cinema/",
    "ok": true,
    "failures": 0,
-   "count": 8
+   "count": 12
   }
  ],
  "features": [
-  {
-   "type": "Feature",
-   "id": "movie-2401b4e9a246e72a95a7",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-2401b4e9a246e72a95a7",
-    "title": "Wild Horse Nine",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-08T09:00:00-06:00",
-    "end": "2026-11-08T22:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
-    "url": "https://austin.violetcrown.com/movie/wild-horse-nine/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-08T09:00:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092539/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T13:15:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092540/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T15:55:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092541/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T19:20:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092542/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T22:00:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092543/",
-      "format": ""
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-9770121b2154d39607fa",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-9770121b2154d39607fa",
-    "title": "La Bola Negra",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-08T09:15:00-06:00",
-    "end": "2026-11-08T22:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
-    "url": "https://austin.violetcrown.com/movie/la-bola-negra/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-08T09:15:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4252252/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T12:40:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4252256/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T18:20:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4252258/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T22:00:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4252260/",
-      "format": ""
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-f6d180526fff6c09c2db",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-f6d180526fff6c09c2db",
-    "title": "Godzilla Minus Zero",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-08T09:55:00-06:00",
-    "end": "2026-11-08T22:05:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
-    "url": "https://austin.violetcrown.com/movie/godzilla-minus-zero/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-08T09:55:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252253/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T11:40:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252265/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T16:10:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252257/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T18:35:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252264/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T22:05:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252259/",
-      "format": ""
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-81539c4b97de55f2c72a",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-81539c4b97de55f2c72a",
-    "title": "You Can See Everything",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-08T10:00:00-06:00",
-    "end": "2026-11-08T21:35:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
-    "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-08T10:00:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252266/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T13:45:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252254/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T14:40:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252262/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T18:00:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252255/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-08T21:35:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252261/",
-      "format": ""
-     }
-    ]
-   }
-  },
   {
    "type": "Feature",
    "id": "movie-de37a2747dd59f4d9945",
@@ -278,8 +47,8 @@
     "end": "2026-11-08T22:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -337,8 +106,8 @@
     "end": "2026-11-08T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -396,8 +165,8 @@
     "end": "2026-11-08T22:10:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T22:10:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -465,8 +234,8 @@
     "end": "2026-11-08T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T14:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/everest-the-other-side",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -509,8 +278,8 @@
     "end": "2026-11-08T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:30:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -574,7 +343,7 @@
     "endKnown": false,
     "day": "2026-11-08",
     "expires": "2026-11-08T11:00:00-06:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -612,8 +381,8 @@
     "end": "2026-11-08T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:45:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -671,8 +440,8 @@
     "end": "2026-11-08T21:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:50:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -735,8 +504,8 @@
     "end": "2026-11-08T22:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -794,8 +563,8 @@
     "end": "2026-11-08T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:30:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -868,8 +637,8 @@
     "end": "2026-11-08T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:30:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -932,8 +701,8 @@
     "end": "2026-11-08T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:15:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -986,8 +755,8 @@
     "end": "2026-11-08T22:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1041,7 +810,7 @@
     "endKnown": false,
     "day": "2026-11-08",
     "expires": "2026-11-08T11:30:00-06:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/sense-and-sensibility-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1079,8 +848,8 @@
     "end": "2026-11-08T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T22:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1113,6 +882,60 @@
   },
   {
    "type": "Feature",
+   "id": "movie-f6d180526fff6c09c2db",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-f6d180526fff6c09c2db",
+    "title": "Godzilla Minus Zero",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-08T11:40:00-06:00",
+    "end": "2026-11-08T22:05:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-08",
+    "expires": "2026-11-08T22:05:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
+    "url": "https://austin.violetcrown.com/movie/godzilla-minus-zero/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-08T11:40:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252265/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T16:10:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252257/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T18:35:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252264/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T22:05:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4252259/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
    "id": "movie-31aea4027c4744a86967",
    "geometry": {
     "type": "Point",
@@ -1133,8 +956,8 @@
     "end": "2026-11-08T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1187,8 +1010,8 @@
     "end": "2026-11-08T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/la-bola-negra",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1241,8 +1064,8 @@
     "end": "2026-11-08T21:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:20:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1296,7 +1119,7 @@
     "endKnown": false,
     "day": "2026-11-08",
     "expires": "2026-11-08T12:00:00-06:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -1334,8 +1157,8 @@
     "end": "2026-11-08T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:15:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/once-upon-a-time-in-harlem",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1388,8 +1211,8 @@
     "end": "2026-11-08T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T22:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1452,8 +1275,8 @@
     "end": "2026-11-08T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1507,7 +1330,7 @@
     "endKnown": false,
     "day": "2026-11-08",
     "expires": "2026-11-08T12:10:00-06:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-magnificent-ambersons",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1546,7 +1369,7 @@
     "endKnown": false,
     "day": "2026-11-08",
     "expires": "2026-11-08T12:15:00-06:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/fjord",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1585,7 +1408,7 @@
     "endKnown": false,
     "day": "2026-11-08",
     "expires": "2026-11-08T12:15:00-06:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-magnificent-ambersons",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1623,8 +1446,8 @@
     "end": "2026-11-08T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:30:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cat-in-the-hat-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1677,8 +1500,8 @@
     "end": "2026-11-08T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T22:15:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cat-in-the-hat-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1732,7 +1555,7 @@
     "endKnown": false,
     "day": "2026-11-08",
     "expires": "2026-11-08T12:30:00-06:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-magnificent-ambersons",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1770,8 +1593,8 @@
     "end": "2026-11-08T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:30:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-only-living-pickpocket-in-new-york",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1804,6 +1627,55 @@
   },
   {
    "type": "Feature",
+   "id": "movie-9770121b2154d39607fa",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-9770121b2154d39607fa",
+    "title": "La Bola Negra",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-08T12:40:00-06:00",
+    "end": "2026-11-08T21:50:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-08",
+    "expires": "2026-11-08T21:50:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
+    "url": "https://austin.violetcrown.com/movie/la-bola-negra/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-08T12:40:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4252256/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T18:20:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4252258/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T21:50:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4252260/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
    "id": "movie-e35452730370b393ff10",
    "geometry": {
     "type": "Point",
@@ -1824,8 +1696,8 @@
     "end": "2026-11-08T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:15:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1878,8 +1750,8 @@
     "end": "2026-11-08T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T21:45:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1932,8 +1804,8 @@
     "end": "2026-11-08T23:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wildwood",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -1986,8 +1858,8 @@
     "end": "2026-11-08T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T13:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -2025,8 +1897,8 @@
     "end": "2026-11-08T22:55:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2079,8 +1951,8 @@
     "end": "2026-11-08T23:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2133,8 +2005,8 @@
     "end": "2026-11-08T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2167,6 +2039,60 @@
   },
   {
    "type": "Feature",
+   "id": "movie-2401b4e9a246e72a95a7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-2401b4e9a246e72a95a7",
+    "title": "Wild Horse Nine",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-08T13:15:00-06:00",
+    "end": "2026-11-08T22:20:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-08",
+    "expires": "2026-11-08T22:20:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
+    "url": "https://austin.violetcrown.com/movie/wild-horse-nine/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-08T13:15:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092540/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T15:55:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092541/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T19:20:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092542/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T22:20:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4092543/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
    "id": "movie-650147009f799643275e",
    "geometry": {
     "type": "Point",
@@ -2187,8 +2113,8 @@
     "end": "2026-11-08T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wildwood",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2221,6 +2147,60 @@
   },
   {
    "type": "Feature",
+   "id": "movie-81539c4b97de55f2c72a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-81539c4b97de55f2c72a",
+    "title": "You Can See Everything",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-08T13:45:00-06:00",
+    "end": "2026-11-08T21:35:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-08",
+    "expires": "2026-11-08T21:35:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
+    "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-08T13:45:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252254/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T14:40:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252262/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T18:00:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252255/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-08T21:35:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4252261/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
    "id": "movie-ea6038ab7fd55da75c6d",
    "geometry": {
     "type": "Point",
@@ -2241,8 +2221,8 @@
     "end": "2026-11-08T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T14:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -2280,8 +2260,8 @@
     "end": "2026-11-08T14:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T14:50:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/little-odessa",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2319,8 +2299,8 @@
     "end": "2026-11-08T14:55:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T14:55:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2358,8 +2338,8 @@
     "end": "2026-11-08T15:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T15:15:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/little-odessa",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2397,8 +2377,8 @@
     "end": "2026-11-08T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T19:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -2441,8 +2421,8 @@
     "end": "2026-11-08T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T16:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/rammstein-live-in-mexico-city",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2480,8 +2460,8 @@
     "end": "2026-11-08T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T16:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/special-event-rocky-50th-anniversary",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2519,8 +2499,8 @@
     "end": "2026-11-08T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T16:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2558,8 +2538,8 @@
     "end": "2026-11-08T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T19:00:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/southland-tales",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2597,8 +2577,8 @@
     "end": "2026-11-08T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-08T22:15:00-06:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2641,8 +2621,8 @@
     "end": "2026-11-08T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2680,8 +2660,8 @@
     "end": "2026-11-08T23:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/street-fighter-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2719,8 +2699,8 @@
     "end": "2026-11-08T23:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-08",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/women-on-the-verge-of-a-nervous-breakdown",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -2758,8 +2738,8 @@
     "end": "2026-11-09T21:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://austin.violetcrown.com/movie/la-bola-negra/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2817,8 +2797,8 @@
     "end": "2026-11-09T21:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://austin.violetcrown.com/movie/wild-horse-nine/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2876,8 +2856,8 @@
     "end": "2026-11-09T22:05:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://austin.violetcrown.com/movie/godzilla-minus-zero/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2935,8 +2915,8 @@
     "end": "2026-11-09T21:35:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2989,8 +2969,8 @@
     "end": "2026-11-09T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3053,8 +3033,8 @@
     "end": "2026-11-09T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3117,8 +3097,8 @@
     "end": "2026-11-09T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3181,8 +3161,8 @@
     "end": "2026-11-09T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -3225,8 +3205,8 @@
     "end": "2026-11-09T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3264,8 +3244,8 @@
     "end": "2026-11-09T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3328,8 +3308,8 @@
     "end": "2026-11-09T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3382,8 +3362,8 @@
     "end": "2026-11-09T11:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3421,8 +3401,8 @@
     "end": "2026-11-09T22:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3500,8 +3480,8 @@
     "end": "2026-11-09T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/la-bola-negra",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3554,8 +3534,8 @@
     "end": "2026-11-09T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3608,8 +3588,8 @@
     "end": "2026-11-09T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3667,8 +3647,8 @@
     "end": "2026-11-09T21:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3721,8 +3701,8 @@
     "end": "2026-11-09T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3775,8 +3755,8 @@
     "end": "2026-11-09T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/once-upon-a-time-in-harlem",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3829,8 +3809,8 @@
     "end": "2026-11-09T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -3868,8 +3848,8 @@
     "end": "2026-11-09T21:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cat-in-the-hat-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3922,8 +3902,8 @@
     "end": "2026-11-09T21:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -3976,8 +3956,8 @@
     "end": "2026-11-09T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wildwood",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4030,8 +4010,8 @@
     "end": "2026-11-09T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4084,8 +4064,8 @@
     "end": "2026-11-09T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cat-in-the-hat-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4138,8 +4118,8 @@
     "end": "2026-11-09T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4192,8 +4172,8 @@
     "end": "2026-11-09T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4261,8 +4241,8 @@
     "end": "2026-11-09T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4315,8 +4295,8 @@
     "end": "2026-11-09T23:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wildwood",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4369,8 +4349,8 @@
     "end": "2026-11-09T22:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4423,8 +4403,8 @@
     "end": "2026-11-09T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4462,8 +4442,8 @@
     "end": "2026-11-09T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-only-living-pickpocket-in-new-york",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4516,8 +4496,8 @@
     "end": "2026-11-09T22:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4575,8 +4555,8 @@
     "end": "2026-11-09T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/women-on-the-verge-of-a-nervous-breakdown",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4614,8 +4594,8 @@
     "end": "2026-11-09T15:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/everest-the-other-side",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4658,8 +4638,8 @@
     "end": "2026-11-09T22:10:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4712,8 +4692,8 @@
     "end": "2026-11-09T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4766,8 +4746,8 @@
     "end": "2026-11-09T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4820,8 +4800,8 @@
     "end": "2026-11-09T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4859,8 +4839,8 @@
     "end": "2026-11-09T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4908,8 +4888,8 @@
     "end": "2026-11-09T15:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/fjord",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -4947,8 +4927,8 @@
     "end": "2026-11-09T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4986,8 +4966,8 @@
     "end": "2026-11-09T16:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/sense-and-sensibility-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5025,8 +5005,8 @@
     "end": "2026-11-09T16:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-magnificent-ambersons",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5064,8 +5044,8 @@
     "end": "2026-11-09T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5108,8 +5088,8 @@
     "end": "2026-11-09T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5147,8 +5127,8 @@
     "end": "2026-11-09T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/southland-tales",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5186,8 +5166,8 @@
     "end": "2026-11-09T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/southland-tales",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5225,8 +5205,8 @@
     "end": "2026-11-09T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5269,8 +5249,8 @@
     "end": "2026-11-09T19:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/special-event-rocky-50th-anniversary",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5308,8 +5288,8 @@
     "end": "2026-11-09T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-09",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/street-fighter-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5326,6 +5306,237 @@
       "start": "2026-11-09T22:45:00-06:00",
       "url": "https://drafthouse.com/austin/show/street-fighter-2026",
       "format": "Digital"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "movie-1aa775a5691705843eca",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-1aa775a5691705843eca",
+    "title": "La Bola Negra",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-10T09:15:00-06:00",
+    "end": "2026-11-10T21:50:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-10",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
+    "url": "https://austin.violetcrown.com/movie/la-bola-negra/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-10T09:15:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4253298/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T12:40:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4253302/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T15:15:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4253305/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T19:00:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4253308/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T21:50:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/la-bola-negra/4253312/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "movie-cf03d400971fd333a25c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-cf03d400971fd333a25c",
+    "title": "Wild Horse Nine",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-10T09:30:00-06:00",
+    "end": "2026-11-10T22:25:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-10",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
+    "url": "https://austin.violetcrown.com/movie/wild-horse-nine/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-10T09:30:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4253296/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T13:15:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4253303/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T15:55:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4253306/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T19:20:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4253311/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T22:25:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4253315/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "movie-67a0f6fd7b469518f9a6",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-67a0f6fd7b469518f9a6",
+    "title": "You Can See Everything",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-10T09:35:00-06:00",
+    "end": "2026-11-10T21:35:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-10",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
+    "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-10T09:35:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4253299/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T13:30:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4253304/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T18:00:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4253310/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T21:35:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/you-can-see-everything/4253313/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "movie-fbdc8a5e244ec2f43dec",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-fbdc8a5e244ec2f43dec",
+    "title": "Godzilla Minus Zero",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-10T10:10:00-06:00",
+    "end": "2026-11-10T22:05:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-10",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
+    "url": "https://austin.violetcrown.com/movie/godzilla-minus-zero/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-10T10:10:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4253297/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T12:10:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4253300/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T16:10:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4253307/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T18:35:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4253309/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-10T22:05:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/godzilla-minus-zero/4253314/",
+      "format": ""
      }
     ]
    }
@@ -5352,8 +5563,8 @@
     "end": "2026-11-10T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5411,8 +5622,8 @@
     "end": "2026-11-10T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/la-bola-negra",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5470,8 +5681,8 @@
     "end": "2026-11-10T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5534,8 +5745,8 @@
     "end": "2026-11-10T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -5578,8 +5789,8 @@
     "end": "2026-11-10T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5637,8 +5848,8 @@
     "end": "2026-11-10T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5696,8 +5907,8 @@
     "end": "2026-11-10T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5750,8 +5961,8 @@
     "end": "2026-11-10T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5824,8 +6035,8 @@
     "end": "2026-11-10T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5878,8 +6089,8 @@
     "end": "2026-11-10T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5937,8 +6148,8 @@
     "end": "2026-11-10T22:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -5996,8 +6207,8 @@
     "end": "2026-11-10T22:10:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6050,8 +6261,8 @@
     "end": "2026-11-10T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6104,8 +6315,8 @@
     "end": "2026-11-10T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6158,8 +6369,8 @@
     "end": "2026-11-10T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -6197,8 +6408,8 @@
     "end": "2026-11-10T21:25:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cat-in-the-hat-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6251,8 +6462,8 @@
     "end": "2026-11-10T21:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6305,8 +6516,8 @@
     "end": "2026-11-10T22:05:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wildwood",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6359,8 +6570,8 @@
     "end": "2026-11-10T12:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/fjord",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6398,8 +6609,8 @@
     "end": "2026-11-10T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6452,8 +6663,8 @@
     "end": "2026-11-10T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/once-upon-a-time-in-harlem",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6506,8 +6717,8 @@
     "end": "2026-11-10T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cat-in-the-hat-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6560,8 +6771,8 @@
     "end": "2026-11-10T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-only-living-pickpocket-in-new-york",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6614,8 +6825,8 @@
     "end": "2026-11-10T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6683,8 +6894,8 @@
     "end": "2026-11-10T23:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wildwood",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6737,8 +6948,8 @@
     "end": "2026-11-10T22:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6791,8 +7002,8 @@
     "end": "2026-11-10T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -6830,8 +7041,8 @@
     "end": "2026-11-10T22:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6884,8 +7095,8 @@
     "end": "2026-11-10T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/everest-the-other-side",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6928,8 +7139,8 @@
     "end": "2026-11-10T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -6982,8 +7193,8 @@
     "end": "2026-11-10T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7036,8 +7247,8 @@
     "end": "2026-11-10T22:35:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7090,8 +7301,8 @@
     "end": "2026-11-10T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7129,8 +7340,8 @@
     "end": "2026-11-10T21:55:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7178,8 +7389,8 @@
     "end": "2026-11-10T14:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/women-on-the-verge-of-a-nervous-breakdown",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7217,8 +7428,8 @@
     "end": "2026-11-10T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ghost-soldier",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7271,8 +7482,8 @@
     "end": "2026-11-10T22:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7315,8 +7526,8 @@
     "end": "2026-11-10T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7354,8 +7565,8 @@
     "end": "2026-11-10T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7393,8 +7604,8 @@
     "end": "2026-11-10T16:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/sense-and-sensibility-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7432,8 +7643,8 @@
     "end": "2026-11-10T16:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7471,8 +7682,8 @@
     "end": "2026-11-10T17:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-magnificent-ambersons",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7510,8 +7721,8 @@
     "end": "2026-11-10T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7554,8 +7765,8 @@
     "end": "2026-11-10T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/special-event-rocky-50th-anniversary",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7593,8 +7804,8 @@
     "end": "2026-11-10T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/southland-tales",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7632,8 +7843,8 @@
     "end": "2026-11-10T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/livestream-q-a-paper-tiger",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7671,8 +7882,8 @@
     "end": "2026-11-10T19:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/street-fighter-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7710,8 +7921,8 @@
     "end": "2026-11-10T19:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/terror-tuesday-henry-portrait-of-a-serial-killer",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7749,8 +7960,8 @@
     "end": "2026-11-10T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/terror-tuesday-unfriended-dark-web",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7788,8 +7999,8 @@
     "end": "2026-11-10T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-10",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7827,8 +8038,8 @@
     "end": "2026-11-11T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7886,8 +8097,8 @@
     "end": "2026-11-11T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -7950,8 +8161,8 @@
     "end": "2026-11-11T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8014,8 +8225,8 @@
     "end": "2026-11-11T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -8053,8 +8264,8 @@
     "end": "2026-11-11T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-only-living-pickpocket-in-new-york",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8107,8 +8318,8 @@
     "end": "2026-11-11T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8171,8 +8382,8 @@
     "end": "2026-11-11T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8225,8 +8436,8 @@
     "end": "2026-11-11T22:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8299,8 +8510,8 @@
     "end": "2026-11-11T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8353,8 +8564,8 @@
     "end": "2026-11-11T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8407,8 +8618,8 @@
     "end": "2026-11-11T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8466,8 +8677,8 @@
     "end": "2026-11-11T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8520,8 +8731,8 @@
     "end": "2026-11-11T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8584,8 +8795,8 @@
     "end": "2026-11-11T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8638,8 +8849,8 @@
     "end": "2026-11-11T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -8677,8 +8888,8 @@
     "end": "2026-11-11T21:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cat-in-the-hat-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8731,8 +8942,8 @@
     "end": "2026-11-11T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wildwood",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8785,8 +8996,8 @@
     "end": "2026-11-11T22:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ghost-soldier",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8844,8 +9055,8 @@
     "end": "2026-11-11T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/godzilla-minus-zero",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8913,8 +9124,8 @@
     "end": "2026-11-11T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/once-upon-a-time-in-harlem",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -8967,8 +9178,8 @@
     "end": "2026-11-11T21:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9021,8 +9232,8 @@
     "end": "2026-11-11T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/la-bola-negra",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9080,8 +9291,8 @@
     "end": "2026-11-11T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cat-in-the-hat-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9134,8 +9345,8 @@
     "end": "2026-11-11T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9188,8 +9399,8 @@
     "end": "2026-11-11T12:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/southland-tales",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9227,8 +9438,8 @@
     "end": "2026-11-11T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wild-horse-nine",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9281,8 +9492,8 @@
     "end": "2026-11-11T23:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wildwood",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9335,8 +9546,8 @@
     "end": "2026-11-11T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -9374,8 +9585,8 @@
     "end": "2026-11-11T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/fjord",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9413,8 +9624,8 @@
     "end": "2026-11-11T22:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9467,8 +9678,8 @@
     "end": "2026-11-11T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9521,8 +9732,8 @@
     "end": "2026-11-11T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/clayface",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9575,8 +9786,8 @@
     "end": "2026-11-11T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -9614,8 +9825,8 @@
     "end": "2026-11-11T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/wicker",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9668,8 +9879,8 @@
     "end": "2026-11-11T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/you-can-see-everything",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9717,8 +9928,8 @@
     "end": "2026-11-11T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -9761,8 +9972,8 @@
     "end": "2026-11-11T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9810,8 +10021,8 @@
     "end": "2026-11-11T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-advance-screening-how-to-rob-a-bank-hdr-by-barco-early-access",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9849,8 +10060,8 @@
     "end": "2026-11-11T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/live-q-a-chunks",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9888,8 +10099,8 @@
     "end": "2026-11-11T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/special-event-rocky-50th-anniversary",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9927,8 +10138,8 @@
     "end": "2026-11-11T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/weird-wednesday-crocodile-dose-ee",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -9966,8 +10177,8 @@
     "end": "2026-11-11T19:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/weird-wednesday-crocodile-dose-ee",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10005,8 +10216,8 @@
     "end": "2026-11-11T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/weird-wednesday-devils-sword",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10044,8 +10255,8 @@
     "end": "2026-11-11T22:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10083,8 +10294,8 @@
     "end": "2026-11-11T23:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-11",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10122,8 +10333,8 @@
     "end": "2026-11-12T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -10161,8 +10372,8 @@
     "end": "2026-11-12T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -10200,8 +10411,8 @@
     "end": "2026-11-12T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -10239,8 +10450,8 @@
     "end": "2026-11-12T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -10278,8 +10489,8 @@
     "end": "2026-11-12T18:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10322,8 +10533,8 @@
     "end": "2026-11-12T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/35mm-i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10371,8 +10582,8 @@
     "end": "2026-11-12T21:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10420,8 +10631,8 @@
     "end": "2026-11-12T18:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10464,8 +10675,8 @@
     "end": "2026-11-12T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -10508,8 +10719,8 @@
     "end": "2026-11-12T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10552,8 +10763,8 @@
     "end": "2026-11-12T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/club-kid",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10601,8 +10812,8 @@
     "end": "2026-11-12T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10650,8 +10861,8 @@
     "end": "2026-11-12T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/women-on-the-verge-of-a-nervous-breakdown",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10689,8 +10900,8 @@
     "end": "2026-11-12T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/women-on-the-verge-of-a-nervous-breakdown",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10728,8 +10939,8 @@
     "end": "2026-11-12T19:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/special-event-how-to-rob-a-bank-wolf-pack-screening",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10767,8 +10978,8 @@
     "end": "2026-11-12T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/women-on-the-verge-of-a-nervous-breakdown",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10806,8 +11017,8 @@
     "end": "2026-11-12T19:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-12",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/littermates",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10845,8 +11056,8 @@
     "end": "2026-11-13T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -10884,8 +11095,8 @@
     "end": "2026-11-13T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/35mm-i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10938,8 +11149,8 @@
     "end": "2026-11-13T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -10992,8 +11203,8 @@
     "end": "2026-11-13T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -11031,8 +11242,8 @@
     "end": "2026-11-13T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/club-kid",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11085,8 +11296,8 @@
     "end": "2026-11-13T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11139,8 +11350,8 @@
     "end": "2026-11-13T14:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -11178,8 +11389,8 @@
     "end": "2026-11-13T18:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11222,8 +11433,8 @@
     "end": "2026-11-13T18:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11266,8 +11477,8 @@
     "end": "2026-11-13T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11310,8 +11521,8 @@
     "end": "2026-11-13T18:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11349,8 +11560,8 @@
     "end": "2026-11-13T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/all-about-my-mother",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11388,8 +11599,8 @@
     "end": "2026-11-13T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/all-about-my-mother",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11427,8 +11638,8 @@
     "end": "2026-11-13T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/voorhees-a-jolly-good-fellow",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11466,8 +11677,8 @@
     "end": "2026-11-13T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/all-about-my-mother",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11505,8 +11716,8 @@
     "end": "2026-11-13T21:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/agfadrome-mystery-voyage-november-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11544,8 +11755,8 @@
     "end": "2026-11-13T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/agfadrome-mystery-voyage-november-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11583,8 +11794,8 @@
     "end": "2026-11-13T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/agfadrome-mystery-voyage-november-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11622,8 +11833,8 @@
     "end": "2026-11-13T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-13",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/agfadrome-mystery-voyage-november-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11661,8 +11872,8 @@
     "end": "2026-11-14T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -11700,8 +11911,8 @@
     "end": "2026-11-14T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/35mm-i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11754,8 +11965,8 @@
     "end": "2026-11-14T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -11793,8 +12004,8 @@
     "end": "2026-11-14T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11847,8 +12058,8 @@
     "end": "2026-11-14T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-searchers",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11886,8 +12097,8 @@
     "end": "2026-11-14T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-searchers",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11925,8 +12136,8 @@
     "end": "2026-11-14T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/club-kid",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -11979,8 +12190,8 @@
     "end": "2026-11-14T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12033,8 +12244,8 @@
     "end": "2026-11-14T12:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-searchers",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12072,8 +12283,8 @@
     "end": "2026-11-14T14:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -12111,8 +12322,8 @@
     "end": "2026-11-14T18:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12155,8 +12366,8 @@
     "end": "2026-11-14T15:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/sad-girl-cinema-club-volver",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12194,8 +12405,8 @@
     "end": "2026-11-14T15:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/sad-girl-cinema-club-volver",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12233,8 +12444,8 @@
     "end": "2026-11-14T18:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12277,8 +12488,8 @@
     "end": "2026-11-14T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12321,8 +12532,8 @@
     "end": "2026-11-14T15:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/sad-girl-cinema-club-volver",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12360,8 +12571,8 @@
     "end": "2026-11-14T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/master-pancake-johnny-mnemonic-w-master-pancake",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12399,8 +12610,8 @@
     "end": "2026-11-14T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12438,8 +12649,8 @@
     "end": "2026-11-14T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-14",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/master-pancake-gattaca-w-master-pancake",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12477,8 +12688,8 @@
     "end": "2026-11-15T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -12516,8 +12727,8 @@
     "end": "2026-11-15T11:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/alamo-crafthouse-wallace-gromit-the-classic-shorts",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12555,8 +12766,8 @@
     "end": "2026-11-15T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/35mm-i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12609,8 +12820,8 @@
     "end": "2026-11-15T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/alamo-crafthouse-wallace-gromit-the-classic-shorts",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12648,8 +12859,8 @@
     "end": "2026-11-15T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -12687,8 +12898,8 @@
     "end": "2026-11-15T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12741,8 +12952,8 @@
     "end": "2026-11-15T12:25:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/alamo-crafthouse-wallace-gromit-the-classic-shorts",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12780,8 +12991,8 @@
     "end": "2026-11-15T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/club-kid",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12834,8 +13045,8 @@
     "end": "2026-11-15T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12888,8 +13099,8 @@
     "end": "2026-11-15T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/alamo-crafthouse-wallace-gromit-the-classic-shorts",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -12927,8 +13138,8 @@
     "end": "2026-11-15T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -12966,8 +13177,8 @@
     "end": "2026-11-15T13:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-skin-i-live-in",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13005,8 +13216,8 @@
     "end": "2026-11-15T18:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13049,8 +13260,8 @@
     "end": "2026-11-15T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-skin-i-live-in",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13088,8 +13299,8 @@
     "end": "2026-11-15T18:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13132,8 +13343,8 @@
     "end": "2026-11-15T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/godzilla-minus-zero-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13176,8 +13387,8 @@
     "end": "2026-11-15T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13220,8 +13431,8 @@
     "end": "2026-11-15T15:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-skin-i-live-in",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13259,8 +13470,8 @@
     "end": "2026-11-15T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-15",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13298,8 +13509,8 @@
     "end": "2026-11-16T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13342,8 +13553,8 @@
     "end": "2026-11-16T14:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/35mm-i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13386,8 +13597,8 @@
     "end": "2026-11-16T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13440,8 +13651,8 @@
     "end": "2026-11-16T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13479,8 +13690,8 @@
     "end": "2026-11-16T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13533,8 +13744,8 @@
     "end": "2026-11-16T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13572,8 +13783,8 @@
     "end": "2026-11-16T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13611,8 +13822,8 @@
     "end": "2026-11-16T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13650,8 +13861,8 @@
     "end": "2026-11-16T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/dive-in-wonderland",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13689,8 +13900,8 @@
     "end": "2026-11-16T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/dive-in-wonderland",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13728,8 +13939,8 @@
     "end": "2026-11-16T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/dive-in-wonderland",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13767,8 +13978,8 @@
     "end": "2026-11-16T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/married-to-the-mob",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13806,8 +14017,8 @@
     "end": "2026-11-16T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-searchers",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13845,8 +14056,8 @@
     "end": "2026-11-16T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-16",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/agfadrome-mystery-voyage-november-2026",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13884,8 +14095,8 @@
     "end": "2026-11-17T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13928,8 +14139,8 @@
     "end": "2026-11-17T18:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/35mm-i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -13977,8 +14188,8 @@
     "end": "2026-11-17T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14031,8 +14242,8 @@
     "end": "2026-11-17T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14070,8 +14281,8 @@
     "end": "2026-11-17T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14124,8 +14335,8 @@
     "end": "2026-11-17T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14163,8 +14374,8 @@
     "end": "2026-11-17T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14202,8 +14413,8 @@
     "end": "2026-11-17T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14241,8 +14452,8 @@
     "end": "2026-11-17T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/in-the-mouth",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14280,8 +14491,8 @@
     "end": "2026-11-17T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/married-to-the-mob",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14319,8 +14530,8 @@
     "end": "2026-11-17T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-scout",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14358,8 +14569,8 @@
     "end": "2026-11-17T19:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/in-the-mouth",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14397,8 +14608,8 @@
     "end": "2026-11-17T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-17",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/terror-tuesday-indonesian-mystery-movie",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14436,8 +14647,8 @@
     "end": "2026-11-18T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14475,8 +14686,8 @@
     "end": "2026-11-18T18:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/35mm-i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14524,8 +14735,8 @@
     "end": "2026-11-18T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/how-to-rob-a-bank",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14578,8 +14789,8 @@
     "end": "2026-11-18T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14617,8 +14828,8 @@
     "end": "2026-11-18T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/ebenezer-a-christmas-carol",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14671,8 +14882,8 @@
     "end": "2026-11-18T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14710,8 +14921,8 @@
     "end": "2026-11-18T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14749,8 +14960,8 @@
     "end": "2026-11-18T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-advance-screening-the-hunger-games-sunrise-on-the-reaping-hdr-by-barco",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14793,8 +15004,8 @@
     "end": "2026-11-18T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-advance-screening-the-hunger-games-sunrise-on-the-reaping-hdr-by-barco",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14837,8 +15048,8 @@
     "end": "2026-11-18T21:55:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-advance-screening-the-hunger-games-sunrise-on-the-reaping-hdr-by-barco",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14881,8 +15092,8 @@
     "end": "2026-11-18T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/jeopardy-interactive",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14920,8 +15131,8 @@
     "end": "2026-11-18T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/jeopardy-interactive",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14959,8 +15170,8 @@
     "end": "2026-11-18T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/married-to-the-mob",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -14998,8 +15209,8 @@
     "end": "2026-11-18T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/married-to-the-mob",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15037,8 +15248,8 @@
     "end": "2026-11-18T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15076,8 +15287,8 @@
     "end": "2026-11-18T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-18",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/weird-wednesday-communion",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15115,8 +15326,8 @@
     "end": "2026-11-19T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15154,8 +15365,8 @@
     "end": "2026-11-19T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15193,8 +15404,8 @@
     "end": "2026-11-19T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15242,8 +15453,8 @@
     "end": "2026-11-19T19:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15291,8 +15502,8 @@
     "end": "2026-11-19T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15330,8 +15541,8 @@
     "end": "2026-11-19T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15379,8 +15590,8 @@
     "end": "2026-11-19T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15418,8 +15629,8 @@
     "end": "2026-11-19T21:55:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15467,8 +15678,8 @@
     "end": "2026-11-19T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15516,8 +15727,8 @@
     "end": "2026-11-19T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15560,8 +15771,8 @@
     "end": "2026-11-19T18:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/bitter-christmas",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15599,8 +15810,8 @@
     "end": "2026-11-19T18:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/paper-tiger",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15638,8 +15849,8 @@
     "end": "2026-11-19T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-19",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15677,8 +15888,8 @@
     "end": "2026-11-20T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15731,8 +15942,8 @@
     "end": "2026-11-20T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15785,8 +15996,8 @@
     "end": "2026-11-20T21:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15839,8 +16050,8 @@
     "end": "2026-11-20T22:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15893,8 +16104,8 @@
     "end": "2026-11-20T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15932,8 +16143,8 @@
     "end": "2026-11-20T23:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -15986,8 +16197,8 @@
     "end": "2026-11-20T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16025,8 +16236,8 @@
     "end": "2026-11-20T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16064,8 +16275,8 @@
     "end": "2026-11-20T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16103,8 +16314,8 @@
     "end": "2026-11-20T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16147,8 +16358,8 @@
     "end": "2026-11-20T19:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16191,8 +16402,8 @@
     "end": "2026-11-20T18:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/paper-tiger",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16230,8 +16441,8 @@
     "end": "2026-11-20T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/bitter-christmas",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16269,8 +16480,8 @@
     "end": "2026-11-20T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/master-pancake-basic-instinct-w-master-pancake",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16308,8 +16519,8 @@
     "end": "2026-11-20T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cook-the-thief-his-wife-her-lover",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16347,8 +16558,8 @@
     "end": "2026-11-20T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cook-the-thief-his-wife-her-lover",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16386,8 +16597,8 @@
     "end": "2026-11-20T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cook-the-thief-his-wife-her-lover",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16425,8 +16636,8 @@
     "end": "2026-11-20T22:10:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cook-the-thief-his-wife-her-lover",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16464,8 +16675,8 @@
     "end": "2026-11-20T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-20",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-cook-the-thief-his-wife-her-lover",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16503,8 +16714,8 @@
     "end": "2026-11-21T21:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16552,8 +16763,8 @@
     "end": "2026-11-21T21:55:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16606,8 +16817,8 @@
     "end": "2026-11-21T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16655,8 +16866,8 @@
     "end": "2026-11-21T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/hdr-the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16709,8 +16920,8 @@
     "end": "2026-11-21T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/el-poder-del-caballo-3d-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16753,8 +16964,8 @@
     "end": "2026-11-21T22:40:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/the-hunger-games-sunrise-on-the-reaping",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16802,8 +17013,8 @@
     "end": "2026-11-21T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/cuerpos-humanos-202603/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16846,8 +17057,8 @@
     "end": "2026-11-21T12:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/my-brothers-wedding",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16885,8 +17096,8 @@
     "end": "2026-11-21T13:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/book-club-screening-the-hunger-games-sunrise-on-the-reaping-book-club-dress",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16924,8 +17135,8 @@
     "end": "2026-11-21T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/book-club-screening-the-hunger-games-sunrise-on-the-reaping-book-club-dress",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -16963,8 +17174,8 @@
     "end": "2026-11-21T14:10:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/book-club-screening-the-hunger-games-sunrise-on-the-reaping-book-club-dress",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17002,8 +17213,8 @@
     "end": "2026-11-21T14:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/book-club-screening-the-hunger-games-sunrise-on-the-reaping-book-club-dress",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17041,8 +17252,8 @@
     "end": "2026-11-21T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/book-club-screening-the-hunger-games-sunrise-on-the-reaping-book-club-dress",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17080,8 +17291,8 @@
     "end": "2026-11-21T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -17124,8 +17335,8 @@
     "end": "2026-11-21T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/i-play-rocky",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17168,8 +17379,8 @@
     "end": "2026-11-21T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/true-stories",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17207,8 +17418,8 @@
     "end": "2026-11-21T16:20:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/true-stories",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17246,8 +17457,8 @@
     "end": "2026-11-21T18:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/bitter-christmas",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17285,8 +17496,8 @@
     "end": "2026-11-21T18:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/paper-tiger",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17324,8 +17535,8 @@
     "end": "2026-11-21T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/master-pancake-johnny-mnemonic-in-black-and-white-w-master-pancake",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17363,8 +17574,8 @@
     "end": "2026-11-21T21:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/nofx-40-years-of-fuckin-up",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17402,8 +17613,8 @@
     "end": "2026-11-21T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/nofx-40-years-of-fuckin-up",
     "source": "Alamo Drafthouse",
     "tags": [
@@ -17441,8 +17652,8 @@
     "end": "2026-11-21T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-21",
-    "expires": "2026-11-08T18:43:58.596140+00:00",
-    "checked": "2026-11-08T06:43:58.596140+00:00",
+    "expires": "2026-11-09T04:22:32.788553+00:00",
+    "checked": "2026-11-08T16:22:32.788553+00:00",
     "url": "https://drafthouse.com/austin/show/nofx-40-years-of-fuckin-up",
     "source": "Alamo Drafthouse",
     "tags": [
