@@ -715,5 +715,13 @@
     ],
     "matchedAddress": "1505 TOWN CREEK DR, AUSTIN, TX, 78741",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1505+Town+Creek+Dr%2C+Austin+TX+78741&benchmark=Public_AR_Current&format=json"
+  },
+  "705 Gunter St Austin TX": {
+    "coordinates": [
+      -97.702636579366,
+      30.257761877295
+    ],
+    "matchedAddress": "705 GUNTER ST, AUSTIN, TX, 78702",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=705+Gunter+St+Austin+TX&benchmark=Public_AR_Current&format=json"
   }
 }
