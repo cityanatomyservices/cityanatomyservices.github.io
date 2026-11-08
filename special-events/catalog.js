@@ -3,7 +3,7 @@ window.AustinSpecialEvents={init(){
     let loaded=false;
     async function refresh(){
       if(loaded)return;host.textContent='Loading special event maps…';
-      try{const response=await fetch('/home.json?v=20261108a');if(!response.ok)throw Error();const home=await response.json();
+      try{const response=await fetch('/home.json?v=20261108b');if(!response.ok)throw Error();const home=await response.json();
         const cards=home.chips.flatMap(c=>c.cards||[]).filter(c=>c.category==='Special Events');host.replaceChildren();
         const heading=document.createElement('h3');heading.textContent='Special Events';host.append(heading);
         for(const card of cards){const link=document.createElement('a');link.className='special-event-link';link.href=`/maps/${card.slug}/`;link.target='_top';const title=document.createElement('strong');title.textContent=card.title+' →';const description=document.createElement('span');description.textContent=card.blurb;link.append(title,description);host.append(link);}loaded=true;

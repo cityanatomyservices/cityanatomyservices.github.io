@@ -8,8 +8,12 @@
     const b=event.bounds;
     if(!b||b.length!==2||!b.flat().every(Number.isFinite)||b[0][0]>=b[1][0]||b[0][1]>=b[1][1])throw Error('Invalid event extent.');
     if(event.features.some(f=>{const [x,y]=f.geometry.coordinates;return x<b[0][0]||x>b[1][0]||y<b[0][1]||y>b[1][1];}))throw Error('A stop falls outside the event extent.');
-    const [[w,s],[e,n]]=b;
-    event.area={type:'Feature',properties:{id:'event-'+event.id,name:event.title},geometry:event.boundary||{type:'Polygon',coordinates:[[[w,s],[e,s],[e,n],[w,n],[w,s]]]}};
+    event.chatGeofences={type:'FeatureCollection',features:event.features.map(f=>{
+      const p=f.properties,g=p.chatBoundary;
+      const polygons=g?.type==='Polygon'?[g.coordinates]:g?.type==='MultiPolygon'?g.coordinates:[];
+      if(!polygons.length||polygons.some(rings=>!rings.length||rings.some(ring=>ring.length<4||ring.some(c=>c.length!==2||!c.every(Number.isFinite))||ring[0].some((n,i)=>n!==ring.at(-1)[i]))))throw Error('A stop is missing its chat boundary.');
+      return {type:'Feature',properties:{id:`event-${event.id}-stop-${p.id}`,stopId:p.id,number:p.number,name:`#${p.number} · ${p.title}`},geometry:g};
+    })};
     return event;
   }
   function source(event,feature,date){

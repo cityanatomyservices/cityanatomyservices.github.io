@@ -282,7 +282,7 @@
       window.ChatRoom.start(geofences, { event, hooks: {
         // your room: the old one loses its tint, the new one gains it, the map flies there
         onRoom(feature, before) {
-          if (event) return;
+          if (event) { map.fire('eventchatroom'); return; }
           if (before) map.setFeatureState({ source: 'geofences', id: before.properties.id }, { room: false });
           if (!feature) return;
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });

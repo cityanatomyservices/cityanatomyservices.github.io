@@ -7,7 +7,7 @@
 // itself — which chat.js shares with the neighborhood only while you are
 // Visible, rounded to about ten metres (owner 2026-10-22).
 (function () {
-  let watchId = null;
+  let watchId = null, refreshTimer = null, generation = 0;
 
   // true when [lng, lat] is inside the ring (an array of [lng, lat] points)
   function inRing(pt, ring) {
@@ -41,20 +41,29 @@
     metres,
     // onRoom(feature or null) each time the answer changes; onStatus('off' |
     // 'asking' | 'denied' | 'outside' | 'inside')
-    start(geofences, onRoom, onStatus, onPosition) {
-      if (!navigator.geolocation) { onStatus('off'); return; }
+    start(geofences, onRoom, onStatus, onPosition, options = {}) {
       this.stop();                       // one watch at a time
+      if (!navigator.geolocation) { onStatus('off'); return; }
+      const attempt = generation;
       onStatus('asking');
-      let lastId;
-      watchId = navigator.geolocation.watchPosition((pos) => {
+      let lastId, lastTimestamp = 0;
+      const success = (pos) => {
+        if (attempt !== generation) return;
+        if (options.precise && pos.timestamp < lastTimestamp) return;
+        lastTimestamp = pos.timestamp || 0;
         const pt = [pos.coords.longitude, pos.coords.latitude];
         const f = find(geofences, pt);
         const id = f ? f.properties.id : null;
         onStatus(f ? 'inside' : 'outside');
         if (id !== lastId) { lastId = id; onRoom(f); }
-        if (onPosition) onPosition(pt);
-      }, () => onStatus('denied'), { enableHighAccuracy: false, maximumAge: 30000, timeout: 20000 });
+        if (onPosition) onPosition(pt, {accuracy:pos.coords.accuracy, timestamp:pos.timestamp});
+      };
+      const failure = () => { if (attempt === generation) { lastId = undefined; onStatus('denied'); } };
+      const settings = { enableHighAccuracy: !!options.precise, maximumAge: options.precise ? 0 : 30000, timeout: 20000 };
+      watchId = navigator.geolocation.watchPosition(success, failure, settings);
+      // A stationary visitor still needs a fresh fix for a small event zone.
+      if (options.precise) refreshTimer = setInterval(() => navigator.geolocation.getCurrentPosition(success, failure, settings), 25000);
     },
-    stop() { if (watchId !== null) navigator.geolocation.clearWatch(watchId); watchId = null; }
+    stop() { generation++; clearInterval(refreshTimer); refreshTimer = null; if (watchId !== null) navigator.geolocation.clearWatch(watchId); watchId = null; }
   };
 })();

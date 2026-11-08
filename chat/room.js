@@ -43,6 +43,8 @@
   let testRoom = null;          // ?room=<id> joins a neighborhood without GPS (testing)
   let testPlace = null;         // ?place=<id> then picks that business
   let event = null, directoryRoom = null, directoryData = null, directoryRequest = 0;
+  let locationExpires = 0, locationTimer = null;
+  const canEventChat = () => !!(room && visible && me && locationExpires > Date.now());
 
   const neighborhoodName = () => (room ? room.properties[CFG.nameField] : '');
   const roomName = () => (place && !event ? place.name + ' · ' + neighborhoodName() : neighborhoodName());
@@ -68,12 +70,13 @@
       let line = n === 0 ? '' : n === 1 ? COPY.people.one : fill(COPY.people.many, { n });
       if (room && !visible) line = (line + ' ' + COPY.people.hiddenNote).trim();
       if (place && !event) line = (fill(COPY.people.atPlace, { place: place.name }) + ' ' + line).trim();
+      if (event && room && visible && !n) line = 'No other visible visitors at this stop yet.';
       el.peopleLine.textContent = room ? line : '';
     }
     const b = el.chatBtn;
     if (b) {
       // a business room opens even when empty; the neighborhood room needs someone else
-      b.disabled = !(room && visible && (n > 0 || place || event));
+      b.disabled = !(room && visible && (n > 0 || (place && !event)));
       const base = b.dataset.glyph || COPY.chatButton;
       b.textContent = n > 0 ? base + ' ' + n : base;
     }
@@ -92,6 +95,7 @@
   }
 
   function onPeople(list) {
+    if (event) list = canEventChat() ? list.filter(p => p.room === roomId()) : [];
     const mine = list.filter((p) => p.room === roomId());
     others = mine.filter((p) => !p.self);
     window.ChatPanel.setPeople(mine);
@@ -99,6 +103,7 @@
     showCounts(list);
     showUsers(list);
     if (hooks.onPeople) hooks.onPeople(list, room);      // the map shows everyone in the neighborhood
+    if (event && !others.length) window.ChatPanel.close();
     // the window never opens by itself (owner 2026-10-22): the Chat button
     // lights up when someone else is visible, and you open it
   }
@@ -134,7 +139,7 @@
       b.dataset.room = person.room;
       if (at) b.dataset.place = JSON.stringify(at);
       const name = document.createElement('span'); name.className = 'place-name';
-      const where = at ? at.name : near ? fill(COPY.places.near, { place: near.name }) : event ? event.title : COPY.places.neighborhoodRow;
+      const where = event ? roomName() : at ? at.name : near ? fill(COPY.places.near, { place: near.name }) : COPY.places.neighborhoodRow;
       name.textContent = person.emoji + ' ' + person.handle + (person.self ? ' ' + COPY.places.you : '') + ' · ' + where;
       const here = document.createElement('span'); here.className = 'here';   // keeps the row shape; showCounts leaves it empty
       b.append(name, here);
@@ -172,7 +177,7 @@
       return d;
     };
     list.appendChild(fold(COPY.places.usersVisible, 0, 'place-group users-fold'));
-    if (room) list.appendChild(row(event ? 'Event chat · ' + event.title : COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
+    if (room) list.appendChild(row(event ? 'Stop chat · ' + roomName() : COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
     if (event) {
       const heading = document.createElement('p');
       heading.textContent = directoryRoom ? 'Businesses in ' + directoryRoom.properties[CFG.nameField] : 'Allow GPS to show businesses in your neighborhood.';
@@ -234,11 +239,12 @@
     if (el.placeList && !event) el.placeList.innerHTML = '';
     if (hooks.onRoom) hooks.onRoom(feature, before);
     if (hooks.onPlace) hooks.onPlace(null);
+    onPeople([]);
     if (el.roomLine) el.roomLine.textContent = feature ? fill(COPY.room.inside, { name: neighborhoodName() }) : '';
     showPeople();
     if (event) showPlaces(directoryData);
-    if (!feature || !me) { await window.ChatEngine.leave(); return; }
-    await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) });
+    if (!feature || !me || (event && !canEventChat())) { await window.ChatEngine.leave(); return; }
+    await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) }, event ? {liveOnly:true,canParticipate:canEventChat,expiresAt:()=>locationExpires} : {});
     if (event) return;
     await loadPlaces(feature);
   }
@@ -277,7 +283,7 @@
   }
 
   const status = (s) => {
-    if (event && ['denied','off'].includes(s)) { enter(null); loadPlaces(null); }
+    if (event && ['denied','off'].includes(s)) { locationExpires=0; clearTimeout(locationTimer); enter(null); loadPlaces(null); }
     if (s !== 'inside' && el.roomLine) el.roomLine.textContent = event ? ({asking:'Finding your location for event chat…',denied:'Allow location access to join event chat. You can still browse and plan.',off:'Location is unavailable. You can still browse and plan.'}[s] || el.roomLine.textContent) : COPY.room[s];
   };
 
@@ -287,16 +293,25 @@
   const sharePosition = (pt) => window.ChatEngine.setPosition(pt);
   function locate() {
     if (event) {
-      // GPS chooses the directory independently. The event's own polygon
-      // chooses a single channel across every participating neighborhood.
-      window.ChatLocate.start(geofences, loadPlaces, status, pt => {
-        const inside = window.ChatLocate.find({features:[event.area]}, pt);
+      // Neighborhood businesses and per-stop chat have independent coverage.
+      locationExpires=0; clearTimeout(locationTimer); enter(null);
+      window.ChatLocate.start(geofences, loadPlaces, status, (pt, fix) => {
+        const fresh = Number.isFinite(fix.timestamp) && fix.timestamp <= Date.now()+5000 && Date.now()-fix.timestamp < 60000;
+        const precise = Number.isFinite(fix.accuracy) && fix.accuracy >= 0 && fix.accuracy <= 35;
+        locationExpires = fresh && precise ? Math.min(fix.timestamp,Date.now())+60000 : 0;
+        clearTimeout(locationTimer);
+        const inside = locationExpires ? window.ChatLocate.find(event.chatGeofences, pt) : null;
+        // Leaving the old room happens synchronously before sharing this fix.
         if (room !== inside) {
           enter(inside);
         }
-        if (el.roomLine) el.roomLine.textContent = inside ? 'Event-wide chat · ' + event.title : 'Outside the event area. You can still browse stops and plan.';
+        if (el.roomLine) el.roomLine.textContent = !fresh || !precise ? 'Waiting for a more accurate GPS fix for stop chat. You can still browse and plan.' : inside ? 'Stop chat · ' + roomName() : 'Outside studio chat zones. Enter a marked zone to chat; browsing and planning stay available.';
         sharePosition(pt);
-      });
+        if (locationExpires) locationTimer = setTimeout(() => {
+          locationExpires=0; enter(null);
+          if(el.roomLine)el.roomLine.textContent='Location expired. Use GPS to rejoin stop chat.';
+        },Math.max(0,locationExpires-Date.now()));
+      }, {precise:true});
       return;
     }
     if (testRoom) {
@@ -324,7 +339,7 @@
       showMe();
       showVisible();
       showPeople();
-      window.ChatPanel.init((text) => window.ChatEngine.send(text));
+      window.ChatPanel.init((text) => event && !canEventChat() ? false : window.ChatEngine.send(text));
       me = await window.ChatIdentity.ready();
       if (window.AustinSession.registered) { try { visible = localStorage.getItem('austinchat:visible:' + window.ChatIdentity.userId()) === 'on'; } catch (_) {} }
       showMe(); showVisible(); showPeople();
@@ -353,6 +368,7 @@
       });
 
       if (el.chatBtn) el.chatBtn.addEventListener('click', () => {
+        if (el.chatBtn.disabled || (event && !canEventChat())) return;
         if (window.ChatPanel.isOpen()) window.ChatPanel.close();
         else window.ChatPanel.open(roomName());
       });
@@ -362,7 +378,8 @@
         if (window.AustinSession.registered) { try { localStorage.setItem('austinchat:visible:' + window.ChatIdentity.userId(), visible ? 'on' : 'off'); } catch (_) {} }
         showVisible();
         if (!visible) window.ChatPanel.close();
-        await window.ChatEngine.setVisible(visible);
+        if (event) await enter(room);
+        else await window.ChatEngine.setVisible(visible);
         showPeople();
       });
       if (el.newName) el.newName.addEventListener('click', async () => {

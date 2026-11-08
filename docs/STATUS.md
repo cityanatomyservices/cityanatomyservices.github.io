@@ -1,5 +1,50 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-08 - Per-stop chat geofences and tour drawer
+
+The Austin Studio Tour now has 307 separate, non-overlapping chat zones.
+The City of Austin 2023 building-footprint layer supplies 301 matches; six
+unmatched pins use approximate 40 m zones. Buildings get about 20 m of
+surrounding space where available. Adjacent outdoor areas are divided by
+building proximity. Shared-building pairs 21/104, 47/233, 97/100 and 132/135
+are divided between their stop pins, honoring the owner's no-overlap rule.
+The source, approximation flags and rebuild command are in
+[Special Events](../special-events/README.md). No source downloads are stored
+in this public repository. The builder verifies building coverage, pin
+containment, valid geometry and all-pairs nonintersection after serialization.
+
+Event chat now uses `event-<event-id>-stop-<stop-id>` channels. A Visible
+visitor must have a fresh, sufficiently accurate GPS fix inside a zone to
+subscribe. Chat requires another visible person at that same stop; expired
+presence and messages from other rooms or departed peers are excluded.
+Event messages are live-only for guests and members, with no history reads
+or writes. Leaving, hiding, denied/inaccurate GPS or a 60-second stale fix
+clears and leaves chat. Stationary visitors refresh GPS every 25 seconds.
+This is browser GPS gating, not server verification. The main neighborhood
+and business chat retains its separate channels and history. The event's
+business directory still follows the GPS neighborhood; selecting a business
+does not change the stop room. No database migration was needed.
+
+The tour card is a left-side drawer with an arrow to open/close it; its handle
+stays available when closed. Stops opens the same drawer. Street-level maps
+show purple chat zones and a green outline around the current GPS zone.
+Existing dates, planner, routes and calendar/map exports remain available.
+
+Assets and references use `20261108b`. Regenerate the event page with
+`node tools/special-events/make-map.cjs` after shared markup changes. The nine
+private Pro apps were repackaged for the new shared script references;
+continue to publish using the workflow that excludes those private files.
+
+Validation: 85 planner/domain tests and 53 billing tests passed, including
+307 unique pin-to-zone assignments, all-pairs zone separation, stale GPS and
+old-channel callbacks, current peer checks and live-only member messages.
+Event browser tests passed desktop/phone and guest/member combinations for
+drawer controls, same-building stop changes, independent GPS businesses,
+visibility, accuracy, expiry, route rendering and calendar/map exports.
+Main-map planner browser regressions passed all four combinations. Account,
+chat and route actions used test fixtures; no real messages or accounts were
+created. The earlier dashboard Account-form follow-up remains unrelated.
+
 ## 2026-11-08 - Special Events and Austin Studio Tour
 
 The main Explore card now has a Special Events category with a link to

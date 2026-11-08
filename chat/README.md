@@ -111,8 +111,11 @@ this distinction and clears the prior anonymous saved application data.
 
 Explore includes a Special Events category linking to the Austin Studio Tour.
 Event maps reuse this engine with their own extent, numbered stops and full
-planner/export controls. Their single event chat is independent of the GPS
-neighborhood business directory. Business selections stay in event chat.
+planner/export controls. Their chat uses a distinct geofence and live-only
+room per event stop, independent of the GPS neighborhood business directory.
+Only fresh GPS fixes inside a stop and Visible participants can join; chatting
+requires another visible visitor at the same stop. Business selections stay
+in that stop's conversation. Event rooms never read or write saved history.
 The neighborhood-only rule above continues to apply to ordinary maps.
 See [Special Events](../special-events/README.md) for data and coverage details.
 

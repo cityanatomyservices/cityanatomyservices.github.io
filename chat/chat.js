@@ -12,7 +12,7 @@
   const MIN_GAP = 1000;                 // ms between two sends
   const HISTORY = 100;                  // lines read back on joining a room
   let channel = null, nbhd = null, roomId = null, ident = null, visible = false, cbs = {}, lastSend = 0;
-  let generation = 0, roomGeneration = 0;
+  let generation = 0, roomGeneration = 0, policy = {}, presenceTimer = null;
   let pos = null;                       // your [lng, lat], rounded; shared only while visible
   let sentPos = null;                   // the last one the others were told
   const MOVE = 15;                      // metres you must move before they are told again
@@ -25,19 +25,20 @@
   function people() {
     const state = channel ? channel.presenceState() : {};
     return Object.keys(state).map((key) => {
-      const first = state[key][0] || {};
-      return { handle: first.handle || key, emoji: first.emoji || '🙂', room: first.room || nbhd, pos: first.pos || null, self: !!ident && key === ident.handle };
-    });
+      const first = (policy.liveOnly ? state[key].find(p => p.room === roomId && p.expiresAt > Date.now()) : state[key][0]) || {};
+      return { handle: first.handle || key, emoji: first.emoji || '🙂', room: first.room || nbhd, pos: first.pos || null, expiresAt: first.expiresAt, self: !!ident && key === ident.handle };
+    }).filter(p => !policy.liveOnly || (p.room === roomId && p.expiresAt > Date.now()));
   }
+  const allowed = () => !policy.canParticipate || policy.canParticipate();
   const announce = () => { if (cbs.onPeople) cbs.onPeople(people()); };
-  const track = () => { if (!channel || !ident) return Promise.resolve(); sentPos = pos; return channel.track({ handle: ident.handle, emoji: ident.emoji, room: roomId, pos, joinedAt: Date.now() }); };
+  const track = () => { if (!channel || !ident || !allowed()) return Promise.resolve(); sentPos = pos; return channel.track({ handle: ident.handle, emoji: ident.emoji, room: roomId, pos, joinedAt: Date.now(), ...(policy.liveOnly ? {expiresAt: policy.expiresAt()} : {}) }); };
 
   // the room's recent lines from the table (nothing when signed out or the
   // table is not there yet — the live chat works either way)
   async function history(room) {
     const attempt = generation, selection = ++roomGeneration;
     const uid = window.ChatIdentity.userId();
-    if (!uid || !cbs.onMessage) return;
+    if (policy.liveOnly || !uid || !cbs.onMessage) return;
     const { data } = await getClient().from('messages').select('user_id, handle, emoji, text, created_at')
       .eq('room', room).order('created_at', { ascending: false }).limit(HISTORY);
     if (attempt !== generation || selection !== roomGeneration || room !== roomId) return;
@@ -45,6 +46,7 @@
   }
 
   async function disconnect() {
+    clearInterval(presenceTimer); presenceTimer = null; policy = {};
     const previous = channel; channel = null; nbhd = roomId = null; cbs = {};
     if (!previous) return;
     try { await previous.untrack(); } catch (_) {}
@@ -55,16 +57,19 @@
   window.ChatEngine = {
     // join a neighborhood room. Visible = put yourself in Presence so the
     // others see you; hidden = listen only. callbacks: onPeople(list), onMessage(m)
-    async join(neighborhood, identity, isVisible, callbacks) {
+    async join(neighborhood, identity, isVisible, callbacks, options = {}) {
       const attempt = ++generation;
       await disconnect();
       if (attempt !== generation) return;
+      if (options.liveOnly && (!isVisible || !options.canParticipate())) return;
+      policy = options;
       nbhd = roomId = neighborhood; ident = identity; visible = isVisible; cbs = callbacks || {};
       channel = getClient().channel('chat:' + neighborhood, { config: { broadcast: { self: false }, presence: { key: identity.handle } } });
       const joined = channel;
       channel.on('broadcast', { event: 'msg' }, (p) => {
         if (attempt !== generation) return;
         const m = p.payload;
+        if (policy.liveOnly && (!visible || !allowed() || !people().some(person => !person.self && person.handle === m?.handle))) return;
         if (cbs.onMessage && m && (m.room || nbhd) === roomId) cbs.onMessage(m);   // only your room's lines
       });
       channel.on('presence', { event: 'sync' }, () => { if (attempt === generation) announce(); });
@@ -72,7 +77,11 @@
       if (attempt !== generation) return;
       await new Promise((resolve) => joined.subscribe(async (status) => {
         if (attempt !== generation) { resolve(); return; }
-        if (status === 'SUBSCRIBED') { if (visible) await track(); resolve(); }
+        if (status === 'SUBSCRIBED') {
+          if (visible) await track();
+          if (attempt === generation && policy.liveOnly && !presenceTimer) presenceTimer = setInterval(announce, 5000);
+          resolve();
+        }
         else if (['CHANNEL_ERROR','TIMED_OUT','CLOSED'].includes(status)) resolve();
       }));
     },
@@ -100,21 +109,22 @@
     async setPosition(pt) {
       pos = [Math.round(pt[0] * 1e4) / 1e4, Math.round(pt[1] * 1e4) / 1e4];   // 4 decimals ≈ 10 m
       if (!channel || !visible) return;
-      if (sentPos && window.ChatLocate.metres(sentPos, pos) < MOVE) return;
+      if (!policy.liveOnly && sentPos && window.ChatLocate.metres(sentPos, pos) < MOVE) return;
       await track();
     },
     // send a line to the room; false when it was not sent (empty, too soon, hidden)
     async send(text) {
       const trimmed = String(text || '').trim().slice(0, MAX_TEXT);
       const now = Date.now();
-      if (!trimmed || !channel || !visible || now - lastSend < MIN_GAP) return false;
+      if (!trimmed || !channel || !visible || !allowed() || now - lastSend < MIN_GAP) return false;
+      if (policy.liveOnly && !people().some(p => !p.self)) return false;
       lastSend = now;
+      const liveOnly = policy.liveOnly, uid = window.ChatIdentity.userId();
       const payload = { handle: ident.handle, emoji: ident.emoji, text: trimmed, t: now, room: roomId };
       if (cbs.onMessage) cbs.onMessage({ ...payload, self: true });     // your own line shows at once
       try { await channel.send({ type: 'broadcast', event: 'msg', payload }); } catch (e) { return false; }
       // Only registered accounts leave saved messages; guest chat is live-only.
-      const uid = window.ChatIdentity.userId();
-      if (uid && window.AustinSession.registered) getClient().from('messages').insert({ room: roomId, user_id: uid, handle: ident.handle, emoji: ident.emoji, text: trimmed })
+      if (!liveOnly && uid && window.AustinSession.registered) getClient().from('messages').insert({ room: payload.room, user_id: uid, handle: payload.handle, emoji: payload.emoji, text: trimmed })
         .then(({ error }) => { if (error) console.warn('austin.chat: message not kept', error.message); });
       return true;
     },

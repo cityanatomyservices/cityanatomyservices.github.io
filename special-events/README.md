@@ -7,7 +7,9 @@ Explore → Special Events card. It is available to guests and Free/Pro members.
 The iframe uses `/special-events/map.html?event=austin-studio-tour-2026`.
 This generated page reuses the main MapLibre engine and complete planner,
 routing and export UI. It has Stops, Plan and Chat controls, plus the same
-GPS, map layers, 3D and satellite controls. It has no Explore button.
+GPS, map layers, 3D and satellite controls. It has no Explore button. The tour
+panel is a left-side drawer with an always-available arrow handle; Stops opens
+the same drawer. Opening Plan or Chat closes it.
 Run `node tools/special-events/make-map.cjs` after changing `chat/index.html`
 or its shared asset versions. Do not hand-edit `map.html`.
 
@@ -19,8 +21,9 @@ checked timestamp, map bounds and stop features. Stops have stable IDs,
 organizer numbers, titles, addresses, categories, coordinates and official URLs.
 Optional `dates`, `hours`, `start` and `end` support restricted attendance or
 fixed performances. A fixed performance must have a matching `dates` entry.
-`boundary` may supply a Polygon/MultiPolygon for a park, street or venue;
-otherwise the event bounds form its chat area. Bounds must include every stop.
+Each stop's `chatBoundary` supplies a Polygon/MultiPolygon. Event bounds only
+control the map extent; they never grant access to event chat. Bounds must
+include every stop. Model validation rejects missing chat boundaries.
 Configure the offset for the event dates; split occurrences across different
 DST offsets into explicit timestamps. The base planner handles Austin DST.
 
@@ -47,7 +50,7 @@ No artist's attendance on every tour day is inferred from its location pin.
   Original organizer coordinates are preserved to seven decimals; the source
   applies small offsets to separate nearby pins. Confirm entrances on arrival.
 - The bounding rectangle is the stop envelope with 0.002° padding. It is the
-  event map/chat coverage, not an official municipal or organizer boundary.
+  event map extent, not chat coverage or an official event boundary.
 
 To refresh, save `explore.html`, extracted `markers.json`, public
 `location-records.json`, each `<post-id>.html` and a `participants.json`
@@ -55,22 +58,53 @@ mapping number → `{name,url,kind}[]` outside the repository. Read all pages of
 the public location API and scroll the public index until no more rows load.
 Then run `python tools/special-events/import-studio-tour.py <source-directory>`.
 The importer checks number/address/coordinate consistency and fails on missing
-records. Review date/hour changes separately and bump the data's asset version.
+records. Then rebuild the chat zones as described below before publishing.
+Review date/hour changes separately and bump the data's asset version.
 Do not commit full website downloads, account data or credentials.
 
 ## Chat and GPS
 
-`ChatRoom.start(..., {event})` uses one room/channel,
-`event-austin-studio-tour-2026`, across the event area. The actual GPS position
-independently chooses the neighborhood directory; crossing a neighborhood
-boundary refreshes businesses without changing chat. Business picks show their
-map details and planner checkbox without entering a business chat room.
-Event chat opens when Visible even if no other visitor is present. Visibility
-remains opt-in, and its label explains the wider sharing area. Outside the
-event boundary or after location denial, the client leaves the room. This is
-the existing client-side GPS model, not server-enforced proof of location.
-No new database schema is needed: the current chat policies accept room keys.
-Guest messages remain live-only; registered history retains its 30-day policy.
+`ChatRoom.start(..., {event})` uses `event-<event-id>-stop-<stop-id>` as both
+the room and channel key. Only a Visible visitor with a fresh GPS reading
+inside that stop's zone subscribes. Chat opens/sends only with another visible
+visitor in that same room; incoming lines require current peer presence.
+Messages are live-only for both guests and members, with no saved-history
+read/write. Moving to another stop clears the old conversation and avatars;
+hiding, leaving all zones or losing GPS disconnects. Main-map neighborhood
+and business rooms retain their existing behavior and history.
+
+High-accuracy GPS is requested; fixes older than 60 seconds or with reported
+accuracy worse than 35 m cannot join. Stationary visitors get a new fix every
+25 seconds. A 60-second presence lease and send-time expiry check prevent a
+stale location from keeping chat active. This is browser GPS gating, not
+server-enforced proof of location. GPS accuracy and source building matches
+remain approximate. Test-room URL parameters do not bypass event geofences.
+
+GPS independently chooses the neighborhood business directory, including
+outside studio zones. Business picks remain map/planner targets and never
+change the stop conversation or join neighborhood chat on the event map.
+
+### Building zones
+
+`tools/special-events/build-geofences.py <external-cache> --fetch` reads the
+[City's Building Footprints 2023](https://maps.austintexas.gov/arcgis/rest/services/Shared/PlanimetricsSurvey_1/MapServer/0)
+within 60 m of each organizer pin. Install `shapely>=2.1` and `pyproj` in a
+temporary environment. Omit `--fetch` to rebuild from the saved responses.
+Recreate the cache when reordering or changing the source stops.
+
+301 stops match a containing or nearest footprint within 40 m. Six stops
+(17, 39, 149, 151, 305, 308) have no close mapped footprint and use a 40 m
+approximate radius. Footprint zones include about 20 m of surrounding space;
+outdoor overlaps are divided by proximity to sampled building edges. Shared
+building cores are divided between organizer stop pins: 21/104, 47/233,
+97/100 and 132/135. Complete shared-building coverage per individual stop
+would conflict with the owner's no-overlap rule.
+
+The builder preserves each non-shared matched building, includes each stop
+pin, and checks every pair for any intersection, including after GeoJSON
+serialization. Tiny neutral seams prevent boundary ambiguity. Purple zones
+appear at street zoom; the current GPS zone has a green outline. Per-stop
+metadata records approximate/shared cases; the popup explains them.
 
 The chat transport ignores old channel callbacks and history after leaving,
 switching rooms or identity changes. Other maps keep neighborhood/business
@@ -84,7 +118,8 @@ room behavior.
 
 The event browser check covers desktop/phone, guest/member, all four tour dates,
 pins/search, dated plans, rendered routing, calendar download, map export links,
-GPS directory changes, event-room retention, outside/denied-location gating,
+GPS directory changes, same-stop peers, shared-building room separation,
+hidden/alone/outside/inaccurate/stale/denied-location gating, drawer controls,
 theme layout and the main Explore link. All account/chat/route writes use local
 fixtures. Shared references in private tour/shop pages require repackaging
 with `tools/billing/package-apps.py --upload` before workflow-only Pages deploy.
