@@ -1,20 +1,98 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-07T16:40:29.555Z",
- "placed": 53,
+ "generated": "2026-11-08T16:50:07.424Z",
+ "placed": 55,
  "total": 115,
  "features": [
   {
    "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "APD rescues barricaded person from second story window in northeast Austin",
+    "link": "https://www.kxan.com/news/local/austin/two-roommates-involved-in-barricaded-home-incident-in-northeast-austin/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-08T14:13:54.000Z",
+    "summary": "Austin Police sent a SWAT unit to respond to someone barricaded inside a home in northeast Austin on Sunday morning.",
+    "place": "Austin Police",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Live updates: No. 10 Texas faces No. 19 Missouri with CFP implications",
+    "title": "Dreary, wet Sunday as rain lingers into the work week",
+    "link": "https://www.kxan.com/news/dreary-wet-sunday-as-rain-lingers-into-the-work-week/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-08T13:04:58.000Z",
+    "summary": "Showers and downpours build in through the morning on Sunday, continuing on and off until early Tuesday. - Meteorologist Hannah Gard",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70624,
+     30.29867
+    ]
+   },
+   "properties": {
+    "title": "Mom calls for better hospice care after Central Texas' only pediatric program ends",
+    "link": "https://www.kxan.com/news/mom-calls-for-better-hospice-care-after-central-texas-only-pediatric-program-ends/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-08T03:44:04.000Z",
+    "summary": "A few years after starting, Dell Children's Medical Center ended its program Friday.",
+    "place": "Dell Children's Medical Center",
+    "placeKind": "clinic"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7325,
+     30.2837
+    ]
+   },
+   "properties": {
+    "title": "Stats: How are the Texas Longhorns performing in the 2026 season?",
+    "link": "https://www.kxan.com/sports-general/horns-report/longhorn-football-stats-2026/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-07T23:22:56.000Z",
+    "summary": "Follow along as we track the Longhorns' performance throughout the 2026 season.",
+    "place": "Texas Longhorns",
+    "placeKind": "venue"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "No. 10 Texas pulls away from No. 19 Missouri for crucial 34-20 road win",
     "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-10-texas-faces-no-19-missouri-with-cfp-implications/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-07T16:31:15.000Z",
-    "summary": "No. 10 Texas hits the road to face No. 19 Missouri in a pivotal SEC showdown with major College Football Playoff implications. Follow along for live updates.",
+    "published": "2026-11-07T22:28:15.000Z",
+    "summary": "Arch Manning threw for 297 yards and three touchdowns as No. 10 Texas scored 14 unanswered fourth-quarter points to defeat No. 19 Missouri 34-20, keeping its College Football Playoff hopes alive.",
     "place": null,
     "placeKind": null
    }
@@ -51,21 +129,6 @@
     "color": "#a394e0",
     "published": "2026-11-07T14:00:00.000Z",
     "summary": "No. 10 Texas heads to No. 19 Missouri for a pivotal SEC showdown Saturday, with both teams looking to keep their College Football Playoff hopes alive despite mounting injury concerns for the Longhorns.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Rain likely at times this weekend, temps running cool",
-    "link": "https://www.kxan.com/weather/forecast/rain-likely-at-times-this-weekend-temps-running-cool/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-07T13:25:44.000Z",
-    "summary": "Weekend plans? Be sure to keep the umbrella on standby as rain becomes increasingly likely by Sunday. -Meteorologist Kristen Currie",
     "place": null,
     "placeKind": null
    }
@@ -233,57 +296,6 @@
     "summary": "Catch up with some of the most-read stories Oct. 26-30",
     "place": "Bastrop",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Austin police arrest suspect tied to east Austin burglaries",
-    "link": "https://www.kxan.com/news/crime/austin-police-arrest-suspect-tied-to-east-austin-burglaries/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-06T22:13:14.000Z",
-    "summary": "Austin police say a man linked to multiple east Austin commercial burglaries, including a break-in at The Cenote Café, has been arrested and charged.",
-    "place": "Austin Police",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Anderson rolls past Lehman 56-10 in regular-season finale",
-    "link": "https://www.kxan.com/top-stories/watch-anderson-vs-lehman-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-06T22:12:38.000Z",
-    "summary": "Anderson scored at least 56 points for the second consecutive game Friday night, defeating Lehman 56-10 at Bob Shelton Stadium to finish the regular season 8-2.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Seguin edges McCallum 43-39 in regular season finale",
-    "link": "https://www.kxan.com/sports/watch-seguin-vs-mccallum-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-06T22:04:54.000Z",
-    "summary": "Seguin erupted for 43 points Friday night to defeat McCallum 43-39 at House Park, closing out the regular season with a victory after entering the matchup averaging just 17.6 points per game in district play.",
-    "place": null,
-    "placeKind": null
    }
   },
   {
