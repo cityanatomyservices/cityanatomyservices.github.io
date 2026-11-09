@@ -40,7 +40,15 @@ Visible at their stop; there is no inbox for later/offline replies. Browser
 GPS checks remain client-side, not proof of physical presence. The unrelated
 dashboard sign-in-form follow-up remains open.
 
-Publication and final deployed verification are pending in this checkpoint.
+Published as `4de991b`. Pages run `42675184981`, planner CI `42675184994`
+and billing CI `42675184511` succeeded. The nine private app bundles were
+uploaded before publishing; the Pages artifact excludes all 45 private files.
+Checked the event HTML's `20261109a` references after deployment, then verified
+all seven changed application/catalog assets match the committed bytes.
+The full live-service check passed again against deployed assets, including
+browser closure removing the departing visitor. Its four temporary guests
+were deleted. Implementation, automated verification and deployment are complete;
+an actual two-phone field check remains advisable before broad host outreach.
 
 ## 2026-11-08 - Per-stop chat geofences and tour drawer
 
