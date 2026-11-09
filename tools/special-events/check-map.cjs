@@ -2,13 +2,15 @@
 const {chromium}=require('../video/node_modules/playwright-core');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'../..');let browser,server;
-async function serve(){const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.geojson':'application/json','.svg':'image/svg+xml'};server=http.createServer((req,res)=>{let file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(root+path.sep)&&file!==root){res.writeHead(403).end();return;}if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=path.join(file,'index.html');fs.readFile(file,(err,body)=>{if(err){res.writeHead(404).end();return;}res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');res.end(body);});});await new Promise(r=>server.listen(0,'127.0.0.1',r));return `http://127.0.0.1:${server.address().port}`;}
+async function serve(){const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.geojson':'application/json','.svg':'image/svg+xml','.jpg':'image/jpeg'};server=http.createServer((req,res)=>{let file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(root+path.sep)&&file!==root){res.writeHead(403).end();return;}if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=path.join(file,'index.html');fs.readFile(file,(err,body)=>{if(err){res.writeHead(404).end();return;}res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');res.end(body);});});await new Promise(r=>server.listen(0,'127.0.0.1',r));return `http://127.0.0.1:${server.address().port}`;}
 function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/1000)+3600,enc=x=>Buffer.from(JSON.stringify(x)).toString('base64url');return {access_token:enc({alg:'HS256',typ:'JWT'})+'.'+enc({sub:id,exp,role:'authenticated',is_anonymous:!member})+'.fixture',refresh_token:crypto.randomUUID(),expires_in:3600,expires_at:exp,token_type:'bearer',user:{id,is_anonymous:!member,aud:'authenticated',role:'authenticated',app_metadata:{},user_metadata:{}}};}
 (async()=>{try{
  const base=process.argv[2]||await serve(),screenshots=process.env.EVENT_SCREENSHOTS||path.join(require('node:os').tmpdir(),'austin-special-events');fs.mkdirSync(screenshots,{recursive:true});
- browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  for(const width of (process.env.EVENT_WIDTH?[Number(process.env.EVENT_WIDTH)]:[1280,390]))for(const member of (process.env.EVENT_MEMBER?[process.env.EVENT_MEMBER==='true']:[false,true])){
-  const active=session(member),context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});let remote=null;const saves=[];
+  // Release software-WebGL memory between variants on smaller laptops.
+  browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+  const active=session(member),context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});let remote=null;const saves=[],watercolorTiles=[];
+  context.on('response',response=>{if(response.url().includes('/special-events/tiles/stamen-watercolor-austin/')&&response.url().endsWith('.jpg'))watercolorTiles.push(response.status());});
   await context.addInitScript(({member,active})=>{
    if(member&&!localStorage.getItem('event-fixture-seeded')){localStorage.setItem('event-fixture-seeded','yes');localStorage.setItem('sb-aqbyxpiwugcvoephsvpm-auth-token',JSON.stringify(active));}
    let sample;
@@ -38,6 +40,27 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   assert.equal(await f.evaluate(()=>gpsOptions.enableHighAccuracy),true);
   assert.equal(await f.evaluate(async()=>(await chatMap.getSource('event-chat-zones').getData()).features.length),307);
   assert.equal(await f.evaluate(async()=>(await chatMap.getSource('event-stops').getData()).features.length),307);
+  await f.waitForFunction(()=>chatMap.getLayer('event-watercolor')&&chatMap.isSourceLoaded('event-watercolor'));
+  assert.equal(await f.locator('#event-basemap-select').inputValue(),'watercolor','Initial watercolor tile responses: '+JSON.stringify(watercolorTiles));assert.ok(watercolorTiles.includes(200),'The hosted Watercolor tiles load');
+  await f.locator('#event-close').click();await f.evaluate(()=>chatMap.jumpTo({center:[-97.744,30.279],zoom:12.5,pitch:0}));await f.waitForFunction(()=>chatMap.isSourceLoaded('event-watercolor'));
+  await page.screenshot({path:path.join(screenshots,`${width}-${member?'member':'guest'}-watercolor.png`)});
+  const camera=await f.evaluate(()=>[chatMap.getCenter().lng,chatMap.getCenter().lat,chatMap.getZoom()]);
+  await f.locator('#ctrlMapLayers').click();await f.locator('#event-basemap-select').selectOption('streets');
+  assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('event-watercolor','visibility')),'none');
+  await f.locator('#event-basemap-select').selectOption('watercolor');await f.locator('#ctrlSatellite').click();
+  assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('event-watercolor','visibility')),'none');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'visible');
+  await f.locator('#ctrlSatellite').click();assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('event-watercolor','visibility')),'visible');
+  assert.deepEqual(await f.evaluate(()=>[chatMap.getCenter().lng,chatMap.getCenter().lat,chatMap.getZoom()]),camera,'Background choices preserve the camera');
+  assert.equal(await f.evaluate(()=>{const layers=chatMap.getStyle().layers;return layers.findIndex(l=>l.id==='event-watercolor')<layers.findIndex(l=>l.id==='event-points');}),true);
+  // Move beyond the overview's cached tiles to exercise a real network failure.
+  await context.route('**/special-events/tiles/stamen-watercolor-austin/**/*.jpg',route=>route.fulfill({status:503,body:'Fixture tile outage'}));
+  await f.evaluate(()=>chatMap.jumpTo({center:[-97.89,30.48],zoom:16,pitch:0}));
+  await f.waitForFunction(()=>document.querySelector('#event-basemap-select').value==='streets');assert.match(await f.locator('#event-basemap-note').innerText(),/could not load/);assert.ok(watercolorTiles.includes(503));
+  await context.unroute('**/special-events/tiles/stamen-watercolor-austin/**/*.jpg');await f.locator('#event-basemap-select').selectOption('watercolor');
+  await f.waitForFunction(()=>chatMap.isSourceLoaded('event-watercolor'));assert.equal(await f.locator('#event-basemap-select').inputValue(),'watercolor');
+  assert.match(await f.locator('.maplibregl-ctrl-attrib').innerHTML(),/Stamen Design/);assert.match(await f.locator('.maplibregl-ctrl-attrib').innerHTML(),/Cooper Hewitt/);
+  await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>!chatMap.isMoving());assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('buildings-3d','visibility')),'visible');await f.locator('#ctrlTilt').click();
+  await f.locator('#ctrlStops').click();
   await f.locator('#event-search').fill('Canopy');assert.ok(await f.locator('#event-results > li').count()>0);await f.locator('#event-search').fill('');
   await f.locator('#event-results .plan-select input').nth(0).check();await f.locator('#event-results .plan-select input').nth(1).check();
   assert.equal(await f.evaluate(()=>PlanStore.plan.date),'2026-11-14');assert.equal(await f.evaluate(()=>PlanStore.plan.items.length),2);
@@ -85,6 +108,6 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   assert.deepEqual(errors,[]);if(!member)assert.equal(saves.length,0);else{await f.evaluate(()=>AustinVisit.settled());assert.ok(saves.length>0);}
   await page.goto(base+'/');const main=await(await page.locator('#app-window').elementHandle()).contentFrame();await main.waitForFunction(()=>window.austinExplore);await main.locator('#ctrlExplore').click();await main.locator('#ctrlSpecialEvents').click();await main.locator('a.special-event-link').waitFor();assert.match(await main.locator('a.special-event-link').getAttribute('href'),/\/maps\/austin-studio-tour\//);
   assert.deepEqual(await main.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps']);
-  console.log(`${width}px ${member?'member':'guest'}: drawer, 307 zones, planner/exports, visible same-stop peers, shared-building separation, GPS freshness/exit, neighborhood directory and main-map controls passed.`);await context.close();
+  console.log(`${width}px ${member?'member':'guest'}: real Watercolor tiles, street/satellite/3D, tile-outage fallback/retry, attribution, drawer, 307 zones, planner/exports, same-stop peers and GPS gating passed.`);await context.close();await browser.close();browser=null;
  }
 }finally{await browser?.close();if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

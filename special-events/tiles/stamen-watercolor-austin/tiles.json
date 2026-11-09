@@ -1,0 +1,21 @@
+{
+  "tilejson": "3.0.0",
+  "name": "Stamen Watercolor \u2014 Austin archive",
+  "scheme": "xyz",
+  "minzoom": 0,
+  "maxzoom": 14,
+  "bounds": [
+    -97.944941,
+    30.087401,
+    -97.5465184,
+    30.544269
+  ],
+  "tiles": [
+    "/special-events/tiles/stamen-watercolor-austin/{z}/{x}/{y}.jpg"
+  ],
+  "attribution": "Map tiles by <a href=\"https://stamen.com/\">Stamen Design</a>, under <a href=\"https://creativecommons.org/licenses/by/3.0/\">CC BY 3.0</a>. Data by <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a>, under <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC BY-SA</a>. Archived by <a href=\"https://watercolormaps.collection.cooperhewitt.org/\">Cooper Hewitt, Smithsonian Design Museum</a>.",
+  "description": "Original 2012\u20132014 artwork; current labels and tour data are separate overlays.",
+  "upstream": "https://watercolormaps.collection.cooperhewitt.org/tile/watercolor/{z}/{x}/{y}.jpg",
+  "tileCount": 701,
+  "totalBytes": 7690940
+}

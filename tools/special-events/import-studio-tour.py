@@ -56,6 +56,7 @@ def main():
     bounds=[[round(min(p[0] for p in points)-.002,7),round(min(p[1] for p in points)-.002,7)],
             [round(max(p[0] for p in points)+.002,7),round(max(p[1] for p in points)+.002,7)]]
     event={'type':'FeatureCollection','id':'austin-studio-tour-2026','title':'Austin Studio Tour 2026',
+        'basemap':'stamen-watercolor',
         'dateLabel':'November 14–15 & 21–22, 2026','dates':['2026-11-14','2026-11-15','2026-11-21','2026-11-22'],
         'hours':{'open':'11:00','close':'17:00','label':'11 AM–5 PM · Austin time'},'utcOffset':'-06:00',
         'scheduleNote':'Plan within the tour’s 11 AM–5 PM hours. Artist attendance and individual opening times can vary; check the official stop before going.',

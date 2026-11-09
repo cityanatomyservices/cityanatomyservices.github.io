@@ -11,7 +11,7 @@
   const label=d=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',month:'short',day:'numeric'}).format(new Date(d+'T12:00:00-06:00'));
   const ready=(async()=>{
     if(!/^[a-z0-9-]+$/.test(slug||''))throw Error('Choose a Special Events map from Explore.');
-    const response=await fetch(`/special-events/data/${slug}.geojson?v=20261108b`);
+    const response=await fetch(`/special-events/data/${slug}.geojson?v=20261109b`);
     if(!response.ok)throw Error('Could not load this event. Please reload to try again.');
     event=M.validate(await response.json());return event;
   })();
@@ -77,6 +77,7 @@
   }
   window.AustinEvent={ready,open:()=>show(true,true),close:()=>show(false),get data(){return event;},init(instance){
     map=instance;document.title=event.title;$('legendTitle').textContent=event.title+' chat';
+    window.SpecialEventBasemap.init(map,event);
     $('legend').setAttribute('aria-label','Event chat and local businesses');
     $('ctrlChat').title='Chat at your studio stop';$('ctrlChat').setAttribute('aria-label','Studio stop chat');
     $('plan-title').textContent='Plan your event day';document.querySelector('.plan-eyebrow').textContent=event.title;

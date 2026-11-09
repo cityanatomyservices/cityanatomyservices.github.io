@@ -33,4 +33,7 @@
 .special-event-link span { margin-top:6px;font-size:12px; }
 /* Keep every participant's nickname readable in a phone-sized stop chat. */
 .chat-people { white-space:normal;overflow-wrap:anywhere;overflow-y:auto;max-height:5em;flex-shrink:0;line-height:1.6; }
+.event-basemap label { display:block;font-size:12px;margin-bottom:5px; }
+.event-basemap select { box-sizing:border-box;width:100%;padding:9px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);font:inherit; }
+#event-basemap-note { margin:7px 0 0;font-size:12px;line-height:1.4;color:var(--muted); }
 @media(max-width:680px){.event-panel{left:8px;right:82px;width:auto;top:8px;bottom:8px;}.event-toggle.is-open{left:calc(100% - 82px);}.event-panel header{padding:12px;}.event-scroll{padding:0 12px 12px;}.event-panel h1{font-size:19px;}}

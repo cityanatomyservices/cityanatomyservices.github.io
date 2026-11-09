@@ -1,5 +1,37 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-09 - Studio Tour Watercolor background
+
+Owner chose an Austin copy hosted with the site, with no new subscription.
+The Studio Tour now selects Stamen Watercolor through event metadata. Its
+701 unmodified JPEG tiles (7.3 MiB total, requested only as needed) come from
+the Cooper Hewitt, Smithsonian archive, which explicitly permits reuse with
+Creative Commons attribution. The archive lacks the CORS headers MapLibre
+needs, so the bounded copy is served from our own origin. Zooms 0–14 cover
+the event plus a margin; zoom 15 has gaps in the historic archive. The source,
+licenses, coverage and reproducible cache command are recorded in
+`special-events/tiles/stamen-watercolor-austin/README.md` and `tiles.json`.
+
+Current street/place labels overlay the historic 2012–2014 painting. Close
+street zooms gently fade the painting to show current road/building detail.
+Map layers → Background switches to Street map without changing the camera,
+stops or plans; satellite and 3D still work. A watercolor request failure
+restores the street base, with an explicit retry through the selector. Future
+Special Events can choose their theme through the same metadata/module;
+events without a theme retain the street map. All 307 stops/geofences and
+chat behavior are unchanged. Owner will do the physical two-phone chat test
+later; no further real-service chat test is part of this visual change.
+
+Changed event/catalog/frame assets use `20261109b`. Private app bundles remain
+unchanged. Incorporated GitHub's automatic ticker update `57a386a` locally
+before publishing; no force push. Seven event-domain tests and full cache
+coverage/JPEG validation pass. Desktop/phone and guest/member browser checks
+pass with real hosted JPEGs, street/satellite/3D switches, camera preservation,
+attribution, a simulated tile outage/retry, and the existing 307-zone,
+planner/export and GPS/chat fixtures. Reviewed overview and close-up images.
+The public Pages build passes and excludes all 45 private app resources.
+Deployment verification is pending.
+
 ## 2026-11-09 - Studio Tour chat verified against the live service
 
 Owner asked to verify anonymous chat among people physically inside the same

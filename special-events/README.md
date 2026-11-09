@@ -13,6 +13,29 @@ the same drawer. Opening Plan or Chat closes it.
 Run `node tools/special-events/make-map.cjs` after changing `chat/index.html`
 or its shared asset versions. Do not hand-edit `map.html`.
 
+## Event backgrounds
+
+An event can set `"basemap": "stamen-watercolor"` in its GeoJSON metadata.
+The Studio Tour uses this art theme by default; an event without that setting
+keeps the shared street map. Future themes belong in `basemap.js`, selected
+by event metadata, rather than in the shared map engine.
+
+**Map layers → Background → Map style** switches between Watercolor and
+Street map without moving the camera or changing stops, geofences or plans.
+Satellite temporarily covers either background and restores the selection
+when turned off; 3D buildings remain available. A failed watercolor request
+automatically restores the street base and offers a retry through the selector.
+
+The painting is historic Stamen artwork from 2012–2014, with current
+OpenFreeMap street/place labels above it. As the visitor zooms closer to a stop,
+the painting fades to reveal current streets and buildings underneath. The
+historic artwork is not a current street survey.
+The owner chose an Austin copy hosted with the site, with no new subscription.
+The [tile README](tiles/stamen-watercolor-austin/README.md) records the museum
+source, Creative Commons licenses, bounded coverage and reproducible download.
+The map displays the required attribution. Other event areas need coverage
+before enabling this Austin-specific background.
+
 ## Event data
 
 Each event has a GeoJSON FeatureCollection in `data/<event-id>.geojson`.
@@ -157,5 +180,7 @@ pins/search, dated plans, rendered routing, calendar download, map export links,
 GPS directory changes, same-stop peers, shared-building room separation,
 hidden/alone/outside/inaccurate/stale/denied-location gating, drawer controls,
 theme layout and the main Explore link. All account/chat/route writes use local
-fixtures. Shared references in private tour/shop pages require repackaging
+fixtures. It also loads actual hosted watercolor JPEGs and checks background
+switching, satellite/3D, camera preservation, attribution, a simulated tile
+outage and recovery. Shared references in private tour/shop pages require repackaging
 with `tools/billing/package-apps.py --upload` before workflow-only Pages deploy.
