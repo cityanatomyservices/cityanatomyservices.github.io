@@ -43,7 +43,22 @@ fixture accounts/chat/routes. Downloaded PDFs parse as Letter landscape sheets;
 standard and crowded Unicode-title sheets were rendered and visually checked.
 The 24-stop example spans three sheets. Main planner regression checks pass
 all four desktop/phone guest/member combinations. The public site build passes
-and excludes all 45 private resources. Publication verification is in progress.
+and excludes all 45 private resources.
+
+Implementation `111fd60` is live via Pages run `42716176744`. Initial run
+`42714456550` timed out while Pages was syncing files; retrying that same run
+failed because both attempts retained an artifact named `github-pages`.
+A fresh workflow dispatch published successfully. In this situation, dispatch
+`publish-site.yml` again instead of rerunning the artifact-uploading job.
+The planner, billing, classifieds and dashboard CI suites all passed.
+After successful publication, four unversioned entry pages advertised
+`20261109e` and matched checkout bytes; all 13 changed versioned assets plus
+the private bundle manifest also matched. The live 390px member browser check
+passed, including the 3D opening, Plan-only labels, PDF download, print action,
+preserved day/camera, navigation, reload and expiry. Account/chat/route traffic
+was mocked; no production customer plans or conversations were changed.
+Browser verification used Chromium desktop and phone layouts; physical-phone
+GPS/chat testing remains the separate owner check deferred earlier.
 
 ## 2026-11-09 - Separate Special Event plans and 48-hour retirement
 
