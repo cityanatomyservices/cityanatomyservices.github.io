@@ -46,8 +46,16 @@ Changed event, planner and loader assets/references use `20261109c`; all nine
 private apps were repackaged and uploaded with the new shared references.
 GitHub's automatic sports update `24fcf63` was fast-forwarded before edits;
 the newer Explore data refresh `31d0f8c` was also incorporated before publishing.
-The public build passes and excludes all 45 private app files. Deployment
-verification is pending.
+The public build passes and excludes all 45 private app files.
+
+Published as `716cad1`; Pages run `42692872043` succeeded, along with planner
+CI `42692872203`, billing CI `42692872010`, dashboard CI `42692872040` and
+classifieds CI `42692872536`. After the deployed HTML advertised `20261109c`,
+all four entry HTML pages, twelve changed runtime/catalog/data assets and the
+private-app manifest matched the checkout's bytes. The full phone member
+event regression passed against the live site, including filtered calendar
+export, updating a planned visit and retaining/flagging an older saved visit.
+Implementation and deployment verification are complete.
 
 ## 2026-11-09 - Studio Tour Watercolor background
 
