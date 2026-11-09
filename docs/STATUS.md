@@ -30,7 +30,14 @@ pass with real hosted JPEGs, street/satellite/3D switches, camera preservation,
 attribution, a simulated tile outage/retry, and the existing 307-zone,
 planner/export and GPS/chat fixtures. Reviewed overview and close-up images.
 The public Pages build passes and excludes all 45 private app resources.
-Deployment verification is pending.
+
+Published as `e001975`; Pages run `42679893493` succeeded. After the deployed
+HTML advertised `20261109b`, both changed HTML pages and all seven changed
+runtime/catalog/data assets matched the checkout's bytes. A hosted JPEG's
+bytes and MIME type also matched. The complete phone guest browser regression
+passed again against `https://austin.chat`, including the artwork and simulated
+outage/retry. All account/chat/route actions used fixtures. The local checkout
+and GitHub contain the finished theme and its source documentation.
 
 ## 2026-11-09 - Studio Tour chat verified against the live service
 
