@@ -37,7 +37,7 @@ are independent of deployment. Reusable themes/code, Git history, provider
 backups and user exports are not erased. Future-event registration/refresh and
 these retention limits are documented in `special-events/README.md`.
 
-Validation so far: 107 planner/domain tests and 11 importer/retention tests pass.
+Validation: 107 planner/domain tests and 11 importer/retention tests pass.
 Database migration and existing-data preservation, RLS, mixed/legacy/stale writes,
 account isolation and expiry passed in rolled-back SQL transactions; checks
 also passed after applying the migration. Full event browser checks pass all
@@ -46,11 +46,19 @@ main/event plans, notes, navigation, registered reload, exports and expiration.
 Account/chat/route browser traffic uses fixtures. Main-map regression passes
 all four variants. An added sign-out guard protects offline edits in inactive
 collections, and frame navigation attempts the active save before switching.
-The public build passes and excludes all 45 private files. Publication
-verification is in progress.
+The public build passes and excludes all 45 private files.
 
 Changed assets/references use `20261109d`. Nine private app bundles (45 files)
 were repackaged/uploaded successfully. No workflow file edits were needed.
+
+Published as `d7a89e6`. Pages `42699574809`, planner `42699573591`, billing
+`42699573534`, dashboard `42699573123` and classifieds `42699573605` all
+succeeded. Only after deployed HTML advertised the new version, all four
+entry HTML pages, fourteen runtime/catalog assets, expiry page and private-app
+manifest were verified against checkout bytes. The full live phone member
+regression passed, including independent main/event plans on the same date,
+return navigation, account reload, filtered exports, and the expiry transition.
+Implementation, database migration and deployment verification are complete.
 
 ## 2026-11-09 - Studio Tour filters and individual opening hours
 
