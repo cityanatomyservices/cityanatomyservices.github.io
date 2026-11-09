@@ -64,6 +64,17 @@ Do not commit full website downloads, account data or credentials.
 
 ## Chat and GPS
 
+Visitors open **Chat**, allow location access, turn on **Visible**, then use
+the **Chat N** button when another visible visitor is at their stop. The
+participant list includes everyone currently visible in that stop's room.
+It is one group conversation, not private messages to a selected person.
+Guests need no registration and get a random nickname/emoji. Signed-in
+members use their saved public chat profile (including an opted-in photo).
+An unattended host must still keep this map open, Visible, and receiving
+fresh location readings at the stop. There is no offline inbox or history
+for later arrivals. Phone backgrounding/sleep can interrupt GPS or networking;
+fresh GPS and a working connection are required to participate again.
+
 `ChatRoom.start(..., {event})` uses `event-<event-id>-stop-<stop-id>` as both
 the room and channel key. Only a Visible visitor with a fresh GPS reading
 inside that stop's zone subscribes. Chat opens/sends only with another visible
@@ -110,11 +121,36 @@ The chat transport ignores old channel callbacks and history after leaving,
 switching rooms or identity changes. Other maps keep neighborhood/business
 room behavior.
 
+Channel teardown is serialized: rapid GPS loss/recovery waits for the SDK to
+remove the old channel before rejoining the same topic. Presence tracking waits
+for subscription. Lost connections clear the event peer list and block sends;
+reconnection publishes fresh presence. Event sends wait for the service's
+acknowledgement before showing the sender's line. A failed send retains its
+draft, and late results cannot edit a different room or a newer draft. This
+confirms service receipt, not a read receipt from every participant. See the
+[Supabase acknowledgement contract](https://supabase.com/docs/guides/realtime/broadcast#acknowledge-messages).
+The event roster wraps on phones and scrolls when needed.
+
 ## Checks
 
 - `node --test tests/planner/*.test.cjs`
 - `node tools/special-events/check-map.cjs [https://austin.chat]`
 - `node tools/planner/check-map.cjs [https://austin.chat]`
+- `node tools/special-events/check-chat-live.cjs [https://austin.chat]`
+
+The last check is manual and uses real guest Auth and Realtime. It requires
+the logged-in Supabase CLI with project access to clean up its own disposable
+guest records. It intercepts event data to assign a random test event ID, and
+simulates GPS readings; all subscriptions, presence, messages and acknowledgements
+use the deployed service. It never joins the published tour's rooms, blocks
+saved-message API requests, and deletes the guests in `finally`. Credentials
+stay in memory and are not printed. Set `EVENT_CHAT_LOCAL=true` to substitute
+the checkout's chat engine/panel and event CSS before deployment. Screenshots
+and a result summary go to the OS temporary directory, outside the repository.
+The check covers multiple independent sessions, hidden/alone visitors, a
+three-person group, adjacent stops sharing a building, late arrivals, rapid
+GPS recovery, stationary presence beyond 60 seconds, offline sends, reconnect
+and browser closure. It is not a physical iPhone/Android GPS or load test.
 
 The event browser check covers desktop/phone, guest/member, all four tour dates,
 pins/search, dated plans, rendered routing, calendar download, map export links,

@@ -1,5 +1,5 @@
 {
-  "release": "ab0dcf021b5c26caa8782cb8013dd345dad1d0c4741fc57472dfbaf43e731ffa",
+  "release": "2c5a3a10245b9e5f1ee698137e990c19209016fe21eb89be353a82eefd9a5d3e",
   "apps": {
     "/apps/moontower/": {
       "title": "Moontower",
@@ -40,7 +40,7 @@
   },
   "files": {
     "/1885murdertour/app.html": {
-      "sha256": "907c3251f70ea1e0ed33a2dffec8ca867483d19592b8e30d22944e2533a0af5f",
+      "sha256": "215a202fdfd6137a3ab534dd148c5374ab0897531702adbc3f8453dd641adff6",
       "size": 16518,
       "mime": "text/html; charset=utf-8"
     },
@@ -99,6 +99,21 @@
       "size": 41702,
       "mime": "text/javascript; charset=utf-8"
     },
+    "/apps/PoolOpenings/config.js": {
+      "sha256": "1cddc4c12ffea49d1ceec0b8c24b0019d44b1050f46531df63b28fd3bd75f399",
+      "size": 1735,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    "/apps/PoolOpenings/data.geojson": {
+      "sha256": "91b5597052d573bcc77e66da907c558dfa8004ee01e74f458ed691ed21fd02c4",
+      "size": 37509,
+      "mime": "application/geo+json"
+    },
+    "/apps/PoolOpenings/map.html": {
+      "sha256": "7c2e51bf0ba336d9e3c8d0770c362eaf5ca369e34ac36a2464c59e4b70c6c6d0",
+      "size": 3528,
+      "mime": "text/html; charset=utf-8"
+    },
     "/apps/austin-bike-shops/config.js": {
       "sha256": "adbb4ba67ef8f2dac46fd1782d53d918ad76b3757feb9f891ba060948266fbe9",
       "size": 1808,
@@ -110,7 +125,7 @@
       "mime": "application/geo+json"
     },
     "/apps/austin-bike-shops/map.html": {
-      "sha256": "98dcfada6ecdfc080e73368f88e8a7e64371eaead867b86eb624769190dea31f",
+      "sha256": "75e8814cf648cb6590794a3fc9b17fb672dac8c57f3d5de60ad94c2edfd827fd",
       "size": 3550,
       "mime": "text/html; charset=utf-8"
     },
@@ -125,7 +140,7 @@
       "mime": "application/geo+json"
     },
     "/apps/austin-golf-courses/map.html": {
-      "sha256": "3e5a342491b57524669191ecb32147098532f5188fe9d19bb9b3f7ebc87f27a1",
+      "sha256": "1a4f095e6fcc5b47177fbd40d712cdb33e7dd694085ed1cc3b7251ad9bf02571",
       "size": 3533,
       "mime": "text/html; charset=utf-8"
     },
@@ -140,7 +155,7 @@
       "mime": "application/geo+json"
     },
     "/apps/austin-horseback-riding/map.html": {
-      "sha256": "e05c5cce81d4b9e2ca4d08cf2c39e1ade593fdaa73eaafcdd812666c6f2d0b23",
+      "sha256": "7a629f1a17b6a65121802bf67125c377ed23eea1189e7686bde9efc16b410071",
       "size": 3555,
       "mime": "text/html; charset=utf-8"
     },
@@ -155,7 +170,7 @@
       "mime": "application/geo+json"
     },
     "/apps/austin-pizza/map.html": {
-      "sha256": "97f5d747e43bd531e4617f87bb81a59614c16d7a1388c6eb6fc86fa8b6f23363",
+      "sha256": "9d562f5d3840993ce0bf314df9e6d2252bec7446a3b16f007bfead8fd9735a7e",
       "size": 3523,
       "mime": "text/html; charset=utf-8"
     },
@@ -170,7 +185,7 @@
       "mime": "application/geo+json"
     },
     "/apps/austin-toy-stores/map.html": {
-      "sha256": "968ef524516b15d6a6bdb61a25fb8f985dbed3e205256ee52c361fd3ab7291ae",
+      "sha256": "0fdb121ea05bf89fceddbf314bce7c8830407b899fcc44c1af4510de3155aec1",
       "size": 3569,
       "mime": "text/html; charset=utf-8"
     },
@@ -185,27 +200,12 @@
       "mime": "application/geo+json"
     },
     "/apps/austin-vintage-guitar/map.html": {
-      "sha256": "20b7e9a4abfc8734afdfb307b05fc905eb58c481a600acaece728397f590e0c6",
+      "sha256": "6eef3450bdd57eef6ab6a4132eb67e44e46275d6b000d8ee8984d64db165bcca",
       "size": 3555,
       "mime": "text/html; charset=utf-8"
     },
-    "/apps/PoolOpenings/config.js": {
-      "sha256": "1cddc4c12ffea49d1ceec0b8c24b0019d44b1050f46531df63b28fd3bd75f399",
-      "size": 1735,
-      "mime": "text/javascript; charset=utf-8"
-    },
-    "/apps/PoolOpenings/data.geojson": {
-      "sha256": "91b5597052d573bcc77e66da907c558dfa8004ee01e74f458ed691ed21fd02c4",
-      "size": 37509,
-      "mime": "application/geo+json"
-    },
-    "/apps/PoolOpenings/map.html": {
-      "sha256": "323d45525311f3697442a14649d9c1772efd726b1e45eeb4ffbb707217132859",
-      "size": 3528,
-      "mime": "text/html; charset=utf-8"
-    },
     "/moontowertour/app.html": {
-      "sha256": "a2c287e175ac2427632032381837c606a4e8df77c45b62561ada8d647b5d03b9",
+      "sha256": "f8635f38e83f1c832097aad70f4686e736957d60395d3f222ae67f1f1635a19f",
       "size": 16110,
       "mime": "text/html; charset=utf-8"
     },

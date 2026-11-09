@@ -76,7 +76,7 @@
         const hide=()=>{card.hidden=true;chat.setAttribute('aria-expanded','false');window.ChatPanel?.close();};
         chat.onclick=()=>{const open=card.hidden;for(const name of ['AustinApps','AustinMedia','AustinDayPlan','AustinExplore'])window[name]?.close?.();card.hidden=!open;chat.setAttribute('aria-expanded',String(open));};close.onclick=hide;
         window.AustinChatCard={close:hide};
-      }else{const host=document.createElement('div');host.id='planner-chat-host';host.hidden=true;root.append(host);await script('/chat/widget.js?v=20261108b');}
+      }else{const host=document.createElement('div');host.id='planner-chat-host';host.hidden=true;root.append(host);await script('/chat/widget.js?v=20261109a');}
       stack.addEventListener('click',event=>{if(tourPanel&&event.target.closest('button')?.id!=='ctrlTour'){tourPanel.hidden=true;$('ctrlTour').setAttribute('aria-expanded','false');}});
       loading.textContent='';root.dataset.mapUiReady='true';
     }catch(error){loading.textContent=error.message+' Reload to retry.';console.error(error);}

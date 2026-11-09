@@ -31,4 +31,6 @@
 .special-event-link strong,.special-event-link span { display:block; }
 .special-event-link strong { color:var(--accent);font-size:16px; }
 .special-event-link span { margin-top:6px;font-size:12px; }
+/* Keep every participant's nickname readable in a phone-sized stop chat. */
+.chat-people { white-space:normal;overflow-wrap:anywhere;overflow-y:auto;max-height:5em;flex-shrink:0;line-height:1.6; }
 @media(max-width:680px){.event-panel{left:8px;right:82px;width:auto;top:8px;bottom:8px;}.event-toggle.is-open{left:calc(100% - 82px);}.event-panel header{padding:12px;}.event-scroll{padding:0 12px 12px;}.event-panel h1{font-size:19px;}}

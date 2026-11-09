@@ -6,14 +6,23 @@
   const COPY = window.MAP_COPY;
   const $ = (id) => document.getElementById(id);
   let onSend = null;
+  let sending = false, generation = 0;
 
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const time = (t) => new Date(t).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
 
-  function submit() {
+  async function submit() {
     const box = $('chatText');
-    if (onSend && onSend(box.value)) box.value = '';
-    box.focus();
+    if (!onSend || sending || !box.value.trim()) return;
+    const text = box.value, attempt = generation;
+    sending = true; $('chatSend').disabled = true; box.setCustomValidity('');
+    let sent = false;
+    try { sent = await onSend(text); } catch (_) {}
+    if (attempt !== generation) return;
+    sending = false; $('chatSend').disabled = false;
+    if (sent && box.value === text) box.value = '';
+    if (!sent) box.setCustomValidity('Message not sent. Please try again when chat is available.');
+    if (!$('chatwin').hidden) { box.focus(); if (!sent) box.reportValidity(); }
   }
 
   window.ChatPanel = {
@@ -23,6 +32,7 @@
       $('chatClose').title = COPY.chat.close;
       $('chatText').placeholder = COPY.chat.placeholder;
       $('chatText').maxLength = window.ChatEngine.maxText;
+      $('chatText').addEventListener('input', () => $('chatText').setCustomValidity(''));
       $('chatSend').addEventListener('click', submit);
       $('chatText').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); submit(); } });
       $('chatClose').addEventListener('click', () => this.close());
@@ -35,7 +45,10 @@
     close() { $('chatwin').hidden = true; },
     isOpen() { return !$('chatwin').hidden; },
     // a new room: empty the lines (nothing is kept between rooms)
-    clear() { $('chatLines').innerHTML = ''; },
+    clear() {
+      generation++; sending = false; $('chatSend').disabled = false;
+      $('chatLines').innerHTML = ''; $('chatText').value = ''; $('chatText').setCustomValidity('');
+    },
     // the people line under the room name
     setPeople(list) {
       const line=$('chatPeople');line.replaceChildren();

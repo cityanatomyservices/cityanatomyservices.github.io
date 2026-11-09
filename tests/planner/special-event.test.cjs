@@ -53,7 +53,7 @@ test('event dates produce separate flexible visits within tour hours and usable 
 
 function chatHarness(registered=false){
  const callbacks={},received=[],channels=[],history=[];let release;
- const client={channel(name){const c={name,handlers:{},state:{},on(type,filter,fn){this.handlers[type]=fn;return this;},presenceState(){return this.state;},track:async()=>{},untrack:async()=>{},subscribe(fn){fn('SUBSCRIBED');},send:async payload=>{c.last=payload;}};channels.push(c);return c;},removeChannel:async()=>{},from(){return {select(){return this;},eq(){return this;},order(){return this;},limit(){return new Promise(resolve=>history.push(resolve));},insert(){throw Error('Live-only event messages must not be saved');}};}};
+ const client={channel(name){const c={name,handlers:{},state:{},on(type,filter,fn){this.handlers[type]=fn;return this;},presenceState(){return this.state;},track:async()=>{},untrack:async()=>{},subscribe(fn){fn('SUBSCRIBED');},send:async payload=>{c.last=payload;return 'ok';}};channels.push(c);return c;},removeChannel:async()=>{},from(){return {select(){return this;},eq(){return this;},order(){return this;},limit(){return new Promise(resolve=>history.push(resolve));},insert(){throw Error('Live-only event messages must not be saved');}};}};
  const window={ChatIdentity:{client:()=>client,userId:()=> 'fixture'},AustinSession:{registered},ChatLocate:{metres:()=>0},addEventListener(){}};
  vm.runInNewContext(fs.readFileSync(require.resolve('../../chat/chat.js'),'utf8'),{window,Date,console,setInterval,clearInterval});
  return {engine:window.ChatEngine,channels,history,received,join:()=>window.ChatEngine.join('event-fixture',{handle:'Visitor',emoji:'*'},true,{onMessage:m=>received.push(m)})};

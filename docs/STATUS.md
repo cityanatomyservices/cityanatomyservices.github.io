@@ -1,5 +1,47 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-09 - Studio Tour chat verified against the live service
+
+Owner asked to verify anonymous chat among people physically inside the same
+stop, before approaching tour hosts. These behaviors apply to future Special
+Events maps through the shared chat engine and event stylesheet.
+
+Found a real teardown race that fixture-only tests missed: a GPS failure followed
+quickly by a new fix could rejoin the same SDK channel while its earlier leave
+was still pending. The SDK rejects adding Presence callbacks after subscribe,
+leaving the visitor in the correct stop with an unusable channel. Teardown now
+finishes before a replacement joins. Presence waits for subscription; connection
+loss removes event peers and prevents sends until reconnection. Event sends
+require server acknowledgement, failed submissions retain their draft, and
+late replies cannot affect another room/new draft. Phone participant names now
+wrap instead of being cut off. No geofences, database schema or membership
+behavior changed. All cache references for changed assets use `20261109a`.
+
+Added six deterministic connection/form regressions; five fail against the
+previous code, and all six pass with the repair. All 91 planner/domain tests
+pass. The manual `tools/special-events/check-chat-live.cjs` uses independent
+phone/desktop contexts, simulated GPS and a random test event namespace with
+real guest Auth, Presence and Broadcast. With local repaired assets it verified
+two-way messages, a three-person room, no replay to late arrivals, separation
+between shared-building stops 47/233, hiding/exit, rapid GPS recovery, stationary
+presence beyond 60 seconds, failed offline sends and delivery after reconnect.
+Every disposable guest was removed; no messages went to real event rooms and
+no saved-message API reads/writes were made. This does not replace a field
+check with actual phones/indoor GPS and does not establish crowd capacity.
+The complete event-map and main-map planner browser regressions also pass
+at 1280/390 pixels for both guests and members. The new connection tests run
+as part of the existing planner test suite. The laptop's GitHub token cannot
+edit workflow files, so the existing CI triggers are unchanged.
+
+Outreach wording must say **visible participants at the same stop**, and
+describe a live group conversation. Guests get random names without registering;
+members use their existing public profile. Hosts must keep the map open and
+Visible at their stop; there is no inbox for later/offline replies. Browser
+GPS checks remain client-side, not proof of physical presence. The unrelated
+dashboard sign-in-form follow-up remains open.
+
+Publication and final deployed verification are pending in this checkpoint.
+
 ## 2026-11-08 - Per-stop chat geofences and tour drawer
 
 The Austin Studio Tour now has 307 separate, non-overlapping chat zones.
