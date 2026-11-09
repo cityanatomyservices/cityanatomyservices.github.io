@@ -45,7 +45,8 @@
     grid.append(field(item,'Arrival time','start','time',u.start ? M.clock(u.start) : ''),field(item,'Visit length (min)','duration','number',u.duration,{min:1,max:1440,step:1}));
     const lock = node('label',null,'lock-label'), check = node('input'); check.type = 'checkbox'; check.checked = u.locked; check.dataset.field = 'locked'; check.dataset.item = item.id;
     lock.append(check,document.createTextNode('Lock this arrival time')); li.append(grid,lock);
-    if (u.start) li.append(node('p',`Your visit: ${timeLabel(u.start,item.day)} – ${timeLabel(Date.parse(u.start) + u.duration * 60000,item.day)}`,'source-timing'));
+    if(window.EventPlanPrint){const visit=window.EventPlanPrint.visit(item,item.day);li.append(node('p',visit.date+' · '+visit.time,'source-timing event-planned-visit'));}
+    else if (u.start) li.append(node('p',`Your visit: ${timeLabel(u.start,item.day)} – ${timeLabel(Date.parse(u.start) + u.duration * 60000,item.day)}`,'source-timing'));
     if (issues.length) { const list = node('ul',null,'stop-issues'); for (const issue of issues) list.append(node('li',issue.text,issue.severity)); li.append(list); }
     const details = node('details',null,'stop-details'); details.dataset.details = item.id;
     details.append(node('summary','Hours, buffer, notes & source'));
@@ -115,7 +116,7 @@
     $('plan-items').replaceChildren(...cards);
     for (const el of document.querySelectorAll('.stop-details')) el.open = open.has(el.dataset.details);
     if (focus) document.querySelector(`[data-item="${CSS.escape(focus[0])}"][data-field="${CSS.escape(focus[1])}"]`)?.focus({preventScroll:true});
-    const pins = JSON.stringify(displayed.map(i => [i.id,routing.coordinates(i),i.schedule.start,i.schedule.duration]));
+    const pins = JSON.stringify([plan.date,displayed.map(i => [i.id,i.source.title,i.source.eventUnavailable,i.source.hoursText,routing.coordinates(i),i.schedule.start,i.schedule.duration])]);
     if (pins !== mapSignature) { window.PlanMap.update(displayed,changedDay); mapSignature = pins; }
     window.PlanRoutePanel.update(plan,result);
   }

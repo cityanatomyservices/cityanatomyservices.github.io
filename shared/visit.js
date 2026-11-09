@@ -54,7 +54,7 @@
         if(event){
           document.title=event.title+' · Austin.Chat';frame.title=event.title;
           document.querySelector('link[rel=canonical]')?.setAttribute('href',url.origin+event.page);
-          frame.contentWindow.location.replace('/special-events/map.html?event='+encodeURIComponent(event.id)+'&v=20261109d');return;
+          frame.contentWindow.location.replace('/special-events/map.html?event='+encodeURIComponent(event.id)+'&v=20261109e');return;
         }
         const on=url.searchParams.get('planner')==='1';remember(on);
         document.querySelector('link[rel=canonical]')?.setAttribute('href',url.origin+'/');
@@ -64,7 +64,7 @@
             frame.contentWindow.PlanPanel?.setView(on);return;
           }
         }catch(_){}
-        frame.contentWindow.location.replace('/chat/?v=20261109d');
+        frame.contentWindow.location.replace('/chat/?v=20261109e');
       });
       return true;
     };

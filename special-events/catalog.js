@@ -3,7 +3,7 @@ window.AustinSpecialEvents={init(){
     let loaded=false;
     async function refresh(){
       host.textContent='Loading special event maps…';
-      try{const response=await fetch('/home.json?v=20261109d');if(!response.ok)throw Error();const home=await response.json();
+      try{const response=await fetch('/home.json?v=20261109e');if(!response.ok)throw Error();const home=await response.json();
         const cards=home.chips.flatMap(c=>c.cards||[]).filter(c=>c.category==='Special Events'&&(!c.expiresAt||Date.parse(c.expiresAt)>Date.now()));window.AustinVisit?.set('special-events:pages',cards.map(c=>({id:c.eventId,title:c.title,page:`/maps/${c.slug}/`,expiresAt:c.expiresAt})));host.replaceChildren();
         const heading=document.createElement('h3');heading.textContent='Special Events';host.append(heading);if(!cards.length){const empty=document.createElement('p');empty.textContent='No upcoming Special Events maps right now.';host.append(empty);}
         for(const card of cards){const link=document.createElement('a');link.className='special-event-link';link.href=`/maps/${card.slug}/`;link.target='_top';const title=document.createElement('strong');title.textContent=card.title+' →';const description=document.createElement('span');description.textContent=card.blurb;link.append(title,description);host.append(link);}loaded=true;

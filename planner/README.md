@@ -342,3 +342,8 @@ Event plans expire 48 hours after the event's final scheduled closing. See
 [Special Events retention](../special-events/README.md#separate-plans-and-event-retirement)
 for database cleanup, browser limitations, public artifact removal and future
 registration commands. Main plans retain their existing lifetime.
+
+Special Events add an event-only marker-decoration hook to `map.js`: numbered
+pins gain titles and visit dates/times while Plan view is active. The event's
+Print map preview/export lives in `special-events/plan.js`, leaving the main
+planner's UI unchanged. See the [event print documentation](../special-events/README.md#labelled-day-maps-and-printing).

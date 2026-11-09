@@ -3,14 +3,14 @@
   let map, markers = [], latest = [], active = false, coverageStamp = '', routeDirty=true, routeData={type:'FeatureCollection',features:[]}, picking;
   const M = window.PlanModel;
   const coordinates=item=>window.PlanRouting.coordinates(item);
-  const fit = () => {
+  const fit = ({showMap=true}={}) => {
     if(!active)return;
-    window.PlanPanel?.showMap();
+    if(showMap)window.PlanPanel?.showMap();
     const points = latest.map(coordinates).filter(Boolean).concat(routeData.features.flatMap(f=>f.geometry.type==='LineString'?f.geometry.coordinates:f.geometry.coordinates.flat()));
     if (!map || !points.length) return;
     const bounds = points.reduce((b,p) => b.extend(p), new maplibregl.LngLatBounds(points[0], points[0]));
     const panel=document.getElementById('plan-panel');
-    const right=window.PlanPanel?.isOpen?panel.getBoundingClientRect().width+96:45;
+    const right=window.PlanPanel?.isOpen&&!matchMedia('(max-width:680px)').matches?panel.getBoundingClientRect().width+96:45;
     map.fitBounds(bounds, { padding:{top:65,bottom:75,left:45,right}, maxZoom:15,duration:500 });
   };
   const focus = id => {
@@ -43,6 +43,7 @@
         .setPopup(popup).addTo(map);
       markers.push({ id:item.id, marker });
     });
+    window.SpecialEventPlan?.update(map,active?items:[],markers);
     coverage();
   }
   function drawRoutes() {

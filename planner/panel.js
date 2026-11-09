@@ -18,8 +18,10 @@
     if(history&&window.PlanContext.id==='main')visit?.plannerView?.(on);
   }
   function open({history=true,focus=true}={}){
+    const entering=!active;
     for(const name of ['AustinEvent','AustinClassifieds','AustinExplore','AustinCityHall','AustinChatCard','AustinApps','AustinMedia','AustinMapLayers'])window[name]?.close?.();
     mode(true,history);drawer(true,focus);
+    if(entering&&window.AustinEvent)window.PlanMap.fit({showMap:false});
   }
   function leave({history=true}={}){document.querySelectorAll('#day-dialog[open],#export-dialog[open]').forEach(dialog=>dialog.close());drawer(false);mode(false,history);}
   function explore(){leave();if(window.AustinEvent)window.AustinEvent.open();else window.AustinExplore.open?.();}

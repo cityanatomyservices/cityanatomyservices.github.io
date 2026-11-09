@@ -1,5 +1,50 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-09 - Event plan labels, printable PDFs and 3D opening
+
+Owner requested location titles and visit dates/times beside planned markers,
+a map Print button, and the Studio Tour to open tilted in 3D like the main map.
+These changes apply through the shared Special Events adapter to future events.
+
+Event Plan view adds title/date/time callouts connected to numbered markers.
+They disappear in Stops browsing; the main planner keeps its existing pins.
+Unscheduled visits are explicitly labelled and show selected availability when
+known. The timeline cards also show the actual visit date, including overnight
+visits. Labels refresh on date, title, order, arrival and duration changes.
+
+Print map appears on the planning map toolbar and inside the event editor.
+It prepares landscape Letter sheets fitted to every located stop for that day,
+using the selected Watercolor/street/satellite base. Full titles and times have
+separate callouts; crowded numbers offset with connectors to their exact points.
+Large plans continue across map sheets while every sheet covers the full extent.
+Download PDF produces a real high-resolution image PDF; Print prints just the
+preview sheets. Attribution is included. Rendering/snapshots stay in browser
+memory; no account/cloud writes occur. The current plan and camera are preserved.
+A day/plan change invalidates the preview; map-load failure blocks output and
+allows retry; cancellation/closure releases the export map and generated URLs.
+
+The event now uses the main map's downtown opening flight, 57-degree pitch and
+3D building layer. Selecting a studio retains the chosen tilt. Entering Plan
+fits its stops while keeping the editor open, including on phones. Print sheets
+use a flat overhead view without building extrusions for legibility.
+
+Runtime changes use `20261109e`; the event HTML is generated from the updated
+map generator. Nine private bundles (45 files) were repackaged/uploaded for the
+shared loader version changes. New PDF/label helpers need no external library.
+GitHub feed changes `d5514bb` and `6ffa44f` were fast-forwarded before publication.
+No database migration or workflow edit is needed.
+
+Validation: 112 planner/domain tests pass. Full event browser checks pass all
+four desktop/phone guest/member combinations, including the 3D opening, label
+spacing, PDF download, native print invocation, preserved plan/camera and
+day-change invalidation. Phone member checks also pass tile outage/retry,
+unscheduled visits, crowded multi-sheet output and cancellation. Tests use
+fixture accounts/chat/routes. Downloaded PDFs parse as Letter landscape sheets;
+standard and crowded Unicode-title sheets were rendered and visually checked.
+The 24-stop example spans three sheets. Main planner regression checks pass
+all four desktop/phone guest/member combinations. The public site build passes
+and excludes all 45 private resources. Publication verification is in progress.
+
 ## 2026-11-09 - Separate Special Event plans and 48-hour retirement
 
 Owner found main Explore stops in the Studio Tour planner. Each Special Event

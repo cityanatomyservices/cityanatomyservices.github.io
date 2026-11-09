@@ -41,6 +41,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await main.locator('#ctrlExplore').click();await main.locator('#ctrlSpecialEvents').click();await main.locator('a.special-event-link').click();
   await page.waitForFunction(()=>document.getElementById('app-window').contentWindow.location.pathname==='/special-events/map.html');
   const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.chatMap&&window.AustinEvent?.data&&window.gps);await f.evaluate(()=>PlanStore.ready());
+  await f.waitForFunction(()=>!chatMap.isMoving());assert.ok(await f.evaluate(()=>chatMap.getPitch())>50,'Event opens tilted like the main map');assert.ok(await f.evaluate(()=>chatMap.getZoom())>=13,'Opening zoom shows 3D buildings');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('buildings-3d','visibility')),'visible');assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');
   assert.equal(await page.evaluate(()=>AustinVisit.id),visitId,'Event navigation preserves the guest visit');assert.equal(await f.evaluate(()=>PlanStore.scope),'austin-studio-tour-2026');assert.equal(await f.evaluate(()=>PlanStore.book.items.length),0,'Main stops never enter the event');
   assert.deepEqual(await f.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlStops','ctrlDayPlan','ctrlChat']);assert.equal(await f.locator('#ctrlExplore').count(),0);
   assert.equal(await f.locator('#event-date option').count(),4);assert.equal(await f.locator('#event-panel').isVisible(),true);
@@ -49,7 +50,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   assert.equal(await f.evaluate(()=>gpsOptions.enableHighAccuracy),true);
   assert.equal(await f.evaluate(async()=>(await chatMap.getSource('event-chat-zones').getData()).features.length),307);
   assert.equal(await f.evaluate(async()=>(await chatMap.getSource('event-stops').getData()).features.length),258,'Only first-day stops with published hours appear');
-  assert.equal(await f.locator('#event-kind').count(),0,'Venue type is removed');
+  assert.equal(await f.locator('#event-kind').count(),0,'Venue type is removed');assert.equal(await f.locator('.event-plan-label').count(),0);assert.equal(await f.locator('#event-print-map').isHidden(),true,'Print is offered only in Plan view');
   await f.waitForFunction(()=>chatMap.getLayer('event-watercolor')&&chatMap.isSourceLoaded('event-watercolor'));
   assert.equal(await f.locator('#event-basemap-select').inputValue(),'watercolor','Initial watercolor tile responses: '+JSON.stringify(watercolorTiles));assert.ok(watercolorTiles.includes(200),'The hosted Watercolor tiles load');
   await f.locator('#event-close').click();await f.evaluate(()=>chatMap.jumpTo({center:[-97.744,30.279],zoom:12.5,pitch:0}));await f.waitForFunction(()=>chatMap.isSourceLoaded('event-watercolor'));
@@ -69,7 +70,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await context.unroute('**/special-events/tiles/stamen-watercolor-austin/**/*.jpg');await f.locator('#event-basemap-select').selectOption('watercolor');
   await f.waitForFunction(()=>chatMap.isSourceLoaded('event-watercolor'));assert.equal(await f.locator('#event-basemap-select').inputValue(),'watercolor');
   assert.match(await f.locator('.maplibregl-ctrl-attrib').innerHTML(),/Stamen Design/);assert.match(await f.locator('.maplibregl-ctrl-attrib').innerHTML(),/Cooper Hewitt/);
-  await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>!chatMap.isMoving());assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('buildings-3d','visibility')),'visible');await f.locator('#ctrlTilt').click();
+  await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>!chatMap.isMoving());assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('buildings-3d','visibility')),'none');await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>!chatMap.isMoving());assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('buildings-3d','visibility')),'visible');
   await f.locator('#ctrlStops').click();
   // Organizer dates, unknown hours and the all-day option affect both list and pins.
   await f.locator('#event-search').fill('1');assert.equal(await f.locator('#event-results .event-stop').count(),1);
@@ -110,6 +111,39 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await f.evaluate(()=>{const scroll=document.querySelector('.event-scroll');if(scroll)scroll.scrollTop=0;});await page.screenshot({path:path.join(screenshots,`${width}-${member?'member':'guest'}-stops.png`)});
   await f.locator('#event-close').click();await f.locator('#ctrlDayPlan').click();await f.locator('#build-day').click();
   await f.waitForFunction(()=>PlanStore.plan.items.every(i=>i.schedule.start));assert.equal(await f.locator('.map-stop').count(),2);
+  assert.equal(await f.locator('.event-plan-label').count(),2);assert.match(await f.locator('.event-plan-label').first().innerText(),/Nov 14, 2026/);assert.match(await f.locator('.event-plan-label').first().innerText(),/CT/);
+  assert.equal(await f.locator('.event-planned-visit').count(),2);
+  if(process.env.EVENT_PRINT_CHECK==='true'){
+    await f.waitForFunction(()=>!chatMap.isMoving());
+    const beforePrint=await f.evaluate(()=>({plan:PlanStore.plan,camera:[chatMap.getCenter().lng,chatMap.getCenter().lat,chatMap.getZoom(),chatMap.getPitch()]}));
+    await f.locator('#event-print-plan').click();await f.waitForFunction(()=>!document.getElementById('event-print-download').disabled,{}, {timeout:45000});
+    const downloading=page.waitForEvent('download');await f.locator('#event-print-download').click();const pdf=await downloading;assert.match(pdf.suggestedFilename(),/austin-studio-tour-2026-2026-11-14-map.pdf/);
+    const pdfBytes=fs.readFileSync(await pdf.path());assert.equal(pdfBytes.subarray(0,8).toString(),'%PDF-1.4');assert.ok(pdfBytes.length>30000,'PDF contains a rendered map');fs.writeFileSync(path.join(screenshots,`${width}-${member?'member':'guest'}-plan.pdf`),pdfBytes);
+    const preview=await(await f.locator('#event-print-preview').elementHandle()).contentFrame();await preview.locator('img').first().waitFor();assert.ok(await preview.locator('img').first().evaluate(i=>i.naturalWidth>=2000));
+    await preview.locator('img').first().screenshot({path:path.join(screenshots,`${width}-${member?'member':'guest'}-print.png`)});
+    await preview.evaluate(()=>{window.print=()=>{window.didPrint=true;};});await f.locator('#event-print-paper').click();assert.equal(await preview.evaluate(()=>window.didPrint),true);
+    assert.deepEqual(await f.evaluate(()=>PlanStore.plan),beforePrint.plan,'Printing never edits the plan');assert.deepEqual(await f.evaluate(()=>[chatMap.getCenter().lng,chatMap.getCenter().lat,chatMap.getZoom(),chatMap.getPitch()]),beforePrint.camera,'Print extent does not change the interactive camera');
+    await f.evaluate(()=>PlanStore.chooseDay('2026-11-15'));await f.waitForFunction(()=>document.getElementById('event-print-download').disabled);assert.match(await f.locator('#event-print-status').innerText(),/plan changed/);await f.locator('#event-print-close').click();await f.evaluate(()=>PlanStore.chooseDay('2026-11-14'));
+    await f.locator('[data-plan-map]').first().click();await f.locator('#fit-plan').evaluate(b=>b.click());await f.waitForFunction(()=>!chatMap.isMoving());await page.screenshot({path:path.join(screenshots,`${width}-${member?'member':'guest'}-labels.png`)});await f.locator('#planner-map-edit').click();
+    assert.equal(await f.locator('.event-plan-label').count(),2);
+    const covered=await f.locator('.map-stop').evaluateAll(markers=>markers.some(m=>{const a=m.getBoundingClientRect(),b=m.querySelector('.event-plan-label').getBoundingClientRect();return Math.min(a.right,b.right)>Math.max(a.left,b.left)&&Math.min(a.bottom,b.bottom)>Math.max(a.top,b.top);}));assert.equal(covered,false,'Location titles do not cover their own markers');
+    if(process.env.EVENT_PRINT_EDGE_CHECK==='true'){
+      // Unknown visit times remain explicit and loading failure never offers a blank PDF.
+      await f.evaluate(()=>PlanStore.edit(p=>{p.items[0].schedule.start=null;}));assert.match((await f.locator('.event-plan-label').allTextContents()).join(' '),/Visit time not set/);
+      await context.route('**/special-events/tiles/stamen-watercolor-austin/**/*.jpg',r=>r.fulfill({status:503,body:'Print tile fixture outage'}));
+      await f.locator('#event-print-plan').click();await f.waitForFunction(()=>/could not load/.test(document.getElementById('event-print-status').textContent),{}, {timeout:45000});assert.equal(await f.locator('#event-print-download').isDisabled(),true);assert.equal(await f.locator('.event-print-render').count(),0);
+      await context.unroute('**/special-events/tiles/stamen-watercolor-austin/**/*.jpg');await f.locator('#event-print-refresh').click();await f.waitForFunction(()=>!document.getElementById('event-print-download').disabled,{}, {timeout:45000});await f.locator('#event-print-close').click();
+      // Crowded locations and long Unicode titles continue across readable sheets.
+      await f.evaluate(async()=>{await PlanStore.edit(p=>{const event=AustinEvent.data;p.items=event.features.filter(feature=>SpecialEventModel.matching(event,feature,p.date,{}).length).slice(0,24).map((feature,i)=>{const source=SpecialEventModel.source(event,feature,p.date);if(i===0)source.title='Atelier María & friends — '+('A very long location title '.repeat(8));const item=PlanSources.item(source,crypto.randomUUID());item.day=p.date;return item;});});});
+      await f.locator('#event-print-plan').click();await f.waitForFunction(()=>!document.getElementById('event-print-download').disabled,{}, {timeout:45000});
+      const manyPreview=await(await f.locator('#event-print-preview').elementHandle()).contentFrame();assert.ok(await manyPreview.locator('img').count()>1);
+      const manyDownload=page.waitForEvent('download');await f.locator('#event-print-download').click();const manyBytes=fs.readFileSync(await(await manyDownload).path());fs.writeFileSync(path.join(screenshots,'crowded-plan.pdf'),manyBytes);await manyPreview.locator('img').first().screenshot({path:path.join(screenshots,'crowded-preview.png')});
+      await f.locator('#event-print-close').click();await f.evaluate(p=>PlanStore.edit(day=>{day.items=p.items;}),beforePrint.plan);
+      await f.locator('#event-print-plan').click();await f.locator('#event-print-close').click();assert.equal(await f.locator('.event-print-render').count(),0,'Cancel releases the export map');
+    }
+
+  }
+
   assert.equal(await f.evaluate(async()=>(await chatMap.getSource('event-stops').getData()).features.length),0);
   await f.locator('#plan-route').click();await f.waitForFunction(()=>chatMap.getLayer('planner-route-lines')&&chatMap.queryRenderedFeatures({layers:['planner-route-lines']}).length>0);
   if(await f.locator('#plan-panel').isHidden())await f.locator('#planner-map-edit').click();await f.locator('#export-plan').click();const downloadPromise=page.waitForEvent('download');await f.locator('#export-action').click();const download=await downloadPromise;const text=fs.readFileSync(await download.path(),'utf8');assert.match(text,/DTSTART:20261114T170000Z/);assert.equal((text.match(/BEGIN:VEVENT/g)||[]).length,2);
@@ -152,7 +186,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   const eventBook=await f.evaluate(async()=>{await PlanStore.sync();return PlanStore.book;});
   await page.evaluate(()=>AustinVisit.navigate(new URL('/',location.origin)));
   await page.waitForFunction(()=>document.getElementById('app-window').contentWindow.location.pathname==='/chat/');
-  main=await(await page.locator('#app-window').elementHandle()).contentFrame();await main.waitForFunction(()=>window.austinExplore&&window.PlanStore);await main.evaluate(()=>PlanStore.ready());
+  main=await(await page.locator('#app-window').elementHandle()).contentFrame();await main.waitForFunction(()=>window.austinExplore&&window.PlanStore);await main.evaluate(()=>PlanStore.ready());assert.equal(await main.locator('.event-plan-label,#event-print-map').count(),0,'Main map has no event print or title overlays');
   assert.equal(await page.evaluate(()=>AustinVisit.id),visitId);assert.equal(await main.evaluate(()=>PlanStore.scope),'main');
   assert.deepEqual(await main.evaluate(()=>PlanStore.plan.items.map(i=>[i.source.title,i.schedule.note])),[['Separate main coffee','Keep my main plan']]);
   assert.equal(await main.evaluate(()=>PlanStore.plan.bufferMinutes),31);assert.equal(await main.evaluate(()=>PlanExport.prepare(PlanStore.plan,'google-maps').items.length),1);
@@ -167,6 +201,6 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await back.waitForURL('**/special-events/expired.html');assert.ok(await back.locator('h1').isVisible());
   if(member){const caches=await page.evaluate(()=>Object.keys(localStorage).filter(k=>k.startsWith('austin:planner:v2:')));assert.ok(caches.some(k=>k.endsWith(':main')));assert.ok(!caches.some(k=>k.endsWith(':austin-studio-tour-2026')));}
   assert.deepEqual(errors,[]);
-  console.log(`${width}px ${member?'member':'guest'}: organizer dates, filters, unknown/all-day hours, visit-window planning/export/update, Watercolor/fallback, 307 chat zones, GPS gating, separate main/event plans, navigation, reload and expiry passed.`);await context.close();await browser.close();browser=null;
+  console.log(`${width}px ${member?'member':'guest'}: organizer dates, filters, unknown/all-day hours, visit-window planning/export/update, Watercolor/fallback, 307 chat zones, GPS gating, separate main/event plans, navigation, reload, expiry and event plan labels/printing passed.`);await context.close();await browser.close();browser=null;
  }
 }finally{await browser?.close();if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

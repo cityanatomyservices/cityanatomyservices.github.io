@@ -73,7 +73,7 @@
   }
   function pick(f){
     show(false);popup?.remove();window.PlanPanel.leave();
-    map.easeTo({center:f.geometry.coordinates,zoom:Math.max(map.getZoom(),16),pitch:0,duration:500});
+    map.easeTo({center:f.geometry.coordinates,zoom:Math.max(map.getZoom(),16),duration:500});
     popup=new maplibregl.Popup({maxWidth:'330px',offset:18,className:'event-popup'}).setLngLat(f.geometry.coordinates).setDOMContent(details(f)).addTo(map);
   }
   function render(){

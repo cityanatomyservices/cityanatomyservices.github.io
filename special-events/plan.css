@@ -1,0 +1,22 @@
+/* Labels and print controls belong only to a Special Event's planning view. */
+.event-plan-label { position:absolute; box-sizing:border-box; width:190px; padding:8px 10px; border:1px solid #806287; border-radius:7px; background:var(--surface,#fff); color:var(--text,#29212e); box-shadow:0 2px 7px #0003; text-align:left; white-space:normal; font:12px/1.4 system-ui,sans-serif; cursor:pointer; }
+.event-plan-label[hidden] { display:none; }
+.event-plan-label strong { display:block; font-size:13px; overflow-wrap:anywhere; }
+.event-plan-label > span { display:block; }
+.event-plan-warning { color:var(--muted,#79542c); }
+.event-plan-leaders { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:2; }
+.event-plan-leaders line { stroke:#8d6597; stroke-width:1.5; }
+.planning-day .map-stop { z-index:3; }
+.planning-day .map-stop:focus-visible,.planning-day .map-stop:hover { z-index:4; }
+.event-planned-visit { font-weight:600; }
+.plan-map-actions { flex-wrap:wrap; }
+.event-print-dialog { box-sizing:border-box; width:min(1050px,calc(100% - 24px)); max-height:calc(100% - 24px); padding:16px; border:1px solid var(--border); border-radius:12px; color:var(--text); background:var(--surface); font:14px/1.45 system-ui,sans-serif; }
+.event-print-dialog::backdrop { background:#0008; }
+.event-print-dialog header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.event-print-dialog h2 { margin:0; font-size:21px; }
+.event-print-dialog button { padding:9px 12px; border:1px solid var(--border); border-radius:7px; background:var(--finish-raised); color:var(--text); font:inherit; cursor:pointer; }
+.event-print-dialog button:disabled { opacity:.5; cursor:default; }
+.event-print-dialog :focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.event-print-actions { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+#event-print-preview { width:100%; height:min(65vh,700px); border:1px solid var(--border); background:white; }
+.event-print-render { position:fixed; top:0; left:-20000px; width:1130px; height:680px; pointer-events:none; }

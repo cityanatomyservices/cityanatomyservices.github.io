@@ -335,3 +335,57 @@ migration 0016, `check-database.py --migrate` also verifies the migration agains
 existing items without exporting private data. Browser checks use account,
 chat and route fixtures, and cover same-day main/event plans, guest navigation,
 registered reload, exports, retained notes and deadline expiry.
+
+## Labelled day maps and printing
+
+Only Plan view shows a location title beside each numbered planned-stop marker,
+with its Austin visit date and arrival/departure time. Unscheduled visits say
+“Visit time not set” and show the selected availability window when known.
+Overnight visits show their actual next-morning date. Labels update with dates,
+visit times, titles and ordering; leader lines connect offset labels to their
+markers, and discovery/other map views remove them. The timeline cards show
+that same visit date/time. The main Explore planner keeps its numbered pins.
+
+Print map is available both on the event map's planning toolbar and in the
+editor. It prepares a landscape US Letter preview with **all mapped stops for
+the selected day**, fitted independently of the screen's pan/zoom/tilt. The
+Watercolor/street/satellite background is retained with required attribution.
+Each full location title, date and visit time appears in a map callout. Crowded
+plans continue onto additional sheets; every sheet covers the complete extent,
+with the other stops shown as small numbered markers. Crowded numbers are
+offset with connectors to their exact locations. Stops with no coordinates
+are explicitly counted as unmapped. Nothing is added to the cloud or saved plan.
+
+Download PDF writes a real `.pdf` locally; Print invokes the browser's print
+dialog on just the prepared sheets. The PDF consists of high-resolution JPEG
+map sheets (2400 × 1855 pixels), so location text is visual rather than searchable.
+The map renders at 2× resolution using MapLibre's documented
+[`canvasContextAttributes.preserveDrawingBuffer`](https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/MapOptions/#canvascontextattributes).
+A minimal PDF image-page encoder avoids an additional runtime dependency.
+Printing creates a short-lived offscreen render map; the interactive map and
+camera, routes, account data and chat state remain unchanged. Tile failures
+block download/printing and offer retry, rather than exporting an incomplete
+map. Changing the selected day or plan invalidates the preview; closing it
+releases the render map, generated URL and image previews.
+
+`special-events/plan-print.js` owns pure labels, wrapping, sheet allocation and
+PDF encoding. `plan.js` owns the event UI, labels and render lifecycle; `plan.css`
+is included only in the generated event page. The shared planner exposes an
+optional event-marker decoration hook and refreshes labels when saved title or
+date information changes. Edit `tools/special-events/make-map.cjs`, then rebuild
+the generated HTML as usual.
+
+The planner test suite covers Austin dates, midnight boundaries, unscheduled
+availability, long Unicode names, all 150 possible stops across sheets, and
+binary PDF offsets. Add `EVENT_PRINT_CHECK=true` to the browser event check for
+PDF download/print, labelled markers, camera/plan preservation and changed-day
+invalidation. Add `EVENT_PRINT_EDGE_CHECK=true` for a forced tile outage/retry,
+24 long-title stops across sheets and cancellation. All service writes remain
+mocked. PDFs and screenshots go to the external `EVENT_SCREENSHOTS` directory.
+
+The event now opens with the same animated downtown neighborhood view as the
+main map: 57° pitch and visible 3D building extrusions. Choosing an event stop
+preserves the chosen tilt. Entering Plan fits the day's stops while keeping the
+editor open, so stops elsewhere in Austin are visible after the closer opening
+view. The existing 2D/3D and extent controls remain available. Printable sheets
+use an independent overhead map without extrusion layers.

@@ -238,8 +238,8 @@
       // reading 2D while the map is tilted
       if (event) {
         for (const id of ['geofence-fill','geofence-line','geofence-label']) map.setLayoutProperty(id,'visibility','none');
-        setTilt(false);
-      } else if(!planning)neighborhoodView(CFG.openTiltMs);
+      }
+      if(!planning)neighborhoodView(CFG.openTiltMs);
 
       // hover: tint the polygon under the pointer
       let hovered = null;
