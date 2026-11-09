@@ -32,7 +32,15 @@ saved notes after sign-in. PDF checks verify saved stop notes plus newly edited
 visit notes, guest exclusion, full long-note continuation, preview invalidation,
 and unchanged plan/camera. Standard and three-sheet long-note PDFs were parsed
 and visually inspected. The public build excludes all 45 private resources.
-Publication verification is in progress.
+Implementation `ad5c907` is published by Pages run `42723338664`. All four CI
+suites passed. After the deployment succeeded, four unversioned entry pages
+advertised `20261109f` and matched checkout bytes. All 11 changed versioned
+assets and the private-bundle manifest matched as well. The live 390px member
+check passed notes/Favorites, failed-save/conflict recovery, signed-out privacy,
+sign-in restoration, Plan popups, PDF download with both note sources, navigation,
+reload and expiry. Account/chat/route requests used fixtures; no production
+customer notes or conversations were changed. Physical-phone GPS/chat remains
+the separately deferred owner check.
 
 ## 2026-11-09 - Event plan labels, printable PDFs and 3D opening
 
