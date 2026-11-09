@@ -53,3 +53,15 @@
 .event-basemap select { box-sizing:border-box;width:100%;padding:9px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);font:inherit; }
 #event-basemap-note { margin:7px 0 0;font-size:12px;line-height:1.4;color:var(--muted); }
 @media(max-width:680px){.event-panel{left:8px;right:82px;width:auto;top:8px;bottom:8px;}.event-toggle.is-open{left:calc(100% - 82px);}.event-panel header{padding:12px;}.event-scroll{padding:0 12px 12px;}.event-panel h1{font-size:19px;}}
+
+/* Private notebook controls are the same in browsing and Plan popups. */
+.event-stop-save { border-top:1px solid var(--border);margin-top:14px;padding-top:10px;font:13px/1.45 system-ui,sans-serif; }
+.event-stop-save label { display:block;font-weight:650;margin:10px 0 5px; }
+.event-stop-save textarea { box-sizing:border-box;width:100%;resize:vertical;min-height:76px;max-height:180px;padding:9px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);font:inherit; }
+.event-stop-save button { min-height:36px;padding:8px 10px;margin:3px 5px 3px 0;border:1px solid var(--border);border-radius:6px;background:var(--finish-raised);color:var(--text);font:inherit;cursor:pointer; }
+.event-stop-save button[aria-pressed=true] { color:var(--accent);background:var(--finish-selected); }
+.event-stop-save :disabled { opacity:.5;cursor:default; }
+.event-stop-save :focus-visible { outline:2px solid var(--accent);outline-offset:2px; }
+.event-save-hint,.event-save-status { font-size:12px;margin:7px 0;color:var(--muted); }
+.event-save-status:empty { display:none; }
+.event-stop-save.is-guest label { opacity:.5; }

@@ -20,7 +20,7 @@
   function sheets(entries,height=620){
     const pages=[];let page=[[],[]],used=[0,0];
     for(const entry of entries){let side=used[0]<=used[1]?0:1;
-      if(used[side]+entry.height>height&&page.flat().length){pages.push(page);page=[[],[]];used=[0,0];side=0;}
+      if((entry.continued||used[side]+entry.height>height)&&page.flat().length){pages.push(page);page=[[],[]];used=[0,0];side=0;}
       page[side].push(entry);used[side]+=entry.height+18;
     }
     if(page.flat().length)pages.push(page);
@@ -30,6 +30,19 @@
       let best=page,cost=Infinity;
       for(let cut=1;cut<sorted.length;cut++){const left=sorted.slice(0,cut),right=sorted.slice(cut),a=used(left),b=used(right);if(a<=height&&b<=height&&Math.abs(a-b)<cost){best=[left,right];cost=Math.abs(a-b);}}
       return best;
+    });
+  }
+  function notes(item,stopNote,registered){
+    if(!registered)return '';
+    const visitNote=item.schedule?.note||'';
+    return [stopNote,visitNote&&visitNote!==stopNote?(stopNote?'Visit notes: ':'')+visitNote:''].filter(Boolean).join('\n');
+  }
+  function withNotes(entries,height=640){
+    return entries.flatMap(entry=>{
+      const lines=entry.noteLines||[];if(!lines.length)return [entry];
+      const capacity=Math.max(1,Math.floor((height-entry.height-22)/17)),parts=[];
+      for(let at=0;at<lines.length;at+=capacity){const noteLines=lines.slice(at,at+capacity);parts.push({...entry,noteLines,continued:at>0,height:entry.height+22+noteLines.length*17});}
+      return parts;
     });
   }
   function placePins(points,bounds){
@@ -61,5 +74,5 @@
     add(`trailer\n<< /Size ${offsets.length} /Root 1 0 R >>\nstartxref\n${start}\n%%EOF\n`);
     const result=new Uint8Array(length);let at=0;for(const chunk of chunks){result.set(chunk,at);at+=chunk.length;}return result;
   }
-  return {date,visit,wrap,sheets,placePins,pdf};
+  return {date,visit,wrap,sheets,notes,withNotes,placePins,pdf};
 });

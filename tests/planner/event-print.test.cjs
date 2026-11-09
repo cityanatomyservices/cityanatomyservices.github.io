@@ -33,3 +33,19 @@ test('co-located printed stop numbers remain distinct and point back to their or
  const placed=P.placePins(points,bounds);assert.deepEqual(points,before);assert.equal(placed.length,150);
  for(let i=0;i<placed.length;i++){const p=placed[i];assert.ok(p.x>=bounds.left&&p.x<=bounds.right&&p.y>=bounds.top&&p.y<=bounds.bottom);for(let j=0;j<i;j++)assert.ok(Math.hypot(p.x-placed[j].x,p.y-placed[j].y)>=29);}
 });
+
+
+test('printed notes include both saved stop and visit notes only for registered users',()=>{
+  const item={schedule:{note:'Bring the measurements'}};
+  assert.equal(P.notes(item,'Ask about framing',true),'Ask about framing\nVisit notes: Bring the measurements');
+  assert.equal(P.notes(item,'Ask about framing',false),'');
+  assert.equal(P.notes(item,'Bring the measurements',true),'Bring the measurements');
+});
+test('long private notes continue across sheets without truncation or callout overflow',()=>{
+  const lines=Array.from({length:100},(_,i)=>'Note line '+i);
+  const entries=P.withNotes([{number:1,height:140,noteLines:lines,position:{x:500,y:300}}],640);
+  assert.ok(entries.length>1);assert.deepEqual(entries.flatMap(e=>e.noteLines),lines);
+  assert.ok(entries.every(e=>e.height<=640));
+  const sheets=P.sheets(entries,640);assert.equal(sheets.length,entries.length);
+  assert.equal(sheets[1][0][0].continued,true);
+});

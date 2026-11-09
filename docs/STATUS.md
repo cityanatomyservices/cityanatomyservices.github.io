@@ -1,5 +1,39 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-09 - Private event stop notes, Favorites and printed notes
+
+Owner requested notes and a Favorites button in every Art Tour stop popup,
+disabled for guests with “Sign In to save”, then asked for the signed-in user's
+notes in printed map callouts. Browsing and Plan popups now share a private
+stop notebook. Notes/Favorites are event-only and persist across tour dates;
+Favorites only filters the event's current availability results. Saving never
+adds a planned visit; unfavoriting keeps the note. Existing per-day notes remain
+separate and both note sources are printed, without duplicating identical text.
+Long notes continue across full-extent sheets with repeated stop identification.
+Preparing a print reloads saved notes and reads the current plan items so recent
+visit-note edits appear. Note/account changes invalidate previews. Opening an
+event Plan popup collapses the editor drawer to keep its controls accessible.
+Guests cannot save or print registered notes. Unsaved drafts require Save note.
+
+Applied migration `0017_special_event_stop_saves.sql` atomically after rolled-back
+checks. RLS/registered-owner guards, event scope, independent field updates,
+stale-write conflicts, validation, row limits, direct-write denial and expiry
+cascade pass before and after applying. No existing user data was changed.
+Account changes clear records/drafts; requests retain the initiating owner.
+No note content is written to browser persistence, public chat or comments.
+
+Runtime updates use `20261109f`; generated event HTML references the new saved
+store/UI and updated print helpers. Nine private bundles (45 files) were rebuilt
+and uploaded for shared loader reference changes. Validation: 120 planner/domain
+tests pass. All four phone/desktop guest/member browser checks pass private
+notes/Favorites, reload, filters and Plan popups. Desktop checks include clearing
+saved and draft notes at sign-out, reopening while signed out, and restoring only
+saved notes after sign-in. PDF checks verify saved stop notes plus newly edited
+visit notes, guest exclusion, full long-note continuation, preview invalidation,
+and unchanged plan/camera. Standard and three-sheet long-note PDFs were parsed
+and visually inspected. The public build excludes all 45 private resources.
+Publication verification is in progress.
+
 ## 2026-11-09 - Event plan labels, printable PDFs and 3D opening
 
 Owner requested location titles and visit dates/times beside planned markers,

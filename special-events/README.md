@@ -389,3 +389,50 @@ preserves the chosen tilt. Entering Plan fits the day's stops while keeping the
 editor open, so stops elsewhere in Austin are visible after the closer opening
 view. The existing 2D/3D and extent controls remain available. Printable sheets
 use an independent overhead map without extrusion layers.
+
+
+## Private stop notes and event Favorites
+
+Both browsing and Plan-marker popups mount the same private notebook. A Plan
+popup collapses the editor drawer so the notebook and close button remain
+accessible on desktop as well as phones. Registered
+visitors can toggle Favorite and save up to 2,000 characters of notes per stop.
+Guests see disabled controls with the exact hint “Sign In to save”. The Stops
+panel's “Favorites only” checkbox combines with the selected date and existing
+availability filters. Saving does not select a stop for a plan, and removing a
+Favorite retains its note. Notes belong to the stop across event dates; existing
+per-visit planner notes remain independent.
+
+`special-events/saved-store.js` keeps only page-memory records and calls scoped
+RPCs; `saved.js` owns popup fields and unsaved drafts. Drafts survive closing a
+popup within the page, but Save note is required to persist them. Account changes
+clear both records and drafts. Pending saves join the shared visit's navigation
+queue. Cross-tab notifications contain only owner/event identifiers, never notes.
+Failed saves keep drafts visible; stale field edits offer Reload saved note
+instead of overwriting the other device's value. Favorite and note changes
+compare their own original values, so they cannot overwrite each other.
+
+Migration `0017_special_event_stop_saves.sql` adds an owner-only table and RPCs.
+The server verifies registered identity, the initiating owner and active event;
+raw browser mutations are revoked. It caps notes at 2,000 characters and records
+at 1,000 per account/event. The event foreign key cascades through the existing
+48-hour cleanup. Notes and Favorites never appear in main Account Favorites,
+public comments or chat. No existing plans or notes are migrated or rewritten.
+
+Print preparation reloads the signed-in account's saved stop notes and includes
+them, plus that day's private visit notes, in the corresponding map callouts.
+Matching duplicate notes appear once. Long notes continue on more map sheets
+with the same stop number, full title and date/time; every sheet still fits all
+selected locations. Notes retain line breaks. Guest printouts contain no saved
+private notes. Saved-note/account changes invalidate the print preview and
+revoke its PDF; prepare again to include current notes. Unsaved popup drafts are
+not printed. Preview images and downloads are generated only in browser memory.
+
+Checks: `node --test --test-isolation=none tests/planner/*.test.cjs`,
+`python3 tools/special-events/check-saved-stops.py` (use `--migrate` before applying
+0017), and `node tools/special-events/check-map.cjs`. Database fixtures always
+roll back. The browser check covers disabled guest controls, successful and
+failed saves, conflict recovery, Favorites filtering, notes across days and
+Plan popups, navigation and reload. `EVENT_PRINT_CHECK=true` verifies both note
+sources in rendered PDFs; `EVENT_PRINT_EDGE_CHECK=true` additionally checks
+complete long-note pagination and preview invalidation after a saved-note edit.

@@ -28,7 +28,7 @@
     if(!on&&panel.contains(document.activeElement))toggle.focus({preventScroll:true});
   }
   function selectDate(value){date=value;limit=40;popup?.remove();render();draw();}
-  function matches(){return filterError?[]:event.features.filter(f=>M.matching(event,f,date,criteria).length);}
+  function matches(){return filterError?[]:event.features.filter(f=>(!$('event-favorites')?.checked||window.SpecialEventSavedStore.row(f.properties.id).favorite)&&M.matching(event,f,date,criteria).length);}
   function applyFilters(){
     criteria=M.filters({query:$('event-search').value,from:$('event-from').value,until:$('event-until').value,
       allDay:$('event-all-day').checked,includeUnknown:$('event-unknown').checked,facets:{}});
@@ -74,7 +74,8 @@
   function pick(f){
     show(false);popup?.remove();window.PlanPanel.leave();
     map.easeTo({center:f.geometry.coordinates,zoom:Math.max(map.getZoom(),16),duration:500});
-    popup=new maplibregl.Popup({maxWidth:'330px',offset:18,className:'event-popup'}).setLngLat(f.geometry.coordinates).setDOMContent(details(f)).addTo(map);
+    popup=new maplibregl.Popup({maxWidth:'330px',offset:18,className:'event-popup'}).setLngLat(f.geometry.coordinates).setDOMContent(details(f));
+    window.SpecialEventSaved.bind(popup,M.source(event,f,date,criteria));window.AustinComments?.followPopup(popup);popup.addTo(map);
   }
   function render(){
     if(!panel)return;
@@ -123,7 +124,7 @@
     const today=window.PlanModel.day(),preferred=window.PlanStore.plan.date;
     date=event.dates.includes(preferred)?preferred:event.dates.find(d=>d>=today)||event.dates[0];
     panel=node('section',undefined,'event-panel');panel.id='event-panel';panel.hidden=true;panel.setAttribute('aria-labelledby','event-title');
-    panel.innerHTML='<header><div><p class="event-eyebrow">Special Events</p><h1 id="event-title"></h1></div><button id="event-close" type="button" aria-label="Close stops">×</button></header><div class="event-scroll"><p id="event-dates"></p><p id="event-about"></p><label>Event day<select id="event-date"></select></label><label>Search stops<input id="event-search" type="search" placeholder="Name, artist, number or address"></label><details id="event-availability"><summary id="event-availability-summary">Time &amp; availability</summary><fieldset class="event-time"><legend>Visit window (optional)</legend><label>From<input id="event-from" type="time"></label><label>Until<input id="event-until" type="time"></label><p>Times before 5 AM mean the following morning.</p></fieldset><label class="event-check"><input id="event-all-day" type="checkbox"><span>Available all tour hours (11 AM–5 PM)</span></label><label class="event-check"><input id="event-unknown" type="checkbox"><span>Include schedules that need checking</span></label><p class="event-note">Unconfirmed hours cannot match a visit time or the all-day filter.</p></details><details id="event-filters"><summary id="event-filter-summary">More filters</summary><p class="event-note">Match any choice within a group. All selected accessibility features must be listed for the same participant.</p><div id="event-facet-groups"></div></details><button id="event-clear" type="button">Clear filters</button><p id="event-filter-message" role="alert"></p><p id="event-count" role="status"></p><ul id="event-results"></ul><button id="event-more" type="button">Show more stops</button><footer id="event-source"></footer></div>';
+    panel.innerHTML='<header><div><p class="event-eyebrow">Special Events</p><h1 id="event-title"></h1></div><button id="event-close" type="button" aria-label="Close stops">×</button></header><div class="event-scroll"><p id="event-dates"></p><p id="event-about"></p><label>Event day<select id="event-date"></select></label><label>Search stops<input id="event-search" type="search" placeholder="Name, artist, number or address"></label><label class="event-check"><input id="event-favorites" type="checkbox" disabled><span>Favorites only</span></label><details id="event-availability"><summary id="event-availability-summary">Time &amp; availability</summary><fieldset class="event-time"><legend>Visit window (optional)</legend><label>From<input id="event-from" type="time"></label><label>Until<input id="event-until" type="time"></label><p>Times before 5 AM mean the following morning.</p></fieldset><label class="event-check"><input id="event-all-day" type="checkbox"><span>Available all tour hours (11 AM–5 PM)</span></label><label class="event-check"><input id="event-unknown" type="checkbox"><span>Include schedules that need checking</span></label><p class="event-note">Unconfirmed hours cannot match a visit time or the all-day filter.</p></details><details id="event-filters"><summary id="event-filter-summary">More filters</summary><p class="event-note">Match any choice within a group. All selected accessibility features must be listed for the same participant.</p><div id="event-facet-groups"></div></details><button id="event-clear" type="button">Clear filters</button><p id="event-filter-message" role="alert"></p><p id="event-count" role="status"></p><ul id="event-results"></ul><button id="event-more" type="button">Show more stops</button><footer id="event-source"></footer></div>';
     document.querySelector('.page').append(panel);
     const toggle=node('button','‹','event-toggle');toggle.id='event-toggle';toggle.type='button';toggle.setAttribute('aria-controls','event-panel');toggle.onclick=()=>show(panel.hidden);document.querySelector('.page').append(toggle);
     $('event-title').textContent=event.title;$('event-dates').textContent=event.dateLabel+' · '+event.hours.label;$('event-about').textContent=event.scheduleNote;
@@ -154,9 +155,12 @@
       catch(error) { $('map-error').hidden=false;$('map-error').textContent=error.message; }
     },true);
     $('event-search').oninput=applyFilters;
+    $('event-favorites').onchange=applyFilters;
+    const savedChanged=()=>{const input=$('event-favorites');input.disabled=!window.AustinSession.registered||!window.SpecialEventSavedStore.loaded;if(input.disabled)input.checked=false;render();draw();};
+    window.SpecialEventSavedStore.subscribe(savedChanged);savedChanged();
     for(const id of ['event-from','event-until','event-all-day','event-unknown'])$(id).onchange=applyFilters;
     $('event-facet-groups').onchange=applyFilters;
-    $('event-clear').onclick=()=>{for(const id of ['event-search','event-from','event-until'])$(id).value='';panel.querySelectorAll('#event-all-day,#event-unknown,[data-event-facet]').forEach(i=>i.checked=false);applyFilters();};
+    $('event-clear').onclick=()=>{for(const id of ['event-search','event-from','event-until'])$(id).value='';panel.querySelectorAll('#event-all-day,#event-unknown,#event-favorites,[data-event-facet]').forEach(i=>i.checked=false);applyFilters();};
     $('event-more').onclick=()=>{limit+=40;render();};
     map.on('plannermode',()=>{popup?.remove();draw();});map.on('style.load',draw);map.on('eventchatroom',draw);draw();
     map.on('click','event-points',e=>{const id=e.features?.[0]?.properties.id;const f=event.features.find(f=>f.properties.id===id);if(f)pick(f);});

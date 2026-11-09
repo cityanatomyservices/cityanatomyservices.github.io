@@ -3,7 +3,9 @@
   const P=window.EventPlanPrint,S=window.PlanStore,$=id=>document.getElementById(id);
   const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
   let map,entries=[],leaders,frame,job=0,exportMap,exportHost,pdfURL,snapshot='',lastTrigger,abortPrint;
-  const signature=()=>JSON.stringify(S.plan);
+  const account=()=>window.AustinSession.registered?window.AustinSession.user.id:null;
+  const stopNote=item=>window.SpecialEventSavedStore?.row(item.source.sourceId).note||'';
+  const signature=()=>JSON.stringify([S.plan,account(),account()?S.plan.items.map(i=>[i.source.sourceId,stopNote(i)]):[]]);
   const button=node('button','Print map');button.type='button';button.id='event-print-map';button.disabled=true;$('planner-map-toolbar').append(button);
   const editorButton=node('button','Print map');editorButton.type='button';editorButton.id='event-print-plan';editorButton.disabled=true;document.querySelector('.plan-map-actions').append(editorButton);
   const dialog=node('dialog',undefined,'event-print-dialog');dialog.id='event-print-dialog';dialog.setAttribute('aria-labelledby','event-print-title');
@@ -35,6 +37,7 @@
     entries=[];
     items.forEach((item,index)=>{
       const marker=markers.find(m=>m.id===item.id)?.marker;if(!marker)return;
+      window.SpecialEventSaved?.bind(marker.getPopup(),item.source);
       const el=marker.getElement(),label=node('span',undefined,'event-plan-label'),visit=P.visit(item,S.plan.date);
       label.append(node('strong',item.source.title),node('span',visit.date),node('span',visit.time));if(visit.hours)label.append(node('span',visit.hours));
       if(item.source.eventUnavailable)label.append(node('span','Availability needs checking','event-plan-warning'));
@@ -72,10 +75,14 @@
   const pageWidth=1200,pageHeight=1200*8.5/11,mapX=35,mapY=125,mapWidth=1130,mapHeight=680;
   function box(ctx,x,y,w,h){ctx.fillStyle='#ffffff';ctx.strokeStyle='#806287';ctx.lineWidth=1;ctx.fillRect(x,y,w,h);ctx.strokeRect(x,y,w,h);}
   async function prepare(){
-    invalidate();const run=job;snapshot=signature();
+    invalidate();const run=job,owner=account();snapshot='';
     $('event-print-status').textContent='Preparing a map of this day’s stops…';$('event-print-refresh').disabled=true;
-    const plan=S.plan,selected=entries.map(e=>({item:structuredClone(e.item),number:e.number,point:[...e.point]}));
     try{
+      if(owner)await window.SpecialEventSavedStore.reload();
+      if(run!==job)return;
+      if(owner!==account())throw Error('Your account changed. Prepare the map again.');
+      snapshot=signature();
+      const plan=structuredClone(S.plan),selected=entries.map(e=>{const item=plan.items.find(i=>i.id===e.item.id)||e.item;return {item:structuredClone(item),number:e.number,point:[...e.point],notes:P.notes(item,stopNote(item),!!owner)};});
       window.PlanContext.assert();if(!window.PlanPanel.active||!selected.length)throw Error('Choose a day with planned stops on the map first.');
       const style=baseStyle(),rendered=await mapImage(selected.map(e=>e.point),style);
       if(run!==job)return;
@@ -84,9 +91,10 @@
       const pins=P.placePins(rendered.projected,{left:255,right:mapWidth-255,top:18,bottom:mapHeight-18});
       const records=selected.map((e,i)=>{const visit=P.visit(e.item,plan.date),title=P.wrap(`${e.number}. ${e.item.source.title}`,208,t=>ctx.measureText(t).width);
         ctx.font='14px Arial';const timing=P.wrap(visit.time+(visit.hours?' · '+visit.hours:''),208,t=>ctx.measureText(t).width);ctx.font='bold 16px Arial';
-        return {...e,visit,title,timing,position:pins[i],location:rendered.projected[i],height:20+title.length*19+18+timing.length*18+(e.item.source.eventUnavailable?36:0)};
+        ctx.font='13px Arial';const noteLines=e.notes.trim()?e.notes.trim().replace(/\n{3,}/g,'\n\n').split(/\r?\n/).flatMap(line=>P.wrap(line,208,t=>ctx.measureText(t).width)):[];ctx.font='bold 16px Arial';
+        return {...e,visit,title,timing,noteLines,position:pins[i],location:rendered.projected[i],height:20+title.length*19+18+timing.length*18+(e.item.source.eventUnavailable?36:0)};
       });
-      const pages=P.sheets(records,mapHeight-40),images=[],urls=[];
+      const pages=P.sheets(P.withNotes(records,mapHeight-40),mapHeight-40),images=[],urls=[];
       for(let pageIndex=0;pageIndex<pages.length;pageIndex++){
         if(run!==job)return;
         ctx.fillStyle='#fff';ctx.fillRect(0,0,pageWidth,pageHeight);
@@ -112,7 +120,8 @@
             for(const line of r.title){ctx.fillText(line,x+10,at);at+=19;}
             ctx.font='13px Arial';ctx.fillText(r.visit.date,x+10,at);at+=18;
             ctx.font='14px Arial';for(const line of r.timing){ctx.fillText(line,x+10,at);at+=18;}
-            if(r.item.source.eventUnavailable){ctx.fillStyle='#8e3c11';ctx.fillText('Availability needs checking',x+10,at+5);}
+            if(r.item.source.eventUnavailable){ctx.fillStyle='#8e3c11';ctx.fillText('Availability needs checking',x+10,at+5);at+=36;}
+            if(r.noteLines.length){ctx.fillStyle='#29212e';ctx.font='bold 13px Arial';ctx.fillText(r.continued?'My notes (continued)':'My notes',x+10,at+4);at+=21;ctx.font='13px Arial';for(const line of r.noteLines){ctx.fillText(line,x+10,at);at+=17;}}
             y+=r.height+18;
           }
         });
@@ -142,6 +151,7 @@
   $('event-print-paper').onclick=()=>{if(!pdfURL||signature()!==snapshot)return;$('event-print-preview').contentWindow.focus();$('event-print-preview').contentWindow.print();};
   dialog.addEventListener('close',()=>{invalidate();lastTrigger?.focus();});
   S.subscribe(()=>{if(dialog.open&&snapshot&&snapshot!==signature()){invalidate('Your plan changed. Prepare the map again to print the current day and times.');$('event-print-refresh').disabled=false;}});
+  window.SpecialEventSavedStore?.subscribe(()=>{if(dialog.open&&snapshot&&snapshot!==signature()){invalidate('Your saved notes or account changed. Prepare the map again to include the current notes.');$('event-print-refresh').disabled=false;}});
   window.addEventListener('austin:planner-view',event=>{if(!event.detail.active&&dialog.open)dialog.close();queueLayout();});
   window.addEventListener('pagehide',()=>{invalidate();cancelAnimationFrame(frame);});
   window.SpecialEventPlan={update};

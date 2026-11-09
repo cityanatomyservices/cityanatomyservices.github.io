@@ -9,10 +9,11 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
  for(const width of (process.env.EVENT_WIDTH?[Number(process.env.EVENT_WIDTH)]:[1280,390]))for(const member of (process.env.EVENT_MEMBER?[process.env.EVENT_MEMBER==='true']:[false,true])){
   // Release software-WebGL memory between variants on smaller laptops.
   browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
-  const active=session(member),context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});const remotes=new Map();let remote=null;const saves=[],watercolorTiles=[];
+  const active=session(member),context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});const remotes=new Map();let remote=null;const saves=[],watercolorTiles=[],stopSaves=new Map();let failStopSave=false,guestAfterSignOut=false;const signedOutSession=session(false);
   context.on('response',response=>{if(response.url().includes('/special-events/tiles/stamen-watercolor-austin/')&&response.url().endsWith('.jpg'))watercolorTiles.push(response.status());});
   await context.addInitScript(({member,active})=>{
    if(member&&!localStorage.getItem('event-fixture-seeded')){localStorage.setItem('event-fixture-seeded','yes');localStorage.setItem('sb-aqbyxpiwugcvoephsvpm-auth-token',JSON.stringify(active));}
+   window.printedMapText=[];const drawText=CanvasRenderingContext2D.prototype.fillText;CanvasRenderingContext2D.prototype.fillText=function(text,...args){if(this.canvas.width===2400)window.printedMapText.push(String(text));return drawText.call(this,text,...args);};
    let sample;
    Object.defineProperty(navigator,'geolocation',{configurable:true,value:{watchPosition:(success,error,options)=>{window.gpsOptions=options;window.gps=(pt,accuracy=5,age=0)=>{sample={coords:{longitude:pt[0],latitude:pt[1],accuracy},timestamp:Date.now()-age};success(sample);};window.gpsError=e=>{sample=null;error(e);};return 1;},clearWatch(){},getCurrentPosition:success=>{if(sample&&!window.freezeGPS)success({...sample,timestamp:Date.now()});}}});
    let identity;window.testChannels=[];window.testMessages=[];window.testSockets=[];
@@ -20,8 +21,17 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
    window.testPeer=(on=true,room=window.ChatEngine.room)=>{const c=testSockets.at(-1);if(on)c.state.Neighbor=[{handle:'Neighbor',emoji:'*',room,expiresAt:Date.now()+60000}];else delete c.state.Neighbor;c.handlers.presence();};
   },{member,active});
   await context.route('https://*.supabase.co/**',route=>{const p=new URL(route.request().url()).pathname,body=route.request().postDataJSON();
-   if(p==='/auth/v1/signup'||p==='/auth/v1/token')return route.fulfill({json:active});if(p==='/auth/v1/user')return route.fulfill({json:active.user});
+   if(p==='/auth/v1/logout')return route.fulfill({json:{}});
+   if(p==='/auth/v1/signup'||p==='/auth/v1/token')return route.fulfill({json:guestAfterSignOut?signedOutSession:active});if(p==='/auth/v1/user')return route.fulfill({json:active.user});
    if(p==='/rest/v1/rpc/member_load')return route.fulfill({json:{profile:{handle:'Fixture',emoji:'ðŸŽ¨',show_avatar:false},favorites:[],preferences:{},progress:[]}});
+   if(p==='/rest/v1/rpc/special_event_stops_load')return route.fulfill({json:member?[...stopSaves.values()]:[]});
+   if(p==='/rest/v1/rpc/special_event_stop_set'){
+     if(!member||body.p_owner!==active.user.id)return route.fulfill({status:401,json:{code:'PT401'}});
+     if(failStopSave){failStopSave=false;return route.fulfill({status:503,json:{code:'OFFLINE'}});}
+     const row=stopSaves.get(body.p_stop)||{stop_id:body.p_stop,note:'',favorite:false};
+     if(row[body.p_field]!==body.p_expected)return route.fulfill({status:409,json:{code:'PT409'}});
+     const next={...row,[body.p_field]:body.p_value};stopSaves.set(body.p_stop,next);return route.fulfill({json:next});
+   }
    if(p==='/rest/v1/rpc/planner_load_scoped')return route.fulfill({json:remotes.get(body.p_scope)||null});
    if(p==='/rest/v1/rpc/planner_save_scoped'){saves.push(body);remote={plan:{id:body.p_id,...body.p_settings,items:body.p_items},revision:(remotes.get(body.p_scope)?.revision||0)+1,dirty:false};remotes.set(body.p_scope,remote);return route.fulfill({json:{revision:remote.revision}});}
    if(p==='/rest/v1/rpc/planner_routing_status')return route.fulfill({json:{status:'ready',networkVersion:2}});
@@ -72,6 +82,37 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   assert.match(await f.locator('.maplibregl-ctrl-attrib').innerHTML(),/Stamen Design/);assert.match(await f.locator('.maplibregl-ctrl-attrib').innerHTML(),/Cooper Hewitt/);
   await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>!chatMap.isMoving());assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('buildings-3d','visibility')),'none');await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>!chatMap.isMoving());assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('buildings-3d','visibility')),'visible');
   await f.locator('#ctrlStops').click();
+  // Private notes and Favorites never select a plan day or enter main Favorites.
+  const noteText='Ask about the blue painting <private> & price.';
+  const firstStop=await f.evaluate(()=>String(AustinEvent.data.features.find(f=>f.properties.number===1).properties.id));
+  await f.locator('#event-search').fill('1');await f.locator('#event-results .event-stop').click();
+  const notebook=f.locator('.event-popup .event-stop-save'),textarea=notebook.locator('textarea');await notebook.waitFor();
+  if(!member){assert.equal(await textarea.isDisabled(),true);assert.equal(await notebook.locator('.event-stop-favorite').isDisabled(),true);assert.equal(await notebook.locator('.event-note-save').isDisabled(),true);assert.equal(await notebook.locator('.event-save-hint').textContent(),'Sign In to save');}
+  else{
+    await f.waitForFunction(()=>SpecialEventSavedStore.loaded);await textarea.fill(noteText);await notebook.locator('.event-note-save').click();await notebook.locator('.event-save-status').filter({hasText:'Note saved.'}).waitFor();
+    await notebook.locator('.event-stop-favorite').click();await f.waitForFunction(()=>document.querySelector('.event-popup .event-stop-favorite').getAttribute('aria-pressed')==='true');
+    failStopSave=true;await textarea.fill('Draft retained after failure');await notebook.locator('.event-note-save').click();await notebook.locator('.event-save-status').filter({hasText:'Could not save'}).waitFor();assert.equal(await textarea.inputValue(),'Draft retained after failure');assert.equal(stopSaves.get(firstStop).note,noteText);
+    await textarea.fill(noteText);await textarea.fill('My stale draft');stopSaves.set(firstStop,{...stopSaves.get(firstStop),note:'A newer note from another device'});await notebook.locator('.event-note-save').click();await notebook.locator('.event-note-reload').waitFor();assert.equal(await textarea.inputValue(),'My stale draft');
+    await notebook.locator('.event-note-reload').click();await f.waitForFunction(()=>document.querySelector('.event-popup textarea').value==='A newer note from another device');
+    await textarea.fill(noteText);await notebook.locator('.event-note-save').click();await notebook.locator('.event-save-status').filter({hasText:'Note saved.'}).waitFor();
+    assert.equal(await f.evaluate(()=>PlanStore.book.items.length),0,'Saving a stop does not add it to a plan');assert.equal(await f.evaluate(()=>AustinMember.state.favorites.length),0,'Event Favorites stay outside main Favorites');
+    if(process.env.EVENT_SAVED_AUTH_CHECK==='true'){
+      await textarea.fill('Unsaved draft must clear at sign-out');guestAfterSignOut=true;await f.evaluate(()=>AustinSession.signOut());
+      await f.waitForFunction(()=>!AustinSession.registered&&document.querySelector('.event-popup textarea').disabled);assert.equal(await textarea.inputValue(),'');assert.equal(await notebook.locator('.event-save-hint').textContent(),'Sign In to save');
+      await f.locator('.event-popup .maplibregl-popup-close-button').click();await f.locator('#ctrlStops').click();await f.locator('#event-search').fill('1');await f.locator('#event-results .event-stop').click();assert.equal(await textarea.inputValue(),'','Reopening a popup cannot restore signed-out notes');
+      guestAfterSignOut=false;await f.evaluate(tokens=>AustinSession.client().auth.setSession(tokens),{access_token:active.access_token,refresh_token:active.refresh_token});
+      await f.waitForFunction(()=>AustinSession.registered&&SpecialEventSavedStore.loaded&&!document.querySelector('.event-popup textarea').disabled);assert.equal(await textarea.inputValue(),noteText,'Signing in restores saved notes without the discarded draft');await f.evaluate(()=>PlanStore.ready());
+    }
+
+  }
+  await textarea.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(screenshots,`${width}-${member?'member':'guest'}-notebook.png`)});
+  await f.locator('.event-popup .maplibregl-popup-close-button').click();await f.locator('#ctrlStops').click();await f.locator('#event-clear').click();
+  if(member){
+    await f.locator('#event-favorites').check();assert.equal(await f.locator('#event-results .event-stop').count(),1);await f.locator('#event-date').selectOption('2026-11-15');await f.locator('#event-results .event-stop').click();
+    assert.equal(await f.locator('.event-popup textarea').inputValue(),noteText,'A note belongs to the stop across tour dates');
+    await f.locator('.event-popup .event-stop-favorite').click();await f.waitForFunction(()=>document.querySelector('.event-popup .event-stop-favorite').getAttribute('aria-pressed')==='false');assert.equal(await f.locator('.event-popup textarea').inputValue(),noteText,'Removing Favorite keeps note');
+    await f.locator('.event-popup .maplibregl-popup-close-button').click();await f.locator('#ctrlStops').click();await f.locator('#event-clear').click();await f.locator('#event-date').selectOption('2026-11-14');
+  }
   // Organizer dates, unknown hours and the all-day option affect both list and pins.
   await f.locator('#event-search').fill('1');assert.equal(await f.locator('#event-results .event-stop').count(),1);
   await f.locator('#event-date').selectOption('2026-11-21');assert.equal(await f.locator('#event-results .event-stop').count(),0);
@@ -113,13 +154,19 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await f.waitForFunction(()=>PlanStore.plan.items.every(i=>i.schedule.start));assert.equal(await f.locator('.map-stop').count(),2);
   assert.equal(await f.locator('.event-plan-label').count(),2);assert.match(await f.locator('.event-plan-label').first().innerText(),/Nov 14, 2026/);assert.match(await f.locator('.event-plan-label').first().innerText(),/CT/);
   assert.equal(await f.locator('.event-planned-visit').count(),2);
+  await f.evaluate(()=>PlanMap.focus(PlanStore.plan.items.find(i=>String(i.source.sourceId)===String(AustinEvent.data.features.find(f=>f.properties.number===1).properties.id)).id));
+  await f.locator('.planner-popup .event-stop-save').waitFor();assert.equal(await f.locator('.planner-popup .event-stop-save textarea').isDisabled(),!member);
+  if(member)assert.equal(await f.locator('.planner-popup .event-stop-save textarea').inputValue(),noteText,'Plan popup shares the stop notebook');
+  await f.locator('.planner-popup .maplibregl-popup-close-button').click();await f.evaluate(()=>PlanPanel.open());
   if(process.env.EVENT_PRINT_CHECK==='true'){
+    if(member)await f.evaluate(()=>PlanStore.edit(p=>{p.items[0].schedule.note='Bring measurements for this visit.';}));
     await f.waitForFunction(()=>!chatMap.isMoving());
     const beforePrint=await f.evaluate(()=>({plan:PlanStore.plan,camera:[chatMap.getCenter().lng,chatMap.getCenter().lat,chatMap.getZoom(),chatMap.getPitch()]}));
     await f.locator('#event-print-plan').click();await f.waitForFunction(()=>!document.getElementById('event-print-download').disabled,{}, {timeout:45000});
     const downloading=page.waitForEvent('download');await f.locator('#event-print-download').click();const pdf=await downloading;assert.match(pdf.suggestedFilename(),/austin-studio-tour-2026-2026-11-14-map.pdf/);
     const pdfBytes=fs.readFileSync(await pdf.path());assert.equal(pdfBytes.subarray(0,8).toString(),'%PDF-1.4');assert.ok(pdfBytes.length>30000,'PDF contains a rendered map');fs.writeFileSync(path.join(screenshots,`${width}-${member?'member':'guest'}-plan.pdf`),pdfBytes);
     const preview=await(await f.locator('#event-print-preview').elementHandle()).contentFrame();await preview.locator('img').first().waitFor();assert.ok(await preview.locator('img').first().evaluate(i=>i.naturalWidth>=2000));
+    const printed=await f.evaluate(()=>printedMapText.join(' '));if(member){assert.ok(printed.includes(noteText),'Saved stop notes appear in the printed callout');assert.ok(printed.includes('Bring measurements for this visit.'),'Visit notes also appear');}else assert.ok(!printed.includes('My notes'),'Guest PDFs contain no saved private notes');
     await preview.locator('img').first().screenshot({path:path.join(screenshots,`${width}-${member?'member':'guest'}-print.png`)});
     await preview.evaluate(()=>{window.print=()=>{window.didPrint=true;};});await f.locator('#event-print-paper').click();assert.equal(await preview.evaluate(()=>window.didPrint),true);
     assert.deepEqual(await f.evaluate(()=>PlanStore.plan),beforePrint.plan,'Printing never edits the plan');assert.deepEqual(await f.evaluate(()=>[chatMap.getCenter().lng,chatMap.getCenter().lat,chatMap.getZoom(),chatMap.getPitch()]),beforePrint.camera,'Print extent does not change the interactive camera');
@@ -139,6 +186,16 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
       const manyPreview=await(await f.locator('#event-print-preview').elementHandle()).contentFrame();assert.ok(await manyPreview.locator('img').count()>1);
       const manyDownload=page.waitForEvent('download');await f.locator('#event-print-download').click();const manyBytes=fs.readFileSync(await(await manyDownload).path());fs.writeFileSync(path.join(screenshots,'crowded-plan.pdf'),manyBytes);await manyPreview.locator('img').first().screenshot({path:path.join(screenshots,'crowded-preview.png')});
       await f.locator('#event-print-close').click();await f.evaluate(p=>PlanStore.edit(day=>{day.items=p.items;}),beforePrint.plan);
+      if(member){
+        const longNote=('Bring the fabric swatches and ask about framing options. '.repeat(40)).slice(0,1900)+' END OF PRIVATE NOTES';
+        await f.evaluate(({id,note,previous})=>SpecialEventSavedStore.set(id,'note',note,previous),{id:firstStop,note:longNote,previous:noteText});
+        await f.locator('#event-print-plan').click();await f.waitForFunction(()=>!document.getElementById('event-print-download').disabled,{}, {timeout:45000});
+        const notesPreview=await(await f.locator('#event-print-preview').elementHandle()).contentFrame();assert.ok(await notesPreview.locator('img').count()>1,'Long notes continue on another map sheet');
+        assert.ok((await f.evaluate(()=>printedMapText.join(' '))).includes('END OF PRIVATE NOTES'),'The end of the full note is printed');
+        const notesDownload=page.waitForEvent('download');await f.locator('#event-print-download').click();fs.copyFileSync(await(await notesDownload).path(),path.join(screenshots,'long-notes.pdf'));
+        await f.evaluate(({id,note,previous})=>SpecialEventSavedStore.set(id,'note',note,previous),{id:firstStop,note:noteText,previous:longNote});
+        assert.equal(await f.locator('#event-print-download').isDisabled(),true);assert.match(await f.locator('#event-print-status').innerText(),/notes or account changed/);await f.locator('#event-print-close').click();
+      }
       await f.locator('#event-print-plan').click();await f.locator('#event-print-close').click();assert.equal(await f.locator('.event-print-render').count(),0,'Cancel releases the export map');
     }
 
@@ -196,11 +253,12 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   let back=await(await page.locator('#app-window').elementHandle()).contentFrame();await back.waitForFunction(()=>window.AustinEvent?.data&&window.PlanStore);await back.evaluate(()=>PlanStore.ready());
   assert.deepEqual(await back.evaluate(()=>PlanStore.book.items),eventBook.items,'Returning to event recovers only its selections and notes');
   if(member){await page.reload();back=await(await page.locator('#app-window').elementHandle()).contentFrame();await back.waitForFunction(()=>window.AustinEvent?.data&&window.PlanStore);await back.evaluate(()=>PlanStore.ready());assert.deepEqual(await back.evaluate(()=>PlanStore.book.items),eventBook.items,'Registered event collection survives reload independently');}
+  if(member){await back.evaluate(()=>SpecialEventSavedStore.ready());assert.equal(await back.evaluate(id=>SpecialEventSavedStore.row(id).note,firstStop),noteText,'Private stop note survives navigation and reload');}
   // A retained tab expires, clears its own cache, and cannot expose the map.
   await page.clock.setSystemTime(new Date('2026-11-25T04:00:00Z'));await back.evaluate(()=>PlanContext.check());
   await back.waitForURL('**/special-events/expired.html');assert.ok(await back.locator('h1').isVisible());
   if(member){const caches=await page.evaluate(()=>Object.keys(localStorage).filter(k=>k.startsWith('austin:planner:v2:')));assert.ok(caches.some(k=>k.endsWith(':main')));assert.ok(!caches.some(k=>k.endsWith(':austin-studio-tour-2026')));}
   assert.deepEqual(errors,[]);
-  console.log(`${width}px ${member?'member':'guest'}: organizer dates, filters, unknown/all-day hours, visit-window planning/export/update, Watercolor/fallback, 307 chat zones, GPS gating, separate main/event plans, navigation, reload, expiry and event plan labels/printing passed.`);await context.close();await browser.close();browser=null;
+  console.log(`${width}px ${member?'member':'guest'}: organizer dates, filters, unknown/all-day hours, visit-window planning/export/update, Watercolor/fallback, 307 chat zones, GPS gating, separate main/event plans, navigation, reload, expiry event plan labels/printing, private stop notes and Favorites passed.`);await context.close();await browser.close();browser=null;
  }
 }finally{await browser?.close();if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});
