@@ -87,6 +87,18 @@ through old in-site links and Back/Forward. It blocks production account writes.
 
 ## Module boundaries
 
+Special Events sources can include `availabilityWindows: [{start,end}]` and
+the saved `eventFilters`/matching participants. Build, validation and travel
+fitting honor each separate window, including closed gaps and overnight
+openings. Unknown event schedules require confirmed manual `windowStart` and
+`windowEnd` before building a visit. `eventUnavailable` flags a retained visit
+whose saved day/filters no longer match current organizer listings. Calendar
+and map exports exclude these and scheduled event visits outside their hours;
+calendar descriptions retain the chosen filters and matching participants.
+The Special Events adapter refreshes old source snapshots on the active day,
+preserving the user's visits, notes and arrival choices for review. Ordinary
+business and meeting scheduling retains its existing behavior.
+
 | Module | Owns |
 | --- | --- |
 | `shared/visit.js` | Page-memory state and navigation between the main map and planner; no browser storage |

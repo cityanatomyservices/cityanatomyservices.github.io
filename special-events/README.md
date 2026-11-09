@@ -56,6 +56,51 @@ nearby businesses and other plans. Visit durations remain unconfirmed until
 the visitor edits them. Exports retain source URLs and attendance caveats.
 No artist's attendance on every tour day is inferred from its location pin.
 
+## Dates, filters and opening hours
+
+The date selector now shows only stops with published opening windows on that
+day. **Time & availability** adds an optional visit window, an all-event-hours
+option and an explicit option to include schedules needing confirmation.
+Missing days, missing endpoints and suspicious time ranges are never filled
+with the tour's general 11 AM–5 PM hours. Times before 5 AM in the visitor's
+time filter mean the following morning, matching the planner's day boundary.
+Published evening/overnight openings are retained.
+
+**More filters** uses the organizer's Explore choices: art mediums, activities,
+overall vibe, accessibility, communities highlighted, indoor/outdoor,
+artists/groups/hosts and family-friendly content. The owner explicitly removed
+venue/location type. Search covers names, addresses and exact stop numbers.
+Multiple choices within a group are alternatives; accessibility requires all
+selected features. Groups are combined against the **same participant on the
+selected day**, not against unrelated artists sharing a building. Dates and
+hours stay attached to the correct location for participants who move.
+
+Rows/popups show the matching participants and visit hours. Selected filters,
+participants, day and intersected time windows are copied into the planner
+source and calendar descriptions. The scheduler and travel fitting preserve
+separate opening windows and never fill a closed gap. A visit must fit entirely
+within one window. Unknown event hours require a confirmed manual availability
+window before automatic scheduling/calendar export. Invalid scheduled event
+visits are excluded from calendar and route exports, with an explanation.
+
+Changing discovery filters keeps existing planned visits. **Update planned
+visit** applies new choices to an already selected stop, retaining notes and
+locked arrivals and clearing an unlocked arrival for rebuilding. When a saved
+day opens, older event source snapshots refresh against this dataset; visits
+and user edits remain, and unavailable/out-of-hours visits are flagged. This
+also repairs plans previously saved with uniform hours for every stop.
+
+`filters` declares each group and its public choices. Each profile has
+`facets` and `availability: {status, days, text}`; a published day's value is
+an array of `{open, close, nextDay?}` windows. An empty array means the day was
+listed without usable hours. `status: "unknown"` means no schedule is published.
+`availabilityChecked` versions these source snapshots. Future event datasets
+can use the same format and controls. Legacy event-wide or per-stop hours
+remain supported for events without participant schedules.
+
+The complete 307-zone GPS/chat collection is unchanged. Discovery outlines
+follow the visible results; planning filters do not change chat membership.
+
 ## Austin Studio Tour 2026 source snapshot
 
 - Dates/hours: [organizer homepage](https://atxstudiotour.com/), November
@@ -74,16 +119,44 @@ No artist's attendance on every tour day is inferred from its location pin.
   applies small offsets to separate nearby pins. Confirm entrances on arrival.
 - The bounding rectangle is the stop envelope with 0.002° padding. It is the
   event map extent, not chat coverage or an official event boundary.
+- On November 9, the organizer's public profile pages and
+  [Explore filters](https://atxstudiotour.com/explore/) supplied 811
+  participant/location associations from 789 distinct profiles across all
+  307 stops. The public API contains 813 profiles; profiles with no published
+  location or established index link are not assigned a guessed stop.
+  115 associations have no published schedule and 14 have at least one
+  incomplete/invalid day. The original index preserves known locations when
+  the profile's Location/Open sections are empty, without inventing hours.
+  Four previously unnamed stops now have linked profile information.
+- Default date results with usable published hours are 258, 256, 250 and 249
+  stops, respectively. General tour hours are not used to override individual
+  schedules. Raw pages are retained only in the external source cache.
 
 To refresh, save `explore.html`, extracted `markers.json`, public
 `location-records.json`, each `<post-id>.html` and a `participants.json`
 mapping number → `{name,url,kind}[]` outside the repository. Read all pages of
 the public location API and scroll the public index until no more rows load.
-Then run `python tools/special-events/import-studio-tour.py <source-directory>`.
+Then run `python tools/special-events/import-studio-tour.py <source-directory>
+--profiles-cache <filter-source-directory>` (one command).
 The importer checks number/address/coordinate consistency and fails on missing
 records. Then rebuild the chat zones as described below before publishing.
 Review date/hour changes separately and bump the data's asset version.
 Do not commit full website downloads, account data or credentials.
+
+To refresh the filter/schedule enrichment without rebuilding any geometry:
+
+```sh
+python3 tools/special-events/enrich-studio-tour.py /path/outside/repo/tour-source --fetch
+```
+
+Omit `--fetch` to reproduce from that cache. The standard-library importer
+reads public WordPress records and public profile pages with four concurrent
+requests; only filter labels, profile links and factual availability enter
+the GeoJSON. Keep the existing participant/index links when doing a full
+location reimport; `--profiles-cache` applies this enrichment during that import.
+The importer refuses to discard existing availability when that argument is
+omitted. Bump the event data version after either refresh path.
+Review the dates/counts and run the parser and planner checks before publishing.
 
 ## Chat and GPS
 
@@ -157,6 +230,7 @@ The event roster wraps on phones and scrolls when needed.
 ## Checks
 
 - `node --test tests/planner/*.test.cjs`
+- `python3 -m unittest discover -s tests/special-events -p 'test_*.py'`
 - `node tools/special-events/check-map.cjs [https://austin.chat]`
 - `node tools/planner/check-map.cjs [https://austin.chat]`
 - `node tools/special-events/check-chat-live.cjs [https://austin.chat]`
@@ -182,5 +256,7 @@ hidden/alone/outside/inaccurate/stale/denied-location gating, drawer controls,
 theme layout and the main Explore link. All account/chat/route writes use local
 fixtures. It also loads actual hosted watercolor JPEGs and checks background
 switching, satellite/3D, camera preservation, attribution, a simulated tile
-outage and recovery. Shared references in private tour/shop pages require repackaging
+outage and recovery. Availability checks cover actual weekend exceptions,
+unknown schedules, all-day/time/medium filters, narrowed planner windows,
+calendar details and updating an already planned visit. Shared references in private tour/shop pages require repackaging
 with `tools/billing/package-apps.py --upload` before workflow-only Pages deploy.

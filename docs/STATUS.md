@@ -1,5 +1,54 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-09 - Studio Tour filters and individual opening hours
+
+Owner requested the filters from `https://atxstudiotour.com/explore/` and
+explicitly removed venue/location type. The map now filters by event day,
+optional visit times, all-event-hours availability, art mediums, activities,
+vibe, accessibility, communities highlighted, indoor/outdoor, participant
+type and family-friendly content. Time/availability and additional filters
+are collapsible on phones. Search accepts exact location numbers.
+
+Fetched all 813 public profile pages and the Explore filter definitions.
+789 located profiles supply 811 participant/location associations across
+all 307 existing stops. Individual schedules and filters stay attached to the
+same participant at the correct location; moving groups retain distinct
+location/day windows. 115 associations have no schedule, and 14 contain at
+least one incomplete/invalid day. They retain their public evidence, but no
+missing hours are inferred. The default day results are 258/256/250/249 stops;
+an explicit checkbox includes schedules needing confirmation. Evening hours
+are retained. All coordinates, stop identities, existing titles/addresses,
+chat geometries and GPS membership behavior are unchanged.
+
+The planner snapshots matching participants, chosen filters and narrowed
+opening windows. Build, conflict checks and travel fitting preserve closed
+gaps. Unknown event hours require confirmed manual availability; unavailable
+or out-of-hours scheduled visits are excluded from exports. Calendar details
+retain the selections. Changing discovery filters keeps already selected
+visits; Update planned visit explicitly applies new choices. Older saved
+event sources refresh on the active day, preserving visits, notes and locked
+arrivals while flagging current availability problems. Ordinary planner
+business/meeting behavior remains covered by its existing checks.
+
+The standard-library `enrich-studio-tour.py` helper stores raw public pages
+outside the repository and updates only factual metadata. Full location
+reimports require its cache to avoid discarding schedules. See Special Events
+README for schema, source limitations, refresh and verification commands.
+
+Local checks: all 101 planner/domain tests and seven parser tests pass. Event browser tests pass
+desktop/phone and guest/member for filters, date exceptions, unknown hours,
+time windows, plan updates, calendar exports, Watercolor and GPS/chat controls.
+The phone member run also verifies an old saved visit is retained and flagged
+when its day is no longer available. The main-map planner browser regression
+passes all four combinations. Account/chat/route operations use fixtures.
+
+Changed event, planner and loader assets/references use `20261109c`; all nine
+private apps were repackaged and uploaded with the new shared references.
+GitHub's automatic sports update `24fcf63` was fast-forwarded before edits;
+the newer Explore data refresh `31d0f8c` was also incorporated before publishing.
+The public build passes and excludes all 45 private app files. Deployment
+verification is pending.
+
 ## 2026-11-09 - Studio Tour Watercolor background
 
 Owner chose an Austin copy hosted with the site, with no new subscription.

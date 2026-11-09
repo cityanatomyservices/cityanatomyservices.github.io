@@ -105,6 +105,15 @@
     return [start, end];
   }
   const interval = item => [Date.parse(item.schedule.start), Date.parse(item.schedule.start) + duration(item) * minute];
+  // Event stops can have several separate opening windows, with a closed gap.
+  // An explicitly unknown event schedule needs a visitor-confirmed window.
+  function availability(item, plan) {
+    const [start,end]=windows(item,plan),s=item.source,u=item.schedule;
+    if(s.eventUnavailable)return [];
+    if(!Array.isArray(s.availabilityWindows))return [[start,end]];
+    if(!s.availabilityWindows.length)return s.hoursUnknown&&u.windowStart&&u.windowEnd&&end>start?[[start,end]]:[];
+    return s.availabilityWindows.map(w=>[Math.max(start,Date.parse(w.start)),Math.min(end,Date.parse(w.end))]).filter(([a,b])=>b>a).sort((a,b)=>a[0]-b[0]);
+  }
   function buffer(plan, before, after, provider) {
     const leg = provider?.leg?.(before, after, plan);
     return Math.max(0, Number(leg?.minutes ?? after?.schedule.bufferBefore ?? plan.bufferMinutes) || 0) * minute;
@@ -120,17 +129,19 @@
     }
     for (const item of items) {
       if (placed.includes(item) || (item.source.kind === 'movie' && !item.schedule.showtime) || (item.source.kind === 'meeting' && !fixedStart(item))) continue;
-      const [from, until] = windows(item, result), length = duration(item) * minute;
-      if (!finite(from) || !finite(until) || until <= from) continue;
-      let cursor = from;
+      const length = duration(item) * minute;
       const occupied = placed.filter(p => p.schedule.start).sort((x,y) => interval(x)[0] - interval(y)[0]);
-      for (const other of occupied) {
-        const [a,b] = interval(other);
-        if (b + buffer(result, other, item, provider) <= cursor) continue;
-        if (cursor + length + buffer(result, item, other, provider) <= a) break;
-        cursor = Math.max(cursor, b + buffer(result, other, item, provider));
+      for(const [from,until] of availability(item,result)){
+        if (!finite(from) || !finite(until) || until <= from) continue;
+        let cursor=from;
+        for (const other of occupied) {
+          const [a,b] = interval(other);
+          if (b + buffer(result, other, item, provider) <= cursor) continue;
+          if (cursor + length + buffer(result, item, other, provider) <= a) break;
+          cursor = Math.max(cursor, b + buffer(result, other, item, provider));
+        }
+        if (cursor + length <= until) { item.schedule.start = iso(cursor); placed.push(item);break; }
       }
-      if (cursor + length <= until) { item.schedule.start = iso(cursor); placed.push(item); }
     }
     return result;
   }
@@ -145,11 +156,12 @@
       else if (!Number.isFinite(a)) add(item, 'invalid-time', 'Choose a valid arrival time.', 'error');
       else {
         if (a < dayStart || b > dayEnd) add(item, 'outside-day', 'This visit goes outside the 5 AM–5 AM plan day. Adjust its time or length.', 'error');
-        if (a < opens || b > closes) add(item, 'outside-hours', 'This visit falls outside the listed or entered availability.', 'error');
+        if (!availability(item,plan).some(([opens,closes])=>a>=opens&&b<=closes)) add(item, 'outside-hours', 'This visit falls outside the listed or confirmed availability.', 'error');
         const fixed = fixedStart(item);
         if (fixed && a !== Date.parse(fixed)) add(item, 'fixed-time', 'Arrival differs from the published start or selected showtime.', 'error');
       }
       if (!u.durationConfirmed) add(item, 'duration', 'Visit length is an estimate; check or adjust it.');
+      if (s.eventUnavailable) add(item, 'event-unavailable', 'Current event listings do not confirm this stop for the saved day and filters. Change the day or update this visit from Stops.', 'error');
       if (s.kind === 'movie') add(item, 'trailers', 'Allow for trailers and arrival. Confirm the finish time with the cinema.');
       if (s.hoursUnknown && !(u.windowStart && u.windowEnd)) add(item, 'hours', s.hoursText ? 'Published hours need checking for this date; enter an availability window.' : 'Opening hours are unknown. Check the venue and enter an availability window.');
       if ((s.timing === 'fixed' || s.kind === 'meeting') && !s.endKnown && s.kind !== 'movie') add(item, 'end', 'The organizer has not supplied a finish time.');
@@ -185,20 +197,23 @@
     for (const item of items) if (item.schedule.locked && fixedStart(item) && Date.parse(item.schedule.start)!==Date.parse(fixedStart(item)))
       throw new Error(`The locked arrival for ${item.source.title} differs from its published start. Resolve that conflict before fitting travel.`);
     for (let i=items.length-1;i>=0;i--) {
-      const item=items[i], [opens,closes]=windows(item,result), length=duration(item)*minute;
+      const item=items[i], choices=availability(item,result), length=duration(item)*minute;
       const fixed=fixedStart(item) || (item.schedule.locked ? item.schedule.start : null);
-      latest[i]=Math.min(closes-length,i+1<items.length ? latest[i+1]-buffer(result,item,items[i+1],provider)-length : Infinity);
+      const limit=i+1<items.length ? latest[i+1]-buffer(result,item,items[i+1],provider)-length : Infinity;
+      latest[i]=Math.max(...choices.map(([opens,closes])=>{const at=Math.min(closes-length,limit);return at>=opens?at:-Infinity;}));
       if (fixed) {
-        if (Date.parse(fixed)>latest[i]) throw new Error(`This order cannot fit around ${item.source.title}. Shorten a visit, adjust an unlocked time, or remove a stop.`);
+        if (Date.parse(fixed)>latest[i]||!choices.some(([a,b])=>Date.parse(fixed)>=a&&Date.parse(fixed)+length<=b)) throw new Error(`This order cannot fit around ${item.source.title}. Shorten a visit, adjust an unlocked time, or remove a stop.`);
         latest[i]=Date.parse(fixed);
       }
-      if (latest[i]<opens) throw new Error(`${item.source.title} cannot fit within its availability with travel included. Your times have been kept.`);
+      if (!finite(latest[i])) throw new Error(`${item.source.title} cannot fit within its availability with travel included. Your times have been kept.`);
     }
     for (let i=0;i<items.length;i++) {
       const item=items[i], fixed=fixedStart(item) || (item.schedule.locked ? item.schedule.start : null);
-      const earliest=Math.max(windows(item,result)[0],i ? interval(items[i-1])[1]+buffer(result,items[i-1],item,provider) : -Infinity);
-      if (earliest>latest[i]) throw new Error(`There is not enough time to reach ${item.source.title}. Shorten a visit or adjust the plan. Your times have been kept.`);
-      item.schedule.start=iso(fixed ? Date.parse(fixed) : Math.max(earliest,Math.min(original[i],latest[i])));
+      const earliest=i ? interval(items[i-1])[1]+buffer(result,items[i-1],item,provider) : -Infinity;
+      const choose=preferred=>availability(item,result).map(([a,b])=>{const at=Math.max(a,earliest,preferred);return at<=latest[i]&&at+duration(item)*minute<=b?at:null;}).find(at=>at!==null);
+      const at=fixed?Date.parse(fixed):(choose(Math.min(original[i],latest[i]))??choose(-Infinity));
+      if (at==null||at<earliest||at>latest[i]) throw new Error(`There is not enough time to reach ${item.source.title}. Shorten a visit or adjust the plan. Your times have been kept.`);
+      item.schedule.start=iso(at);
     }
     return {plan:result,changed:items.some((item,i)=>interval(item)[0]!==original[i])};
   }
@@ -222,6 +237,7 @@
       if (i.schedule.routeCoordinates != null && (!Array.isArray(i.schedule.routeCoordinates) || i.schedule.routeCoordinates.length!==2 || !i.schedule.routeCoordinates.every(finite) || Math.abs(i.schedule.routeCoordinates[0])>180 || Math.abs(i.schedule.routeCoordinates[1])>90)) return false;
       if (!['fixed','window','unknown'].includes(i.source.timing) || !['start','end','validFrom','validUntil','checked'].every(k => i.source[k] == null || Number.isFinite(Date.parse(i.source[k])))) return false;
       if (i.source.showtimes != null && (!Array.isArray(i.source.showtimes) || !i.source.showtimes.every(s => s && Number.isFinite(Date.parse(s.start))))) return false;
+      if (i.source.availabilityWindows != null && (!Array.isArray(i.source.availabilityWindows) || i.source.availabilityWindows.length>50 || !i.source.availabilityWindows.every(w=>w&&Number.isFinite(Date.parse(w.start))&&Number.isFinite(Date.parse(w.end))&&Date.parse(w.end)>Date.parse(w.start)))) return false;
       if (i.schedule.note != null && (typeof i.schedule.note !== 'string' || i.schedule.note.length > 2000)) return false;
       if (i.source.kind === 'movie' && i.schedule.showtime && !i.source.showtimes?.some(s => Date.parse(s.start) === Date.parse(i.schedule.showtime))) return false;
       if (plan.schemaVersion === 2 && !plan.days.includes(i.day)) return false;
@@ -233,5 +249,5 @@
         (!i.source.coordinates || (Array.isArray(i.source.coordinates) && i.source.coordinates.length === 2 && i.source.coordinates.every(finite) && Math.abs(i.source.coordinates[0]) <= 180 && Math.abs(i.source.coordinates[1]) <= 90));
     });
   }
-  return { zone, day, local, localCandidates, instant, nextDay, previousDay, clock, planDay, timeCandidates, timeOnDay, bounds, onDay, targetDay, upgrade, dayView, ensureDay, replaceDay, interval, windows, fixedStart, duration, buffer, build, check, fitTravel, empty, valid };
+  return { zone, day, local, localCandidates, instant, nextDay, previousDay, clock, planDay, timeCandidates, timeOnDay, bounds, onDay, targetDay, upgrade, dayView, ensureDay, replaceDay, interval, windows, availability, fixedStart, duration, buffer, build, check, fitTravel, empty, valid };
 });

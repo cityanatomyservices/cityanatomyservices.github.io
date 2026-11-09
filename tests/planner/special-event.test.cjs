@@ -4,7 +4,7 @@ const data=()=>E.validate(JSON.parse(fs.readFileSync(require.resolve('../../spec
 test('official tour data contains unique numbered stops inside the event, with source links',()=>{
  const e=data();assert.equal(e.features.length,307);assert.equal(new Set(e.features.map(f=>f.properties.number)).size,307);
  for(const f of e.features){assert.ok(f.properties.address);assert.match(f.properties.url,/^https:\/\/atxstudiotour.com\/location\//);}
- assert.equal(e.features.filter(f=>f.properties.participants.length).length,303);
+ assert.equal(e.features.filter(f=>f.properties.participants.length).length,307);
  const window={};vm.runInNewContext(fs.readFileSync(require.resolve('../../chat/locate.js'),'utf8'),{window});
  assert.equal(e.chatGeofences.features.length,307);
  for(const f of e.features){const containing=e.chatGeofences.features.filter(zone=>window.ChatLocate.find({features:[zone]},f.geometry.coordinates));assert.equal(containing.length,1);assert.equal(containing[0].properties.stopId,f.properties.id);}

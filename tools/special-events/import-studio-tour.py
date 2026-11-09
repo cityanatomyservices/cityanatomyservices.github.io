@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Import a saved public organizer map, location records/pages and artist index.
 
-Usage: python tools/special-events/import-studio-tour.py <source-directory>
+Usage: python tools/special-events/import-studio-tour.py <source-directory> --profiles-cache <filter-source-directory>
 The source directory is kept outside the public repository. See README.md.
 """
+import argparse
 import html
+import importlib.util
 from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
-import sys
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -26,7 +27,11 @@ class Headings(HTMLParser):
             self.items.append((tag, ''.join(self.value).strip())); self.tag = None
 
 def main():
-    source = Path(sys.argv[1])
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('source',type=Path);parser.add_argument('--profiles-cache',type=Path)
+    args=parser.parse_args();source=args.source
+    output=ROOT/'special-events/data/austin-studio-tour-2026.geojson'
+    if output.exists() and json.loads(output.read_text()).get('availabilityChecked') and not args.profiles_cache:
+        raise SystemExit('Pass --profiles-cache with the saved profile/filter downloads so reimporting cannot discard published opening hours.')
     markers = json.loads((source / 'markers.json').read_text(encoding='utf8'))
     records = {r['id']: r for r in json.loads((source / 'location-records.json').read_text(encoding='utf8'))}
     participants = json.loads((source / 'participants.json').read_text(encoding='utf8')) if (source / 'participants.json').exists() else {}
@@ -63,7 +68,10 @@ def main():
         'source':{'title':'Austin Studio Tour · official directory','url':'https://atxstudiotour.com/explore/?view=map',
                   'datesUrl':'https://atxstudiotour.com/','indexUrl':'https://atxstudiotour.com/index/'},
         'checked':datetime.fromtimestamp((source/'explore.html').stat().st_mtime,timezone.utc).isoformat(), 'bounds':bounds,'features':features}
-    output=ROOT/'special-events/data/austin-studio-tour-2026.geojson';output.parent.mkdir(parents=True,exist_ok=True)
+    if args.profiles_cache:
+        spec=importlib.util.spec_from_file_location('enrich',Path(__file__).with_name('enrich-studio-tour.py'))
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);module.enrich(event,args.profiles_cache)
+    output.parent.mkdir(parents=True,exist_ok=True)
     output.write_text(json.dumps(event,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     print(f"Imported {len(features)} stops; {sum(bool(f['properties']['participants']) for f in features)} with named participants; bounds {bounds}")
 

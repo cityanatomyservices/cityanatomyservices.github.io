@@ -39,7 +39,8 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await f.locator('#event-toggle').click();assert.equal(await f.locator('#event-panel').isVisible(),true);assert.equal(await f.locator('#event-toggle').getAttribute('aria-expanded'),'true');
   assert.equal(await f.evaluate(()=>gpsOptions.enableHighAccuracy),true);
   assert.equal(await f.evaluate(async()=>(await chatMap.getSource('event-chat-zones').getData()).features.length),307);
-  assert.equal(await f.evaluate(async()=>(await chatMap.getSource('event-stops').getData()).features.length),307);
+  assert.equal(await f.evaluate(async()=>(await chatMap.getSource('event-stops').getData()).features.length),258,'Only first-day stops with published hours appear');
+  assert.equal(await f.locator('#event-kind').count(),0,'Venue type is removed');
   await f.waitForFunction(()=>chatMap.getLayer('event-watercolor')&&chatMap.isSourceLoaded('event-watercolor'));
   assert.equal(await f.locator('#event-basemap-select').inputValue(),'watercolor','Initial watercolor tile responses: '+JSON.stringify(watercolorTiles));assert.ok(watercolorTiles.includes(200),'The hosted Watercolor tiles load');
   await f.locator('#event-close').click();await f.evaluate(()=>chatMap.jumpTo({center:[-97.744,30.279],zoom:12.5,pitch:0}));await f.waitForFunction(()=>chatMap.isSourceLoaded('event-watercolor'));
@@ -61,6 +62,39 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   assert.match(await f.locator('.maplibregl-ctrl-attrib').innerHTML(),/Stamen Design/);assert.match(await f.locator('.maplibregl-ctrl-attrib').innerHTML(),/Cooper Hewitt/);
   await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>!chatMap.isMoving());assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('buildings-3d','visibility')),'visible');await f.locator('#ctrlTilt').click();
   await f.locator('#ctrlStops').click();
+  // Organizer dates, unknown hours and the all-day option affect both list and pins.
+  await f.locator('#event-search').fill('1');assert.equal(await f.locator('#event-results .event-stop').count(),1);
+  await f.locator('#event-date').selectOption('2026-11-21');assert.equal(await f.locator('#event-results .event-stop').count(),0);
+  await f.waitForFunction(async()=>!(await chatMap.getSource('event-stops').getData()).features.length);
+  await f.locator('#event-date').selectOption('2026-11-14');await f.locator('#event-search').fill('125');assert.equal(await f.locator('#event-results .event-stop').count(),0);
+  await f.locator('#event-availability > summary').click();await f.locator('#event-unknown').check();assert.equal(await f.locator('#event-results .event-stop').count(),1);assert.match(await f.locator('#event-results .event-hours').innerText(),/need checking/);
+  await f.locator('#event-clear').click();await f.locator('#event-search').fill('72');assert.equal(await f.locator('#event-results .event-stop').count(),1);
+  await f.locator('#event-all-day').check();assert.equal(await f.locator('#event-results .event-stop').count(),0);await f.locator('#event-clear').click();
+  // Chosen mediums and a time window survive selection, planning and calendar export.
+  await f.locator('#event-search').fill('2');await f.locator('#event-filters > summary').click();
+  const medium=f.locator('.event-facet').filter({has:f.locator('[data-event-facet="mediums"]')});await medium.locator('summary').click();await f.locator('[data-event-facet="mediums"][value="Painting"]').check();
+  await f.locator('#event-from').fill('13:00');await f.locator('#event-until').fill('15:00');await f.locator('#event-until').dispatchEvent('change');
+  assert.equal(await f.locator('#event-results .event-stop').count(),1);await f.locator('#event-results .plan-select input').check();
+  assert.deepEqual(await f.evaluate(()=>PlanStore.plan.items[0].source.eventFilters.facets.mediums),['Painting']);
+  await f.locator('#event-close').click();await f.locator('#ctrlDayPlan').click();await f.locator('#build-day').click();
+  await f.waitForFunction(()=>PlanStore.plan.items[0].schedule.start);assert.equal(await f.evaluate(()=>PlanModel.clock(PlanStore.plan.items[0].schedule.start)),'13:00');
+  assert.match(await f.locator('.plan-item').innerText(),/Art mediums: Painting/);
+  await f.locator('#export-plan').click();const filteredDownload=page.waitForEvent('download');await f.locator('#export-action').click();const filtered=fs.readFileSync(await(await filteredDownload).path(),'utf8');assert.match(filtered,/Painting/);assert.match(filtered,/DTSTART:20261114T190000Z/);await f.locator('#export-close').click();
+  await f.locator('[data-plan-explore]').first().click();await f.locator('#event-from').fill('14:00');await f.locator('#event-from').dispatchEvent('change');await f.locator('.event-update-plan').click();
+  assert.equal(await f.evaluate(()=>PlanModel.clock(PlanStore.plan.items[0].source.start)),'14:00');assert.equal(await f.evaluate(()=>PlanStore.plan.items[0].schedule.start),null);
+  await f.locator('#event-close').click();await f.locator('#ctrlDayPlan').click();await f.locator('.plan-item').getByRole('button',{name:/^Remove /}).click();await f.locator('[data-plan-explore]').first().click();
+  // Old plans used uniform hours. Refresh their source without dropping the visit or notes.
+  await f.evaluate(async()=>{
+    const legacy={...AustinEvent.data};delete legacy.availabilityChecked;
+    const stop=legacy.features.find(f=>f.properties.number===1),source=SpecialEventModel.source(legacy,stop,'2026-11-21');
+    await PlanStore.chooseDay('2026-11-21');await PlanStore.edit(plan=>{const item=PlanSources.item(source,crypto.randomUUID());item.day=plan.date;item.schedule.note='Keep my existing note';item.schedule.start=source.start;item.schedule.locked=true;plan.items.push(item);});
+  });
+  await f.waitForFunction(()=>PlanStore.plan.items[0]?.source.eventUnavailable===true);
+  assert.equal(await f.evaluate(()=>PlanStore.plan.items[0].schedule.note),'Keep my existing note');assert.equal(await f.evaluate(()=>PlanExport.prepare(PlanStore.plan,'google-calendar').items.length),0);
+  await f.locator('#event-close').click();await f.locator('#ctrlDayPlan').click();assert.match(await f.locator('.plan-item').innerText(),/Availability needs updating/);
+  await f.locator('.plan-item').getByRole('button',{name:/^Remove /}).click();await f.locator('[data-plan-explore]').first().click();await f.locator('#event-date').selectOption('2026-11-14');
+  await f.locator('#event-clear').click();await f.locator('#event-from').fill('16:00');await f.locator('#event-until').fill('12:00');await f.locator('#event-until').dispatchEvent('change');assert.match(await f.locator('#event-filter-message').innerText(),/later/);await f.locator('#event-clear').click();
+  await f.locator('#event-filters > summary').click();await f.locator('#event-availability > summary').click();
   await f.locator('#event-search').fill('Canopy');assert.ok(await f.locator('#event-results > li').count()>0);await f.locator('#event-search').fill('');
   await f.locator('#event-results .plan-select input').nth(0).check();await f.locator('#event-results .plan-select input').nth(1).check();
   assert.equal(await f.evaluate(()=>PlanStore.plan.date),'2026-11-14');assert.equal(await f.evaluate(()=>PlanStore.plan.items.length),2);
@@ -108,6 +142,6 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   assert.deepEqual(errors,[]);if(!member)assert.equal(saves.length,0);else{await f.evaluate(()=>AustinVisit.settled());assert.ok(saves.length>0);}
   await page.goto(base+'/');const main=await(await page.locator('#app-window').elementHandle()).contentFrame();await main.waitForFunction(()=>window.austinExplore);await main.locator('#ctrlExplore').click();await main.locator('#ctrlSpecialEvents').click();await main.locator('a.special-event-link').waitFor();assert.match(await main.locator('a.special-event-link').getAttribute('href'),/\/maps\/austin-studio-tour\//);
   assert.deepEqual(await main.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps']);
-  console.log(`${width}px ${member?'member':'guest'}: real Watercolor tiles, street/satellite/3D, tile-outage fallback/retry, attribution, drawer, 307 zones, planner/exports, same-stop peers and GPS gating passed.`);await context.close();await browser.close();browser=null;
+  console.log(`${width}px ${member?'member':'guest'}: organizer dates, filters, unknown/all-day hours, visit-window planning/export/update, Watercolor/fallback, 307 chat zones and GPS gating passed.`);await context.close();await browser.close();browser=null;
  }
 }finally{await browser?.close();if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

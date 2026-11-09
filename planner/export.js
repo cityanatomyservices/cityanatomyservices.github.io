@@ -14,7 +14,14 @@
     const calendar=format.endsWith('-calendar');
     const items=plan.items.filter(i=>!i.day||i.day===plan.date).slice().sort((a,b)=>
       (scheduled(a)?Date.parse(a.schedule.start):Infinity)-(scheduled(b)?Date.parse(b.schedule.start):Infinity));
-    const eligible=item=>calendar ? scheduled(item)&&M.onDay(plan.date,item.schedule.start)&&Number.isFinite(item.schedule.duration)&&item.schedule.duration>0 : !!point(item);
+    const eligible=item=>{
+      if(item.source.eventUnavailable)return false;
+      if(item.source.eventId&&scheduled(item)&&Array.isArray(item.source.availabilityWindows)){
+        const [start,end]=M.interval(item);
+        if(!M.availability(item,plan).some(([a,b])=>start>=a&&end<=b))return false;
+      }
+      return calendar ? scheduled(item)&&M.onDay(plan.date,item.schedule.start)&&Number.isFinite(item.schedule.duration)&&item.schedule.duration>0 : !!point(item);
+    };
     return {calendar,items:items.filter(eligible),skipped:items.filter(i=>!eligible(i))};
   }
   const text=value=>String(value??'').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g,'').replace(/\\/g,'\\\\').replace(/\r\n|\r|\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');

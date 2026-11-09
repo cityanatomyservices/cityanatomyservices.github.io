@@ -21,7 +21,7 @@
     const omitted=$('export-skipped');omitted.replaceChildren();omitted.hidden=!p.skipped.length;
     if(p.skipped.length){
       omitted.append(node('summary',`${p.skipped.length} stop${p.skipped.length===1?'':'s'} not included`));
-      omitted.append(node('p',p.calendar?'Set a valid arrival time within this plan day and a visit length for these stops:':'Set a driving entrance for these stops to include them on a map:'));
+      omitted.append(node('p',p.calendar?'Set an arrival time and visit length within this day and the listed or confirmed event hours:':'Check event availability and add a driving location for these stops:'));
       const list=document.createElement('ul');p.skipped.forEach(i=>list.append(node('li',i.source.title)));omitted.append(list);
     }
     $('export-action').textContent=p.calendar?'Download .ics':'Create route links';$('export-action').disabled=!p.items.length;

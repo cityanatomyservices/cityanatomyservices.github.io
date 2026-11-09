@@ -29,10 +29,11 @@
     const title = node('div',null,'stop-title'), number = node('button',String(index + 1),'stop-number');
     number.type = 'button'; number.setAttribute('aria-label',`Show ${s.title} on map`); number.onclick = () => window.PlanMap.focus(item.id);
     title.append(number,node('h2',s.title)); li.append(title,node('p',[s.venue,s.address].filter(Boolean).join(' · '),'stop-venue'));
-    const published = s.kind === 'movie' ? 'Choose one of the published showtimes below.' : s.timing === 'fixed'
+    const published = s.eventUnavailable ? 'Availability needs updating for this day and these filters.' : s.availabilityWindows?.length ? `Visit windows: ${s.availabilityWindows.map(w=>`${fmt(w.start)} – ${fmt(w.end)}`).join(' or ')}` : s.eventId&&s.hoursUnknown ? 'Opening hours need checking · enter confirmed availability below.' : s.kind === 'movie' ? 'Choose one of the published showtimes below.' : s.timing === 'fixed'
       ? `Published: ${fmt(s.start)}${s.endKnown ? ' – ' + fmt(s.end) : ' · finish not supplied'}`
       : s.timing === 'window' ? `Visit window: ${fmt(s.start)} – ${fmt(s.end)}` : s.kind === 'meeting' ? 'Meeting time not published · check the agenda and enter the confirmed time' : 'Flexible visit · verify opening hours';
     li.append(node('p',published,'source-timing'));
+    if(s.eventFiltersSummary)li.append(node('p',s.eventFiltersSummary,'source-timing'));
     const grid = node('div',null,'schedule-grid');
     if (s.kind === 'movie') {
       const label = node('label','Movie showtime','full'), select = node('select');
