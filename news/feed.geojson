@@ -1,41 +1,56 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-08T16:50:07.424Z",
+ "generated": "2026-11-09T21:11:26.661Z",
  "placed": 55,
- "total": 115,
+ "total": 112,
  "features": [
   {
    "type": "Feature",
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.738,
-     30.268
+     -97.753,
+     30.282
     ]
    },
    "properties": {
-    "title": "APD rescues barricaded person from second story window in northeast Austin",
-    "link": "https://www.kxan.com/news/local/austin/two-roommates-involved-in-barricaded-home-incident-in-northeast-austin/",
+    "title": "Who will empty trash cans and remove graffiti at Pease Park? Not the city anymore",
+    "link": "https://www.kxan.com/news/local/austin/who-will-empty-trash-cans-and-remove-graffiti-at-pease-park-not-the-city-anymore/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-08T14:13:54.000Z",
-    "summary": "Austin Police sent a SWAT unit to respond to someone barricaded inside a home in northeast Austin on Sunday morning.",
-    "place": "Austin Police",
-    "placeKind": "landmark"
+    "published": "2026-11-09T19:34:39.000Z",
+    "summary": "The Pease Park Conservancy will take over maintenance responsibilities across all 84 acres of the historic Austin park after a unanimous City Council vote. The nonprofit will handle tasks including trash collection, graffiti removal and upkeep of volleyball courts.",
+    "place": "Pease Park",
+    "placeKind": "park"
    }
   },
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Dreary, wet Sunday as rain lingers into the work week",
-    "link": "https://www.kxan.com/news/dreary-wet-sunday-as-rain-lingers-into-the-work-week/",
+    "title": "NHTSA probing Waymo software recall after bus violations",
+    "link": "https://www.kxan.com/investigations/nhtsa-probing-waymo-software-recall-after-bus-violations/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-08T13:04:58.000Z",
-    "summary": "Showers and downpours build in through the morning on Sunday, continuing on and off until early Tuesday. - Meteorologist Hannah Gard",
+    "published": "2026-11-09T19:09:28.000Z",
+    "summary": "The National Highway Traffic Safety Administration has opened an inquiry into examine the effectiveness of a recall Waymo issued last year after its driverless vehicles were reported passing stopped school buses, including ones in Austin that had lights flashing and stop-arms extended, according to a NHTSA notice filed Friday.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Texas Democrats move to repeal ICE agreements law as bill filing begins",
+    "link": "https://www.kxan.com/investigations/texas-democrats-move-to-repeal-ice-agreements-law-as-bill-filing-begins/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-09T19:04:41.000Z",
+    "summary": "Two Democratic lawmakers filed bills Monday to repeal a Texas law requiring most sheriffs to seek agreements with U.S. Immigration and Customs Enforcement – an early sign of how a historic election could reshape immigration enforcement as bill filing opened for the 90th Texas Legislature.",
     "place": null,
     "placeKind": null
    }
@@ -45,20 +60,20 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.70624,
-     30.29867
+     -97.3153,
+     30.1105
     ]
    },
    "properties": {
-    "title": "Mom calls for better hospice care after Central Texas' only pediatric program ends",
-    "link": "https://www.kxan.com/news/mom-calls-for-better-hospice-care-after-central-texas-only-pediatric-program-ends/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-08T03:44:04.000Z",
-    "summary": "A few years after starting, Dell Children's Medical Center ended its program Friday.",
-    "place": "Dell Children's Medical Center",
-    "placeKind": "clinic"
+    "title": "Bastrop veterans launch new missions",
+    "link": "https://communityimpact.com/bastrop-cedar-creek/business/bastrop-veterans-launch-new-missions/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-09T18:23:00.000Z",
+    "summary": "Three veteran-owned businesses brought wine, coffee and more to Bastrop County in 2026",
+    "place": "Bastrop",
+    "placeKind": "city"
    }
   },
   {
@@ -66,33 +81,54 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.7325,
-     30.2837
+     -97.6772,
+     30.6333
     ]
    },
    "properties": {
-    "title": "Stats: How are the Texas Longhorns performing in the 2026 season?",
-    "link": "https://www.kxan.com/sports-general/horns-report/longhorn-football-stats-2026/",
+    "title": "New frozen yogurt shop coming to Georgetown",
+    "link": "https://communityimpact.com/georgetown/business/new-frozen-yogurt-shop-coming-to-georgetown/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-09T18:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7394,
+     30.285
+    ]
+   },
+   "properties": {
+    "title": "Supreme Court Justice to teach University of Texas Austin course",
+    "link": "https://www.kxan.com/news/education/supreme-court-justice-to-teach-university-of-texas-austin-course/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-07T23:22:56.000Z",
-    "summary": "Follow along as we track the Longhorns' performance throughout the 2026 season.",
-    "place": "Texas Longhorns",
-    "placeKind": "venue"
+    "published": "2026-11-09T17:31:55.000Z",
+    "summary": "U.S. Supreme Court Justice Clarence Thomas to teach small group of undergraduate UT students",
+    "place": "University of Texas",
+    "placeKind": "campus"
    }
   },
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "No. 10 Texas pulls away from No. 19 Missouri for crucial 34-20 road win",
-    "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-10-texas-faces-no-19-missouri-with-cfp-implications/",
+    "title": "MAP: Donors by Central Texas ZIP code to Talarico, Paxton campaigns",
+    "link": "https://www.kxan.com/news/your-local-election-hq/map-where-did-talarico-and-paxton-raise-the-most-money-in-central-texas/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-07T22:28:15.000Z",
-    "summary": "Arch Manning threw for 297 yards and three touchdowns as No. 10 Texas scored 14 unanswered fourth-quarter points to defeat No. 19 Missouri 34-20, keeping its College Football Playoff hopes alive.",
+    "published": "2026-11-09T17:14:06.000Z",
+    "summary": "Democrat James Talarico, who won the Nov. 3, 2026, general election for U.S. Senator in Texas, outraised his opponent Republican Ken Paxton when it came to individual contributions from inside the state.",
     "place": null,
     "placeKind": null
    }
@@ -107,13 +143,13 @@
     ]
    },
    "properties": {
-    "title": "Man arrested after pulling stolen gun on roommate in east Austin, police say",
-    "link": "https://www.kxan.com/news/crime/man-arrested-after-pulling-stolen-gun-on-roommate-in-east-austin-police-say/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-07T14:43:58.000Z",
-    "summary": "A 38-year-old man was arrested and charged with assault after pointing a stolen gun at his roommate, initiating a standoff with police in east Austin on Friday, according to police.",
+    "title": "East Austin's Kalimotxo to close in November",
+    "link": "https://communityimpact.com/east-austin/business/east-austin-s-kalimotxo-to-close-in-november/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-09T16:11:17.000Z",
+    "summary": "",
     "place": "East Austin",
     "placeKind": "district"
    }
@@ -122,15 +158,195 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "No. 10 Texas and No. 19 Missouri collide in potential CFP elimination game",
-    "link": "https://www.kxan.com/sports-general/horns-report/no-10-texas-and-no-19-missouri-collide-in-potential-cfp-elimination-game/",
+    "title": "MAP: Where have Austin's homicides occurred in 2026?",
+    "link": "https://www.kxan.com/news/local/austin/austin-homicide-map-2026/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-07T14:00:00.000Z",
-    "summary": "No. 10 Texas heads to No. 19 Missouri for a pivotal SEC showdown Saturday, with both teams looking to keep their College Football Playoff hopes alive despite mounting injury concerns for the Longhorns.",
+    "published": "2026-11-09T15:51:56.000Z",
+    "summary": "KXAN is keeping track of the number of homicides in the City of Austin in 2026. An interactive map shows where those homicides have occurred.",
     "place": null,
     "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "NTSB: On-scene investigation complete in Learjet crash that killed Austin family",
+    "link": "https://www.kxan.com/news/national-news/ntsb-on-scene-investigation-complete-in-learjet-crash-that-killed-austin-family/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-09T15:48:39.000Z",
+    "summary": "The National Transportation Safety Board announced Sunday that it completed the on-scene investigation into a Learjet crash that killed all nine people on board, including a family of four from Austin.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Temperatures, rain totals, severe storms: Explore Austin's 2026 weather data",
+    "link": "https://www.kxan.com/weather/austin-2026-weather-data/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-09T15:46:04.000Z",
+    "summary": "KXAN has created charts and graphics to help you keep track of whatever weather 2026 brings.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742,
+     30.26
+    ]
+   },
+   "properties": {
+    "title": "New waterfront tower rises alongside Austin's Lady Bird Lake",
+    "link": "https://www.kxan.com/news/local/austin/new-waterfront-tower-rises-alongside-austins-lady-bird-lake/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-09T15:21:04.000Z",
+    "summary": "An 18-story residential tower named One Lady Bird Lake is currently under construction south of Lady Bird Lake in Austin, offering 101 luxury condominiums and 197 rental units with lakefront views.",
+    "place": "Lady Bird Lake",
+    "placeKind": "lake"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Georgetown Gives Conditional Approval to Apartment, Retail Project",
+    "link": "https://www.connectcre.com/stories/georgetown-greenlights-apartment-retail-project/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-09T15:15:40.000Z",
+    "summary": "The Georgetown City Council has given tentative approval to Serenity Ranch, a master-planned community one mile east of I-35 and bordered by the Dry Berry Creek. In addition to 300 multifamily units and 30,000 square feet of commercial space, Serenity Ranch will offer approximately 40 acres of open space and ponds, a 2.9-acre amenity center ... The post Georgetown Gives Conditional Approval to Apa",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Final witness, a psychiatrist, testifies in Austin capital murder trial",
+    "link": "https://www.kxan.com/news/local/austin/final-witness-a-psychiatrist-to-testify-in-austin-capital-murder-trial/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-09T15:06:46.000Z",
+    "summary": "On the eighth day of testimony in the capital murder trial for Shane James, Dr. Maureen Burrows, who frequently testifies as an expert witness in mental health cases, is set to take the stand Monday morning.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Veteran-owned needle shop stitches community in New Braunfels",
+    "link": "https://communityimpact.com/new-braunfels/business/veteran-owned-needle-shop-stitches-community-in-new-braunfels/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-09T12:34:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "New ownership is familiar face at Monument Cafe in Georgetown",
+    "link": "https://communityimpact.com/georgetown/business/new-ownership-is-familiar-face-at-monument-cafe-in-georgetown/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-09T12:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Critics see influence of Trump-aligned think tank in Austin’s homelessness plan",
+    "link": "https://austincurrent.org/2026/11/09/austin-cicero-trump-no-wrong-door-texas-legislature/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-09T11:30:00.000Z",
+    "summary": "Internal records reveal Austin's multiple talks with the Cicero Institute about No Wrong Door, raising questions about the conservative group’s potential influence. The post Critics see influence of Trump-aligned think tank in Austin’s homelessness plan appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.746,
+     30.245
+    ]
+   },
+   "properties": {
+    "title": "Austin ISD turns to teacher residents as it races to certify educators",
+    "link": "https://austincurrent.org/2026/11/09/austin-austinisd-teacher-certification-residency/",
+    "outlet": "Austin Current",
+    "group": "news",
+    "color": "#b9a8f0",
+    "published": "2026-11-09T11:30:00.000Z",
+    "summary": "More than 60% of residents stay in the district, helping Austin ISD build its teacher workforce The post Austin ISD turns to teacher residents as it races to certify educators appeared first on Austin Current .",
+    "place": "Austin ISD",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7403,
+     30.2747
+    ]
+   },
+   "properties": {
+    "title": "31st Annual Texas Book Festival Happening Nov. 14-15",
+    "link": "https://www.austintexas.gov/communications/news/31st-annual-texas-book-festival-happening-nov-14-15",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-09T00:00:00.000Z",
+    "summary": "<p><strong>Date/Time: </strong>Saturday, Nov. 14, 2026, from 10 a.m. to 5 p.m. and Sunday, Nov. 15, 2026, from 11 a.m. to 5 p.m.<br><strong>Location:</strong> Texas Capitol and nearby venues<br><strong>Tickets: </strong>The event is free and open to the public<br><strong>Event Website: </strong><a class=\"ck-page_link\" href=\"https://texasbookfestival.org/festival/\">https://texasbookfestival.org/fes",
+    "place": "Texas Capitol",
+    "placeKind": "landmark"
    }
   },
   {
@@ -165,21 +381,6 @@
     "color": "#d9a95a",
     "published": "2026-11-07T11:00:00.000Z",
     "summary": "Democrats are less likely to pick on cities the way Republican lawmakers have, observers said. But a fight over housing affordability will test that. The post With Democrats sweeping Texas, the GOP-led war on cities nears its end appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Week 11 high school football scores",
-    "link": "https://www.kxan.com/sports-general/week-11-high-school-football-scores/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-07T04:39:05.000Z",
-    "summary": "The Texas high school football regular season wrapped up Friday night as teams across the state battled for playoff positioning. Check out the Week 11 scores from across Texas.",
     "place": null,
     "placeKind": null
    }
@@ -239,42 +440,6 @@
     "summary": "Thank you, Mayor, for your words. We absolutely agree that for far too long, our community has been living in fear. We have heard too many stories of families being separated, of neighbors being harmed, and Texans killed at the hands of ICE. With a change in state leadership come January, we agree that we must revise APD’s general orders to restore safety and do everything within our legal authori",
     "place": "Austin Police",
     "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Austin man gets 24 years in federal prison for exploiting teen boys online",
-    "link": "https://www.kxan.com/news/crime/austin-man-gets-24-years-in-federal-prison-for-exploiting-teen-boys-online/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-06T22:33:38.000Z",
-    "summary": "An Austin man was sentenced to more than 24 years in federal prison for posing as a teenage girl online to exploit and extort teen boys.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8203,
-     30.5052
-    ]
-   },
-   "properties": {
-    "title": "Hutto routs Vandegrift 49-10 to secure No. 2 district seed",
-    "link": "https://www.kxan.com/sports/watch-vandegrift-vs-hutto-football-live/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-06T22:26:59.000Z",
-    "summary": "Hutto closed out the regular season with a dominant 49-10 win over Vandegrift on Friday night, securing second place in the district behind Cedar Park.",
-    "place": "Cedar Park",
-    "placeKind": "city"
    }
   },
   {
@@ -417,27 +582,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.9467,
-     30.3083
-    ]
-   },
-   "properties": {
-    "title": "Discover Strength coming soon to Bee Cave area",
-    "link": "https://communityimpact.com/lake-travis-westlake/business/discover-strength-coming-soon-to-bee-cave-area/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-06T19:00:00.000Z",
-    "summary": "",
-    "place": "Bee Cave",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.78,
      30.33
     ]
@@ -452,78 +596,6 @@
     "summary": "Open burning remains banned in Austin; Bee Cave, Lakeway and Pflugerville require permits",
     "place": "Travis County",
     "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Woodside Health acquires The Hills Medical Portfolio in West Lake Hills",
-    "link": "https://communityimpact.com/lake-travis-westlake/business/woodside-health-acquires-the-hills-medical-portfolio-in-west-lake-hills/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-06T18:10:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8772,
-     29.9891
-    ]
-   },
-   "properties": {
-    "title": "PAWS Shelter of Central Texas reopens Kyle location",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/business/paws-shelter-of-central-texas-reopens-kyle-location/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-06T17:50:00.000Z",
-    "summary": "",
-    "place": "Kyle",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.79,
-     30.4
-    ]
-   },
-   "properties": {
-    "title": "Foundation Communities opens financial assistance center in Northwest Austin",
-    "link": "https://communityimpact.com/northwest-austin/business/foundation-communities-opens-financial-assistance-center-in-northwest-austin/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-06T17:28:00.000Z",
-    "summary": "",
-    "place": "Northwest Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Pizzeria closes New Braunfels location",
-    "link": "https://communityimpact.com/new-braunfels/business/pizzeria-closes-new-braunfels-location/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-06T16:15:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1230,42 +1302,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7394,
-     30.285
-    ]
-   },
-   "properties": {
-    "title": "Zo Qadri avoids runoff, secures a second term for Austin City Council District 9",
-    "link": "https://austincurrent.org/2026/11/03/austin-tx-district-9-city-council-election-results-2026/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-11-04T05:22:05.000Z",
-    "summary": "The winner of the election will represent a swath of Central Austin that includes downtown, the University of Texas and the Texas Capitol, serving a four-year term that begins in January. The post Zo Qadri avoids runoff, secures a second term for Austin City Council District 9 appeared first on Austin Current .",
-    "place": "University of Texas",
-    "placeKind": "campus"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Pamela Mathai, Cynthia Soliz advance to runoff for AISD’s District 9 seat",
-    "link": "https://austincurrent.org/2026/11/03/austin-austinisd-district9-election-trustee/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-11-04T05:02:22.000Z",
-    "summary": "The District 9 At-Large seat is one of the Austin school district’s two districtwide representative positions. The post Pamela Mathai, Cynthia Soliz advance to runoff for AISD’s District 9 seat appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Voters endorse $295 million bond investments in parks, libraries",
@@ -1401,21 +1437,6 @@
     "color": "#f0c27a",
     "published": "2026-11-04T00:00:00.000Z",
     "summary": "<p><span><strong>Case:&nbsp;</strong>26-3070747</span><br><br><span><strong>Time:&nbsp;</strong>1:58 p.m.</span><br><br><span><strong>Date:&nbsp;</strong>Tuesday, November 3, 2026&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><span><strong>Location:</strong> 700 block of West Longspur Boulevard</span><br><br><span><strong>Deceased:</strong> Unidentified Hispanic male</span><br><spa",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Traffic Fatality in the 2100 block of S. Mopac Expy NB",
-    "link": "https://www.austintexas.gov/police/news/traffic-fatality-2100-block-s-mopac-expy-nb",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-04T00:00:00.000Z",
-    "summary": "<p><span><strong>Case:&nbsp;</strong>26-3061555</span><br><span>&nbsp;</span><br><span><strong>Time:&nbsp;</strong>9:43 p.m.</span><br><span>&nbsp;</span><br><span><strong>Date:&nbsp;</strong>Monday, November 2, 2026 &nbsp;</span><br><span>&nbsp;</span><br><span><strong>Location:</strong> 2100 block of S. Mopac Expy NB</span><br><span>&nbsp;</span><br><span><strong>Deceased:&nbsp;</strong>Kristoph",
     "place": null,
     "placeKind": null
    }
@@ -1991,72 +2012,6 @@
     "summary": "",
     "place": "Northwest Austin",
     "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.72,
-     30.38
-    ]
-   },
-   "properties": {
-    "title": "Weidner Adds 341-Unit Rental Asset to Austin Portfolio",
-    "link": "https://www.connectcre.com/stories/weidner-adds-341-unit-rental-asset-to-austin-portfolio/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-10-26T16:06:30.000Z",
-    "summary": "Weidner Apartment Homes acquired the Solaris House apartments, a 341-unit high-rise apartment complex located in North Austin’s Domain submarket. Brandywine Realty Trust was the seller. JLL represented Brandywine Realty Trust in the sale of the asset. JLL’s Debt Advisory team also arranged acquisition financing for Weidner through Nationwide. The acquisition marks Weidner’s fifth community in ... ",
-    "place": "North Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Rainy Day in Austin",
-    "link": "https://downtownaustin.com/blog/what-to-do-rainy-day-austin/",
-    "outlet": "Downtown Austin Alliance",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-10-26T15:39:00.000Z",
-    "summary": "It happens to the best of us: you have a fun day planned downtown, and out of nowhere, a Texas thunderstorm rolls in and you are back in planning mode again. Don’t let the rain ruin your day! When you... The post Rainy Day in Austin appeared first on Downtown Austin Alliance .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "How a big project became a big fight: The road to Dog’s Head",
-    "link": "https://austincurrent.org/2026/10/26/how-a-big-project-became-a-big-fight-the-road-to-dogs-head/",
-    "outlet": "Austin Current",
-    "group": "planning",
-    "color": "#7ad4c8",
-    "published": "2026-10-26T10:30:00.000Z",
-    "summary": "The post How a big project became a big fight: The road to Dog’s Head appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "With Muny in play, the city golf course is in the spotlight once again",
-    "link": "https://austincurrent.org/2026/10/26/muny-austin-ut-environment-development/",
-    "outlet": "Austin Current",
-    "group": "planning",
-    "color": "#7ad4c8",
-    "published": "2026-10-26T10:25:00.000Z",
-    "summary": "As the city tries to secure the future of the historic golf course, Muny’s history as a civil rights landmark is back in the limelight. The post With Muny in play, the city golf course is in the spotlight once again appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
    }
   }
  ]
