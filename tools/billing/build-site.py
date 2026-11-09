@@ -21,9 +21,13 @@ def main():
     package=importlib.util.module_from_spec(spec);spec.loader.exec_module(package)
     if package.manifest()['release']!=manifest['release']:
         raise SystemExit('Pro catalog or sources changed. Package/upload private apps before publishing.')
+    retention_spec=importlib.util.spec_from_file_location('event_retention',ROOT/'tools/special-events/retention.py')
+    retention=importlib.util.module_from_spec(retention_spec);retention_spec.loader.exec_module(retention)
+    expired=retention.expired_events(ROOT);event_paths=retention.exclusions(expired)
     private=set(manifest['files'])
     tracked=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
     for name in filter(None,tracked):
+        if retention.excluded(name,event_paths):continue
         path=ROOT/name
         if '/'+name in private:
             raw=path.read_bytes()
@@ -31,12 +35,12 @@ def main():
             if hashlib.sha256(raw).hexdigest()!=manifest['files']['/'+name]['sha256']:
                 raise SystemExit('Private app sources changed. Repackage and upload before publishing: '+name)
             continue
-        target=output/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
+        target=output/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(retention.filtered(name,path.read_bytes(),expired)) if expired and name in {'home.json','special-events/registry.json'} else shutil.copyfile(path,target)
     for name in private:
         assert not (output/name.lstrip('/')).exists(),'Private app asset leaked into Pages'
     for name in manifest['apps']:
         assert (output/name.strip('/')/'index.html').is_file(),'Missing public app entry'
-    print(f'Pages artifact ready; {len(private)} private app resources excluded.')
+    print(f'Pages artifact ready; {len(private)} private app resources and {len(expired)} expired events excluded.')
 
 
 if __name__=='__main__':main()

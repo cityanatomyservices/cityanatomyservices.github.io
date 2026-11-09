@@ -38,3 +38,13 @@ test('panel mode changes are represented in history without replacing the frame'
   assert.deepEqual(h.historyCalls,['/?planner=1','/']);assert.deepEqual(h.replacements,[]);
   h.events.pagehide();assert.equal(h.visit.closed,true);assert.equal(h.visit.get('main:planner'),null);
 });
+test('Special Event navigation and history preserve distinct guest collections',async()=>{
+ const h=harness();h.visit.set('special-events:pages',[{id:'event-a',title:'Event A',page:'/maps/event-a/'}]);
+ h.visit.set('planner:guest:main','main notes');h.visit.set('planner:guest:event-a','event notes');
+ assert.equal(h.visit.navigate(new URL('https://austin.chat/maps/event-a/')),true);await tick();
+ assert.match(h.replacements.at(-1),/^\/special-events\/map.html\?event=event-a&v=/);
+ assert.equal(h.location.pathname,'/maps/event-a/');
+ h.visit.navigate(new URL('https://austin.chat/?planner=1'));await tick();assert.equal(h.views.at(-1),true);
+ h.location.href='https://austin.chat/maps/event-a/';h.events.popstate();await tick();assert.match(h.replacements.at(-1),/event=event-a/);
+ assert.equal(h.visit.get('planner:guest:main'),'main notes');assert.equal(h.visit.get('planner:guest:event-a'),'event notes');
+});

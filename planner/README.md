@@ -325,3 +325,20 @@ and the Map extent control fit the selected day while planning.
 `shared/map-ui.js` applies those menus to other catalog engines, with the
 same outer shell and guest-preserving iframe navigation. Tour-specific
 controls and the planner drawer remain independent of the common menus.
+
+## Special Event collections
+
+The main planner and each Special Event now have independent collections,
+including independent itineraries on the same calendar day. `context.js`
+fixes the scope before `repository.js`/`store.js` start. Scoped RPCs and server
+policies enforce the separation; the older RPC names can access only `main`.
+A backup carries its scope and cannot be restored onto another event or the
+main planner. Cache/guest-memory keys and edit/save locks include that scope.
+
+`0016_special_event_plans.sql` moves existing event visits without changing
+notes, schedules or item IDs. Clean legacy caches defer to that cloud snapshot;
+unsaved legacy edits retain separate recovery copies with explicit conflicts.
+Event plans expire 48 hours after the event's final scheduled closing. See
+[Special Events retention](../special-events/README.md#separate-plans-and-event-retirement)
+for database cleanup, browser limitations, public artifact removal and future
+registration commands. Main plans retain their existing lifetime.

@@ -9,7 +9,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
  for(const width of (process.env.EVENT_WIDTH?[Number(process.env.EVENT_WIDTH)]:[1280,390]))for(const member of (process.env.EVENT_MEMBER?[process.env.EVENT_MEMBER==='true']:[false,true])){
   // Release software-WebGL memory between variants on smaller laptops.
   browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
-  const active=session(member),context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});let remote=null;const saves=[],watercolorTiles=[];
+  const active=session(member),context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});const remotes=new Map();let remote=null;const saves=[],watercolorTiles=[];
   context.on('response',response=>{if(response.url().includes('/special-events/tiles/stamen-watercolor-austin/')&&response.url().endsWith('.jpg'))watercolorTiles.push(response.status());});
   await context.addInitScript(({member,active})=>{
    if(member&&!localStorage.getItem('event-fixture-seeded')){localStorage.setItem('event-fixture-seeded','yes');localStorage.setItem('sb-aqbyxpiwugcvoephsvpm-auth-token',JSON.stringify(active));}
@@ -22,8 +22,8 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await context.route('https://*.supabase.co/**',route=>{const p=new URL(route.request().url()).pathname,body=route.request().postDataJSON();
    if(p==='/auth/v1/signup'||p==='/auth/v1/token')return route.fulfill({json:active});if(p==='/auth/v1/user')return route.fulfill({json:active.user});
    if(p==='/rest/v1/rpc/member_load')return route.fulfill({json:{profile:{handle:'Fixture',emoji:'ðŸŽ¨',show_avatar:false},favorites:[],preferences:{},progress:[]}});
-   if(p==='/rest/v1/rpc/planner_load')return route.fulfill({json:remote});
-   if(p==='/rest/v1/rpc/planner_save'){saves.push(body);remote={plan:{id:body.p_id,...body.p_settings,items:body.p_items},revision:(remote?.revision||0)+1,dirty:false};return route.fulfill({json:{revision:remote.revision}});}
+   if(p==='/rest/v1/rpc/planner_load_scoped')return route.fulfill({json:remotes.get(body.p_scope)||null});
+   if(p==='/rest/v1/rpc/planner_save_scoped'){saves.push(body);remote={plan:{id:body.p_id,...body.p_settings,items:body.p_items},revision:(remotes.get(body.p_scope)?.revision||0)+1,dirty:false};remotes.set(body.p_scope,remote);return route.fulfill({json:{revision:remote.revision}});}
    if(p==='/rest/v1/rpc/planner_routing_status')return route.fulfill({json:{status:'ready',networkVersion:2}});
    if(p==='/rest/v1/rpc/planner_route_leg')return route.fulfill({json:{status:'ready',driveMinutes:6,accessMinutes:1,distanceMeters:1600,networkVersion:2,geometry:{type:'LineString',coordinates:[body.p_from,body.p_to]}}});
    if(p==='/rest/v1/messages')return route.fulfill({json:[]});
@@ -32,7 +32,16 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   // Directory comes from this checkout, not the live fallback.
   await context.route('https://raw.githubusercontent.com/**',r=>r.abort());
   const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>{errors.push(e.message);console.error(e.stack);});await page.clock.install();
-  await page.goto(base+'/maps/austin-studio-tour/');const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.chatMap&&window.AustinEvent?.data&&window.gps);await f.evaluate(()=>PlanStore.ready());
+  await page.goto(base+'/');
+  let main=await(await page.locator('#app-window').elementHandle()).contentFrame();await main.waitForFunction(()=>window.PlanStore&&window.austinExplore);await main.evaluate(async()=>{
+    await PlanStore.chooseDay('2026-11-14');await PlanStore.select({key:'place:scope-fixture',title:'Separate main coffee',kind:'place',timing:'unknown',coordinates:[-97.74,30.27]},true);
+    await PlanStore.edit(p=>{p.items[0].schedule.note='Keep my main plan';p.bufferMinutes=31;});await PlanStore.sync();
+  });
+  const visitId=await page.evaluate(()=>AustinVisit.id);
+  await main.locator('#ctrlExplore').click();await main.locator('#ctrlSpecialEvents').click();await main.locator('a.special-event-link').click();
+  await page.waitForFunction(()=>document.getElementById('app-window').contentWindow.location.pathname==='/special-events/map.html');
+  const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.chatMap&&window.AustinEvent?.data&&window.gps);await f.evaluate(()=>PlanStore.ready());
+  assert.equal(await page.evaluate(()=>AustinVisit.id),visitId,'Event navigation preserves the guest visit');assert.equal(await f.evaluate(()=>PlanStore.scope),'austin-studio-tour-2026');assert.equal(await f.evaluate(()=>PlanStore.book.items.length),0,'Main stops never enter the event');
   assert.deepEqual(await f.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlStops','ctrlDayPlan','ctrlChat']);assert.equal(await f.locator('#ctrlExplore').count(),0);
   assert.equal(await f.locator('#event-date option').count(),4);assert.equal(await f.locator('#event-panel').isVisible(),true);
   await f.locator('#event-toggle').click();assert.equal(await f.locator('#event-panel').isHidden(),true);assert.equal(await f.locator('#event-toggle').getAttribute('aria-expanded'),'false');
@@ -140,8 +149,24 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await f.locator('#ctrlMapLayers').click();await f.locator('#ctrlExtent').click();await f.waitForFunction(()=>!chatMap.isMoving());await page.evaluate(()=>{localStorage.setItem('theme','dark');document.documentElement.dataset.theme='dark';});await f.evaluate(()=>{document.documentElement.dataset.theme='dark';AustinEvent.open();});await f.evaluate(()=>{const scroll=document.querySelector('.event-scroll');if(scroll)scroll.scrollTop=0;});await page.screenshot({path:path.join(screenshots,`${width}-${member?'member':'guest'}-dark.png`)});
   const box=await f.locator('#event-panel').boundingBox();assert.ok(box.width>230&&box.x>=0&&box.x+box.width<=width,'event panel fits');
   assert.deepEqual(errors,[]);if(!member)assert.equal(saves.length,0);else{await f.evaluate(()=>AustinVisit.settled());assert.ok(saves.length>0);}
-  await page.goto(base+'/');const main=await(await page.locator('#app-window').elementHandle()).contentFrame();await main.waitForFunction(()=>window.austinExplore);await main.locator('#ctrlExplore').click();await main.locator('#ctrlSpecialEvents').click();await main.locator('a.special-event-link').waitFor();assert.match(await main.locator('a.special-event-link').getAttribute('href'),/\/maps\/austin-studio-tour\//);
+  const eventBook=await f.evaluate(async()=>{await PlanStore.sync();return PlanStore.book;});
+  await page.evaluate(()=>AustinVisit.navigate(new URL('/',location.origin)));
+  await page.waitForFunction(()=>document.getElementById('app-window').contentWindow.location.pathname==='/chat/');
+  main=await(await page.locator('#app-window').elementHandle()).contentFrame();await main.waitForFunction(()=>window.austinExplore&&window.PlanStore);await main.evaluate(()=>PlanStore.ready());
+  assert.equal(await page.evaluate(()=>AustinVisit.id),visitId);assert.equal(await main.evaluate(()=>PlanStore.scope),'main');
+  assert.deepEqual(await main.evaluate(()=>PlanStore.plan.items.map(i=>[i.source.title,i.schedule.note])),[['Separate main coffee','Keep my main plan']]);
+  assert.equal(await main.evaluate(()=>PlanStore.plan.bufferMinutes),31);assert.equal(await main.evaluate(()=>PlanExport.prepare(PlanStore.plan,'google-maps').items.length),1);
+  await main.locator('#ctrlExplore').click();await main.locator('#ctrlSpecialEvents').click();await main.locator('a.special-event-link').waitFor();assert.match(await main.locator('a.special-event-link').getAttribute('href'),/\/maps\/austin-studio-tour\//);
   assert.deepEqual(await main.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps']);
-  console.log(`${width}px ${member?'member':'guest'}: organizer dates, filters, unknown/all-day hours, visit-window planning/export/update, Watercolor/fallback, 307 chat zones and GPS gating passed.`);await context.close();await browser.close();browser=null;
+  await main.locator('a.special-event-link').click();await page.waitForFunction(()=>document.getElementById('app-window').contentWindow.location.pathname==='/special-events/map.html');
+  let back=await(await page.locator('#app-window').elementHandle()).contentFrame();await back.waitForFunction(()=>window.AustinEvent?.data&&window.PlanStore);await back.evaluate(()=>PlanStore.ready());
+  assert.deepEqual(await back.evaluate(()=>PlanStore.book.items),eventBook.items,'Returning to event recovers only its selections and notes');
+  if(member){await page.reload();back=await(await page.locator('#app-window').elementHandle()).contentFrame();await back.waitForFunction(()=>window.AustinEvent?.data&&window.PlanStore);await back.evaluate(()=>PlanStore.ready());assert.deepEqual(await back.evaluate(()=>PlanStore.book.items),eventBook.items,'Registered event collection survives reload independently');}
+  // A retained tab expires, clears its own cache, and cannot expose the map.
+  await page.clock.setSystemTime(new Date('2026-11-25T04:00:00Z'));await back.evaluate(()=>PlanContext.check());
+  await back.waitForURL('**/special-events/expired.html');assert.ok(await back.locator('h1').isVisible());
+  if(member){const caches=await page.evaluate(()=>Object.keys(localStorage).filter(k=>k.startsWith('austin:planner:v2:')));assert.ok(caches.some(k=>k.endsWith(':main')));assert.ok(!caches.some(k=>k.endsWith(':austin-studio-tour-2026')));}
+  assert.deepEqual(errors,[]);
+  console.log(`${width}px ${member?'member':'guest'}: organizer dates, filters, unknown/all-day hours, visit-window planning/export/update, Watercolor/fallback, 307 chat zones, GPS gating, separate main/event plans, navigation, reload and expiry passed.`);await context.close();await browser.close();browser=null;
  }
 }finally{await browser?.close();if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

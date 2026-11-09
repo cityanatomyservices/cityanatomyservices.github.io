@@ -10,13 +10,15 @@
   const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;};
   const label=d=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',month:'short',day:'numeric'}).format(new Date(d+'T12:00:00-06:00'));
   const ready=(async()=>{
+    await window.PlanContext.ready;window.PlanContext.assert();
     if(!/^[a-z0-9-]+$/.test(slug||''))throw Error('Choose a Special Events map from Explore.');
     const response=await fetch(`/special-events/data/${slug}.geojson?v=20261109c`);
     if(!response.ok)throw Error('Could not load this event. Please reload to try again.');
-    event=M.validate(await response.json());return event;
+    window.PlanContext.assert();event=M.validate(await response.json());if(event.id!==window.PlanContext.id)throw Error('Event data does not match this map.');return event;
   })();
+  window.addEventListener('austin:event-expired',()=>location.replace('/special-events/expired.html'));
   // Attach an error handler immediately, while the shared map is loading.
-  ready.catch(error=>{$('map-error').hidden=false;$('map-error').textContent=error.message;});
+  ready.catch(error=>{if(window.PlanContext.expired){location.replace('/special-events/expired.html');return;}$('map-error').hidden=false;$('map-error').textContent=error.message;});
   function show(on,focus=false){
     if(!panel)return;
     if(on){window.PlanPanel.leave();for(const name of ['AustinChatCard','AustinMapLayers','AustinApps'])window[name]?.close?.();render();}
@@ -114,9 +116,10 @@
     $('legend').setAttribute('aria-label','Event chat and local businesses');
     $('ctrlChat').title='Chat at your studio stop';$('ctrlChat').setAttribute('aria-label','Studio stop chat');
     $('plan-title').textContent='Plan your event day';document.querySelector('.plan-eyebrow').textContent=event.title;
-    document.querySelector('.plan-intro').textContent='Choose event stops, arrange your day, then export it.';
+    document.querySelector('.plan-intro').textContent='This event has its own plan, separate from your main Austin day plan.';
     document.querySelector('#plan-empty p').textContent='Choose an event date in Stops, then check Day Planner beside the places you want to visit.';
     document.querySelectorAll('[data-plan-explore]').forEach(b=>b.textContent=b.closest('#plan-panel')?'+ Add event stops':'Stops');
+    $('add-day').hidden=true;
     const today=window.PlanModel.day(),preferred=window.PlanStore.plan.date;
     date=event.dates.includes(preferred)?preferred:event.dates.find(d=>d>=today)||event.dates[0];
     panel=node('section',undefined,'event-panel');panel.id='event-panel';panel.hidden=true;panel.setAttribute('aria-labelledby','event-title');

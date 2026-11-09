@@ -46,15 +46,15 @@
   }
 
   Promise.all([
-    fetch('/home.json?v=20261108b').then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    fetch('/home.json?v=20261109d').then((r) => (r.ok ? r.json() : null)).catch(() => null),
     fetch('/apps/reports/reports.json?v=20261104e').then((r) => (r.ok ? r.json() : [])).catch(() => []),
     window.siteFolder(kind).catch(() => [])
   ]).then(([data, reports, folder]) => {
-    const seen = new Set();
+    const seen = new Set((data?.retiredSpecialEvents||[]).map(p=>p.split('/')[2]));
     const chip = ((data && data.chips) || []).find((c) => c.label === 'Apps');
     ((chip && chip.cards) || [])
       .filter((a) => (a.kind || 'apps') === kind)
-      .forEach((a) => { seen.add(a.slug); addRow(a.title, a.blurb, '/' + kind + '/' + a.slug + '/',a.requiredPlan); });
+      .forEach((a) => { seen.add(a.slug); if(a.expiresAt&&Date.parse(a.expiresAt)<=Date.now())return; addRow(a.title, a.blurb, '/' + kind + '/' + a.slug + '/',a.requiredPlan); });
     if (((data && data.reportsKind) || 'maps') === kind) {
       (reports || []).forEach((r) => { seen.add(r.id); addRow(r.title, r.blurb, '/' + kind + '/' + r.id + '/',r.requiredPlan); });
     }

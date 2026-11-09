@@ -40,12 +40,22 @@
       const url=new URL(input.href),frame=document.getElementById('app-window');
       if(url.origin!==location.origin||!frame)return false;
       if(aliases.includes(url.pathname)){url.pathname='/';url.searchParams.set('planner','1');}
-      if(url.pathname!=='/')return false;
+      const event=(visit.get('special-events:pages')||[]).find(e=>e.page===url.pathname);
+      if(url.pathname!=='/'&&!event)return false;
       const request=++transition;
-      visit.settled().then(()=>{
+      visit.settled().then(async()=>{
+        if(visit.closed||request!==transition)return;
+        // Finish the active collection's save when possible; offline copies
+        // remain scoped and the account's sign-out gate still protects them.
+        try{const store=frame.contentWindow.PlanStore;if(store)await Promise.race([store.sync(),new Promise(resolve=>setTimeout(resolve,3000))]);}catch(_){}
         if(visit.closed||request!==transition)return;
         if(push&&url.href!==location.href)history.pushState(null,'',url.pathname+url.search+url.hash);
         else if(!push&&url.href!==location.href)history.replaceState(null,'',url.pathname+url.search+url.hash);
+        if(event){
+          document.title=event.title+' · Austin.Chat';frame.title=event.title;
+          document.querySelector('link[rel=canonical]')?.setAttribute('href',url.origin+event.page);
+          frame.contentWindow.location.replace('/special-events/map.html?event='+encodeURIComponent(event.id)+'&v=20261109d');return;
+        }
         const on=url.searchParams.get('planner')==='1';remember(on);
         document.querySelector('link[rel=canonical]')?.setAttribute('href',url.origin+'/');
         frame.title='Explore and plan Austin';
@@ -54,7 +64,7 @@
             frame.contentWindow.PlanPanel?.setView(on);return;
           }
         }catch(_){}
-        frame.contentWindow.location.replace('/chat/?v=20261109c');
+        frame.contentWindow.location.replace('/chat/?v=20261109d');
       });
       return true;
     };

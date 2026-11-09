@@ -86,6 +86,7 @@
   function render() {
     $('save-status').textContent = S.status;
     $('plan-storage-help').textContent = S.temporary ? 'Guest plans last only for this visit. Refreshing or closing the page clears them. Download all days if you want to keep your own copy.' : 'Your plan saves privately to your signed-in account. Download all days for your own backup.';
+    if(S.event)$('plan-storage-help').textContent+=' This event’s plans are removed '+new Intl.DateTimeFormat('en-US',{timeZone:M.zone,month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(new Date(S.event.expiresAt))+' Austin time. Downloads you keep are separate copies.';
     $('save-conflict').hidden = !S.conflict;
     $('retry-save').hidden = !/unavailable/.test(S.status);
     const plan = S.plan, next = view + JSON.stringify(plan) + JSON.stringify(S.days) + routing.revision;
@@ -166,7 +167,7 @@
   $('use-remote').onclick = () => S.resolve(false).catch(e => message(e.message));
   $('download-plan').onclick = () => {
     const blob = new Blob([JSON.stringify({ format:'austin-chat-plan-v2',exported:new Date().toISOString(),plan:S.book },null,2)],{type:'application/json'});
-    const url = URL.createObjectURL(blob), a = node('a'); a.href = url; a.download = `austin-plan-${S.plan.date}.json`; $('export-dialog').append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url),1000);
+    const url = URL.createObjectURL(blob), a = node('a'); a.href = url; a.download = `${S.scope==='main'?'austin-plan':S.scope}-${S.plan.date}.json`; $('export-dialog').append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url),1000);
     $('backup-status').textContent = 'All days downloaded. Use this file to restore your plans later.';
   };
   $('import-plan').onclick = () => $('import-file').click();

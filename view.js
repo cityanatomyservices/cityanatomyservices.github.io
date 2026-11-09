@@ -18,13 +18,14 @@
   const name = parts[1] || '';
 
   Promise.all([
-    fetch('/home.json?v=20261109c').then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    fetch('/home.json?v=20261109d').then((r) => (r.ok ? r.json() : null)).catch(() => null),
     fetch('/apps/reports/reports.json?v=20261104e').then((r) => (r.ok ? r.json() : [])).catch(() => [])
   ]).then(([data, reports]) => {
     const chip = ((data && data.chips) || []).find((c) => c.label === 'Apps');
     const app = ((chip && chip.cards) || []).find((a) => a.slug === name && (a.kind || 'apps') === kind);
     const reportsKind = (data && data.reportsKind) || 'maps';
     const report = kind === reportsKind ? (reports || []).find((r) => r.id === name) : null;
+    if(app?.expiresAt&&Date.parse(app.expiresAt)<=Date.now()||(data?.retiredSpecialEvents||[]).includes('/maps/'+name+'/')){missing('This Special Event has ended and is no longer available.');return;}
     if (app || report) {
       show(app ? app.title : report.title, app ? (app.app || app.src) : '/apps/reports/' + report.id + '/', (app||report).requiredPlan);
       return;

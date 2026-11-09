@@ -260,3 +260,78 @@ outage and recovery. Availability checks cover actual weekend exceptions,
 unknown schedules, all-day/time/medium filters, narrowed planner windows,
 calendar details and updating an already planned visit. Shared references in private tour/shop pages require repackaging
 with `tools/billing/package-apps.py --upload` before workflow-only Pages deploy.
+
+## Separate plans and event retirement
+
+Each event owns a planner collection keyed by its event ID. The main collection
+uses `main`. A date is unique within its collection, so the same account can
+have a main itinerary and independent event itineraries on the same date.
+`planner/context.js` determines ownership from the map page before storage
+starts; browser caches, guest visit memory, locks, cloud RPCs, backup/restore
+and exports keep that boundary. Main/catalog selections cannot be added to an
+event plan, and an event backup must be restored on that event's page. The
+Special Events Explore card navigates the shared frame without ending a guest
+visit. Guests still lose their temporary plans on a full refresh or closure.
+
+Migration `0016_special_event_plans.sql` moves existing event items to their
+own collections, retaining item IDs, notes, scheduled times and day settings.
+It increments the original collection's revision. Older clients load only the
+main collection; attempts to save a mixed collection are rejected atomically.
+Unsaved legacy browser copies are partitioned for recovery and use the existing
+explicit revision-conflict choices. The account and shared city database are
+never treated as event-owned data.
+
+The owner approved removal **48 hours after the final scheduled closing**.
+`registry.json` supplies the browser/build metadata; `public.special_events`
+supplies the authoritative server deadline. For this tour the final published
+closing is November 22, 2026 at 10 PM CST, so retirement is **November 24 at
+10 PM CST** (November 25, 04:00 UTC). Participant evening/overnight closings
+count; the general 5 PM tour hours do not truncate them.
+
+At the deadline, current browser maps retire and clear their event cache.
+Server policies immediately reject event reads/writes; a database cron running
+every minute deletes the event's plans and items, event-linked Favorites,
+reminders/jobs, any legacy event messages/progress and registry row. Event chat
+uses live Presence/Broadcast and has no stored chat history. Other events,
+main plans, accounts, preferences and the shared routing network are retained.
+An offline browser's physical cache is removed when it next runs current site
+code; a website cannot remotely wipe a powered-off device or exported files.
+
+Every Pages build excludes retired event pages, GeoJSON and explicitly assigned
+unique assets, removes their catalog cards and prevents folder discovery from
+relisting them. Existing scheduled sports refreshes trigger Pages publication
+roughly every 15 minutes, even without changed scores; Actions delays/failures
+can delay artifact removal. The browser/server deadline is independent of
+that deployment. Shared event code and reusable basemap tiles remain available
+for future maps. This is live-data retirement: public Git source history,
+provider backups and visitor-downloaded calendar/JSON copies are not rewritten.
+
+For a future event, add its page/data entry to `registry.json`, then run:
+
+```
+python3 tools/special-events/register.py EVENT-ID
+python3 tools/special-events/register.py EVENT-ID --apply
+```
+
+The first command previews the latest published closing and 48-hour deadline.
+The second uses the authorized Supabase CLI without printing credentials,
+updates server metadata and the local registry/catalog, and refuses an already
+expired event. Publish the resulting metadata with the event's page. Re-run
+after organizer schedule changes so browser and server deadlines agree.
+Unique assets may be listed under `/special-events/assets/EVENT-ID/`; retirement
+never accepts a shared or traversal asset path.
+
+Verification:
+
+```
+node --test --test-isolation=none tests/planner/*.test.cjs
+python3 -m unittest discover -s tests/special-events -p 'test_*.py'
+python3 tools/special-events/check-database.py
+node tools/special-events/check-map.cjs
+```
+
+Database checks create disposable fixtures and always roll back. Before applying
+migration 0016, `check-database.py --migrate` also verifies the migration against
+existing items without exporting private data. Browser checks use account,
+chat and route fixtures, and cover same-day main/event plans, guest navigation,
+registered reload, exports, retained notes and deadline expiry.

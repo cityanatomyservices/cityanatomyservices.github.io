@@ -1,5 +1,57 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-09 - Separate Special Event plans and 48-hour retirement
+
+Owner found main Explore stops in the Studio Tour planner. Each Special Event
+now owns its collection, independent of `main` and other events on the same
+date. Guest visit keys, account caches, edit/save locks, scoped RPCs,
+backup/restore and exports enforce that boundary. Frame navigation preserves
+separate guest collections when moving between Explore and an event; a full
+refresh still clears guest plans. Event dates and retirement time appear in
+the event planner. An event backup cannot replace a main or other-event plan.
+
+Applied `0016_special_event_plans.sql` atomically. Existing event items moved
+without changing IDs, source snapshots, notes, visit schedules or day settings.
+The old main revision increments to protect against stale saves. Post-migration
+verification found two main collections, one event collection and zero mixed
+items. Legacy RPCs expose only main plans and reject mixed writes; registered
+owner RLS, revision checks and scope guards apply to current/direct calls.
+Legacy browser caches partition for offline recovery, preserving unsaved edits
+through explicit conflicts instead of forcing them over newer cloud records.
+
+Owner explicitly approved removal 48 hours after final scheduled closing.
+The last published Studio Tour closing is Nov 22 at 10 PM CST; retirement is
+Nov 24 at 10 PM CST (Nov 25 04:00 UTC). `special-events/registry.json` supplies
+browser/build metadata. The server registry generates its expiry at 48 elapsed
+hours; active policies deny expired reads/writes and a verified active minute
+cron deletes that event's plans/items, linked Favorites/reminders/jobs, legacy
+messages/progress and registry row. Main plans, accounts and other events remain.
+Event chat stays live-only. Browsers retire the event at the deadline and clear
+its cache; offline device caches clear when current site code next runs.
+
+Every Pages build excludes expired event pages/data/assigned unique assets,
+removes their catalog links, and prevents folder fallback from relisting them.
+The existing sports workflow triggers publication about every 15 minutes;
+Actions delays can delay physical artifact removal. Runtime/server deadlines
+are independent of deployment. Reusable themes/code, Git history, provider
+backups and user exports are not erased. Future-event registration/refresh and
+these retention limits are documented in `special-events/README.md`.
+
+Validation so far: 107 planner/domain tests and 11 importer/retention tests pass.
+Database migration and existing-data preservation, RLS, mixed/legacy/stale writes,
+account isolation and expiry passed in rolled-back SQL transactions; checks
+also passed after applying the migration. Full event browser checks pass all
+four desktop/phone guest/member combinations, including independent same-date
+main/event plans, notes, navigation, registered reload, exports and expiration.
+Account/chat/route browser traffic uses fixtures. Main-map regression passes
+all four variants. An added sign-out guard protects offline edits in inactive
+collections, and frame navigation attempts the active save before switching.
+The public build passes and excludes all 45 private files. Publication
+verification is in progress.
+
+Changed assets/references use `20261109d`. Nine private app bundles (45 files)
+were repackaged/uploaded successfully. No workflow file edits were needed.
+
 ## 2026-11-09 - Studio Tour filters and individual opening hours
 
 Owner requested the filters from `https://atxstudiotour.com/explore/` and

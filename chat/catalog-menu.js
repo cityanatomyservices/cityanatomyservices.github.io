@@ -7,7 +7,7 @@
     return response.json();
   }
   function catalog() {
-    if (!home) home = read('/home.json?v=20261108b').catch(error => { home = null; throw error; });
+    if (!home) home = read('/home.json?v=20261109d').catch(error => { home = null; throw error; });
     return home;
   }
   const registered=()=>window.AustinSession?.registered===true;

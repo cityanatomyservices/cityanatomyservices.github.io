@@ -15,7 +15,7 @@
     document.documentElement.classList.toggle('planning-day',on);
     window.PlanMap.setActive(on);
     window.dispatchEvent(new CustomEvent('austin:planner-view',{detail:{active:on}}));
-    if(history)visit?.plannerView?.(on);
+    if(history&&window.PlanContext.id==='main')visit?.plannerView?.(on);
   }
   function open({history=true,focus=true}={}){
     for(const name of ['AustinEvent','AustinClassifieds','AustinExplore','AustinCityHall','AustinChatCard','AustinApps','AustinMedia','AustinMapLayers'])window[name]?.close?.();
@@ -39,6 +39,6 @@
     setView:on=>on?open({history:false,focus:false}):leave({history:false}),get isOpen(){return !panel.hidden;},get active(){return active;}};
   window.AustinDayPlan={open,close:leave};
   window.PlanStore.subscribe(status);status();
-  const requested=visit?.get('main:planner')==='true'||new URLSearchParams(window.parent.location.search).get('planner')==='1';
+  const requested=window.PlanContext.id==='main'&&(visit?.get('main:planner')==='true'||new URLSearchParams(window.parent.location.search).get('planner')==='1');
   if(requested)open({history:false,focus:false});
 })();

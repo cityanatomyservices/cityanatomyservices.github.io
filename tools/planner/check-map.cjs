@@ -54,8 +54,8 @@ async function routeCount(f,count){
    if(p==='/auth/v1/logout')return route.fulfill({status:204});
    if(p==='/rest/v1/rpc/member_load')return route.fulfill({json:{profile:{handle:'Fixture',emoji:'🦊',show_avatar:false},favorites:[],preferences:{explore:{enabled:['free-cheap'],when:'week'}},progress:[]}});
    if(p==='/rest/v1/rpc/member_preference_set')return route.fulfill({json:null});
-   if(p==='/rest/v1/rpc/planner_load')return route.fulfill({json:remote});
-   if(p==='/rest/v1/rpc/planner_save'){remote={plan:{id:body.p_id,...body.p_settings,items:body.p_items},revision:(remote?.revision||0)+1,dirty:false};return route.fulfill({json:{revision:remote.revision}});}
+   if(p==='/rest/v1/rpc/planner_load_scoped')return route.fulfill({json:remote});
+   if(p==='/rest/v1/rpc/planner_save_scoped'){remote={plan:{id:body.p_id,...body.p_settings,items:body.p_items},revision:(remote?.revision||0)+1,dirty:false};return route.fulfill({json:{revision:remote.revision}});}
    if(p==='/rest/v1/rpc/planner_routing_status')return route.fulfill({json:{status:'ready',networkVersion:2}});
    if(p==='/rest/v1/rpc/planner_route_leg'){
     rpcCalls.push(body);if(holdNext){holdNext=false;await new Promise(resolve=>{held=resolve;});}

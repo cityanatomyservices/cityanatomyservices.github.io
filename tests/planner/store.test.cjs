@@ -11,17 +11,19 @@ function fixture(options={}) {
  let remote=options.remote||null, saveFn=options.save, writes=0, loads=0, quota=false;
  const values=new Map(),subscribers=new Set();
  const visit=options.visit||{get:k=>values.get(k)||null,set:(k,v)=>{values.set(k,v);subscribers.forEach(fn=>fn(k));},remove:k=>values.delete(k),subscribe:fn=>{subscribers.add(fn);return()=>subscribers.delete(fn);}};
- const w={AustinVisit:visit,PlanModel:M,PlanSources:Sources,addEventListener:(event,fn)=>{events[event]=fn;}};
+ const scope=options.scope||'main',sourceScope=s=>s.key?.startsWith('special-event:')?s.key.split(':')[1]:s.eventId||'main';
+ const callbacks=new Set();const context={id:scope,event:options.event,ready:Promise.resolve(),sourceScope,accepts:s=>sourceScope(s)===scope,assert(){if(options.expired)throw Error('Event expired');},get expired(){return !!options.expired;},subscribe:fn=>{callbacks.add(fn);return()=>callbacks.delete(fn);}};
+ const w={PlanContext:context,AustinVisit:visit,PlanModel:M,PlanSources:Sources,addEventListener:(event,fn)=>{events[event]=fn;}};
  const client={auth:{onAuthStateChange:fn=>{events.auth=fn;}}};
  w.AustinSession={client:()=>client,ready:async()=>{if(options.offline)throw new Error('offline');return {user:options.user||{id:owner,is_anonymous:options.anonymous??false}};}};
  w.PlanRepository={
-  load:async(_c,_owner,id)=>{loads++;if(options.loadError)throw new Error('offline');if(options.load)await options.load();return remote&&(!id||remote.plan.id===id)?structuredClone(remote):null;},
+  load:async(_c,_owner,id)=>{loads++;if(options.loadError)throw new Error('offline');if(options.load)await options.load();return remote?{...structuredClone(remote),plan:{...structuredClone(remote.plan),scope}}:null;},
   save:async(_c,e)=>{writes++;if(saveFn)return saveFn(e);if(remote&&remote.revision!==e.revision)throw {code:'PT409',message:'planner_revision_conflict'};remote={...structuredClone(e),revision:e.revision+1,dirty:false};return {revision:remote.revision};}
  };
  const storage=new Proxy({getItem:k=>memory.get(k)||null,setItem:(k,v)=>{if(quota)throw new Error('quota');memory.set(k,v);},removeItem:k=>memory.delete(k)},{ownKeys:()=>[...memory.keys()],getOwnPropertyDescriptor:()=>({enumerable:true,configurable:true})});
  vm.runInNewContext(code,{window:w,document:{hidden:false,addEventListener:(event,fn)=>{events[event]=fn;}},navigator:{},crypto,structuredClone,localStorage:storage,
   setTimeout:(fn,ms)=>{const t=setTimeout(fn,ms);t.unref();timers.add(t);return t;},clearTimeout,queueMicrotask,console});
- return {store:w.PlanStore,owner,memory,visit,events,get loads(){return loads;},get writes(){return writes;},set quota(v){quota=v;},set remote(v){remote=v;},get remote(){return remote;},set save(fn){saveFn=fn;},dispose:()=>{for(const t of timers)clearTimeout(t);}};
+ return {store:w.PlanStore,owner,memory,visit,events,expire(){options.expired=true;callbacks.forEach(fn=>fn());},get loads(){return loads;},get writes(){return writes;},set quota(v){quota=v;},set remote(v){remote=v;},get remote(){return remote;},set save(fn){saveFn=fn;},dispose:()=>{for(const t of timers)clearTimeout(t);}};
 }
 test('guest selections stay in visit memory and do not survive refresh',async()=>{
  const a=fixture({anonymous:true});try{
@@ -187,7 +189,55 @@ test('account login preserves a different tab’s guest merge completed during t
   await f.store.select(place('this tab'),true);options.user={id:uuid(),is_anonymous:false};options.load=async()=>{started.resolve();await resume.promise;};
   f.events.auth('SIGNED_IN',{user:options.user});await started.promise;
   const other=M.empty(uuid());other.items=[{...Sources.item(place('other tab'),uuid()),day:other.date}];
-  f.memory.set('austin:planner:v1:'+options.user.id,JSON.stringify({plan:other,revision:0,dirty:true,stamp:uuid()}));
+  f.memory.set('austin:planner:v2:'+options.user.id+':main',JSON.stringify({plan:{...other,scope:'main'},revision:0,dirty:true,stamp:uuid()}));
   resume.resolve();await f.store.ready();await f.store.sync();assert.equal(f.remote.plan.items.length,2);
  }finally{f.dispose();}
+});
+
+const eventMeta=id=>({id,title:id,dates:['2026-11-14','2026-11-15'],expiresAt:'2099-11-24T22:00:00-06:00'});
+const eventPlace=(id,n)=>({...place(n),key:`special-event:${id}:${n}:2026-11-14`,eventId:id,eventDate:'2026-11-14'});
+test('main and two event plans on the same date keep independent guest and account caches',async()=>{
+ for(const anonymous of [true,false]){
+  const memory=new Map(),owner=uuid(),main=fixture({anonymous,memory,owner});
+  const a=fixture({anonymous,memory,owner,visit:main.visit,scope:'event-a',event:eventMeta('event-a')});
+  const b=fixture({anonymous,memory,owner,visit:main.visit,scope:'event-b',event:eventMeta('event-b')});
+  try{
+   await main.store.chooseDay('2026-11-14');await main.store.select(place('Main coffee'),true);await main.store.sync();
+   await a.store.select(eventPlace('event-a','Studio'),true);await a.store.edit(p=>p.items[0].schedule.note='Event note');await a.store.sync();
+   await b.store.select(eventPlace('event-b','Music'),true);await b.store.sync();
+   assert.deepEqual(main.store.plan.items.map(i=>i.source.title),['Main coffee']);assert.deepEqual(a.store.plan.items.map(i=>i.source.title),['Studio']);assert.deepEqual(b.store.plan.items.map(i=>i.source.title),['Music']);
+   assert.equal(main.store.plan.date,a.store.plan.date);assert.notEqual(main.store.book.id,a.store.book.id);
+   const again=fixture({anonymous,memory,owner,visit:main.visit,scope:'event-a',event:eventMeta('event-a'),remote:a.remote});
+   try{await again.store.ready();assert.equal(again.store.plan.items[0].schedule.note,'Event note');}finally{again.dispose();}
+   if(!anonymous)assert.equal(memory.size,3);
+   await assert.rejects(main.store.select(eventPlace('event-a','wrong'),true),/own map/);
+   await assert.rejects(a.store.select(place('wrong'),true),/own map/);
+   await assert.rejects(b.store.restore(a.store.book),/another page/);
+   await assert.rejects(a.store.restore(main.store.book),/another page/);
+   await assert.rejects(a.store.chooseDay('2026-12-25'),/day in this Special Event/);
+   a.expire();assert.equal(a.store.plan.items.length,0);assert.equal(main.store.plan.items.length,1);assert.equal(b.store.plan.items.length,1);
+   await assert.rejects(a.store.select(eventPlace('event-a','late'),true),/expired/);
+  }finally{main.dispose();a.dispose();b.dispose();}
+ }
+});
+test('legacy unsaved mixed cache partitions recoverable notes without overwriting migrated cloud plans',async()=>{
+ const owner=uuid(),memory=new Map(),plan=M.empty(uuid());M.ensureDay(plan,'2026-11-14');
+ plan.items=[place('Coffee'),eventPlace('event-a','Studio')].map(s=>({...Sources.item(s,uuid()),day:plan.date}));plan.items[1].schedule.note='Unsaved note';
+ memory.set('austin:planner:v1:'+owner,JSON.stringify({plan,revision:4,dirty:true,stamp:uuid()}));
+ const main=fixture({owner,memory,remote:{plan:{...plan,items:[plan.items[0]]},revision:5,dirty:false}});
+ try{
+  await main.store.ready();assert.equal(main.store.plan.items.length,1);assert.equal(main.store.conflict,true);
+  const migrated={...structuredClone(plan),id:uuid(),scope:'event-a',items:[structuredClone(plan.items[1])]};
+  const a=fixture({owner,memory,scope:'event-a',event:eventMeta('event-a'),remote:{plan:migrated,revision:1,dirty:false}});
+  try{await a.store.ready();assert.equal(a.store.conflict,true);assert.equal(a.store.plan.items[0].schedule.note,'Unsaved note');await a.store.resolve(true);await a.store.sync();assert.equal(a.remote.plan.id,migrated.id);assert.equal(a.remote.plan.items[0].schedule.note,'Unsaved note');}finally{a.dispose();}
+ }finally{main.dispose();}
+});
+test('sign-out protection includes offline edits in an inactive plan scope',async()=>{
+ const owner=uuid(),memory=new Map(),main=fixture({owner,memory});
+ const event=fixture({owner,memory,scope:'event-a',event:eventMeta('event-a')});
+ try{
+  await main.store.select(place('Offline main edit'),true);await event.store.ready();
+  assert.equal(event.store.unsaved,true,'Signing out from the event must warn before discarding another plan’s edits');
+  await main.store.sync();assert.equal(event.store.unsaved,false);
+ }finally{main.dispose();event.dispose();}
 });
