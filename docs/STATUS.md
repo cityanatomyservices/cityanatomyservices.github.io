@@ -20,7 +20,13 @@ and Chat. Screenshots were reviewed at both sizes. Legacy catalog and new-sectio
 membership fixtures pass guest/Free/Pro, expiry and sign-out access transitions.
 Changed JS syntax and diff checks pass. Browser account requests were mocked;
 no production customer accounts, plans or conversations were changed.
-Publication and live verification are pending below this checkpoint.
+Implementation `2f0511c` is live via successful Pages run `42740145540`.
+All four CI suites passed. After deployment, three unversioned entry pages
+advertised `20261109g` and matched checkout bytes; all five changed versioned
+assets and the private-bundle manifest also matched. The live 390px check passed
+three controls, adjacent cards, full catalog, locked paid links, section switching,
+Escape/focus, Day Plan and Chat. Physical-phone GPS/chat remains the separately
+deferred owner check.
 
 ## 2026-11-09 - Private event stop notes, Favorites and printed notes
 
