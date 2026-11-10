@@ -43,7 +43,14 @@ and is not physical-access security. See geofences/README.md for the flow,
 configuration, retention and commands. Runtime/cache updates use `20261109h`.
 The public build passed and excluded all 45 private resources; private bundle
 hashes are unchanged. New geofence tests also run in the existing billing CI job.
-Deployment verification pending.
+Implementation `2301c9e` is published via Pages run `42758199422`. All five
+CI suites passed. Three unversioned entry pages advertised `20261109h` after
+successful deployment and matched checkout bytes. All 10 changed versioned
+assets and the QR library matched. The published 390px browser check passed
+Account card, exclusive input modes, preview/confirmation, size validation,
+fixture-only checkout redirect, stable page/QR, and anonymous chat GPS gates.
+New-product Stripe configuration, sandbox payment validation and activation
+remain pending; the live builder explicitly keeps payments disabled.
 
 ## 2026-11-09 - Pro Tier Apps inside Explore
 
