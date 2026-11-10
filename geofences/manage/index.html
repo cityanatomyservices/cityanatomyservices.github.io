@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico?v=20261031f" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261031f" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261031f" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261031f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom geofences · Austin.Chat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="/style.css?v=20261029v" rel="stylesheet" />
+  <link rel="stylesheet" href="/appearance.css?v=20261028h" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
+  <script src="/shared/visit.js?v=20261109g"></script>
+  <script src="/shared/session.js?v=20261031a"></script>
+  <script src="/shared/member.js?v=20261030c"></script>
+  <script src="/shared/preferences.js?v=20261104a"></script>
+  <script src="/shared/favorite-button.js?v=20261030c"></script>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
+<link rel="stylesheet" href="/geofences/style.css?v=20261109h">
+<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+<script src="/geofences/vendor/qrcode.js?v=2.0.4"></script>
+</head>
+<body>
+<main class="page-main"><div class="geofence-page">
+<p class="geofence-kicker">Your place. Your conversation.</p><h1>Your own chat geofence</h1>
+<p class="geofence-intro">Create a small circle where people can chat using their phone’s location. <strong>$10 USD per month for each geofence</strong>, billed monthly. Includes a permanent page and shareable QR code. Separate from Pro membership; visitors chat for free.</p>
+<div id="geo-signin" hidden><p>Sign in to create or manage your geofences.</p><button id="geo-signin-button">Sign In</button></div>
+<div id="geo-member" hidden>
+<div class="geofence-grid"><form id="geofence-form" class="geofence-form">
+<h2>Create a geofence</h2>
+<label>Name<input name="name" maxlength="80" required placeholder="Courtyard chat"></label>
+<label>Brief description<textarea name="description" maxlength="400" placeholder="What should visitors know?"></textarea></label>
+<fieldset><legend>Choose the center</legend><div class="geofence-modes"><label><input type="radio" name="mode" value="address" checked> U.S. address</label><label><input type="radio" name="mode" value="coordinates"> Coordinates</label></div>
+<div id="geo-address-fields"><label>Full street address<input name="address" maxlength="240" placeholder="Street, city, state, ZIP"></label><button type="button" id="geo-search">Find address</button><small>U.S. Census address lookup. Results are estimated; check the map before paying.</small><div id="geo-results" class="geofence-results" role="status"></div></div>
+<div id="geo-coordinate-fields" class="geofence-coordinates" hidden><label>Latitude<input name="latitude" type="number" step="any" min="-85" max="85" disabled></label><label>Longitude<input name="longitude" type="number" step="any" min="-180" max="180" disabled></label></div></fieldset>
+<label>Circle diameter (meters)<input name="diameter" type="number" min="10" max="100" step="1" value="50" required></label><small>10–100 meters across (about 33–328 feet). This is the diameter, not the radius.</small>
+<div class="geofence-actions"><button type="button" id="geo-preview">Show location on map</button></div>
+<label class="geofence-check"><input id="geo-confirm" type="checkbox" disabled> I checked the circle on the map. The name, description and location will be visible to anyone with the link.</label>
+<button class="primary" id="geo-pay" type="submit" disabled>Continue to payment · $10/month</button><small>Renews monthly until canceled. Cancel through Manage billing; access continues through the paid period. Your link stays the same. Location and size are fixed once checkout starts.</small>
+<p id="geo-form-status" role="status"></p>
+</form><div class="geofence-preview"><div id="geofence-map" class="geofence-map" aria-label="Preview of your chat circle"></div><p id="geo-preview-caption">Choose an address or coordinates, then show the location to preview your circle.</p><small>Phone GPS may be unreliable indoors, especially for very small circles. Chat requires a recent location accurate enough for the selected circle.</small></div></div>
+<h2>Your geofences</h2><button id="geo-refresh">Refresh status</button><p id="geo-list-status" role="status"></p><div id="geo-owned"></div>
+</div></div></main>
+<script src="/shell.js?v=20261109h"></script>
+<script type="module" src="/geofences/manage.mjs?v=20261109h"></script>
+</body></html>

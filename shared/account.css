@@ -21,6 +21,10 @@
 #account-status:not(:empty) { border-top: 1px solid var(--border); padding-top: 12px; }
 #account-status:empty { display: none; }
 #account-discard { margin-top: 10px; }
+.account-geofences { display:grid; gap:8px; padding:16px; margin:16px 0; border:1px solid var(--border); border-radius:12px; background:var(--finish-raised); color:var(--text); text-decoration:none; }
+.account-geofences span { font-size:13px; line-height:1.5; }
+.account-geofences span:last-child { color:var(--accent); font-weight:600; }
+.account-geofences:hover,.account-geofences:focus-visible { border-color:var(--accent); }
 .member-controls { border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:14px 0; margin:14px 0; }
 .member-tabs { display:flex; flex-wrap:wrap; gap:5px; }
 .member-tabs button { flex:1; font-size:12px; padding:7px; }

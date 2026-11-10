@@ -20,3 +20,9 @@ verify_jwt = false
 # Every asset request checks a confirmed user's live, paid membership.
 [functions.pro-app]
 verify_jwt = false
+
+# Separate paid custom geofences, with confirmed-account and signed webhook checks.
+[functions.geofences]
+verify_jwt = false
+[functions.geofence-webhook]
+verify_jwt = false

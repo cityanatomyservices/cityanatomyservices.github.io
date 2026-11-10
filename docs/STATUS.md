@@ -1,5 +1,50 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-09 - Custom paid geofences: preview built, Stripe connection pending
+
+Owner requested $10/month per custom geofence, account-card entry, mutually
+exclusive address/coordinates, map preview, size control, permanent self-contained
+page and shareable QR. Owner confirmed 10–100m diameter and automatic permanent
+`/geofences/?id=<UUID>` links. UI/template/QR remain in GitHub Pages; Supabase
+stores each circle and private ownership/billing state. No per-sale deployment
+or GitHub write token is required. This is separate from Pro and Special Events.
+
+Implemented `/geofences/manage/`, Account card, server-side validation/ownership,
+Census U.S. address lookup, checked circle preview, checkout handoff, owner list,
+permanent page, downloadable QR, and separate anonymous GPS-gated chat. Chat
+checks distance/accuracy/freshness on each request, never stores coordinates,
+returns no account IDs, and uses expiring presence/messages. Phone layouts put
+preview beside confirmation and chat before sharing controls. Locations lock
+when checkout begins; retries can resume from Your geofences.
+
+Migration 0018 is applied; `geofences` and `geofence-webhook` are deployed.
+Existing Pro functions/products/settings were unchanged. New billing has fixed
+$10/month price checks, per-circle customer ownership, fenced leases/idempotency,
+signed webhooks, current-state reconciliation, period-end cancellation and
+server-enforced expiry. New checkout is OFF: this laptop has no authorized
+Stripe CLI/connection for creating the new product/price/portal/webhook. Stripe
+integration was offered, but no connection is confirmed. Do not call the feature
+fully launched or take real payments yet. UI clearly allows preview while setup
+is pending. `tools/geofences/configure-stripe.py` prepares configuration using an
+authorized CLI without creating customers or charges; activation is separate.
+Complete sandbox payment/webhook/cancellation validation in an isolated test
+deployment and verify live configuration before enabling the new product.
+
+67 new/existing billing/domain/HTTP tests pass. Database ownership, permissions,
+leases, live/test separation, size limits, GPS gating, anonymous chat, send rate
+and expiry checks passed in rolled-back transactions before/after migration.
+The deployed API passed real disposable-account ownership/validation checks and
+a Census lookup; all fixtures were removed, with no Stripe objects/purchases.
+Real MapLibre/form/account/page browser checks passed desktop and phone with
+fixture payment routing; repeated phone checks include guest chat and improved
+mobile layout. QR was independently decoded to the exact UUID URL. Screenshots
+were reviewed. GPS field testing remains owner work; browser GPS can be spoofed
+and is not physical-access security. See geofences/README.md for the flow,
+configuration, retention and commands. Runtime/cache updates use `20261109h`.
+The public build passed and excluded all 45 private resources; private bundle
+hashes are unchanged. New geofence tests also run in the existing billing CI job.
+Deployment verification pending.
+
 ## 2026-11-09 - Pro Tier Apps inside Explore
 
 Owner requested moving the main map's Pro Apps button into Explore beside

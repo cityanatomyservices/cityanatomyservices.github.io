@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico?v=20261031f" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261031f" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261031f" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261031f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom geofences · Austin.Chat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="/style.css?v=20261029v" rel="stylesheet" />
+  <link rel="stylesheet" href="/appearance.css?v=20261028h" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
+  <script src="/shared/visit.js?v=20261109g"></script>
+  <script src="/shared/session.js?v=20261031a"></script>
+  <script src="/shared/member.js?v=20261030c"></script>
+  <script src="/shared/preferences.js?v=20261104a"></script>
+  <script src="/shared/favorite-button.js?v=20261030c"></script>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
+<link rel="stylesheet" href="/geofences/style.css?v=20261109h">
+<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+<script src="/geofences/vendor/qrcode.js?v=2.0.4"></script>
+</head>
+<body>
+<main class="page-main"><div class="geofence-page"><p class="geofence-kicker">Local chat circle</p><h1 id="geo-title">Chat geofence</h1><p id="geo-description"></p><p id="geo-public-status" role="status">Loading this geofence…</p><div id="geo-room" hidden><div class="geofence-public-grid"><div class="geofence-map-and-share"><div id="geofence-map" class="geofence-map geofence-room-map" aria-label="Map of the chat circle"></div><div class="geofence-share"><div class="geofence-actions"><button id="geo-fit">Fit circle</button><button id="geo-share">Copy link</button><button id="geo-download">Download QR code</button></div><div id="geo-qr" class="geofence-qr"></div><p><a id="geo-permalink" class="geofence-link"></a></p></div></div><section class="geofence-card"><h2>Chat here</h2><p>People inside this circle can join with a temporary nickname. No payment or registered account is needed to chat.</p><button class="primary" id="geo-join">Use my location to join</button><button id="geo-leave" hidden>Leave chat</button><p id="geo-gps-status" role="status"></p><div id="geo-chat-content" hidden><p id="geo-people" class="geofence-people"></p><ol id="geo-messages" class="geofence-chat-log" aria-label="Chat messages" aria-live="polite"></ol><form id="geo-chat-form"><label>Message<textarea id="geo-message" maxlength="500" required></textarea></label><button type="submit" id="geo-send">Send</button></form></div><small>Chat is limited to this circle and current visitors. Messages are temporary. Location checks use your device’s GPS and are not proof of someone’s physical presence.</small></section></div></div></div></main>
+<script src="/shell.js?v=20261109h"></script>
+<script type="module" src="/geofences/page.mjs?v=20261109h"></script>
+</body></html>

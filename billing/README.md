@@ -1,7 +1,9 @@
 # Austin.chat membership
 
 Owner direction: exactly **Free** and **Pro ($8 USD per month)**. There is no
-annual plan, trial, signup fee or other paid level.
+annual plan, trial, signup fee or other paid membership level.
+Custom chat geofences are a separate $10/month-per-circle product; see
+[geofences](../geofences/README.md).
 
 Pro includes paid Austin.chat Substack access through a manual comp. All paid
 monthly, annual and founding Substack plans also include site Pro after manual
@@ -17,8 +19,8 @@ the setup checks. See `docs/STATUS.md` for the latest deployment evidence.
 
 ## Member experience
 
-Guests see a gray, disabled Apps button. Signed-in Free and Pro members can
-open its panel. Each paid entry has the exact words **Pro App** after its name;
+The main map has an Explore → Pro Tier Apps card that visitors can browse.
+Legacy catalog maps retain the signed-in Apps button. Each paid entry has the exact words **Pro App** after its name;
 Free members see those entries gray and cannot launch them. The app directory
 and direct app wrapper pages also check membership. Account shows the current
 plan and provides Upgrade or Manage billing when live checkout is enabled.

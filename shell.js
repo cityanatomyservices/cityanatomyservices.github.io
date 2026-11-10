@@ -77,9 +77,9 @@
   });
   window.addEventListener('storage',event=>{if(event.key==='theme'){const theme=event.newValue==='dark'?'dark':'light';document.documentElement.dataset.theme=theme;showOffer(theme);}});
 
-  const accountStyle=document.createElement('link');accountStyle.rel='stylesheet';accountStyle.href='/shared/account.css?v=20261030c';document.head.append(accountStyle);
+  const accountStyle=document.createElement('link');accountStyle.rel='stylesheet';accountStyle.href='/shared/account.css?v=20261109h';document.head.append(accountStyle);
   const memberScript=document.createElement('script');memberScript.src='/shared/member-ui.js?v=20261102g';
-  memberScript.onload=()=>{const accountScript=document.createElement('script');accountScript.src='/shared/account.js?v=20261104d';document.body.append(accountScript);};
+  memberScript.onload=()=>{const accountScript=document.createElement('script');accountScript.src='/shared/account.js?v=20261109h';document.body.append(accountScript);};
   const reminderScript=document.createElement('script');reminderScript.src='/shared/reminders.js?v=20261102f';
   reminderScript.onload=()=>{
     const style=document.createElement('link');style.rel='stylesheet';style.href='/shared/membership.css?v=20261104d';document.head.append(style);
