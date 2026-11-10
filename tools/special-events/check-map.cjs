@@ -248,7 +248,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   assert.deepEqual(await main.evaluate(()=>PlanStore.plan.items.map(i=>[i.source.title,i.schedule.note])),[['Separate main coffee','Keep my main plan']]);
   assert.equal(await main.evaluate(()=>PlanStore.plan.bufferMinutes),31);assert.equal(await main.evaluate(()=>PlanExport.prepare(PlanStore.plan,'google-maps').items.length),1);
   await main.locator('#ctrlExplore').click();await main.locator('#ctrlSpecialEvents').click();await main.locator('a.special-event-link').waitFor();assert.match(await main.locator('a.special-event-link').getAttribute('href'),/\/maps\/austin-studio-tour\//);
-  assert.deepEqual(await main.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps']);
+  assert.deepEqual(await main.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat']);
   await main.locator('a.special-event-link').click();await page.waitForFunction(()=>document.getElementById('app-window').contentWindow.location.pathname==='/special-events/map.html');
   let back=await(await page.locator('#app-window').elementHandle()).contentFrame();await back.waitForFunction(()=>window.AustinEvent?.data&&window.PlanStore);await back.evaluate(()=>PlanStore.ready());
   assert.deepEqual(await back.evaluate(()=>PlanStore.book.items),eventBook.items,'Returning to event recovers only its selections and notes');

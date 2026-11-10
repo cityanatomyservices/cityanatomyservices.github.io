@@ -70,8 +70,8 @@ const rpc=(member,name,body)=>json(api+'/rest/v1/rpc/'+name,body,headers(member.
   console.log('Profile save, shared chat nickname, image processing, private bucket, visibility controls, upload limits and owner-only writes passed.');
 
   await page.locator('.account-close').click();
-  await frame.locator('#ctrlApps').click();await frame.locator('#apps-panel .favorite-select').first().waitFor({state:'attached'});
-  assert.ok((await frame.locator('#apps-panel .favorite-select').first().textContent()).includes('Favorite'),'Detached catalog cards initialize their Favorite labels');await frame.locator('#apps-panel .catalog-close').click();
+  await frame.locator('#ctrlExplore').click();await frame.locator('#ctrlProApps').click();await frame.locator('#pro-apps-panel .favorite-select').first().waitFor({state:'attached'});
+  assert.ok((await frame.locator('#pro-apps-panel .favorite-select').first().textContent()).includes('Favorite'),'Detached catalog cards initialize their Favorite labels');await frame.locator('#explore-panel .explore-close').click();
   await frame.evaluate(()=>{const host=document.createElement('div');host.id='qa-favorite';host.style='position:fixed;bottom:10px;left:10px;z-index:9999;background:white';document.body.append(host);window.dispatchEvent(new CustomEvent('austin:planner-target',{detail:{container:host,provider:'place',data:{id:'qa-coffee',name:'Coffee for later',lat:30.27,lng:-97.74,website:'https://example.com'}}}));});
   assert.equal(await frame.evaluate(()=>PlanStore.plan.items.length),0);await frame.locator('#qa-favorite .favorite-select').click();
   await frame.waitForFunction(()=>document.querySelector('#qa-favorite .favorite-select').getAttribute('aria-pressed')==='true');assert.equal(await frame.evaluate(()=>PlanStore.plan.items.length),0);

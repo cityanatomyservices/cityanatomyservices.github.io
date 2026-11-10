@@ -64,7 +64,7 @@
             frame.contentWindow.PlanPanel?.setView(on);return;
           }
         }catch(_){}
-        frame.contentWindow.location.replace('/chat/?v=20261109f');
+        frame.contentWindow.location.replace('/chat/?v=20261109g');
       });
       return true;
     };

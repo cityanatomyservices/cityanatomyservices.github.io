@@ -38,7 +38,7 @@ async function openCity(f){
     await context.route('**/chat/data/city-hall.json',r=>{requests++;if(fail){fail=false;return r.fulfill({status:503,body:'Unavailable'});}return r.fulfill({json:expired?{...snapshot,records:records.map(r=>({...r,expires:'2000-01-01T00:00:00Z'}))}:snapshot});});
     const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base);let f=await ready(page);
-    assert.deepEqual(await f.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps']);
+    assert.deepEqual(await f.locator('#stack > button').evaluateAll(bs=>bs.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat']);
     assert.equal(requests,0);await openCity(f);await f.locator('.city-hall-status').filter({hasText:'unavailable'}).waitFor();await f.locator('.city-hall-retry').click();
     await f.waitForFunction(()=>document.querySelectorAll('.city-hall-result').length===3);
     assert.equal(await f.locator('#city-hall-panel [data-filter=category] option').count(),4);
@@ -63,10 +63,11 @@ async function openCity(f){
     await f.locator('.explore-scroll').evaluate(el=>el.scrollTop=0);await page.screenshot({path:'/tmp/city-hall-meetings-'+width+'.png'});
     await f.evaluate(()=>document.documentElement.dataset.theme='dark');await page.screenshot({path:'/tmp/city-hall-dark-'+width+'.png'});
     await f.locator('#explore-panel .explore-close').press('Escape');assert.equal(await f.locator('#city-hall-panel').isHidden(),true);assert.equal(await f.locator('#ctrlExplore').evaluate(el=>el===document.activeElement),true);
-    for(const [control,panel] of [['ctrlDayPlan','plan-panel'],['ctrlChat','legend'],['ctrlApps','apps-panel'],['ctrlMapLayers','map-layers-panel']]){
+    for(const [control,panel] of [['ctrlDayPlan','plan-panel'],['ctrlChat','legend'],['ctrlMapLayers','map-layers-panel']]){
       await openCity(f);await f.locator('#explore-panel .explore-close').click();await f.locator('#'+control).click();assert.equal(await f.locator('#'+panel).isVisible(),true);await openCity(f);assert.equal(await f.locator('#'+panel).isHidden(),true);
     }
-    await f.locator('#ctrlClassifieds').click();assert.equal(await f.locator('#city-hall-panel').isHidden(),true);assert.equal(await f.locator('#classifieds-panel').isVisible(),true);
+    await f.locator('#ctrlProApps').click();assert.equal(await f.locator('#city-hall-panel').isHidden(),true);assert.equal(await f.locator('#pro-apps-panel').isVisible(),true);
+    await f.locator('#ctrlClassifieds').click();assert.equal(await f.locator('#pro-apps-panel').isHidden(),true);assert.equal(await f.locator('#city-hall-panel').isHidden(),true);assert.equal(await f.locator('#classifieds-panel').isVisible(),true);
     await f.locator('#ctrlCityHall').click();assert.equal(await f.locator('#classifieds-panel').isHidden(),true);assert.equal(await f.locator('#city-hall-panel').isVisible(),true);
     await f.locator('[data-layer=movies]').check();assert.equal(await f.locator('#city-hall-panel').isHidden(),true);assert.equal(await f.locator('.explore-event-content').isVisible(),true);
     expired=true;await page.reload();f=await ready(page);assert.equal(await f.locator('#city-hall-panel').isHidden(),true);await openCity(f);await f.locator('.city-hall-status').filter({hasText:'0 upcoming meetings'}).waitFor();assert.equal(await f.locator('.city-hall-result').count(),0);

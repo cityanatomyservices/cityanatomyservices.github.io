@@ -13,7 +13,8 @@
        frames this page in its window). The 65 neighborhood geofences from
        chat/data/geofences.geojson, the neighborhood panel opened by Chat
        and, on the right, the round control stack of the
-       main map: Explore, Day Plan, Chat and Apps. Zoom, GPS and Map are top left. The
+       main map: Explore, Day Plan and Chat. Pro Tier Apps is inside Explore.
+       Zoom, GPS and Map are top left. The
        card says who you are, which neighborhood your phone is in, and who
        else is visible there; the conversation opens through its Chat button.
        It borrows the topic maps' stylesheet so it looks the same, but not
@@ -29,7 +30,7 @@
        on the file that changed. -->
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
   <link rel="stylesheet" href="./panel.css?v=20261023e" />
-  <link rel="stylesheet" href="./style.css?v=20261104e" />
+  <link rel="stylesheet" href="./style.css?v=20261109g" />
   <link rel="stylesheet" href="./explore/explore.css?v=20261104a" />
   <link rel="stylesheet" href="../appearance.css?v=20261028h" />
   <link rel="stylesheet" href="./map-layers.css?v=20261104a" />
@@ -40,7 +41,7 @@
   <link rel="stylesheet" href="/planner/app.css?v=20261102g">
   <link rel="stylesheet" href="/classifieds/style.css?v=20261104c">
   <link rel="stylesheet" href="/shared/comments.css?v=20261030e">
-<script src="/shared/map-ui.js?v=20261109f"></script>
+<script src="/shared/map-ui.js?v=20261109g"></script>
 </head>
 <body>
   <div class="page">
@@ -74,9 +75,6 @@
       </button>
       <button class="round chat-control" id="ctrlChat" type="button" aria-expanded="false" aria-controls="legend" aria-label="Neighborhood chat" title="Neighborhood chat">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3Z M8 8h8 M8 12h5"/></svg><span>Chat</span>
-      </button>
-      <button class="round apps-control" id="ctrlApps" type="button" aria-expanded="false" aria-controls="apps-panel" aria-label="Pro Apps" title="Pro Apps">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3Z M14 3h7v7h-7Z M3 14h7v7H3Z M14 14h7v7h-7Z"/></svg><span>Pro Apps</span>
       </button>
     </div>
 
@@ -184,7 +182,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
   <script src="./copy.js?v=20261028i"></script>
   <script src="./config.js?v=20261029a"></script>
-  <script src="/shared/visit.js?v=20261109f"></script>
+  <script src="/shared/visit.js?v=20261109g"></script>
   <script src="/shared/session.js?v=20261031a"></script>
   <script src="/shared/membership.js?v=20261104e"></script>
   <script src="/shared/member.js?v=20261030c"></script>
@@ -200,7 +198,7 @@
   <script src="./explore/config.js?v=20261028e"></script>
   <script src="./explore/model.js?v=20261104a"></script>
   <script src="/special-events/catalog.js?v=20261109f"></script>
-  <script src="./explore/explore.js?v=20261108b"></script>
+  <script src="./explore/explore.js?v=20261109g"></script>
   <script src="/planner/context.js?v=20261109d"></script>
   <script src="/planner/model.js?v=20261109c"></script>
   <script src="/planner/sources.js?v=20261102b"></script>
@@ -214,7 +212,7 @@
   <script src="/planner/export.js?v=20261109c"></script>
   <script src="/planner/export-ui.js?v=20261109c"></script>
   <script src="/planner/select.js?v=20261102g"></script>
-  <script src="./catalog-menu.js?v=20261109d"></script>
+  <script src="./catalog-menu.js?v=20261109g"></script>
   <script src="./map-layers.js?v=20261108a"></script>
   <script src="./city-hall/model.js?v=20261104a"></script>
   <script src="./city-hall/city-hall.js?v=20261104a"></script>

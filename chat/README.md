@@ -14,13 +14,16 @@ part of the same chat. One small file per job; nothing is abstract.
 | `panel.js` + `panel.css` | the chat window (colours from six `--chat-*` variables each page sets) |
 | `room.js` | the wiring: joins your neighborhood, lists its businesses by category on the card, moves you to a business room when you tap one, keeps the Visible / Chat buttons and lines up to date; shared with the apps |
 | `map.js` | the chat map itself: layers, controls, 3D, and the hooks that draw your room, the people (an emoji row on the business they picked, or on the neighborhood) and a pin on the business you picked |
-| `catalog-menu.js` | the Apps and Media buttons and expandable categories, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
+| `catalog-menu.js` | the Pro Tier Apps card inside Explore and legacy Apps/Media menus, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
-The main map's right column has **Explore, Day Plan, Chat and Apps**, in that
+The main map's right column has **Explore, Day Plan and Chat**, in that
 order. GPS and Map are small square MapLibre controls under the zoom/compass on
 the left. Explore contains [City Hall](city-hall/README.md) and
-[Free classifieds](../classifieds/README.md) cards. Their category dropdowns,
+[Free classifieds](../classifieds/README.md) cards, followed by **Special Events**
+and **Pro Tier Apps** beside each other. Pro Tier Apps shows the previous app
+catalog with its categories and favorites. Visitors can browse it; paid app
+links require an active Pro membership. The City Hall and Classifieds dropdowns,
 date sorting and listings stay inside Explore; the shared time-frame buttons,
 All dates and exact-date input apply to the selected card. City Hall retains its
 four categories, district/board/search filters, meeting planner selections and
@@ -51,7 +54,7 @@ Media panel. Other maps still create their existing Media menu.
 Zoom and compass use the same MapLibre control as the planner, positioned
 top left. Day Plan expands the full [planner editor](../planner/README.md) on
 this same map, including dated days, scheduling, routing and exports;
-Apps opens the catalog categories. Collapsing the editor keeps selected-day pins
+Explore → Pro Tier Apps opens the catalog categories. Collapsing the editor keeps selected-day pins
 and routes visible; Explore restores discovery. `/dayplan/` redirects
 to the main map with `?planner=1`, preserving existing bookmarks.
 The shared header opens the Google/email-code account dialog; the hamburger is removed. Opening one map panel closes the others.

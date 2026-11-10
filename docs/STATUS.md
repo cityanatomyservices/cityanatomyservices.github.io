@@ -1,5 +1,27 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-09 - Pro Tier Apps inside Explore
+
+Owner requested moving the main map's Pro Apps button into Explore beside
+Special Events. The main stack is now Explore, Day Plan, Chat. Pro Tier Apps
+is the adjacent Explore card and reuses the existing categorized app catalog,
+including free entries and Favorites. Visitors can browse the catalog; all
+nine paid links still require an active Pro membership. Legacy catalog maps
+keep their original Apps/Media controls. Generated event markup remains aligned.
+
+Changed runtime assets and shared loader references use `20261109g`. Nine
+private bundles (45 files) were repackaged and uploaded. The public build
+excludes all 45 private resources. No database changes are needed.
+
+Validation: actual main-map browser checks passed at 1280px and 390px, including
+three-button order, same-row cards, exact catalog contents, guest paid-link
+restrictions, failed-load/reopen retry, section switching, Escape/focus, Day Plan
+and Chat. Screenshots were reviewed at both sizes. Legacy catalog and new-section
+membership fixtures pass guest/Free/Pro, expiry and sign-out access transitions.
+Changed JS syntax and diff checks pass. Browser account requests were mocked;
+no production customer accounts, plans or conversations were changed.
+Publication and live verification are pending below this checkpoint.
+
 ## 2026-11-09 - Private event stop notes, Favorites and printed notes
 
 Owner requested notes and a Favorites button in every Art Tour stop popup,

@@ -7,7 +7,7 @@
     return response.json();
   }
   function catalog() {
-    if (!home) home = read('/home.json?v=20261109d').catch(error => { home = null; throw error; });
+    if (!home) home = read('/home.json?v=20261109f').catch(error => { home = null; throw error; });
     return home;
   }
   const registered=()=>window.AustinSession?.registered===true;
@@ -20,7 +20,7 @@
       const enabled=pro();link.classList.toggle('catalog-locked',!enabled);link.setAttribute('aria-disabled',String(!enabled));
       if(enabled){link.href=link.dataset.proApp;link.removeAttribute('tabindex');}else{link.removeAttribute('href');link.tabIndex=-1;}
     });
-    const offer=document.querySelector('.catalog-membership');if(offer)offer.hidden=pro();
+    document.querySelectorAll('.catalog-membership').forEach(offer=>{offer.hidden=pro();});
   }
   function bindMembership(){window.AustinMembership?.subscribe(access);access();}
   window.addEventListener('austin-membership-ready',bindMembership);
@@ -44,18 +44,11 @@
     summary.textContent = title; details.append(summary, list); holder.append(details);
     return list;
   }
-  function menu(name, render, directory) {
-    const id = name.toLowerCase(), button = document.getElementById('ctrl' + name);
-    if (!button) return;
-    const panel = document.createElement('section');
-    panel.id = id + '-panel'; panel.className = 'catalog-panel'; panel.hidden = true;
-    panel.setAttribute('aria-labelledby', id + '-heading');
-    panel.innerHTML = `<div class="catalog-heading"><h2 id="${id}-heading">${name}</h2><button class="catalog-close" type="button" aria-label="Close ${name}">×</button></div>
-      ${directory ? `<a href="${directory}" target="_top">All ${id} →</a>` : ''}${name==='Apps'?'<p class="catalog-membership">Pro apps require Pro. <a href="/?account=membership" target="_top">Membership — $8/month</a></p>':''}<div class="catalog-groups"></div><p class="catalog-status" role="status"></p>`;
-    document.querySelector('.page').append(panel);
+  const membershipOffer = '<p class="catalog-membership">Pro apps require Pro. <a href="/?account=membership" target="_top">Membership — $8/month</a></p>';
+  function loader(panel, render, id) {
     const groups = panel.querySelector('.catalog-groups'), status = panel.querySelector('.catalog-status');
     let loaded = false, loading = false;
-    async function load() {
+    return async function load() {
       if (loaded || loading) return;
       loading = true; status.textContent = `Loading ${id}…`;
       try {
@@ -65,7 +58,18 @@
       } catch (_) {
         status.textContent = `Could not load ${id}. Close and reopen to retry.`;
       } finally { loading = false; }
-    }
+    };
+  }
+  function menu(name, render, directory) {
+    const id = name.toLowerCase(), button = document.getElementById('ctrl' + name);
+    if (!button) return;
+    const panel = document.createElement('section');
+    panel.id = id + '-panel'; panel.className = 'catalog-panel'; panel.hidden = true;
+    panel.setAttribute('aria-labelledby', id + '-heading');
+    panel.innerHTML = `<div class="catalog-heading"><h2 id="${id}-heading">${name}</h2><button class="catalog-close" type="button" aria-label="Close ${name}">×</button></div>
+      ${directory ? `<a href="${directory}" target="_top">All ${id} →</a>` : ''}${name==='Apps'?membershipOffer:''}<div class="catalog-groups"></div><p class="catalog-status" role="status"></p>`;
+    document.querySelector('.page').append(panel);
+    const load = loader(panel, render, id);
     function show(open, returnFocus = false) {
       if(open&&name==='Apps'&&!registered())return;
       if (open) {
@@ -87,7 +91,7 @@
     panel.addEventListener('keydown', event => { if (event.key === 'Escape') show(false, true); });
     access();
   }
-  menu('Apps', async (data, holder) => {
+  async function renderApps(data, holder) {
     const reports = await read('/apps/reports/reports.json?v=20261104e'), lists = new Map();
     const listFor = name => {
       if (!lists.has(name)) lists.set(name, group(holder, name));
@@ -102,7 +106,20 @@
       add(listFor(app.category || 'Apps'), app.title, `/${kind}/${app.slug}/`,false,app.requiredPlan);
     });
     reports.forEach(report => add(listFor(data.reportsCategory || 'Shopping Apps'), report.title, `/${data.reportsKind || 'maps'}/${report.id}/`,false,report.requiredPlan));
-  }, '/apps/');
+  }
+  menu('Apps', renderApps, '/apps/');
+  window.AustinProApps = { init() {
+    window.AustinExplore.addSection({
+      id: 'pro-apps', buttonId: 'ctrlProApps', title: 'Pro Tier Apps',
+      icon: '<path d="M3 3h7v7H3Z M14 3h7v7h-7Z M3 14h7v7H3Z M14 14h7v7h-7Z"/>',
+      mount(host) {
+        host.classList.add('catalog-content');
+        host.innerHTML = `<h3>Pro Tier Apps</h3><a href="/apps/" target="_top">All apps →</a>${membershipOffer}<div class="catalog-groups"></div><p class="catalog-status" role="status"></p>`;
+        const load = loader(host, renderApps, 'apps');
+        return { refresh() { load(); window.AustinMembership?.load().then(access).catch(access); } };
+      }
+    });
+  } };
   menu('Media', (data, holder) => {
     const maps = group(holder, 'Maps'), appCategories = new Set(data.categories || []);
     add(maps, 'All maps', '/maps/');

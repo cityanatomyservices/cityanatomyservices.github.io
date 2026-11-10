@@ -23,7 +23,7 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   const page=await context.newPage(),errors=[],boundaryRequests=[];page.setDefaultTimeout(45000);page.on('pageerror',e=>errors.push(e.message));
   page.on('request',r=>{if(/\/(zipcodes|council_districts)\.geojson/.test(r.url()))boundaryRequests.push(r.url());});
   await page.goto(base);let f=await ready(page);
-  assert.deepEqual(await f.locator('#stack > button').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlApps']);
+  assert.deepEqual(await f.locator('#stack > button').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat']);
   assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlLocate').count(),1);
   assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlMapLayers').count(),1);
   assert.equal(await f.locator('#explore-panel #ctrlCityHall,#explore-panel #ctrlClassifieds').count(),2);
@@ -32,7 +32,10 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');
   assert.ok(await f.evaluate(()=>chatMap.getPitch()>50));
   await f.evaluate(()=>{window.boundaryErrors=[];chatMap.on('error',e=>{if(/boundary-|zipcodes|council_districts/.test(e.error?.message||''))boundaryErrors.push(e.error.message);});});
-  assert.equal(await f.locator('#ctrlApps').isDisabled(),true,'Guests must sign in to open Apps');
+  await f.locator('#ctrlExplore').click();await f.locator('#ctrlProApps').click();
+  await f.waitForFunction(()=>document.querySelectorAll('#pro-apps-panel [data-pro-app]').length===9);
+  assert.equal(await f.locator('#pro-apps-panel [data-pro-app][href]').count(),0,'Guests cannot open paid apps');
+  await f.locator('#explore-panel .explore-close').click();
   for(const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','plan-panel'],['ctrlChat','legend']]){
    await layersOpen(f);await f.locator('#'+control).click();assert.equal(await f.locator('#map-layers-panel').isHidden(),true);assert.equal(await f.locator('#'+panel).isVisible(),true);
    // Existing phone Explore/Day Plan panels span the map and cover lower

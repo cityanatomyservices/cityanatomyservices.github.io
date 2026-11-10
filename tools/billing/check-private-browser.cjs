@@ -21,16 +21,16 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
   }
   await page.goto('https://austin.chat/',{waitUntil:'domcontentloaded'});
   const frame=await(await page.locator('#app-window').elementHandle()).contentFrame();
-  await frame.locator('#ctrlApps').click();await frame.waitForFunction(()=>document.querySelectorAll('[data-pro-app][href]').length===9);
-  await frame.locator('#apps-panel details').first().evaluate(e=>e.open=true);
+  await frame.locator('#ctrlExplore').click();await frame.locator('#ctrlProApps').click();await frame.waitForFunction(()=>document.querySelectorAll('[data-pro-app][href]').length===9);
+  await frame.locator('#pro-apps-panel details').first().evaluate(e=>e.open=true);
   await page.screenshot({path:path.join(os.tmpdir(),'austin-pro-apps-live.png')});
   assert.deepEqual(await page.evaluate(()=>caches.keys()),[]);
   await page.evaluate(()=>AustinSession.client().auth.signOut());
-  await frame.waitForFunction(()=>document.getElementById('ctrlApps').disabled);
+  await frame.waitForFunction(()=>document.querySelectorAll('[data-pro-app][href]').length===0);
   await page.goto('https://austin.chat/apps/1885/',{waitUntil:'domcontentloaded'});
   await page.locator('.pro-app-gate p').filter({hasText:'Sign in'}).waitFor();
   assert.equal(await page.locator('#app-window').isHidden(),true);
   assert.deepEqual(errors,[]);
-  console.log('Live Pro catalog enables nine apps; signing out disables Apps and direct wrapper access. No app content cached.');
+  console.log('Live Pro catalog enables nine apps; signing out disables Pro links and direct wrapper access. No app content cached.');
  }finally{await browser.close();}
 })().catch(error=>{console.error(error.message);process.exitCode=1;});

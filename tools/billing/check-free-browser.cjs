@@ -10,10 +10,10 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
   const page=await context.newPage();page.setDefaultTimeout(45000);
   await page.goto('https://austin.chat/',{waitUntil:'domcontentloaded'});
   const frame=await(await page.locator('#app-window').elementHandle()).contentFrame();
-  await frame.locator('#ctrlApps').click();await frame.waitForFunction(()=>document.querySelectorAll('[data-pro-app]').length===9);
+  await frame.locator('#ctrlExplore').click();await frame.locator('#ctrlProApps').click();await frame.waitForFunction(()=>document.querySelectorAll('[data-pro-app]').length===9);
   assert.equal(await frame.locator('[data-pro-app][href]').count(),0);
   assert.equal(await frame.locator('[data-pro-app][aria-disabled=true]').count(),9);
-  await frame.locator('#apps-panel details').first().evaluate(e=>e.open=true);
+  await frame.locator('#pro-apps-panel details').first().evaluate(e=>e.open=true);
   await page.screenshot({path:path.join(os.tmpdir(),'austin-free-apps-live.png')});
   await page.evaluate(()=>AustinAccount.open('membership'));
   await page.locator('.membership-current').filter({hasText:'Your plan: Free'}).waitFor();
@@ -24,6 +24,6 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
   await page.goto('https://austin.chat/apps/moontower/',{waitUntil:'domcontentloaded'});
   await page.locator('.pro-app-gate p').filter({hasText:'$8 per month'}).waitFor();
   assert.equal(await page.locator('#app-window').isHidden(),true);
-  console.log('Live phone UI: Free opens Apps, nine Pro App links locked, exactly two plans, $8 upgrade enabled, direct app gated. No purchase clicked.');
+  console.log('Live phone UI: Free opens Explore → Pro Tier Apps, nine Pro App links locked, exactly two plans, $8 upgrade enabled, direct app gated. No purchase clicked.');
  }finally{await browser.close();}
 })().catch(error=>{console.error(error.message);process.exitCode=1;});
