@@ -1,5 +1,36 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-10 - Laptop handoff: resume from GitHub main
+
+Owner is moving to another laptop. All implementation, migrations, setup and
+verification scripts are committed on `main`. Live billing verification/tools
+commit `bb0b1a0` was published successfully by Pages run `42840305397`.
+Custom geofence checkout is LIVE at $10/month; the existing $8 Pro billing is
+also live and separate. Migration 0018 and the geofence Edge functions are
+already deployed. Frontend runtime version remains `20261109h`.
+
+On the other laptop, inspect `git status`, fetch `origin`, and update `main`
+with a fast-forward pull before editing. Preserve and reconcile any local
+changes or divergent commits; never force-push an older laptop's copy over
+GitHub. Read AGENTS.md and this newest checkpoint first. Older entries about
+pending Stripe authorization or disabled checkout are historical.
+
+Stripe products/portal/webhook and Supabase secrets are already configured in
+their services. Do not recreate them or rerun `configure-stripe.py` merely to
+resume work: its default mode disables checkout. Git does not transfer CLI
+logins, VS Code extension settings, dependencies or private credentials. Sign
+in on the other laptop only if administrative access is needed; do not commit
+credentials. Selecting test mode in the local Stripe CLI does not change the
+live website. Both environments were authorized on this laptop; its CLI was
+left in test mode after setup.
+
+No implementation or payment-setup step remains unfinished. The owner deferred
+physical-phone GPS/chat testing for the Austin Studio Tour; physical-device
+testing of custom geofence chat is also still an owner field check. Real Stripe
+test-card payment/activation/cancellation, deployed live configuration and the
+published phone form have passed. No real charge was made during verification.
+Detailed results and the production identifiers are in the checkpoint below.
+
 ## 2026-11-10 - Custom geofence subscriptions enabled in production
 
 Owner authorized both test and live access to the existing Stripe account.
