@@ -49,15 +49,26 @@ key into the deployment or commit secrets.
    every test fixture. `--apply --functions` applies migration 0018 and deploys
    the functions without enabling billing.
 2. From an authorized Stripe CLI, run
+   `python3 tools/geofences/check-sandbox.py`. It deploys separate temporary Edge
+   functions with separate QA settings, uses the deployed restricted test key,
+   and completes real hosted Checkout with a Stripe test card. Signed payment
+   and cancellation notifications update only test billing rows. It verifies
+   live geofence/Pro isolation, then removes temporary users/customers/functions/
+   webhook/settings, archives the test catalog, and compares production secret
+   digests. Never switch the existing Pro production environment to test.
+3. Authorize live access with `stripe login`, then select the existing account
+   using `stripe switch acct_1UFxBXPylm4UechM --live`. Run
    `python3 tools/geofences/configure-stripe.py`. Set `STRIPE_CLI` if the binary
-   is not on PATH. This creates/reuses the $10 monthly product, dedicated portal
-   and webhook, stores their configuration securely, and leaves checkout off.
-3. Verify sandbox Checkout/payment/webhook/cancellation end to end in an isolated
-   test deployment, then verify live price/portal/webhook readiness without a
-   purchase. Never switch the existing Pro production environment to test.
+   is not on PATH. This checks the existing Pro catalog and creates/reuses the
+   separate $10 monthly product, portal and webhook, stores configuration
+   securely, and leaves checkout off. Run `python3 tools/geofences/verify-live.py`
+   to check the deployed restricted key against the live price/portal without
+   creating any live Stripe customer, subscription or charge.
 4. Publish the matching site, follow the repository cache rules, verify the
    account/form/page/QR, then use `configure-stripe.py --activate` to enable the
-   new product. This is separate from the existing Pro activation script.
+   new product. Run `python3 tools/geofences/verify-live.py --enabled` afterwards.
+   This is separate from the existing Pro activation script. The CLI can then
+   return to test mode with `stripe switch acct_1UFxBXPylm4UechM`.
 
 Until configured, the account card/form provide a working map preview and
 clearly state that payments are being set up; payment buttons are disabled.
@@ -85,6 +96,10 @@ check, as with Studio Tour chat.
 ## Checks
 
 - `node --test tests/billing/*.test.mjs`
+- `python3 tools/geofences/check-sandbox.py` (manual real Stripe test payment;
+  temporary isolated endpoints, requires authorized CLI and deployed test key)
+- `python3 tools/geofences/verify-live.py [--enabled]` (live configuration only;
+  disposable Supabase fixture, no Stripe customer or charge)
 - `python3 tools/geofences/deploy.py` (database checks; rolled-back fixtures)
 - `node tools/geofences/check-browser.cjs [site-url]` (fixture account/payment/chat,
   real MapLibre, desktop and phone; `PHONE_ONLY=1` narrows to phone)

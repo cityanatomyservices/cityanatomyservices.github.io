@@ -1,5 +1,40 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-10 - Geofence Stripe sandbox verified; live authorization pending
+
+Owner installed the Stripe VS Code extension and authorized the CLI on this
+laptop. WSL CLI 1.55.9 is installed and the remote extension points to it.
+Verified the existing Austin.chat account and its $8 test Pro price. The current
+authorization includes test mode only; requested that the owner re-run
+`stripe login` and allow live access to the same account. No need for a ChatGPT
+Stripe plugin. Live $10 product configuration/activation remains pending and
+the public builder still has payments disabled.
+
+Added `tools/geofences/check-sandbox.py`: deploys separate temporary geofence
+API/webhook functions, uses the existing restricted test key with QA-specific
+settings, and permits only a disposable confirmed account. Real hosted Checkout
+completed using a Stripe test card at $10/month. Retry reused the session; the
+signed payment webhook activated only the test billing row; the live geofence
+and Pro membership stayed inactive; repeat checkout opened the customer portal.
+Period-end cancellation retained paid time and the cancellation webhook removed
+entitlement. Unsigned requests, unauthorized users and location edits after
+checkout were rejected. Temporary endpoints, webhook, Auth users, geofence and
+Stripe customers were removed; test product/price/portal archived. Production
+secret digests were identical before and after. No real charges were made.
+
+All 67 billing/domain/HTTP tests passed. New setup scripts compile and diff
+checks pass. `configure-stripe.py` now verifies live account identity and the
+existing Pro catalog before creating objects, and validates webhook events/API
+version. Added `verify-live.py` to exercise the deployed restricted key's reads
+of the new live price/portal without a live Stripe customer, subscription or
+charge; it awaits live configuration before its first real run.
+
+Next: verify live CLI authorization, select the existing account's live mode,
+run geofence configure (checkout off), run geofence live verification, activate,
+and verify again with `--enabled`. Preserve the existing Pro production settings.
+The isolated test-payment check is complete; do not repeat unless configuration
+or code changes warrant it. Restore local CLI test mode after live setup.
+
 ## 2026-11-09 - Custom paid geofences: preview built, Stripe connection pending
 
 Owner requested $10/month per custom geofence, account-card entry, mutually

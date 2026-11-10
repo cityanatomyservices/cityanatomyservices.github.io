@@ -18,17 +18,25 @@ def main():
   candidate=Path(os.environ.get('LOCALAPPDATA',''))/'Programs/StripeCLI/stripe.exe'
   if candidate.is_file():cli=str(candidate)
  if not cli:raise SystemExit('An authorized Stripe CLI is needed. Connect Stripe or run on the laptop where Stripe was authorized. No billing settings changed.')
+ identity=subprocess.run([cli,'whoami','--format','json'],capture_output=True,text=True,timeout=30)
+ if identity.returncode:raise SystemExit('Sign in to the Stripe CLI first. No billing settings changed.')
+ identity=json.loads(identity.stdout)
+ if identity.get('account_id')!='acct_1UFxBXPylm4UechM' or identity.get('mode')!='live':
+  raise SystemExit('Select the existing Austin.chat Stripe account in live mode first: stripe switch acct_1UFxBXPylm4UechM --live. No billing settings changed.')
  def stripe(*parts):
   result=subprocess.run([cli,*parts,'--live','--confirm','--stripe-version=2026-10-28.endive'],capture_output=True,text=True,timeout=90)
   if result.returncode:raise SystemExit('Stripe configuration request failed; response suppressed to protect credentials.')
   try:value=json.loads(result.stdout[result.stdout.index('{'):])
   except (ValueError,TypeError):raise SystemExit('Unexpected Stripe response; credentials suppressed.') from None
-  if value.get('error'):raise SystemExit('Stripe rejected configuration; credentials suppressed.')
+  if value.get('error'):raise SystemExit('Stripe rejected configuration: '+str(value['error'].get('code') or value['error'].get('type'))+'. Credentials suppressed.')
   return value
  def create(resource,values,key):
   parts=[resource,'create','--idempotency='+key]
   for k,v in values.items():parts+=['-d',k+'='+str(v)]
   return stripe(*parts)
+ # Confirm the existing account's catalog before creating any new live objects.
+ pro=stripe('prices','retrieve','price_1UYCyLPylm4UechMwGuCKwdH')
+ assert pro['livemode'] and pro['unit_amount']==800 and pro['currency']=='usd'
  prices=stripe('prices','list','-d','lookup_keys[]=austin_chat_geofence_monthly_usd','--limit=100')
  if prices['data']:price=prices['data'][0]
  else:
@@ -52,7 +60,8 @@ def main():
  else:
   names={r['name'] for r in json.loads(config.cli('secrets','list','--remote='+config.PROJECT,'--output','json'))}
   if 'GEOFENCE_STRIPE_WEBHOOK_SECRET' not in names:raise SystemExit('Existing geofence webhook signing secret needs to be stored securely before activation.')
- assert webhook['livemode'] and webhook['status']=='enabled'
+ assert webhook['livemode'] and webhook['status']=='enabled' and webhook['api_version']=='2026-10-28.endive'
+ assert set(EVENTS).issubset(set(webhook['enabled_events']))
  if args.activate:
   import urllib.request
   html=urllib.request.urlopen('https://austin.chat/geofences/manage/',timeout=30).read()
