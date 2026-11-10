@@ -1,5 +1,44 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-10 - Custom geofence subscriptions enabled in production
+
+Owner authorized both test and live access to the existing Stripe account.
+Configured the separate $10 USD/month geofence price
+`price_1UaGUGPylm4UechMpz3cKmzF`, cancellation portal
+`bpc_1UaGUHPylm4UechMkAjptNME`, and signed webhook
+`we_1UaGUIPylm4UechMhPdQV1yB`. Stored their settings directly in Supabase and
+enabled `GEOFENCE_CHECKOUT_ENABLED`. Existing production functions and frontend
+already support these settings; no runtime asset/version change was needed.
+Stripe account charges/payouts are enabled. The local CLI was returned to test
+mode; both environments remain authorized and production billing stays live.
+
+Before enabling checkout, the deployed restricted live key successfully read
+the fixed $10 monthly price and dedicated period-end cancellation portal.
+Unsigned webhook requests were rejected and an unpaid map remained unavailable.
+Repeated the live checks after enabling, then verified the published 390px form
+with a real disposable signed-in account and real backend: $10 Account card,
+saved draft/QR, coordinate preview, and payment button enabled only after map
+confirmation. Screenshot reviewed. No Checkout request, live Stripe customer,
+subscription or charge was created during live verification; all temporary
+Supabase users/drafts/billing rows were removed. The preceding isolated test-card
+Checkout, signed payment/cancellation notifications and 67 automated tests passed.
+Physical-device GPS field testing remains owner work.
+
+Existing $8 Pro live configuration/readiness also passed. All non-geofence
+Supabase secret SHA-256 hashes matched the snapshot taken before live setup.
+Corrected the verification helper to read Supabase CLI 3's hash field named
+`value`, failing closed if it is missing; the earlier sandbox helper had compared
+secret names with null digest values. The actual payment/cancellation tests were
+unaffected. Corrected the live probe to accept a successful HTTP 204 for the
+void lease-release RPC. Added a real published-phone check via
+`tools/geofences/verify-live.py --enabled --browser`.
+
+Three published entry pages matched the checkout and advertised `20261109h`.
+The previous verification-tools deployment `42829699618` succeeded on retry.
+The feature is now available at `https://austin.chat/geofences/manage/` and
+through Account → Your own chat geofence. No further Stripe connection step
+is required on this laptop while the CLI authorization remains valid.
+
 ## 2026-11-10 - Geofence Stripe sandbox verified; live authorization pending
 
 Owner installed the Stripe VS Code extension and authorized the CLI on this
@@ -20,7 +59,8 @@ Period-end cancellation retained paid time and the cancellation webhook removed
 entitlement. Unsigned requests, unauthorized users and location edits after
 checkout were rejected. Temporary endpoints, webhook, Auth users, geofence and
 Stripe customers were removed; test product/price/portal archived. Production
-secret digests were identical before and after. No real charges were made.
+secret names were identical before and after; the newer checkpoint records the
+corrected hash verification. No real charges were made.
 
 All 67 billing/domain/HTTP tests passed. New setup scripts compile and diff
 checks pass. `configure-stripe.py` now verifies live account identity and the

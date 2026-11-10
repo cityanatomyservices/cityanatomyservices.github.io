@@ -26,6 +26,11 @@ No customer link is sent to a QR service.
 
 ## Billing and activation
 
+Production checkout was enabled on 2026-11-10 after isolated Stripe test-card
+Checkout/payment/cancellation checks and deployed live-key verification. The
+published phone form was checked with a real disposable account without starting
+a live purchase. Local Stripe CLI test mode does not change the live backend.
+
 `geofences` and `geofence-webhook` are independent Edge functions. The existing
 Pro webhook, products and customer associations remain unchanged. Each circle
 has a dedicated Stripe customer and subscription, with matching owner/circle
@@ -66,12 +71,15 @@ key into the deployment or commit secrets.
    creating any live Stripe customer, subscription or charge.
 4. Publish the matching site, follow the repository cache rules, verify the
    account/form/page/QR, then use `configure-stripe.py --activate` to enable the
-   new product. Run `python3 tools/geofences/verify-live.py --enabled` afterwards.
+   new product. Run `python3 tools/geofences/verify-live.py --enabled --browser`
+   afterwards to verify the live backend and published phone form without starting
+   a real purchase.
    This is separate from the existing Pro activation script. The CLI can then
    return to test mode with `stripe switch acct_1UFxBXPylm4UechM`.
 
-Until configured, the account card/form provide a working map preview and
-clearly state that payments are being set up; payment buttons are disabled.
+If configuration is missing or checkout is disabled, the account card/form
+provide a working map preview and state that payments are being set up;
+payment buttons are disabled.
 
 ## Chat behavior
 
@@ -98,8 +106,9 @@ check, as with Studio Tour chat.
 - `node --test tests/billing/*.test.mjs`
 - `python3 tools/geofences/check-sandbox.py` (manual real Stripe test payment;
   temporary isolated endpoints, requires authorized CLI and deployed test key)
-- `python3 tools/geofences/verify-live.py [--enabled]` (live configuration only;
-  disposable Supabase fixture, no Stripe customer or charge)
+- `python3 tools/geofences/verify-live.py [--enabled] [--browser]` (live configuration
+  and optional published phone form; disposable Supabase fixture, no Stripe
+  customer or charge; browser check requires `--enabled`)
 - `python3 tools/geofences/deploy.py` (database checks; rolled-back fixtures)
 - `node tools/geofences/check-browser.cjs [site-url]` (fixture account/payment/chat,
   real MapLibre, desktop and phone; `PHONE_ONLY=1` narrows to phone)

@@ -9,6 +9,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import secrets
 import shutil
 import subprocess
@@ -26,6 +27,18 @@ ACCOUNT = 'acct_1UFxBXPylm4UechM'
 FUNCTION = 'geofences-qa'
 HOOK = 'geofence-webhook-qa'
 PREFIX = 'GEOFENCE_QA_'
+
+
+def secret_fingerprints(rows):
+    # Supabase CLI 3 labels the SHA-256 digest "value", not "digest".
+    # Fail closed on a changed response shape instead of comparing nulls.
+    result = {}
+    for row in rows:
+        digest = row.get('digest') or row.get('value')
+        if not isinstance(digest, str) or not re.fullmatch(r'[0-9a-f]{64}', digest):
+            raise RuntimeError('Supabase secret fingerprint metadata unavailable')
+        result[row['name']] = digest
+    return result
 
 
 def main():
@@ -65,7 +78,7 @@ def main():
         identity = stripe('whoami', '--format', 'json', context=True)
         assert identity['account_id'] == ACCOUNT and identity['mode'] == 'test'
         before = json.loads(config.cli('secrets', 'list', '--remote='+config.PROJECT, '--output', 'json'))
-        before = {row['name']: row.get('digest') for row in before}
+        before = secret_fingerprints(before)
         assert not any(name.startswith(PREFIX) for name in before), 'Existing QA settings require cleanup first'
         functions = json.loads(config.cli('functions', 'list', '--remote='+config.PROJECT, '--output', 'json'))
         assert not any(row['slug'] in [FUNCTION, HOOK] for row in functions), 'Existing QA functions require cleanup first'
@@ -225,7 +238,7 @@ def main():
             if product:
                 cleanup('archive test product', lambda: stripe('products', 'update', product['id'], '-d', 'active=false'))
             after = json.loads(config.cli('secrets', 'list', '--remote='+config.PROJECT, '--output', 'json'))
-            after = {r['name']: r.get('digest') for r in after}
+            after = secret_fingerprints(after)
             if after != before:
                 failures.append('production settings differ')
             if failures:

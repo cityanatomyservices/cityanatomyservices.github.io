@@ -5,6 +5,7 @@ import importlib.util
 import json
 from pathlib import Path
 import secrets
+import subprocess
 import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -16,7 +17,10 @@ spec.loader.exec_module(check)
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--enabled', action='store_true', help='Expect purchases enabled')
+    parser.add_argument('--browser', action='store_true', help='Verify published phone form; requires --enabled')
     args = parser.parse_args()
+    if args.browser and not args.enabled:
+        parser.error('--browser requires --enabled')
     keys = json.loads(check.configure.cli('projects', 'api-keys', '--remote='+check.configure.PROJECT, '--reveal', '--output', 'json'))
     admin = next(row['api_key'] for row in keys if row.get('name') == 'service_role')
     owner, space = None, str(uuid.uuid4())
@@ -46,7 +50,7 @@ def main():
         assert status == 200 and row['customer_id'] is None
         status, _ = check.http('/rest/v1/rpc/geofence_billing_release',
             {'p_mode': 'live', 'p_id': space, 'p_lease': row['lease_id']}, admin=admin)
-        assert status == 200
+        assert status in (200, 204), 'Could not release verification lease'
         status, current = api({'action': 'status', 'id': space})
         assert status == 200 and current['status'] == 'none' and current['paidUntil'] is None, 'Live restricted key/catalog check failed'
         assert check.http('/rest/v1/rpc/geofence_read', {'p_id': space}) == (200, None)
@@ -54,6 +58,12 @@ def main():
         if not args.enabled:
             assert api({'action': 'checkout', 'id': space})[0] == 503
         print('Deployed live key reads the $10/month price and cancellation portal; unsigned webhooks rejected; unpaid map stays unavailable. Checkout '+('enabled.' if args.enabled else 'disabled.'), flush=True)
+        if args.browser:
+            result = subprocess.run(['node', str(ROOT/'tools/geofences/check-live-browser.cjs')],
+                input=json.dumps(session), capture_output=True, text=True, timeout=150, cwd=ROOT)
+            print(result.stdout[:2000], flush=True)
+            if result.returncode:
+                raise RuntimeError('Published phone form verification failed; private browser details suppressed')
     finally:
         check.configure.query("delete from geofence_private.spaces where id='"+space+"'::uuid")
         if owner:
