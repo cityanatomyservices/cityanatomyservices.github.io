@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-10T23:17:23.322351+00:00",
+  "generated": "2026-11-11T06:10:59.324424+00:00",
   "sources": [
     {
       "name": "KUT",
       "publisher": "kut",
       "url": "https://www.kut.org/austin.rss",
       "ok": true,
-      "count": 8
+      "count": 6
     },
     {
       "name": "KXAN",
@@ -48,7 +48,7 @@
       "publisher": "kvue",
       "url": "https://www.kvue.com/feeds/syndication/rss/news/local",
       "ok": true,
-      "count": 0
+      "count": 8
     },
     {
       "name": "Austin Monthly",
@@ -149,22 +149,22 @@
       "publisher": "kut"
     },
     {
-      "title": "Voters endorse $295 million bond investments in parks, libraries",
-      "url": "https://www.kut.org/austin/2026-11-03/early-voters-endorse-295-million-bond-investments-in-parks-libraries",
-      "source": "KUT",
+      "title": "Austin ISD board candidate Cynthia Soliz drops out of runoff, concedes to Pamela Mathai",
+      "url": "https://www.kxan.com/news/education/austin-isd-board-candidate-cynthia-soliz-drops-out-of-runoff-concedes-to-pamela-mathai/",
+      "source": "KXAN",
       "category": "headlines",
-      "published": "2026-11-04T04:41:31+00:00",
-      "expires": "2026-11-11T04:41:31+00:00",
-      "publisher": "kut"
+      "published": "2026-11-11T02:08:47+00:00",
+      "expires": "2026-11-18T02:08:47+00:00",
+      "publisher": "kxan"
     },
     {
-      "title": "Vikki Goodwin defeats Dan Patrick in Texas lieutenant governor race",
-      "url": "https://www.kut.org/politics/2026-11-03/goodwin-leads-texas-lieutenant-governor-race-as-early-results-come-in",
-      "source": "KUT",
+      "title": "Red River is gearing up for another Free Week: Here are this year's participating venues",
+      "url": "https://www.kxan.com/news/local/austin/music/red-river-is-gearing-up-for-another-free-week-here-are-this-years-participating-venues/",
+      "source": "KXAN",
       "category": "headlines",
-      "published": "2026-11-04T02:33:09+00:00",
-      "expires": "2026-11-11T02:33:09+00:00",
-      "publisher": "kut"
+      "published": "2026-11-11T00:00:14+00:00",
+      "expires": "2026-11-18T00:00:14+00:00",
+      "publisher": "kxan"
     },
     {
       "title": "APD investigating series of tire slashings near southeast Austin park; seeking community's help",
@@ -221,24 +221,6 @@
       "publisher": "kxan"
     },
     {
-      "title": "Sun returns Wednesday, but eyes on more weekend rain",
-      "url": "https://www.kxan.com/weather/forecast/warmer-and-drier-ahead-of-midweek-cold-front/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-10T12:04:04+00:00",
-      "expires": "2026-11-17T12:04:04+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Travis County opens applications for 2027 Expunction Expo",
-      "url": "https://www.kxan.com/news/local/travis-county-expunction-application/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-10T04:10:48+00:00",
-      "expires": "2026-11-17T04:10:48+00:00",
-      "publisher": "kxan"
-    },
-    {
       "title": "COP31: Getting Ahead of the Storm",
       "url": "https://www.austinchronicle.com/news/cop31-getting-ahead-of-the-storm/",
       "source": "Austin Chronicle news",
@@ -254,24 +236,6 @@
       "category": "headlines",
       "published": "2026-11-05T06:01:00+00:00",
       "expires": "2026-11-12T06:01:00+00:00",
-      "publisher": "chronicle"
-    },
-    {
-      "title": "Run for the Water Marks Its 20th Anniversary",
-      "url": "https://www.austinchronicle.com/news/run-for-the-water-marks-its-20th-anniversary/",
-      "source": "Austin Chronicle news",
-      "category": "headlines",
-      "published": "2026-11-05T06:00:00+00:00",
-      "expires": "2026-11-12T06:00:00+00:00",
-      "publisher": "chronicle"
-    },
-    {
-      "title": "Will Texas Execute a Mentally Ill Man?",
-      "url": "https://www.austinchronicle.com/news/will-texas-execute-a-mentally-ill-man/",
-      "source": "Austin Chronicle news",
-      "category": "headlines",
-      "published": "2026-11-05T06:00:00+00:00",
-      "expires": "2026-11-12T06:00:00+00:00",
       "publisher": "chronicle"
     },
     {
@@ -304,6 +268,24 @@
     {
       "title": "The Week’s Biggest News in Brief: Oct. 29 – Nov. 4",
       "url": "https://www.austinchronicle.com/news/the-weeks-biggest-news-in-brief-oct-29-nov-4/",
+      "source": "Austin Chronicle news",
+      "category": "headlines",
+      "published": "2026-11-05T06:00:00+00:00",
+      "expires": "2026-11-12T06:00:00+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Run for the Water Marks Its 20th Anniversary",
+      "url": "https://www.austinchronicle.com/news/run-for-the-water-marks-its-20th-anniversary/",
+      "source": "Austin Chronicle news",
+      "category": "headlines",
+      "published": "2026-11-05T06:00:00+00:00",
+      "expires": "2026-11-12T06:00:00+00:00",
+      "publisher": "chronicle"
+    },
+    {
+      "title": "Will Texas Execute a Mentally Ill Man?",
+      "url": "https://www.austinchronicle.com/news/will-texas-execute-a-mentally-ill-man/",
       "source": "Austin Chronicle news",
       "category": "headlines",
       "published": "2026-11-05T06:00:00+00:00",
@@ -446,6 +428,15 @@
       "publisher": "current"
     },
     {
+      "title": "Democratic Lt. Gov.-elect Vikki Goodwin pledges bipartisanship as next leader of GOP-majority Texas Senate",
+      "url": "https://communityimpact.com/central-austin/texas-legislature/democratic-lt-gov-elect-vikki-goodwin-pledges-bipartisanship-as-next-leader-of-gop-majority-texas-senate/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-11-10T23:40:28+00:00",
+      "expires": "2026-11-17T23:40:28+00:00",
+      "publisher": "community-impact"
+    },
+    {
       "title": "Kyle preschool shifts ownership, to undergo renovations",
       "url": "https://communityimpact.com/san-marcos-buda-kyle/business/kyle-preschool-shifts-ownership-to-undergo-renovations/",
       "source": "Community Impact · Austin area",
@@ -509,13 +500,76 @@
       "publisher": "community-impact"
     },
     {
-      "title": "12 resources for Bastrop County veterans",
-      "url": "https://communityimpact.com/bastrop-cedar-creek/business/12-resources-for-bastrop-county-veterans/",
-      "source": "Community Impact · Austin area",
+      "title": "Forecast: Drying out for the back half of the work week",
+      "url": "https://www.kvue.com/article/weather/forecast/austin-weather-central-texas-forecast/269-43840919",
+      "source": "KVUE",
       "category": "headlines",
-      "published": "2026-11-10T21:00:00+00:00",
-      "expires": "2026-11-17T21:00:00+00:00",
-      "publisher": "community-impact"
+      "published": "2026-11-11T04:36:13+00:00",
+      "expires": "2026-11-18T04:36:13+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "A new contender for Texas’ tallest tower could rise in Austin",
+      "url": "https://www.kvue.com/article/money/economy/boomtown-2040/proposed-tower-reshape-austin-skyline-texas-tallest/269-640130f0-da8c-4292-a895-6ff0e0792f57",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-11T04:25:13+00:00",
+      "expires": "2026-11-18T04:25:13+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Austin veterans share memories of service ahead of Veterans Day",
+      "url": "https://www.kvue.com/article/news/national/military-news/austin-veterans-memories-veterans-day/269-b6686d9e-4df2-4c93-919e-311c14a47af8",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-11T04:17:13+00:00",
+      "expires": "2026-11-18T04:17:13+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Police searching for suspects in southeast Austin tire-slashing incidents",
+      "url": "https://www.kvue.com/article/news/crime/mabel-davis-southeast-austin-tire-slashing-incidents/269-a73c87a9-7bd4-434e-8b05-ce7530dc5323",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-11T03:18:01+00:00",
+      "expires": "2026-11-18T03:18:01+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Family cat rescued from Hutto house fire, reunited with owners",
+      "url": "https://www.kvue.com/article/news/local/williamson-county/hutto-bethany-creek-drive-house-fire-cat-rescue/269-89caaddb-cb53-4b43-baa9-62af6a11d890",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-10T23:16:44+00:00",
+      "expires": "2026-11-17T23:16:44+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Texas Lt. Gov.-elect Vikki Goodwin announces transition team including 2 former GOP state senators",
+      "url": "https://www.kvue.com/article/news/politics/texas-legislature/lt-gov-elect-vikki-goodwin-transition-team-former-gop-state-senators/269-70fac166-726a-4c40-908f-084d6102f94e",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-10T23:15:07+00:00",
+      "expires": "2026-11-17T23:15:07+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "KVUE hosts all-day telethon benefiting Honor Flight Austin on Veteran's Day, Nov. 11",
+      "url": "https://www.kvue.com/article/news/local/outreach/honor-flight/kvue-all-day-telethon-honor-flight-austin-veterans-day-nov-11/269-e1f5da44-f982-478f-a331-ea3a19c71051",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-10T22:46:12+00:00",
+      "expires": "2026-11-17T22:46:12+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "Pease Park Conservancy stepping up maintenance role at park",
+      "url": "https://www.kvue.com/article/news/community/pease-park-conservancy-maintenance/269-01b21875-817d-4004-8a9a-5f88ff29ec14",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-10T22:45:13+00:00",
+      "expires": "2026-11-17T22:45:13+00:00",
+      "publisher": "kvue"
     },
     {
       "title": "First Look: Shola Blends Indian Fare with Texas Barbecue",
@@ -552,6 +606,33 @@
       "published": "2026-11-04T17:07:16+00:00",
       "expires": "2026-11-11T17:07:16+00:00",
       "publisher": "monthly"
+    },
+    {
+      "title": "Visually impaired veterans receive Meta AI glasses at UT Dell event",
+      "url": "https://thedailytexan.com/2026/11/10/visually-impaired-veterans-receive-meta-ai-glasses-at-ut-dell-event/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-11-11T02:57:44+00:00",
+      "expires": "2026-11-18T02:57:44+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "University sees drop in on-campus drug violations since 2018",
+      "url": "https://thedailytexan.com/2026/11/10/university-sees-drop-in-on-campus-drug-violations-since-2018/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-11-11T02:37:59+00:00",
+      "expires": "2026-11-18T02:37:59+00:00",
+      "publisher": "daily-texan"
+    },
+    {
+      "title": "UT researchers demonstrate Gulf of California formation",
+      "url": "https://thedailytexan.com/2026/11/10/ut-researchers-demonstrate-gulf-of-california-formation/",
+      "source": "The Daily Texan",
+      "category": "headlines",
+      "published": "2026-11-11T02:13:20+00:00",
+      "expires": "2026-11-18T02:13:20+00:00",
+      "publisher": "daily-texan"
     },
     {
       "title": "Department of Education reforms higher education accreditation standards, credit transfers",
@@ -596,33 +677,6 @@
       "category": "headlines",
       "published": "2026-11-10T03:41:59+00:00",
       "expires": "2026-11-17T03:41:59+00:00",
-      "publisher": "daily-texan"
-    },
-    {
-      "title": "Texas jobs decrease in September: Construction, government fields hit hardest",
-      "url": "https://thedailytexan.com/2026/11/08/texas-jobs-decrease-in-september-construction-government-fields-hit-hardest/",
-      "source": "The Daily Texan",
-      "category": "headlines",
-      "published": "2026-11-09T05:51:19+00:00",
-      "expires": "2026-11-16T05:51:19+00:00",
-      "publisher": "daily-texan"
-    },
-    {
-      "title": "Zilker Park Great Lawn partially reopens after maintenance",
-      "url": "https://thedailytexan.com/2026/11/08/zilker-park-great-lawn-partially-reopens-after-maintenance/",
-      "source": "The Daily Texan",
-      "category": "headlines",
-      "published": "2026-11-09T04:00:43+00:00",
-      "expires": "2026-11-16T04:00:43+00:00",
-      "publisher": "daily-texan"
-    },
-    {
-      "title": "PCL reopens after electrical outage",
-      "url": "https://thedailytexan.com/2026/11/08/pcl-reopens-after-electrical-outage/",
-      "source": "The Daily Texan",
-      "category": "headlines",
-      "published": "2026-11-09T02:11:32+00:00",
-      "expires": "2026-11-16T02:11:32+00:00",
       "publisher": "daily-texan"
     },
     {
