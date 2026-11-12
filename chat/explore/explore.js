@@ -56,6 +56,11 @@ window.AustinExplore = {
       <p class="explore-note">Times are in Austin time. Check the organizer before going: reservations, age limits, parking or extra activities may cost more. Free & cheap requires a confirmed admission price. Movie and event prices vary; follow the source for tickets and availability. Only published schedules are listed. Report corrections through <a href="/contact/" target="_blank" rel="noopener">Contact</a>.</p></details></div></div>`;
     document.querySelector('.page').append(panel);
     const $ = s => panel.querySelector(s);
+    const businesses = document.getElementById('neighborhoodBusinesses');
+    if (businesses) {
+      $('.explore-layers').after(businesses);
+      businesses.hidden = false;
+    }
     function save() {
       const value = JSON.stringify({ ...state, enabled: [...state.enabled], position: undefined });
       if (session?.registered) {

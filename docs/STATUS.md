@@ -1,5 +1,34 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-12 - Neighborhood businesses moved from Chat into Explore
+
+Owner requested the main map's neighborhood business directory in Explore,
+under a new closed-by-default Neighborhood Businesses dropdown. The existing
+group/category hierarchy also starts closed. GPS neighborhood selection,
+business-room selection, presence counts, Favorites and Day Planner checkboxes
+are retained. Picking a business closes Explore to reveal its map popup.
+
+Chat keeps the visible-user list, whole-neighborhood room selector, identity
+and Visible / Chat buttons. Its message window now sits inside the card where
+the directory used to be. Visibility/chat eligibility, room messages and the
+backend are unchanged. Shared room wiring supports separate room/directory
+containers while retaining the combined layout on other maps. The Special
+Events generator preserves the tour's combined list and separate chat window.
+
+Main-map assets and its iframe use `20261112a`. The new main-only stylesheet is
+`chat/neighborhood.css`; no private app sources or billing settings changed.
+Desktop (1280px) and phone (390px) browser checks passed with fixture auth and
+presence: collapsed hierarchy, users/counts, inline send, room switching,
+visibility, planner selections, popup/panel switching, GPS exit/return and
+refresh. Light/dark screenshots were reviewed. Six chat connection/form tests
+passed. The existing Special Events map suite passed all four desktop/phone
+guest/member variants, including its business directory and stop-chat gates.
+The public build passed and excluded all 45 private app resources; private
+bundle hashes remain unchanged. No production accounts, messages or plans
+were changed by testing. Physical-phone field checks remain owner-deferred.
+The browser check is `tools/explore/check-neighborhood-businesses.cjs` and
+accepts a deployed origin. Publication verification follows below.
+
 ## 2026-11-10 - Laptop handoff: resume from GitHub main
 
 Owner is moving to another laptop. All implementation, migrations, setup and

@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
   <link rel="stylesheet" href="./panel.css?v=20261023e" />
   <link rel="stylesheet" href="./style.css?v=20261109g" />
+  <link rel="stylesheet" href="./neighborhood.css?v=20261112a" />
   <link rel="stylesheet" href="./explore/explore.css?v=20261104a" />
   <link rel="stylesheet" href="../appearance.css?v=20261028h" />
   <link rel="stylesheet" href="./map-layers.css?v=20261104a" />
@@ -59,8 +60,20 @@
             <button id="visibleBtn" type="button" aria-pressed="false"></button>
             <button id="chatBtn" type="button" disabled></button>
           </div>
-          <!-- the neighborhood's businesses by category (room.js fills it) -->
-          <div class="place-list" id="placeList"></div>
+          <div class="place-list" id="roomList"></div>
+          <!-- The conversation shares the neighborhood card with its controls. -->
+          <section class="chatwin" id="chatwin" hidden aria-label="Chat">
+            <div class="chat-head">
+              <h2 id="chatRoom"></h2>
+              <button id="chatClose" type="button" aria-label="Close">&times;</button>
+            </div>
+            <div class="chat-people" id="chatPeople"></div>
+            <ul class="chat-lines" id="chatLines" aria-live="polite" aria-label="Messages"></ul>
+            <div class="chat-form">
+              <input id="chatText" type="text" autocomplete="off" aria-label="Message" />
+              <button id="chatSend" type="button"></button>
+            </div>
+          </section>
         </div>
       </aside>
     </div>
@@ -107,19 +120,12 @@
       </details>
     </section>
 
-    <!-- the chat window (panel.js) -->
-    <section class="chatwin" id="chatwin" hidden aria-label="Chat">
-      <div class="chat-head">
-        <h2 id="chatRoom"></h2>
-        <button id="chatClose" type="button" aria-label="Close">&times;</button>
-      </div>
-      <div class="chat-people" id="chatPeople"></div>
-      <ul class="chat-lines" id="chatLines"></ul>
-      <div class="chat-form">
-        <input id="chatText" type="text" autocomplete="off" />
-        <button id="chatSend" type="button"></button>
-      </div>
-    </section>
+    <!-- Explore mounts this existing directory without rebuilding its rows. -->
+    <details class="neighborhood-businesses" id="neighborhoodBusinesses" hidden>
+      <summary>Neighborhood Businesses</summary>
+      <p class="explore-note" id="directoryStatus" role="status">Finding your neighborhood…</p>
+      <div class="place-list" id="placeList"></div>
+    </details>
     <section id="plan-panel" class="plan-panel" aria-labelledby="plan-title" hidden inert aria-hidden="true">
       <header class="plan-heading"><div><p class="plan-eyebrow">A day in Austin</p><h1 id="plan-title">Austin day Planner</h1></div><div class="plan-heading-actions"><button type="button" data-plan-explore>+ Add places</button><button type="button" id="export-plan" aria-haspopup="dialog" aria-controls="export-dialog" disabled>Export</button><button type="button" id="plan-panel-close" aria-label="Hide planner">×</button></div></header>
       <p class="plan-intro">Choose a day, then arrange its stops. Explore and plan on this map.</p>
@@ -194,11 +200,11 @@
   <script src="./locate.js?v=20261108b"></script>
   <script src="./chat.js?v=20261109a"></script>
   <script src="./panel.js?v=20261109a"></script>
-  <script src="./room.js?v=20261108b"></script>
+  <script src="./room.js?v=20261112a"></script>
   <script src="./explore/config.js?v=20261028e"></script>
   <script src="./explore/model.js?v=20261104a"></script>
   <script src="/special-events/catalog.js?v=20261109f"></script>
-  <script src="./explore/explore.js?v=20261109g"></script>
+  <script src="./explore/explore.js?v=20261112a"></script>
   <script src="/planner/context.js?v=20261109d"></script>
   <script src="/planner/model.js?v=20261109c"></script>
   <script src="/planner/sources.js?v=20261102b"></script>
@@ -220,6 +226,6 @@
   <script src="/classifieds/client.js?v=20261104a"></script>
   <script src="/classifieds/ui.js?v=20261104a"></script>
   <script src="/classifieds/panel.js?v=20261104a"></script>
-  <script src="./map.js?v=20261109e"></script>
+  <script src="./map.js?v=20261112a"></script>
 </body>
 </html>

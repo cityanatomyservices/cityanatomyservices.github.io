@@ -1,0 +1,27 @@
+/* Main map: businesses in Explore, people and conversation in Chat. */
+#legend .chatwin {
+  position: relative; inset: auto; width: 100%; max-width: none;
+  height: 280px; max-height: none; margin-top: 10px; box-shadow: none;
+}
+#legend .chat-head, #legend .chat-people, #legend .chat-form { flex-shrink: 0; }
+#legend .chat-head h2 { min-width: 0; overflow-wrap: anywhere; }
+#legend .chat-lines { min-height: 0; overflow-wrap: anywhere; }
+#roomList .users-fold { max-height: 150px; overflow-y: auto; }
+#roomList summary { padding: 8px 0; }
+#roomList .place-row { padding-top: 7px; padding-bottom: 7px; }
+.neighborhood-businesses { margin-top: 14px; border-block: 1px solid var(--line); }
+.neighborhood-businesses > summary {
+  display: flex; align-items: center; gap: 8px; padding: 12px 0;
+  list-style: none; cursor: pointer; font-size: 14px; font-weight: 650;
+}
+.neighborhood-businesses > summary::-webkit-details-marker { display: none; }
+.neighborhood-businesses > summary::before { content: '\25B8'; width: 12px; }
+.neighborhood-businesses[open] > summary::before { content: '\25BE'; }
+.neighborhood-businesses .place-list { border: 0; margin: 0 0 12px; padding: 0; }
+.neighborhood-businesses .place-list summary { padding: 9px 0; }
+/* Only the open fold's own arrow turns, not its closed descendants. */
+.neighborhood-businesses .place-list details > summary::before { content: '\25B8'; }
+.neighborhood-businesses .place-list details[open] > summary::before { content: '\25BE'; }
+.neighborhood-businesses .place-row { padding-block: 8px; }
+.neighborhood-businesses .place-name { white-space: normal; overflow-wrap: anywhere; }
+#legend :is(button,input,summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

@@ -12,7 +12,8 @@ part of the same chat. One small file per job; nothing is abstract.
 | `locate.js` | GPS → which neighborhood polygon you are in (point in polygon, in the browser) and each reading, which chat.js shares with your neighborhood ONLY while you are Visible, rounded to ~10 m |
 | `chat.js` | the Supabase Realtime channel per neighborhood: Presence = who is visible, Broadcast = live messages; registered messages also go into the `messages` table (30 days) and a room's saved lines are read back on joining |
 | `panel.js` + `panel.css` | the chat window (colours from six `--chat-*` variables each page sets) |
-| `room.js` | the wiring: joins your neighborhood, lists its businesses by category on the card, moves you to a business room when you tap one, keeps the Visible / Chat buttons and lines up to date; shared with the apps |
+| `room.js` | the wiring: joins your neighborhood, lists its businesses by category in Explore, moves you to a business room when you tap one, keeps the Visible / Chat buttons and lines up to date; shared with the apps |
+| `neighborhood.css` | main-map layout for the business dropdown in Explore and the conversation inside the Chat card |
 | `map.js` | the chat map itself: layers, controls, 3D, and the hooks that draw your room, the people (an emoji row on the business they picked, or on the neighborhood) and a pin on the business you picked |
 | `catalog-menu.js` | the Pro Tier Apps card inside Explore and legacy Apps/Media menus, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
@@ -29,6 +30,22 @@ All dates and exact-date input apply to the selected card. City Hall retains its
 four categories, district/board/search filters, meeting planner selections and
 reminders. Classifieds retains the sign-in requirement, ad editing and category
 page links. Other map layouts retain their existing control columns.
+Explore also has a **Neighborhood Businesses** dropdown below the cards.
+It starts closed, as do its business groups and categories. Its businesses
+follow the visitor's GPS neighborhood and retain presence counts, Favorites,
+Day Planner checkboxes and business-room selection. The date filters apply
+to Explore listings, not the business directory.
+
+The Chat card retains identity, Visible / Chat controls, Users visible and
+the whole-neighborhood room selector. Its conversation opens inside that card,
+where the directory used to be. Other maps keep their existing combined
+directory and separate conversation; the Special Events generator preserves
+that arrangement because event maps use Stops instead of Explore.
+
+`node tools/explore/check-neighborhood-businesses.cjs` checks the actual main
+map at desktop and phone sizes with fixture identity/presence. Pass a deployed
+origin to check publication. No production conversations or accounts are changed.
+
 Its official city sources refresh every three hours through GitHub Actions.
 Map opens the Map layers panel, which groups the 3D-view and satellite toggles, Show map
 extent, and optional ZIP code/city council district boundaries. Its panel is
@@ -107,7 +124,7 @@ this distinction and clears the prior anonymous saved application data.
 - Businesses (owner 2026-10-22): anyone standing in the neighborhood may pick
   any of its businesses; a business room opens even when nobody else is
   there (a line stays 30 days); the neighborhood room still needs someone
-  else. The card goes neighborhood → group → category → business, with
+  else. Explore goes Neighborhood Businesses → group → category → business, with
   "N here" counts, and the map shows each visible person on the business
   they picked. `?room=<id>&place=<place id>` picks one for testing.
 ## Special Events (2026-11-08)

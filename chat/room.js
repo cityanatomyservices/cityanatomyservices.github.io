@@ -21,7 +21,9 @@
 // neighborhood room still needs someone else to be there.
 //
 // Elements, by id (any may be missing): visibleBtn, chatBtn, roomLine,
-// peopleLine, youHandle, newName, placeList. A button with data-glyph="💬"
+// peopleLine, youHandle, newName, placeList, roomList, directoryStatus.
+// roomList separates people/room controls from the directory on the main map;
+// pages without it keep their combined list. A button with data-glyph="💬"
 // shows that glyph (and a count) instead of the words from copy.js.
 (function () {
   const CFG = window.MAP_CONFIG;
@@ -40,6 +42,7 @@
   let placesById = {};          // the neighborhood's businesses, by id (for the users list)
   let hooks = {};
   const el = {};
+  const roomLists = () => [el.placeList, el.roomList].filter(Boolean);
   let testRoom = null;          // ?room=<id> joins a neighborhood without GPS (testing)
   let testPlace = null;         // ?place=<id> then picks that business
   let event = null, directoryRoom = null, directoryData = null, directoryRequest = 0;
@@ -85,13 +88,12 @@
   // "N here" beside the neighborhood row and each business, from the whole
   // channel's presence; only text changes, so open categories stay open
   function showCounts(list) {
-    if (!el.placeList) return;
     const counts = {};
     list.forEach((p) => { counts[p.room] = (counts[p.room] || 0) + 1; });
-    el.placeList.querySelectorAll('[data-room]:not(.user-row)').forEach((row) => {
+    roomLists().forEach(root => root.querySelectorAll('[data-room]:not(.user-row)').forEach((row) => {
       const n = counts[row.dataset.room] || 0;
       row.querySelector('.here').textContent = n ? fill(COPY.places.here, { n }) : '';
-    });
+    }));
   }
 
   function onPeople(list) {
@@ -125,7 +127,7 @@
   // else the whole neighborhood. Tapping a person takes you to their room.
   // Rebuilt on every presence change.
   function showUsers(list) {
-    const fold = el.placeList && el.placeList.querySelector('.users-fold');
+    const fold = (el.roomList || el.placeList)?.querySelector('.users-fold');
     if (!fold) return;
     fold.querySelector('summary').textContent = COPY.places.usersVisible + ' · ' + list.length;
     fold.querySelectorAll('.user-row').forEach((r) => r.remove());
@@ -152,12 +154,14 @@
   function showPlaces(data) {
     const list = el.placeList;
     list.innerHTML = '';
+    const roomList = el.roomList || list;
+    if (el.roomList) el.roomList.replaceChildren();
     placesById = {};
     allPlaces(data).forEach((p) => {
       placesById[p.id] = p;
       (p.aliases || []).forEach((id) => { placesById[id] = p; });
     });
-    if (!data && !event) return;
+    if (!data && !event && !el.roomList) return;
     const row = (text, roomString, cls) => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -176,8 +180,8 @@
       d.appendChild(s);
       return d;
     };
-    list.appendChild(fold(COPY.places.usersVisible, 0, 'place-group users-fold'));
-    if (room) list.appendChild(row(event ? 'Stop chat · ' + roomName() : COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
+    roomList.appendChild(fold(COPY.places.usersVisible, 0, 'place-group users-fold'));
+    if (room) roomList.appendChild(row(event ? 'Stop chat · ' + roomName() : COPY.places.neighborhoodRow, room.properties.id, 'place-row is-neighborhood is-current'));
     if (event) {
       const heading = document.createElement('p');
       heading.textContent = directoryRoom ? 'Businesses in ' + directoryRoom.properties[CFG.nameField] : 'Allow GPS to show businesses in your neighborhood.';
@@ -221,7 +225,7 @@
     if (event) { if (hooks.onPlace) hooks.onPlace(place); return; }
     window.ChatPanel.close();
     window.ChatPanel.clear();
-    if (el.placeList) el.placeList.querySelectorAll('[data-room]').forEach((r) => r.classList.toggle('is-current', r.dataset.room === roomId()));
+    roomLists().forEach(root => root.querySelectorAll('[data-room]').forEach((r) => r.classList.toggle('is-current', r.dataset.room === roomId())));
     showPeople();
     if (hooks.onPlace) hooks.onPlace(place);
     await window.ChatEngine.setRoom(roomId());
@@ -236,7 +240,12 @@
     others = [];
     window.ChatPanel.close();
     window.ChatPanel.clear();
-    if (el.placeList && !event) el.placeList.innerHTML = '';
+    if (!event) {
+      ++directoryRequest; // Invalidate a directory response from the previous neighborhood.
+      directoryRoom = feature; directoryData = null;
+      if (el.placeList) showPlaces(null);
+      if (el.directoryStatus) el.directoryStatus.textContent = feature ? 'Loading businesses in ' + neighborhoodName() + '…' : COPY.room.outside;
+    }
     if (hooks.onRoom) hooks.onRoom(feature, before);
     if (hooks.onPlace) hooks.onPlace(null);
     onPeople([]);
@@ -245,7 +254,7 @@
     if (event) showPlaces(directoryData);
     if (!feature || !me || (event && !canEventChat())) { await window.ChatEngine.leave(); return; }
     await window.ChatEngine.join(feature.properties.id, me, visible, { onPeople, onMessage: (m) => window.ChatPanel.addMessage(m) }, event ? {liveOnly:true,canParticipate:canEventChat,expiresAt:()=>locationExpires} : {});
-    if (event) return;
+    if (event || room !== feature) return;
     await loadPlaces(feature);
   }
 
@@ -272,6 +281,9 @@
       .sort((a, b) => String(b.fetched).localeCompare(String(a.fetched)))[0] || null;
     if (request !== directoryRequest) return;          // you moved on while it loaded
     directoryData = data;
+    if (el.directoryStatus) el.directoryStatus.textContent = data
+      ? 'Businesses in ' + feature.properties[CFG.nameField] + (allPlaces(data).length ? '.' : ' · No businesses listed yet.')
+      : 'Businesses could not load. Use GPS to try again.';
     if (hooks.onPlaces) hooks.onPlaces(data);
     showPlaces(data);
     showCounts(window.ChatEngine.people());
@@ -285,6 +297,7 @@
   const status = (s) => {
     if (event && ['denied','off'].includes(s)) { locationExpires=0; clearTimeout(locationTimer); enter(null); loadPlaces(null); }
     if (s !== 'inside' && el.roomLine) el.roomLine.textContent = event ? ({asking:'Finding your location for event chat…',denied:'Allow location access to join event chat. You can still browse and plan.',off:'Location is unavailable. You can still browse and plan.'}[s] || el.roomLine.textContent) : COPY.room[s];
+    if (!event && s !== 'inside' && el.directoryStatus) el.directoryStatus.textContent = COPY.room[s] || '';
   };
 
   // where you are: the phone's GPS, or ?room=<id> for testing at a desk —
@@ -330,7 +343,7 @@
       geofences = gj;
       event = options?.event || null;
       hooks = (options && options.hooks) || {};
-      const ids = Object.assign({ visibleBtn: 'visibleBtn', chatBtn: 'chatBtn', roomLine: 'roomLine', peopleLine: 'peopleLine', youHandle: 'youHandle', newName: 'newName', placeList: 'placeList' }, options && options.ids);
+      const ids = Object.assign({ visibleBtn: 'visibleBtn', chatBtn: 'chatBtn', roomLine: 'roomLine', peopleLine: 'peopleLine', youHandle: 'youHandle', newName: 'newName', placeList: 'placeList', roomList: 'roomList', directoryStatus: 'directoryStatus' }, options && options.ids);
       Object.keys(ids).forEach((k) => { el[k] = $(ids[k]); });
       const params = new URLSearchParams(location.search);
       testRoom = params.get('room');
@@ -389,11 +402,11 @@
         if (room) await enter(room);          // rejoin under the new name
       });
       // one listener for the whole list: a tap on a row picks that room
-      if (el.placeList) el.placeList.addEventListener('click', (e) => {
+      roomLists().forEach(root => root.addEventListener('click', (e) => {
         const rowEl = e.target.closest('[data-room]');
         if (!rowEl || (!room && !event)) return;
         choose(rowEl.dataset.place ? JSON.parse(rowEl.dataset.place) : null);
-      });
+      }));
       locate();
     },
 

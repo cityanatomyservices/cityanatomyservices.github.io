@@ -1,6 +1,14 @@
 /* Keep the event page's full planner/export UI aligned with the home map. */
 const fs=require('node:fs'),path=require('node:path'),root=path.resolve(__dirname,'../..');
-let html=fs.readFileSync(path.join(root,'chat/index.html'),'utf8');
+let html=fs.readFileSync(path.join(root,'chat/index.html'),'utf8').replace(/\r\n/g,'\n');
+// The main map puts businesses in Explore. Event maps have Stops instead,
+// so retain their combined directory/chat card and separate conversation.
+const conversation=html.match(/          <!-- The conversation[^\n]*\n(          <section class="chatwin"[\s\S]*?          <\/section>)\n/);
+if(!conversation)throw new Error('Main-map conversation markup not found.');
+html=html.replace(conversation[0],'').replace('id="roomList"','id="placeList"');
+html=html.replace(/    <!-- Explore mounts[^\n]*\n    <details class="neighborhood-businesses"[\s\S]*?    <\/details>/,
+ '    <!-- the chat window (panel.js) -->\n'+conversation[1].replace(/^      /gm,''));
+html=html.replace(/  <link rel="stylesheet" href="\.\/neighborhood\.css[^\n]*\n/,'');
 html=html.replace(/(src|href)="\.\.\//g,'$1="/').replace(/(src|href)="\.\//g,'$1="/chat/');
 html=html.replace('<title>Austin neighborhoods</title>','<title>Special Events · Austin.Chat</title>');
 html=html.replace(/<button[^>]*id="ctrlExplore"[\s\S]*?<\/button>/,'<button class="round explore-control" id="ctrlStops" type="button" aria-expanded="false" aria-controls="event-panel" aria-label="Event stops" title="Event stops"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><span>Stops</span></button>');
