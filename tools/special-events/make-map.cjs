@@ -1,6 +1,8 @@
 /* Keep the event page's full planner/export UI aligned with the home map. */
 const fs=require('node:fs'),path=require('node:path'),root=path.resolve(__dirname,'../..');
 let html=fs.readFileSync(path.join(root,'chat/index.html'),'utf8').replace(/\r\n/g,'\n');
+// Geo Fence is a main-page navigation link, not an event-map control.
+html=html.replace(/      <a[^>]*id="ctrlGeoFence"[^>]*>[\s\S]*?<\/a>\n/,'');
 // The main map puts businesses in Explore. Event maps have Stops instead,
 // so retain their combined directory/chat card and separate conversation.
 const conversation=html.match(/          <!-- The conversation[^\n]*\n(          <section class="chatwin"[\s\S]*?          <\/section>)\n/);

@@ -1,5 +1,17 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-12 - Geo Fence shortcut below Chat
+
+Added the main-page Geo Fence control directly below Chat. It uses the same
+44px circle, with Geo above Fence, and links to
+`https://austin.chat/geofences/manage/` with `_top` so the destination replaces
+the full page. No extra interaction or setup is attached to the shortcut.
+The event-map generator excludes this main-page link. Main iframe and
+`chat/neighborhood.css` versions are `20261112b`; other assets keep their versions.
+Desktop and phone browser checks passed size, order, stacked text and actual
+full-page navigation. Screenshot reviewed; public build and diff/syntax checks
+passed. Public build still excludes all 45 private app resources.
+
 ## 2026-11-12 - Neighborhood businesses moved from Chat into Explore
 
 Owner requested the main map's neighborhood business directory in Explore,

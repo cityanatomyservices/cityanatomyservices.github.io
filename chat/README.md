@@ -18,8 +18,9 @@ part of the same chat. One small file per job; nothing is abstract.
 | `catalog-menu.js` | the Pro Tier Apps card inside Explore and legacy Apps/Media menus, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
-The main map's right column has **Explore, Day Plan and Chat**, in that
-order. GPS and Map are small square MapLibre controls under the zoom/compass on
+The main map's right column has **Explore, Day Plan, Chat and Geo Fence**, in that
+order. Geo Fence is a matching round link with “Geo” above “Fence”; it opens
+`https://austin.chat/geofences/manage/` in the full page. GPS and Map are small square MapLibre controls under the zoom/compass on
 the left. Explore contains [City Hall](city-hall/README.md) and
 [Free classifieds](../classifieds/README.md) cards, followed by **Special Events**
 and **Pro Tier Apps** beside each other. Pro Tier Apps shows the previous app

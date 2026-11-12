@@ -1,4 +1,8 @@
 /* Main map: businesses in Explore, people and conversation in Chat. */
+.stack .geofence-control {
+  box-sizing: border-box; align-content: center; gap: 0;
+  font-size: 10px; line-height: 12px; text-decoration: none;
+}
 #legend .chatwin {
   position: relative; inset: auto; width: 100%; max-width: none;
   height: 280px; max-height: none; margin-top: 10px; box-shadow: none;
