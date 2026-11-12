@@ -11,6 +11,9 @@ The event-map generator excludes this main-page link. Main iframe and
 Desktop and phone browser checks passed size, order, stacked text and actual
 full-page navigation. Screenshot reviewed; public build and diff/syntax checks
 passed. Public build still excludes all 45 private app resources.
+Published implementation `762e5b6` through successful Pages run `43245123699`.
+Live entry pages and versioned CSS match the checkout. Published 1280px/390px
+checks passed dimensions, stacked label and full-page navigation to management.
 
 ## 2026-11-12 - Neighborhood businesses moved from Chat into Explore
 
