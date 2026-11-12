@@ -27,7 +27,16 @@ The public build passed and excluded all 45 private app resources; private
 bundle hashes remain unchanged. No production accounts, messages or plans
 were changed by testing. Physical-phone field checks remain owner-deferred.
 The browser check is `tools/explore/check-neighborhood-businesses.cjs` and
-accepts a deployed origin. Publication verification follows below.
+accepts a deployed origin.
+
+Implementation `32c2b89` is published through successful Pages run
+`43243261069`. After deployment, all three unversioned entry pages advertised
+`20261112a` and matched the checkout; all four changed versioned runtime assets
+matched as well. The published main-map browser check passed at 1280px and
+390px with fixture identity/presence, including selecting a visible user,
+business counts, conversation send, planner selection, GPS exit/return and
+refresh. Published phone screenshots were reviewed. No work remains for this
+layout request; previously deferred physical-device checks remain separate.
 
 ## 2026-11-10 - Laptop handoff: resume from GitHub main
 
