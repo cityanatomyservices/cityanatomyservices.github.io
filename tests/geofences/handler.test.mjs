@@ -18,3 +18,12 @@ test('Settings lookup errors fail closed instead of creating a charge',async()=>
  const f=fixture();let checkout=false;f.api.rpc=async()=>{throw Error('Offline');};f.api.service.checkout=async()=>{checkout=true;};
  assert.equal((await f.send({action:'checkout',id})).status,503);assert.equal(checkout,false);
 });
+test('Email settings use verified account ownership, validate input and report sender readiness',async()=>{
+ const f=fixture();f.api.emailReady=()=>true;
+ assert.equal((await f.send({action:'notifications',id,enabled:true,email:'alerts@example.test',owner:'someone'})).status,400);
+ assert.equal((await f.send({action:'notifications',id,enabled:'true',email:'alerts@example.test'})).status,422);
+ assert.equal((await f.send({action:'notifications',id,enabled:true,email:'alerts@example.test'})).status,200);
+ assert.deepEqual(f.calls.at(-1),{n:'geofence_email_save',b:{p_owner:'owner',p_id:id,p_enabled:true,p_email:'alerts@example.test'}});
+ f.api.emailReady=()=>false;assert.equal((await f.send({action:'notifications',id,enabled:true,email:'alerts@example.test'})).status,503);
+ assert.equal((await f.send({action:'notifications',id,enabled:false,email:'alerts@example.test'})).status,200);
+});

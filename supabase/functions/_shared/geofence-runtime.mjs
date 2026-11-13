@@ -12,7 +12,7 @@ export function runtime(env,Stripe,fetcher=fetch){
  const rpc=(name,body)=>request('/rest/v1/rpc/'+name,{body});
  const db={claim:(mode,id,owner)=>rpc('geofence_billing_claim',{p_mode:mode,p_id:id,p_owner:owner}),load:(mode,id,customer)=>rpc('geofence_billing_load',{p_mode:mode,p_id:id,p_customer:customer}),save:(mode,id,lease,fields)=>rpc('geofence_billing_save',{p_mode:mode,p_id:id,p_lease:lease,p_fields:fields}),release:(mode,id,lease)=>rpc('geofence_billing_release',{p_mode:mode,p_id:id,p_lease:lease})};
  const enabled=env('GEOFENCE_CHECKOUT_ENABLED')==='true'&&!!price&&!!portal&&!!signing&&!!stripe;
- return {mode,enabled,rpc,fetcher,service:stripe?service({stripe,db,mode,price,portal,enabled}):null,
+ return {mode,enabled,rpc,fetcher,emailReady:()=>env('GEOFENCE_EMAIL_ENABLED')==='true'&&!!env('RESEND_API_KEY')&&!!env('REMINDER_FROM'),service:stripe?service({stripe,db,mode,price,portal,enabled}):null,
   async user(req){const token=req.headers.get('Authorization')?.match(/^Bearer (.+)$/i)?.[1];if(!token)throw problem(401,'Sign in to manage geofences.');let u;try{u=await request('/auth/v1/user',{token});}catch{throw problem(401,'Please sign in again.');}if(u.is_anonymous!==false||!u.email_confirmed_at||!u.id)throw problem(403,'A confirmed account is required.');if(mode==='test'&&!(env('GEOFENCE_TEST_USERS')||'').split(',').includes(u.id))throw problem(403,'Test account required.');return u;},
   webhookReady:()=>!!stripe&&!!signing&&!!price,
   verify:(body,sig)=>stripe.webhooks.constructEventAsync(body,sig,signing,300,Stripe.createSubtleCryptoProvider())};

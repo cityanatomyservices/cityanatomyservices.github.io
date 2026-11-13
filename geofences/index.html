@@ -19,12 +19,23 @@
   <script src="/shared/favorite-button.js?v=20261030c"></script>
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
-<link rel="stylesheet" href="/geofences/style.css?v=20261109h">
+<link rel="stylesheet" href="/geofences/style.css?v=20261113b">
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
 <script src="/geofences/vendor/qrcode.js?v=2.0.4"></script>
 </head>
 <body>
-<main class="page-main"><div class="geofence-page"><p class="geofence-kicker">Local chat circle</p><h1 id="geo-title">Chat geofence</h1><p id="geo-description"></p><p id="geo-public-status" role="status">Loading this geofence…</p><div id="geo-room" hidden><div class="geofence-public-grid"><div class="geofence-map-and-share"><div id="geofence-map" class="geofence-map geofence-room-map" aria-label="Map of the chat circle"></div><div class="geofence-share"><div class="geofence-actions"><button id="geo-fit">Fit circle</button><button id="geo-share">Copy link</button><button id="geo-download">Download QR code</button></div><div id="geo-qr" class="geofence-qr"></div><p><a id="geo-permalink" class="geofence-link"></a></p></div></div><section class="geofence-card"><h2>Chat here</h2><p>People inside this circle can join with a temporary nickname. No payment or registered account is needed to chat.</p><button class="primary" id="geo-join">Use my location to join</button><button id="geo-leave" hidden>Leave chat</button><p id="geo-gps-status" role="status"></p><div id="geo-chat-content" hidden><p id="geo-people" class="geofence-people"></p><ol id="geo-messages" class="geofence-chat-log" aria-label="Chat messages" aria-live="polite"></ol><form id="geo-chat-form"><label>Message<textarea id="geo-message" maxlength="500" required></textarea></label><button type="submit" id="geo-send">Send</button></form></div><small>Chat is limited to this circle and current visitors. Messages are temporary. Location checks use your device’s GPS and are not proof of someone’s physical presence.</small></section></div></div></div></main>
+<main class="page-main"><div class="geofence-page geofence-visitor-page">
+<header class="geofence-room-heading"><p class="geofence-kicker">Local chat circle</p><h1 id="geo-title">Chat geofence</h1><p id="geo-description"></p><p id="geo-public-status" role="status">Loading this geofence…</p></header>
+<div id="geo-room" hidden>
+<div class="geofence-map-stage"><div id="geofence-map" class="geofence-map geofence-room-map" aria-label="Map of the chat circle"></div>
+<nav class="geofence-map-controls" aria-label="Geofence controls"><button id="geo-chat-toggle" aria-expanded="false" aria-controls="geo-chat-panel">Chat</button><a id="geo-manage" class="geofence-action" href="/geofences/manage/" target="_top" hidden>Manage</a></nav></div>
+<section class="geofence-members" aria-labelledby="geo-members-heading"><h2 id="geo-members-heading">Chat members</h2><p id="geo-people" class="geofence-people">Open Chat and allow location to join and see who is here.</p></section>
+<section id="geo-chat-panel" class="geofence-card" hidden><h2>Chat here</h2><p>Joining is free. No sign-in is needed. Allow your location and stay inside the circle to chat.</p>
+<button class="primary" id="geo-join">Use my location to join</button><button id="geo-leave" hidden>Leave chat</button><p id="geo-gps-status" role="status"></p>
+<div id="geo-chat-content" hidden><ol id="geo-messages" class="geofence-chat-log" aria-label="Chat messages" aria-live="polite"></ol><form id="geo-chat-form"><label>Message<textarea id="geo-message" maxlength="500" required></textarea></label><button type="submit" id="geo-send">Send</button></form></div>
+<small>Your arrival and departure may be emailed to this geofence’s owner if they enabled alerts. Messages are temporary. Location is checked only while this page is open and you choose to join.</small></section>
+<details class="geofence-share"><summary>Share this geofence</summary><div class="geofence-actions"><button id="geo-fit">Center map</button><button id="geo-share">Copy link</button><button id="geo-download">Download QR code</button></div><div id="geo-qr" class="geofence-qr"></div><p><a id="geo-permalink" class="geofence-link"></a></p></details>
+</div></div></main>
 <script src="/shell.js?v=20261113a"></script>
-<script type="module" src="/geofences/page.mjs?v=20261113a"></script>
+<script type="module" src="/geofences/page.mjs?v=20261113b"></script>
 </body></html>

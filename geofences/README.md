@@ -94,7 +94,61 @@ If configuration is missing or checkout is disabled, the account card/form
 provide a working map preview and state that payments are being set up;
 payment buttons are disabled.
 
+## Automated email
+
+Email only; the owner explicitly deferred SMS on November 13. Activation queues
+one share email to the owner's confirmed account email, with the permanent link
+and an embedded/attached PNG QR code. Owners can forward it to guests. The share
+email contains no private notification token. Paid renewals and repeated free
+activation do not duplicate it. Drafts and test-mode Stripe purchases do not send
+share emails. Billing setup is unchanged.
+
+The creation form and each owned circle offer optional, initially unchecked
+arrival/departure emails. The account email is immediately verified; a different
+address receives a confirmation link before alerts start. Settings, recipients,
+verification/stop tokens and delivery jobs are private. Only the owner can update
+settings. Token links require a button click on `/geofences/notifications/`, so
+email link scanners cannot verify or cancel them by GET. Tokens are cleared from
+browser history and never appear in referrers.
+
+Alerts describe **chat presence while the visitor uses the page with location
+allowed**, not background tracking. Closing/backgrounding the page, stopping GPS
+or losing connection also counts as leaving. Repeated GPS polls do not create
+duplicate arrivals. Recent transitions are grouped into one email (up to 100 per
+message), normally within a minute or two. No visitor email or account ID is sent
+to the owner. Transitions are not recorded when optional alerts are off.
+
+Migration 0020 creates the queue and activation/presence triggers. The separate
+`geofence-send` worker reuses the existing `RESEND_API_KEY` and `REMINDER_FROM`,
+with its own `GEOFENCE_EMAIL_ENABLED` flag and Vault-backed `GEOFENCE_CRON_SECRET`.
+The `austin-geofence-email` Cron runs every minute, prunes stale chat presence,
+and delivers queued messages. Retries retain the exact payload and provider
+idempotency key; leases prevent overlapping claims. Recipient/settings/access
+are rechecked before submission. Activity expires after 15 minutes, other mail
+after 23 hours, with at most five attempts; jobs/payloads are purged after 30 days.
+The permanent activation receipt prevents resends after that purge. `sent` means
+Resend accepted the request, not proof that a person's inbox displayed it.
+
+`python tools/geofences/email.py --apply --functions` validates, installs and
+deploys the email feature. `--enable` starts its Cron and sender; `--disable`
+pauses only geofence email. Existing sign-in SMTP, reminders, Stripe configuration
+and secrets remain unchanged. Never rerun the older reminder setup for this.
+`tools/geofences/check-email-live.py` verifies real queue/Cron/provider behavior
+with disposable accounts and Resend's labeled `delivered+...@resend.dev` test
+recipients, then removes fixtures. It never sends fixture content to visitors.
+
+Provider references: [inline attachments](https://resend.com/docs/dashboard/emails/embed-inline-images),
+[test recipients](https://resend.com/docs/dashboard/emails/send-test-emails).
+
 ## Chat behavior
+
+The public page centers the circle on a large map, shows chat members below it,
+and opens the conversation with **Chat**. It has no Explore panel. An owner-only
+**Manage** control returns to the signed-in owner's list of all their circles.
+`geofence_is_owner` checks ownership in the database; hiding the control is not
+the authorization boundary. The same page works for registered and temporary
+guest visitors. A circle has a stable UUID URL, active while paid or temporarily
+enabled for testing; each paid circle remains a separate $10/month subscription.
 
 Visitors explicitly select Use my location to join. They need no paid or
 registered account: the existing temporary Supabase guest session suffices.

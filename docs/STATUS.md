@@ -1,5 +1,35 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-13 - Geofence share emails, optional activity alerts and visitor map
+
+Owner added automated link/QR email, optional arrival/departure alerts, and a
+centered visitor map with chat members below, Chat and owner-only Manage.
+Owner explicitly deferred SMS: email only for now. Managers sign in and own
+multiple separate circles; guests join free without a registered account.
+Regular pricing stays $10/month per circle, with free testing currently on.
+
+Migration 0020 and the geofences/geofence-send/geofence-email functions are
+deployed. Activation queues one share email to the confirmed account address;
+paid renewals/retries do not duplicate it. The email includes the permanent URL
+and an inline/attached PNG QR, with no private alert tokens so it can be forwarded.
+Optional alerts start unchecked. Account email is trusted; another address needs
+email confirmation. Owner-only per-circle settings can turn alerts off later.
+
+Presence alerts describe people using the page with location allowed. Leaving
+includes closing/backgrounding the page or disconnecting; this is not background
+tracking. Poll refreshes do not create extra arrivals. Events group briefly for
+delivery, preserving individual transitions. Jobs/contacts are private; leases,
+fixed payloads and idempotency protect retries. Email links require explicit POST
+confirmation and clear tokens from history. No SMS integration was created.
+
+Reuse the existing Resend sender/key; a separate authenticated Cron/enable flag
+will handle geofence messages. See `geofences/README.md` and
+`python tools/geofences/email.py --enable` / `--disable`. No billing or sign-in
+configuration is replaced. Geofence runtime/style versions are `20261113b`;
+shared/main-map assets remain `20261113a`. No private app bundle changes.
+Pending: publish frontend, enable mail, verify automated provider acceptance with
+Resend's labeled test recipients, confirm all CI and final secret fingerprints.
+
 ## 2026-11-13 - GPS center, temporary free geofences/Pro and $5 Pro price
 
 Owner requested a GPS center button on geofence management, temporary creation
@@ -21,8 +51,9 @@ New $5 prices were created in the existing products (test
 `price_1UbJdbPylm4UechMkj6ty6Z3`, live `price_1UbJdfPylm4UechMB1GxVKGy`). Legacy
 $8 prices/entitlements are retained. No active paid site subscriptions or open
 site checkout sessions existed. Stripe CLI was returned to test mode.
-Migration and all five functions are deployed; both free switches are currently
-OFF pending the matching frontend publication. Deployed restricted keys verified
+Migration and all five functions are deployed; both free switches are ON.
+Implementation `89fb2ac` published successfully in Pages run `43427810754` and
+membership CI `43427810477` passed. Deployed restricted keys verified
 the $5 Pro and $10 geofence catalogs/portals without a customer or charge.
 
 Local validation passed: 91 Node checks (including shared geofence tests), real
@@ -30,9 +61,11 @@ rolled-back database ACL/ownership/activation/disable/re-enable/paid-preservatio
 checks, desktop and phone geofence form/QR/guest-chat/GPS/free-activation tests,
 and membership/account UI checks. Private bundle repackaged/uploaded: nine apps,
 45 files. Changed runtime assets/loaders use `20261113a`; root map iframe updated.
-Pending: Pages publication, enable free testing, disposable-account live UI/API
-verification, CI and secret fingerprint comparison. Do not fetch new versioned
-assets before Pages completes and unversioned HTML advertises them.
+Live phone UI/API verification passed: GPS center, activation, stable page/QR,
+chat, Pro activation, actual protected Moontower page, all nine menu links and
+private app entries, owner isolation, idempotency and zero paid billing rows.
+Disposable accounts/circles/grants/messages were removed. No Stripe request or
+charge was made. Physical device field checks remain separate.
 
 ## 2026-11-12 - Geo Fence shortcut below Chat
 

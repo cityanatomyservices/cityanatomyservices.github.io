@@ -19,7 +19,7 @@
   <script src="/shared/favorite-button.js?v=20261030c"></script>
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
-<link rel="stylesheet" href="/geofences/style.css?v=20261109h">
+<link rel="stylesheet" href="/geofences/style.css?v=20261113b">
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
 <script src="/geofences/vendor/qrcode.js?v=2.0.4"></script>
 </head>
@@ -39,6 +39,12 @@
 <div id="geo-coordinate-fields" class="geofence-coordinates" hidden><label>Latitude<input name="latitude" type="number" step="any" min="-85" max="85" disabled></label><label>Longitude<input name="longitude" type="number" step="any" min="-180" max="180" disabled></label></div></fieldset>
 <label>Circle diameter (meters)<input name="diameter" type="number" min="10" max="100" step="1" value="50" required></label><small>10–100 meters across (about 33–328 feet). This is the diameter, not the radius.</small>
 <div class="geofence-actions"><button type="button" id="geo-preview">Show location on map</button></div>
+<fieldset class="geofence-email-settings"><legend>Email notifications</legend>
+<p class="geofence-email-note">When activated, your geofence link and QR code will be emailed to your account email so you can forward them to guests.</p>
+<label class="geofence-check"><input id="geo-notify" type="checkbox" disabled> Email me when visitors enter or leave this geofence chat (optional)</label>
+<label>Notification email<input id="geo-notify-email" type="email" maxlength="254" autocomplete="email" disabled></label>
+<small id="geo-notify-note">Use your account email, or verify a different address. Visitors must open the page and allow location. Leaving can also mean closing the page or losing connection.</small>
+</fieldset>
 <label class="geofence-check"><input id="geo-confirm" type="checkbox" disabled> I checked the circle on the map. The name, description and location will be visible to anyone with the link.</label>
 <button class="primary" id="geo-pay" type="submit" disabled>Continue to payment · $10/month</button><small id="geo-billing-note">Renews monthly until canceled. Cancel through Manage billing; access continues through the paid period. Your link stays the same. Location and size are fixed once checkout starts.</small>
 <p id="geo-form-status" role="status"></p>
@@ -46,5 +52,5 @@
 <h2>Your geofences</h2><button id="geo-refresh">Refresh status</button><p id="geo-list-status" role="status"></p><div id="geo-owned"></div>
 </div></div></main>
 <script src="/shell.js?v=20261113a"></script>
-<script type="module" src="/geofences/manage.mjs?v=20261113a"></script>
+<script type="module" src="/geofences/manage.mjs?v=20261113b"></script>
 </body></html>

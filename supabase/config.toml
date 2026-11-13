@@ -26,3 +26,9 @@ verify_jwt = false
 verify_jwt = false
 [functions.geofence-webhook]
 verify_jwt = false
+
+# Email links use an opaque per-geofence token; the worker uses a Cron secret.
+[functions.geofence-email]
+verify_jwt = false
+[functions.geofence-send]
+verify_jwt = false

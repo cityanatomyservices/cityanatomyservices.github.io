@@ -11,3 +11,9 @@
 @media(max-width:700px){.geofence-page{padding:18px 12px}.geofence-grid,.geofence-public-grid{grid-template-columns:1fr;gap:18px}.geofence-preview{position:static;grid-row:1}.geofence-map{height:300px}.geofence-room-map{height:340px}.geofence-form{padding:16px}}
 
 @media(max-width:700px){.geofence-public-grid{display:flex;flex-direction:column}.geofence-map-and-share{display:contents}.geofence-room-map{order:0}.geofence-public-grid>.geofence-card{order:1;margin:0}.geofence-share{order:2}}
+
+.geofence-email-settings{margin-top:20px!important;padding-top:16px!important;border-top:1px solid var(--border)!important}.geofence-email-settings summary{font-weight:650;cursor:pointer}.geofence-email-note{font-size:13px;color:var(--muted)}
+.geofence-visitor-page{width:min(1320px,100%);padding-top:18px}.geofence-room-heading{margin-bottom:14px}.geofence-room-heading p{margin:4px 0}.geofence-room-heading h1{font-size:clamp(23px,3vw,32px)}
+.geofence-map-stage{position:relative}.geofence-visitor-page .geofence-room-map{height:clamp(340px,65svh,720px)}.geofence-map-controls{position:absolute;top:14px;left:14px;display:grid;gap:8px;z-index:2}.geofence-map-controls button,.geofence-map-controls a{background:var(--surface)!important;box-shadow:0 2px 10px #0002;text-align:center}
+.geofence-members{padding:16px 4px 4px}.geofence-members h2{font-size:18px;margin:0 0 6px}.geofence-members p{margin:0}.geofence-visitor-page .geofence-card{max-width:800px;margin:16px auto}.geofence-share{margin:18px 0}.geofence-share summary{cursor:pointer;font-weight:600}
+@media(max-width:700px){.geofence-visitor-page{padding:14px 10px}.geofence-visitor-page .geofence-room-map{height:52svh;min-height:300px}.geofence-room-heading .geofence-kicker{font-size:10px}.geofence-map-controls{top:10px;left:10px}}

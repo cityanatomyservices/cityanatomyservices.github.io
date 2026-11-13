@@ -2,7 +2,7 @@ name: Check membership billing
 on:
   push:
     branches: [main]
-    paths: ['billing/**', 'shared/membership*', 'shared/pro-apps*', 'shared/account.js', 'pro-worker.js', 'supabase/functions/**', 'supabase/migrations/*billing.sql', 'supabase/migrations/*pro_app_storage.sql', 'tests/billing/**', 'tools/billing/**', '.github/workflows/test-billing.yml']
+    paths: ['billing/**', 'geofences/**', 'shared/membership*', 'shared/pro-apps*', 'shared/account.js', 'pro-worker.js', 'supabase/functions/**', 'supabase/migrations/*billing.sql', 'supabase/migrations/*geofence*.sql', 'supabase/migrations/*pro_app_storage.sql', 'tests/billing/**', 'tests/geofences/**', 'tools/billing/**', 'tools/geofences/**', '.github/workflows/test-billing.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -42,10 +42,12 @@ jobs:
           psql -v ON_ERROR_STOP=1 -c 'create schema cron; create function cron.schedule(text,text,text) returns bigint language sql as $$select 1::bigint$$;'
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0018_custom_geofences.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0019_temporary_testing_billing.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/0020_geofence_email.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/database.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/substack.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/storage.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/free-testing.sql
+          psql -v ON_ERROR_STOP=1 -f tests/geofences/email.sql
       - name: Private report destinations, spreadsheet safety and verified dates
         run: python3 -m unittest discover -s tests/billing -p 'test_*.py'
       - name: Deployment helper syntax
