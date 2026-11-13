@@ -31,9 +31,9 @@ create or replace function public.geofence_mail_tick() returns void language plp
 begin perform net.http_post(url:='https://aqbyxpiwugcvoephsvpm.supabase.co/functions/v1/geofence-send',headers:=jsonb_build_object('Content-Type','application/json','x-geofence-cron',(select decrypted_secret from vault.decrypted_secrets where name='austin_geofence_cron')),body:='{}'::jsonb,timeout_milliseconds:=120000);end $$;
 revoke all on function public.geofence_mail_tick() from public,anon,authenticated,service_role;
 select cron.schedule('austin-geofence-email','* * * * *','select public.geofence_mail_tick()');
-update cron.job set active=true where jobname='austin-geofence-email';
+select cron.alter_job(jobid,active:=true) from cron.job where jobname='austin-geofence-email';
 """)
   c.store_secrets({'GEOFENCE_EMAIL_ENABLED':'true'});print('Geofence email enabled. Existing Resend, Auth, reminder and billing settings preserved.',flush=True)
  if args.disable:
-  c.store_secrets({'GEOFENCE_EMAIL_ENABLED':'false'});c.query("update cron.job set active=false where jobname='austin-geofence-email'");print('Geofence email paused.',flush=True)
+  c.store_secrets({'GEOFENCE_EMAIL_ENABLED':'false'});c.query("select cron.alter_job(jobid,active:=false) from cron.job where jobname='austin-geofence-email'");print('Geofence email paused.',flush=True)
 if __name__=='__main__':main()

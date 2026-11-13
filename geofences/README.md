@@ -129,7 +129,7 @@ after 23 hours, with at most five attempts; jobs/payloads are purged after 30 da
 The permanent activation receipt prevents resends after that purge. `sent` means
 Resend accepted the request, not proof that a person's inbox displayed it.
 
-`python tools/geofences/email.py --apply --functions` validates, installs and
+`python tools/geofences/configure-email.py --apply --functions` validates, installs and
 deploys the email feature. `--enable` starts its Cron and sender; `--disable`
 pauses only geofence email. Existing sign-in SMTP, reminders, Stripe configuration
 and secrets remain unchanged. Never rerun the older reminder setup for this.

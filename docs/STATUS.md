@@ -22,13 +22,36 @@ delivery, preserving individual transitions. Jobs/contacts are private; leases,
 fixed payloads and idempotency protect retries. Email links require explicit POST
 confirmation and clear tokens from history. No SMS integration was created.
 
-Reuse the existing Resend sender/key; a separate authenticated Cron/enable flag
-will handle geofence messages. See `geofences/README.md` and
-`python tools/geofences/email.py --enable` / `--disable`. No billing or sign-in
-configuration is replaced. Geofence runtime/style versions are `20261113b`;
-shared/main-map assets remain `20261113a`. No private app bundle changes.
-Pending: publish frontend, enable mail, verify automated provider acceptance with
-Resend's labeled test recipients, confirm all CI and final secret fingerprints.
+The existing Resend sender/key is reused; the separate authenticated Cron and
+geofence email enable flag are ON. See `geofences/README.md` and
+`python tools/geofences/configure-email.py --enable` / `--disable`. No billing or sign-in
+configuration is replaced. The management module is `20261113c`; the visitor
+module/style/email-confirmation script are `20261113b`. Shared/main-map assets
+remain `20261113a`. No additional private app bundle changes.
+
+Implementation `94bcd02` published through Pages run `43430827598`; membership
+CI `43430827648` and reminder CI `43430827853` passed. Published HTML and versioned
+bytes matched. Desktop/phone fixtures passed GPS, forms, optional email controls,
+owner-only Manage, the member list below the map, guest chat, QR and token
+confirmation/opt-out (including changing tokens in the same tab). Real account
+phone checks passed geofence creation/chat/Manage and all nine Pro app gates.
+
+The automatic minute Cron delivered three messages to Resend's designated test
+recipients: owner share email with valid PNG QR, alternate-email confirmation,
+and grouped arrival/departure email. Provider receipts were recorded; this verifies
+provider acceptance, not a human inbox. Verification enabled alerts, opt-out
+prevented later events, and repeat activation did not resend the welcome. All
+disposable users/circles/preferences/jobs/chat records were removed. No fixture
+email went to visitors. Existing Stripe, Supabase, sign-in and reminder secret
+fingerprints are unchanged; only the earlier private-app release changed, with
+two new geofence email settings added. Free Pro and geofences remain enabled;
+no active paid subscriptions or charges were created.
+
+The deployment helper is `configure-email.py` (not `email.py`, which shadows
+Python's email package). Cron activation uses `cron.alter_job`, since hosted
+roles cannot update `cron.job` directly. Final follow-up publishes that helper
+fix and lets owners turn alerts off even if an unsaved email edit is invalid.
+No owner setup remains; SMS and physical-phone field checks remain deferred.
 
 ## 2026-11-13 - GPS center, temporary free geofences/Pro and $5 Pro price
 
