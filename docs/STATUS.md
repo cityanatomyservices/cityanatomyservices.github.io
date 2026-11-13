@@ -34,11 +34,17 @@ search and retirement. Four disposable guests were removed after the passing
 run (earlier harness attempts also cleaned their guests). Screenshots reviewed
 outside the repository. GPS was simulated; the onsite two-phone check remains.
 
+Implementation `3875aa4` published successfully through Pages `43437702912`;
+Studio Tour CI `43437702961` passed. After unversioned HTML advertised the
+release, all 307 public pages plus directory/CSV, sampled QR images and four
+versioned assets matched local bytes (321 checks). The same isolated live chat
+browser check passed against https://austin.chat, with four more disposable
+guests removed. Physical GPS accuracy remains the owner's next test.
+
 New page assets and event popup version: `20261113d`. No shared/private Pro
 asset changes. Generator and live-browser check instructions are in
-`special-events/README.md`; CI is `test-studio-stops.yml`. Deployment evidence
-will be recorded after publication. Free testing and the prior Stripe/Supabase/
-email configuration remain unchanged.
+`special-events/README.md`; CI is `test-studio-stops.yml`. Free testing and the
+prior Stripe/Supabase/email configuration remain unchanged.
 
 ## 2026-11-13 - Geofence share emails, optional activity alerts and visitor map
 
