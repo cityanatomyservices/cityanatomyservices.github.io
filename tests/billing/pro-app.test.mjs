@@ -34,6 +34,13 @@ test('Free, expired and invalid-token requests never gain private access',async(
   }
   await assert.rejects(runtime(k=>env[k]).authorize(new Request('https://edge.invalid')),{status:401});
 });
+test('Temporary Pro grants allow files only while the authoritative RPC returns access',async()=>{
+  const env={SUPABASE_URL:'https://backend.invalid',SUPABASE_SERVICE_ROLE_KEY:'server-fixture'};
+  let temporaryAccess=true;
+  const api=runtime(k=>env[k],async()=>Response.json({plan:temporaryAccess?'pro':'free',paidThrough:null,temporaryAccess}));
+  await api.authorize(req());temporaryAccess=false;
+  await assert.rejects(api.authorize(req()),{status:403});
+});
 test('Storage reads are restricted to the immutable manifest and current release',async()=>{
   const release='a'.repeat(64),calls=[];
   const env={SUPABASE_URL:'https://backend.invalid',SUPABASE_SERVICE_ROLE_KEY:'server-fixture',PRO_APPS_RELEASE:release};

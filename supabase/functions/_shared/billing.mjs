@@ -1,12 +1,14 @@
 export const API_VERSION='2026-10-28.endive';
 export const ORIGIN='https://austin.chat';
-export const PRICES={test:'price_1UYCoYPylm4UechMfDQJur0b',live:'price_1UYCyLPylm4UechMwGuCKwdH'};
+export const PRICES={test:'price_1UbJdbPylm4UechMkj6ty6Z3',live:'price_1UbJdfPylm4UechMB1GxVKGy'};
+export const LEGACY_PRICES={test:'price_1UYCoYPylm4UechMfDQJur0b',live:'price_1UYCyLPylm4UechMwGuCKwdH'};
 export const EVENTS=new Set(['checkout.session.completed','checkout.session.async_payment_succeeded',
   'checkout.session.async_payment_failed','customer.subscription.created','customer.subscription.updated',
   'customer.subscription.deleted','customer.subscription.paused','customer.subscription.resumed',
   'invoice.paid','invoice.payment_failed','invoice.marked_uncollectible','invoice.voided','customer.deleted']);
 export const problem=(status,message)=>Object.assign(new Error(message),{status,publicMessage:message});
 export const objectId=value=>typeof value==='string'?value:value?.id;
+const includesPrice=(prices,id)=>(Array.isArray(prices)?prices:[prices]).includes(id);
 
 export function membership(row,now=Date.now()) {
   return {plan:row?.status==='active'&&Date.parse(row.pro_until)>now?'pro':'free',
@@ -16,9 +18,9 @@ export function membership(row,now=Date.now()) {
 // An active subscription alone is insufficient (for example, an unpaid first invoice).
 // Current Stripe state is fetched for every reconciliation; event snapshots never grant access.
 export function entitlement(subscriptions,price,now=Date.now()) {
-  const own=subscriptions.filter(s=>s.items?.data?.some(item=>objectId(item.price)===price));
+  const own=subscriptions.filter(s=>s.items?.data?.some(item=>includesPrice(price,objectId(item.price))));
   const paid=own.filter(s=>s.status==='active'&&!s.pause_collection&&s.latest_invoice?.status==='paid'&&
-    s.items.data.some(i=>objectId(i.price)===price&&i.current_period_end*1000>now));
+    s.items.data.some(i=>includesPrice(price,objectId(i.price))&&i.current_period_end*1000>now));
   paid.sort((a,b)=>periodEnd(b,price)-periodEnd(a,price));
   const subscription=paid[0]||own.find(s=>!['canceled','incomplete_expired'].includes(s.status))||own[0];
   return {subscription_id:subscription?.id||null,status:subscription?.status||'none',
@@ -26,7 +28,7 @@ export function entitlement(subscriptions,price,now=Date.now()) {
     cancel_at_period_end:!!subscription?.cancel_at_period_end};
 }
 function periodEnd(subscription,price) {
-  return Math.max(...subscription.items.data.filter(i=>objectId(i.price)===price).map(i=>i.current_period_end||0));
+  return Math.max(...subscription.items.data.filter(i=>includesPrice(price,objectId(i.price))).map(i=>i.current_period_end||0));
 }
 
 export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.now,uuid=()=>crypto.randomUUID()}) {
@@ -37,7 +39,7 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
     if(configuration)return configuration;
     const task=(async()=>{
       const actual=await stripe.prices.retrieve(price);
-      if(!actual.active||actual.livemode!==(mode==='live')||actual.currency!=='usd'||actual.unit_amount!==800||
+      if(!actual.active||actual.livemode!==(mode==='live')||actual.currency!=='usd'||actual.unit_amount!==500||
         actual.recurring?.interval!=='month'||actual.recurring?.interval_count!==1)throw new Error('Unexpected Pro price');
       if(!portal)throw problem(503,'Billing management is being set up.');
       const settings=await stripe.billingPortal.configurations.retrieve(portal);
@@ -59,7 +61,7 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
   }
   async function synchronize(row,save) {
     const subs=row.customer_id?await subscriptions(row.customer_id):[];
-    await save(entitlement(subs,price,now()));return subs;
+    await save(entitlement(subs,[price,LEGACY_PRICES[mode]],now()));return subs;
   }
   async function portalURL(customer) {
     if(!portal)throw problem(503,'Billing management is being set up.');
@@ -67,6 +69,7 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
     return {url:result.url};
   }
   async function checkout(user) {
+    if(mode==='live'&&(await db.testing()).proEnabled)return db.grantTesting(user.id);
     if(!checkoutEnabled)throw problem(503,'Pro membership is being set up.');
     if(mode==='live'&&await db.substack(user.id))throw problem(409,'Your paid Substack membership already includes Pro. Manage that subscription on Substack.');
     return locked(user.id,async(get,save)=>{
@@ -99,6 +102,7 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
     });
   }
   async function status(user) {
+    if(mode==='live'&&(await db.testing()).proEnabled)return {...membership(await db.load(mode,user.id,null),now()),checkoutEnabled:true,freeTesting:true,mode};
     await configured();
     const row=await db.load(mode,user.id,null);
     if(!row?.customer_id)return {...membership(row,now()),checkoutEnabled,mode};

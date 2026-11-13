@@ -20,7 +20,7 @@
     if(kind!=='apps')return;
     const registered=window.AustinSession?.registered,member=window.AustinMembership?.state;
     for(const link of list.querySelectorAll('[data-app-href]')){
-      const enabled=registered&&(link.dataset.requiredPlan!=='pro'||member?.plan==='pro'&&Date.parse(member.paidThrough)>Date.now());
+      const enabled=registered&&(link.dataset.requiredPlan!=='pro'||member?.plan==='pro'&&(member.temporaryAccess===true||Date.parse(member.paidThrough)>Date.now()));
       if(enabled){link.href=link.dataset.appHref;link.removeAttribute('tabindex');}else{link.removeAttribute('href');link.tabIndex=-1;}
       link.setAttribute('aria-disabled',String(!enabled));link.style.opacity=enabled?'':'0.5';
     }

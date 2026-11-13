@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {service,entitlement,membership,PRICES,problem} from '../../supabase/functions/_shared/billing.mjs';
+import {service,entitlement,membership,PRICES,LEGACY_PRICES,problem} from '../../supabase/functions/_shared/billing.mjs';
 import {handler} from '../../supabase/functions/billing/handler.mjs';
 const NOW=Date.parse('2026-11-04T12:00:00Z'),end=Math.floor(NOW/1000)+86400;
 const paid=(overrides={})=>({id:'sub_site',status:'active',items:{data:[{price:{id:PRICES.test},current_period_end:end}]},latest_invoice:{status:'paid'},...overrides});
@@ -8,6 +8,7 @@ const paid=(overrides={})=>({id:'sub_site',status:'active',items:{data:[{price:{
 function fixture({rows=[],subscriptions=[],enabled=true,mode='test',substack=null}={}) {
   const records=new Map(rows.map(row=>[row.owner_id,{...row}])),calls=[];let creates=0,failSave=false;
   const db={
+    async testing(){return {proEnabled:false};},async grantTesting(){calls.push(['testing-grant']);return {activated:true,temporaryAccess:true};},
     async substack(owner){calls.push(['substack',owner]);return substack;},
     async load(mode,owner,customer){const row=owner?records.get(owner):[...records.values()].find(r=>r.customer_id===customer);return row?{...row}:null;},
     async claim(mode,owner){let row=records.get(owner);if(!row){row={owner_id:owner,mode,checkout_nonce:'nonce',status:'none'};records.set(owner,row);}if(row.lease_id)throw problem(409,'Busy');row.lease_id='lease';return {...row};},
@@ -16,7 +17,7 @@ function fixture({rows=[],subscriptions=[],enabled=true,mode='test',substack=nul
   };
   const sessions=new Map(),idempotency=new Map();
   const stripe={
-    prices:{async retrieve(id){return {id,active:true,livemode:mode==='live',currency:'usd',unit_amount:800,recurring:{interval:'month',interval_count:1}};}},
+    prices:{async retrieve(id){return {id,active:true,livemode:mode==='live',currency:'usd',unit_amount:500,recurring:{interval:'month',interval_count:1}};}},
     customers:{async create(params,options){calls.push(['customer',params,options]);return {id:'cus_'+params.metadata.supabase_user_id};}},
     subscriptions:{list(params){calls.push(['list',params]);return (async function*(){yield*subscriptions;})();}},
     checkout:{sessions:{async retrieve(id){return sessions.get(id);},async create(params,options){calls.push(['checkout',params,options]);if(idempotency.has(options.idempotencyKey))return idempotency.get(options.idempotencyKey);const session={id:'cs_'+(++creates),status:'open',expires_at:end,url:'https://checkout.stripe.com/'+creates};sessions.set(session.id,session);idempotency.set(options.idempotencyKey,session);return session;}}},
@@ -32,6 +33,27 @@ test('Free default, paid Pro, and expiration are determined by server time',()=>
   const row=entitlement([paid()],PRICES.test,NOW);
   assert.equal(membership(row,NOW).plan,'pro');
   assert.equal(membership(row,end*1000).plan,'free');
+});
+
+test('Free testing activates Pro without any Stripe call or paid billing record',async()=>{
+  const f=fixture({mode:'live',enabled:false});f.db.testing=async()=>({proEnabled:true});
+  f.stripe.prices.retrieve=async()=>{throw Error('Free testing must not contact Stripe');};
+  assert.equal((await f.service.status({id:'alice'})).freeTesting,true);
+  assert.deepEqual(await f.service.checkout({id:'alice'}),{activated:true,temporaryAccess:true});
+  assert.deepEqual(f.calls,[['testing-grant']]);assert.equal(f.records.size,0);
+});
+test('A failed testing-mode lookup cannot accidentally create a paid checkout',async()=>{
+  const f=fixture({mode:'live'});f.db.testing=async()=>{throw Error('Database unavailable');};
+  await assert.rejects(f.service.checkout({id:'alice'}));assert.equal(f.calls.length,0);assert.equal(f.records.size,0);
+});
+test('Production free testing cannot grant access from Stripe sandbox mode',async()=>{
+  const f=fixture();f.db.testing=async()=>({proEnabled:true});await f.service.checkout({id:'alice'});
+  assert.equal(f.calls.some(c=>c[0]==='testing-grant'),false);assert.equal(f.creates(),1);
+});
+test('Existing legacy-price subscriptions retain their paid entitlement',async()=>{
+  const sub=paid({items:{data:[{price:{id:LEGACY_PRICES.test},current_period_end:end}]}});
+  const f=fixture({rows:[{owner_id:'alice',customer_id:'cus_alice'}],subscriptions:[sub]});
+  assert.equal((await f.service.status({id:'alice'})).plan,'pro');
 });
 
 test('Verified Substack access blocks live checkout before any Stripe or billing mutation',async()=>{

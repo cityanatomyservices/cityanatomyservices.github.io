@@ -43,7 +43,7 @@
       const run=++generation,id=S.registered?S.user.id:null,state=M.state;
       if(!id){hide();message.textContent='Sign in, then choose Pro to open this app.';button.textContent='Sign in';button.disabled=false;return;}
       if(!state){hide();message.textContent='Checking membership…';button.disabled=true;return;}
-      if(state.plan!=='pro'||!(Date.parse(state.paidThrough)>Date.now())){hide();message.textContent='This app is included with Pro for $8 per month.';button.textContent='View membership';button.disabled=false;return;}
+      if(state.plan!=='pro'||!(state.temporaryAccess===true||Date.parse(state.paidThrough)>Date.now())){hide();message.textContent=state.freeTesting?'Activate Pro for free while testing to open this app.':'This app is included with Pro for $5 per month.';button.textContent='View membership';button.disabled=false;return;}
       if(loadedOwner===id)return;
       message.textContent='Opening your Pro app…';button.disabled=true;
       try{

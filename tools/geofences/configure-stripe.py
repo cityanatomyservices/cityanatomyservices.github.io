@@ -35,8 +35,8 @@ def main():
   for k,v in values.items():parts+=['-d',k+'='+str(v)]
   return stripe(*parts)
  # Confirm the existing account's catalog before creating any new live objects.
- pro=stripe('prices','retrieve','price_1UYCyLPylm4UechMwGuCKwdH')
- assert pro['livemode'] and pro['unit_amount']==800 and pro['currency']=='usd'
+ pro=stripe('prices','retrieve','price_1UbJdfPylm4UechMB1GxVKGy')
+ assert pro['livemode'] and pro['unit_amount']==500 and pro['currency']=='usd'
  prices=stripe('prices','list','-d','lookup_keys[]=austin_chat_geofence_monthly_usd','--limit=100')
  if prices['data']:price=prices['data'][0]
  else:

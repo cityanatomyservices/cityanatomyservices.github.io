@@ -1,5 +1,39 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-13 - GPS center, temporary free geofences/Pro and $5 Pro price
+
+Owner requested a GPS center button on geofence management, temporary creation
+without charges for geofences and Pro, and regular Pro reduced to $5/month.
+GPS requests a fresh position and fills the coordinates; map preview and
+confirmation remain required. Permission denial/timeout/stale fixes keep manual
+entry available. Geofences stay $10/month when regular billing is restored.
+
+Migration 0019 adds separate temporary grants and two service-only switches.
+Confirmed signed-in users activate with the existing buttons, with no Stripe
+customer/subscription or paid database row. All nine protected app gates accept
+server-authorized temporary Pro. Geofence pages/QR/chat retain their GPS gates.
+Turning testing off removes temporary access without charging; paid/Substack
+entitlements remain valid, and saved circle links can be activated via checkout.
+Use `python tools/billing/testing-mode.py --disable` to restore paid checkout;
+`--enable` restores free testing. No billing setup needs to be repeated.
+
+New $5 prices were created in the existing products (test
+`price_1UbJdbPylm4UechMkj6ty6Z3`, live `price_1UbJdfPylm4UechMB1GxVKGy`). Legacy
+$8 prices/entitlements are retained. No active paid site subscriptions or open
+site checkout sessions existed. Stripe CLI was returned to test mode.
+Migration and all five functions are deployed; both free switches are currently
+OFF pending the matching frontend publication. Deployed restricted keys verified
+the $5 Pro and $10 geofence catalogs/portals without a customer or charge.
+
+Local validation passed: 91 Node checks (including shared geofence tests), real
+rolled-back database ACL/ownership/activation/disable/re-enable/paid-preservation
+checks, desktop and phone geofence form/QR/guest-chat/GPS/free-activation tests,
+and membership/account UI checks. Private bundle repackaged/uploaded: nine apps,
+45 files. Changed runtime assets/loaders use `20261113a`; root map iframe updated.
+Pending: Pages publication, enable free testing, disposable-account live UI/API
+verification, CI and secret fingerprint comparison. Do not fetch new versioned
+assets before Pages completes and unversioned HTML advertises them.
+
 ## 2026-11-12 - Geo Fence shortcut below Chat
 
 Added the main-page Geo Fence control directly below Chat. It uses the same

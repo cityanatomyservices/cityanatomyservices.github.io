@@ -35,8 +35,9 @@ def main():
         status,auth=check.http('/auth/v1/token?grant_type=password',{'email':email,'password':password})
         assert status==200,'Could not authenticate verification account'
         status,result=check.http('/functions/v1/billing',{'action':'status'},auth['access_token'])
+        assert not result.get('freeTesting'),'Free testing is enabled; use tools/billing/check-testing-live.py instead.'
         assert status==200 and result.get('mode')=='live' and result.get('plan')=='free' and result.get('checkoutEnabled') is args.enabled,'Live read-only configuration check failed'
-        print('Live key verified: $8 USD monthly price and cancellation portal match; checkout '+('enabled' if args.enabled else 'disabled')+'.',flush=True)
+        print('Live key verified: $5 USD monthly price and cancellation portal match; checkout '+('enabled' if args.enabled else 'disabled')+'.',flush=True)
         if args.browser:
             run=subprocess.run(['node',str(Path(__file__).with_name('check-free-browser.cjs'))],input=json.dumps(auth),capture_output=True,text=True,encoding='utf-8',timeout=150,cwd=check.ROOT)
             print(run.stdout[:3000],flush=True)

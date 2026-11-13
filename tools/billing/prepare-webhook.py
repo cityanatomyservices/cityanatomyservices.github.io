@@ -44,8 +44,8 @@ def main():
     context = stripe('switch', current['account_id'], '--format', 'json')
     if context.get('account_id') != current['account_id'] or context.get('mode') != 'test':
         raise SystemExit('Expected the authorized test-mode account.')
-    price = stripe('prices', 'retrieve', 'price_1UYCoYPylm4UechMfDQJur0b', '--stripe-version=2026-10-28.endive')
-    if price.get('livemode') is not False or price.get('unit_amount') != 800 or price.get('currency') != 'usd':
+    price = stripe('prices', 'retrieve', 'price_1UbJdbPylm4UechMkj6ty6Z3', '--stripe-version=2026-10-28.endive')
+    if price.get('livemode') is not False or price.get('unit_amount') != 500 or price.get('currency') != 'usd':
         raise SystemExit('Expected the Austin.chat test price in this account.')
     endpoints = stripe('webhook_endpoints', 'list', '--limit=100', '--stripe-version=2026-10-28.endive')
     if endpoints.get('has_more'):

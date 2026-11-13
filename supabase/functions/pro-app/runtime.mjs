@@ -15,7 +15,7 @@ export function runtime(env,fetcher=fetch){
         headers:{apikey:key,Authorization:'Bearer '+token,'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(15000)});
       if(!response.ok){if(response.status===401||response.status===403)throw issue(401,'Sign in with a confirmed account to use Pro apps.');throw new Error('Membership unavailable');}
       const membership=await response.json();
-      if(membership.plan!=='pro'||!(Date.parse(membership.paidThrough)>Date.now()))throw issue(403,'Pro membership is required for this app.');
+      if(membership.plan!=='pro'||!(membership.temporaryAccess===true||Date.parse(membership.paidThrough)>Date.now()))throw issue(403,'Pro membership is required for this app.');
     },
     async asset(path){
       if(!release||!/^[a-f0-9]{64}$/.test(release))throw new Error('Private app release missing');

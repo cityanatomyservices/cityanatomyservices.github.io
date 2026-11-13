@@ -1,9 +1,31 @@
 # Austin.chat membership
 
-Owner direction: exactly **Free** and **Pro ($8 USD per month)**. There is no
+Owner direction: exactly **Free** and **Pro ($5 USD per month)**. There is no
 annual plan, trial, signup fee or other paid membership level.
 Custom chat geofences are a separate $10/month-per-circle product; see
 [geofences](../geofences/README.md).
+
+## Temporary free testing (November 13, 2026)
+
+Confirmed signed-in users can activate Pro and geofences without payment or a
+card while testing is enabled. Grants live in separate private tables; they do
+not create Stripe customers, subscriptions, invoices, or paid billing records.
+Existing paid and verified Substack access retain their normal behavior.
+Temporary Pro unlocks the site apps; it does not issue a paid Substack comp.
+
+`python tools/billing/testing-mode.py` reports the two database switches.
+`--disable` ends temporary access and restores explicit paid checkout ($5 Pro,
+$10 per geofence). It never charges anyone automatically. Existing geofence
+pages and QR URLs remain and reactivate after checkout. `--enable` restores
+temporary access, including prior testing grants. No Stripe key, webhook,
+portal, or Supabase secret needs to be replaced. `--prepare` validates the
+database with rolled-back fixtures; `--deploy` updates the five Edge functions.
+Migration 0019 initially installs with both testing switches off.
+
+The $5 prices replace the previous $8 prices for new checkout, in the same
+Stripe products. Legacy prices and existing entitlements are retained; no
+subscriptions were repriced. There were no active paid site subscriptions at
+the change. Product defaults are $5; payment configuration stays installed.
 
 Pro includes paid Austin.chat Substack access through a manual comp. All paid
 monthly, annual and founding Substack plans also include site Pro after manual
@@ -13,7 +35,8 @@ The membership backend, Account UI and protected Pro apps are deployed.
 Hosted Checkout, portal access, signed payment webhooks, duplicate checkout
 prevention and cancellation passed sandbox integration tests. The owner's
 live restricted key is verified. **Live checkout and the live webhook are
-enabled**; the test webhook is disabled and test credentials retained. All nine
+enabled**; temporary free testing intercepts activation before Stripe. The test
+webhook is disabled and test credentials retained. All nine
 hosted Pro apps passed browser checks. No real purchase or charge was made by
 the setup checks. See `docs/STATUS.md` for the latest deployment evidence.
 
@@ -38,12 +61,12 @@ The group includes Recreation and Dining entries as requested.
 | Setting | Sandbox | Live |
 | --- | --- | --- |
 | Product | `prod_VZLVebM4SPstbL` | `prod_VZLfx6PwAYLksw` |
-| Price | `price_1UYCoYPylm4UechMfDQJur0b` | `price_1UYCyLPylm4UechMwGuCKwdH` |
+| Price | `price_1UbJdbPylm4UechMkj6ty6Z3` | `price_1UbJdfPylm4UechMB1GxVKGy` |
 | Portal | `bpc_1UYDFWPylm4UechMi7mK5NgH` | `bpc_1UYDmUPylm4UechM0BBIEx3p` |
 | Webhook | `we_1UYDGcPylm4UechMvq87q7Al` | `we_1UYDmVPylm4UechMuIWp8adD` |
 
-Both prices are active, 800 USD cents every one month, with lookup key
-`austin_chat_pro_monthly_usd`. Portals allow invoices, payment method updates
+Both prices are active, 500 USD cents every one month, with lookup key
+`austin_chat_pro_monthly_usd_5`. Portals allow invoices, payment method updates
 and cancellation at period end; plan changes are disabled. These were the
 first configurations in their mode catalogs, so Stripe marked them default;
 no existing portal configuration was replaced. Existing Substack Stripe customers

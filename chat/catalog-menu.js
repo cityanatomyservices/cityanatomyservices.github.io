@@ -11,7 +11,7 @@
     return home;
   }
   const registered=()=>window.AustinSession?.registered===true;
-  const pro=()=>registered()&&window.AustinMembership?.state?.plan==='pro'&&Date.parse(window.AustinMembership.state.paidThrough)>Date.now();
+  const pro=()=>registered()&&window.AustinMembership?.state?.plan==='pro'&&(window.AustinMembership.state.temporaryAccess===true||Date.parse(window.AustinMembership.state.paidThrough)>Date.now());
   function access() {
     const button=document.getElementById('ctrlApps');
     if(button){button.disabled=!registered();button.title=registered()?'Pro Apps':'Sign in to use Pro Apps';}
@@ -44,7 +44,7 @@
     summary.textContent = title; details.append(summary, list); holder.append(details);
     return list;
   }
-  const membershipOffer = '<p class="catalog-membership">Pro apps require Pro. <a href="/?account=membership" target="_top">Membership — $8/month</a></p>';
+  const membershipOffer = '<p class="catalog-membership">Pro apps require Pro. <a href="/?account=membership" target="_top">View membership options</a></p>';
   function loader(panel, render, id) {
     const groups = panel.querySelector('.catalog-groups'), status = panel.querySelector('.catalog-status');
     let loaded = false, loading = false;

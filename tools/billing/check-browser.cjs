@@ -31,6 +31,10 @@ window.setMembership=async state=>{AustinMembership.state=state;listener?.(state
    await page.evaluate(()=>setMembership({plan:'pro',source:'both',paidThrough:'2027-11-05T12:00:00Z',checkoutEnabled:true,hasBilling:true}));
    assert.match(await page.locator('.membership-detail').innerText(),/avoid paying twice/);
    assert.equal(await page.locator('.membership-manage').isVisible(),true);
+   await page.evaluate(()=>setMembership({plan:'free',freeTesting:true,checkoutEnabled:true,hasBilling:false}));
+   assert.match(await page.locator('.membership-price').innerText(),/normally \$5\/month/);assert.match(await page.locator('.membership-upgrade').innerText(),/Free while testing/);assert.equal(await page.locator('.membership-bundle').isHidden(),true);assert.match(await page.locator('.membership-message').innerText(),/not be charged automatically/);
+   await page.locator('.membership-upgrade').click();assert.deepEqual(await page.evaluate(()=>actions),['checkout','portal','checkout']);
+   await page.evaluate(()=>setMembership({plan:'pro',temporaryAccess:true,freeTesting:true,paidThrough:null,checkoutEnabled:true,hasBilling:false}));assert.match(await page.locator('.membership-current').innerText(),/Pro.*free while testing/);assert.equal(await page.locator('.membership-upgrade').isHidden(),true);assert.equal(await page.locator('.membership-manage').isHidden(),true);await page.screenshot({path:path.join(os.tmpdir(),'austin-free-testing-membership-'+width+'.png'),fullPage:true});
    await page.evaluate(()=>setMembership({plan:'free',checkoutEnabled:false,hasBilling:false}));
    assert.equal(await page.locator('.membership-upgrade').isDisabled(),true);assert.match(await page.locator('.membership-message').innerText(),/coming soon/);
    assert.doesNotMatch(await page.locator('.membership-detail').innerText(),/Dec|2026/);

@@ -1,12 +1,24 @@
-# Custom paid chat geofences
+# Custom chat geofences
 
 The owner approved **$10 USD per month per geofence**, a **10–100 meter diameter**,
 and permanent links such as `https://austin.chat/geofences/?id=<UUID>`.
 This is a separate subscription from Free/Pro. The account card opens
 `/geofences/manage/`. Address and coordinate fields are mutually exclusive.
-The user previews the circle, confirms it, then continues to Stripe Checkout.
+The GPS button requests a fresh current position (high accuracy, no cached fix)
+and fills the coordinate center. It does not start location tracking or create
+the circle. Permission denial, timeout and stale fixes leave manual entry
+available. Users still preview and confirm the circle.
+With regular billing, confirmation continues to Stripe Checkout.
 The canonical center is stored as coordinates. Location/size lock when billing
 begins; checkout retries reuse the same draft, customer and session.
+
+**Free testing is temporarily enabled.** Confirmed signed-in owners can create
+or activate circles without a card or charge. The button says "Free while
+testing". These grants are separate from paid records; activated circles keep
+their center/size fixed and work with the same public page, QR and chat gates.
+See [billing testing controls](../billing/README.md#temporary-free-testing-november-13-2026).
+Disabling testing ends temporary access without starting any payment. Existing
+links remain and can be reactivated through the retained $10/month checkout.
 
 The template, styles, code, QR generator and deployment tools stay in GitHub.
 Every UUID opens its own page from one static template, so payment activation
@@ -36,7 +48,8 @@ Pro webhook, products and customer associations remain unchanged. Each circle
 has a dedicated Stripe customer and subscription, with matching owner/circle
 metadata. Prices, quantity and return URLs are fixed by the backend. A fenced
 lease and Stripe idempotency protect checkout retries and reconciliation.
-Only a current paid active live subscription activates the public page/chat;
+An enabled temporary testing grant or current paid active live subscription
+activates the public page/chat;
 a return URL, test payment or unpaid subscription cannot grant access. Signed
 webhooks read current Stripe state to tolerate stale/duplicate delivery.
 Cancellation in the dedicated portal is at period end. Renewal failure or
@@ -86,7 +99,7 @@ payment buttons are disabled.
 Visitors explicitly select Use my location to join. They need no paid or
 registered account: the existing temporary Supabase guest session suffices.
 This isolated chat uses short-lived database presence/messages, polled every
-three seconds while open. Each request checks the live subscription, radius,
+three seconds while open. Each request checks active access, radius,
 GPS accuracy (at most half the diameter or 50m), and a fix no older than 45s.
 The server does not retain the submitted coordinates. It assigns an anonymous
 visitor nickname, returns no account/email IDs, and exposes only messages since

@@ -39,7 +39,7 @@
       const result=await S.client().rpc('membership_read');
       if(result.error)throw new Error('Your membership could not load. Please try again.');
       if(identity()!==id||run!==generation)return null;
-      state={...result.data,checkoutEnabled:billing?.checkoutEnabled===true,
+      state={...result.data,checkoutEnabled:billing?.checkoutEnabled===true,freeTesting:billing?.freeTesting===true||result.data.freeTesting===true,
         testMode:billing?.mode==='test',testPlan:billing?.mode==='test'?billing.plan:null,
         hasBilling:billing?.hasBilling===true||result.data.hasBilling===true,
         billingUnavailable:unavailable};
@@ -49,7 +49,9 @@
   }
   async function openBilling(action) {
     await S?.peek();const id=identity();if(!id)throw new Error('Sign in to manage your membership.');
-    const value=await request(action,id),url=new URL(value.url);
+    const value=await request(action,id);
+    if(action==='checkout'&&value.activated===true){await load();return;}
+    const url=new URL(value.url);
     const expected=action==='portal'?['https://billing.stripe.com']:['https://checkout.stripe.com','https://billing.stripe.com'];
     if(!expected.includes(url.origin))throw new Error('Billing returned an invalid link. Please try again.');
     if(identity()!==id)throw new Error('Your account changed. Please try again.');

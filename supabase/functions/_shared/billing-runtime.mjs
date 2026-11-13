@@ -9,11 +9,12 @@ export function runtime(env,Stripe,fetcher=fetch) {
     const response=await fetcher(base+path,{method:body===undefined?'GET':'POST',
       headers:{apikey:admin,Authorization:'Bearer '+token,'Content-Type':'application/json'},
       body:body===undefined?undefined:JSON.stringify(body),signal:AbortSignal.timeout(15000)});
-    if(!response.ok){if(response.status===409)throw problem(409,'A billing update is in progress. Please try again shortly.');throw new Error('Backend unavailable');}
+    if(!response.ok){let detail;try{detail=await response.json();}catch{}if(detail?.code==='PT409')throw problem(409,detail.message);if(response.status===409)throw problem(409,'A billing update is in progress. Please try again shortly.');throw new Error('Backend unavailable');}
     return response.status===204?null:response.json();
   };
   const rpc=(name,body)=>request('/rest/v1/rpc/'+name,{body});
   const db={substack:owner=>rpc('billing_substack_access',{p_owner:owner}),
+    testing:()=>rpc('access_testing_status',{}),grantTesting:owner=>rpc('access_testing_grant',{p_kind:'pro',p_owner:owner}),
     load:(mode,owner,customer)=>rpc('billing_load',{p_mode:mode,p_owner:owner,p_customer:customer}),
     claim:(mode,owner)=>rpc('billing_claim',{p_mode:mode,p_owner:owner}),
     save:(mode,owner,lease,fields)=>rpc('billing_save',{p_mode:mode,p_owner:owner,p_lease:lease,p_fields:fields}),

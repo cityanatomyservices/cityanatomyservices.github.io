@@ -19,6 +19,12 @@ test('Test Pro never overrides the live entitlement exposed to apps',async()=>{
   const f=fixture();f.config.api={plan:'pro',mode:'test',checkoutEnabled:true,hasBilling:true};
   const state=await f.model.load();assert.equal(state.plan,'free');assert.equal(state.testPlan,'pro');assert.equal(state.testMode,true);
 });
+
+test('Free activation refreshes membership without a payment redirect',async()=>{
+  const f=fixture();f.config.rpc={plan:'pro',temporaryAccess:true,source:'testing',paidThrough:null};
+  f.config.invoke=async action=>({data:action==='checkout'?{activated:true,temporaryAccess:true}:{mode:'live',freeTesting:true,checkoutEnabled:true}});
+  await f.model.checkout();assert.equal(f.model.state.plan,'pro');assert.equal(f.model.state.temporaryAccess,true);assert.equal(f.redirects.length,0);
+});
 test('Members can read Free while checkout is unavailable to them during testing',async()=>{
   const f=fixture();f.config.error={context:{status:403,clone:()=>({json:async()=>({error:'Pro is being tested.'})})}};
   const state=await f.model.load();assert.equal(state.plan,'free');assert.equal(state.checkoutEnabled,false);

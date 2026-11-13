@@ -39,6 +39,7 @@ def main():
             return check.http('/functions/v1/geofences', body, session['access_token'])
 
         status, result = api({'action': 'list'})
+        assert not result.get('freeTesting'), 'Free testing is enabled; use tools/billing/check-testing-live.py instead.'
         assert status == 200 and result['checkoutEnabled'] is args.enabled
         fields = {'name': 'Disposable live configuration check', 'description': '',
             'latitude': 30.2672, 'longitude': -97.7431, 'diameter': 50}

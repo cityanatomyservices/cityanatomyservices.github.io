@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Enable the prepared $8 subscription after hosted-app checks pass.
+"""Enable the prepared $5 subscription after hosted-app checks pass.
 
 Manual launch command, never CI. No customers, purchases or charges are created.
 Checks the published private-file exclusions, Stripe price/account/webhook, then
@@ -29,8 +29,8 @@ def main():
         def live(*args):return setup.stripe(*args,'--live','--confirm','--stripe-version=2026-10-28.endive')
         account=live('accounts','retrieve')
         assert account['id']==original['account_id'] and account.get('charges_enabled'),'Stripe account is not ready for live charges'
-        price=live('prices','retrieve','price_1UYCyLPylm4UechMwGuCKwdH')
-        assert price['active'] and price['livemode'] and price['unit_amount']==800 and price['currency']=='usd' and price['recurring']['interval']=='month' and price['recurring']['interval_count']==1
+        price=live('prices','retrieve','price_1UbJdfPylm4UechMB1GxVKGy')
+        assert price['active'] and price['livemode'] and price['unit_amount']==500 and price['currency']=='usd' and price['recurring']['interval']=='month' and price['recurring']['interval_count']==1
         endpoint=live('webhook_endpoints','retrieve',LIVE_WEBHOOK)
         assert endpoint['url']==setup.URL and endpoint['livemode'] and endpoint['api_version']=='2026-10-28.endive' and set(setup.EVENTS)<=set(endpoint['enabled_events'])
         live('webhook_endpoints','update',LIVE_WEBHOOK,'-d','disabled=false')
@@ -38,7 +38,7 @@ def main():
         setup.stripe('webhook_endpoints','update',TEST_WEBHOOK,'-d','disabled=true','--confirm')
         setup.configure.store_secrets({'BILLING_MODE':'live','BILLING_CHECKOUT_ENABLED':'true','BILLING_TEST_USERS':'none'})
         activated=True
-        print('Live $8/month checkout enabled; live webhook enabled; sandbox webhook disabled. No purchase or charge made.',flush=True)
+        print('Live $5/month checkout enabled; live webhook enabled; sandbox webhook disabled. No purchase or charge made.',flush=True)
     finally:
         if not activated:setup.configure.store_secrets({'BILLING_CHECKOUT_ENABLED':'false'})
         setup.stripe('switch',original['account_id'],*(['--live'] if original['mode']=='live' else []),'--format','json')

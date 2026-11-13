@@ -23,6 +23,7 @@
   const membershipUI=window.AustinMembershipUI?.mount(membershipHost);
   const geofences=document.createElement('a');geofences.className='account-geofences';geofences.href='/geofences/manage/';
   geofences.innerHTML='<strong>Your own chat geofence · $10/month</strong><span>Choose a location and circle size. Get a permanent map page and QR code for people chatting there.</span><span>Create or manage geofences →</span>';
+  session.client().rpc('access_testing_status').then(({data})=>{if(data?.geofencesEnabled)geofences.querySelector('strong').textContent='Your own chat geofence · Free while testing';}).catch(()=>{});
   dialog.querySelector('#account-member').insertBefore(geofences,memberHost);
   const $=id=>dialog.querySelector('#'+id);
   let capabilities={google:false,email:false},busy=false,sentTo='',pendingOAuth,request=0;

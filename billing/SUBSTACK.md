@@ -1,11 +1,11 @@
 # One membership, two services
 
-An $8/month Austin.chat Pro subscription includes paid access to
+An $5/month Austin.chat Pro subscription includes paid access to
 [Austin.chat on Substack](https://austindotchat.substack.com/).
 A currently paid monthly, annual or founding Substack subscription includes
 Austin.chat Pro. The subscriber uses the **same email** on both services.
 The owner chose to keep Substack's existing prices (its public monthly plan
-was $5 on November 5, 2026); site Pro remains $8/month. Either paid route
+was $5 on November 5, 2026); site Pro remains $5/month. Either paid route
 qualifies for the same bundle after manual activation.
 Activation and renewal reconciliation are manual; payment stays on the service
 the member chose. This does not merge accounts or create a second subscription.

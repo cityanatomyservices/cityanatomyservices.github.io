@@ -19,11 +19,11 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
   await page.locator('.membership-current').filter({hasText:'Your plan: Free'}).waitFor();
   await page.waitForFunction(()=>!document.querySelector('.membership-upgrade').disabled);
   assert.equal(await page.locator('.membership-levels > div').count(),2);
-  assert.match(await page.locator('.membership-upgrade').innerText(),/\$8\/month/);
+  assert.match(await page.locator('.membership-upgrade').innerText(),/\$5\/month/);
   await page.screenshot({path:path.join(os.tmpdir(),'austin-free-membership-live.png')});
   await page.goto('https://austin.chat/apps/moontower/',{waitUntil:'domcontentloaded'});
-  await page.locator('.pro-app-gate p').filter({hasText:'$8 per month'}).waitFor();
+  await page.locator('.pro-app-gate p').filter({hasText:'$5 per month'}).waitFor();
   assert.equal(await page.locator('#app-window').isHidden(),true);
-  console.log('Live phone UI: Free opens Explore → Pro Tier Apps, nine Pro App links locked, exactly two plans, $8 upgrade enabled, direct app gated. No purchase clicked.');
+  console.log('Live phone UI: Free opens Explore → Pro Tier Apps, nine Pro App links locked, exactly two plans, $5 upgrade enabled, direct app gated. No purchase clicked.');
  }finally{await browser.close();}
 })().catch(error=>{console.error(error.message);process.exitCode=1;});

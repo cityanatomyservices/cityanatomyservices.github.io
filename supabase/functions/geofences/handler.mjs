@@ -11,7 +11,8 @@ export function handler(api){return async req=>{
   const allowed={list:['action'],save:['action','id','fields'],geocode:['action','address'],checkout:['action','id'],status:['action','id'],portal:['action','id']}[body.action];
   if(Object.keys(body).some(k=>!allowed.includes(k)))throw problem(400,'Unexpected field.');
   const user=await api.user(req);
-  if(body.action==='list')return json({spaces:await api.rpc('geofence_owner_list',{p_owner:user.id,p_mode:api.mode}),checkoutEnabled:api.enabled});
+  const freeTesting=api.mode==='live'&&['list','checkout','status'].includes(body.action)&&(await api.rpc('access_testing_status',{})).geofencesEnabled===true;
+  if(body.action==='list')return json({spaces:await api.rpc('geofence_owner_list',{p_owner:user.id,p_mode:api.mode}),checkoutEnabled:api.enabled||freeTesting,freeTesting});
   if(body.action==='geocode'){
    if(typeof body.address!=='string'||body.address.trim().length<6||body.address.length>240)throw problem(422,'Enter a full U.S. street address.');
    await api.rpc('geofence_geocode_limit',{p_owner:user.id});
@@ -21,6 +22,11 @@ export function handler(api){return async req=>{
   }
   if(!validId(body.id))throw problem(422,'Invalid geofence.');
   if(body.action==='save'){let fields;try{fields=validate(body.fields);}catch(e){throw problem(422,e.message);}return json(await api.rpc('geofence_save_draft',{p_owner:user.id,p_id:body.id,p_fields:fields}));}
+  if(freeTesting&&body.action==='checkout')return json(await api.rpc('access_testing_grant',{p_kind:'geofence',p_owner:user.id,p_id:body.id}));
+  if(freeTesting&&body.action==='status'){
+   const row=(await api.rpc('geofence_owner_list',{p_owner:user.id,p_mode:api.mode})).find(s=>s.id===body.id);
+   if(!row)throw problem(404,'Geofence not found.');return json(row);
+  }
   if(!api.service)throw problem(503,'Geofence payments are being set up. Your preview is available.');
   return json(await api.service[body.action==='portal'?'manage':body.action](user,body.id));
  }catch(e){return json({error:e.publicMessage||'Could not connect. Please try again.'},e.publicMessage?e.status:503);}

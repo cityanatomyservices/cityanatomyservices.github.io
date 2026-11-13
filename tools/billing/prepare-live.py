@@ -21,8 +21,8 @@ def main():
     def api(*args):
         return setup.stripe(*args,'--stripe-version=2026-10-28.endive','--live','--confirm')
     try:
-        price=api('prices','retrieve','price_1UYCyLPylm4UechMwGuCKwdH')
-        if price.get('livemode') is not True or price.get('unit_amount')!=800 or price.get('currency')!='usd':
+        price=api('prices','retrieve','price_1UbJdfPylm4UechMB1GxVKGy')
+        if price.get('livemode') is not True or price.get('unit_amount')!=500 or price.get('currency')!='usd':
             raise SystemExit('Expected the Austin.chat live price.')
         endpoints=api('webhook_endpoints','list','--limit=100')
         if endpoints.get('has_more'): raise SystemExit('Inspect remaining endpoints before creating another.')

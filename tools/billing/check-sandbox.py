@@ -56,8 +56,8 @@ def http(path,body=None,token=None,admin=None,method=None):
 def main():
     context=stripe('whoami','--format','json')
     if context.get('mode')!='test': raise SystemExit('Switch Stripe CLI to the authorized sandbox first.')
-    price=stripe('prices','retrieve','price_1UYCoYPylm4UechMfDQJur0b','--stripe-version=2026-10-28.endive')
-    assert price.get('livemode') is False and price['unit_amount']==800,'Expected test price'
+    price=stripe('prices','retrieve','price_1UbJdbPylm4UechMkj6ty6Z3','--stripe-version=2026-10-28.endive')
+    assert price.get('livemode') is False and price['unit_amount']==500,'Expected test price'
     live=json.loads(configure.query("select exists(select 1 from billing_private.members where mode='live' and customer_id is not null) as has_live_billing",True))
     if live[0]['has_live_billing']: raise SystemExit('Use a separate test deployment after live billing begins.')
     keys=json.loads(configure.cli('projects','api-keys','--remote='+configure.PROJECT,'--reveal','--output','json'))
@@ -95,7 +95,7 @@ def main():
         assert status==200 and row.get('customer_id') and row.get('checkout_id')
         customers.append(row['customer_id'])
         session=stripe('checkout','sessions','retrieve',row['checkout_id'],'--stripe-version=2026-10-28.endive')
-        assert session['livemode'] is False and session['amount_total']==800 and session['mode']=='subscription'
+        assert session['livemode'] is False and session['amount_total']==500 and session['mode']=='subscription'
         status,portal=http('/functions/v1/billing',{'action':'portal'},token)
         assert status==200 and portal.get('url','').startswith('https://billing.stripe.com/'),'Restricted key cannot create portal session'
         print('Checkout price, session reuse and customer portal: passed',flush=True)
