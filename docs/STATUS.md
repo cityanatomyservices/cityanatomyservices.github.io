@@ -49,8 +49,10 @@ no active paid subscriptions or charges were created.
 
 The deployment helper is `configure-email.py` (not `email.py`, which shadows
 Python's email package). Cron activation uses `cron.alter_job`, since hosted
-roles cannot update `cron.job` directly. Final follow-up publishes that helper
+roles cannot update `cron.job` directly. Follow-up `98402ce` published that helper
 fix and lets owners turn alerts off even if an unsaved email edit is invalid.
+Pages run `43431793706` and billing CI `43431793724` succeeded; final published
+HTML and versioned runtime bytes match the checkout.
 No owner setup remains; SMS and physical-phone field checks remain deferred.
 
 ## 2026-11-13 - GPS center, temporary free geofences/Pro and $5 Pro price
