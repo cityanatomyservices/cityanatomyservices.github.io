@@ -1,0 +1,7 @@
+{
+  "name": "austin-studio-stop-pages",
+  "private": true,
+  "scripts": {"generate": "node make-stop-pages.cjs", "check": "node make-stop-pages.cjs --check", "test": "node --test ../../tests/special-events/stop-pages.test.cjs"},
+  "dependencies": {"qrcode": "1.5.4"},
+  "devDependencies": {"jsqr": "1.4.0"}
+}

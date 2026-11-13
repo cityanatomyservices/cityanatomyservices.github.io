@@ -436,3 +436,42 @@ failed saves, conflict recovery, Favorites filtering, notes across days and
 Plan popups, navigation and reload. `EVENT_PRINT_CHECK=true` verifies both note
 sources in rendered PDFs; `EVENT_PRINT_EDGE_CHECK=true` additionally checks
 complete long-note pagination and preview invalidation after a saved-note edit.
+# Individual Studio Tour chat pages
+
+`/maps/austin-studio-tour/stops/` lists all 307 published **locations** with
+search, a CSV of public URLs and QR image addresses. Each actual organizer
+number has its own `stops/<number>/index.html`, `qr.png`, and `qr.svg` in GitHub.
+Numbers are not consecutive. These pages do not create custom geofences,
+charges, owner accounts, or per-stop database rows. Do not infer studio contacts
+or send outreach from this directory; the owner will select and email recipients
+after the physical GPS test.
+
+`npm ci --prefix tools/special-events` then
+`node tools/special-events/make-stop-pages.cjs` regenerates everything from the
+existing GeoJSON and retirement registry. Shared `stop-page.js`/CSS load only
+one stop's point and exact chat boundary. The main tour's stop popup links to
+the individual page. Keep script versions in the generator current.
+
+The standalone page uses the existing ChatRoom, ChatEngine, ChatLocate,
+ChatPanel and account shell. GPS starts on **Use my GPS**. The visitor then
+turns on **Visible**; chat becomes available with another visible peer.
+Chat uses the same `event-<event id>-stop-<stable stop id>` room as the full tour,
+with fresh, accurate GPS and no persisted event messages. Hosts have the same
+onsite requirements as guests; there is no remote host inbox or special owner
+access in this event-page feature. These event pages do not send custom
+geofence arrival/departure emails.
+
+Pages and QR files are omitted from the public artifact by the existing
+retirement rule at **November 24, 2026, 10 PM Central**. An already-open page
+closes chat at that deadline. The GitHub Pages `404.html` recognizes retired
+Studio Tour links and offers Austin.Chat. As with the existing event, retirement
+unpublishes files; source files and Git history remain until a cleanup commit.
+
+Checks: `npm test --prefix tools/special-events`, generator `--check`, and
+`python -m unittest discover -s tests/special-events -p 'test_*.py'`.
+`python tools/special-events/check-stops-live.py [origin]` checks desktop/phone
+UI, real bidirectional broadcasts with the full tour, stop 47/233 isolation,
+stop 1, GPS loss/accuracy/freshness, member lists, downloads and retirement.
+It uses disposable anonymous accounts and isolated room IDs, blocks message
+storage, deletes its guests afterwards, and passes its cleanup credential only
+through stdin. GPS is simulated; a real outdoor phone test is still required.

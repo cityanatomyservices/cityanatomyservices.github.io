@@ -1,0 +1,26 @@
+name: Check Studio Tour chat pages
+on:
+  push:
+    branches: [main]
+    paths: ['maps/austin-studio-tour/stops/**', 'special-events/**', 'tools/special-events/**', 'tests/special-events/**', '.github/workflows/test-studio-stops.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - run: npm ci --no-audit --no-fund
+        working-directory: tools/special-events
+      - name: Generated pages, real QR decoding and event retirement
+        run: |
+          node tools/special-events/make-stop-pages.cjs --check
+          node --test tests/special-events/stop-pages.test.cjs
+          python3 -m unittest discover -s tests/special-events -p 'test_*.py'
+          node --check special-events/stop-page.js
+          node --check special-events/retired-link.js

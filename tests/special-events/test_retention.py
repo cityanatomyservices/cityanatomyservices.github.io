@@ -25,6 +25,9 @@ class RetentionTests(unittest.TestCase):
         events=retention.expired_events(ROOT,datetime(2026,11,25,4,tzinfo=timezone.utc));paths=retention.exclusions(events)
         self.assertTrue(retention.excluded('special-events/data/austin-studio-tour-2026.geojson',paths))
         self.assertTrue(retention.excluded('maps/austin-studio-tour/index.html',paths))
+        for name in ['maps/austin-studio-tour/stops/index.html', 'maps/austin-studio-tour/stops/47/index.html', 'maps/austin-studio-tour/stops/47/qr.png', 'maps/austin-studio-tour/stops/links.csv']:
+            self.assertTrue(retention.excluded(name,paths))
+        self.assertFalse(retention.excluded('404.html',paths))
         for name in ['chat/index.html','special-events/map.html','special-events/data/next-event.geojson','special-events/tiles/stamen-watercolor-austin/0/0/0.jpg']:
             self.assertFalse(retention.excluded(name,paths))
         raw=(ROOT/'home.json').read_bytes();home=json.loads(retention.filtered('home.json',raw,events))

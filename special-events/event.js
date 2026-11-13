@@ -65,6 +65,10 @@
     const fold=node('details'),summary=node('summary',`${people.length} matching participants & hours`);fold.append(summary);
     for(const match of people){const row=node('p',undefined,'event-artists'),a=node('a',match.profile.name);a.href=match.profile.url||p.url;a.target='_blank';a.rel='noopener noreferrer';row.append(a,document.createTextNode(' · '+(M.hoursLabel(match.windows,date)||'Hours need checking')));fold.append(row);}body.append(fold);
     const link=node('a','Official stop & attendance ↗');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';body.append(link);
+    if(event.id==='austin-studio-tour-2026'){
+      const chatPage=node('p'),chatLink=node('a','Open this studio’s chat page ↗');
+      chatLink.href=`/maps/austin-studio-tour/stops/${p.number}/`;chatLink.target='_top';chatPage.append(chatLink);body.append(chatPage);
+    }
     body.append(node('p',p.scheduleNote||event.scheduleNote,'event-note'));
     body.append(node('p',p.chatBoundaryDetails?.sharedBuilding?'This building has separate chat zones for nearby stops. GPS chooses your zone.':p.chatBoundaryDetails?.method==='pin-approximation'?'Chat uses an approximate zone around this stop.':'Chat is available inside this stop’s shaded zone.','event-note'));
     mountSelection(body,source);

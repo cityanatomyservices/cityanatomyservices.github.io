@@ -1,5 +1,45 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-13 - All 307 Studio Tour stop chat pages
+
+Owner authorized creating all studio geofence pages before testing a couple,
+then doing an onsite phone test and personally emailing selected studio contacts.
+No outreach was sent and no contacts were inferred or collected.
+
+`/maps/austin-studio-tour/stops/` is the searchable directory with a public CSV
+of studio names, addresses, links and QR addresses. Each organizer stop number
+has a real GitHub `index.html`, downloadable PNG QR and print SVG QR. All 307
+pages plus images/directory total 3.84 MiB. The generator preserves the exact
+existing stable stop IDs and polygons, including shared-building divisions and
+approximate zones. Full-tour stop popups link to these individual pages.
+
+The shared stop runtime shows one centered map, visible members below it,
+GPS/Visible/Chat controls and sharing. It reuses the account shell and existing
+live-only ChatRoom/Engine transport, so a studio page and the main tour share
+the same room. No new database geofences, billing, remote-host privileges,
+stored event messages or notification emails. Hosts must be onsite, open the
+page and turn on Visible, like other visitors. GPS begins on a button click.
+
+The existing retention rule unpublishes the directory/pages/QRs November 24,
+2026 at 10 PM Central. Open pages stop chat then; the root 404 provides an
+event-ended message for old studio links. Source files/Git history remain until
+a later cleanup commit. Other event/main/account content is unaffected.
+
+Local verification: all 307 exact room/boundary matches, actual QR decoding for
+1/47/233/308, deterministic generator check, 11 event Python tests and 120
+planner/chat tests passed. Browser QA with real isolated Realtime rooms passed
+stop 47 phone ↔ full-tour desktop broadcasts, stop 233 separation, second stop
+1, GPS permission/accuracy/freshness, member lists, PNG download, directory
+search and retirement. Four disposable guests were removed after the passing
+run (earlier harness attempts also cleaned their guests). Screenshots reviewed
+outside the repository. GPS was simulated; the onsite two-phone check remains.
+
+New page assets and event popup version: `20261113d`. No shared/private Pro
+asset changes. Generator and live-browser check instructions are in
+`special-events/README.md`; CI is `test-studio-stops.yml`. Deployment evidence
+will be recorded after publication. Free testing and the prior Stripe/Supabase/
+email configuration remain unchanged.
+
 ## 2026-11-13 - Geofence share emails, optional activity alerts and visitor map
 
 Owner added automated link/QR email, optional arrival/departure alerts, and a
