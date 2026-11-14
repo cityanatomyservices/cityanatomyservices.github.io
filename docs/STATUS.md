@@ -35,8 +35,17 @@ also cover guests/members. The full phone guest Special Events regression passes
 Real disposable-account API checks passed future,
 active and ended schedules, server join gates and provider-test invitation
 delivery; fixtures were removed. No payments or ordinary-recipient emails.
-Changed browser assets use `20261114e`. Publication and real published UI
-verification are the remaining release checks.
+Release `f0bdb83` is live with browser assets `20261114e`. Pages `43612757406`,
+planner `43612757407`, billing `43612757402`, email `43612757371` and Studio Tour
+`43612757369` all passed. After Pages completed, unversioned root/chat/geofence/
+manage/Event HTML announced the release before all 13 changed browser assets
+were fetched and matched to source. Published desktop/phone checks passed the
+three controls, embedded categories, selection preservation, Chat isolation,
+GPS, circle expiry and late responses. A real disposable circle appeared on
+both published Chat maps; the phone owner page changed its times to an ended
+window and the public page/server blocked chat. Invitation delivery and cleanup
+passed again. Screenshots were reviewed; no fixtures remain. All requested work
+in this checkpoint is complete.
 
 ## 2026-11-14 - Guided main Day Planner and time prompts
 
