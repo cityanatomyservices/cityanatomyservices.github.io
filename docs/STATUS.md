@@ -20,7 +20,16 @@ backup/restore, undo, map entrance and persistence behavior remains available.
 Events. Main iframe and changed planner assets use `20261114d`. All 120 planner
 unit tests pass. Chromium wizard and map suites pass for guests/members at
 1280px/390px; export/restore/undo/navigation checks pass at both sizes. Screenshots
-were reviewed in light/dark themes. Publication and deployed verification follow.
+were reviewed in light/dark themes.
+
+Release `19d13ae` is live. Pages `43606725062`, planner `43606725018` and Studio
+Tour checks `43606725016` passed. Unversioned root/chat/Event HTML announced
+`20261114d` before all six changed planner assets were fetched and matched to
+source. The published wizard passed the same full guest/member desktop/phone
+flow, including overlapping times, next-morning stops, route handoff without
+closing phone guidance, export, undo and upcoming-day filtering. Browser account
+and route requests were intercepted, so these checks did not alter real plans.
+All requested geofence and main Day Planner wizard work is complete.
 
 ## 2026-11-14 - Guided geofence creation, invitations and chat choices
 
