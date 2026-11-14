@@ -19,6 +19,12 @@ pass. A live Waterloo-only import returned the eight remaining November 14-21
 nights, with 6-10 PM Central hours and the existing verified entrance pin.
 No browser assets or cache versions changed.
 
+Fix `549e771` is on main. Fresh workflow run `43592920028` passed every import
+and all 68 tests on hosted Python 3.12; the data commit is `ecf3125`.
+Pages publication `43593056197` succeeded. The public events-festivals feed
+matches the checkout after Windows newline normalization and reports Waterloo
+healthy with all eight Creek Show nights. Verification is complete.
+
 ## 2026-11-13 - All 307 Studio Tour stop chat pages
 
 Owner authorized creating all studio geofence pages before testing a couple,
