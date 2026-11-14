@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-14T10:58:32.395028+00:00",
+ "generated": "2026-11-14T12:04:07.027541+00:00",
  "sources": [
   {
    "name": "Fallout Theater",
@@ -110,8 +110,8 @@
   {
    "name": "Waterloo Greenway programs",
    "url": "https://waterloogreenway.org/events/",
-   "ok": false,
-   "failures": 1,
+   "ok": true,
+   "failures": 0,
    "count": 0
   }
  ],
@@ -137,7 +137,7 @@
     "end": "2026-11-14T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-14T10:58:32.395028+00:00",
+    "checked": "2026-11-14T12:04:07.027541+00:00",
     "expires": "2026-11-14T14:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -168,7 +168,7 @@
     "end": "2026-11-14T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-14T10:58:32.395028+00:00",
+    "checked": "2026-11-14T12:04:07.027541+00:00",
     "expires": "2026-11-14T18:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -199,8 +199,8 @@
     "end": "2026-11-15T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-14T10:58:32.395028+00:00",
-    "expires": "2026-11-15T10:58:32.395028+00:00",
+    "checked": "2026-11-14T12:04:07.027541+00:00",
+    "expires": "2026-11-15T12:04:07.027541+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thecontemporaryaustin.org/event/the-art-of-print/",
