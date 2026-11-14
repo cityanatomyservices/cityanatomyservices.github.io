@@ -107,9 +107,12 @@ def creek_nights(now, url):
     m=re.search(r'Dates: ([A-Za-z]+) (\d{1,2})[-–](\d{1,2}), (20\d{2}) Time: (.*?) Nightly',text)
     if not m:
         raise ValueError('Creek Show nightly schedule changed')
-    address=re.search(r'\((\d+(?: 1/2)? E \d+(?:st|nd|rd|th) St\.)\)',text)
+    address=re.search(r'\((\d+(?: (?:1/2|\u00bd))? E \d+(?:st|nd|rd|th) St)\.?\)',text)
     if not address:
         raise ValueError('Creek Show entrance address missing')
+    # The organizer uses both fraction spellings and sometimes omits the period.
+    # Keep the verified address-cache key and occurrence IDs stable across them.
+    entrance=address[1].replace('\u00bd','1/2')+'. Austin TX'
     first_day=datetime.strptime(f'{m[1]} {m[2]}, {m[4]}','%B %d, %Y').date()
     last_day=datetime.strptime(f'{m[1]} {m[3]}, {m[4]}','%B %d, %Y').date()
     if not 0<=(last_day-first_day).days<31:
@@ -118,7 +121,7 @@ def creek_nights(now, url):
     for i in range((last_day-first_day).days+1):
         start,end=hours(first_day+timedelta(days=i),m[5])
         if in_window(start,end,now):
-            rows.append(event_row('Creek Show',start,end,url,'Creek Show entrance — Waterloo Greenway',address[1]+' Austin TX'))
+            rows.append(event_row('Creek Show',start,end,url,'Creek Show entrance — Waterloo Greenway',entrance))
     return rows
 
 

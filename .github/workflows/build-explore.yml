@@ -46,4 +46,6 @@ jobs:
           bash tools/publish-data.sh
       - name: Report failed imports
         if: steps.events.outcome == 'failure' || steps.movies.outcome == 'failure' || steps.culture.outcome == 'failure'
-        run: exit 1
+        run: |
+          echo "::error::Explore imports: events=${{ steps.events.outcome }}, movies=${{ steps.movies.outcome }}, local calendars=${{ steps.culture.outcome }}. Open the matching Refresh step above for the source error."
+          exit 1

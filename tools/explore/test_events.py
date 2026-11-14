@@ -136,6 +136,24 @@ class Events(unittest.TestCase):
         with patch.object(c,'page',return_value=Page(html.replace('Nightly','')).root):
             with self.assertRaises(ValueError):c.creek_nights(now,'https://example.org/creek')
 
+    def test_creek_show_accepts_published_entrance_address_formats(self):
+        now=datetime(2026,11,14,12,tzinfo=ZONE)
+        for address in ('703 1/2 E 4th St.', '703 1/2 E 4th St', '703 \u00bd E 4th St', '703&nbsp;&frac12; E 4th St'):
+            html=f'Dates: November 13-21, 2026 Time: 6-10pm Nightly Main Entrance: 4th St &amp; Sabine St ({address})'
+            with self.subTest(address=address),patch.object(c,'page',return_value=Page(html).root),patch.object(c,'event_row',side_effect=venue_row):
+                rows=c.creek_nights(now,'https://example.org/creek')
+                self.assertEqual(len(rows),8)
+                self.assertTrue(all(r['address']=='703 1/2 E 4th St. Austin TX' for r in rows))
+                self.assertEqual(rows[0]['start'].isoformat(),'2026-11-14T18:00:00-06:00')
+                self.assertEqual(rows[-1]['end'].isoformat(),'2026-11-21T22:00:00-06:00')
+
+    def test_creek_show_still_requires_a_published_entrance_address(self):
+        html='Dates: November 13-21, 2026 Time: 6-10pm Nightly Main Entrance: 4th St &amp; Sabine St'
+        with patch.object(c,'page',return_value=Page(html).root),patch.object(c,'event_row') as make_row:
+            with self.assertRaisesRegex(ValueError,'entrance address missing'):
+                c.creek_nights(datetime(2026,11,14,12,tzinfo=ZONE),'https://example.org/creek')
+        make_row.assert_not_called()
+
     def test_combined_feed_merges_festivals_and_events_with_original_failure_expiry(self):
         def row(title):return venue_row(title,NOW+timedelta(days=2),NOW+timedelta(days=2,hours=3),'https://example.org/'+title,'Hall','1 Main St')
         festival=b.event_feature(row('Festival'),'Offline',NOW)

@@ -1,5 +1,24 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-14 - Repair Explore refresh for Creek Show address formatting
+
+The reported Actions `exit 1` came from Explore run `43587715406`:
+Waterloo Greenway's Creek Show page prints its entrance as both
+`703 ½ E 4th St` and `703 1/2 E 4th St`, without a trailing period.
+The importer required `St.` and only the ASCII fraction. Other imports and
+the data commit succeeded, but the workflow failure skipped its Pages publish.
+
+The Creek Show adapter now accepts both fraction spellings and optional street
+punctuation, retaining the existing verified address-cache key and occurrence
+IDs. A missing published address still fails. The workflow's final error now
+lists each import outcome and points to the relevant refresh step's source log.
+
+Validation: regression tests reproduced the old failure for all three new
+formats; all 68 Explore Python tests, Node model checks and `git diff --check`
+pass. A live Waterloo-only import returned the eight remaining November 14-21
+nights, with 6-10 PM Central hours and the existing verified entrance pin.
+No browser assets or cache versions changed.
+
 ## 2026-11-13 - All 307 Studio Tour stop chat pages
 
 Owner authorized creating all studio geofence pages before testing a couple,
