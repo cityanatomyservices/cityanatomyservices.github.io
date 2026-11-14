@@ -1,19 +1,20 @@
 import {ORIGIN,problem} from '../_shared/billing.mjs';
 import {validate,validId} from '../../../geofences/model.mjs';
 import {searchAddresses} from './address-search.mjs';
+import {invitationEmails} from '../../../geofences/invitations.mjs';
 const headers={'Access-Control-Allow-Origin':ORIGIN,'Access-Control-Allow-Headers':'authorization, apikey, content-type, x-client-info','Access-Control-Allow-Methods':'POST, OPTIONS','Cache-Control':'no-store','Content-Type':'application/json','Vary':'Origin'};
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers});
 export function handler(api){return async req=>{
  if(req.headers.get('Origin')&&req.headers.get('Origin')!==ORIGIN)return json({error:'Origin not allowed.'},403);
  if(req.method==='OPTIONS')return new Response(null,{status:204,headers});if(req.method!=='POST')return json({error:'Method not allowed.'},405);
  try{
-  const raw=await req.text();if(raw.length>4096)throw problem(413,'Request too large.');let body;try{body=JSON.parse(raw);}catch{throw problem(400,'Invalid request.');}
+  const raw=await req.text();if(raw.length>12288)throw problem(413,'Request too large.');let body;try{body=JSON.parse(raw);}catch{throw problem(400,'Invalid request.');}
   if(!body||Array.isArray(body)||!['list','save','notifications','geocode','suggest','checkout','status','portal'].includes(body.action))throw problem(400,'Invalid request.');
-  const allowed={list:['action'],save:['action','id','fields'],notifications:['action','id','enabled','email'],geocode:['action','address'],suggest:['action','address'],checkout:['action','id'],status:['action','id'],portal:['action','id']}[body.action];
+  const allowed={list:['action'],save:['action','id','fields','invitations'],notifications:['action','id','enabled','email'],geocode:['action','address'],suggest:['action','address'],checkout:['action','id'],status:['action','id'],portal:['action','id']}[body.action];
   if(Object.keys(body).some(k=>!allowed.includes(k)))throw problem(400,'Unexpected field.');
   const user=await api.user(req);
   const freeTesting=api.mode==='live'&&['list','checkout','status'].includes(body.action)&&(await api.rpc('access_testing_status',{})).geofencesEnabled===true;
-  if(body.action==='list')return json({spaces:await api.rpc('geofence_owner_list',{p_owner:user.id,p_mode:api.mode}),notifications:await api.rpc('geofence_email_list',{p_owner:user.id}),emailReady:api.emailReady?.()===true,checkoutEnabled:api.enabled||freeTesting,freeTesting});
+  if(body.action==='list')return json({spaces:await api.rpc('geofence_owner_list',{p_owner:user.id,p_mode:api.mode}),notifications:await api.rpc('geofence_email_list',{p_owner:user.id}),invitations:await api.rpc('geofence_invitation_list',{p_owner:user.id}),emailReady:api.emailReady?.()===true,checkoutEnabled:api.enabled||freeTesting,freeTesting});
   if(['geocode','suggest'].includes(body.action)){
    if(typeof body.address!=='string'||body.address.trim().length<4||body.address.length>240)throw problem(422,'Enter a street address in the Austin metro area.');
    await api.rpc('geofence_geocode_limit',{p_owner:user.id});
@@ -25,7 +26,11 @@ export function handler(api){return async req=>{
    if(body.enabled&&!api.emailReady?.())throw problem(503,'Email notifications are being set up.');
    return json(await api.rpc('geofence_email_save',{p_owner:user.id,p_id:body.id,p_enabled:body.enabled,p_email:body.email}));
   }
-  if(body.action==='save'){let fields;try{fields=validate(body.fields);}catch(e){throw problem(422,e.message);}return json(await api.rpc('geofence_save_draft',{p_owner:user.id,p_id:body.id,p_fields:fields}));}
+  if(body.action==='save'){
+   let fields,emails;try{fields=validate(body.fields);if(body.invitations!==undefined)emails=invitationEmails(body.invitations);}catch(e){throw problem(422,e.message);}
+   if(emails&&!api.emailReady?.())throw problem(503,'Email invitations are temporarily unavailable. Please try again shortly.');
+   return json(await api.rpc(emails?'geofence_save_with_invitations':'geofence_save_draft',{p_owner:user.id,p_id:body.id,p_fields:fields,...(emails?{p_emails:emails}:{})}));
+  }
   if(freeTesting&&body.action==='checkout')return json(await api.rpc('access_testing_grant',{p_kind:'geofence',p_owner:user.id,p_id:body.id}));
   if(freeTesting&&body.action==='status'){
    const row=(await api.rpc('geofence_owner_list',{p_owner:user.id,p_mode:api.mode})).find(s=>s.id===body.id);

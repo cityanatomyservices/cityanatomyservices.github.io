@@ -20,7 +20,7 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
    page.on('response',response=>{if(response.url().includes('/functions/v1/geofences')&&response.status()>=400)console.error('Geofence lookup response: HTTP '+response.status());});
    await page.goto('https://austin.chat/geofences/manage/',{waitUntil:'domcontentloaded'});
    await page.locator('#geo-member').waitFor();
-   await page.locator('[name=name]').fill('Address preview verification');
+   await page.locator('[name=name]').fill('Address preview verification');await page.locator('[name=description]').fill('Check this circle on the map.');
    const address=page.locator('#geo-address'),options=page.getByRole('option');
    await address.fill('301 W 2nd Austin');
    await options.first().waitFor();
@@ -28,9 +28,8 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
    if(width<700)await options.first().tap();else{await address.press('ArrowDown');await address.press('Enter');}
    assert.match(await address.inputValue(),/301 W 2ND ST, AUSTIN, TX/i);
    const diameter=page.locator('[name=diameter]');assert.equal(await diameter.getAttribute('max'),'500');
-   await diameter.fill('501');await page.locator('#geo-preview').click();
-   await page.locator('#geo-form-status').filter({hasText:'10 to 500'}).waitFor();assert.equal(await page.locator('#geo-pay').isDisabled(),true);
-   await diameter.fill('500');
+   await diameter.fill('501');assert.equal(await page.locator('#geo-preview').isHidden(),true);assert.equal(await diameter.evaluate(el=>el.validity.rangeOverflow),true);assert.equal(await page.locator('#geo-pay').isDisabled(),true);
+   await diameter.fill('500');await page.locator('[name=invitation]').first().fill('preview@example.invalid');
    await page.locator('#geo-preview').click();
    await page.locator('#geo-form-status').filter({hasText:'Check the circle'}).waitFor();
    assert.match(await page.locator('#geo-preview-caption').innerText(),/500 meters across/);

@@ -20,6 +20,7 @@
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
 <link rel="stylesheet" href="/geofences/style.css?v=20261113b">
+<link rel="stylesheet" href="/geofences/chat.css?v=20261114c">
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
 <script src="/geofences/vendor/qrcode.js?v=2.0.4"></script>
 </head>
@@ -31,11 +32,19 @@
 <nav class="geofence-map-controls" aria-label="Geofence controls"><button id="geo-chat-toggle" aria-expanded="false" aria-controls="geo-chat-panel">Chat</button><a id="geo-manage" class="geofence-action" href="/geofences/manage/" target="_top" hidden>Manage</a></nav></div>
 <section class="geofence-members" aria-labelledby="geo-members-heading"><h2 id="geo-members-heading">Chat members</h2><p id="geo-people" class="geofence-people">Open Chat and allow location to join and see who is here.</p></section>
 <section id="geo-chat-panel" class="geofence-card" hidden><h2>Chat here</h2><p>Joining is free. No sign-in is needed. Allow your location and stay inside the circle to chat.</p>
+<fieldset id="geo-identity" class="geofence-identity"><legend>What name would you like to use?</legend>
+<label class="geofence-check"><input type="radio" name="identity" value="anonymous" checked> Choose an anonymous name</label>
+<label id="geo-anon-label">Anonymous name<input id="geo-anon-name" type="text" maxlength="30" autocomplete="off" required></label>
+<label class="geofence-check"><input id="geo-use-profile" type="radio" name="identity" value="profile" disabled> <span id="geo-profile-label">Use my profile name</span></label>
+<small id="geo-profile-note">You can use an anonymous name without signing in. Sign in to use your profile name.</small></fieldset>
 <button class="primary" id="geo-join">Use my location to join</button><button id="geo-leave" hidden>Leave chat</button><p id="geo-gps-status" role="status"></p>
-<div id="geo-chat-content" hidden><ol id="geo-messages" class="geofence-chat-log" aria-label="Chat messages" aria-live="polite"></ol><form id="geo-chat-form"><label>Message<textarea id="geo-message" maxlength="500" required></textarea></label><button type="submit" id="geo-send">Send</button></form></div>
+<div id="geo-chat-content" hidden><ol id="geo-messages" class="geofence-chat-log" aria-label="Chat messages" aria-live="polite"></ol><div class="geofence-export"><button id="geo-export" type="button" disabled>Export chat</button><small id="geo-export-note">Downloads the messages received during this visit. Export before leaving.</small></div><form id="geo-chat-form"><label>Message<textarea id="geo-message" maxlength="500" required></textarea></label><button type="submit" id="geo-send">Send</button></form></div>
 <small>Your arrival and departure may be emailed to this geofence’s owner if they enabled alerts. Messages are temporary. Location is checked only while this page is open and you choose to join.</small></section>
 <details class="geofence-share"><summary>Share this geofence</summary><div class="geofence-actions"><button id="geo-fit">Center map</button><button id="geo-share">Copy link</button><button id="geo-download">Download QR code</button></div><div id="geo-qr" class="geofence-qr"></div><p><a id="geo-permalink" class="geofence-link"></a></p></details>
-</div></div></main>
+</div><section class="geofence-about" aria-label="About geofence chat">
+<p>A geofence is a virtual boundary on a map. Austin.chat checks whether you’re inside or outside only while you have the geofence page open and allow device location access. There’s no app to install or background tracking.</p>
+<p>Austin.chat is <a href="https://github.com/cityanatomyservices/cityanatomyservices.github.io">open source</a>, and we don’t store your location. You can chat without signing in and choose an anonymous name or use your profile name. Chats are deleted within 24 hours after they end. You can optionally export a copy of the chat to keep.</p>
+</section></div></main>
 <script src="/shell.js?v=20261113a"></script>
-<script type="module" src="/geofences/page.mjs?v=20261113b"></script>
+<script type="module" src="/geofences/page.mjs?v=20261114c"></script>
 </body></html>

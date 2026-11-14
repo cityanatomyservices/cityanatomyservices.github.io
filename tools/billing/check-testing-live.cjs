@@ -16,10 +16,10 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
   await page.locator('.membership-upgrade').click();await page.locator('.membership-current').filter({hasText:'Pro — free while testing'}).waitFor();
   assert.equal(await page.locator('.membership-manage').isHidden(),true);await page.screenshot({path:path.join(os.tmpdir(),'austin-pro-free-live.png')});await page.locator('.account-close').click();
   await page.locator('[name=name]').fill('Disposable free testing check');await page.locator('[name=description]').fill('Temporary verification fixture. Removed after this check.');
-  await page.locator('#geo-gps').click();await page.locator('#geo-form-status').filter({hasText:'Current location selected'}).waitFor();
+  await page.locator('[name=mode][value=gps]').check();await page.locator('#geo-gps').click();await page.locator('#geo-form-status').filter({hasText:'Current location selected'}).waitFor();
   assert.equal(await page.locator('[name=latitude]').inputValue(),'30.267200');assert.equal(await page.locator('[name=longitude]').inputValue(),'-97.743100');
   await page.locator('#geo-gps').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(os.tmpdir(),'austin-geofence-gps-live.png')});
-  await page.locator('#geo-preview').click();await page.locator('#geo-confirm').check();await page.locator('#geo-pay').click();
+  await page.locator('#geo-size-next').click();await page.locator('[name=invitation]').first().fill('fixture@example.invalid');await page.locator('#geo-preview').click();await page.locator('#geo-confirm').check();await page.locator('#geo-pay').click();
   await page.locator('#geo-owned').filter({hasText:'Active · Free while testing'}).waitFor();assert.equal(await page.locator('#geo-owned .geofence-qr svg').count(),1);
   assert.equal(new URL(page.url()).pathname,'/geofences/manage/');await page.screenshot({path:path.join(os.tmpdir(),'austin-geofence-free-live.png')});
   const link=await page.locator('#geo-owned .geofence-link').getAttribute('href');await page.goto(link,{waitUntil:'domcontentloaded'});await page.locator('#geo-room').waitFor();

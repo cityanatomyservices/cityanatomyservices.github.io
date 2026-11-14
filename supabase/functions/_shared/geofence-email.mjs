@@ -3,6 +3,13 @@ const page=id=>'https://austin.chat/geofences/?id='+id;
 const notification=(action,token)=>'https://austin.chat/geofences/notifications/#'+action+'/'+token;
 export async function message(job,context,qrPNG){
  const title=context.name,url=page(context.id),manage='https://austin.chat/geofences/manage/';
+ if(job.kind==='invitation'){
+  const content=await qrPNG(url),intro="You've been invited to join this geofence chat.",joining='Open the link or scan the QR code, choose Chat, and allow location access. You can join for free while you are inside the circle. No account is required.';
+  const note='This is a one-time invitation from the geofence creator. It does not subscribe you to email alerts.';
+  return {subject:"You're invited: "+title,text:`${intro}\n\n${title}\n${context.description||''}\n${url}\n\n${joining}\n\n${note}`,
+   html:`<h1>${escape(title)}</h1><p>${intro}</p><p>${escape(context.description)}</p><p><a href="${url}">Open geofence chat</a></p><p><a href="${url}">${url}</a></p><p><img src="cid:geofence-qr" width="280" height="280" alt="QR code for this geofence"></p><p>${joining}</p><p>${note}</p>`,
+   attachments:[{filename:'geofence-qr.png',content,content_type:'image/png',content_id:'geofence-qr'}]};
+ }
  if(job.kind==='welcome'){
   const intro='Your chat geofence is ready. Share this email, link or QR code with the people you want to join.';
   const joining='Joining is free and does not require signing in. Visitors open the page, choose Chat, allow location access, and join while inside the circle.';

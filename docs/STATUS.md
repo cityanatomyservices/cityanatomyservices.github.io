@@ -1,5 +1,34 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-14 - Guided geofence creation, invitations and chat choices
+
+The owner requested an inline wizard on `/geofences/manage/`, automatic email
+invitations after creation, and features matching their explanatory text.
+The form progressively reveals title, description, address/coordinates/GPS,
+10-500m diameter, and invitees. Valid emails add another blank row; at least one
+is required before map review and explicit creation. Editing earlier answers
+clears map confirmation. Browser assets use `20261114c`.
+
+0022 stores up to 25 private, deduplicated invitees atomically with a draft.
+Activation sends individual permanent-link/PNG-QR invitations; retries,
+renewals and repeated activation cannot resend. Owner cards show delivery
+counts. Existing optional arrival/departure alerts and billing are preserved.
+0023 adds chosen anonymous names, server-resolved profile names, conversation
+boundaries and cleanup within 24 hours of the last participant leaving or
+expiring. The browser exports received messages as text before leaving,
+limited to the latest 10,000 per visit. Device coordinates are not retained.
+Both custom geofence pages display the owner's supplied explanatory paragraphs.
+
+Migrations 0022/0023 are applied and the API/email functions deployed. All 91
+Node billing/geofence tests pass, along with rolled-back invitation, privacy,
+retention, existing database and email checks. Chromium fixture flows pass at
+1280px and 390px, including invalidation, invitations, names and text download.
+Frontend release and production browser verification are in progress.
+
+Next requested work: the main Day Planner should open with only a dropdown of
+upcoming days containing stops plus Create New Day Plan (button alone if none),
+then guide creation/editing inline while preserving all planning functions.
+
 ## 2026-11-14 - Increase custom chat circle diameter to 500 meters
 
 The owner requested a 500-meter maximum on `/geofences/manage/`. The form and

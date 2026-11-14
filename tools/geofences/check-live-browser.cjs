@@ -25,12 +25,12 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
   await page.locator('.account-geofences').waitFor();
   assert.match(await page.locator('.account-geofences').innerText(),/\$10\/month/);
   await page.locator('.account-close').click();
-  await page.locator('[name=name]').fill('Live preview verification');
+  await page.locator('[name=name]').fill('Live preview verification');await page.locator('[name=description]').fill('Preview this circle.');
   await page.locator('[name=mode][value=coordinates]').check();
   assert.equal(await page.locator('[name=address]').isDisabled(),true);
   await page.locator('[name=latitude]').fill('30.2672');
   await page.locator('[name=longitude]').fill('-97.7431');
-  await page.locator('[name=diameter]').fill('50');
+  await page.locator('[name=diameter]').fill('50');await page.locator('[name=invitation]').first().fill('preview@example.invalid');
   await page.locator('#geo-preview').click();
   await page.locator('#geo-form-status').filter({hasText:'Check the circle'}).waitFor();
   assert.equal(await page.locator('#geo-pay').isDisabled(),true);

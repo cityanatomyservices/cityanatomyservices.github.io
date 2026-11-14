@@ -37,6 +37,7 @@ jobs:
         run: |
           psql -v ON_ERROR_STOP=1 -f tests/classifieds/bootstrap.sql
           psql -v ON_ERROR_STOP=1 -c 'create role service_role bypassrls;'
+          psql -v ON_ERROR_STOP=1 -c 'create table public.profiles(id uuid primary key references auth.users(id) on delete cascade, handle text);'
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0012_billing.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0014_substack_billing.sql
           psql -v ON_ERROR_STOP=1 -c 'create schema cron; create function cron.schedule(text,text,text) returns bigint language sql as $$select 1::bigint$$;'
@@ -44,12 +45,16 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0019_temporary_testing_billing.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0020_geofence_email.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0021_geofence_diameter.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/0022_geofence_invitations.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/0023_geofence_chat_sessions.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/database.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/substack.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/storage.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/free-testing.sql
           psql -v ON_ERROR_STOP=1 -f tests/geofences/email.sql
           psql -v ON_ERROR_STOP=1 -f tests/geofences/database.sql
+          psql -v ON_ERROR_STOP=1 -f tests/geofences/invitations.sql
+          psql -v ON_ERROR_STOP=1 -f tests/geofences/chat-sessions.sql
       - name: Private report destinations, spreadsheet safety and verified dates
         run: python3 -m unittest discover -s tests/billing -p 'test_*.py'
       - name: Deployment helper syntax

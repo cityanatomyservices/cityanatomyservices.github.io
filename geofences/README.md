@@ -4,6 +4,11 @@ The owner approved **$10 USD per month per geofence**, a **10–500 meter diamet
 and permanent links such as `https://austin.chat/geofences/?id=<UUID>`.
 This is a separate subscription from Free/Pro. The account card opens
 `/geofences/manage/`. Address and coordinate fields are mutually exclusive.
+The inline wizard asks for a title, description, location, circle size, and at
+least one invitation email before revealing map review. Each valid email adds
+a blank field; addresses can be removed. Editing earlier answers clears the
+preview and confirmation. GPS has its own location choice alongside Austin
+metro addresses and coordinates. The map stays hidden until review.
 The GPS button requests a fresh current position (high accuracy, no cached fix)
 and fills the coordinate center. It does not start location tracking or create
 the circle. Permission denial, timeout and stale fixes leave manual entry
@@ -17,8 +22,8 @@ The 500-meter circle has a 250-meter radius, and GPS accuracy remains capped
 at 50 meters.
 
 **Free testing is temporarily enabled.** Confirmed signed-in owners can create
-or activate circles without a card or charge. The button says "Free while
-testing". These grants are separate from paid records; activated circles keep
+or activate circles without a card or charge. The button says "Create geofence
+& send invitations". These grants are separate from paid records; activated circles keep
 their center/size fixed and work with the same public page, QR and chat gates.
 See [billing testing controls](../billing/README.md#temporary-free-testing-november-13-2026).
 Disabling testing ends temporary access without starting any payment. Existing
@@ -119,6 +124,21 @@ email contains no private notification token. Paid renewals and repeated free
 activation do not duplicate it. Drafts and test-mode Stripe purchases do not send
 share emails. Billing setup is unchanged.
 
+Migration 0022 adds private invitations: up to 25 distinct addresses per circle
+and 100 recipient reservations per owner per day. Draft and recipient changes
+save atomically. Activation queues a separate one-time email with the permanent
+link and PNG QR for each invitee; no recipient list or private alert tokens are
+shared. Repeated activation and renewals do not resend invitations, even after
+email-job cleanup. Owner cards show delivery counts. The form requires the
+configured sender before accepting invitations.
+
+`python tools/geofences/configure-invitations.py --apply --functions` validates
+and installs 0022 and deploys the API/sender. Existing email and billing settings
+remain unchanged. `check-invitations-live.py [--browser]` uses only disposable
+accounts and Resend test recipients, checks delivery and duplicate prevention,
+and removes its fixtures. The browser option exercises the published wizard,
+profile/guest names and text export on desktop and phone.
+
 The creation form and each owned circle offer optional, initially unchecked
 arrival/departure emails. The account email is immediately verified; a different
 address receives a confirmation link before alerts start. Settings, recipients,
@@ -171,12 +191,27 @@ registered account: the existing temporary Supabase guest session suffices.
 This isolated chat uses short-lived database presence/messages, polled every
 three seconds while open. Each request checks active access, radius,
 GPS accuracy (at most half the diameter or 50m), and a fix no older than 45s.
-The server does not retain the submitted coordinates. It assigns an anonymous
-visitor nickname, returns no account/email IDs, and exposes only messages since
-that visitor joined. Server rate limiting permits one message per second.
+The server does not retain submitted device coordinates. Visitors can choose
+an anonymous name or, when signed in, their profile name. Profile names are
+resolved on the server and cannot be claimed by guests. The API returns no
+account/email IDs and exposes only messages since that visitor joined the
+current conversation. Server rate limiting permits one message per second.
 Leaving, backgrounding or changing accounts clears the visible conversation;
-presence expires after 20s if a browser disappears. Messages expire after two
-minutes and a five-minute cron removes stale rows (also pruned during use).
+presence expires after 20s if a browser disappears.
+
+Migration 0023 groups messages into conversations. A conversation ends when
+its last participant leaves or expires; later visitors start a new conversation.
+The five-minute cleanup removes ended conversations and their messages after
+23 hours 50 minutes, leaving scheduling margin for the promised 24-hour limit.
+Active conversations are retained until they end. The old chat RPC delegates
+to the new implementation so previously opened pages remain compatible.
+`python tools/geofences/configure-chat.py --apply` validates and installs 0023.
+
+Export chat downloads a plain-text copy in the browser, containing messages
+received during this visit (up to the latest 10,000). It includes names, times
+and message text, without account IDs or device coordinates. Export before
+leaving; no server history or export endpoint is exposed. Both creation and
+public pages display the owner's explanatory and privacy text.
 
 Phone GPS is browser-reported and can be spoofed; this is a location-based
 social feature, not physical access control or proof of presence. Small circles

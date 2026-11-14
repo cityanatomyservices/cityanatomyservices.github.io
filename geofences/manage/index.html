@@ -21,6 +21,8 @@
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
 <link rel="stylesheet" href="/geofences/style.css?v=20261113b">
 <link rel="stylesheet" href="/geofences/address.css?v=20261114a">
+<link rel="stylesheet" href="/geofences/wizard.css?v=20261114c">
+<link rel="stylesheet" href="/geofences/chat.css?v=20261114c">
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
 <script src="/geofences/vendor/qrcode.js?v=2.0.4"></script>
 </head>
@@ -30,33 +32,49 @@
 <p class="geofence-intro">Create a small circle where people can chat using their phone’s location. <strong id="geo-pricing">$10 USD per month for each geofence, billed monthly.</strong> Includes a permanent page and shareable QR code. Separate from Pro membership; visitors chat for free.</p>
 <div id="geo-signin" hidden><p>Sign in to create or manage your geofences.</p><button id="geo-signin-button">Sign In</button></div>
 <div id="geo-member" hidden>
-<div class="geofence-grid"><form id="geofence-form" class="geofence-form">
-<h2>Create a geofence</h2>
-<label>Name<input name="name" maxlength="80" required placeholder="Courtyard chat"></label>
-<label>Brief description<textarea name="description" maxlength="400" placeholder="What should visitors know?"></textarea></label>
-<fieldset><legend>Choose the center</legend><div class="geofence-modes"><label><input type="radio" name="mode" value="address" checked> Austin metro address</label><label><input type="radio" name="mode" value="coordinates"> Coordinates</label></div>
-<button type="button" id="geo-gps">GPS · Use my location</button><small>Use your current location as the center, then check the circle on the map.</small>
+<div class="geofence-grid"><form id="geofence-form" class="geofence-form geofence-wizard">
+<h2>Create a geofence</h2><p class="geo-wizard-intro">A few details, a place, and the people you want to bring together.</p>
+<div class="geo-progress"><progress id="geo-progress-bar" max="5" value="0" aria-label="Creation progress"></progress><span id="geo-progress" role="status">Step 1 of 5</span></div>
+<fieldset id="geo-step-name" class="geo-step"><legend><span class="geo-step-number" aria-hidden="true">1</span>What do you want to call this geofence?</legend>
+<label><span class="geo-field-label">Geofence title</span><input name="name" maxlength="80" required placeholder="e.g. Saturday at the park"></label><small>Choose a name your guests will recognize.</small></fieldset>
+<fieldset id="geo-step-description" class="geo-step" hidden disabled><legend><span class="geo-step-number" aria-hidden="true">2</span>How would you describe it?</legend>
+<label><span class="geo-field-label">Description</span><textarea name="description" maxlength="400" required placeholder="What is the gathering about? What should people know?"></textarea></label></fieldset>
+<fieldset id="geo-step-location" class="geo-step" hidden disabled><legend><span class="geo-step-number" aria-hidden="true">3</span>Where will it be located?</legend>
+<div class="geofence-modes"><label><input type="radio" name="mode" value="address" checked> Address</label><label><input type="radio" name="mode" value="coordinates"> Coordinates</label><label><input type="radio" name="mode" value="gps"> GPS</label></div>
 <div id="geo-address-fields">
 <div class="geofence-address-combobox"><label for="geo-address">Full street address</label><input id="geo-address" name="address" maxlength="240" placeholder="Start typing, e.g. 301 W 2nd" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="geo-results" aria-describedby="geo-address-help geo-address-status"><div id="geo-results" class="geofence-address-options" role="listbox" aria-label="Austin metro street addresses" hidden></div></div>
 <small id="geo-address-help">Austin metro only: Travis, Williamson, Hays, Bastrop and Caldwell counties. Include the city to narrow your matches.</small>
 <p id="geo-address-status" role="status" aria-live="polite"></p><button type="button" id="geo-search">Find address</button>
 <small class="geofence-address-credit">Address data: <a href="https://www.arcgis.com/home/item.html?id=7c6a142594ec463487c07c0af7885e89" target="_blank" rel="noopener">CAPCOG</a> and U.S. Census. Check the map before activating.</small>
 </div>
-<div id="geo-coordinate-fields" class="geofence-coordinates" hidden><label>Latitude<input name="latitude" type="number" step="any" min="-85" max="85" disabled></label><label>Longitude<input name="longitude" type="number" step="any" min="-180" max="180" disabled></label></div></fieldset>
-<label>Circle diameter (meters)<input name="diameter" type="number" min="10" max="500" step="1" value="50" required></label><small>10–500 meters across (about 33–1,640 feet). This is the diameter, not the radius.</small>
-<div class="geofence-actions"><button type="button" id="geo-preview">Show location on map</button></div>
-<fieldset class="geofence-email-settings"><legend>Email notifications</legend>
-<p class="geofence-email-note">When activated, your geofence link and QR code will be emailed to your account email so you can forward them to guests.</p>
+<div id="geo-coordinate-fields" class="geofence-coordinates" hidden><label>Latitude<input name="latitude" type="number" step="any" min="-85" max="85" placeholder="30.2672" disabled></label><label>Longitude<input name="longitude" type="number" step="any" min="-180" max="180" placeholder="-97.7431" disabled></label></div>
+<div id="geo-gps-fields" hidden><p>Use the place where you are standing now. Your browser will ask to use your location.</p><button type="button" id="geo-gps">Use my current location</button><p id="geo-gps-result" role="status"></p></div></fieldset>
+<fieldset id="geo-step-size" class="geo-step" hidden disabled><legend><span class="geo-step-number" aria-hidden="true">4</span>How big will it be?</legend>
+<label>Circle diameter (meters)<input name="diameter" type="number" min="10" max="500" step="1" value="50" required></label><small>10–500 meters across (about 33–1,640 feet). The circle reaches half this distance from its center.</small><button type="button" id="geo-size-next">Use this size</button></fieldset>
+<fieldset id="geo-step-invite" class="geo-step" hidden disabled><legend><span class="geo-step-number" aria-hidden="true">5</span>Who do you want to invite to the geofence chat?</legend>
+<p class="geofence-email-note">Enter one email address per field. A new blank field appears as you add each person. Up to 25 people per geofence.</p>
+<div id="geo-invite-fields"></div><p id="geo-invite-summary" class="geo-invite-summary" role="status">Add at least one person to continue.</p>
+<small>Invitations include the chat link and QR code. They send only after you confirm and create the geofence. Email addresses stay private.</small>
+<p id="geo-email-availability" role="status" hidden>Email invitations are temporarily unavailable. You can preview your circle and try creating it again shortly.</p>
+</fieldset>
+<button class="primary" type="button" id="geo-preview" hidden>View geofence on map</button>
+<section id="geo-review" class="geo-review" hidden><h3>Does everything look right?</h3>
+<p>Check the circle on the map. Your invitations will go to:</p><p id="geo-review-emails"></p>
+<details class="geofence-email-settings"><summary>Optional arrival and departure emails</summary>
 <label class="geofence-check"><input id="geo-notify" type="checkbox" disabled> Email me when visitors enter or leave this geofence chat (optional)</label>
 <label>Notification email<input id="geo-notify-email" type="email" maxlength="254" autocomplete="email" disabled></label>
 <small id="geo-notify-note">Use your account email, or verify a different address. Visitors must open the page and allow location. Leaving can also mean closing the page or losing connection.</small>
-</fieldset>
+</details>
 <label class="geofence-check"><input id="geo-confirm" type="checkbox" disabled> I checked the circle on the map. The name, description and location will be visible to anyone with the link.</label>
 <button class="primary" id="geo-pay" type="submit" disabled>Continue to payment · $10/month</button><small id="geo-billing-note">Renews monthly until canceled. Cancel through Manage billing; access continues through the paid period. Your link stays the same. Location and size are fixed once checkout starts.</small>
+</section>
 <p id="geo-form-status" role="status"></p>
-</form><div class="geofence-preview"><div id="geofence-map" class="geofence-map" aria-label="Preview of your chat circle"></div><p id="geo-preview-caption">Choose an address or coordinates, then show the location to preview your circle.</p><small>Phone GPS may be unreliable indoors, especially for very small circles. Chat requires a recent location accurate enough for the selected circle.</small></div></div>
+</form><div class="geofence-preview"><div id="geo-map-placeholder" class="geo-map-placeholder"><span class="geo-map-mark" aria-hidden="true">⌖</span><strong>A place for your conversation</strong><p>Follow the steps to choose your place, size your circle, and invite your people. You’ll review the map before creating anything.</p></div><div id="geofence-map" class="geofence-map" aria-label="Preview of your chat circle" hidden></div><p id="geo-preview-caption" hidden></p><small id="geo-map-note" hidden>Guests must be inside this circle with location enabled to join the chat. Phone GPS may be less reliable indoors.</small></div></div>
 <h2>Your geofences</h2><button id="geo-refresh">Refresh status</button><p id="geo-list-status" role="status"></p><div id="geo-owned"></div>
-</div></div></main>
+</div><section class="geofence-about" aria-label="About geofence chat">
+<p>A geofence is a virtual boundary on a map. Austin.chat checks whether you’re inside or outside only while you have the geofence page open and allow device location access. There’s no app to install or background tracking.</p>
+<p>Austin.chat is <a href="https://github.com/cityanatomyservices/cityanatomyservices.github.io">open source</a>, and we don’t store your location. You can chat without signing in and choose an anonymous name or use your profile name. Chats are deleted within 24 hours after they end. You can optionally export a copy of the chat to keep.</p>
+</section></div></main>
 <script src="/shell.js?v=20261113a"></script>
-<script type="module" src="/geofences/manage.mjs?v=20261114b"></script>
+<script type="module" src="/geofences/manage.mjs?v=20261114c"></script>
 </body></html>
