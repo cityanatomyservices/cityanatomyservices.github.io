@@ -49,6 +49,7 @@ def main():
                 input=json.dumps(session), capture_output=True, text=True, encoding='utf-8', timeout=180, cwd=ROOT)
             print(result.stdout[:2000], flush=True)
             if result.returncode:
+                print(result.stderr[-2000:], flush=True)  # Browser helper emits only its sanitized error message.
                 raise RuntimeError('Published diameter form verification failed; private session details suppressed')
     finally:
         if owner:

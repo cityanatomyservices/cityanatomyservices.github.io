@@ -28,7 +28,13 @@ do $$declare f jsonb:='{"name":"Courtyard","description":"Test","latitude":30.26
  row:=public.geofence_billing_claim('test',id,owner);lease:=(row->>'lease_id')::uuid;
  perform public.geofence_billing_save('test',id,lease,jsonb_build_object('status','active','pro_until',now()+interval '1 month'));
  perform public.geofence_billing_release('test',id,lease);
- assert public.geofence_read(id) is null,'Test payment must not publish';
+end $$;
+reset role;
+set local role anon;
+do $$begin assert public.geofence_read(current_setting('geotest.space')::uuid) is null,'Test payment must not publish';end $$;
+reset role;
+set local role service_role;
+do $$declare f jsonb:='{"name":"Courtyard","description":"Test","latitude":30.2672,"longitude":-97.7431,"diameter":500}';id uuid:=current_setting('geotest.space')::uuid;owner uuid:=current_setting('geotest.owner')::uuid;row jsonb;lease uuid;begin
  row:=public.geofence_billing_claim('live',id,owner);lease:=(row->>'lease_id')::uuid;
  begin perform public.geofence_billing_claim('live',id,owner);raise exception 'Duplicate lease';exception when sqlstate 'PT409' then null;end;
  begin perform public.geofence_save_draft(owner,id,f);raise exception 'Draft edit during checkout';exception when sqlstate 'PT409' then null;end;
@@ -36,6 +42,10 @@ do $$declare f jsonb:='{"name":"Courtyard","description":"Test","latitude":30.26
  perform public.geofence_billing_save('live',id,lease,jsonb_build_object('customer_id','cus_geotest_'||id,'status','active','pro_until',now()+interval '1 month','cancel_at_period_end',true));
  begin perform public.geofence_billing_save('live',id,lease,'{"customer_id":"wrong"}');raise exception 'Customer switched';exception when raise_exception then if sqlerrm<>'Customer cannot change' then raise;end if;end;
  perform public.geofence_billing_release('live',id,lease);
+end $$;
+reset role;
+set local role anon;
+do $$declare id uuid:=current_setting('geotest.space')::uuid;begin
  assert public.geofence_read(id)->>'name'='Courtyard','Cancel at period end retains paid access';
  assert not(public.geofence_read(id)?'owner_id');
 end $$;
