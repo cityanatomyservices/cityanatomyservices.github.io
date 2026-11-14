@@ -2,6 +2,7 @@ import {validate,validId,pageURL} from './model.mjs?v=20261109h';
 import {call,redirectBilling} from './client.mjs?v=20261109h';
 import {createMap} from './map.mjs?v=20261109h';
 import {qr,copyLink,downloadQR} from './share.mjs?v=20261109h';
+import {addressAutocomplete} from './address.mjs?v=20261114a';
 const $=id=>document.getElementById(id),form=$('geofence-form'),field=name=>form.elements.namedItem(name),S=window.AustinSession;
 const previewHost=document.querySelector('.geofence-preview'),phone=matchMedia('(max-width:700px)');
 function layout(){if(phone.matches)$('geo-confirm').closest('label').before(previewHost);else document.querySelector('.geofence-grid').append(previewHost);}
@@ -26,29 +27,25 @@ function point(){if(field('mode').value==='address'){if(!chosen)throw Error('Fin
 }
 function value(){return validate({name:field('name').value,description:field('description').value,...point(),diameter:Number(field('diameter').value)});}
 async function map(){if(!mapPromise)mapPromise=createMap('geofence-map').then(v=>mapView=v).catch(e=>{mapPromise=null;throw e;});return mapPromise;}
-field('mode').forEach(e=>e.addEventListener('change',()=>{chosen=null;$('geo-results').replaceChildren();field('address').value='';field('latitude').value=field('longitude').value='';$('geo-address-fields').hidden=field('mode').value!=='address';$('geo-coordinate-fields').hidden=field('mode').value!=='coordinates';invalidate();}));
+const addressSearch=addressAutocomplete({input:field('address'),results:$('geo-results'),status:$('geo-address-status'),button:$('geo-search'),lookup:(action,address)=>call(action,{address}),canSearch:()=>!!owner&&!busy&&field('mode').value==='address',onSelect:match=>{chosen=match;invalidate();}});
+field('mode').forEach(e=>e.addEventListener('change',()=>{chosen=null;addressSearch.clear();field('address').value='';field('latitude').value=field('longitude').value='';$('geo-address-fields').hidden=field('mode').value!=='address';$('geo-coordinate-fields').hidden=field('mode').value!=='coordinates';invalidate();}));
 $('geo-gps').onclick=async()=>{
- if(busy)return;invalidate();const run=revision,who=owner;busy=true;controls();message('Finding your current location…');
+ if(busy)return;addressSearch.clear();invalidate();const run=revision,who=owner;busy=true;controls();message('Finding your current location…');
  try{
   if(!navigator.geolocation)throw Error('GPS is unavailable in this browser. Enter an address or coordinates instead.');
   const position=await new Promise((resolve,reject)=>navigator.geolocation.getCurrentPosition(resolve,reject,{enableHighAccuracy:true,maximumAge:0,timeout:20000}));
   if(run!==revision||who!==owner)return;
   const {latitude,longitude,accuracy}=position.coords;
   if(!Number.isFinite(latitude)||!Number.isFinite(longitude)||Math.abs(latitude)>85||Math.abs(longitude)>180||!Number.isFinite(position.timestamp)||Date.now()-position.timestamp>45000||position.timestamp>Date.now()+5000)throw Error('GPS did not return a fresh location. Try again or enter coordinates.');
-  field('mode').value='coordinates';chosen=null;field('address').value='';$('geo-results').replaceChildren();$('geo-address-fields').hidden=true;$('geo-coordinate-fields').hidden=false;
+  field('mode').value='coordinates';chosen=null;field('address').value='';addressSearch.clear();$('geo-address-fields').hidden=true;$('geo-coordinate-fields').hidden=false;
   field('latitude').value=latitude.toFixed(6);field('longitude').value=longitude.toFixed(6);
   message('Current location selected'+(Number.isFinite(accuracy)?' · about '+Math.round(accuracy)+' m accuracy':'')+'. Show the location on the map and check the circle.');
  }catch(error){if(run===revision&&who===owner)message(error.code===1?'Location permission is off. Allow it or enter an address or coordinates.':error.code===3?'GPS timed out. Try again outdoors or enter coordinates.':error.message||'Could not find your location. Try again or enter coordinates.');}
  finally{if(run===revision&&who===owner){busy=false;controls();}}
 };
-form.addEventListener('input',e=>{if(['geo-confirm','geo-notify','geo-notify-email'].includes(e.target.id)){controls();return;}if(e.target.name==='address'){chosen=null;$('geo-results').replaceChildren();}invalidate();
+form.addEventListener('input',e=>{if(['geo-confirm','geo-notify','geo-notify-email'].includes(e.target.id)){controls();return;}if(e.target.name==='address')chosen=null;invalidate();
  if(e.target.name==='diameter'&&mapView){try{mapView.draw(value(),false);$('geo-preview-caption').textContent=field('diameter').value+' meters across. Show location again to confirm this size.';}catch{}}
 });
-$('geo-search').onclick=async()=>{const run=revision,who=owner;busy=true;controls();$('geo-results').textContent='Looking up address…';
- try{const data=await call('geocode',{address:field('address').value});if(run!==revision||who!==owner)return;$('geo-results').replaceChildren();
- if(!data.matches.length)$('geo-results').textContent='No matching address found. Try a full street address or use coordinates.';
- for(const match of data.matches){const b=node('button',match.label);b.type='button';b.onclick=()=>{chosen=match;field('address').value=match.label;$('geo-results').textContent='Address selected. Show the location on the map to check it.';invalidate();};$('geo-results').append(b);}
- }catch(e){if(who===owner)$('geo-results').textContent=e.message;}finally{if(who===owner){busy=false;controls();}}};
 $('geo-preview').onclick=async()=>{const run=revision,who=owner;busy=true;controls();message('Loading map preview…');try{const data=value(),view=await map();if(run!==revision||who!==owner)return;view.draw(data);preview=data;if(phone.matches)$('geofence-map').scrollIntoView({behavior:'smooth',block:'center'});$('geo-preview-caption').textContent=`${data.diameter} meters across · ${data.latitude.toFixed(6)}, ${data.longitude.toFixed(6)}`;message('Check the circle, then confirm the location below.');}catch(e){if(who===owner)message(e.message);}finally{if(who===owner){busy=false;controls();}}};
 form.onsubmit=async e=>{e.preventDefault();if(busy||!preview||!$('geo-confirm').checked||!checkoutEnabled)return;const who=owner;busy=true;controls();message('Saving your geofence…');try{await call('save',{id:draftId,fields:preview});if(who!==owner)return;if(emailReady){await call('notifications',{id:draftId,enabled:$('geo-notify').checked,email:$('geo-notify').checked?$('geo-notify-email').value:S.user.email});if(who!==owner)return;}message(freeTesting?'Activating your geofence…':'Opening secure payment…');const data=await call('checkout',{id:draftId});if(who!==owner)return;if(data.activated===true){draftId=crypto.randomUUID();invalidate();await list();message('Your geofence is active for free while testing. Open its permanent link or download the QR code below.');$('geo-owned').scrollIntoView({behavior:'smooth',block:'start'});}else redirectBilling(data.url);}catch(error){if(who===owner){await list();message(error.message+' If this geofence appears below, use its activation button to retry.');}}finally{if(who===owner){busy=false;controls();}}};
 async function list(){const who=owner;if(!who)return;$('geo-list-status').textContent='Loading your geofences…';
@@ -77,7 +74,7 @@ async function list(){const who=owner;if(!who)return;$('geo-list-status').textCo
  }catch(e){if(who===owner)$('geo-list-status').textContent=e.message;}
 }
 $('geo-refresh').onclick=list;$('geo-signin-button').onclick=()=>window.AustinAccount?.open();
-async function account(){await S.peek();const next=S.registered?S.user.id:null;if(next===owner)return;owner=next;revision++;busy=false;chosen=null;preview=null;checkoutEnabled=false;draftId=crypto.randomUUID();form.reset();$('geo-notify-email').value=S.user?.email||'';$('geo-results').replaceChildren();$('geo-owned').replaceChildren();message('');$('geo-address-fields').hidden=false;$('geo-coordinate-fields').hidden=true;$('geo-member').hidden=!owner;$('geo-signin').hidden=!!owner;controls();if(owner){await list();map().catch(e=>message(e.message));}}
+async function account(){await S.peek();const next=S.registered?S.user.id:null;if(next===owner)return;owner=next;revision++;busy=false;chosen=null;preview=null;checkoutEnabled=false;draftId=crypto.randomUUID();form.reset();$('geo-notify-email').value=S.user?.email||'';addressSearch.clear();$('geo-owned').replaceChildren();message('');$('geo-address-fields').hidden=false;$('geo-coordinate-fields').hidden=true;$('geo-member').hidden=!owner;$('geo-signin').hidden=!!owner;controls();if(owner){await list();map().catch(e=>message(e.message));}}
 S.subscribe(()=>account());await account();if(!owner){$('geo-signin').hidden=false;$('geo-member').hidden=true;}
 if(!owner){try{const {data}=await S.client().rpc('access_testing_status');if(!owner){freeTesting=data?.geofencesEnabled===true;pricing();}}catch{}}
 const params=new URLSearchParams(location.search),returned=params.get('id');

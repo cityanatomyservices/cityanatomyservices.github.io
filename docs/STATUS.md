@@ -1,5 +1,41 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-14 - Austin metro address suggestions for geofence creation
+
+The Full street address field on `/geofences/manage/` now offers up to six
+matches while typing a street number and name, with keyboard and touch
+selection. CAPCOG Regional Address Points supply the suggestions. The server
+restricts both suggestions and the retained Census full-address fallback to
+Texas addresses in Travis, Williamson, Hays, Bastrop and Caldwell counties.
+This is a county restriction, not a search bias or rectangular metro boundary.
+No paid geocoding key or OpenAI API integration is required.
+
+Debouncing and serialized requests retain the existing three-second account
+limit. Late responses cannot replace a newer query, changed account or changed
+location mode. Editing a selected address clears its location/confirmation;
+the existing map preview and explicit confirmation still apply. GPS and manual
+coordinates are unchanged. The manage module and new address CSS/JS use
+`20261114a`; no shared styles changed.
+
+Validation so far: all 86 billing/geofence Node tests, JavaScript syntax and
+diff checks pass. The desktop/390px fixture browser verifies suggestions,
+keyboard/click selection, debounce, outside-area empty state, outage/retry,
+stale responses, preview invalidation and existing geofence flows. Direct
+provider checks covered all five counties and excluded Dallas, Llano and
+Austin, Minnesota. A real Census fallback returned the Austin City Hall
+address with the required county geography. Only the `geofences` Edge function
+was redeployed; no database migration or billing/email configuration change.
+
+Deployed lookup passed with a disposable confirmed account: matches in all
+five counties, no matches in Dallas/Llano/Austin MN, rejected unauthenticated
+suggestions, and no Dallas match through the full-address fallback. The
+temporary account was removed.
+
+Remaining release checks: Pages publication and real published desktop/phone
+autocomplete. Use
+`tools/geofences/check-address-live.py --browser`; it removes its temporary
+account and never saves a circle, starts a purchase or sends email.
+
 ## 2026-11-14 - Repair Explore refresh for Creek Show address formatting
 
 The reported Actions `exit 1` came from Explore run `43587715406`:

@@ -20,6 +20,7 @@
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
 <link rel="stylesheet" href="/geofences/style.css?v=20261113b">
+<link rel="stylesheet" href="/geofences/address.css?v=20261114a">
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
 <script src="/geofences/vendor/qrcode.js?v=2.0.4"></script>
 </head>
@@ -33,9 +34,14 @@
 <h2>Create a geofence</h2>
 <label>Name<input name="name" maxlength="80" required placeholder="Courtyard chat"></label>
 <label>Brief description<textarea name="description" maxlength="400" placeholder="What should visitors know?"></textarea></label>
-<fieldset><legend>Choose the center</legend><div class="geofence-modes"><label><input type="radio" name="mode" value="address" checked> U.S. address</label><label><input type="radio" name="mode" value="coordinates"> Coordinates</label></div>
+<fieldset><legend>Choose the center</legend><div class="geofence-modes"><label><input type="radio" name="mode" value="address" checked> Austin metro address</label><label><input type="radio" name="mode" value="coordinates"> Coordinates</label></div>
 <button type="button" id="geo-gps">GPS · Use my location</button><small>Use your current location as the center, then check the circle on the map.</small>
-<div id="geo-address-fields"><label>Full street address<input name="address" maxlength="240" placeholder="Street, city, state, ZIP"></label><button type="button" id="geo-search">Find address</button><small>U.S. Census address lookup. Results are estimated; check the map before activating.</small><div id="geo-results" class="geofence-results" role="status"></div></div>
+<div id="geo-address-fields">
+<div class="geofence-address-combobox"><label for="geo-address">Full street address</label><input id="geo-address" name="address" maxlength="240" placeholder="Start typing, e.g. 301 W 2nd" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="geo-results" aria-describedby="geo-address-help geo-address-status"><div id="geo-results" class="geofence-address-options" role="listbox" aria-label="Austin metro street addresses" hidden></div></div>
+<small id="geo-address-help">Austin metro only: Travis, Williamson, Hays, Bastrop and Caldwell counties. Include the city to narrow your matches.</small>
+<p id="geo-address-status" role="status" aria-live="polite"></p><button type="button" id="geo-search">Find address</button>
+<small class="geofence-address-credit">Address data: <a href="https://www.arcgis.com/home/item.html?id=7c6a142594ec463487c07c0af7885e89" target="_blank" rel="noopener">CAPCOG</a> and U.S. Census. Check the map before activating.</small>
+</div>
 <div id="geo-coordinate-fields" class="geofence-coordinates" hidden><label>Latitude<input name="latitude" type="number" step="any" min="-85" max="85" disabled></label><label>Longitude<input name="longitude" type="number" step="any" min="-180" max="180" disabled></label></div></fieldset>
 <label>Circle diameter (meters)<input name="diameter" type="number" min="10" max="100" step="1" value="50" required></label><small>10–100 meters across (about 33–328 feet). This is the diameter, not the radius.</small>
 <div class="geofence-actions"><button type="button" id="geo-preview">Show location on map</button></div>
@@ -52,5 +58,5 @@
 <h2>Your geofences</h2><button id="geo-refresh">Refresh status</button><p id="geo-list-status" role="status"></p><div id="geo-owned"></div>
 </div></div></main>
 <script src="/shell.js?v=20261113a"></script>
-<script type="module" src="/geofences/manage.mjs?v=20261113c"></script>
+<script type="module" src="/geofences/manage.mjs?v=20261114a"></script>
 </body></html>

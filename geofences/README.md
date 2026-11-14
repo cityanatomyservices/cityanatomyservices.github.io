@@ -28,10 +28,22 @@ locations are committed to Git. The UUID remains unchanged on cancellation or
 renewal; inactive links display an unavailable message. There is no directory.
 The page does not load the main Explore/planner iframe or Special Events data.
 
-Address lookup uses the free [Census Geocoding API](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html)
-through the authenticated function, with a three-second per-account limit.
-It supports U.S. addresses and estimates positions along streets. Users must
-check the map; coordinates are the alternative. No Nominatim dependency.
+Full street address suggests matches as the owner types a street number and
+name. The address box is restricted to the Austin metro's five counties:
+Travis, Williamson, Hays, Bastrop and Caldwell. The authenticated `suggest`
+action queries [CAPCOG Regional Address Points](https://www.arcgis.com/home/item.html?id=7c6a142594ec463487c07c0af7885e89)
+with a Texas/county filter, then checks each returned county and coordinate.
+It returns up to six distinct addresses, with Austin matches first. No API key
+or paid geocoding account is needed.
+
+Typing is debounced, requests respect the existing three-second per-account
+limit, and stale responses are discarded. The dropdown supports touch, arrow
+keys, Enter and Escape. Editing an address invalidates the selected location
+and map confirmation. **Find address** retains a full-address fallback through
+the [Census Geocoding API](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html),
+with the same five-county check using Census geography codes. Out-of-area
+addresses are excluded from both lookup paths. Users still check the map;
+GPS and coordinate entry remain available. No Nominatim dependency.
 QR codes are generated locally using vendored MIT-licensed
 [qrcode-generator 2.0.4](https://github.com/kazuhikoarase/qrcode-generator).
 No customer link is sent to a QR service.
@@ -179,6 +191,10 @@ check, as with Studio Tour chat.
 - `python3 tools/geofences/deploy.py` (database checks; rolled-back fixtures)
 - `node tools/geofences/check-browser.cjs [site-url]` (fixture account/payment/chat,
   real MapLibre, desktop and phone; `PHONE_ONLY=1` narrows to phone)
+- `python3 tools/geofences/check-address-live.py [--browser]` (deployed address
+  lookup in all five counties, excluded regions and authentication; optional
+  published phone/desktop autocomplete with a disposable account; no saved
+  circles, payments or email)
 - `python3 tools/geofences/check-backend.py` (disposable confirmed accounts,
   real Census lookup/API ownership/size checks; expects checkout OFF and removes
   its own drafts/accounts; creates no Stripe objects)
