@@ -77,7 +77,7 @@ async function routeCount(f,count){
   await ownMap(f,2);await routeCount(f,0);
   await f.evaluate(()=>{mapHooks.onPeople([{handle:'Late fixture neighbor',emoji:'🦊',pos:[-97.73,30.28]}],{});mapHooks.onPlace({id:'late-business',name:'Late business',lat:30.28,lng:-97.73});});await ownMap(f,2);
   await f.evaluate(()=>mapHooks.onPeople([]));
-  await f.locator('#plan-route').click();await routeCount(f,1);
+  await f.locator('#plan-upcoming').selectOption(day);await f.locator('#plan-finish-stops').click();await routeCount(f,1);
   assert.deepEqual(rpcCalls[0].p_from,points[0]);assert.deepEqual(rpcCalls[0].p_to,points[1]);
   await f.waitForFunction(()=>chatMap.queryRenderedFeatures({layers:['planner-route-lines']}).length>0);
   await f.evaluate(()=>{window.originalMap=chatMap;window.originalVisit=AustinVisit.id;});
@@ -102,12 +102,12 @@ async function routeCount(f,count){
   await page.goBack();await f.waitForFunction(()=>!PlanPanel.active);await routeCount(f,0);
   await page.goForward();await f.waitForFunction(()=>PlanPanel.active);await ownMap(f,2);await routeCount(f,1);
   assert.equal(await f.evaluate(()=>chatMap===originalMap&&AustinVisit.id===originalVisit),true,'one map and guest visit across mode changes and browser history');
-  await f.evaluate(()=>PlanPanel.open());holdNext=true;await f.locator('#plan-route').click();
+  await f.evaluate(()=>PlanPanel.open());await f.locator('#plan-upcoming').selectOption(day);await f.locator('[data-plan-step=travel]').click();holdNext=true;await f.locator('#plan-route').click();
   for(let i=0;!held&&i<100;i++)await new Promise(resolve=>setTimeout(resolve,50));assert.ok(held,'a route request is in flight');
   await f.evaluate(day=>PlanStore.chooseDay(day),otherDay);await ownMap(f,0);await routeCount(f,0);held();
   await f.waitForFunction(()=>!PlanRouting.state.busy);await ownMap(f,0);await routeCount(f,0);
   await f.evaluate(day=>PlanStore.chooseDay(day),day);await ownMap(f,2);await routeCount(f,1);
-  await f.getByRole('button',{name:'Remove Selected second stop',exact:true}).click();await ownMap(f,1);await routeCount(f,0);
+  await f.locator('[data-plan-step=times]').click();await f.locator('#plan-show-all').click();await f.getByRole('button',{name:'Remove Selected second stop',exact:true}).click();await ownMap(f,1);await routeCount(f,0);
   await f.evaluate(async feature=>{await PlanStore.select(PlanSources.feature(feature),true);},features[1]);await ownMap(f,2);await routeCount(f,1);
   await page.screenshot({path:`/tmp/planner-selected-map-${width}-${member?'member':'guest'}.png`});
   await page.locator('.brand').click();await page.waitForURL(base+'/');f=await frame(page);await f.waitForFunction(()=>austinExplore.visibleItems.length===3);

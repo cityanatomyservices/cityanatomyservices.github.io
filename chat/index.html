@@ -40,6 +40,7 @@
   <script src="./theme.js?v=20261028g"></script>
   <link rel="stylesheet" href="/planner/select.css?v=20261029v">
   <link rel="stylesheet" href="/planner/app.css?v=20261102g">
+  <link rel="stylesheet" href="/planner/wizard.css?v=20261114d">
   <link rel="stylesheet" href="/classifieds/style.css?v=20261104c">
   <link rel="stylesheet" href="/shared/comments.css?v=20261030e">
 <script src="/shared/map-ui.js?v=20261113a"></script>
@@ -127,18 +128,44 @@
       <p class="explore-note" id="directoryStatus" role="status">Finding your neighborhood…</p>
       <div class="place-list" id="placeList"></div>
     </details>
-    <section id="plan-panel" class="plan-panel" aria-labelledby="plan-title" hidden inert aria-hidden="true">
-      <header class="plan-heading"><div><p class="plan-eyebrow">A day in Austin</p><h1 id="plan-title">Austin day Planner</h1></div><div class="plan-heading-actions"><button type="button" data-plan-explore>+ Add places</button><button type="button" id="export-plan" aria-haspopup="dialog" aria-controls="export-dialog" disabled>Export</button><button type="button" id="plan-panel-close" aria-label="Hide planner">×</button></div></header>
-      <p class="plan-intro">Choose a day, then arrange its stops. Explore and plan on this map.</p>
-      <div class="save-line"><span id="save-status" role="status">Opening your plan…</span><button type="button" id="retry-save" class="text-button">Retry save</button></div>
-      <div id="save-conflict" hidden><p>A newer copy was saved elsewhere. Your edits are still in this browser.</p><button type="button" id="keep-local">Save this copy</button> <button type="button" id="use-remote">Use saved copy</button></div>
-      <div class="plan-day-picker"><label>Plan day<select id="plan-day" aria-label="Plan day"></select></label><button type="button" id="add-day">+ Add day</button></div>
-      <p class="day-boundary">5:00 AM–4:59 AM the following morning · Austin time</p>
-      <p class="overnight-help">Times before 5 AM belong to the following morning.</p>
-      <dialog id="day-dialog"><form id="add-day-form"><h2>Add a plan day</h2><label>Date<input id="new-day-date" type="date" required min="2020-01-01" max="2099-12-31"></label><p>Each day runs from 5 AM until 5 AM the following morning. Existing days keep their own stops.</p><div class="build-row"><button type="button" id="cancel-day">Cancel</button><button type="submit" class="primary">Open day</button></div></form></dialog>
-      <div class="plan-map-actions"><button type="button" id="fit-plan">Show day’s stops</button><button type="button" data-plan-map>Show map</button></div>
-      <div class="build-row"><button type="button" id="build-day" class="primary">Build my day</button><button type="button" id="undo" disabled>Undo</button></div>
-      <p class="build-help">Fixed starts and locked stops stay put. Flexible stops fill the gaps in your preferred order.</p>
+    <section id="plan-panel" class="plan-panel plan-wizard" aria-labelledby="plan-title" hidden inert aria-hidden="true">
+      <header class="plan-heading"><div><p class="plan-eyebrow">A day in Austin</p><h1 id="plan-title">Austin day Planner</h1></div><button type="button" id="plan-panel-close" aria-label="Hide planner">×</button></header>
+      <div id="plan-start">
+        <label id="plan-upcoming-label" hidden>Upcoming day plans<select id="plan-upcoming" aria-label="Upcoming day plans"></select></label>
+        <button type="button" id="add-day" class="primary">Create New Day Plan</button>
+      </div>
+      <div id="plan-workspace" hidden>
+        <div class="plan-wizard-top"><button type="button" id="plan-start-over" class="text-button">All day plans</button><button type="button" id="undo" disabled>Undo</button></div>
+        <nav id="plan-progress" aria-label="Day plan steps">
+          <button type="button" data-plan-step="date">1 <span>Date</span></button><button type="button" data-plan-step="places">2 <span>Places</span></button><button type="button" data-plan-step="times">3 <span>Times</span></button><button type="button" data-plan-step="travel">4 <span>Travel</span></button><button type="button" data-plan-step="review">5 <span>Review</span></button>
+        </nav>
+        <div class="plan-day-picker" id="plan-day-picker"><label>Your plan<select id="plan-day" aria-label="Plan day"></select></label><button type="button" id="plan-change-date">New day</button></div>
+        <div class="save-line"><span id="save-status" role="status">Opening your plan…</span><button type="button" id="retry-save" class="text-button">Retry save</button></div>
+        <div id="plan-message" role="status" aria-live="polite"></div>
+        <section id="plan-step-date" class="plan-step" hidden>
+          <h2 tabindex="-1">When is your day in Austin?</h2><p>Choose the date once. Then just enter a time for each stop.</p>
+          <form id="add-day-form"><label>Date<input id="new-day-date" type="date" required min="2020-01-01" max="2099-12-31"></label><p class="day-boundary">One day: 5 AM until 5 AM the following morning, Austin time.</p><div class="plan-next"><button type="button" id="cancel-day">Back</button><button type="submit" class="primary">Choose places →</button></div></form>
+          <button type="button" data-plan-restore class="text-button">Restore downloaded day plans</button>
+        </section>
+        <section id="plan-step-places" class="plan-step" hidden>
+          <h2 tabindex="-1">Where would you like to go?</h2><p>Find places, events or City Hall meetings in Explore. Check <strong>Day Planner</strong> beside a stop, then come back here.</p>
+          <div id="plan-empty" hidden><p>Your day is ready for its first stop.</p></div>
+          <ul id="plan-chosen-stops" aria-label="Places in this day"></ul>
+          <button type="button" class="primary" data-plan-explore>Explore & add places</button>
+          <div class="plan-next"><button type="button" data-plan-restore class="text-button">Restore a plan</button><button type="button" data-plan-go="times" class="primary">Set stop times →</button></div>
+        </section>
+        <section id="plan-step-times" class="plan-step" hidden>
+          <h2 tabindex="-1">When do you want to arrive?</h2><p>Enter a time and visit length for each stop. Times before 5 AM mean the following morning.</p>
+          <p id="plan-time-warning" role="status" aria-live="polite"></p>
+          <div class="plan-stop-progress"><span id="plan-stop-count"></span><button type="button" id="plan-show-all" class="text-button">See all stops</button></div>
+          <div class="plan-view" role="group" aria-label="Itinerary view"><button type="button" id="view-timeline" aria-pressed="true">Timeline</button><button type="button" id="view-order" aria-pressed="false">Preferred order</button></div>
+          <ol id="plan-items" aria-label="Selected places and events"></ol>
+          <div id="plan-stop-paging" class="plan-next"><button type="button" id="plan-previous-stop">Previous stop</button><button type="button" id="plan-next-stop" class="primary">Next stop →</button></div>
+          <details class="plan-auto"><summary>Help arrange flexible stops</summary><p>Fixed starts and locked stops stay put. Flexible stops fill gaps in your preferred order.</p><button type="button" id="build-day">Build my day</button></details>
+          <div class="plan-next"><button type="button" data-plan-explore>Add another stop</button><button type="button" id="plan-finish-stops" class="primary">I'm done — plan my route</button></div>
+        </section>
+        <section id="plan-step-travel" class="plan-step" hidden>
+          <h2 tabindex="-1">How will your stops fit together?</h2><p>Estimate the drive, then adjust times if needed. Your visits stay where you put them unless you choose Fit travel times.</p>
       <section class="route-panel" aria-label="Travel planning">
         <div class="build-row"><button type="button" id="plan-route" class="primary">Plan route</button><button type="button" id="fit-travel" disabled>Fit travel times</button></div>
         <p id="route-status" role="status" aria-live="polite">Schedule at least two stops to estimate the journeys between them.</p>
@@ -152,12 +179,17 @@
         </details>
         <p class="route-disclaimer">Planning estimates · live traffic not included. Confirm the drive in your navigation app before leaving.</p>
       </section>
-      <div id="plan-message" role="status" aria-live="polite"></div>
-      <div id="plan-summary"></div>
-      <div class="plan-view" role="group" aria-label="Itinerary view"><button type="button" id="view-timeline" aria-pressed="true">Timeline</button><button type="button" id="view-order" aria-pressed="false">Preferred order</button></div>
-      <ol id="plan-items" aria-label="Selected places and events"></ol>
-      <div id="plan-empty" hidden><h2>Your day starts here</h2><p>Check “Day Planner” beside an Explore Austin listing, City Hall meeting or neighborhood business, then arrange your stops here.</p><button type="button" class="primary" data-plan-explore>Explore Austin →</button></div>
-      <p class="plan-footnote">Saving a place doesn’t book admission or make you visible in chat. Check the source for changes before going.</p>
+          <div class="plan-next"><button type="button" data-plan-go="times">Back to stop times</button><button type="button" data-plan-go="review" class="primary">Review my day →</button></div>
+        </section>
+        <section id="plan-step-review" class="plan-step" hidden>
+          <h2 tabindex="-1">Your day, ready to review</h2><div id="plan-summary"></div><p id="plan-review-warning" role="status"></p><ol id="plan-review-stops"></ol>
+          <div class="plan-map-actions"><button type="button" id="fit-plan">Show day's stops</button><button type="button" data-plan-map>Show map</button></div>
+          <button type="button" id="export-plan" class="primary" aria-haspopup="dialog" aria-controls="export-dialog" disabled>Export to calendar or maps</button>
+          <div class="plan-next"><button type="button" data-plan-go="times">Edit stops & times</button><button type="button" data-plan-explore>Add another stop</button></div>
+          <p class="plan-footnote">Saving a place doesn't book admission or make you visible in chat. Check the source before going.</p>
+        </section>
+      </div>
+      <div id="save-conflict" hidden><p>A newer copy was saved elsewhere. Your edits are still in this browser.</p><button type="button" id="keep-local">Save this copy</button> <button type="button" id="use-remote">Use saved copy</button></div>
     </section>
     <div id="planner-map-toolbar" hidden><span id="planner-map-day" role="status"></span><button type="button" id="planner-map-edit">Edit day</button><button type="button" data-plan-explore>Explore</button></div>
     <p class="map-caption" id="map-caption" role="status" hidden></p>
@@ -212,10 +244,11 @@
   <script src="/planner/repository.js?v=20261109d"></script>
   <script src="/planner/store.js?v=20261109d"></script>
   <script src="/planner/routing.js?v=20261030a"></script>
-  <script src="/planner/map.js?v=20261109e"></script>
-  <script src="/planner/panel.js?v=20261109e"></script>
-  <script src="/planner/route-panel.js?v=20261102g"></script>
-  <script src="/planner/app.js?v=20261109e"></script>
+  <script src="/planner/map.js?v=20261114d"></script>
+  <script src="/planner/wizard.js?v=20261114d"></script>
+  <script src="/planner/panel.js?v=20261114d"></script>
+  <script src="/planner/route-panel.js?v=20261114d"></script>
+  <script src="/planner/app.js?v=20261114d"></script>
   <script src="/planner/export.js?v=20261109c"></script>
   <script src="/planner/export-ui.js?v=20261109c"></script>
   <script src="/planner/select.js?v=20261102g"></script>

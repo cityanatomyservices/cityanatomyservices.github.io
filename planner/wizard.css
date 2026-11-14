@@ -1,0 +1,30 @@
+.plan-wizard [hidden]{display:none!important}
+.plan-wizard .plan-heading{flex-wrap:nowrap}
+.plan-wizard #plan-start{display:grid;gap:18px;padding:8px 0 2px}
+.plan-wizard #plan-start label{font-size:13px;gap:8px}
+.plan-wizard #add-day{width:100%;min-height:46px}
+.plan-wizard .plan-wizard-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.plan-wizard #plan-progress{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:0 0 18px}
+.plan-wizard #plan-progress button{font-size:12px;min-height:52px;padding:6px 2px;border-radius:9px}
+.plan-wizard #plan-progress span{display:block;font-size:11px;margin-top:2px}
+.plan-wizard #plan-progress [aria-current=step]{border-color:var(--accent);background:var(--accent);color:var(--finish-on-accent);font-weight:700}
+.plan-wizard .plan-step>h2{font-size:21px;letter-spacing:-.3px;margin:4px 0 10px}
+.plan-wizard .plan-step>p,.plan-wizard .plan-step>form>p{color:var(--muted);font-size:13px;line-height:1.55}
+.plan-wizard .plan-step>h2:focus{outline:none}
+.plan-wizard .plan-next{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin:18px 0 8px;padding-top:14px;border-top:1px solid var(--border)}
+.plan-wizard .plan-next .primary{flex:1}
+.plan-wizard .plan-next button{font-size:12px;min-height:42px}
+.plan-wizard #new-day-date{margin-bottom:12px;min-height:42px}
+.plan-wizard #plan-empty{padding:12px;text-align:left;border-radius:10px;background:var(--finish-soft);margin-bottom:14px}
+.plan-wizard #plan-empty p{margin:0}
+.plan-wizard #plan-chosen-stops,.plan-wizard #plan-review-stops{padding-left:22px;margin:14px 0;font-size:13px;overflow-wrap:anywhere}
+.plan-wizard #plan-chosen-stops li,.plan-wizard #plan-review-stops li{margin-bottom:9px}
+.plan-wizard .plan-stop-progress{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:12px 0;font-size:12px;font-weight:650}
+.plan-wizard #plan-time-warning{border-left:3px solid #ac7627;background:var(--finish-soft);padding:10px;border-radius:6px;color:var(--text)}
+.plan-wizard .plan-auto{font-size:12px;margin:16px 0;color:var(--muted)}
+.plan-wizard .plan-auto p{margin:8px 0}
+.plan-wizard #export-plan{width:100%;min-height:44px}
+.plan-wizard #plan-summary{border:0;padding-top:0}
+.plan-wizard #plan-step-places>button{width:100%}
+.plan-wizard .plan-day-picker button{min-height:36px}
+@media(max-width:400px){.plan-wizard .plan-next{flex-direction:column}.plan-wizard .plan-next button{width:100%}.plan-wizard .plan-stop-progress{flex-wrap:wrap}}

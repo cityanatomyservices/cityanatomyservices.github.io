@@ -1,5 +1,27 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-14 - Guided main Day Planner and time prompts
+
+The main Day Plan panel now starts with Upcoming day plans and Create New Day
+Plan, or the button alone if none exist. Only current/upcoming Austin plan days
+with stops appear; unfinished stops count, and past/empty days remain available
+inside the editor. The existing one-plan-per-date collection is preserved.
+
+An inline date step leads to Places, Times, Travel and Review. The user chooses
+the date once, then enters times only. Times guides one stop at a time and shows
+existing overlap, travel and hours warnings after edits. See all stops and the
+existing timeline/order tools remain available. Add another stop returns to
+Explore; I'm done — plan my route estimates driving between scheduled stops.
+It keeps phone guidance open and leaves visit times unchanged until explicit
+Fit travel times. Review offers map and calendar exports. All prior editing,
+backup/restore, undo, map entrance and persistence behavior remains available.
+
+`planner/wizard.js`/CSS are main-only; shared hooks are optional on Special
+Events. Main iframe and changed planner assets use `20261114d`. All 120 planner
+unit tests pass. Chromium wizard and map suites pass for guests/members at
+1280px/390px; export/restore/undo/navigation checks pass at both sizes. Screenshots
+were reviewed in light/dark themes. Publication and deployed verification follow.
+
 ## 2026-11-14 - Guided geofence creation, invitations and chat choices
 
 The owner requested an inline wizard on `/geofences/manage/`, automatic email
@@ -23,11 +45,16 @@ Migrations 0022/0023 are applied and the API/email functions deployed. All 91
 Node billing/geofence tests pass, along with rolled-back invitation, privacy,
 retention, existing database and email checks. Chromium fixture flows pass at
 1280px and 390px, including invalidation, invitations, names and text download.
-Frontend release and production browser verification are in progress.
-
-Next requested work: the main Day Planner should open with only a dropdown of
-upcoming days containing stops plus Create New Day Plan (button alone if none),
-then guide creation/editing inline while preserving all planning functions.
+Release `4b7d957` is live. Pages `43605827428`, billing `43605827436` and email
+checks `43605827413` passed. Unversioned HTML announced `20261114c` before asset
+verification; all seven changed/new browser assets matched source. The real
+published wizard passed at 1280px/390px with disposable confirmed accounts,
+500m creation, profile names and text downloads. A phone guest used a chosen
+anonymous name without sign-in and could not read the earlier conversation.
+Real Cron/provider delivery passed for individual Resend test recipients,
+including PNG QR, permanent links and activation deduplication. All disposable
+accounts/circles/conversations/invitations were removed. Only provider test
+recipients received fixture email; no payments were made. Geofence work is done.
 
 ## 2026-11-14 - Increase custom chat circle diameter to 500 meters
 

@@ -8,7 +8,7 @@
     panel.hidden=!open;panel.inert=!open;panel.setAttribute('aria-hidden',String(!open));
     button.setAttribute('aria-expanded',String(open));
     document.getElementById('planner-map-edit').hidden=open;
-    if(open&&focus)document.getElementById('plan-day').focus({preventScroll:true});
+    if(open&&focus){if(window.PlanWizard)window.PlanWizard.focus();else document.getElementById('plan-day').focus({preventScroll:true});}
   }
   function mode(on,history=true){
     active=on;toolbar.hidden=!on;button.classList.toggle('is-on',on);
@@ -17,15 +17,16 @@
     window.dispatchEvent(new CustomEvent('austin:planner-view',{detail:{active:on}}));
     if(history&&window.PlanContext.id==='main')visit?.plannerView?.(on);
   }
-  function open({history=true,focus=true}={}){
+  function open({history=true,focus=true,start=false}={}){
     const entering=!active;
     for(const name of ['AustinEvent','AustinClassifieds','AustinExplore','AustinCityHall','AustinChatCard','AustinApps','AustinMedia','AustinMapLayers'])window[name]?.close?.();
+    if(start)window.PlanWizard?.start();
     mode(true,history);drawer(true,focus);
     if(entering&&window.AustinEvent)window.PlanMap.fit({showMap:false});
   }
   function leave({history=true}={}){document.querySelectorAll('#day-dialog[open],#export-dialog[open]').forEach(dialog=>dialog.close());drawer(false);mode(false,history);}
   function explore(){leave();if(window.AustinEvent)window.AustinEvent.open();else window.AustinExplore.open?.();}
-  button.addEventListener('click',()=>{if(panel.hidden)open();else drawer(false);});
+  button.addEventListener('click',()=>{if(panel.hidden)open({start:true});else drawer(false);});
   document.getElementById('plan-panel-close').onclick=()=>drawer(false);
   document.getElementById('planner-map-edit').onclick=()=>open();
   document.querySelectorAll('[data-plan-explore]').forEach(el=>el.onclick=explore);
@@ -39,7 +40,7 @@
   }
   window.PlanPanel={open,close:()=>drawer(false),leave,showMap:()=>{if(matchMedia('(max-width:680px)').matches)drawer(false);},
     setView:on=>on?open({history:false,focus:false}):leave({history:false}),get isOpen(){return !panel.hidden;},get active(){return active;}};
-  window.AustinDayPlan={open,close:leave};
+  window.AustinDayPlan={open:()=>open({start:true}),close:leave};
   window.PlanStore.subscribe(status);status();
   const requested=window.PlanContext.id==='main'&&(visit?.get('main:planner')==='true'||new URLSearchParams(window.parent.location.search).get('planner')==='1');
   if(requested)open({history:false,focus:false});

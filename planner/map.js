@@ -31,7 +31,7 @@
       name.textContent = item.source.title;
       time.textContent = item.schedule.start ? `${M.local(item.schedule.start).replace('T',' · ')} CT · ${item.schedule.duration} min` : 'Not scheduled yet';
       edit.textContent = 'Edit this stop'; edit.type = 'button';
-      edit.addEventListener('click', () => { window.PlanPanel?.open(); const card = document.querySelector(`[data-item-id="${item.id}"]`); card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); card?.querySelector('input,select')?.focus({ preventScroll: true }); });
+      edit.addEventListener('click', () => { window.PlanPanel?.open(); window.PlanWizard?.showStop(item.id); const card = document.querySelector(`[data-item-id="${item.id}"]`); card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); card?.querySelector('input,select')?.focus({ preventScroll: true }); });
       body.className='planner-popup-body';
       const directions=document.createElement('a'),actions=document.createElement('div');actions.className='planner-popup-actions';
       directions.textContent='Directions · Google Maps ↗';directions.href=window.PlanRouting.navigation(item,'google');directions.target='_blank';directions.rel='noopener noreferrer';

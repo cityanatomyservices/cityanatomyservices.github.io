@@ -91,7 +91,7 @@
     $('save-conflict').hidden = !S.conflict;
     $('retry-save').hidden = !/unavailable/.test(S.status);
     const plan = S.plan, next = view + JSON.stringify(plan) + JSON.stringify(S.days) + routing.revision;
-    if (next === signature) return;
+    if (next === signature) { window.PlanWizard?.update(); return; }
     signature = next;
     if (shownDay && shownDay !== plan.date) { undo = null; $('undo').disabled = true; message(''); }
     const changedDay = shownDay !== plan.date; shownDay = plan.date;
@@ -119,13 +119,14 @@
     const pins = JSON.stringify([plan.date,displayed.map(i => [i.id,i.source.title,i.source.eventUnavailable,i.source.hoursText,routing.coordinates(i),i.schedule.start,i.schedule.duration])]);
     if (pins !== mapSignature) { window.PlanMap.update(displayed,changedDay); mapSignature = pins; }
     window.PlanRoutePanel.update(plan,result);
+    window.PlanWizard?.update();
   }
   $('plan-day').onchange = async event => { try { await S.chooseDay(event.target.value); } catch(e) { message(e.message); } };
-  $('add-day').onclick = () => { $('new-day-date').value = M.nextDay(S.plan.date); $('day-dialog').showModal(); };
-  $('cancel-day').onclick = () => $('day-dialog').close();
+  $('add-day').onclick = () => { if(window.PlanWizard)return window.PlanWizard.create(); $('new-day-date').value = M.nextDay(S.plan.date); $('day-dialog').showModal(); };
+  $('cancel-day').onclick = () => window.PlanWizard ? window.PlanWizard.cancel() : $('day-dialog').close();
   $('add-day-form').onsubmit = async event => {
     event.preventDefault(); if (!event.target.reportValidity()) return;
-    try { await S.chooseDay($('new-day-date').value); $('day-dialog').close(); } catch(e) { message(e.message); }
+    try { await S.chooseDay($('new-day-date').value); if(window.PlanWizard)window.PlanWizard.openDay();else $('day-dialog').close(); } catch(e) { message(e.message); }
   };
   $('view-timeline').onclick = () => { view = 'timeline'; render(); };
   $('view-order').onclick = () => { view = 'order'; render(); message('Use the arrows to set your preference, then Build my day. Locked arrivals and fixed starts stay put.'); };

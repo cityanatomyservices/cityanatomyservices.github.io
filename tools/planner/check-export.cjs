@@ -24,7 +24,7 @@ async function download(page,f,name){
 }
 (async()=>{try{
  const base=process.argv[2]||await serve();
- browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||path.join(os.homedir(),'.cache/ms-playwright/chromium-1234/chrome-linux64/chrome'),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  for(const width of [1280,390]){
   const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500}),p=book(),id=crypto.randomUUID(),exp=Math.floor(Date.now()/1000)+3600,enc=x=>Buffer.from(JSON.stringify(x)).toString('base64url');
   await context.route('https://*.supabase.co/**',route=>{
@@ -41,11 +41,11 @@ async function download(page,f,name){
   assert.equal(await f.locator('#day-settings,#plan-settings,input[name=name]').count(),0,'day naming/settings section is removed');
   await f.locator('#add-day').click();await f.locator('#new-day-date').fill(p.date);await f.locator('#add-day-form [type=submit]').click();
   assert.equal(await f.evaluate(()=>PlanStore.days.length),2,'opening an existing date never creates another plan');
-  await f.locator('.route-options > summary').click();await f.locator('#manual-buffer').fill('35');await f.locator('#manual-buffer').press('Tab');
+  await f.locator('[data-plan-step=travel]').click();await f.locator('.route-options > summary').click();await f.locator('#manual-buffer').fill('35');await f.locator('#manual-buffer').press('Tab');
   await f.waitForFunction(()=>PlanStore.plan.bufferMinutes===35);await f.locator('.route-options > summary').click();
   await page.screenshot({path:`/tmp/austin-dayplan-simple-${width}.png`});
   const before=await f.evaluate(()=>JSON.stringify(PlanStore.book));
-  await f.locator('#export-plan').click();assert.equal(await f.locator('#export-dialog').evaluate(d=>d.open),true);
+  await f.locator('[data-plan-step=review]').click();await f.locator('#export-plan').click();assert.equal(await f.locator('#export-dialog').evaluate(d=>d.open),true);
   assert.equal(await f.locator('#export-day').textContent(),new Intl.DateTimeFormat('en-US',{timeZone:M.zone,weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(new Date(M.instant(p.date+'T12:00'))),'legacy custom name is never displayed');
   assert.equal(await f.locator('[name=export-format]:checked').count(),1);assert.equal(await f.locator('[name=export-format]:checked').inputValue(),'google-calendar');
   assert.match(await f.locator('#export-summary').textContent(),/^6 scheduled visits/);
@@ -69,7 +69,7 @@ async function download(page,f,name){
   assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),before,'exports never edit the itinerary');
   await page.locator('.theme-toggle').click();await f.locator('#export-dialog').evaluate(d=>d.scrollTop=0);await page.screenshot({path:`/tmp/austin-export-maps-dark-${width}.png`});
   await f.locator('#export-dialog').press('Escape');await f.waitForFunction(()=>!document.querySelector('#export-dialog').open&&document.activeElement.id==='export-plan');
-  await f.locator('#plan-day').selectOption(p.days[1]);await f.locator('#export-plan').click();await f.locator('[value=google-calendar]').check();
+  await f.locator('#plan-day').selectOption(p.days[1]);await f.locator('[data-plan-step=review]').click();await f.locator('#export-plan').click();await f.locator('[value=google-calendar]').check();
   assert.equal(await f.locator('#manual-buffer').inputValue(),'20','manual allowance stays specific to each date');
   const tomorrow=await download(page,f,`austin-export-${width}-tomorrow`);assert.equal((tomorrow.match(/BEGIN:VEVENT/g)||[]).length,1);assert.ok(tomorrow.includes('Tomorrow only'));
   // Changing the day while open (for example through a synced edit) cannot
@@ -79,7 +79,7 @@ async function download(page,f,name){
   await f.locator('[value=apple-maps]').check();assert.equal(await f.locator('#export-action').isDisabled(),true);
   await f.locator('#export-close').click();await f.locator('#plan-day').selectOption(p.date);
   await f.evaluate(()=>PlanStore.edit(plan=>{plan.items[0].schedule.duration=37;}));
-  await f.locator('#export-plan').click();await f.locator('[value=apple-calendar]').check();
+  await f.locator('[data-plan-step=review]').click();await f.locator('#export-plan').click();await f.locator('[value=apple-calendar]').check();
   const edited=await download(page,f,`austin-export-${width}-edited`);const end=new Date(Date.parse(p.items[0].schedule.start)+37*60000).toISOString().replace(/[-:]/g,'').replace('.000','');assert.ok(edited.includes('DTEND:'+end));
   // Backup/restore moved into Export, keeping the main itinerary compact.
   await f.locator('.export-backup > summary').click();const backupWait=page.waitForEvent('download');await f.locator('#download-plan').click();const backup=await backupWait;

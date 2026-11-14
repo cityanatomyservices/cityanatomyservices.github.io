@@ -18,7 +18,7 @@
       if(!R.options(plan).enabled) await change(p=>{p.routing={...R.options(p),enabled:true};});
       clearTimeout(timer);const requested=R.signature(S.plan);
       await R.calculate(S.plan,{force:true});
-      if(window.PlanPanel?.active && R.signature(S.plan)===requested)window.PlanMap?.fit();
+      if(window.PlanPanel?.active && R.signature(S.plan)===requested)window.PlanMap?.fit({showMap:!window.PlanWizard});
     };
     $('fit-travel').onclick=()=>change(plan=>{plan.items=M.fitTravel(plan,R).plan.items;},'Travel fitted into this stop order. Fixed events and locked arrivals were kept. Review the updated times.');
     for(const id of ['route-enabled','avoid-tolls','arrival-minutes']) $(id).onchange=()=>{
