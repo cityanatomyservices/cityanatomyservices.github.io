@@ -196,7 +196,7 @@ check, as with Studio Tour chat.
   published phone/desktop autocomplete with a disposable account; no saved
   circles, payments or email)
 - `python3 tools/geofences/check-backend.py` (disposable confirmed accounts,
-  real Census lookup/API ownership/size checks; expects checkout OFF and removes
+  real address lookup/API ownership/size checks; expects checkout OFF and removes
   its own drafts/accounts; creates no Stripe objects)
 
 Live Stripe configuration and real sandbox payment validation remain required

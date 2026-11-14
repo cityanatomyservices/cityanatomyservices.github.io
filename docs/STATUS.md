@@ -17,7 +17,7 @@ the existing map preview and explicit confirmation still apply. GPS and manual
 coordinates are unchanged. The manage module and new address CSS/JS use
 `20261114a`; no shared styles changed.
 
-Validation so far: all 86 billing/geofence Node tests, JavaScript syntax and
+Validation: all 86 billing/geofence Node tests, JavaScript syntax and
 diff checks pass. The desktop/390px fixture browser verifies suggestions,
 keyboard/click selection, debounce, outside-area empty state, outage/retry,
 stale responses, preview invalidation and existing geofence flows. Direct
@@ -31,10 +31,15 @@ five counties, no matches in Dallas/Llano/Austin MN, rejected unauthenticated
 suggestions, and no Dallas match through the full-address fallback. The
 temporary account was removed.
 
-Remaining release checks: Pages publication and real published desktop/phone
-autocomplete. Use
-`tools/geofences/check-address-live.py --browser`; it removes its temporary
-account and never saves a circle, starts a purchase or sends email.
+Release `72f8bae` is on main. Pages run `43597301455`, membership checks
+`43597301490` and email checks `43597301448` passed. Published unversioned HTML
+announced `20261114a` before the versioned assets were fetched; all three
+changed assets match the checkout after newline normalization.
+`tools/geofences/check-address-live.py --browser` passed against production:
+real 1280px keyboard and 390px touch selection, Austin/Round Rock matches,
+map confirmation invalidation after edits, and Dallas exclusion. Screenshots
+were visually checked. Both disposable test accounts were removed; no circles,
+payments or email were created. Verification is complete.
 
 ## 2026-11-14 - Repair Explore refresh for Creek Show address formatting
 
