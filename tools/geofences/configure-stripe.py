@@ -40,7 +40,7 @@ def main():
  prices=stripe('prices','list','-d','lookup_keys[]=austin_chat_geofence_monthly_usd','--limit=100')
  if prices['data']:price=prices['data'][0]
  else:
-  product=create('products',{'name':'Austin.chat Custom Geofence','description':'One 10–100 meter chat circle, permanent map page and QR code. Monthly subscription.','metadata[site]':'austin.chat','metadata[product]':'custom_geofence'},'austin-geofence-product-live-v1')
+  product=create('products',{'name':'Austin.chat Custom Geofence','description':'One 10–500 meter chat circle, permanent map page and QR code. Monthly subscription.','metadata[site]':'austin.chat','metadata[product]':'custom_geofence'},'austin-geofence-product-live-v1')
   price=create('prices',{'product':product['id'],'unit_amount':1000,'currency':'usd','recurring[interval]':'month','lookup_key':'austin_chat_geofence_monthly_usd'},'austin-geofence-price-live-v1')
  assert price['livemode'] and price['active'] and price['unit_amount']==1000 and price['currency']=='usd' and price['recurring']['interval']=='month' and price['recurring']['interval_count']==1
  configs=stripe('billing_portal','configurations','list','--limit=100');assert not configs.get('has_more')

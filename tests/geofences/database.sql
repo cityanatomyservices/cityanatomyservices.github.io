@@ -14,11 +14,14 @@ do $$begin
 end $$;
 reset role;
 set local role service_role;
-do $$declare f jsonb:='{"name":"Courtyard","description":"Test","latitude":30.2672,"longitude":-97.7431,"diameter":50}';id uuid:=current_setting('geotest.space')::uuid;owner uuid:=current_setting('geotest.owner')::uuid;row jsonb;lease uuid;begin
+do $$declare f jsonb:='{"name":"Courtyard","description":"Test","latitude":30.2672,"longitude":-97.7431,"diameter":500}';id uuid:=current_setting('geotest.space')::uuid;owner uuid:=current_setting('geotest.owner')::uuid;row jsonb;lease uuid;begin
  begin perform public.geofence_save_draft(current_setting('geotest.guest')::uuid,id,f);raise exception 'Guest draft accepted';exception when insufficient_privilege then null;end;
+ row:=public.geofence_save_draft(owner,id,f||'{"diameter":10}'::jsonb);assert (row->>'diameter')::integer=10;
+ row:=public.geofence_save_draft(owner,id,f||'{"diameter":101}'::jsonb);assert (row->>'diameter')::integer=101;
  perform public.geofence_save_draft(owner,id,f);
+ assert public.geofence_owner_list(owner,'live')->0->>'diameter'='500';
  begin perform public.geofence_save_draft(current_setting('geotest.other')::uuid,id,f);raise exception 'Other owner overwrite';exception when sqlstate 'PT404' then null;end;
- begin perform public.geofence_save_draft(owner,id,f||'{"diameter":101}'::jsonb);raise exception 'Invalid diameter accepted';exception when check_violation then null;end;
+ begin perform public.geofence_save_draft(owner,id,f||'{"diameter":501}'::jsonb);raise exception 'Invalid diameter accepted';exception when check_violation then null;end;
  assert jsonb_array_length(public.geofence_owner_list(owner,'live'))=1;
  assert jsonb_array_length(public.geofence_owner_list(current_setting('geotest.other')::uuid,'live'))=0;
  begin perform public.geofence_billing_claim('live',id,current_setting('geotest.other')::uuid);raise exception 'Wrong owner billed';exception when sqlstate 'PT404' then null;end;
@@ -43,7 +46,9 @@ do $$declare id uuid:=current_setting('geotest.space')::uuid;r jsonb;begin
  assert not has_schema_privilege(current_user,'geofence_private','USAGE');
  assert not has_function_privilege(current_user,'public.geofence_billing_claim(text,uuid,uuid)','EXECUTE');
  begin perform public.geofence_chat(id,31,-97.7431,5,clock_timestamp(),null,false);raise exception 'Outside accepted';exception when sqlstate 'PT403' then null;end;
- begin perform public.geofence_chat(id,30.2672,-97.7431,26,clock_timestamp(),null,false);raise exception 'Inaccurate accepted';exception when sqlstate 'PT403' then null;end;
+ begin perform public.geofence_chat(id,30.26946,-97.7431,5,clock_timestamp(),null,false);raise exception 'Beyond 250m radius accepted';exception when sqlstate 'PT403' then null;end;
+ r:=public.geofence_chat(id,30.26944,-97.7431,50,clock_timestamp(),null,false);assert jsonb_array_length(r->'people')=1,'Within 250m radius should join';
+ begin perform public.geofence_chat(id,30.2672,-97.7431,51,clock_timestamp(),null,false);raise exception 'Inaccurate accepted';exception when sqlstate 'PT403' then null;end;
  begin perform public.geofence_chat(id,30.2672,-97.7431,5,clock_timestamp()-interval '1 minute',null,false);raise exception 'Stale accepted';exception when sqlstate 'PT403' then null;end;
  r:=public.geofence_chat(id,30.2672,-97.7431,5,clock_timestamp(),null,false);assert jsonb_array_length(r->'people')=1;
  r:=public.geofence_chat(id,30.2672,-97.7431,5,clock_timestamp(),'Hello',false);assert jsonb_array_length(r->'messages')=1;assert r->'messages'->0->>'body'='Hello';

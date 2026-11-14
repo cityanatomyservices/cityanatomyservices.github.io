@@ -26,8 +26,13 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
    assert.match(await options.first().innerText(),/301 W 2ND ST, AUSTIN, TX/i);
    if(width<700)await options.first().tap();else{await address.press('ArrowDown');await address.press('Enter');}
    assert.match(await address.inputValue(),/301 W 2ND ST, AUSTIN, TX/i);
+   const diameter=page.locator('[name=diameter]');assert.equal(await diameter.getAttribute('max'),'500');
+   await diameter.fill('501');await page.locator('#geo-preview').click();
+   await page.locator('#geo-form-status').filter({hasText:'10 to 500'}).waitFor();assert.equal(await page.locator('#geo-pay').isDisabled(),true);
+   await diameter.fill('500');
    await page.locator('#geo-preview').click();
    await page.locator('#geo-form-status').filter({hasText:'Check the circle'}).waitFor();
+   assert.match(await page.locator('#geo-preview-caption').innerText(),/500 meters across/);
    await page.locator('#geo-confirm').check();assert.equal(await page.locator('#geo-pay').isEnabled(),true);
    await address.fill('200 E Main Round Rock');assert.equal(await page.locator('#geo-pay').isDisabled(),true);
    await options.first().waitFor();assert.match(await options.first().innerText(),/ROUND ROCK, TX/i);
@@ -40,7 +45,7 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
    assert.equal(await page.locator('#geo-results').isHidden(),true);
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
    assert.equal(actions.filter(a=>!['list','suggest','geocode'].includes(a)).length,0);assert.deepEqual(errors,[]);
-   console.log(width+'px published form: real regional suggestions, '+(width<700?'touch':'keyboard')+' selection, preview invalidation and Dallas exclusion passed.');
+   console.log(width+'px published form: 500-meter preview, 501-meter rejection, regional suggestions, '+(width<700?'touch':'keyboard')+' selection, preview invalidation and Dallas exclusion passed.');
    await context.close();
    // Both viewports share an account and therefore its server rate limit.
    await new Promise(resolve=>setTimeout(resolve,3300));

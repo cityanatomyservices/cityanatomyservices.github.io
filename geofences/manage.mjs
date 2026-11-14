@@ -1,4 +1,4 @@
-import {validate,validId,pageURL} from './model.mjs?v=20261109h';
+import {validate,validId,pageURL} from './model.mjs?v=20261114b';
 import {call,redirectBilling} from './client.mjs?v=20261109h';
 import {createMap} from './map.mjs?v=20261109h';
 import {qr,copyLink,downloadQR} from './share.mjs?v=20261109h';

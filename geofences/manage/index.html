@@ -43,7 +43,7 @@
 <small class="geofence-address-credit">Address data: <a href="https://www.arcgis.com/home/item.html?id=7c6a142594ec463487c07c0af7885e89" target="_blank" rel="noopener">CAPCOG</a> and U.S. Census. Check the map before activating.</small>
 </div>
 <div id="geo-coordinate-fields" class="geofence-coordinates" hidden><label>Latitude<input name="latitude" type="number" step="any" min="-85" max="85" disabled></label><label>Longitude<input name="longitude" type="number" step="any" min="-180" max="180" disabled></label></div></fieldset>
-<label>Circle diameter (meters)<input name="diameter" type="number" min="10" max="100" step="1" value="50" required></label><small>10–100 meters across (about 33–328 feet). This is the diameter, not the radius.</small>
+<label>Circle diameter (meters)<input name="diameter" type="number" min="10" max="500" step="1" value="50" required></label><small>10–500 meters across (about 33–1,640 feet). This is the diameter, not the radius.</small>
 <div class="geofence-actions"><button type="button" id="geo-preview">Show location on map</button></div>
 <fieldset class="geofence-email-settings"><legend>Email notifications</legend>
 <p class="geofence-email-note">When activated, your geofence link and QR code will be emailed to your account email so you can forward them to guests.</p>
@@ -58,5 +58,5 @@
 <h2>Your geofences</h2><button id="geo-refresh">Refresh status</button><p id="geo-list-status" role="status"></p><div id="geo-owned"></div>
 </div></div></main>
 <script src="/shell.js?v=20261113a"></script>
-<script type="module" src="/geofences/manage.mjs?v=20261114a"></script>
+<script type="module" src="/geofences/manage.mjs?v=20261114b"></script>
 </body></html>

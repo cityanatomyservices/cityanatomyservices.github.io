@@ -16,7 +16,7 @@ try:
  fields={'name':'Disposable verification','description':'Temporary test, removed immediately','latitude':30.2672,'longitude':-97.7431,'diameter':50}
  status,result=call(0,{'action':'save','id':space,'fields':fields});assert status==200 and result['id']==space
  assert call(1,{'action':'save','id':space,'fields':fields})[0]==404
- assert call(0,{'action':'save','id':space,'fields':{**fields,'diameter':101}})[0]==422
+ assert call(0,{'action':'save','id':space,'fields':{**fields,'diameter':501}})[0]==422
  assert call(0,{'action':'checkout','id':space})[0]==503
  status,result=check.http('/rest/v1/rpc/geofence_read',{'p_id':space});assert status==200 and result is None
  status,result=call(0,{'action':'geocode','address':'301 W 2nd St Austin TX 78701'});assert status==200 and len(result['matches'])>0

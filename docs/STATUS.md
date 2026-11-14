@@ -1,5 +1,31 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-14 - Increase custom chat circle diameter to 500 meters
+
+The owner requested a 500-meter maximum on `/geofences/manage/`. The form and
+shared browser/server model now allow whole-number diameters from 10 through
+500 meters, with the existing 50-meter default. Migration 0021 widens the
+database check without changing existing circles. A 500-meter diameter uses
+a 250-meter radius; chat retains its 50-meter maximum GPS uncertainty.
+Manage/model use cache version `20261114b`.
+
+All 87 billing/geofence Node tests pass. The migration and database ownership,
+billing isolation and chat checks passed in a rolled-back transaction before
+0021 was applied. Those checks now cover 500-meter storage, 501 rejection and
+GPS just inside/outside the 250-meter radius. CI applies 0021 and runs the
+geofence database suite. Desktop/390px fixture browser checks passed, including
+500-meter preview/save and 501-meter rejection.
+
+The `geofences` Edge function has been redeployed. A real disposable confirmed
+account saved 10/100/101/500-meter drafts, rejected 9/501/fractional diameters,
+and read back the stored 500-meter size. Its draft stayed unpublished and was
+removed with the account. No activation, payment or email was performed.
+The product-creation script's size description now matches; live Stripe catalog
+reads were unavailable through the CLI, so live catalog text was not changed.
+
+Remaining release checks: Pages publication and
+`tools/geofences/check-diameter-live.py --browser` against the published form.
+
 ## 2026-11-14 - Austin metro address suggestions for geofence creation
 
 The Full street address field on `/geofences/manage/` now offers up to six

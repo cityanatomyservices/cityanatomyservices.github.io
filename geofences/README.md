@@ -1,6 +1,6 @@
 # Custom chat geofences
 
-The owner approved **$10 USD per month per geofence**, a **10–100 meter diameter**,
+The owner approved **$10 USD per month per geofence**, a **10–500 meter diameter**,
 and permanent links such as `https://austin.chat/geofences/?id=<UUID>`.
 This is a separate subscription from Free/Pro. The account card opens
 `/geofences/manage/`. Address and coordinate fields are mutually exclusive.
@@ -11,6 +11,10 @@ available. Users still preview and confirm the circle.
 With regular billing, confirmation continues to Stripe Checkout.
 The canonical center is stored as coordinates. Location/size lock when billing
 begins; checkout retries reuse the same draft, customer and session.
+The owner raised the maximum diameter to 500 meters on November 14, 2026.
+Migration 0021 expands the database constraint; the default remains 50 meters.
+The 500-meter circle has a 250-meter radius, and GPS accuracy remains capped
+at 50 meters.
 
 **Free testing is temporarily enabled.** Confirmed signed-in owners can create
 or activate circles without a card or charge. The button says "Free while
@@ -76,7 +80,7 @@ mode (`AUSTIN_STRIPE_LIVE_KEY` / `AUSTIN_STRIPE_KEY`). Never copy a CLI temporar
 key into the deployment or commit secrets.
 
 1. `python3 tools/geofences/deploy.py` validates the migration and rolls back
-   every test fixture. `--apply --functions` applies migration 0018 and deploys
+   every test fixture. `--apply --functions` applies migrations 0018/0021 as needed and deploys
    the functions without enabling billing.
 2. From an authorized Stripe CLI, run
    `python3 tools/geofences/check-sandbox.py`. It deploys separate temporary Edge
@@ -195,6 +199,9 @@ check, as with Studio Tour chat.
   lookup in all five counties, excluded regions and authentication; optional
   published phone/desktop autocomplete with a disposable account; no saved
   circles, payments or email)
+- `python3 tools/geofences/check-diameter-live.py [--browser]` (real saved draft
+  at 10/100/101/500 meters, invalid-size rejection, optional published form;
+  removes its draft/account without activation, payments or email)
 - `python3 tools/geofences/check-backend.py` (disposable confirmed accounts,
   real address lookup/API ownership/size checks; expects checkout OFF and removes
   its own drafts/accounts; creates no Stripe objects)

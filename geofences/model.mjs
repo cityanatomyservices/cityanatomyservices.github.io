@@ -1,4 +1,4 @@
-export const MIN_DIAMETER=10,MAX_DIAMETER=100,MAX_FIX_AGE=45000;
+export const MIN_DIAMETER=10,MAX_DIAMETER=500,MAX_FIX_AGE=45000;
 export const validId=id=>typeof id==='string'&&/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i.test(id);
 export function validate(input){
   const name=String(input?.name||'').trim(),description=String(input?.description||'').trim();
@@ -6,7 +6,7 @@ export function validate(input){
   if(!name||name.length>80)throw Error('Enter a name of 1–80 characters.');
   if(description.length>400)throw Error('Keep the description to 400 characters.');
   if(!Number.isFinite(latitude)||Math.abs(latitude)>85||!Number.isFinite(longitude)||Math.abs(longitude)>180)throw Error('Enter a latitude from −85 to 85 and longitude from −180 to 180.');
-  if(!Number.isInteger(diameter)||diameter<MIN_DIAMETER||diameter>MAX_DIAMETER)throw Error('Choose a whole-number diameter from 10 to 100 meters.');
+  if(!Number.isInteger(diameter)||diameter<MIN_DIAMETER||diameter>MAX_DIAMETER)throw Error('Choose a whole-number diameter from 10 to 500 meters.');
   return {name,description,latitude,longitude,diameter};
 }
 export function distance(a,b){const r=Math.PI/180,dlat=(b[1]-a[1])*r,dlng=(b[0]-a[0])*r,h=Math.sin(dlat/2)**2+Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dlng/2)**2;return 12742000*Math.asin(Math.sqrt(Math.min(1,h)));}
