@@ -18,10 +18,11 @@ part of the same chat. One small file per job; nothing is abstract.
 | `catalog-menu.js` | the Pro Tier Apps card inside Explore and legacy Apps/Media menus, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
-The main map's right column has **Explore, Day Plan, Chat and Geo Fence**, in that
+The main map's right column has **Day Plan, Chat and Geo Fence**, in that
 order. Geo Fence is a matching round link with “Geo” above “Fence”; it opens
 `https://austin.chat/geofences/manage/` in the full page. GPS and Map are small square MapLibre controls under the zoom/compass on
-the left. Explore contains [City Hall](city-hall/README.md) and
+the left. Day Plan → Create New Day → Places contains the former Explore
+categories, filters and listings, including [City Hall](city-hall/README.md) and
 [Free classifieds](../classifieds/README.md) cards, followed by **Special Events**
 and **Pro Tier Apps** beside each other. Pro Tier Apps shows the previous app
 catalog with its categories and favorites. Visitors can browse it; paid app
@@ -31,7 +32,7 @@ All dates and exact-date input apply to the selected card. City Hall retains its
 four categories, district/board/search filters, meeting planner selections and
 reminders. Classifieds retains the sign-in requirement, ad editing and category
 page links. Other map layouts retain their existing control columns.
-Explore also has a **Neighborhood Businesses** dropdown below the cards.
+The Places step also has a **Neighborhood Businesses** dropdown below the cards.
 It starts closed, as do its business groups and categories. Its businesses
 follow the visitor's GPS neighborhood and retain presence counts, Favorites,
 Day Planner checkboxes and business-room selection. The date filters apply
@@ -42,6 +43,20 @@ the whole-neighborhood room selector. Its conversation opens inside that card,
 where the directory used to be. Other maps keep their existing combined
 directory and separate conversation; the Special Events generator preserves
 that arrangement because event maps use Stops instead of Explore.
+
+On the main page, opening Chat enters its own map view: discovery pins, selected
+business popups, planner routes, neighborhood shading and optional boundaries
+are hidden. Choices remain saved for returning to Places. `chat-map.js` requests
+one fresh device location and centers at zoom 16 when allowed; failure leaves
+the active circles browsable. Its location dot stays in the browser. The public
+`geofence_map` RPC receives no device coordinates and returns only circles with
+current entitlement and an open schedule. It polls every 15 seconds while the
+page is visible, removes circles at their server-time expiry, and discards late
+GPS/feed callbacks after switching modes. Tapping a circle opens its permanent
+page; browsing never joins a custom chat. Closing the Chat card leaves this map
+view active. Day Planner restores discovery or the selected day's route.
+`node tools/explore/check-chat-map.cjs [https://austin.chat]` exercises these
+transitions, expiry, GPS denial and the embedded categories on desktop/phone.
 
 `node tools/explore/check-neighborhood-businesses.cjs` checks the actual main
 map at desktop and phone sizes with fixture identity/presence. Pass a deployed
@@ -72,8 +87,8 @@ Media panel. Other maps still create their existing Media menu.
 Zoom and compass use the same MapLibre control as the planner, positioned
 top left. Day Plan expands the full [planner editor](../planner/README.md) on
 this same map, including dated days, scheduling, routing and exports;
-Explore → Pro Tier Apps opens the catalog categories. Collapsing the editor keeps selected-day pins
-and routes visible; Explore restores discovery. `/dayplan/` redirects
+Places → Pro Tier Apps opens the catalog categories. Collapsing the editor keeps
+its current map view; Places and Add stops restore discovery. `/dayplan/` redirects
 to the main map with `?planner=1`, preserving existing bookmarks.
 The shared header opens the Google/email-code account dialog; the hamburger is removed. Opening one map panel closes the others.
 

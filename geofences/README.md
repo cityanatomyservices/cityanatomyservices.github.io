@@ -4,7 +4,7 @@ The owner approved **$10 USD per month per geofence**, a **10–500 meter diamet
 and permanent links such as `https://austin.chat/geofences/?id=<UUID>`.
 This is a separate subscription from Free/Pro. The account card opens
 `/geofences/manage/`. Address and coordinate fields are mutually exclusive.
-The inline wizard asks for a title, description, location, circle size, and at
+The inline wizard asks for a title, description, location, circle size, availability, and at
 least one invitation email before revealing map review. Each valid email adds
 a blank field; addresses can be removed. Editing earlier answers clears the
 preview and confirmation. GPS has its own location choice alongside Austin
@@ -34,8 +34,35 @@ Every UUID opens its own page from one static template, so payment activation
 needs no commit or Pages deployment. Supabase stores private ownership/payment
 associations and the user-provided public page content. No customer records or
 locations are committed to Git. The UUID remains unchanged on cancellation or
-renewal; inactive links display an unavailable message. There is no directory.
+renewal; links without current entitlement display an unavailable message.
+The main Chat map lists currently active circles publicly, without owner,
+recipient or billing details. Future and ended circles are omitted from that
+map, but their permanent links show the scheduled window while entitled.
 The page does not load the main Explore/planner iframe or Special Events data.
+
+## Scheduled availability
+
+Availability defaults to anytime while activated, preserving existing circles.
+Owners can instead choose a start and end date/time in Austin's time zone, both
+during creation and later through Change chat times on their owned circle.
+Both fields are required together, with the end after the start; nonexistent
+spring DST times are rejected and repeated fall times use their first occurrence.
+The public page and invitation emails show the Austin-time window.
+
+Migration 0024 separates billing/testing entitlement from current chat access.
+The server enforces start-inclusive/end-exclusive access for reads, joins and
+messages. Closing a window clears participants and ends the conversation;
+existing retention cleanup applies. Scheduling changes neither billing nor the
+locked center/size. Future events receive their invitations on activation;
+editing times does not resend them, so the permanent page is authoritative.
+The main map polls active circles and removes them at the earlier of schedule
+end or paid-access expiry. No visitor coordinates are sent by its map lookup.
+
+`python tools/geofences/configure-schedule.py --apply --functions` validates
+the rolled-back SQL checks, installs 0024 if needed and deploys the API/sender.
+`check-schedule-live.py [--browser]` verifies future/active/ended visibility,
+server chat gates and real invitation delivery with disposable accounts and
+Resend test recipients. It removes its fixtures and makes no payments.
 
 Full street address suggests matches as the owner types a street number and
 name. The address box is restricted to the Austin metro's five counties:

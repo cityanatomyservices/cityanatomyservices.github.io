@@ -2,9 +2,22 @@ import {validId,fixStatus,pageURL} from './model.mjs?v=20261109h';
 import {createMap} from './map.mjs?v=20261109h';
 import {qr,copyLink,downloadQR} from './share.mjs?v=20261109h';
 import {downloadChat} from './chat-export.mjs?v=20261114c';
+import {scheduleLabel} from './schedule.mjs?v=20261114e';
 const $=id=>document.getElementById(id),S=window.AustinSession,id=new URLSearchParams(location.search).get('id');
 let fence,view,fix,watch=null,refresh=null,timer=null,attempt=0,wanted=false,inflight=false,lastMessage=0;
 let conversation=null,transcript=[],exportTrimmed=false,identityArgs={},profileName='';
+let availabilityTimer;
+function availability(){
+ if(!fence)return;
+ const open=fence.active!==false&&(!fence.activeUntil||Date.parse(fence.activeUntil)>Date.now());
+ $('geo-join').disabled=!open;
+ $('geo-public-status').textContent=fence.diameter+' meters across · '+scheduleLabel(fence.startsAt,fence.endsAt)+(open?'':fence.startsAt&&Date.parse(fence.startsAt)>Date.now()?' · Chat has not started yet.':' · Chat is closed.');
+ if(!open&&wanted)leave();
+}
+async function refreshAvailability(){
+ if(document.hidden||!fence)return;
+ try{const {data,error}=await S.client().rpc('geofence_read',{p_id:id});if(error)return;fence=data||{...fence,active:false};availability();}catch{}
+}
 const status=text=>{$('geo-gps-status').textContent=text;};
 async function rpc(args){const {data,error}=await S.client().rpc('geofence_chat_v2',{p_id:id,...identityArgs,...args});if(error)throw error;return data;}
 function clearChat(){ $('geo-chat-content').hidden=true;$('geo-people').textContent='Open Chat and allow location to join and see who is here.';$('geo-messages').replaceChildren();$('geo-message').value='';lastMessage=0;conversation=null;transcript=[];exportTrimmed=false;$('geo-export').disabled=true;}
@@ -26,7 +39,7 @@ async function poll(text=null){if(!wanted||inflight)return;const reason=fixStatu
   if(text)$('geo-message').value='';
  }catch(e){if(run===attempt){clearChat();status(e.message||'Chat connection lost. Retrying…');if(e.code==='PT410'){await leave();status('This geofence is no longer active.');}}}finally{inflight=false;}
 }
-async function join(){if(wanted)return;if(!navigator.geolocation){status('This browser does not provide location.');return;}const useProfile=$('geo-use-profile').checked,name=$('geo-anon-name').value.trim();if(!useProfile&&(!name||name.length>30||/[\u0000-\u001f\u007f@]/.test(name))){status('Choose an anonymous name of 1 to 30 characters, without an email address.');$('geo-anon-name').focus();return;}identityArgs={p_name:useProfile?null:name,p_use_profile:useProfile};wanted=true;identityControls();attempt++;const run=attempt;$('geo-join').hidden=true;$('geo-leave').hidden=false;status('Allow location access to check this circle.');try{await S.ready();if(run!==attempt)return;}catch{await leave();status('Could not connect to chat. Please try again.');return;}
+async function join(){if(wanted||$('geo-join').disabled)return;if(!navigator.geolocation){status('This browser does not provide location.');return;}const useProfile=$('geo-use-profile').checked,name=$('geo-anon-name').value.trim();if(!useProfile&&(!name||name.length>30||/[\u0000-\u001f\u007f@]/.test(name))){status('Choose an anonymous name of 1 to 30 characters, without an email address.');$('geo-anon-name').focus();return;}identityArgs={p_name:useProfile?null:name,p_use_profile:useProfile};wanted=true;identityControls();attempt++;const run=attempt;$('geo-join').hidden=true;$('geo-leave').hidden=false;status('Allow location access to check this circle.');try{await S.ready();if(run!==attempt)return;}catch{await leave();status('Could not connect to chat. Please try again.');return;}
  const success=pos=>{if(run!==attempt)return;fix={latitude:pos.coords.latitude,longitude:pos.coords.longitude,accuracy:pos.coords.accuracy,timestamp:pos.timestamp};if(fixStatus(fence,fix)){clearChat();rpc({p_leave:true}).catch(()=>{});}poll();};
  const failure=()=>{if(run!==attempt)return;fix=null;clearChat();status('Location is unavailable. Allow precise location access to join.');rpc({p_leave:true}).catch(()=>{});};
  const options={enableHighAccuracy:true,maximumAge:0,timeout:15000};watch=navigator.geolocation.watchPosition(success,failure,options);refresh=setInterval(()=>navigator.geolocation.getCurrentPosition(success,failure,options),20000);timer=setInterval(()=>poll(),3000);
@@ -37,8 +50,8 @@ S.subscribe(ownership);S.peek().then(ownership).catch(()=>{});
 $('geo-join').onclick=join;$('geo-leave').onclick=leave;
 $('geo-export').onclick=()=>{if(transcript.length)downloadChat(id,fence.name,transcript);};
 $('geo-chat-form').onsubmit=e=>{e.preventDefault();const text=$('geo-message').value.trim();if(text&&text.length<=500)poll(text);};
-window.addEventListener('pagehide',()=>{leave();view?.remove();});document.addEventListener('visibilitychange',()=>{if(document.hidden&&wanted)leave();});
+window.addEventListener('pagehide',()=>{clearInterval(availabilityTimer);leave();view?.remove();});document.addEventListener('visibilitychange',()=>{if(document.hidden&&wanted)leave();else if(!document.hidden)refreshAvailability();});
 let accountId=S.user?.id;S.subscribe(()=>{const next=S.user?.id;if(accountId!==undefined&&next!==accountId&&wanted)leave();accountId=next;});
-try{if(!validId(id))throw Error('Open the permanent link or QR code shared by the geofence owner.');const {data,error}=await S.client().rpc('geofence_read',{p_id:id});if(error)throw Error('Could not load this geofence. Reload to try again.');if(!data)throw Error('This geofence is not active. The link will work here when its owner activates the geofence.');fence=data;document.title=fence.name+' · Austin.Chat';$('geo-title').textContent=fence.name;$('geo-description').textContent=fence.description;$('geo-public-status').textContent=fence.diameter+' meters across';$('geo-room').hidden=false;
+try{if(!validId(id))throw Error('Open the permanent link or QR code shared by the geofence owner.');const {data,error}=await S.client().rpc('geofence_read',{p_id:id});if(error)throw Error('Could not load this geofence. Reload to try again.');if(!data)throw Error('This geofence is not active. The link will work here when its owner activates the geofence.');fence=data;document.title=fence.name+' · Austin.Chat';$('geo-title').textContent=fence.name;$('geo-description').textContent=fence.description;$('geo-public-status').textContent=fence.diameter+' meters across';$('geo-room').hidden=false;availability();availabilityTimer=setInterval(refreshAvailability,15000);
  $('geo-qr').innerHTML=qr(id);$('geo-permalink').textContent=pageURL(id);$('geo-permalink').href=pageURL(id);$('geo-share').onclick=async()=>{try{await copyLink(id);$('geo-public-status').textContent='Link copied.';}catch{$('geo-public-status').textContent='Copy the permanent link shown below the map.';}};$('geo-download').onclick=()=>downloadQR(id);view=await createMap('geofence-map');view.draw(fence);$('geo-fit').onclick=()=>view.fit();
 }catch(e){$('geo-public-status').textContent=e.message;}

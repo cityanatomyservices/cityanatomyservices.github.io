@@ -1,7 +1,7 @@
 # Austin day Planner
 
 The main page's Day Plan button opens inline guidance on its existing map.
-The opening panel contains only Upcoming day plans and Create New Day Plan;
+The opening panel contains only Upcoming day plans and Create New Day;
 the dropdown is omitted when there are no current/future days containing stops.
 Empty days and past days stay saved but are excluded from this opening list.
 Unscheduled saved stops still count, so unfinished plans remain discoverable.
@@ -9,15 +9,18 @@ Dates use Austin's existing 5 AM boundary. The full day picker remains available
 inside the editor for older/empty days; opening an existing date reuses it.
 
 Creation asks for a date once in an inline form, then guides Places, Times,
-Travel and Review. There is no date popup or per-stop date field. Explore's
-existing checkboxes add stops, and returning to Day Plan lets the user open
-that day. Times shows one stop at a time, starting with the first untimed stop.
+Travel and Review. There is no date popup or per-stop date field. The Places step
+contains the complete former Explore panel: category cards, filters, listings,
+Neighborhood Businesses, City Hall, Classifieds, Special Events and Pro Tier Apps.
+Its existing checkboxes add stops; a sticky Set stop times action continues the
+wizard. Selected stops remain available in a collapsed list above the categories.
+Times shows one stop at a time, starting with the first untimed stop.
 Users enter an arrival time and visit length, with the existing overlap,
 travel-gap, availability and boundary warnings shown immediately after editing.
 Times before 5 AM belong to the following morning. See all stops, Timeline,
 Preferred order and automatic Build remain available for broader edits.
 
-Add another stop returns to Explore. I'm done — plan my route opens Travel and
+Add another stop returns to Places inside the same panel. I'm done — plan my route opens Travel and
 requests driving estimates when at least two stops are scheduled. Unscheduled
 stops remain visible as warnings and are excluded from driving estimates.
 Route results keep the phone's guidance open. Fit travel times remains explicit;
@@ -33,9 +36,11 @@ entry, inline creation, time conflicts, next-morning visits, route handoff,
 review/export, undo, guest/member behavior and both themes at 1280px and 390px,
 using intercepted account and route fixtures without production writes.
 
-Collapse the editor to see the selected
-day's pins and route; Edit day opens it again. Explore, City Hall and the other
-content panels leave planning mode. Map display controls preserve it.
+Collapse the editor to see its current map; Edit day opens it again. Places
+shows discovery pins while Times, Travel and Review show the selected day's
+stops and route. `PlanPanel.active` represents route-map ownership, so it is
+false while browsing Places even though the planner context remains open.
+Map display controls preserve the current mode. Chat has its own isolated map.
 `/?planner=1` opens the editor directly. `/dayplan/`, `/myplanmap/` and the old
 `/planner/app.html` redirect there, preserving query parameters and fragments.
 In-site links and browser history switch the view without reloading the map.
@@ -55,7 +60,7 @@ Only the selected day's stops with coordinates appear as markers while planning.
 Route lines connect that day's scheduled stops. `PlanMap.attach(chatMap)` reuses
 the main MapLibre instance. Explore sources are emptied while planning, including
 late feed results; chat business and people markers are removed and late updates
-stay hidden. Opening Explore or City Hall restores discovery and hides plan pins
+stay hidden. Opening Places restores discovery and hides plan pins
 and routes. Closing only the editor keeps the selected-day map visible.
 Route requests pause during browsing; late responses cannot revive another day's
 route. Route clearing does not wait for unrelated map tiles or sources to load.

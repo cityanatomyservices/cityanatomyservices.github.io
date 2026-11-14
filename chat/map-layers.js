@@ -42,7 +42,7 @@ window.AustinMapLayers = {
       }
       for (const suffix of ['fill', 'halo', 'line', 'labels']) {
         const id = source + '-' + suffix;
-        if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', layer.input.checked ? 'visible' : 'none');
+        if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', layer.input.checked&&!window.AustinChatMap?.active ? 'visible' : 'none');
       }
     }
     async function toggle(layer) {
@@ -75,6 +75,7 @@ window.AustinMapLayers = {
       layer.input.addEventListener('change', () => toggle(layer));
     }
     map.on('style.load', () => boundaries.forEach(draw));
+    window.addEventListener('austin:chat-view',()=>boundaries.forEach(draw));
     const session = window.AustinSession;
     let owner = session?.registered ? session.user.id : null;
     const unsubscribe = session?.subscribe(() => {

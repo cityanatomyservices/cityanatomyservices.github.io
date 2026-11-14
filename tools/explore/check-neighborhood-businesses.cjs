@@ -2,7 +2,7 @@
    conversation or planner writes. Pass the deployed origin for a live check. */
 const {chromium}=require('../video/node_modules/playwright-core');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto');
-const root=path.resolve(__dirname,'../..'),output=path.resolve(process.env.TEMP||'/tmp','austin-neighborhood-businesses');
+const root=path.resolve(__dirname,'../..'),output=path.resolve(root,'..','.tmp','austin-neighborhood-businesses');
 const directory=JSON.parse(fs.readFileSync(path.join(root,'chat/data/places/downtown.json'),'utf8'));
 const place=directory.groups[0].categories[0].places[0];
 let browser,server;
@@ -51,7 +51,7 @@ async function bounds(f,selector){return f.locator(selector).evaluate(el=>{const
   assert.equal(await f.locator('#roomList .user-row').count(),2);
   await f.locator('#roomList .user-row').filter({hasText:'Sky'}).click();
   await f.waitForFunction(id=>ChatRoom.place?.id===id,place.id);
-  await f.locator('#ctrlChat').click();assert.equal(await f.locator('#chatBtn').isDisabled(),true);
+  if(await f.locator('#legend').isHidden())await f.locator('#ctrlChat').click();assert.equal(await f.locator('#chatBtn').isDisabled(),true);
   await f.locator('#roomList .is-neighborhood').click();
   await f.waitForFunction(()=>ChatRoom.place===null&&ChatEngine.room==='downtown');
   await f.locator('#visibleBtn').click();await f.locator('#chatBtn').click();
@@ -63,7 +63,7 @@ async function bounds(f,selector){return f.locator(selector).evaluate(el=>{const
   const chat=await bounds(f,'#chatwin'),legend=await bounds(f,'#legend');
   assert.ok(chat.left>=legend.left&&chat.right<=legend.right&&chat.top>=legend.top&&chat.bottom<=legend.bottom,'conversation stays inside Chat');
   assert.ok(chat.scroll<=chat.client,'chat has no horizontal overflow');
-  await f.locator('#ctrlExplore').click();assert.equal(await f.locator('#chatwin').isVisible(),false);
+  await f.evaluate(()=>PlanPanel.browse());assert.equal(await f.locator('#chatwin').isVisible(),false);
   assert.equal(await f.locator('#neighborhoodBusinesses').evaluate(el=>el.open),false);
   await page.screenshot({path:path.join(output,`explore-closed-${width}.png`)});
   await f.locator('#neighborhoodBusinesses > summary').click();
@@ -80,7 +80,7 @@ async function bounds(f,selector){return f.locator(selector).evaluate(el=>{const
   await f.waitForFunction(id=>PlanStore.plan.items.some(item=>item.source.key==='place:'+id),place.id);
   assert.equal(await f.evaluate(()=>ChatRoom.place),null,'planning does not change the room');
   await row.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(output,`explore-open-${width}.png`)});
-  const explore=await bounds(f,'#explore-panel');assert.ok(explore.left>=0&&explore.right<=explore.width&&explore.bottom<=explore.height,'Explore fits the viewport');
+  const explore=await bounds(f,'#plan-panel');assert.ok(explore.left>=0&&explore.right<=explore.width&&explore.bottom<=explore.height,'Planner discovery fits the viewport');
   assert.ok(explore.scroll<=explore.client,'Explore has no horizontal overflow');
   await row.locator('.place-row').click();
   await f.waitForFunction(id=>ChatRoom.place?.id===id,place.id);

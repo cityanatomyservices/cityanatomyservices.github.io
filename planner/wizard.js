@@ -13,11 +13,12 @@
   function go(next,moveFocus=true){
     if(!steps.includes(next)&&next!=='start')return;
     if(['times','travel','review'].includes(next)&&!S.plan.items.length)next='places';
-    stage=next;update();if(moveFocus)focus();
+    stage=next;update();window.PlanPanel?.syncView();if(moveFocus)focus();
   }
   function create(){returnStage=stage;$('new-day-date').value=M.planDay();go('date');$('new-day-date').focus({preventScroll:true});}
   function openDay(){current=null;all=false;go(S.plan.items.length?'times':'places');}
   function update(){
+    const wasBrowsing=stage==='places';
     const plan=S.plan;
     if(bookId&&bookId!==S.book.id){stage='start';current=null;all=false;}
     bookId=S.book.id;
@@ -28,6 +29,7 @@
     for(const day of upcoming){const option=itemNode('option',`${label(day.date)} · ${day.count} stop${day.count===1?'':'s'}`);option.value=day.date;pick.append(option);}
     $('plan-upcoming-label').hidden=!upcoming.length;
     $('plan-start').hidden=stage!=='start';$('plan-workspace').hidden=stage==='start';
+    window.AustinExplore?.setEmbeddedView?.(stage==='places'&&!!window.PlanPanel?.isOpen);
     $('plan-day-picker').hidden=stage==='date';
     for(const step of steps)$('plan-step-'+step).hidden=stage!==step;
     for(const button of document.querySelectorAll('[data-plan-step]')){
@@ -35,6 +37,7 @@
       if(step===stage)button.setAttribute('aria-current','step');else button.removeAttribute('aria-current');
     }
     for(const button of document.querySelectorAll('[data-plan-go="times"]'))button.disabled=!plan.items.length;
+    $('plan-chosen').hidden=!plan.items.length;$('plan-chosen-summary').textContent=plan.items.length+' selected stop'+(plan.items.length===1?'':'s');
     $('plan-chosen-stops').replaceChildren(...plan.items.map(item=>itemNode('li',item.source.title)));
     const cards=[...$('plan-items').querySelectorAll('.plan-item')];
     if(!cards.some(card=>card.dataset.itemId===current))current=(plan.items.find(i=>!i.schedule.start)||plan.items[0])?.id;
@@ -56,6 +59,7 @@
       const time=item.schedule.start?new Intl.DateTimeFormat('en-US',{timeZone:M.zone,hour:'numeric',minute:'2-digit'}).format(new Date(item.schedule.start))+(M.day(item.schedule.start)!==plan.date?' next morning':''):'Time needed';
       return itemNode('li',`${time} · ${item.source.title} · ${item.schedule.duration} min`);
     }));
+    if(wasBrowsing!==(stage==='places'))queueMicrotask(()=>window.PlanPanel?.syncView());
   }
   function move(delta){
     const cards=[...$('plan-items').querySelectorAll('.plan-item')],at=cards.findIndex(card=>card.dataset.itemId===current),next=cards[at+delta];
@@ -77,5 +81,5 @@
   };
   // Restore focus to visible guidance when Export was opened from an early step.
   $('export-dialog').addEventListener('close',()=>{if(stage!=='review')focus();});
-  window.PlanWizard={update,create,openDay,focus,showStop:id=>{current=id;all=false;go('times');},start:()=>go('start',false),cancel:()=>go(returnStage),get stage(){return stage;}};
+  window.PlanWizard={update,create,openDay,focus,showPlaces:()=>go('places'),showStop:id=>{current=id;all=false;go('times');},start:()=>go('start',false),cancel:()=>go(returnStage),get stage(){return stage;},get browsing(){return stage==='places';}};
 })();

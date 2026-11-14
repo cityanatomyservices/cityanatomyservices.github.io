@@ -33,7 +33,7 @@
   let placePopup = null;        // a picked business's popup (set further down); reopening the card closes it
   const setCard = (open) => {
     if (!open && $('legend').contains(document.activeElement)) $('ctrlChat').focus({ preventScroll: true });
-    if (open) { window.AustinEvent?.close(); window.AustinExplore.close?.(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); window.AustinCityHall?.close?.(); }
+    if (open) { window.AustinEvent?.close(); window.AustinExplore.close?.(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); window.AustinCityHall?.close?.(); window.AustinChatMap?.enter(); }
     $('legend').hidden = !open;
     $('ctrlChat').setAttribute('aria-expanded', String(open));
     $('ctrlChat').classList.toggle('is-on', open);
@@ -109,6 +109,7 @@
     // limit is the covered area's box widened by what the screen shows at the
     // current zoom, so it is worked out again after every zoom or resize.
     const keepInView = () => {
+      if(window.AustinChatMap?.active){map.setMaxBounds(null);return;}
       const b = map.getBounds();
       const area = coverageBox();
       const w = (b.getEast() - b.getWest()) * (1 - CFG.keepOnScreen);
@@ -116,6 +117,7 @@
       map.setMaxBounds([[area[0][0] - w, area[0][1] - h], [area[1][0] + w, area[1][1] + h]]);
     };
     const limitZoom = () => {
+      if(window.AustinChatMap?.active){map.setMinZoom(0);return;}
       const cam = map.cameraForBounds(coverageBox(), { padding: CFG.fitPadding });
       if (cam) map.setMinZoom(cam.zoom);
     };
@@ -239,7 +241,7 @@
       if (event) {
         for (const id of ['geofence-fill','geofence-line','geofence-label']) map.setLayoutProperty(id,'visibility','none');
       }
-      if(!planning)neighborhoodView(CFG.openTiltMs);
+      if(!planning&&!window.AustinChatMap?.active)neighborhoodView(CFG.openTiltMs);
 
       // hover: tint the polygon under the pointer
       let hovered = null;
@@ -286,7 +288,7 @@
           if (before) map.setFeatureState({ source: 'geofences', id: before.properties.id }, { room: false });
           if (!feature) return;
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
-          if(!planning)flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
+          if(!planning&&!window.AustinChatMap?.active)flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
         },
         // the business you picked: the map goes there at street level (flat)
         // and a popup names it with Google Maps,
@@ -295,7 +297,7 @@
         onPlace(place) {
           if (placeMarker) { placeMarker.remove(); placeMarker = null; }
           if (placePopup) { placePopup.remove(); placePopup = null; }
-          if (!place || planning) return;
+          if (!place || planning || window.AustinChatMap?.active) return;
           setCard(false);                              // the card folds so the map and popup are in view (owner 2026-10-22)
           if ($('neighborhoodBusinesses')) window.AustinExplore.close?.();
           const at = [place.lng, place.lat];
@@ -343,17 +345,29 @@
 
       map.on('plannermode',event=>{
         if(planning!==event.active)map.stop();planning=event.active;
-        window.AustinExplore.setMapMarkers?.(!planning);
+        window.AustinExplore.setMapMarkers?.(!planning&&!window.AustinChatMap?.active);
         if(planning){placeMarker?.remove();placePopup?.remove();placePopup=null;}
-        else if(placeMarker)placeMarker.addTo(map);
+        else if(placeMarker&&!window.AustinChatMap?.active)placeMarker.addTo(map);
         Object.values(markers).forEach(marker=>planning?marker.remove():marker.addTo(map));
         map.getCanvas().style.cursor='';
       });
+
+      const chatView=()=>{
+        const chatting=!!window.AustinChatMap?.active;
+        map.stop();limitZoom();keepInView();
+        window.AustinExplore.setMapMarkers?.(!planning&&!chatting);
+        for(const id of ['geofence-fill','geofence-line','geofence-label'])if(map.getLayer(id))map.setLayoutProperty(id,'visibility',chatting||event?'none':'visible');
+        if(chatting){placeMarker?.remove();placePopup?.remove();placePopup=null;setTilt(false);}
+        else if(!planning)placeMarker?.addTo(map);
+        map.getCanvas().style.cursor='';
+      };
+      window.addEventListener('austin:chat-view',chatView);if(window.AustinChatMap?.active)chatView();
 
       // find me: back to where YOU are (picking a business never moves you,
       // owner 2026-10-22); without a GPS reading, your neighborhood; without
       // that, ask for the location again
       $('ctrlLocate').addEventListener('click', () => {
+        if(window.AustinChatMap?.active){window.AustinChatMap.locate();return;}
         if(planning){
           window.PlanMap.cancelPick();
           const status=$('map-caption');status.hidden=false;status.textContent='Finding your location…';
@@ -370,6 +384,7 @@
 
       // the map object, so it can be poked at from the browser console
       window.chatMap = map;
+      window.AustinChatMap?.init(map);
       window.AustinMapLayers.init(map);
       window.PlanMap.attach(map);
       if (event) window.AustinEvent.init(map);

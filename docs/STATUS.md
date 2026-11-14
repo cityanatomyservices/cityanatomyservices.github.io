@@ -1,5 +1,43 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-14 - Three main controls, planner discovery and scheduled chat circles
+
+The main map now has Day Plan, Chat and Geo Fence. Create New Day asks for its
+date, then Places embeds the former Explore categories, filters, listings,
+Neighborhood Businesses, City Hall, Classifieds, Special Events and Pro Tier
+Apps. Add another stop returns to this step; Set stop times advances the wizard.
+Browsing draws discovery pins, while later steps retain selected-day routes.
+Business selection still opens its popup and closes the phone planner. The
+Special Events generator keeps separate existing planner markup and controls.
+
+Chat enters an isolated map, hides discovery/planner/neighborhood overlays and
+centers on a fresh allowed GPS reading at zoom 16. It shows currently active
+custom circles through an anonymous public RPC without sending GPS coordinates.
+Circle popups open permanent chat links without joining. Closing the card keeps
+this map mode; returning to Day Planner restores the appropriate saved view.
+Visible-page polling, server-time expiry and late-response guards keep modes
+separate. Optional boundary choices remain preserved outside Chat.
+
+Owners explicitly approved start/end scheduling. The geofence wizard now has
+an Austin-time availability step, defaulting to anytime while activated. Owned
+cards allow later time changes without moving the circle. Migration 0024 is
+applied and API/email functions deployed: access is start-inclusive/end-exclusive
+and still requires billing/testing entitlement. Future invitations send at
+activation with their scheduled window; changing times does not resend them.
+Future/ended links display the window but prevent chat. Ending a window clears
+participants and uses the existing conversation retention cleanup.
+
+94 billing/geofence and 120 planner unit tests pass. Rolled-back schedule,
+existing billing/geofence, invitation/email and retention SQL checks pass.
+Browser geofence wizard, planner wizard/map, main map controls, neighborhood
+businesses and isolated Chat tests pass at desktop/phone sizes; planner suites
+also cover guests/members. The full phone guest Special Events regression passes.
+Real disposable-account API checks passed future,
+active and ended schedules, server join gates and provider-test invitation
+delivery; fixtures were removed. No payments or ordinary-recipient emails.
+Changed browser assets use `20261114e`. Publication and real published UI
+verification are the remaining release checks.
+
 ## 2026-11-14 - Guided main Day Planner and time prompts
 
 The main Day Plan panel now starts with Upcoming day plans and Create New Day

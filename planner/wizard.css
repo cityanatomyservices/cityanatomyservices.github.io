@@ -28,3 +28,19 @@
 .plan-wizard #plan-step-places>button{width:100%}
 .plan-wizard .plan-day-picker button{min-height:36px}
 @media(max-width:400px){.plan-wizard .plan-next{flex-direction:column}.plan-wizard .plan-next button{width:100%}.plan-wizard .plan-stop-progress{flex-wrap:wrap}}
+
+#plan-explore-host>.explore-panel{position:static;width:100%;max-width:none;max-height:none;border:0;border-radius:0;box-shadow:none;backdrop-filter:none;background:transparent;font-size:13px}
+#plan-explore-host .explore-header{display:none}
+#plan-explore-host .explore-scroll{overflow:visible;padding:0;max-height:none}
+#plan-explore-host .explore-times{margin-top:8px}
+#plan-explore-host .explore-layer{flex-direction:row;min-height:58px}
+#plan-explore-host .explore-layer input{width:100%;height:100%}
+#plan-explore-host .explore-panel .explore-layer{display:flex}
+#plan-explore-host .plan-select{display:flex;flex-direction:row}
+#plan-explore-host .plan-select input{width:17px}
+
+#plan-step-places>.plan-next{position:sticky;top:60px;z-index:1;background:var(--surface);padding:8px 0;margin:10px 0;border-top:0;border-bottom:1px solid var(--border)}
+#plan-chosen{font-size:12px;margin:12px 0}
+@media(max-width:680px){#plan-step-places>.plan-next{top:55px;flex-direction:row}#plan-step-places>.plan-next button{width:auto}}
+
+#plan-explore-host .explore-panel label.plan-select,#plan-explore-host .email-reminder label{display:flex;flex-direction:row;align-items:center;gap:6px}

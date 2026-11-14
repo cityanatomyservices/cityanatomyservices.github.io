@@ -42,6 +42,12 @@ const root=path.resolve(__dirname,'../..'),{chromium}=require('../video/node_mod
   await invite.first().fill('not-an-email');assert.equal(await invite.count(),1);assert.equal(await page.locator('#geo-preview').isHidden(),true);
   await invite.first().fill('friend@example.invalid');assert.equal(await invite.count(),2);assert.equal(await page.locator('#geo-preview').isVisible(),true);
   await invite.nth(1).fill('second@example.invalid');assert.equal(await invite.count(),3);
+  const schedule=page.locator('#geo-schedule-fields');await schedule.locator('select').selectOption('scheduled');assert.equal(await page.locator('#geo-preview').isHidden(),true);
+  await schedule.locator('[name=starts_at]').fill('2027-07-01T12:00');await schedule.locator('[name=ends_at]').fill('2027-07-01T11:00');assert.equal(await page.locator('#geo-preview').isHidden(),true);assert.match(await schedule.textContent(),/end time must be after/);
+  await schedule.locator('[name=ends_at]').fill('2027-07-01T14:00');assert.equal(await page.locator('#geo-preview').isVisible(),true);
+  await page.locator('#geo-preview').click();await page.locator('#geo-review').waitFor();assert.match(await page.locator('#geo-review-schedule').textContent(),/Austin time/);
+  await schedule.locator('select').selectOption('always');assert.equal(await page.locator('#geo-review').isHidden(),true);
+
   assert.equal(calls.filter(c=>['save','checkout'].includes(c.action)).length,0);
   await page.screenshot({path:path.resolve('..','.tmp','geofence-wizard-invites-'+width+'.png'),fullPage:true});
   await page.locator('#geo-preview').click();await page.locator('#geo-form-status').filter({hasText:'Check the circle'}).waitFor();await page.locator('#geo-confirm').check();

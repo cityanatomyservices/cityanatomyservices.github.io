@@ -2,6 +2,7 @@ import {ORIGIN,problem} from '../_shared/billing.mjs';
 import {validate,validId} from '../../../geofences/model.mjs';
 import {searchAddresses} from './address-search.mjs';
 import {invitationEmails} from '../../../geofences/invitations.mjs';
+import {validateSchedule} from '../../../geofences/schedule.mjs';
 const headers={'Access-Control-Allow-Origin':ORIGIN,'Access-Control-Allow-Headers':'authorization, apikey, content-type, x-client-info','Access-Control-Allow-Methods':'POST, OPTIONS','Cache-Control':'no-store','Content-Type':'application/json','Vary':'Origin'};
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers});
 export function handler(api){return async req=>{
@@ -9,8 +10,8 @@ export function handler(api){return async req=>{
  if(req.method==='OPTIONS')return new Response(null,{status:204,headers});if(req.method!=='POST')return json({error:'Method not allowed.'},405);
  try{
   const raw=await req.text();if(raw.length>12288)throw problem(413,'Request too large.');let body;try{body=JSON.parse(raw);}catch{throw problem(400,'Invalid request.');}
-  if(!body||Array.isArray(body)||!['list','save','notifications','geocode','suggest','checkout','status','portal'].includes(body.action))throw problem(400,'Invalid request.');
-  const allowed={list:['action'],save:['action','id','fields','invitations'],notifications:['action','id','enabled','email'],geocode:['action','address'],suggest:['action','address'],checkout:['action','id'],status:['action','id'],portal:['action','id']}[body.action];
+  if(!body||Array.isArray(body)||!['list','save','schedule','notifications','geocode','suggest','checkout','status','portal'].includes(body.action))throw problem(400,'Invalid request.');
+  const allowed={list:['action'],save:['action','id','fields','invitations'],schedule:['action','id','starts_at','ends_at'],notifications:['action','id','enabled','email'],geocode:['action','address'],suggest:['action','address'],checkout:['action','id'],status:['action','id'],portal:['action','id']}[body.action];
   if(Object.keys(body).some(k=>!allowed.includes(k)))throw problem(400,'Unexpected field.');
   const user=await api.user(req);
   const freeTesting=api.mode==='live'&&['list','checkout','status'].includes(body.action)&&(await api.rpc('access_testing_status',{})).geofencesEnabled===true;
@@ -21,13 +22,17 @@ export function handler(api){return async req=>{
    return json({matches:await searchAddresses(body.address,api.fetcher,body.action==='suggest')});
   }
   if(!validId(body.id))throw problem(422,'Invalid geofence.');
+  if(body.action==='schedule'){
+   let schedule;try{schedule=validateSchedule(body);if(schedule.starts_at===undefined)throw Error('Choose chat availability.');}catch(e){throw problem(422,e.message);}
+   return json(await api.rpc('geofence_schedule_set',{p_owner:user.id,p_id:body.id,p_start:schedule.starts_at,p_end:schedule.ends_at}));
+  }
   if(body.action==='notifications'){
    if(typeof body.enabled!=='boolean'||typeof body.email!=='string'||body.email.length>254)throw problem(422,'Enter a valid notification email.');
    if(body.enabled&&!api.emailReady?.())throw problem(503,'Email notifications are being set up.');
    return json(await api.rpc('geofence_email_save',{p_owner:user.id,p_id:body.id,p_enabled:body.enabled,p_email:body.email}));
   }
   if(body.action==='save'){
-   let fields,emails;try{fields=validate(body.fields);if(body.invitations!==undefined)emails=invitationEmails(body.invitations);}catch(e){throw problem(422,e.message);}
+   let fields,emails;try{fields={...validate(body.fields),...validateSchedule(body.fields)};if(body.invitations!==undefined)emails=invitationEmails(body.invitations);}catch(e){throw problem(422,e.message);}
    if(emails&&!api.emailReady?.())throw problem(503,'Email invitations are temporarily unavailable. Please try again shortly.');
    return json(await api.rpc(emails?'geofence_save_with_invitations':'geofence_save_draft',{p_owner:user.id,p_id:body.id,p_fields:fields,...(emails?{p_emails:emails}:{})}));
   }

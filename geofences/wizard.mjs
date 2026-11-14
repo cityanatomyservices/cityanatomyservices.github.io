@@ -1,6 +1,6 @@
 import {invitationEmails,MAX_INVITATIONS,validEmail} from './invitations.mjs?v=20261114c';
 
-export function guidedForm({form,hasLocation,onChange}){
+export function guidedForm({form,hasLocation,hasSchedule,onChange}){
  const $=id=>document.getElementById(id),field=name=>form.elements.namedItem(name);
  let sizeChosen=false,sequence=0,ready=false;
  const inputs=()=>[...$('geo-invite-fields').querySelectorAll('input')];
@@ -22,14 +22,15 @@ export function guidedForm({form,hasLocation,onChange}){
   const named=name.length>0&&name.length<=80,described=named&&description.length>0&&description.length<=400;
   const located=described&&hasLocation(),diameter=Number(field('diameter').value),sized=located&&Number.isInteger(diameter)&&diameter>=10&&diameter<=500;
   let invited=[];try{invited=emails();}catch{}
-  const inviting=sized&&sizeChosen;
+  const scheduling=sized&&sizeChosen,scheduled=scheduling&&hasSchedule();
+  const inviting=scheduled;
   ready=inviting&&invited.length>0&&inputs().every(i=>!i.value.trim()||i.checkValidity());
-  const visible=[true,named,described,located,inviting];
-  ['name','description','location','size','invite'].forEach((name,i)=>{const step=$('geo-step-'+name);step.hidden=!visible[i];step.disabled=busy||!visible[i];step.dataset.complete=String([named,described,located,sized&&sizeChosen,ready][i]);});
+  const visible=[true,named,described,located,scheduling,inviting];
+  ['name','description','location','size','schedule','invite'].forEach((name,i)=>{const step=$('geo-step-'+name);step.hidden=!visible[i];step.disabled=busy||!visible[i];step.dataset.complete=String([named,described,located,sized&&sizeChosen,scheduled,ready][i]);});
   $('geo-size-next').hidden=sizeChosen&&sized;$('geo-size-next').disabled=!sized||busy;
-  const step=ready?6:visible.lastIndexOf(true)+1;
-  $('geo-progress').textContent=step===6?'Ready to review your geofence':'Step '+step+' of 5';
-  $('geo-progress-bar').value=ready?5:step-1;
+  const step=ready?7:visible.lastIndexOf(true)+1;
+  $('geo-progress').textContent=step===7?'Ready to review your geofence':'Step '+step+' of 6';
+  $('geo-progress-bar').value=ready?6:step-1;
   $('geo-invite-summary').textContent=invited.length?invited.length+' '+(invited.length===1?'person':'people')+' will receive an invitation after creation.':'Add at least one person to continue.';
   $('geo-email-availability').hidden=emailReady;
   $('geo-preview').hidden=!ready;$('geo-preview').disabled=busy||!ready;

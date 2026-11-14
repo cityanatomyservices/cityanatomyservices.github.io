@@ -6,3 +6,4 @@ import '../geofences/billing.test.mjs';
 import '../geofences/email.test.mjs';
 import '../geofences/invitations.test.mjs';
 import '../geofences/chat-export.test.mjs';
+import '../geofences/schedule.test.mjs';

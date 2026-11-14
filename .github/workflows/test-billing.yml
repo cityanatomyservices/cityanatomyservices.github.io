@@ -47,6 +47,7 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0021_geofence_diameter.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0022_geofence_invitations.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/0023_geofence_chat_sessions.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/0024_geofence_schedule_map.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/database.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/substack.sql
           psql -v ON_ERROR_STOP=1 -f tests/billing/storage.sql
@@ -55,6 +56,7 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f tests/geofences/database.sql
           psql -v ON_ERROR_STOP=1 -f tests/geofences/invitations.sql
           psql -v ON_ERROR_STOP=1 -f tests/geofences/chat-sessions.sql
+          psql -v ON_ERROR_STOP=1 -f tests/geofences/schedule.sql
       - name: Private report destinations, spreadsheet safety and verified dates
         run: python3 -m unittest discover -s tests/billing -p 'test_*.py'
       - name: Deployment helper syntax

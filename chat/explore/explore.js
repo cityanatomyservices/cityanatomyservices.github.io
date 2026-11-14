@@ -3,8 +3,9 @@ window.AustinExplore = {
   async init(map, { mapMarkers = true } = {}) {
     const M = window.ExploreModel, layers = window.EXPLORE_LAYERS;
     const main = document.documentElement.hasAttribute('data-main-planner');
+    const embedded=main&&document.getElementById('plan-explore-host');
     const sections = new Map(); let activeSection = '';
-    let showMarkers=mapMarkers&&!window.PlanPanel?.active;
+    let showMarkers=mapMarkers&&!window.PlanPanel?.active&&!window.AustinChatMap?.active;
     const session = window.AustinSession, visit = window.AustinVisit, guestKey = 'explore:guest';
     // Resolve identity before reading persistent choices. An unresolved or
     // signed-out visit must never paint a previous visitor's map layers.
@@ -54,7 +55,7 @@ window.AustinExplore = {
       <button type="button" class="explore-more" hidden>Show more</button>
       <details class="explore-sources"><summary>Sources & freshness</summary><div class="explore-freshness"></div>
       <p class="explore-note">Times are in Austin time. Check the organizer before going: reservations, age limits, parking or extra activities may cost more. Free & cheap requires a confirmed admission price. Movie and event prices vary; follow the source for tickets and availability. Only published schedules are listed. Report corrections through <a href="/contact/" target="_blank" rel="noopener">Contact</a>.</p></details></div></div>`;
-    document.querySelector('.page').append(panel);
+    (embedded||document.querySelector('.page')).append(panel);
     const $ = s => panel.querySelector(s);
     const businesses = document.getElementById('neighborhoodBusinesses');
     if (businesses) {
@@ -85,16 +86,18 @@ window.AustinExplore = {
       }catch(_){}
     });
     function open(on, returnFocus = true) {
-      panel.hidden = !on; button.setAttribute('aria-expanded', String(on));
-      if (on) { window.AustinChatCard?.close(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); window.AustinMapLayers?.close(); sections.get(activeSection)?.view.refresh?.(); }
-      else if (returnFocus) button.focus();
+      if(embedded&&on){window.PlanPanel?.browse();return;}
+      panel.hidden = !on; button?.setAttribute('aria-expanded', String(on));
+      if (on) { window.AustinChatMap?.leave(); window.AustinChatCard?.close(); window.AustinDayPlan?.close(); window.AustinApps?.close(); window.AustinMedia?.close(); window.AustinMapLayers?.close(); sections.get(activeSection)?.view.refresh?.(); }
+      else if (returnFocus) button?.focus();
     }
-    window.AustinExplore.close = () => open(false, false);
+    window.AustinExplore.close = () => {open(false, false);if(embedded&&window.PlanWizard?.browsing&&window.PlanPanel?.isOpen)window.PlanPanel.close();};
     window.AustinExplore.open = () => open(true);
+    if(embedded){window.AustinExplore.setEmbeddedView=on=>{const opening=on&&panel.hidden;panel.hidden=!on;if(opening)sections.get(activeSection)?.view.refresh?.();};panel.hidden=!(window.PlanPanel?.isOpen&&window.PlanWizard?.browsing);}
     const time = () => ({ when: state.when, date: state.date });
     function selectSection(id) {
       activeSection = id;
-      button.classList.toggle('is-on', state.enabled.size > 0 || !!id);
+      button?.classList.toggle('is-on', state.enabled.size > 0 || !!id);
       $('.explore-event-content').hidden = !!id;
       for (const [key, section] of sections) {
         const selected = key === id;
@@ -117,7 +120,7 @@ window.AustinExplore = {
       tile.addEventListener('click', () => { selectSection(activeSection === id ? '' : id); });
       return { close: () => { if (activeSection === id) window.AustinExplore.close(); } };
     };
-    button.addEventListener('click', () => open(panel.hidden));
+    button?.addEventListener('click', () => open(panel.hidden));
     $('.explore-close').addEventListener('click', () => open(false));
     panel.addEventListener('keydown', e => { if (e.key === 'Escape') open(false); });
     const format = (value, dateOnly = false) => new Intl.DateTimeFormat('en-US', {
@@ -208,7 +211,7 @@ window.AustinExplore = {
         count.textContent = input.checked && data.has(input.dataset.layer) ? matches.filter(f => f.properties.exploreLayer === input.dataset.layer).length : '';
       }
       for (const el of panel.querySelectorAll('[data-for-layer]')) el.hidden = !state.enabled.has(el.dataset.forLayer);
-      button.classList.toggle('is-on', on || !!activeSection);
+      button?.classList.toggle('is-on', on || !!activeSection);
       const suffix = state.where === 'near' ? ` within ${state.radius} miles` : state.where === 'map' ? ' in this map area' : ' across the Austin area';
       const loading = [...busy].some(id => state.enabled.has(id));
       $('.explore-count').textContent = !on ? 'Turn on a layer to explore.' : matches.length
@@ -412,8 +415,8 @@ window.AustinExplore = {
       applyControls();
     });
     window.addEventListener('pagehide', () => unsubscribe?.(), { once: true });
-    showMarkers=mapMarkers&&!window.PlanPanel?.active;
-    window.AustinExplore.setMapMarkers=on=>{showMarkers=mapMarkers&&!!on;closePopup();signatures.clear();update();};
+    showMarkers=mapMarkers&&!window.PlanPanel?.active&&!window.AustinChatMap?.active;
+    window.AustinExplore.setMapMarkers=on=>{showMarkers=mapMarkers&&!!on&&!window.AustinChatMap?.active;closePopup();signatures.clear();update();};
     if (main) { window.AustinCityHall.init(); window.AustinClassifieds.init(); window.AustinSpecialEvents?.init(); window.AustinProApps?.init(); }
     update(); layers.filter(l => state.enabled.has(l.id)).forEach(load);
     setInterval(update, 60000);

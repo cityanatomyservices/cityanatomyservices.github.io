@@ -9,7 +9,7 @@ async function serve(){
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));return `http://127.0.0.1:${server.address().port}`;
 }
 async function ready(page){const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.chatMap&&window.austinExplore&&window.AustinMapLayers?.close,{},{timeout:45000});await f.waitForFunction(()=>!chatMap.isMoving());return f;}
-async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())await f.locator('#ctrlMapLayers').click();}
+async function layersOpen(f){if(await f.locator('#plan-panel').isVisible())await f.locator('#plan-panel-close').click();if(await f.locator('#map-layers-panel').isHidden())await f.locator('#ctrlMapLayers').click();}
 (async()=>{try{
  const base=process.argv[2]||await serve();
  browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
@@ -23,7 +23,7 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   const page=await context.newPage(),errors=[],boundaryRequests=[];page.setDefaultTimeout(45000);page.on('pageerror',e=>errors.push(e.message));
   page.on('request',r=>{if(/\/(zipcodes|council_districts)\.geojson/.test(r.url()))boundaryRequests.push(r.url());});
   await page.goto(base);let f=await ready(page);
-  assert.deepEqual(await f.locator('#stack > .round').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlExplore','ctrlDayPlan','ctrlChat','ctrlGeoFence']);
+  assert.deepEqual(await f.locator('#stack > .round').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence']);
   assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlLocate').count(),1);
   assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlMapLayers').count(),1);
   assert.equal(await f.locator('#explore-panel #ctrlCityHall,#explore-panel #ctrlClassifieds').count(),2);
@@ -32,20 +32,20 @@ async function layersOpen(f){if(await f.locator('#map-layers-panel').isHidden())
   assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');
   assert.ok(await f.evaluate(()=>chatMap.getPitch()>50));
   await f.evaluate(()=>{window.boundaryErrors=[];chatMap.on('error',e=>{if(/boundary-|zipcodes|council_districts/.test(e.error?.message||''))boundaryErrors.push(e.error.message);});});
-  await f.locator('#ctrlExplore').click();await f.locator('#ctrlProApps').click();
+  await f.evaluate(()=>PlanPanel.browse());await f.locator('#ctrlProApps').click();
   await f.waitForFunction(()=>document.querySelectorAll('#pro-apps-panel [data-pro-app]').length===9);
   assert.equal(await f.locator('#pro-apps-panel [data-pro-app][href]').count(),0,'Guests cannot open paid apps');
-  await f.locator('#explore-panel .explore-close').click();
-  for(const [control,panel] of [['ctrlExplore','explore-panel'],['ctrlDayPlan','plan-panel'],['ctrlChat','legend']]){
+  await f.locator('#plan-panel-close').click();
+  for(const [control,panel] of [['ctrlDayPlan','plan-panel'],['ctrlChat','legend']]){
    await layersOpen(f);await f.locator('#'+control).click();assert.equal(await f.locator('#map-layers-panel').isHidden(),true);assert.equal(await f.locator('#'+panel).isVisible(),true);
    // Existing phone Explore/Day Plan panels span the map and cover lower
    // controls; use their normal close buttons before switching on a phone.
-   if(width<500&&control==='ctrlExplore')await f.locator('#explore-panel .explore-close').click();
    if(width<500&&control==='ctrlDayPlan')await f.getByRole('button',{name:'Hide planner',exact:true}).click();
    await f.locator('#ctrlMapLayers').click();assert.equal(await f.locator('#'+panel).isHidden(),true);assert.equal(await f.locator('#map-layers-panel').isVisible(),true);
   }
   await f.locator('#map-layers-close').press('Escape');assert.equal(await f.locator('#map-layers-panel').isHidden(),true);assert.equal(await f.locator('#ctrlMapLayers').evaluate(el=>el===document.activeElement),true);
-  await layersOpen(f);await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>chatMap.getPitch()===0);
+  await f.evaluate(()=>PlanPanel.browse());await f.locator('#plan-panel-close').click();await layersOpen(f);if(await f.locator('#ctrlTilt').getAttribute('aria-pressed')==='false'){await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>chatMap.getPitch()>50);}
+  await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>chatMap.getPitch()===0);
   await f.locator('#ctrlTilt').click();await f.waitForFunction(()=>chatMap.getPitch()>50);
   await f.locator('#ctrlSatellite').click();assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'visible');
   await f.locator('#ctrlSatellite').click();assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');

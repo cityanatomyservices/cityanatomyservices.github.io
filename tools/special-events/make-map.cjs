@@ -1,6 +1,9 @@
-/* Keep the event page's full planner/export UI aligned with the home map. */
+/* Reuse the home shell, with the event planner's independent markup. */
 const fs=require('node:fs'),path=require('node:path'),root=path.resolve(__dirname,'../..');
 let html=fs.readFileSync(path.join(root,'chat/index.html'),'utf8').replace(/\r\n/g,'\n');
+// Main Day Planner uses an inline wizard with embedded discovery; events keep their existing editor.
+html=html.replace(/    <section id="plan-panel"[\s\S]*?(?=    <p class="map-caption")/,fs.readFileSync(path.join(__dirname,'planner.html'),'utf8').replace(/\r\n/g,'\n'));
+html=html.replace(/^.*(?:planner\/wizard\.(?:js|css)|chat-map\.js)\?v=.*\n/gm,'').replace(/<p id="chat-(?:map|circles)-status" role="status"><\/p>/g,'');
 // Geo Fence is a main-page navigation link, not an event-map control.
 html=html.replace(/      <a[^>]*id="ctrlGeoFence"[^>]*>[\s\S]*?<\/a>\n/,'');
 // The main map puts businesses in Explore. Event maps have Stops instead,
@@ -13,7 +16,7 @@ html=html.replace(/    <!-- Explore mounts[^\n]*\n    <details class="neighborho
 html=html.replace(/  <link rel="stylesheet" href="\.\/neighborhood\.css[^\n]*\n/,'');
 html=html.replace(/(src|href)="\.\.\//g,'$1="/').replace(/(src|href)="\.\//g,'$1="/chat/');
 html=html.replace('<title>Austin neighborhoods</title>','<title>Special Events · Austin.Chat</title>');
-html=html.replace(/<button[^>]*id="ctrlExplore"[\s\S]*?<\/button>/,'<button class="round explore-control" id="ctrlStops" type="button" aria-expanded="false" aria-controls="event-panel" aria-label="Event stops" title="Event stops"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><span>Stops</span></button>');
+html=html.replace('<div class="stack" id="stack">','<div class="stack" id="stack">\n      '+'<button class="round explore-control" id="ctrlStops" type="button" aria-expanded="false" aria-controls="event-panel" aria-label="Event stops" title="Event stops"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><span>Stops</span></button>');
 html=html.replace('<span>Day Plan</span>','<span>Plan</span>').replace('aria-label="Day Plan"','aria-label="Plan"');
 html=html.replace('</head>','<link rel="stylesheet" href="/special-events/plan.css?v=20261109e">\n</head>');
 html=html.replace('  <script src="/planner/map.js', '  <script src="/special-events/saved-store.js?v=20261109f"></script>\n  <script src="/special-events/saved.js?v=20261109f"></script>\n  <script src="/special-events/plan-print.js?v=20261109f"></script>\n  <script src="/special-events/plan.js?v=20261109f"></script>\n  <script src="/planner/map.js');

@@ -3,10 +3,12 @@ import {call,redirectBilling} from './client.mjs?v=20261109h';
 import {createMap} from './map.mjs?v=20261109h';
 import {qr,copyLink,downloadQR} from './share.mjs?v=20261109h';
 import {addressAutocomplete} from './address.mjs?v=20261114a';
-import {guidedForm} from './wizard.mjs?v=20261114c';
+import {guidedForm} from './wizard.mjs?v=20261114e';
+import {scheduleEditor} from './schedule-ui.mjs?v=20261114e';
+import {scheduleLabel} from './schedule.mjs?v=20261114e';
 const $=id=>document.getElementById(id),form=$('geofence-form'),field=name=>form.elements.namedItem(name),S=window.AustinSession;
 const previewHost=document.querySelector('.geofence-preview'),phone=matchMedia('(max-width:700px)');
-let mapRequested=false,wizard;
+let mapRequested=false,wizard,schedule;
 function showMap(visible){mapRequested=visible;$('geo-map-placeholder').hidden=visible;$('geofence-map').hidden=!visible;$('geo-preview-caption').hidden=!visible;$('geo-map-note').hidden=!visible;previewHost.hidden=phone.matches&&!visible;}
 function layout(){if(phone.matches)$('geo-review').before(previewHost);else document.querySelector('.geofence-grid').append(previewHost);showMap(mapRequested);}
 phone.addEventListener('change',layout);layout();
@@ -29,12 +31,13 @@ function invalidate(){revision++;preview=null;$('geo-confirm').checked=false;sho
 function point(){if(field('mode').value==='address'){if(!chosen)throw Error('Find and select an address first.');return chosen;}
  if(field('latitude').value.trim()===''||field('longitude').value.trim()==='')throw Error('Enter both latitude and longitude.');return {latitude:Number(field('latitude').value),longitude:Number(field('longitude').value)};
 }
-function value(){return validate({name:field('name').value,description:field('description').value,...point(),diameter:Number(field('diameter').value)});}
+function value(){return {...validate({name:field('name').value,description:field('description').value,...point(),diameter:Number(field('diameter').value)}),...schedule.read()};}
 async function map(){if(!mapPromise)mapPromise=createMap('geofence-map').then(v=>mapView=v).catch(e=>{mapPromise=null;throw e;});return mapPromise;}
 const addressSearch=addressAutocomplete({input:field('address'),results:$('geo-results'),status:$('geo-address-status'),button:$('geo-search'),lookup:(action,address)=>call(action,{address}),canSearch:()=>!!owner&&!busy&&field('mode').value==='address',onSelect:match=>{chosen=match;invalidate();$('geo-address-status').textContent='Address selected. Choose your circle size below.';}});
-wizard=guidedForm({form,onChange:invalidate,hasLocation:()=>{try{const p=point();return Number.isFinite(p.latitude)&&Math.abs(p.latitude)<=85&&Number.isFinite(p.longitude)&&Math.abs(p.longitude)<=180;}catch{return false;}}});
+schedule=scheduleEditor($('geo-schedule-fields'),{},invalidate);
+wizard=guidedForm({form,onChange:invalidate,hasSchedule:()=>{try{schedule.read();return true;}catch{return false;}},hasLocation:()=>{try{const p=point();return Number.isFinite(p.latitude)&&Math.abs(p.latitude)<=85&&Number.isFinite(p.longitude)&&Math.abs(p.longitude)<=180;}catch{return false;}}});
 function locationPanels(){for(const [mode,id] of [['address','geo-address-fields'],['coordinates','geo-coordinate-fields'],['gps','geo-gps-fields']])$(id).hidden=field('mode').value!==mode;}
-function resetForm(){form.reset();chosen=null;wizard.reset();addressSearch.clear();$('geo-gps-result').textContent='';$('geo-notify-email').value=S.user?.email||'';locationPanels();invalidate();}
+function resetForm(){form.reset();chosen=null;schedule.reset();wizard.reset();addressSearch.clear();$('geo-gps-result').textContent='';$('geo-notify-email').value=S.user?.email||'';locationPanels();invalidate();}
 field('mode').forEach(e=>e.addEventListener('change',()=>{chosen=null;addressSearch.clear();field('address').value='';field('latitude').value=field('longitude').value='';$('geo-gps-result').textContent='';locationPanels();invalidate();}));
 $('geo-gps').onclick=async()=>{
  if(busy)return;addressSearch.clear();invalidate();const run=revision,who=owner;busy=true;controls();message('Finding your current location…');$('geo-gps-result').textContent='Finding your current location…';
@@ -52,13 +55,17 @@ $('geo-gps').onclick=async()=>{
 };
 form.addEventListener('input',e=>{if(['geo-confirm','geo-notify','geo-notify-email'].includes(e.target.id)){controls();return;}if(e.target.name==='address')chosen=null;invalidate();
 });
-$('geo-preview').onclick=async()=>{if(!wizard.ready||busy)return;const run=revision,who=owner;busy=true;controls();message('Loading map preview…');try{const data=value();showMap(true);const view=await map();if(run!==revision||who!==owner)return;view.draw(data);preview=data;if(phone.matches)$('geofence-map').scrollIntoView({behavior:'smooth',block:'center'});$('geo-preview-caption').textContent=`${data.diameter} meters across · ${data.latitude.toFixed(6)}, ${data.longitude.toFixed(6)}`;message('Check the circle, then confirm the location below.');}catch(e){if(who===owner){showMap(false);message(e.message);}}finally{if(who===owner){busy=false;controls();}}};
+$('geo-preview').onclick=async()=>{if(!wizard.ready||busy)return;const run=revision,who=owner;busy=true;controls();message('Loading map preview…');try{const data=value();showMap(true);const view=await map();if(run!==revision||who!==owner)return;view.draw(data);preview=data;$('geo-review-schedule').textContent=scheduleLabel(data.starts_at,data.ends_at);if(phone.matches)$('geofence-map').scrollIntoView({behavior:'smooth',block:'center'});$('geo-preview-caption').textContent=`${data.diameter} meters across · ${data.latitude.toFixed(6)}, ${data.longitude.toFixed(6)}`;message('Check the circle, then confirm the location below.');}catch(e){if(who===owner){showMap(false);message(e.message);}}finally{if(who===owner){busy=false;controls();}}};
 form.onsubmit=async e=>{e.preventDefault();if(busy||!preview||!$('geo-confirm').checked||!checkoutEnabled||!emailReady||!wizard.ready)return;const who=owner,invitations=wizard.emails();busy=true;controls();message('Saving your geofence…');try{await call('save',{id:draftId,fields:preview,invitations});if(who!==owner)return;await call('notifications',{id:draftId,enabled:$('geo-notify').checked,email:$('geo-notify').checked?$('geo-notify-email').value:S.user.email});if(who!==owner)return;message(freeTesting?'Creating your geofence and queuing invitations…':'Opening secure payment…');const data=await call('checkout',{id:draftId});if(who!==owner)return;if(data.activated===true){draftId=crypto.randomUUID();resetForm();await list();message('Your geofence is ready. '+invitations.length+' invitation '+(invitations.length===1?'email is':'emails are')+' queued. Open its link or download the QR code below.');$('geo-owned').scrollIntoView({behavior:'smooth',block:'start'});}else redirectBilling(data.url);}catch(error){if(who===owner){await list();message(error.message+' If this geofence appears below, use its activation button to retry.');}}finally{if(who===owner){busy=false;controls();}}};
 async function list(){const who=owner;if(!who)return;$('geo-list-status').textContent='Loading your geofences…';
  try{const data=await call('list');if(who!==owner)return;checkoutEnabled=data.checkoutEnabled;freeTesting=data.freeTesting===true;emailReady=data.emailReady===true;pricing();controls();$('geo-owned').replaceChildren();$('geo-list-status').textContent=data.spaces.length?'':'You have no geofences yet.';
  if(!checkoutEnabled)message('Geofence payments are being set up. You can try the location and circle preview now.');
  for(const item of data.spaces){const card=node('article','');card.className='geofence-card';const active=item.temporaryAccess===true||item.status==='active'&&Date.parse(item.paidUntil)>Date.now();card.append(node('h3',item.name),node('p',item.description),node('p',`${item.diameter} m diameter · ${item.latitude.toFixed(6)}, ${item.longitude.toFixed(6)}`));
  card.append(node('p',item.temporaryAccess?'Active · Free while testing. No automatic charge.':active?`${item.cancelAtPeriodEnd?'Active until':'Paid through'} ${new Date(item.paidUntil).toLocaleDateString()}`:item.hasBilling?'Not active — check your subscription or payment status.':'Not active yet.'));
+ const scheduledOpen=!item.starts_at||Date.parse(item.starts_at)<=Date.now()&&Date.parse(item.ends_at)>Date.now();
+ card.append(node('p',scheduleLabel(item.starts_at,item.ends_at)),node('p',active?(scheduledOpen?'Chat is open and listed on the Chat map.':Date.parse(item.starts_at)>Date.now()?'Chat will open at the scheduled start time.':'This chat window has ended.'):'Activate this geofence to make its chat available.'));
+ const timing=node('details','');timing.className='geofence-schedule-settings';timing.append(node('summary','Change chat times'));const editor=scheduleEditor(timing,item),saveTimes=node('button','Save chat times'),timeStatus=node('p','');timeStatus.setAttribute('role','status');
+ saveTimes.onclick=async()=>{const who=owner;try{const values=editor.read();saveTimes.disabled=true;await call('schedule',{id:item.id,...values});if(who===owner)await list();}catch(e){timeStatus.textContent=e.message;}finally{saveTimes.disabled=false;}};timing.append(saveTimes,timeStatus);card.append(timing);
  const link=node('a',pageURL(item.id));link.href=pageURL(item.id);link.className='geofence-link';card.append(link);const qrHost=node('div','');qrHost.className='geofence-qr';qrHost.innerHTML=qr(item.id);card.append(node('br',''),qrHost);
  const actions=node('div','');actions.className='geofence-actions';const status=node('p','');status.setAttribute('role','status');
  const action=(label,fn)=>{const b=node('button',label);b.onclick=async()=>{b.disabled=true;try{await fn();}catch(e){status.textContent=e.message;}finally{b.disabled=false;}};actions.append(b);return b;};

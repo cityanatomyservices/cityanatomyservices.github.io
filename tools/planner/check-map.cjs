@@ -11,15 +11,19 @@ async function serve(){
 function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/1000)+3600,enc=x=>Buffer.from(JSON.stringify(x)).toString('base64url');return {access_token:enc({alg:'HS256',typ:'JWT'})+'.'+enc({sub:id,exp,role:'authenticated',is_anonymous:!member})+'.fixture',refresh_token:crypto.randomUUID(),expires_in:3600,expires_at:exp,token_type:'bearer',user:{id,is_anonymous:!member,aud:'authenticated',role:'authenticated',app_metadata:{},user_metadata:{}}};}
 async function frame(page,planner=false){const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(planner?()=>window.chatMap&&window.austinExplore&&window.PlanStore:()=>window.chatMap&&window.austinExplore&&window.PlanStore,{}, {timeout:45000});await f.evaluate(()=>PlanStore.ready());return f;}
 async function control(f,id,width){
- if(width<500)for(const selector of ['#plan-panel-close','#explore-panel .explore-close','#explore-panel .explore-close'])if(await f.locator(selector).isVisible())await f.locator(selector).click();
- if(id==='ctrlCityHall'&&await f.locator('#explore-panel').isHidden())await f.locator('#ctrlExplore').click();
+ if(id==='ctrlExplore'||id==='ctrlCityHall'){
+  await f.evaluate(()=>PlanPanel.browse());
+  if(id==='ctrlCityHall')await f.locator('#ctrlCityHall').click();
+  else for(const card of ['ctrlCityHall','ctrlClassifieds'])if(await f.locator('#'+card).getAttribute('aria-expanded')==='true')await f.locator('#'+card).click();
+  return;
+ }
+ if(await f.locator('#plan-panel-close').isVisible())await f.locator('#plan-panel-close').click();
  await f.locator('#'+id).click();
- if(id==='ctrlExplore')for(const card of ['ctrlCityHall','ctrlClassifieds'])if(await f.locator('#'+card).getAttribute('aria-expanded')==='true')await f.locator('#'+card).click();
 }
 async function ownMap(f,count){
  await f.waitForFunction(n=>document.querySelectorAll('#map .map-stop').length===n,count);
  assert.equal(await f.locator('#map .maplibregl-marker,#map .avatars').count(),count,'all map markers belong to selected stops');
- for(const count of await f.evaluate(async()=>Promise.all(chatMap.getStyle().sources?Object.keys(chatMap.getStyle().sources).filter(id=>id.startsWith('explore-')).map(async id=>(await chatMap.getSource(id).getData()).features.length):[])))assert.equal(count,0,'discovery sources stay empty while planning');
+ if(await f.evaluate(()=>PlanPanel.active))for(const count of await f.evaluate(async()=>Promise.all(chatMap.getStyle().sources?Object.keys(chatMap.getStyle().sources).filter(id=>id.startsWith('explore-')).map(async id=>(await chatMap.getSource(id).getData()).features.length):[])))assert.equal(count,0,'discovery sources stay empty while planning');
 }
 async function routeCount(f,count){
  // This Playwright version does not await asynchronous polling predicates.
@@ -69,7 +73,7 @@ async function routeCount(f,count){
   await control(f,'ctrlExplore',width);if(!await f.locator('[data-layer=free-cheap]').isChecked())await f.locator('[data-layer=free-cheap]').check();
   await f.waitForFunction(()=>austinExplore.visibleItems.length===3);
   for(const name of ['Selected first stop','Selected second stop'])await f.getByRole('checkbox',{name:`Add ${name} to Day Planner`,exact:true}).check();
-  await f.locator('#explore-panel .explore-close').click();
+  await f.locator('#plan-panel-close').click();
   await f.evaluate(()=>{mapHooks.onPeople([{handle:'Fixture neighbor',emoji:'🦊',pos:[-97.74,30.27]}],{});mapHooks.onPlace({id:'fixture-business',name:'Fixture business',lat:30.27,lng:-97.74});});
   assert.equal(await f.locator('#map .maplibregl-marker,#map .avatars').count(),2);
   await control(f,'ctrlDayPlan',width);await page.waitForURL('**/?planner=1');assert.equal(await f.locator('.plan-open').count(),0);assert.equal(f,await frame(page,true));
@@ -106,7 +110,7 @@ async function routeCount(f,count){
   for(let i=0;!held&&i<100;i++)await new Promise(resolve=>setTimeout(resolve,50));assert.ok(held,'a route request is in flight');
   await f.evaluate(day=>PlanStore.chooseDay(day),otherDay);await ownMap(f,0);await routeCount(f,0);held();
   await f.waitForFunction(()=>!PlanRouting.state.busy);await ownMap(f,0);await routeCount(f,0);
-  await f.evaluate(day=>PlanStore.chooseDay(day),day);await ownMap(f,2);await routeCount(f,1);
+  await f.evaluate(day=>PlanStore.chooseDay(day),day);await f.locator('[data-plan-step=times]').click();await ownMap(f,2);await routeCount(f,1);
   await f.locator('[data-plan-step=times]').click();await f.locator('#plan-show-all').click();await f.getByRole('button',{name:'Remove Selected second stop',exact:true}).click();await ownMap(f,1);await routeCount(f,0);
   await f.evaluate(async feature=>{await PlanStore.select(PlanSources.feature(feature),true);},features[1]);await ownMap(f,2);await routeCount(f,1);
   await page.screenshot({path:`/tmp/planner-selected-map-${width}-${member?'member':'guest'}.png`});
