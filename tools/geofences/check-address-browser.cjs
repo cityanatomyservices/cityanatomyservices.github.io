@@ -17,6 +17,7 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
     return route.continue();
    });
    const page=await context.newPage();page.setDefaultTimeout(45000);page.on('pageerror',error=>errors.push(error.message));
+   page.on('response',response=>{if(response.url().includes('/functions/v1/geofences')&&response.status()>=400)console.error('Geofence lookup response: HTTP '+response.status());});
    await page.goto('https://austin.chat/geofences/manage/',{waitUntil:'domcontentloaded'});
    await page.locator('#geo-member').waitFor();
    await page.locator('[name=name]').fill('Address preview verification');
@@ -41,7 +42,7 @@ const {chromium}=require('../video/node_modules/playwright-core'),{executablePat
    if(width<700)await options.first().tap();else await options.first().click();
    assert.match(await address.inputValue(),/ROUND ROCK, TX/i);
    await address.fill('1500 Marilla Dallas TX');
-   await page.locator('#geo-address-status').filter({hasText:'No Austin metro matches'}).waitFor();
+   await page.locator('#geo-address-status').filter({hasText:'No Austin metro matches'}).waitFor().catch(async()=>{throw Error('Address empty-state check failed: '+await page.locator('#geo-address-status').innerText());});
    assert.equal(await page.locator('#geo-results').isHidden(),true);
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
    assert.equal(actions.filter(a=>!['list','suggest','geocode'].includes(a)).length,0);assert.deepEqual(errors,[]);

@@ -23,8 +23,20 @@ removed with the account. No activation, payment or email was performed.
 The product-creation script's size description now matches; live Stripe catalog
 reads were unavailable through the CLI, so live catalog text was not changed.
 
-Remaining release checks: Pages publication and
-`tools/geofences/check-diameter-live.py --browser` against the published form.
+Release `a20e51d` is live. The CI run exposed an older test using the service
+role to call the public reader; `80ed816` runs those assertions as `anon`.
+Membership checks `43598753337` and Pages `43598753274` passed. The unversioned
+HTML announced `20261114b` before the changed assets were fetched, and both
+manage/model match the release.
+
+`tools/geofences/check-diameter-live.py --browser` passed against production
+at 1280px and 390px: 500-meter map preview, 501-meter rejection, keyboard/touch
+address selection and invalidation on edits. Screenshots confirm the new
+range text and map. Disposable accounts/drafts were removed. Two earlier
+browser runs timed out on the separate outside-region address empty state;
+the helper now emits sanitized HTTP/state diagnostics, and the complete rerun
+passed including Dallas exclusion. No autocomplete runtime changes were made.
+Diameter release verification is complete.
 
 ## 2026-11-14 - Austin metro address suggestions for geofence creation
 
