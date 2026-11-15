@@ -23,7 +23,18 @@ retained choices between the opening card and Places. Existing wizard and map
 flows also pass at both sizes for guests/members. The Chat-map regression passes
 at both sizes after an initial circle-load timeout; failure diagnostics were
 added. All browser account requests were intercepted. Light/dark desktop/phone
-screenshots were reviewed. Publication and live verification are next.
+screenshots were reviewed.
+
+Release `503e6bf9` (merged with scheduled feed updates as `f6006379`) is live.
+Planner CI `43755665969` passed. The first Pages run could not find its freshly
+uploaded artifact; rerunning that job found duplicate artifacts. Fresh Pages
+run `43756568515` succeeded. Unversioned root/chat HTML announced `20261115a`
+before the two changed wizard assets were fetched and matched to source.
+The complete published wizard/browser suite passed for guests/members at
+1280px/390px, including browsing before creating any day, filtering, event-day
+checkboxes, preserved choices, editing, route handoff, export and undo. Live
+light/dark screenshots were reviewed. Account/route fixtures were intercepted;
+no real plans were changed. This clarification is complete.
 
 ## 2026-11-14 - Three main controls, planner discovery and scheduled chat circles
 
