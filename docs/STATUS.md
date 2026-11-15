@@ -27,7 +27,13 @@ unchanged plan collection, Chat isolation, themes, refresh, retry and late
 responses. Existing map-layer/catalog checks also pass at both sizes. Account
 requests were intercepted; no real plans or accounts were edited. Screenshots
 were reviewed and popup stacking corrected. Browser assets use `20261115b`.
-Publication and live verification are the remaining checks for this release.
+Release `148f95b7` is live. Pages run `43762477505` and the shared Studio Tour
+checks `43762477490` passed. Unversioned root/chat/Special Events HTML announced
+`20261115b` before the versioned parking JS/CSS and shared map JS were fetched;
+all matched source, as did all three published parking snapshots. The full live
+parking browser suite passed at 1280px/390px, with no browser/parking map errors
+or changes to plans. Live light/dark screenshots were reviewed, including the
+phone popup and utility-icon contrast. This parking request is complete.
 
 ## 2026-11-15 - Browse from the Day Planner opening card without a plan
 
