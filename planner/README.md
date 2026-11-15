@@ -1,8 +1,13 @@
 # Austin day Planner
 
 The main page's Day Plan button opens inline guidance on its existing map.
-The opening panel contains only Upcoming day plans and Create New Day;
-the dropdown is omitted when there are no current/future days containing stops.
+The opening panel contains Upcoming day plans, Create New Day, and the complete
+former Explore browser directly beneath the button. Categories, time filters,
+results and map pins are available without creating or opening a day plan.
+Browsing does not change the plan collection. Checking Day Planner beside a
+listing uses the existing selection rules, including the published day for fixed
+events, and makes that day available in Upcoming day plans. The dropdown is
+omitted when there are no current/future days containing stops.
 Empty days and past days stay saved but are excluded from this opening list.
 Unscheduled saved stops still count, so unfinished plans remain discoverable.
 Dates use Austin's existing 5 AM boundary. The full day picker remains available
@@ -10,9 +15,10 @@ inside the editor for older/empty days; opening an existing date reuses it.
 
 Creation asks for a date once in an inline form, then guides Places, Times,
 Travel and Review. There is no date popup or per-stop date field. The Places step
-contains the complete former Explore panel: category cards, filters, listings,
-Neighborhood Businesses, City Hall, Classifieds, Special Events and Pro Tier Apps.
-Its existing checkboxes add stops; a sticky Set stop times action continues the
+reuses the same Explore panel from the opening card: category cards, filters,
+listings, Neighborhood Businesses, City Hall, Classifieds, Special Events and Pro Tier Apps.
+Filters, active categories and results are preserved when moving between these
+views. Its existing checkboxes add stops; a sticky Set stop times action continues the
 wizard. Selected stops remain available in a collapsed list above the categories.
 Times shows one stop at a time, starting with the first untimed stop.
 Users enter an arrival time and visit length, with the existing overlap,
@@ -31,15 +37,16 @@ Restore is also reachable from the date/places steps before any stops exist.
 
 `wizard.js` and `wizard.css` apply only to the main planner. Shared editor/map
 hooks are optional, so Special Events retain their existing interface.
-`node tools/planner/check-wizard.cjs [https://austin.chat]` checks empty/upcoming
-entry, inline creation, time conflicts, next-morning visits, route handoff,
+`node tools/planner/check-wizard.cjs [https://austin.chat]` checks browsing without
+a plan, category/time/search filters, dated event selection, preserved browsing,
+empty/upcoming entry, inline creation, time conflicts, next-morning visits, route handoff,
 review/export, undo, guest/member behavior and both themes at 1280px and 390px,
 using intercepted account and route fixtures without production writes.
 
-Collapse the editor to see its current map; Edit day opens it again. Places
-shows discovery pins while Times, Travel and Review show the selected day's
+Collapse the editor to see its current map; Edit day opens it again. The opening
+card and Places show discovery pins while Times, Travel and Review show the selected day's
 stops and route. `PlanPanel.active` represents route-map ownership, so it is
-false while browsing Places even though the planner context remains open.
+false while browsing either view even though the planner context remains open.
 Map display controls preserve the current mode. Chat has its own isolated map.
 `/?planner=1` opens the editor directly. `/dayplan/`, `/myplanmap/` and the old
 `/planner/app.html` redirect there, preserving query parameters and fragments.

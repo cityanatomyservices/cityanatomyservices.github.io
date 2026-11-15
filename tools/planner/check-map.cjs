@@ -19,6 +19,7 @@ async function control(f,id,width){
  }
  if(await f.locator('#plan-panel-close').isVisible())await f.locator('#plan-panel-close').click();
  await f.locator('#'+id).click();
+ if(id==='ctrlDayPlan'&&await f.locator('#plan-upcoming-label').isVisible())await f.locator('#plan-upcoming').selectOption(await f.evaluate(()=>PlanStore.plan.date));
 }
 async function ownMap(f,count){
  await f.waitForFunction(n=>document.querySelectorAll('#map .map-stop').length===n,count);
@@ -81,7 +82,7 @@ async function routeCount(f,count){
   await ownMap(f,2);await routeCount(f,0);
   await f.evaluate(()=>{mapHooks.onPeople([{handle:'Late fixture neighbor',emoji:'🦊',pos:[-97.73,30.28]}],{});mapHooks.onPlace({id:'late-business',name:'Late business',lat:30.28,lng:-97.73});});await ownMap(f,2);
   await f.evaluate(()=>mapHooks.onPeople([]));
-  await f.locator('#plan-upcoming').selectOption(day);await f.locator('#plan-finish-stops').click();await routeCount(f,1);
+  await f.locator('#plan-finish-stops').click();await routeCount(f,1);
   assert.deepEqual(rpcCalls[0].p_from,points[0]);assert.deepEqual(rpcCalls[0].p_to,points[1]);
   await f.waitForFunction(()=>chatMap.queryRenderedFeatures({layers:['planner-route-lines']}).length>0);
   await f.evaluate(()=>{window.originalMap=chatMap;window.originalVisit=AustinVisit.id;});
@@ -106,7 +107,7 @@ async function routeCount(f,count){
   await page.goBack();await f.waitForFunction(()=>!PlanPanel.active);await routeCount(f,0);
   await page.goForward();await f.waitForFunction(()=>PlanPanel.active);await ownMap(f,2);await routeCount(f,1);
   assert.equal(await f.evaluate(()=>chatMap===originalMap&&AustinVisit.id===originalVisit),true,'one map and guest visit across mode changes and browser history');
-  await f.evaluate(()=>PlanPanel.open());await f.locator('#plan-upcoming').selectOption(day);await f.locator('[data-plan-step=travel]').click();holdNext=true;await f.locator('#plan-route').click();
+  await f.evaluate(()=>PlanPanel.open());await f.locator('[data-plan-step=travel]').click();holdNext=true;await f.locator('#plan-route').click();
   for(let i=0;!held&&i<100;i++)await new Promise(resolve=>setTimeout(resolve,50));assert.ok(held,'a route request is in flight');
   await f.evaluate(day=>PlanStore.chooseDay(day),otherDay);await ownMap(f,0);await routeCount(f,0);held();
   await f.waitForFunction(()=>!PlanRouting.state.busy);await ownMap(f,0);await routeCount(f,0);
@@ -123,7 +124,7 @@ async function routeCount(f,count){
   await f.locator('.explore-popup .maplibregl-popup-close-button').click();
   await control(f,'ctrlDayPlan',width);await page.waitForURL('**/?planner=1');assert.equal(await f.locator('.plan-open').count(),0);assert.equal(f,await frame(page,true));await ownMap(f,2);assert.equal(await f.evaluate(()=>chatMap===originalMap&&AustinVisit.id===originalVisit),true);
   if(member)await f.evaluate(()=>PlanStore.sync());
-  await page.reload();f=await frame(page,true);await ownMap(f,member?2:0);
+  await page.reload();f=await frame(page,true);await ownMap(f,0);if(member){await f.locator('#plan-upcoming').selectOption(day);await ownMap(f,2);}
   if(member){await page.evaluate(()=>AustinSession.signOut());await ownMap(f,0);await routeCount(f,0);}
   assert.deepEqual(errors,[]);await context.close();
   console.log(`${width}px ${member?'registered':'guest'}: selected stops only, Explore browse/add/remove, GPS, routes, late response, day switching, removal, navigation, refresh and sign-out passed.`);

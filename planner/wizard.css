@@ -1,7 +1,7 @@
 .plan-wizard [hidden]{display:none!important}
 .plan-wizard .plan-heading{flex-wrap:nowrap}
 .plan-wizard #plan-start{display:grid;gap:18px;padding:8px 0 2px}
-.plan-wizard #plan-start label{font-size:13px;gap:8px}
+.plan-wizard #plan-start>label{font-size:13px;gap:8px}
 .plan-wizard #add-day{width:100%;min-height:46px}
 .plan-wizard .plan-wizard-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .plan-wizard #plan-progress{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:0 0 18px}

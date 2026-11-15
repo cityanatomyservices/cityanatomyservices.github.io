@@ -40,7 +40,7 @@
   <script src="./theme.js?v=20261028g"></script>
   <link rel="stylesheet" href="/planner/select.css?v=20261029v">
   <link rel="stylesheet" href="/planner/app.css?v=20261102g">
-  <link rel="stylesheet" href="/planner/wizard.css?v=20261114e">
+  <link rel="stylesheet" href="/planner/wizard.css?v=20261115a">
   <link rel="stylesheet" href="/classifieds/style.css?v=20261104c">
   <link rel="stylesheet" href="/shared/comments.css?v=20261030e">
 <script src="/shared/map-ui.js?v=20261113a"></script>
@@ -130,6 +130,7 @@
       <div id="plan-start">
         <label id="plan-upcoming-label" hidden>Upcoming day plans<select id="plan-upcoming" aria-label="Upcoming day plans"></select></label>
         <button type="button" id="add-day" class="primary">Create New Day</button>
+        <div id="plan-explore-host"></div>
       </div>
       <div id="plan-workspace" hidden>
         <div class="plan-wizard-top"><button type="button" id="plan-start-over" class="text-button">All day plans</button><button type="button" id="undo" disabled>Undo</button></div>
@@ -149,7 +150,6 @@
           <div id="plan-empty" hidden><p>Your day is ready for its first stop.</p></div>
           <details id="plan-chosen"><summary id="plan-chosen-summary">Selected stops</summary><ul id="plan-chosen-stops" aria-label="Places in this day"></ul></details>
           <div class="plan-next"><button type="button" data-plan-restore class="text-button">Restore a plan</button><button type="button" data-plan-go="times" class="primary">Set stop times →</button></div>
-          <div id="plan-explore-host"></div>
         </section>
         <section id="plan-step-times" class="plan-step" hidden>
           <h2 tabindex="-1">When do you want to arrive?</h2><p>Enter a time and visit length for each stop. Times before 5 AM mean the following morning.</p>
@@ -242,7 +242,7 @@
   <script src="/planner/store.js?v=20261109d"></script>
   <script src="/planner/routing.js?v=20261030a"></script>
   <script src="/planner/map.js?v=20261114d"></script>
-  <script src="/planner/wizard.js?v=20261114e"></script>
+  <script src="/planner/wizard.js?v=20261115a"></script>
   <script src="/planner/panel.js?v=20261114e"></script>
   <script src="/planner/route-panel.js?v=20261114d"></script>
   <script src="/planner/app.js?v=20261114d"></script>

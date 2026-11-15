@@ -12,7 +12,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
 (async()=>{try{
  const base=process.argv[2]||await serve();browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  for(const width of [1280,390])for(const member of [false,true]){
-  const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500}),active=session(member),guest=session(false);let remote=null,routeCalls=0;
+  const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500}),active=session(member),guest=session(false);let remote=null,routeCalls=0,saveCalls=0;
   await context.addInitScript(({active,member})=>{if(member&&window===window.top)localStorage.setItem('sb-aqbyxpiwugcvoephsvpm-auth-token',JSON.stringify(active));},{active,member});
   await context.route('https://*.supabase.co/**',route=>{
    const url=new URL(route.request().url()),body=route.request().postDataJSON(),p=url.pathname;
@@ -21,16 +21,40 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
    if(p==='/auth/v1/token')return route.fulfill({json:active});
    if(p==='/rest/v1/rpc/member_load')return route.fulfill({json:{profile:{handle:'Fixture',show_avatar:false},favorites:[],preferences:{},progress:[]}});
    if(p==='/rest/v1/rpc/planner_load_scoped')return route.fulfill({json:remote});
-   if(p==='/rest/v1/rpc/planner_save_scoped'){remote={plan:{id:body.p_id,...body.p_settings,items:body.p_items},revision:(remote?.revision||0)+1,dirty:false};return route.fulfill({json:{revision:remote.revision}});}
+   if(p==='/rest/v1/rpc/planner_save_scoped'){saveCalls++;remote={plan:{id:body.p_id,...body.p_settings,items:body.p_items},revision:(remote?.revision||0)+1,dirty:false};return route.fulfill({json:{revision:remote.revision}});}
    if(p==='/rest/v1/rpc/planner_routing_status')return route.fulfill({json:{status:'ready',networkVersion:2}});
    if(p==='/rest/v1/rpc/planner_route_leg'){routeCalls++;return route.fulfill({json:{status:'ready',driveMinutes:6,accessMinutes:1,distanceMeters:1600,networkVersion:2,geometry:{type:'LineString',coordinates:[body.p_from,body.p_to]}}});}
    return route.fulfill({status:400,json:{message:'No production account requests in wizard check'}});
   });
+  const eventDay=M.nextDay(M.nextDay(M.planDay())),laterDay=M.nextDay(eventDay);
+  const features=[['Browse first event',eventDay],['Browse later event',laterDay],['Browse music',eventDay]].map(([title,date],i)=>({type:'Feature',geometry:{type:'Point',coordinates:[-97.7431+i*.002,30.2672+i*.002]},properties:{id:'browse-'+i,title,venue:'Fixture venue',address:'Austin',kind:'event',price:0,priceLabel:'Free',url:'https://example.invalid/browse-'+i,source:'Fixture calendar',checked:new Date().toISOString(),start:M.instant(date+'T12:00'),end:M.instant(date+'T13:00'),expires:M.instant(laterDay+'T23:00')}}));
+  await context.route(/\/chat\/data\/explore\/[^?]+\.geojson/,route=>route.fulfill({json:{type:'FeatureCollection',generated:new Date().toISOString(),sources:[],features:route.request().url().includes('free-cheap')?features.slice(0,2):route.request().url().includes('live-music')?features.slice(2):[]}}));
   const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'/?planner=1');const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.PlanWizard&&window.PlanStore&&window.chatMap);await f.evaluate(()=>PlanStore.ready());
-  assert.equal(await f.locator('#plan-start button:visible').count(),1);assert.equal(await f.locator('#plan-upcoming-label').isHidden(),true);assert.equal(await f.locator('#plan-workspace').isHidden(),true);
-  const days=await f.evaluate(()=>PlanStore.days.length);await f.locator('#add-day').click();assert.equal(await f.locator('dialog[open]').count(),0);await f.locator('#cancel-day').click();assert.equal(await f.evaluate(()=>PlanStore.days.length),days);
+  await f.locator('#plan-start #explore-panel').waitFor();await f.waitForFunction(()=>document.querySelectorAll('#explore-panel .explore-layer').length===10);
+  assert.equal(await f.locator('#plan-start > button:visible').count(),1);assert.equal(await f.locator('#plan-upcoming-label').isHidden(),true);assert.equal(await f.locator('#plan-workspace').isHidden(),true);
+  assert.equal(await f.locator('#add-day + #plan-explore-host').count(),1,'browse directly beneath Create New Day');
+  const untouched=await f.evaluate(()=>JSON.stringify(PlanStore.book)),initialSaves=saveCalls;
   await page.screenshot({path:path.resolve('..','.tmp',`planner-wizard-start-${width}-${member}.png`)});
+  const when=f.locator('[data-filter=when]'),query=f.locator('.explore-event-content [data-filter=query]'),list=f.locator('.explore-event-content .explore-results > li');
+  await f.locator('[data-layer=free-cheap]').check();await f.locator('[data-layer=live-music]').check();await when.selectOption('all');await f.waitForFunction(()=>austinExplore.visibleItems.length===3);
+  assert.equal(await list.count(),3);assert.equal(await f.evaluate(()=>PlanPanel.active),false);assert.equal(await f.locator('.map-stop').count(),0);
+  assert.equal(await f.evaluate(async()=>(await chatMap.getSource('explore-free-cheap').getData()).features.length),2,'browse pins show without a plan');
+  await when.selectOption('date');await f.locator('[data-filter=date]').fill(eventDay);await f.waitForFunction(()=>austinExplore.visibleItems.length===2);
+  await query.fill('nothing matches');await f.waitForFunction(()=>austinExplore.visibleItems.length===0);assert.match(await f.locator('.explore-count').textContent(),/No matching listings/);
+  await query.fill('');await when.selectOption('all');await f.waitForFunction(()=>austinExplore.visibleItems.length===3);
+  assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),untouched,'browsing and empty results never create or edit a plan');assert.equal(saveCalls,initialSaves,'browsing never saves a plan');
+  for(const id of ['ctrlCityHall','ctrlClassifieds','ctrlSpecialEvents','ctrlProApps']){await f.locator('#'+id).click();assert.equal(await f.locator('#'+id).getAttribute('aria-expanded'),'true');await f.locator('#'+id).click();}
+  for(const title of ['Browse first event','Browse later event'])await f.getByRole('checkbox',{name:`Add ${title} to Day Planner`,exact:true}).check();
+  assert.deepEqual(await f.evaluate(()=>PlanStore.book.items.map(i=>({title:i.source.title,day:i.day}))),[{title:'Browse first event',day:eventDay},{title:'Browse later event',day:laterDay}]);
+  assert.equal(await f.evaluate(()=>PlanWizard.stage),'start','adding a listing lets the visitor keep browsing');assert.equal(await f.locator('#plan-upcoming option').count(),3);
+  await f.locator('#plan-upcoming').selectOption(eventDay);await f.locator('[data-plan-step=places]').click();
+  assert.equal(await f.locator('#plan-step-places #explore-panel').isVisible(),true);assert.equal(await f.locator('[data-layer=live-music]').isChecked(),true);assert.equal(await when.inputValue(),'all');assert.equal(await list.count(),3);
+  assert.equal(await f.getByRole('checkbox',{name:'Add Browse first event to Day Planner',exact:true}).isChecked(),true);
+  await f.locator('#plan-start-over').click();assert.equal(await f.locator('#plan-start #explore-panel').isVisible(),true);
+  await page.locator('.theme-toggle').click();await f.locator('#plan-panel').evaluate(el=>el.scrollTop=0);await page.screenshot({path:path.resolve('..','.tmp',`planner-browse-dark-${width}-${member}.png`)});await page.locator('.theme-toggle').click();
+  for(const title of ['Browse first event','Browse later event'])await f.getByRole('checkbox',{name:`Add ${title} to Day Planner`,exact:true}).uncheck();assert.equal(await f.evaluate(()=>PlanStore.book.items.length),0);
+  const days=await f.evaluate(()=>PlanStore.days.length);await f.locator('#add-day').click();assert.equal(await f.locator('dialog[open]').count(),0);await f.locator('#cancel-day').click();assert.equal(await f.evaluate(()=>PlanStore.days.length),days);
   const date=M.nextDay(M.planDay());await f.locator('#add-day').click();await f.locator('#new-day-date').fill(date);await f.locator('#add-day-form [type=submit]').click();assert.equal(await f.locator('#plan-step-places').isVisible(),true);assert.equal(await f.locator('[data-plan-go=times]').first().isDisabled(),true);
   await f.evaluate(async()=>{for(let i=0;i<2;i++)await PlanStore.select({key:'wizard-'+i,title:['First visit','Second visit'][i],kind:'place',timing:'unknown',coordinates:[-97.7431+i*.002,30.2672+i*.002],address:'Austin',url:'https://example.invalid'},true);});
   await f.locator('[data-plan-go=times]').first().click();assert.equal(await f.locator('#plan-items .plan-item:visible').count(),1);assert.equal(await f.locator('#plan-step-times input[type=date]').count(),0);
@@ -48,6 +72,6 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await f.evaluate(async({past,empty})=>{await PlanStore.chooseDay(past);await PlanStore.select({key:'past',title:'Past stop',kind:'place',timing:'unknown'},true);await PlanStore.chooseDay(empty);},{past:M.previousDay(M.planDay()),empty:M.nextDay(date)});
   await f.locator('#plan-start-over').click();assert.deepEqual(await f.locator('#plan-upcoming option').evaluateAll(options=>options.map(o=>o.value)),['',date]);await f.locator('#plan-upcoming').selectOption(date);
   await f.locator('#plan-show-all').click();assert.equal(await f.locator('#plan-items .plan-item:visible').count(),2);await f.getByRole('button',{name:'Remove First visit',exact:true}).click();await f.getByRole('button',{name:'Remove Second visit',exact:true}).click();assert.equal(await f.locator('#plan-step-places').isVisible(),true);await f.locator('#undo').click();assert.equal(await f.evaluate(()=>PlanStore.plan.items.length),1);
-  assert.equal(await f.locator('#plan-panel').evaluate(el=>el.scrollWidth>el.clientWidth),false);assert.deepEqual(errors,[]);if(member)await f.evaluate(()=>PlanStore.sync());await context.close();console.log(`${width}px ${member?'member':'guest'}: empty/upcoming entry, inline date, time-only stops, overlap warnings, next-morning times, route handoff, review, export, undo and themes passed.`);
+  assert.equal(await f.locator('#plan-panel').evaluate(el=>el.scrollWidth>el.clientWidth),false);assert.deepEqual(errors,[]);if(member)await f.evaluate(()=>PlanStore.sync());await context.close();console.log(`${width}px ${member?'member':'guest'}: browse without a plan, ten categories, time/search filters, dated selection, preserved browsing, inline date, time conflicts, next-morning times, route handoff, review, export, undo and themes passed.`);
  }
 }finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(error=>{console.error(error.stack);process.exitCode=1;});

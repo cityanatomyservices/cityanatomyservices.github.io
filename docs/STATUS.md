@@ -1,5 +1,30 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-15 - Browse from the Day Planner opening card without a plan
+
+The owner clarified that the complete former Explore browser must sit directly
+beneath Create New Day, available before any day is created or opened. The
+opening card now shows all ten categories, Neighborhood Businesses, time/date
+filters, search, results and the existing Day Planner checkboxes. Browsing does
+not change the plan collection. Checking a scheduled event adds it to its
+published day and updates Upcoming day plans while leaving browsing open.
+
+The opening card and Places share one live Explore panel, preserving filters,
+active sections and selections when moving between them. Both show discovery
+pins; opening an itinerary's Times/Travel/Review restores its stops and routes.
+Changed wizard JS/CSS and the main iframe use cache version `20261115a`.
+
+All 120 planner unit tests pass. The existing scope-isolation fixture now
+explicitly chooses its comparison day instead of depending on the current date.
+Extended wizard browser checks pass for guests/members at 1280px/390px: all ten
+categories, multiple selected categories, date/search filtering, empty results,
+unchanged plans while browsing, two events on different published days, and
+retained choices between the opening card and Places. Existing wizard and map
+flows also pass at both sizes for guests/members. The Chat-map regression passes
+at both sizes after an initial circle-load timeout; failure diagnostics were
+added. All browser account requests were intercepted. Light/dark desktop/phone
+screenshots were reviewed. Publication and live verification are next.
+
 ## 2026-11-14 - Three main controls, planner discovery and scheduled chat circles
 
 The main map now has Day Plan, Chat and Geo Fence. Create New Day asks for its

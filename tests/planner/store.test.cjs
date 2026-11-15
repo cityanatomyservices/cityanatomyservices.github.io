@@ -203,6 +203,7 @@ test('main and two event plans on the same date keep independent guest and accou
   const b=fixture({anonymous,memory,owner,visit:main.visit,scope:'event-b',event:eventMeta('event-b')});
   try{
    await main.store.chooseDay('2026-11-14');await main.store.select(place('Main coffee'),true);await main.store.sync();
+   await a.store.chooseDay('2026-11-14');await b.store.chooseDay('2026-11-14');
    await a.store.select(eventPlace('event-a','Studio'),true);await a.store.edit(p=>p.items[0].schedule.note='Event note');await a.store.sync();
    await b.store.select(eventPlace('event-b','Music'),true);await b.store.sync();
    assert.deepEqual(main.store.plan.items.map(i=>i.source.title),['Main coffee']);assert.deepEqual(a.store.plan.items.map(i=>i.source.title),['Studio']);assert.deepEqual(b.store.plan.items.map(i=>i.source.title),['Music']);

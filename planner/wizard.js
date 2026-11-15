@@ -4,6 +4,7 @@
   if(!$('plan-start'))return;
   const steps=['date','places','times','travel','review'];
   let stage='start',current=null,all=false,lastDay,bookId,returnStage='start';
+  const browsing=()=>stage==='start'||stage==='places';
   const label=date=>new Intl.DateTimeFormat('en-US',{timeZone:M.zone,weekday:'short',month:'short',day:'numeric',year:'numeric'}).format(new Date(M.instant(date+'T12:00')));
   const itemNode=(tag,text)=>{const el=document.createElement(tag);el.textContent=text;return el;};
   function focus(){
@@ -18,7 +19,7 @@
   function create(){returnStage=stage;$('new-day-date').value=M.planDay();go('date');$('new-day-date').focus({preventScroll:true});}
   function openDay(){current=null;all=false;go(S.plan.items.length?'times':'places');}
   function update(){
-    const wasBrowsing=stage==='places';
+    const wasBrowsing=browsing();
     const plan=S.plan;
     if(bookId&&bookId!==S.book.id){stage='start';current=null;all=false;}
     bookId=S.book.id;
@@ -29,7 +30,10 @@
     for(const day of upcoming){const option=itemNode('option',`${label(day.date)} · ${day.count} stop${day.count===1?'':'s'}`);option.value=day.date;pick.append(option);}
     $('plan-upcoming-label').hidden=!upcoming.length;
     $('plan-start').hidden=stage!=='start';$('plan-workspace').hidden=stage==='start';
-    window.AustinExplore?.setEmbeddedView?.(stage==='places'&&!!window.PlanPanel?.isOpen);
+    // Reuse the live browser so filters, results and selections survive moving into a day.
+    const host=$('plan-explore-host'),destination=$(stage==='places'?'plan-step-places':'plan-start');
+    if(host.parentElement!==destination)destination.append(host);
+    window.AustinExplore?.setEmbeddedView?.(browsing()&&!!window.PlanPanel?.isOpen);
     $('plan-day-picker').hidden=stage==='date';
     for(const step of steps)$('plan-step-'+step).hidden=stage!==step;
     for(const button of document.querySelectorAll('[data-plan-step]')){
@@ -59,7 +63,7 @@
       const time=item.schedule.start?new Intl.DateTimeFormat('en-US',{timeZone:M.zone,hour:'numeric',minute:'2-digit'}).format(new Date(item.schedule.start))+(M.day(item.schedule.start)!==plan.date?' next morning':''):'Time needed';
       return itemNode('li',`${time} · ${item.source.title} · ${item.schedule.duration} min`);
     }));
-    if(wasBrowsing!==(stage==='places'))queueMicrotask(()=>window.PlanPanel?.syncView());
+    if(wasBrowsing!==browsing())queueMicrotask(()=>window.PlanPanel?.syncView());
   }
   function move(delta){
     const cards=[...$('plan-items').querySelectorAll('.plan-item')],at=cards.findIndex(card=>card.dataset.itemId===current),next=cards[at+delta];
@@ -81,5 +85,5 @@
   };
   // Restore focus to visible guidance when Export was opened from an early step.
   $('export-dialog').addEventListener('close',()=>{if(stage!=='review')focus();});
-  window.PlanWizard={update,create,openDay,focus,showPlaces:()=>go('places'),showStop:id=>{current=id;all=false;go('times');},start:()=>go('start',false),cancel:()=>go(returnStage),get stage(){return stage;},get browsing(){return stage==='places';}};
+  window.PlanWizard={update,create,openDay,focus,showPlaces:()=>go('places'),showStop:id=>{current=id;all=false;go('times');},start:()=>go('start',false),cancel:()=>go(returnStage),get stage(){return stage;},get browsing(){return browsing();}};
 })();
