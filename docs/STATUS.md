@@ -33,7 +33,18 @@ revision recovery, source retry and account-change clearing. Existing dashboard
 browser checks also pass. Light/dark desktop/phone and export screenshots were
 reviewed. Rolled-back SQL isolation checks and hosted API CRUD/access/revision/
 revocation checks pass; all disposable users and lists were removed. The page
-assets use `20261115c`. Publication/live browser verification remain.
+assets use `20261115c`.
+
+Release `e68e7398`, merged with the scheduled ticker as `8cc14681`, is live.
+Pages `43769998816` and dashboard CI `43769998834` passed. Unversioned Content
+desk HTML advertised the version before the three versioned assets were fetched;
+all matched source, and the dashboard link is live. The full deployed browser
+suite passed at 1280px/390px, including real rich/plain clipboard and downloads.
+The real shell/session guest page opens the existing sign-in dialog and keeps
+content hidden. A separate real-feed check returned 119 tomorrow listings and
+verified an actual selected listing's export. Live desktop/phone exports were
+visually reviewed. Account/storage fixtures were isolated; no real owner draft
+was created or modified. This request is complete.
 
 See dashboard/content/README.md for behavior, deployment and verification.
 
