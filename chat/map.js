@@ -265,6 +265,7 @@
       let selected = null;
       map.on('click', 'geofence-fill', (e) => {
         if(planning)return;
+        if(window.AustinParking?.hit?.(e.point))return;
         // An Explore pin belongs to its event, not to the polygon underneath it.
         const exploreLayers = (window.EXPLORE_LAYERS || []).flatMap(l => [`explore-${l.id}-points`, `explore-${l.id}-clusters`]).filter(id => map.getLayer(id));
         if (exploreLayers.length && map.queryRenderedFeatures(e.point, { layers: exploreLayers }).length) return;
@@ -386,6 +387,7 @@
       window.chatMap = map;
       window.AustinChatMap?.init(map);
       window.AustinMapLayers.init(map);
+      window.AustinParking?.init(map);
       window.PlanMap.attach(map);
       if (event) window.AustinEvent.init(map);
       else window.AustinExplore.init(map);

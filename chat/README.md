@@ -18,6 +18,10 @@ part of the same chat. One small file per job; nothing is abstract.
 | `catalog-menu.js` | the Pro Tier Apps card inside Explore and legacy Apps/Media menus, loaded from `home.json` and `apps/reports/reports.json`; links open the existing framed pages |
 | `data/` | the geofences, `categories.json` (which business types to list) and `places/` (one file per neighborhood, from OpenStreetMap by `tools/fetch-places.py`; see `data/README.md`) |
 
+The main map's left-hand **P** button independently toggles City street parking
+and zones plus OpenStreetMap lots/garages. Parking starts off and has no Day
+Planner selections or edits. See [parking sources and refresh](../tools/parking/README.md).
+
 The main map's right column has **Day Plan, Chat and Geo Fence**, in that
 order. Geo Fence is a matching round link with “Geo” above “Fence”; it opens
 `https://austin.chat/geofences/manage/` in the full page. GPS and Map are small square MapLibre controls under the zoom/compass on

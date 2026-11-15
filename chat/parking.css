@@ -1,0 +1,18 @@
+.map-utilities button:not(.is-on){color:var(--text);background:var(--surface)}
+.parking-key{position:absolute;z-index:2;left:10px;top:204px;width:218px;max-width:calc(100% - 80px);padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text);box-shadow:0 2px 10px #0002;font-size:11px;line-height:1.45;pointer-events:auto}
+.parking-key[hidden]{display:none}
+.parking-key strong{font-size:12px}
+.parking-key .parking-swatches{display:flex;flex-wrap:wrap;gap:4px 10px;margin:6px 0}
+.parking-key .parking-swatches span::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;background:var(--parking-color)}
+.parking-key p{margin:5px 0;color:var(--muted)}
+.parking-key details{margin-top:6px}
+.parking-key summary{cursor:pointer}
+.parking-key a{color:var(--accent);display:block;padding-top:4px}
+.parking-popup{z-index:3}
+.parking-popup .maplibregl-popup-content{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:12px;max-height:55vh;overflow:auto;padding:16px}
+.parking-popup .maplibregl-popup-close-button{color:var(--text);font-size:22px;right:5px;top:3px}
+.parking-popup h3{font-size:15px;line-height:1.35;margin:0 12px 8px 0}
+.parking-popup p{font-size:12px;line-height:1.45;margin:6px 0;overflow-wrap:anywhere}
+.parking-popup-links{display:flex;gap:16px;margin-top:12px}
+.parking-popup-links a{color:var(--accent);font-weight:650;font-size:12px}
+@media(max-width:680px){.parking-key{width:185px;padding:8px 10px;font-size:10px}.parking-key .parking-swatches{gap:3px 8px}.parking-popup .maplibregl-popup-content{max-height:48vh}}

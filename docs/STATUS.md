@@ -1,5 +1,34 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-15 - Independent free-data parking overlay
+
+The owner requested a small matching parking icon in the left map controls,
+independent of the Day Planner. The P button now toggles City street spaces,
+street zones and OSM lots/garages. It starts off and downloads only when used;
+it keeps the camera and plan collection unchanged. Clicking a location shows
+source details and directions. Existing discovery pins keep their click priority.
+Chat mode temporarily hides parking. Light/dark styles work on desktop/phone.
+
+Initial public snapshots contain 12,226 City space records, 2,880 City zones and
+3,960 OSM facilities. Restricted City spaces and known restricted OSM facilities
+are excluded; mixed-use zones are amber and retain source hours/restrictions.
+Missing access/fees stay unknown. This is mapped parking, not live vacancy or
+permission to park. City data is free under its open-data terms; OSM is ODbL
+with visible attribution and a separate downloadable derived database. No paid
+API or subscription is used. Source links and behavior are in tools/parking/README.md.
+
+The weekly Refresh Austin parking workflow validates all responses before
+replacing snapshots and triggers the existing Pages publisher. Failed updates
+retain the last committed data; the UI shows its check date and delayed updates.
+
+Three normalization tests pass. Real-data parking browser checks pass at
+1280px/390px: left control, lazy loading, toggles, popups, stable camera,
+unchanged plan collection, Chat isolation, themes, refresh, retry and late
+responses. Existing map-layer/catalog checks also pass at both sizes. Account
+requests were intercepted; no real plans or accounts were edited. Screenshots
+were reviewed and popup stacking corrected. Browser assets use `20261115b`.
+Publication and live verification are the remaining checks for this release.
+
 ## 2026-11-15 - Browse from the Day Planner opening card without a plan
 
 The owner clarified that the complete former Explore browser must sit directly

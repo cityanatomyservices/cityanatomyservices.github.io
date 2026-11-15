@@ -1,0 +1,30 @@
+name: Refresh Austin parking
+on:
+  schedule:
+    - cron: '17 11 * * 2'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: austin-parking
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - run: node --test tools/parking/build.test.cjs
+      - run: node tools/parking/build.cjs
+      - name: Save validated parking snapshots
+        run: |
+          git config user.name 'austin-parking bot'
+          git config user.email 'cityanatomyservices@users.noreply.github.com'
+          git add chat/data/parking/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh Austin parking data'
+          git pull --rebase origin main
+          git push origin HEAD:main

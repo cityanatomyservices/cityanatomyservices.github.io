@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="./explore/explore.css?v=20261104a" />
   <link rel="stylesheet" href="../appearance.css?v=20261028h" />
   <link rel="stylesheet" href="./map-layers.css?v=20261104a" />
+  <link rel="stylesheet" href="./parking.css?v=20261115b" />
   <link rel="stylesheet" href="./city-hall/city-hall.css?v=20261104a" />
   <link rel="stylesheet" href="/special-events/style.css?v=20261109f" />
   <script src="./theme.js?v=20261028g"></script>
@@ -98,7 +99,18 @@
       <button id="ctrlMapLayers" type="button" aria-expanded="false" aria-controls="map-layers-panel" aria-label="Map layers" title="Map layers">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Z M9 3v15 M15 6v15"/></svg>
       </button>
+      <button id="ctrlParking" type="button" aria-label="Parking" aria-pressed="false" aria-controls="parking-key" title="Show parking">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+      </button>
     </div>
+
+    <aside id="parking-key" class="parking-key" hidden aria-label="Parking map key">
+      <strong>Parking</strong>
+      <div class="parking-swatches"><span style="--parking-color:#007e83">Street</span><span style="--parking-color:#2465a6">Lots & garages</span><span style="--parking-color:#8255b4">Accessible</span><span style="--parking-color:#b57218">Timed restrictions</span></div>
+      <p>Tap a marker or street line. Zoom in to see individual spaces.</p>
+      <p id="parking-status" role="status" aria-live="polite"></p>
+      <details><summary>Sources & data</summary><a href="https://experience.arcgis.com/experience/5010870614c5488dbb107f599d15e8e1" target="_blank" rel="noopener">City of Austin parking ↗</a><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors · ODbL ↗</a><a href="/chat/data/parking/osm-parking.geojson" download>Download OSM parking data</a></details>
+    </aside>
 
     <section class="catalog-panel map-layers-panel" id="map-layers-panel" hidden aria-labelledby="map-layers-heading">
       <div class="catalog-heading"><h2 id="map-layers-heading">Map layers</h2><button class="catalog-close" id="map-layers-close" type="button" aria-label="Close Map layers">×</button></div>
@@ -258,6 +270,7 @@
   <script src="/classifieds/ui.js?v=20261104a"></script>
   <script src="/classifieds/panel.js?v=20261104a"></script>
   <script src="./chat-map.js?v=20261114e"></script>
-  <script src="./map.js?v=20261114e"></script>
+  <script src="./parking.js?v=20261115b"></script>
+  <script src="./map.js?v=20261115b"></script>
 </body>
 </html>
