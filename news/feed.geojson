@@ -1,20 +1,167 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-14T16:47:23.460Z",
- "placed": 52,
- "total": 115,
+ "generated": "2026-11-15T17:29:47.320Z",
+ "placed": 58,
+ "total": 124,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "No charges filed in fatal 2025 shooting involving 3 Austin Police detectives",
+    "link": "https://www.kxan.com/news/local/austin/no-charges-filed-in-fatal-2025-shooting-involving-3-austin-police-detectives/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-15T17:19:40.000Z",
+    "summary": "A Travis County grand jury declined to return an indictment against three Austin Police officers in connection with an August 2025 shooting that left one person dead and another injured.",
+    "place": "Austin Police",
+    "placeKind": "landmark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.738,
+     30.268
+    ]
+   },
+   "properties": {
+    "title": "APD reminds public about steps to prevent catalytic converter theft",
+    "link": "https://www.kxan.com/news/local/austin/apd-reminds-public-about-steps-to-prevent-catalytic-converter-theft/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-15T15:59:31.000Z",
+    "summary": "Austin Police reminded the public to take steps to prevent catalytic converter theft.",
+    "place": "Austin Police",
+    "placeKind": "landmark"
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Cold front brings rain and storms, cooler temperatures",
-    "link": "https://www.kxan.com/weather/forecast/cold-front-brings-rain-and-storms-cooler-temperatures/",
+    "title": "'I will follow the law,' Comptroller-elect signals a return of the Historically Underutilized Business program",
+    "link": "https://www.kxan.com/news/texas/i-will-follow-the-law-comptroller-elect-signals-a-return-of-the-historically-underutilized-business-program/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
-    "published": "2026-11-14T13:17:29.000Z",
-    "summary": "Cooler weather ahead this weekend as a cold front moves in, bringing showers today and storms by Sunday morning. - Meteorologist Hannah Gard",
+    "published": "2026-11-15T14:00:00.000Z",
+    "summary": "Thousands of Texas small businesses that were kicked out of the Historically Underutilized Business (HUB) program because of rule changes last year may be re-certified in the program due to new leadership at the Comptroller's office.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Cold front brings rain and chilly weather",
+    "link": "https://www.kxan.com/weather/forecast/cold-front-brings-rain-and-chilly-weather/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-15T12:31:43.000Z",
+    "summary": "A cold front arrives today, bringing rain early and cloudy, chilly weather for the rest of the day. - Meteorologist Hannah Gard",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin faces another public art preservation battle. This time at the airport.",
+    "link": "https://austincurrent.org/2026/11/15/austin-public-art-airport-sculptures/",
+    "outlet": "Austin Current",
+    "group": "planning",
+    "color": "#7ad4c8",
+    "published": "2026-11-15T11:30:00.000Z",
+    "summary": "Artists say the city lost valuable time as officials seek permission to remove two works before demolition. The post Austin faces another public art preservation battle. This time at the airport. appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin travelers navigate flight reschedules after FAA ground stop",
+    "link": "https://www.kxan.com/news/austin-travelers-navigate-flight-reschedules-from-faa-ground-stop/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-15T04:22:38.000Z",
+    "summary": "A day after the stop left hundreds stranded, those flying through Austin hoped for a return to normal.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "How is Thanksgiving trending, way too early forecast",
+    "link": "https://www.kxan.com/weather/weather-blog/how-is-thanksgiving-trending-way-too-early-forecast/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-15T04:10:21.000Z",
+    "summary": "Thanksgiving is less than two weeks away, and while we as meteorologists best work within a one-week forecast window, we are beginning to get an idea of temperature and precipitation trends around the holiday week.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Razzfest founder talks Austin music scene, importance of carving out space for rap and jazz",
+    "link": "https://www.kxan.com/news/local/austin/music/razzfest-founder-talks-austin-music-scene-importance-of-carving-out-space-for-rap-and-jazz/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-14T23:11:41.000Z",
+    "summary": "Free Hamze, an Austin-based rapper and musician, felt that the hip hop, rap and jazz genres were not on enough stages in the \"Live Music Capital of the World.\" So, he forged a new space where artists in those genres take center stage: Razzfest.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Arch Manning leads No. 8 Texas to stunning comeback win over No. 24 LSU, 22-21",
+    "link": "https://www.kxan.com/sports-general/horns-report/live-updates-no-8-texas-vs-no-24-lsu/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-14T21:46:51.000Z",
+    "summary": "Arch Manning connected with Raleek Brown for a game-winning touchdown with three seconds remaining, lifting No. 8 Texas to a stunning 22-21 comeback victory over No. 24 LSU in Death Valley.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin's chief medical officer steps down, interim leadership announced",
+    "link": "https://www.kxan.com/news/local/austin/austins-chief-medical-officer-steps-down-interim-leadership-announced/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-14T18:59:04.000Z",
+    "summary": "The city of Austin announced Friday that its Chief Medical Officer, Dr. Mark Escott, would step down from the job.",
     "place": null,
     "placeKind": null
    }
@@ -38,138 +185,6 @@
     "summary": "Weiss, Lake Travis and Dripping Springs punched their tickets to the area round Friday night, while several other Central Texas teams saw their seasons come to an end. See the first-round playoff scores from across Texas.",
     "place": "Dripping Springs",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "2026 Heart Walk kicks off Saturday morning",
-    "link": "https://www.kxan.com/news/2026-heart-walk-kicks-off-saturday-morning/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-14T03:24:25.000Z",
-    "summary": "The forecast looks mostly dry with only a 10% rain chance for the morning.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Amid nationwide ground stop impacts, Lyft offers discounted rides",
-    "link": "https://www.kxan.com/news/national-news/airport-lyft-discounted-rides/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-14T02:22:21.000Z",
-    "summary": "As travelers may be stranded at airports, Lyft said it's advising drivers that more help may be needed near airports and also offering discounts for riders until Saturday night.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas Democrats look to expand Medicaid with new control",
-    "link": "https://www.kxan.com/news/texas-politics/texas-democrats-look-to-expand-medicaid-with-new-control/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-14T01:09:02.000Z",
-    "summary": "Texas Democrats have filed multiple proposals to expand Medicaid ahead of the 90th Legislative Session, arguing the state is leaving federal healthcare dollars on the table. Opponents say expansion would do little to address the underlying cost of healthcare.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas aviation expert weighs in on 'communication issue' that caused nationwide ground stop",
-    "link": "https://www.kxan.com/news/ground-stop-lifted-timeline/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-14T01:05:54.000Z",
-    "summary": "After a nationwide ground stop halted air travel nationwide, one Texas aviation expert offered his insight on the impacts.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7394,
-     30.285
-    ]
-   },
-   "properties": {
-    "title": "$10 million donated to UT Dell Medicine",
-    "link": "https://www.kxan.com/news/local/10-million-donated-to-ut-dell-medicine/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-14T00:50:14.000Z",
-    "summary": "Two longtime University of Texas at Austin financial supporters have donated $10 million to help advance healthcare research and expand access to medical care in Central Texas, according to a UT News press release.",
-    "place": "University of Texas",
-    "placeKind": "campus"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.738,
-     30.268
-    ]
-   },
-   "properties": {
-    "title": "Austin police seek suspect in downtown parking garage sexual assault",
-    "link": "https://www.kxan.com/news/crime/austin-police-seek-suspect-in-downtown-parking-garage-sexual-assault/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-14T00:13:13.000Z",
-    "summary": "Austin police are asking for the public’s help identifying a suspect accused of sexually assaulting a victim.",
-    "place": "Austin Police",
-    "placeKind": "landmark"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas football's flight to LSU grounded amid nationwide FAA halt",
-    "link": "https://www.kxan.com/sports-general/horns-report/texas-footballs-flight-to-lsu-grounded-amid-nationwide-faa-halt/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-13T23:15:41.000Z",
-    "summary": "No. 8 Texas' flight to Baton Rouge was grounded Friday afternoon amid a nationwide FAA ground stop ahead of Saturday's matchup against No. 24 LSU.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "When was the last time there was a nationwide ground stop?",
-    "link": "https://www.kxan.com/news/national-news/when-was-the-last-time-there-was-a-nationwide-ground-stop/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-13T23:10:28.000Z",
-    "summary": "The last time there was a nationwide ground stop was January 2023, when an FAA computer system malfunctioned.",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -429,6 +444,27 @@
   },
   {
    "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "JV Pursuing $1B Georgetown Data Center",
+    "link": "https://www.connectcre.com/stories/jv-pursuing-1b-georgetown-data-center/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-13T16:29:17.000Z",
+    "summary": "Oakwell Capital Partners and Cawley Partners are proposing to build a 68-megawatt, 145,000-square-foot data center building in Georgetown. The town’s planning commission will hear the item next week. The zoning change would allow developers to build a building of up to 290,000 square feet to accommodate future growth. The Austin Business Journal reports that the ... The post JV Pursuing $1B George",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Home sales decrease year over year in New Braunfels",
@@ -461,6 +497,27 @@
     "summary": "",
     "place": "Northwest Austin",
     "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Aalo Atomics rides Austin’s new tech wave, leasing 200K sf of industrial space in Central Texas",
+    "link": "https://therealdeal.com/texas/2026/11/13/aalo-atomics-leases-200k-sf-in-central-texas/",
+    "outlet": "The Real Deal",
+    "group": "realestate",
+    "color": "#d06a8a",
+    "published": "2026-11-13T15:00:00.000Z",
+    "summary": "Aalo Atomics is the latest player in the new wave of Austin tech companies to take space in the Texas capital. The nuclear power startup has inked a deal to occupy a 205,000-square-foot building at CrossPoint Business District in Georgetown, the Austin Business Journal reported. Aalo will use the space to manufacture nuclear reactors and power generation parts. Dallas-based Jackson Shaw is the dev",
+    "place": "Georgetown",
+    "placeKind": "city"
    }
   },
   {
@@ -509,13 +566,13 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Photographer brings Filipino convenience store to Austin for magazine launch party",
-    "link": "https://www.kut.org/life-arts/2026-11-13/photographer-brings-filipino-convenience-store-to-austin-for-magazine-launch-party",
+    "title": "Austin residents show Texas pride with bluebonnet tattoos after midterm elections",
+    "link": "https://www.kut.org/life-arts/2026-11-13/austin-tx-bluebonnet-tattoos-midterm-elections-democrats-blue-wave",
     "outlet": "KUT",
     "group": "news",
     "color": "#b9a8f0",
     "published": "2026-11-13T11:01:00.000Z",
-    "summary": "The two-day free event is part of the Austin Studio Tour and will feature Filipino artists, food vendors and music.",
+    "summary": "The wildflower has long been an iconic symbol of Texas. It's taken on new meaning.",
     "place": null,
     "placeKind": null
    }
@@ -524,13 +581,13 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Austin residents show Texas pride with bluebonnet tattoos after midterm elections",
-    "link": "https://www.kut.org/life-arts/2026-11-13/austin-tx-bluebonnet-tattoos-midterm-elections-democrats-blue-wave",
+    "title": "Photographer brings Filipino convenience store to Austin for magazine launch party",
+    "link": "https://www.kut.org/life-arts/2026-11-13/photographer-brings-filipino-convenience-store-to-austin-for-magazine-launch-party",
     "outlet": "KUT",
     "group": "news",
     "color": "#b9a8f0",
     "published": "2026-11-13T11:01:00.000Z",
-    "summary": "The wildflower has long been an iconic symbol of Texas. It's taken on new meaning.",
+    "summary": "The two-day free event is part of the Austin Studio Tour and will feature Filipino artists, food vendors and music.",
     "place": null,
     "placeKind": null
    }
@@ -584,6 +641,27 @@
     "summary": "",
     "place": "Bastrop",
     "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.70989,
+     30.27538
+    ]
+   },
+   "properties": {
+    "title": "Grand Re-opening for Historic Affordable Housing Pathways at Rosewood Courts",
+    "link": "https://www.austintexas.gov/housing/news/grand-re-opening-historic-affordable-housing-pathways-rosewood-courts",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-13T00:00:00.000Z",
+    "summary": "<p paraid=\"875372320\" paraeid=\"{97a8fe30-8c31-4e2a-8d86-b510155ba9c4}{17}\"><span data-contrast=\"auto\" xml:lang=\"EN-US\" lang=\"EN-US\">AUSTIN, TX – Austin Housing is excited to announce the grand re-opening of Pathways at Rosewood Courts. The modernized and expanded affordable housing community is the result of a collaboration between the Austin Housing Authority (AHA) and Carleton Development Ltd.</",
+    "place": "Rosewood",
+    "placeKind": "neighborhood"
    }
   },
   {
@@ -1091,6 +1169,21 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
+    "title": "$6M West Lake Hills manse built in 2024 tops Austin weekly luxury trades",
+    "link": "https://therealdeal.com/texas/2026/11/11/6m-west-lake-hills-home-tops-austin-luxury-sales/",
+    "outlet": "The Real Deal",
+    "group": "realestate",
+    "color": "#d06a8a",
+    "published": "2026-11-11T20:30:00.000Z",
+    "summary": "A $6.2 million home in Rollingwood, a luxury neighborhood in West Lake Hills just west of Downtown Austin, was the most expensive listing to go under contract last week, according to the Reisor Team Weekly Luxury Report. The report, compiled by the Compass-affiliated Reisor Team, counts homes in Austin and West Lake Hills listed on the MLS for $2 million or more that went under contract during the",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
     "title": "Last chance for Central Health lawsuit",
     "link": "https://theaustinbulldog.org/last-chance-for-central-health-lawsuit/",
     "outlet": "The Austin Bulldog",
@@ -1161,6 +1254,27 @@
   },
   {
    "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9467,
+     30.3083
+    ]
+   },
+   "properties": {
+    "title": "CesiumAstro tees up $7M makeover for business park once at center of Velocis dispute",
+    "link": "https://therealdeal.com/texas/2026/11/10/cesiumastro-plans-7m-reno-of-bee-cave-facility/",
+    "outlet": "The Real Deal",
+    "group": "realestate",
+    "color": "#d06a8a",
+    "published": "2026-11-10T22:00:00.000Z",
+    "summary": "CesiumAstro is dropping $6.6 million to remodel its 270,000-square-foot, three-building headquarters in Bee Cave, a suburb 12 miles west of Downtown Austin. The space communications company was founded in 2017 by Shey Sabripour, a veteran of defense giant Lockheed Martin and fellow Austin-based space startup Firefly, and finalized a deal to purchase the 23-acre property from developer Velocis on M",
+    "place": "Bee Cave",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "AISD candidate Cynthia Soliz drops out of runoff, citing district’s financial crisis",
@@ -1187,6 +1301,27 @@
     "summary": "Colleagues, I agree with the Mayor that this is a rare and important opportunity to preserve Austin’s history. Given the significance of this opportunity, this process needs to be done right. Our community has been clear during other projects this year: it is crucial for Council to be open and transparent when considering community and environmental impacts. My office and the community still have ",
     "place": null,
     "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.742,
+     30.26
+    ]
+   },
+   "properties": {
+    "title": "Genesis, KTGY Complete 54-Story Austin Tower",
+    "link": "https://www.connectcre.com/stories/genesis-ktgy-complete-54-story-austin-tower/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-10T18:54:06.000Z",
+    "summary": "KTGY and Genesis Real Estate Group delivered The Travis, a 54-story glass residential tower in downtown Austin. KTGY designed the tower; Genesis was the developer. Genesis secured $173.4 million in construction financing from JPMorgan Chase. Situated on Rainey Street, the design provides over 400 premium riverfront units with unobstructed views of Lady Bird Lake and the ... The post Genesis, KTGY ",
+    "place": "Lady Bird Lake",
+    "placeKind": "lake"
    }
   },
   {
@@ -1353,27 +1488,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.72,
-     30.38
-    ]
-   },
-   "properties": {
-    "title": "City of Austin Celebrates Little Walnut Creek Flood Risk Reduction Milestone",
-    "link": "https://www.austintexas.gov/watershed-protection/news/city-austin-celebrates-little-walnut-creek-flood-risk-reduction-milestone",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-10T00:00:00.000Z",
-    "summary": "<p>Austin, TX — The City of Austin is recognizing the completion of a major milestone in the Little Walnut Creek Flood Risk Reduction project. New stormwater infrastructure improvements reduce the risk of flooding for homes and roads in the north Austin neighborhood near Cook Elementary School. The City invites residents and community members to celebrate the project’s progress at a ceremony at th",
-    "place": "North Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.8772,
      29.9891
     ]
@@ -1460,6 +1574,27 @@
     "summary": "Three races are heading to runoffs.",
     "place": null,
     "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Georgetown Gives Conditional Approval to Apartment, Retail Project",
+    "link": "https://www.connectcre.com/stories/georgetown-greenlights-apartment-retail-project/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-09T15:15:40.000Z",
+    "summary": "The Georgetown City Council has given tentative approval to Serenity Ranch, a master-planned community one mile east of I-35 and bordered by the Dry Berry Creek. In addition to 300 multifamily units and 30,000 square feet of commercial space, Serenity Ranch will offer approximately 40 acres of open space and ponds, a 2.9-acre amenity center ... The post Georgetown Gives Conditional Approval to Apa",
+    "place": "Georgetown",
+    "placeKind": "city"
    }
   },
   {
@@ -1737,6 +1872,27 @@
   },
   {
    "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7431,
+     30.269
+    ]
+   },
+   "properties": {
+    "title": "Congress Avenue hotel-condo tower eyes record height in Austin",
+    "link": "https://therealdeal.com/texas/2026/11/05/downtown-austin-hotel-condo-tower-eyes-record-height/",
+    "outlet": "The Real Deal",
+    "group": "realestate",
+    "color": "#d06a8a",
+    "published": "2026-11-05T17:30:00.000Z",
+    "summary": "A rezoning application for a development dubbed Project Bolo in Austin would, if approved, give the developer the leeway to build the tallest tower in Texas. There’s no guarantee that the developer will build that tall, as the rezoning application gives a height range of 750 to 1,200 feet tall, according to the Austin Business Journal. If the project hits that peak, it will be the tallest tower in",
+    "place": "Congress Avenue",
+    "placeKind": "street"
+   }
+  },
+  {
+   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Texas Dems vowed seismic education change. Here’s how schools could change for millions of students",
@@ -1746,6 +1902,21 @@
     "color": "#b9a8f0",
     "published": "2026-11-05T14:29:32.000Z",
     "summary": "The end to GOP dominance in Texas will likely have major implications for K-12 education policies, including the future of school vouchers and state takeovers. The post Texas Dems vowed seismic education change. Here’s how schools could change for millions of students appeared first on Austin Current .",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Mediterranean-style estate asking almost $3M tops Austin’s luxury trades after $100K price cut",
+    "link": "https://therealdeal.com/texas/2026/11/05/austins-top-luxury-sale-a-3m-mediterranean-style-estate/",
+    "outlet": "The Real Deal",
+    "group": "realestate",
+    "color": "#d06a8a",
+    "published": "2026-11-05T14:00:00.000Z",
+    "summary": "After 161 days on the market and a $100,000 price cut, a $2.9 million Mediterranean-style estate in West Austin topped the city’s luxury trades last week, according to the Reisor Team Weekly Luxury Report. The report, compiled by the Compass-affiliated Reisor Team, counts homes in Austin and West Lake Hills listed on the MLS for $2 million or more that went under contract during the week of Oct. 2",
     "place": null,
     "placeKind": null
    }
@@ -1943,21 +2114,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "José Velásquez, Neha Shah headed to runoff in Austin City Council District 3 contest",
-    "link": "https://austincurrent.org/2026/11/04/austin-tx-district-3-city-council-election-results-2026/",
-    "outlet": "Austin Current",
-    "group": "news",
-    "color": "#b9a8f0",
-    "published": "2026-11-04T06:22:41.000Z",
-    "summary": "Challengers have pounced on Velásquez's initial support of the city's planned Dog's Head development in the leadup to Election Day. The post José Velásquez, Neha Shah headed to runoff in Austin City Council District 3 contest appeared first on Austin Current .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Apartments, fire station: Check out 5 major Austin-area permits filed this week",
     "link": "https://communityimpact.com/bastrop-cedar-creek/development/apartments-fire-station-check-out-5-major-austin-area-permits-filed-this-week/",
     "outlet": "Community Impact",
@@ -2037,6 +2193,21 @@
     "color": "#e8b35e",
     "published": "2026-11-02T22:31:18.000Z",
     "summary": "Prop I and the Council candidates....",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "DML Picks Up 123K-SF Austin Office Complex",
+    "link": "https://www.connectcre.com/stories/dml-picks-up-123k-sf-austin-office-complex/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-02T16:47:35.000Z",
+    "summary": "DML Capital has acquired a 123,272-square-foot office building in Austin, Texas, from Brick Row Holdings for an undisclosed amount. The three-story building was completed in 1998. Brick Row Holdings increased occupancy at the property from 36 percent to 98 percent after acquiring it in June 2025. Its amenities include an underground parking garage and direct ... The post DML Picks Up 123K-SF Austi",
     "place": null,
     "placeKind": null
    }
