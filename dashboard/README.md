@@ -6,6 +6,10 @@ The HTML is public on GitHub Pages; all private reports and membership actions
 require a confirmed account in `dashboard_private.admins`. A hidden URL is not
 the access control. The authorized owner email is stored only in the database.
 
+The **Content desk** link opens [private curated lists](content/README.md):
+browse the same Austin sources, select picks into separately saved lists, and
+copy or download attractive HTML/plain-text exports for social posts.
+
 Choose a report, optionally add search/date filters, then **Run report**.
 Neighborhood chat also accepts an exact room ID. **Export to Excel** retrieves
 all matching pages, not just the 200 rows visible in the preview. Workbooks

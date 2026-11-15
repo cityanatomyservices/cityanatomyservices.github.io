@@ -1,5 +1,42 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-15 - Private Content desk for curated social lists
+
+The owner requested a private page for running Browse queries, checking chosen
+listings into independent lists, and exporting attractive short lists to copy
+into social posts. `/dashboard/content/` implements this and is linked only from
+the authorized owner dashboard. Tomorrow is the initial Austin-time selection.
+The same six Explore feeds and actual shared filter model are used; City Hall,
+Classifieds, Special Events, Pro Tier Apps and neighborhood businesses are also
+available, with their relevant filters. Directory entries are clearly undated.
+
+Named lists support create/switch/duplicate/delete, ordering, introductions and
+per-item notes. Each selection freezes source facts and matching showtimes;
+research refreshes never rewrite drafts. Preview & export provides rich HTML
+and plain-text clipboard copies, HTML/text downloads, and a selectable-text
+fallback. Only selected items are exported, in their chosen order. Source/user
+strings are escaped, links are HTTP(S), and exports contain no executable code.
+
+Migration 0025 is deployed. Private lists reuse the existing verified dashboard
+owner allowlist, with no public table access or owner identifiers in frontend
+code. Autosaves are independent per list; revisions prevent silent overwrites.
+Conflicts use explicit PT409 responses (a live test found that 40001 did not
+return promptly). Failed saves preserve the in-memory draft with retry/recovery;
+sign-out clears draft and export state. No automatic export/social schedule was
+created. No real owner lists, memberships, billing or messages were changed.
+
+Model/export tests cover Austin DST, Browse parity, deduplication, movie times,
+escaping and unlisted routing. The full browser flow passes at 1280px/390px:
+owner gating, date/category/search filtering, pagination, multiple saved lists,
+notes/order, reload, actual rich/plain clipboard, both downloads, save failures,
+revision recovery, source retry and account-change clearing. Existing dashboard
+browser checks also pass. Light/dark desktop/phone and export screenshots were
+reviewed. Rolled-back SQL isolation checks and hosted API CRUD/access/revision/
+revocation checks pass; all disposable users and lists were removed. The page
+assets use `20261115c`. Publication/live browser verification remain.
+
+See dashboard/content/README.md for behavior, deployment and verification.
+
 ## 2026-11-15 - Independent free-data parking overlay
 
 The owner requested a small matching parking icon in the left map controls,
