@@ -21,5 +21,17 @@
   function plain(doc,{links=true}={}){return [doc.title,doc.intro,...doc.items.map((item,i)=>`${i+1}. ${item.title}\n${lines(item,links).join('\n')}`),'Curated with Austin.chat'].filter(Boolean).join('\n\n');}
   function html(doc,{links=true}={}){return `<article style="max-width:680px;margin:auto;font-family:Arial,sans-serif;color:#173d34;line-height:1.6;background:#fff;padding:32px;border-top:6px solid #16735d"><p style="font-size:11px;letter-spacing:2px;color:#55756b">THE AUSTIN EDIT</p><h1 style="font-size:30px;line-height:1.2;margin:12px 0 20px">${esc(doc.title)}</h1>${doc.intro?`<p style="white-space:pre-wrap">${esc(doc.intro)}</p>`:''}${doc.items.map((item,i)=>`<section style="border-top:1px solid #dce6e1;padding:20px 0"><p style="color:#55756b;font-size:11px;margin:0">${String(i+1).padStart(2,'0')} / ${esc(item.category)}</p><h2 style="font-size:21px;line-height:1.35;margin:5px 0 10px">${esc(item.title)}</h2>${lines(item,false).map(v=>`<p style="margin:4px 0;white-space:pre-wrap">${esc(v)}</p>`).join('')}${links&&url(item.url)?`<p style="margin:10px 0 0"><a style="color:#16735d" href="${esc(url(item.url))}" target="_blank" rel="noopener noreferrer">Details &amp; source ↗</a></p>`:''}</section>`).join('')}<p style="font-size:12px;color:#55756b;border-top:1px solid #dce6e1;padding-top:18px">Curated with <a href="https://austin.chat/" style="color:#16735d">Austin.chat</a></p></article>`;}
   const file=doc=>'<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>'+esc(doc.title)+'</title><body style="background:#eff3ef;margin:0;padding:24px 0">'+html(doc)+'</body></html>';
-  return {clean,url,esc,day,format,options,event,events,matches,plain,html,file};
+  // Newsletter editors keep semantic blocks but discard card CSS. The post
+  // title belongs in their separate Title field; this is the article body.
+  function newsletter(doc){
+    const paragraphs=value=>clean(value).split(/\n\s*\n/).filter(Boolean).map(v=>'<p>'+esc(v).replace(/\n/g,'<br>')+'</p>').join('');
+    const detail=(label,value)=>value?'<strong>'+label+':</strong> '+esc(value).replace(/\n/g,'<br>'):'';
+    return (doc.intro?paragraphs(doc.intro):'')+doc.items.map((item,i)=>{
+      const place=[item.venue,item.address].filter(Boolean).filter((v,n,a)=>a.indexOf(v)===n).join(' · ');
+      const facts=[detail('When',item.when),detail('Where',place),detail('Admission',item.price)].filter(Boolean).join('<br>');
+      return (i?'<hr>':'')+'<h2><strong>'+esc((i+1)+'. '+item.title)+'</strong></h2>'+(facts?'<p>'+facts+'</p>':'')+(item.conditions?paragraphs(item.conditions):'')+(item.note?paragraphs(item.note):'')+(url(item.url)?'<p><a href="'+esc(url(item.url))+'">Details &amp; source ↗</a></p>':'');
+    }).join('')+'<hr><p><em>Curated with <a href="https://austin.chat/">Austin.chat</a></em></p>';
+  }
+  function newsletterText(doc){return [doc.intro,...doc.items.map((item,i)=>`${i+1}. ${item.title}\n${lines(item,true).join('\n')}`),'Curated with Austin.chat'].filter(Boolean).join('\n\n');}
+  return {clean,url,esc,day,format,options,event,events,matches,plain,html,file,newsletter,newsletterText};
 });

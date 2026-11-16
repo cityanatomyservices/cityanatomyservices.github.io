@@ -38,6 +38,16 @@ titles, published times, venues/addresses, price/conditions, your notes and sour
 links. Descriptions remain research details instead of being silently copied
 into the post. Unknown prices/end times are never invented.
 
+**Copy for Substack** creates a separate newsletter body using H2 headings,
+explicit bold labels, paragraphs, line breaks, source links and horizontal rules.
+It has no card wrappers or CSS. Put the list title in Substack's separate Title
+field, then paste normally into the post body (Ctrl+V / Command+V). The publication
+controls its fonts and colors; the styled preview is not a promise of identical
+appearance in Substack. Substack does not support custom CSS/HTML in the editor:
+https://support.substack.com/hc/en-us/articles/360037463152-Can-I-edit-the-CSS-or-HTML-on-Substack
+Clipboard and native rich-paste structure are tested; automated tests do not
+write to the owner's Substack drafts or publish anything there.
+
 Maintenance:
 
 - `supabase/migrations/0025_content_desk.sql`: private table and owner RPCs.

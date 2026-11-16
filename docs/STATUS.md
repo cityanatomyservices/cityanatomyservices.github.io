@@ -1,5 +1,24 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-15 - Newsletter formatting for Substack
+
+The owner reported that the styled export pasted into Substack looking mostly
+uniform, and confirmed they use the newsletter/post editor. Substack's editor
+does not support the card's custom CSS. Content desk now has **Copy for Substack**:
+a CSS-free article body with H2 headings, explicit bold detail labels, line
+breaks, paragraphs, links and real horizontal rules. Its title is omitted from
+the body because Substack has a separate Title field. Normal paste is required;
+fonts and colors follow the publication theme. The original styled HTML/card
+and plain-text exports remain available. Unsupported rich-clipboard browsers
+now explicitly report a plain-text fallback instead of saying formatted copy
+succeeded. No saved list or database schema changed. Asset version: `20261115d`.
+
+Six content-model tests pass. Desktop/phone browser checks pass, including the
+new button's actual HTML/plain clipboard payload and native rich paste preserving
+headings, bold labels and dividers. Export layout was reviewed. No owner's
+Substack draft was edited or published; acceptance by that editor is not claimed
+as an end-to-end test. Publication/live clipboard verification remain.
+
 ## 2026-11-15 - Private Content desk for curated social lists
 
 The owner requested a private page for running Browse queries, checking chosen
