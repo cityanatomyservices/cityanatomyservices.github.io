@@ -17,7 +17,13 @@ Six content-model tests pass. Desktop/phone browser checks pass, including the
 new button's actual HTML/plain clipboard payload and native rich paste preserving
 headings, bold labels and dividers. Export layout was reviewed. No owner's
 Substack draft was edited or published; acceptance by that editor is not claimed
-as an end-to-end test. Publication/live clipboard verification remain.
+as an end-to-end test. Release `dbba3411`, merged with scheduled feeds as
+`76c84a5c`, is live. Pages `43786590374` and dashboard CI `43786590383` passed.
+Unversioned HTML announced `20261115d` before the versioned assets were fetched;
+all three match source. An initial dashboard fetch returned a transient GitHub
+error; retry succeeded. The full deployed desktop/phone checks pass, including
+the newsletter clipboard and native rich-paste hierarchy. Live export controls
+were visually reviewed. This follow-up is complete.
 
 ## 2026-11-15 - Private Content desk for curated social lists
 
