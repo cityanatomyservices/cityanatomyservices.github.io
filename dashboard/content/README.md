@@ -42,7 +42,10 @@ also has its own **Remove** button.
 **Export map** downloads an interactive MapLibre HTML file with the list title,
 pick titles, and coordinates. Open the file in a browser with internet access
 for MapLibre and the OpenFreeMap basemap. Click a title to locate a pick. Picks
-at the same coordinates share a marker that opens all their titles. New event
+at the same coordinates share a marker that opens all their titles. In the popup,
+each title with a source website links to it. Google Maps and Apple Maps buttons
+open directions to the pin’s coordinates. Export a new HTML file to get these
+controls for an existing list. New event
 and neighborhood picks keep their source coordinates. For older lists, the desk
 checks the original feed by item ID. For any missing points, enter latitude,
 longitude in decimal degrees to complete the map. The coordinates save with the

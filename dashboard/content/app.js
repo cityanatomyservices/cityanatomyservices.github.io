@@ -220,7 +220,7 @@
     const run=epoch,list=structuredClone(doc);
     $('map-status').textContent='Preparing map…';
     try{
-      const request=await fetch('./map-export.html?v=20261117b',{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(20000)])});
+      const request=await fetch('./map-export.html?v=20261117c',{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(20000)])});
       if(!request.ok)throw Error();
       const template=await request.text();
       if(!template.includes('<!--LIST_ITEMS-->'))throw Error();

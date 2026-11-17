@@ -46,7 +46,11 @@
     const rows=doc.items.map(item=>{
       if(!validPoint(item.coordinates))throw Error('A pick is missing its map location.');
       const [lng,lat]=item.coordinates;
-      return `<li><button data-lng="${lng}" data-lat="${lat}">${esc(item.title)}</button></li>`;
+      const source=url(item.url);
+      // Directory picks without a website historically saved a generated Maps search.
+      const searchOnly=item.id?.startsWith('place:')&&source.startsWith('https://www.google.com/maps/search/?api=1&query=');
+      const sourceAttr=source&&!searchOnly?` data-source="${esc(source)}"`:'';
+      return `<li><button${sourceAttr} data-lng="${lng}" data-lat="${lat}">${esc(item.title)}</button></li>`;
     });
     return template.replace(/<!--LIST_(TITLE|ITEMS)-->/g,(_,key)=>key==='TITLE'?esc(doc.title.trim()||'Untitled list'):rows.join('\n'));
   }

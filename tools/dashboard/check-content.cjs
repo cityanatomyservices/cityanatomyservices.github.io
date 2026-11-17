@@ -96,7 +96,25 @@ function session(owner){return `(()=>{const listeners=[];window.qa={owner:${JSON
   await mapPage.goto(require('node:url').pathToFileURL(mapPath).href);
   assert.deepEqual(await mapPage.locator('li button').allTextContents(),['Paper & Print Studio','Jazz at the Garden']);
   await mapPage.locator('.pin').click();assert.equal(await mapPage.locator('.maplibregl-popup p').count(),2);
+  const popup=mapPage.locator('.maplibregl-popup');
+  assert.deepEqual(await popup.locator('p a').evaluateAll(links=>links.map(a=>[a.textContent,a.href])),[
+    ['Paper & Print Studio','https://example.com/art'],['Jazz at the Garden','https://example.com/shared']
+  ]);
+  assert.equal(await popup.locator('.directions a').count(),2);
   await mapPage.getByRole('button',{name:'Jazz at the Garden',exact:true}).click();assert.equal(await mapPage.locator('.maplibregl-popup p').textContent(),'2. Jazz at the Garden');
+  // Intercept the external pages and verify each real click opens the intended URL.
+  for(const [label,href] of [
+    ['Jazz at the Garden','https://example.com/shared'],
+    ['Google Maps','https://www.google.com/maps/dir/?api=1&destination=30.27%2C-97.74'],
+    ['Apple Maps','https://maps.apple.com/directions?destination=30.27%2C-97.74']
+  ]){
+    await context.route(href,r=>r.fulfill({contentType:'text/html',body:'Destination'}));
+    const opened=mapPage.waitForEvent('popup');
+    await popup.getByRole('link',{name:label,exact:true}).click();
+    const destination=await opened;
+    await destination.waitForURL(url=>url.href===href,{waitUntil:'domcontentloaded',timeout:10000});
+    await destination.close();
+  }
   await mapPage.waitForFunction(()=>document.querySelector('#status').textContent==='');
   await mapPage.screenshot({path:path.join(shots,'content-map-'+width+'.png')});
   await mapPage.close();await page.locator('#save-status').filter({hasText:'Saved privately'}).waitFor();

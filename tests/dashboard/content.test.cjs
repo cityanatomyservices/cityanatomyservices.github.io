@@ -12,13 +12,16 @@ test('Newsletter body preserves hierarchy without CSS, escapes content, and keep
 test('Map HTML contains every titled pick in list order, with coordinates and escaped titles',()=>{
   const template=fs.readFileSync('dashboard/content/map-export.html','utf8');
   const doc={title:'A & B',items:[
-    {title:'Shared venue </script>',coordinates:[-97.742,30.26],note:'private detail'},
-    {title:'Another show <!--LIST_TITLE-->',coordinates:[-97.742,30.26]}
+    {title:'Shared venue </script>',coordinates:[-97.742,30.26],note:'private detail',url:'https://example.com/events?a=1&b=2'},
+    {title:'Another show <!--LIST_TITLE-->',coordinates:[-97.742,30.26]},
+    {id:'place:1',title:'Shop without a website',coordinates:[-97.743,30.27],url:'https://www.google.com/maps/search/?api=1&query=Austin'},
+    {title:'Unusable source',coordinates:[-97.744,30.28],url:'javascript:alert(1)'}
   ]};
   const html=M.mapFile(template,doc);
   assert.match(html,/<title>A &amp; B<\/title>/);
   assert.match(html,/data-lng="-97.742" data-lat="30.26">Shared venue &lt;\/script&gt;/);
   assert.match(html,/Another show &lt;!--LIST_TITLE--&gt;/);
+  assert.deepEqual(html.match(/data-source="[^"]*"/g),['data-source="https://example.com/events?a=1&amp;b=2"']);
   assert.doesNotMatch(html,/private detail/);
   assert.deepEqual(M.event(event('geo'),'Music').coordinates,[-97.74,30.27]);
   assert.deepEqual(M.enteredPoint(' 30.267 , -97.743 '),[-97.743,30.267]);

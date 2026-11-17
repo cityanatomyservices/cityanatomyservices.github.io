@@ -1,5 +1,14 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-17 - Source and directions links in exported map popups
+
+Content desk map exports now link each popup title to the pick’s saved source
+when available. Titles without a source website display as text. Each location
+has one pair of Google Maps and Apple Maps directions buttons targeting that
+pin’s saved latitude and longitude. Shared venues show a separate title per
+pick. The sidebar titles still open the corresponding pick on the map.
+Export existing lists again to produce updated HTML. Asset version `20261117c`.
+
 ## 2026-11-17 - Clear all Curate picks
 
 The Clear button beside the Curate pick count empties the current list,

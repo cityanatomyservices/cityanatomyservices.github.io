@@ -23,6 +23,11 @@
     .pin:focus-visible {z-index:2;outline:3px solid #0869ac}
     .maplibregl-popup-content {max-height:30vh;overflow:auto;padding:12px 24px 12px 14px;color:#153d32}
     .maplibregl-popup-content p {margin:.25rem 0;overflow-wrap:anywhere}
+    .maplibregl-popup-content a {color:#145f49}
+    .directions {display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;border-top:1px solid #dce6e1;padding-top:8px}
+    .directions strong {width:100%}
+    .directions a {display:inline-flex;align-items:center;min-height:44px;padding:4px 10px;border:1px solid #a9c7b9;border-radius:6px;text-decoration:none;font-weight:600}
+    .directions a:hover,.directions a:focus-visible {background:#edf5f1;text-decoration:underline}
     @media(max-width:650px){main{display:flex;flex-direction:column-reverse}#map{flex:1}aside{max-height:40%;padding:1rem}h1{font-size:1.2rem}}
   </style>
 </head>
@@ -37,6 +42,14 @@
       const status = document.getElementById('status');
       const entries = [...document.querySelectorAll('li button')];
       if (!entries.length) return;
+      function externalLink(label, href) {
+        const a = document.createElement('a');
+        a.textContent = label;
+        a.href = href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        return a;
+      }
       try {
         const groups = new Map();
         entries.forEach((button, index) => {
@@ -64,9 +77,20 @@
             const box = document.createElement('div');
             for (const {button, number} of items) {
               const line = document.createElement('p');
-              line.textContent = number + '. ' + button.textContent;
+              line.append(number + '. ', button.dataset.source
+                ? externalLink(button.textContent, button.dataset.source)
+                : button.textContent);
               box.append(line);
             }
+            const destination = encodeURIComponent(point[1] + ',' + point[0]);
+            const directions = document.createElement('div');
+            directions.className = 'directions';
+            const label = document.createElement('strong');
+            label.textContent = 'Get directions';
+            directions.append(label,
+              externalLink('Google Maps', 'https://www.google.com/maps/dir/?api=1&destination=' + destination),
+              externalLink('Apple Maps', 'https://maps.apple.com/directions?destination=' + destination));
+            box.append(directions);
             popup.setLngLat(point).setDOMContent(box).addTo(map);
           }
           pin.onclick = e => { e.stopPropagation(); show(picks); };
