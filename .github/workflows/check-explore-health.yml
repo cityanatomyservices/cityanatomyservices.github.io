@@ -1,0 +1,25 @@
+name: Check Explore feed health
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Publish Austin.chat']
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: explore-feed-health
+  cancel-in-progress: false
+jobs:
+  health:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+      - name: Check the feeds visitors receive
+        run: node tools/explore/check-health.cjs https://austin.chat

@@ -4,7 +4,9 @@ on:
     branches: [main]
   workflow_dispatch:
   workflow_run:
-    workflows: ['Refresh City Hall', 'Refresh Explore map layers', 'Build news map feed', 'Refresh Austin neighborhood businesses', 'Refresh Austin parking', 'Refresh Texas sports scores', 'Refresh Austin ticker', 'Render Report Promo Videos', 'Render City Intro Video', 'Export Explore for Substack']
+    # Explore explicitly dispatches this workflow after committing usable data,
+    # including partial refreshes, then reports any source failures separately.
+    workflows: ['Refresh City Hall', 'Build news map feed', 'Refresh Austin neighborhood businesses', 'Refresh Austin parking', 'Refresh Texas sports scores', 'Refresh Austin ticker', 'Render Report Promo Videos', 'Render City Intro Video', 'Export Explore for Substack']
     types: [completed]
     branches: [main]
 permissions:

@@ -98,7 +98,7 @@ def events(now):
             print(f'{source}: {len(fresh)} upcoming listings', flush=True)
         except Exception as error:
             failed.add(source)
-            statuses.append(dict(name=source, url=url, ok=False, failures=1))
+            statuses.append(dict(name=source, url=url, ok=False, failures=1, error=str(error)))
             print(f'{source}: {error}', flush=True)
     if len(failed) == len(SOURCES):
         raise RuntimeError('All event sources failed; retaining previous category files')

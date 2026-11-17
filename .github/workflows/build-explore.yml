@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: explore-map
   cancel-in-progress: false
@@ -24,6 +25,7 @@ jobs:
         run: python -m pip install -r tools/explore/requirements.txt
       - run: python -m unittest discover -s tools/explore -p 'test_*.py'
       - run: node tools/explore/test-model.cjs
+      - run: node --test tools/explore/test-health.cjs
       - name: Refresh events
         id: events
         continue-on-error: true
@@ -37,6 +39,7 @@ jobs:
         continue-on-error: true
         run: python tools/explore/build_layers.py
       - name: Publish map data
+        id: publish_data
         run: |
           git config user.name 'austin-explore bot'
           git config user.email 'cityanatomyservices@users.noreply.github.com'
@@ -44,8 +47,18 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Refresh Explore map data'
           bash tools/publish-data.sh
+      # Import steps retain validated data even when one source fails. Dispatch
+      # only after that data is committed; the run can still report failure.
+      - name: Deploy available map data
+        if: steps.publish_data.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run publish-site.yml --ref main
+      - name: Feed health summary
+        if: always()
+        run: node tools/explore/check-health.cjs
       - name: Report failed imports
-        if: steps.events.outcome == 'failure' || steps.movies.outcome == 'failure' || steps.culture.outcome == 'failure'
+        if: always() && (steps.events.outcome == 'failure' || steps.movies.outcome == 'failure' || steps.culture.outcome == 'failure')
         run: |
           echo "::error::Explore imports: events=${{ steps.events.outcome }}, movies=${{ steps.movies.outcome }}, local calendars=${{ steps.culture.outcome }}. Open the matching Refresh step above for the source error."
           exit 1

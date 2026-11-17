@@ -4,7 +4,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
-def read_calendar(url, parse, fetch):
+def read_calendar(url, parse, fetch, *, refresh_query=True):
     """Validate the response before accepting it; never treat an error as zero events.
 
     Used only for public calendar pages that intermittently return empty
@@ -15,10 +15,12 @@ def read_calendar(url, parse, fetch):
         request_url = url
         if attempt:
             time.sleep(2 * attempt)
-            parts = urlsplit(url)
-            query = parse_qsl(parts.query, keep_blank_values=True)
-            query.append(('austinchat_refresh', f'{int(time.time())}-{attempt}'))
-            request_url = urlunsplit(parts._replace(query=urlencode(query)))
+            if refresh_query:
+                parts = urlsplit(url)
+                query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
+                         if k != 'austinchat_refresh']
+                query.append(('austinchat_refresh', f'{int(time.time())}-{attempt}'))
+                request_url = urlunsplit(parts._replace(query=urlencode(query)))
         body = None
         try:
             body = fetch(request_url)

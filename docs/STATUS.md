@@ -1,5 +1,34 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-17 - Recover Free & cheap and monitor Explore feeds
+
+The library importer timed out and its retained listings expired. Fallout and
+Saxon failures also made the Explore run fail, suppressing its success-only
+Pages trigger. Library RSS, branch JSON and detail metadata now have three
+validated attempts with 45-second timeouts and short backoffs. Partial failures
+publish usable data but fail the import and retain a source error. Old entries
+keep their original expiry. Both-live-source failure still preserves the file.
+
+Explore now explicitly dispatches Pages after its data commit succeeds, even
+when an individual importer fails. Failed tests/commits cannot dispatch it.
+The new Check Explore feed health workflow checks deployed data hourly and
+after successful Pages deployment. Its Summary shows actual active/week counts,
+source failures and snapshot age; stale (over six hours), empty, malformed or
+partially failed feeds make the check red. Curated deadlines get review warnings.
+The same read-only checker works locally or with `https://austin.chat`.
+
+All calendar sources recovered in the local refresh, including Fallout and
+Saxon. The first recovered Free & cheap snapshot had 213 records, including 198
+distinct library entries, five UT entries and ten recurring activity instances.
+Nature Center and Blanton hours/free admission were rechecked against official
+visitor information; their review deadline is November 25, before Thanksgiving.
+Do not extrapolate Nature Center's older holiday notice into this year's dates.
+
+71 Python importer tests, five new health-check tests and the existing browser
+filter/model checks pass. The three changed workflows pass actionlint. Live
+refresh, deployment and desktop/phone verification are pending below.
+See chat/explore/README.md for the monitoring and recovery procedure.
+
 ## 2026-11-17 - Source and directions links in exported map popups
 
 Content desk map exports now link each popup title to the pick’s saved source

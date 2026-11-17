@@ -263,12 +263,14 @@ def build():
                 items = group(rows, name, now)
                 items.extend(output[2] if len(output) > 2 else [])
                 ok = True
+                detail = f'{failures} movie detail requests failed' if failures else ''
             except Exception as error:
                 print(f'{name}: {error}', flush=True)
                 items = [f for f in previous if f['properties']['source'] == name and valid_cached(f, now)]
                 ok, failures = False, 1
+                detail = str(error)
             features.extend(items)
-            statuses.append(dict(name=name, url=url, ok=ok, failures=failures, count=len(items)))
+            statuses.append(dict(name=name, url=url, ok=ok, failures=failures, count=len(items), error=detail))
             print(f'{name}: {len(items)} movie/day listings; {failures} failed requests', flush=True)
     if not any(s['ok'] for s in statuses):
         raise RuntimeError('All movie sources failed; preserving the previous snapshot')

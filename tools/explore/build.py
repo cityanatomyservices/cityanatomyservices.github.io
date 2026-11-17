@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 from zoneinfo import ZoneInfo
+from calendar_http import read_calendar
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'chat/data/explore/free-cheap.geojson'
@@ -39,10 +40,19 @@ def date(value):
     return d.replace(tzinfo=ZONE) if d.tzinfo is None else d
 
 
-def fetch(url):
+def fetch(url, timeout=20):
     request = Request(url, headers={'User-Agent': 'AustinChatExplore/1.0 (+https://austin.chat/contact/)'})
-    with urlopen(request, timeout=20) as response:
-        return response.read(5_000_000)
+    with urlopen(request, timeout=timeout) as response:
+        body = response.read(5_000_001)
+    if len(body) > 5_000_000:
+        raise ValueError('Response exceeds import limit')
+    return body
+
+
+def library_read(url, parse, *, refresh_query=True):
+    # RSS/detail responses occasionally take longer than the old 20s limit.
+    # Validate each attempt, and keep retries bounded to three requests.
+    return read_calendar(url, parse, lambda u: fetch(u, timeout=45), refresh_query=refresh_query)
 
 
 def web_url(url):
@@ -112,11 +122,13 @@ def library_event(item, branches, now, skipped=None):
     branch = branches.get(branch_name)
     if not branch:
         return skip('unknown or online venue')
-    page = fetch(url).decode('utf-8')
-    events = list(ld_events(page))
-    if not events:
-        raise ValueError('Missing event metadata')
-    event = events[0]
+    def metadata(body):
+        page = body.decode('utf-8')
+        events = list(ld_events(page))
+        if not events:
+            raise ValueError('Missing event metadata')
+        return page, events[0]
+    page, event = library_read(url, metadata)
     if event.get('eventStatus', '').endswith(('EventCancelled', 'EventPostponed')):
         return skip('cancelled or postponed')
     if not event.get('eventAttendanceMode', '').endswith('OfflineEventAttendanceMode'):
@@ -145,15 +157,29 @@ def library_event(item, branches, now, skipped=None):
 
 
 def library(now, previous):
-    branches = {b['name']: b for b in json.loads(fetch(BRANCHES))}
+    def locations(body):
+        data = json.loads(body)
+        if not isinstance(data, list) or not data or not all('name' in b and 'address' in b for b in data):
+            raise ValueError('Library locations missing or invalid')
+        return {b['name']: b for b in data}
+    # Socrata accepts documented query fields only, so retry this URL unchanged.
+    branches = library_read(BRANCHES, locations, refresh_query=False)
     if 'John Gillum Branch (North Village)' in branches:
         branches['John Gillum Branch'] = branches['John Gillum Branch (North Village)']
     # Some CDN locations retain the unversioned RSS response for weeks. A
     # per-run query prevents those stale snapshots from emptying the map.
     feed_url = f'{LIBRARY}?austinchat_refresh={int(now.timestamp())}'
-    items = ET.fromstring(fetch(feed_url)).findall('.//item')
-    if not items:
-        raise ValueError('Library feed has no event records')
+    def rss(body):
+        try:
+            items = ET.fromstring(body).findall('.//item')
+        except ET.ParseError as error:
+            raise ValueError('Invalid library RSS') from error
+        if not items or not any(date(i.findtext('pubDate')) and
+                               now - timedelta(days=1) <= date(i.findtext('pubDate')) <= now + timedelta(days=MAX_DAYS)
+                               for i in items):
+            raise ValueError('Library RSS has no current event records')
+        return items
+    items = library_read(feed_url, rss)
     candidates = [i for i in items if date(i.findtext('pubDate'))
                   and now - timedelta(days=1) <= date(i.findtext('pubDate')) <= now + timedelta(days=MAX_DAYS)]
     print(f'Library: {len(branches)} venues, {len(items)} RSS records, {len(candidates)} candidates; first feed dates: {[i.findtext("pubDate") for i in items[:3]]}', flush=True)
@@ -265,7 +291,7 @@ def valid_cached(f, now):
 def build():
     now = datetime.now(timezone.utc)
     previous = json.loads(OUT.read_text()).get('features', []) if OUT.exists() else []
-    result, statuses = [], []
+    result, statuses, refreshed = [], [], set()
     jobs = [('Austin Public Library', LIBRARY, lambda: library(now, previous)),
             ('UT Austin', 'https://calendar.utexas.edu/', lambda: university(now)),
             ('Verified activity', '', lambda: curated(now))]
@@ -274,15 +300,18 @@ def build():
         for name, url, future in futures:
             try:
                 items, failures = future.result()
-                ok = True
+                refreshed.add(name)
+                ok = failures == 0
+                detail = f'{failures} event detail requests failed' if failures else ''
                 print(f'{name}: {len(items)} entries; {failures} detail requests failed')
             except Exception as error:
                 print(f'{name}: {error}')
                 items = [f for f in previous if f['properties']['source'] == name and valid_cached(f, now)]
                 ok, failures = False, 1
-            statuses.append(dict(name=name, url=url, ok=ok, failures=failures, count=len(items)))
+                detail = str(error)
+            statuses.append(dict(name=name, url=url, ok=ok, failures=failures, count=len(items), error=detail))
             result.extend(items)
-    if not any(s['ok'] for s in statuses[:2]):
+    if not refreshed.intersection(('Austin Public Library', 'UT Austin')):
         raise RuntimeError('Both live sources failed; keeping previous published file')
     unique = {}
     for f in result:
@@ -294,6 +323,9 @@ def build():
     OUT.write_text(json.dumps(dict(type='FeatureCollection', generated=now.isoformat(), sources=statuses,
                                   features=features), ensure_ascii=False, indent=1) + '\n')
     print(f'Published {len(features)} records to {OUT.relative_to(ROOT)}')
+    failed = [s['name'] for s in statuses if not s['ok']]
+    if failed:
+        raise RuntimeError('Some Free & cheap sources unavailable: ' + ', '.join(failed))
 
 
 if __name__ == '__main__':

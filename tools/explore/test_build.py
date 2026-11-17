@@ -2,6 +2,8 @@ import unittest
 from datetime import datetime, timedelta, timezone
 from unittest.mock import patch
 import json
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import xml.etree.ElementTree as ET
 import build
 
@@ -43,10 +45,60 @@ class BuildTests(unittest.TestCase):
 
     def test_stale_library_feed_cannot_silently_clear_existing_data(self):
         stale = b'<rss><channel><item><pubDate>Mon, 12 Oct 2026 09:30:00 -0500</pubDate></item></channel></rss>'
-        with patch.object(build, 'fetch', side_effect=[b'[]', stale]) as fetch:
-            with self.assertRaisesRegex(ValueError, 'No verified library events'):
+        locations = b'[{"name":"Central Library","address":{}}]'
+        with patch.object(build, 'fetch', side_effect=[locations, stale, stale, stale]) as fetch, patch('calendar_http.time.sleep'):
+            with self.assertRaisesRegex(ValueError, 'no current event records'):
                 build.library(NOW, [])
         self.assertIn('?austinchat_refresh=', fetch.call_args_list[1].args[0])
+        self.assertEqual(fetch.call_count, 4)
+
+    def test_library_timeout_recovers_without_adding_socrata_query(self):
+        locations = b'[{"name":"Central Library","address":{}}]'
+        rss = b'<rss><channel><item><title>Today</title><pubDate>Wed, 28 Oct 2026 12:00:00 -0500</pubDate></item></channel></rss>'
+        with patch.object(build, 'fetch', side_effect=[TimeoutError('timeout'), locations, rss]) as fetch, \
+                patch.object(build, 'library_event', return_value={'type': 'Feature'}), patch('calendar_http.time.sleep'):
+            self.assertEqual(build.library(NOW, []), ([{'type': 'Feature'}], 0))
+        self.assertEqual(fetch.call_args_list[0].args[0], build.BRANCHES)
+        self.assertEqual(fetch.call_args_list[1].args[0], build.BRANCHES)
+        self.assertEqual(fetch.call_args_list[0].kwargs['timeout'], 45)
+
+    def test_partial_failure_publishes_healthy_data_then_signals_failure(self):
+        fields = dict(title='Example', url='https://example.org/event', venue='Venue', address='Austin',
+                      lng=-97.75, lat=30.27, start=NOW+timedelta(hours=1), end=NOW+timedelta(days=2),
+                      cost=0, price_label='Free', checked=NOW)
+        old = build.feature(**fields, source='Austin Public Library')
+        fresh = build.feature(**fields, source='UT Austin')
+        with TemporaryDirectory() as temp, patch.object(build, 'ROOT', Path(temp)), \
+                patch.object(build, 'OUT', Path(temp)/'feed.json'), \
+                patch.object(build, 'datetime', wraps=datetime) as clock, \
+                patch.object(build, 'library', side_effect=TimeoutError('timed out')), \
+                patch.object(build, 'university', return_value=([fresh], 0)), \
+                patch.object(build, 'curated', return_value=([], 0)):
+            clock.now.return_value = NOW + timedelta(hours=2)
+            # A distinct occurrence prevents deduplication with the fresh UT row.
+            old['properties']['title'] = 'Library event'
+            build.OUT.write_text(json.dumps({'features': [old]}))
+            with self.assertRaisesRegex(RuntimeError, 'Austin Public Library'):
+                build.build()
+            output = json.loads(build.OUT.read_text())
+            self.assertEqual(len(output['features']), 2)
+            self.assertEqual(output['features'][0]['properties']['expires'], old['properties']['expires'])
+            self.assertFalse(output['sources'][0]['ok'])
+            self.assertEqual(output['sources'][0]['error'], 'timed out')
+            with patch.object(build, 'university', side_effect=TimeoutError('offline')):
+                before = build.OUT.read_bytes()
+                with self.assertRaisesRegex(RuntimeError, 'Both live sources failed'):
+                    build.build()
+                self.assertEqual(build.OUT.read_bytes(), before)
+
+    def test_library_metadata_retries_an_incomplete_page(self):
+        event = {'@type': 'Event', 'startDate': '2026-10-28T12:00:00-05:00', 'endDate': '2026-10-28T13:00:00-05:00',
+                 'isAccessibleForFree': True, 'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode'}
+        item = ET.fromstring('<item><title>Workshop</title><link>https://library.austintexas.gov/event/test</link><description>Central Library - Workshop</description></item>')
+        branches = {'Central Library': {'address': {'longitude': '-97.75', 'latitude': '30.27', 'human_address': '{"address":"710 W Cesar Chavez"}'}}}
+        html = ('<script type="application/ld+json">'+json.dumps(event)+'</script>Free and open to the public').encode()
+        with patch.object(build, 'fetch', side_effect=[b'<html>Unavailable</html>', html]), patch('calendar_http.time.sleep'):
+            self.assertIsNotNone(build.library_event(item, branches, NOW))
 
     def test_ut_public_price_and_occurrences(self):
         e = dict(status='live', title='Concert', localist_url='https://calendar.utexas.edu/event/test', ticket_cost='$15',

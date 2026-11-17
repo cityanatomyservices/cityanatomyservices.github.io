@@ -457,8 +457,20 @@ can produce two exit-code annotations: one for the importer and one for the
 final failure-report step. Successful feeds are published before that report.
 Old failed runs keep their annotations after a fix; inspect the latest run.
 
+After `Publish map data` succeeds, Explore explicitly dispatches
+`Publish Austin.chat` using its workflow token. This also happens for partial
+imports: a failed comedy calendar cannot block fresh library/movie data.
+Tests and a failed data commit still prevent this dispatch. Explore no longer
+uses the success-only `workflow_run` publishing gate. Source failures remain red
+in Actions and are not disguised as successful updates.
+
 The importer requests library detail pages with at most four concurrent
 requests and uses a fresh query on the RSS feed to avoid stale CDN snapshots.
+Library requests have a 45-second timeout and up to three validated attempts,
+with short backoffs. RSS, branch JSON and event metadata are validated before
+acceptance. Socrata retries keep the original URL; RSS/detail retries refresh
+their cache query. Partial library failures publish usable data, record the
+source error and then fail the importer so the problem is visible.
 An unexpectedly empty verified library import is treated as a source failure.
 Duplicate title/start/location records are merged. Failed sources or
 detail requests retain previous entries only until their existing expiry; they
@@ -487,12 +499,59 @@ hours and conditions, then update `verified`, `validUntil` and any changed
 fields. They automatically disappear if nobody reconfirms them. Routine feed
 updates require neither AI nor human editing.
 
+The two curated entries were rechecked on November 17, 2026 against the
+[Nature Center visitor information](https://www.austintexas.gov/parks/plan-your-visit-austin-nature-science-center)
+and [Blanton visitor information](https://blantonmuseum.org/visit/).
+Their next review deadline is November 25 at midnight Austin time, before the
+Thanksgiving period. The Nature Center's closure page still lists the previous
+Thanksgiving dates; no hours are extrapolated into that holiday period.
+
+### Checking feed health and recovering
+
+Open [Check Explore feed health](https://github.com/cityanatomyservices/cityanatomyservices.github.io/actions/workflows/check-explore-health.yml)
+and select the newest run. Its **Summary** reports snapshot age, active and
+this-week counts for all six categories, plus active counts and failures for
+each source. It checks the deployed URLs hourly at minute 17 and after every
+successful Pages deployment. GitHub can delay scheduled runs; this is not an
+external uptime guarantee. The refresh workflow produces the same report for
+its local output before completion.
+
+The check fails for invalid/unavailable feeds, snapshots older than six hours,
+categories with no active listings, or any failed/partial source. It uses the
+browser's own filtering model, so a newly generated file full of expired
+listings cannot appear healthy. Curated reviews are warnings when due within
+72 hours or overdue; deadlines are never automatically renewed. A zero-count
+individual source is allowed when its successful import has no upcoming events.
+
+1. In **Refresh Explore map layers**, select **Run workflow** on `main`.
+2. Read **Refresh events** for library/UT failures, **Refresh movie showtimes**
+   for cinema failures, or **Refresh local calendars** for venue failures.
+3. Confirm **Publish Austin.chat** succeeds, then check the newest health report.
+   If necessary, run the health workflow manually after publication.
+4. On the site, select Free & cheap, clear search/location restrictions, choose
+   All dates, and open **Sources & freshness**. Today/Now may legitimately show
+   fewer listings. The health report's active counts ignore visitor filters.
+
+For a read-only check from this checkout:
+
+```sh
+node tools/explore/check-health.cjs https://austin.chat
+```
+
+Omit the URL to check local generated files. Exit code 1 means investigation is
+needed. Repeated timeouts, access denials or schema errors require inspecting
+the named source; do not extend old listings' expiry to hide an outage.
+Enable GitHub Actions failure notifications under account notification settings
+if desired. GitHub sends scheduled-run notifications to the schedule's owner;
+see [GitHub's notification rules](https://docs.github.com/en/actions/concepts/workflows-and-actions/notifications-for-workflow-runs).
+
 Run from repository root:
 
 ```sh
 python3 -m pip install -r tools/explore/requirements.txt
 python3 -m unittest discover -s tools/explore -p 'test_*.py'
 node tools/explore/test-model.cjs
+node --test tools/explore/test-health.cjs
 node tools/explore/check-guest-reset.cjs
 python3 tools/explore/build.py
 python3 tools/explore/build_movies.py
