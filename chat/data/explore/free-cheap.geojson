@@ -1,20 +1,20 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-16T19:52:36.810336+00:00",
+ "generated": "2026-11-17T04:12:06.121141+00:00",
  "sources": [
   {
    "name": "Austin Public Library",
    "url": "https://library.austintexas.gov/events-feed.xml",
-   "ok": true,
-   "failures": 0,
-   "count": 219
+   "ok": false,
+   "failures": 1,
+   "count": 199
   },
   {
    "name": "UT Austin",
    "url": "https://calendar.utexas.edu/",
    "ok": true,
    "failures": 0,
-   "count": 8
+   "count": 6
   },
   {
    "name": "Verified activity",
@@ -25,501 +25,6 @@
   }
  ],
  "features": [
-  {
-   "type": "Feature",
-   "id": "5a10a3334c13f74431e9",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.772902128,
-     30.433571236
-    ]
-   },
-   "properties": {
-    "id": "5a10a3334c13f74431e9",
-    "title": "Books and Babies",
-    "url": "https://library.austintexas.gov/event/books-and-babies/books-and-babies-7788964",
-    "venue": "Spicewood Springs Branch",
-    "address": "8637 Spicewood Springs Rd",
-    "start": "2026-11-16T14:00:00-06:00",
-    "end": "2026-11-16T15:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "A lapsit storytime program especially for non-walking babies 0-12 months and their caregivers. Very short stories are interspersed with songs, rhymes, and fingerplays for babies and parents. A brief playtime follows. Pro",
-    "conditions": "Babies (ages 0-1) Books and Babies",
-    "expires": "2026-11-16T15:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "ce86808b9107c2b6b370",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.740733976,
-     30.323460982
-    ]
-   },
-   "properties": {
-    "id": "ce86808b9107c2b6b370",
-    "title": "Books and Babies",
-    "url": "https://library.austintexas.gov/event/books-and-babies/books-and-babies-7785307",
-    "venue": "Yarborough Branch",
-    "address": "2200 Hancock Dr",
-    "start": "2026-11-16T14:00:00-06:00",
-    "end": "2026-11-16T15:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "A lapsit storytime program especially for non-walking babies 0-12 months and their caregivers. Very short stories are interspersed with songs, rhymes, and fingerplays for babies and parents. A brief playtime follows. Pro",
-    "conditions": "Babies (ages 0-1) Books and Babies",
-    "expires": "2026-11-16T15:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "186d810624df1f9fbc8d",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.797321965,
-     30.216598003
-    ]
-   },
-   "properties": {
-    "id": "186d810624df1f9fbc8d",
-    "title": "Books and Babies",
-    "url": "https://library.austintexas.gov/event/books-and-babies/books-and-babies-7786342",
-    "venue": "Menchaca Road Branch",
-    "address": "5500 Menchaca Rd",
-    "start": "2026-11-16T14:00:00-06:00",
-    "end": "2026-11-16T15:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "A lapsit storytime program especially for non-walking babies 0-12 months and their caregivers. Very short stories are interspersed with songs, rhymes, and fingerplays for babies and parents. A brief playtime follows. Pro",
-    "conditions": "Babies (ages 0-1) Books and Babies",
-    "expires": "2026-11-16T15:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "a67e7795afdcf58cff03",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.751692979,
-     30.266101984
-    ]
-   },
-   "properties": {
-    "id": "a67e7795afdcf58cff03",
-    "title": "Books and Babies",
-    "url": "https://library.austintexas.gov/event/books-and-babies/books-and-babies-7785892",
-    "venue": "Central Library",
-    "address": "710 W Cesar Chavez St",
-    "start": "2026-11-16T14:00:00-06:00",
-    "end": "2026-11-16T14:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "A lapsit storytime program especially for non-walking babies 0-12 months and their caregivers. Very short stories are interspersed with songs, rhymes, and fingerplays for babies and parents. A brief playtime follows. Pro",
-    "conditions": "Babies (ages 0-1) Books and Babies",
-    "expires": "2026-11-16T14:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "e697190b4272006022c5",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.762382002,
-     30.248673996
-    ]
-   },
-   "properties": {
-    "id": "e697190b4272006022c5",
-    "title": "Yoga with Patti",
-    "url": "https://library.austintexas.gov/event/health-wellness/yoga-patti-7787336",
-    "venue": "Twin Oaks Branch",
-    "address": "1800 S Fifth St",
-    "start": "2026-11-16T14:30:00-06:00",
-    "end": "2026-11-16T15:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "This yoga class provides community members with an opportunity to take a break from their day to day and recenter themselves on their mat. Participants will learn about yoga basics and reap the health benefits of regular",
-    "conditions": "Adults (ages 18+) Health & Wellness Yoga Meditation Classes",
-    "expires": "2026-11-16T15:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "bd6d0f206f6f6435f7e8",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.732758,
-     30.285248
-    ]
-   },
-   "properties": {
-    "id": "bd6d0f206f6f6435f7e8",
-    "title": "College of Fine Arts Faculty International Research Panel",
-    "url": "https://calendar.utexas.edu/event/college-of-fine-arts-faculty-international-research-panel",
-    "venue": "E. William Doty Fine Arts Building (DFA)",
-    "address": "2301 Trinity Street",
-    "start": "2026-11-16T15:00:00-06:00",
-    "end": "2026-11-16T15:00:01-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "UT Austin",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "",
-    "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-16T15:00:00-06:00",
-    "endKnown": false
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "b5e615bfa755d715f46e",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.690238039,
-     30.31166601
-    ]
-   },
-   "properties": {
-    "id": "b5e615bfa755d715f46e",
-    "title": "Tweens Create: DIY Party Favors",
-    "url": "https://library.austintexas.gov/event/celebrations/tweens-create-diy-party-favors-7785348",
-    "venue": "Windsor Park Branch",
-    "address": "5833 Westminster Dr",
-    "start": "2026-11-16T15:30:00-06:00",
-    "end": "2026-11-16T17:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Jazz up any celebration with these homemade party decorations and favors! We will have everything you need to make banners, poppers, and piñatas.Jazz up any celebration with these homemade party decorations and favors! W",
-    "conditions": "Tweens (ages 9-12) Celebrations Centennial Celebrations",
-    "expires": "2026-11-16T17:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "daef1a366037cdaab0f6",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.855041007,
-     30.217655003
-    ]
-   },
-   "properties": {
-    "id": "daef1a366037cdaab0f6",
-    "title": "LEGO Lab",
-    "url": "https://library.austintexas.gov/event/lego-lab/lego-lab-7786387",
-    "venue": "Hampton Branch at Oak Hill",
-    "address": "5125 Convict Hill Rd",
-    "start": "2026-11-16T15:30:00-06:00",
-    "end": "2026-11-16T16:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "With Legos, you can build anything you can imagine and tell any story you can dream up. Come to the Lego Lab to hear, see, make, and create different stories, all while building with Legos provided by the Library! Progra",
-    "conditions": "Kids (ages 6-10) Lego Lab",
-    "expires": "2026-11-16T16:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "b790b3a0ec193b5ed36a",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.698474013,
-     30.363273011
-    ]
-   },
-   "properties": {
-    "id": "b790b3a0ec193b5ed36a",
-    "title": "Sew Much Fun: Pocket Frog and Toad plushies - Coser Divertido",
-    "url": "https://library.austintexas.gov/event/celebrations/sew-much-fun-pocket-frog-and-toad-plushies-7785344",
-    "venue": "Little Walnut Creek Branch",
-    "address": "835 W Rundberg Ln",
-    "start": "2026-11-16T16:00:00-06:00",
-    "end": "2026-11-16T17:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Learn to hand sew felt plushies. This time, our plushies are helping us celebrate Austin Public Library's 100th Birthday with some of our favorite characters from the last century- Frog and Toad!",
-    "conditions": "Kids (ages 6-10) Tweens (ages 9-12) Teens (ages 13-18) Celebrations Centennial Celebrations",
-    "expires": "2026-11-16T17:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "a079cf0dd1389a6783eb",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.708882996,
-     30.259047984
-    ]
-   },
-   "properties": {
-    "id": "a079cf0dd1389a6783eb",
-    "title": "Lego Lab",
-    "url": "https://library.austintexas.gov/event/lego-lab/lego-lab-7786722",
-    "venue": "Cepeda Branch",
-    "address": "651 N Pleasant Valley Rd",
-    "start": "2026-11-16T16:30:00-06:00",
-    "end": "2026-11-16T17:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "With Legos, you can build anything you can imagine and tell any story you can dream up. Come to the Lego Lab to hear, see, make, and create different stories, all while building with Legos provided by the Library! Progra",
-    "conditions": "Toddlers (ages 1-3) Preschoolers (ages 3-5) Lego Lab",
-    "expires": "2026-11-16T17:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "00e905c5be1817d69440",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.762382002,
-     30.248673996
-    ]
-   },
-   "properties": {
-    "id": "00e905c5be1817d69440",
-    "title": "The Crafty Adult: Trail of Tears Beaded Necklace - featuring Doug Martin",
-    "url": "https://library.austintexas.gov/event/crafty-adult/crafty-adult-trail-tears-beaded-necklace-7788465",
-    "venue": "Twin Oaks Branch",
-    "address": "1800 S Fifth St",
-    "start": "2026-11-16T18:00:00-06:00",
-    "end": "2026-11-16T19:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Join us to design a beautiful bead necklace inspired by the Trail of Tears. Learn simple beading techniques, explore color patterns, and string your own wearable pieces of art. All supplies will be provided. No previous ",
-    "conditions": "Adults (ages 18+) Adults (ages 55+) The Crafty Adult Native American Heritage Month",
-    "expires": "2026-11-16T19:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "417b9aea17a22cc1a348",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.733440966,
-     30.259904992
-    ]
-   },
-   "properties": {
-    "id": "417b9aea17a22cc1a348",
-    "title": "English Practice / Hablemos Inglés",
-    "url": "https://library.austintexas.gov/event/talk-time/english-practice-hablemos-ingles-7775400",
-    "venue": "Terrazas Branch",
-    "address": "1105 E Cesar Chavez St",
-    "start": "2026-11-16T18:00:00-06:00",
-    "end": "2026-11-16T19:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Improve your English conversation.Talk Time is a program for English conversation practice with other English language learners and English speaking volunteers. No registration is necessary. The program is open to any ad",
-    "conditions": "Adults (ages 18+) Talk Time · Check the organizer for registration or capacity limits.",
-    "expires": "2026-11-16T19:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "ff7dcb088256b65d562d",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.772902128,
-     30.433571236
-    ]
-   },
-   "properties": {
-    "id": "ff7dcb088256b65d562d",
-    "title": "Making Words Dance with Music - featuring Zell Miller III",
-    "url": "https://library.austintexas.gov/event/writing/making-words-dance-music-7786842",
-    "venue": "Spicewood Springs Branch",
-    "address": "8637 Spicewood Springs Rd",
-    "start": "2026-11-16T18:15:00-06:00",
-    "end": "2026-11-16T19:45:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "You are welcome to attend any or all three writing workshops led by Austin's own Poet Laureate Zell Miller III. Zell will lead a different topic each month. No previous experience is required. Writing with the \"I Am\" Pre",
-    "conditions": "Adults (ages 18+) Writing",
-    "expires": "2026-11-16T19:45:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "b4dc29c8572bd39e1f62",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.690238039,
-     30.31166601
-    ]
-   },
-   "properties": {
-    "id": "b4dc29c8572bd39e1f62",
-    "title": "Pajama Storytime",
-    "url": "https://library.austintexas.gov/event/pajama-storytime/pajama-storytime-7784232",
-    "venue": "Windsor Park Branch",
-    "address": "5833 Westminster Dr",
-    "start": "2026-11-16T18:30:00-06:00",
-    "end": "2026-11-16T19:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Feel free to wear pajamas to this family storytime in the evening featuring stories, songs, rhymes, games, crafts, and other activities. Program length can vary.Siéntase libre de usar pijamas para esta hora de cuentos fa",
-    "conditions": "Babies (ages 0-1) Toddlers (ages 1-3) Preschoolers (ages 3-5) Pajama Storytime",
-    "expires": "2026-11-16T19:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "1024b7b840db1da76861",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.698474013,
-     30.363273011
-    ]
-   },
-   "properties": {
-    "id": "1024b7b840db1da76861",
-    "title": "Talk Time | Hora de práctica",
-    "url": "https://library.austintexas.gov/event/talk-time/talk-time-hora-de-practica-7788367",
-    "venue": "Little Walnut Creek Branch",
-    "address": "835 W Rundberg Ln",
-    "start": "2026-11-16T18:30:00-06:00",
-    "end": "2026-11-16T19:30:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Improve your English conversation.Talk Time is a program for English conversation practice with other English language learners and English speaking volunteers. No registration is necessary. The program is open to any ad",
-    "conditions": "Adults (ages 18+) Talk Time · Check the organizer for registration or capacity limits.",
-    "expires": "2026-11-16T19:30:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "e37c533ca63300fe116e",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.716188998,
-     30.42233299
-    ]
-   },
-   "properties": {
-    "id": "e37c533ca63300fe116e",
-    "title": "Milwood Monday Night Book Club - Where They Last Saw Her",
-    "url": "https://library.austintexas.gov/event/book-clubs/milwood-monday-night-book-club-7782114",
-    "venue": "Milwood Branch",
-    "address": "12500 Amherst Dr",
-    "start": "2026-11-16T18:45:00-06:00",
-    "end": "2026-11-16T19:45:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Where They Last Saw Her by Marcie R. Rendon is this month's book. The following address can be used to find the book: Where They Last Saw Her | Austin Public Library | BiblioCommonsTickets are limited but NOT required. I",
-    "conditions": "Adults (ages 18+) Book Clubs Native American Heritage Month · Check the organizer for registration or capacity limits.",
-    "expires": "2026-11-16T19:45:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "b48aa13a2364eab89e6b",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.730637,
-     30.287403
-    ]
-   },
-   "properties": {
-    "id": "b48aa13a2364eab89e6b",
-    "title": "Conjunto Ensemble",
-    "url": "https://calendar.utexas.edu/event/conjunto-ensemble-8689",
-    "venue": "Bates Recital Hall, Music Building (MRH)",
-    "address": "2406 Robert Dedman Drive",
-    "start": "2026-11-16T19:30:00-06:00",
-    "end": "2026-11-16T19:30:01-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "UT Austin",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "",
-    "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-16T19:30:00-06:00",
-    "endKnown": false
-   }
-  },
   {
    "type": "Feature",
    "id": "53434a398cf41fa38ba6",
@@ -1121,12 +626,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
+    "checked": "2026-11-17T04:12:06.121141+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-17T19:52:36.810336+00:00",
+    "expires": "2026-11-17T15:00:00-06:00",
     "endKnown": false
    }
   },
@@ -1528,12 +1033,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
+    "checked": "2026-11-17T04:12:06.121141+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-17T19:52:36.810336+00:00",
+    "expires": "2026-11-17T19:30:00-06:00",
     "endKnown": false
    }
   },
@@ -2689,12 +2194,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
+    "checked": "2026-11-17T04:12:06.121141+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-17T19:52:36.810336+00:00",
+    "expires": "2026-11-18T04:12:06.121141+00:00",
     "endKnown": false
    }
   },
@@ -2719,12 +2224,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
+    "checked": "2026-11-17T04:12:06.121141+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-17T19:52:36.810336+00:00",
+    "expires": "2026-11-18T04:12:06.121141+00:00",
     "endKnown": false
    }
   },
@@ -3532,12 +3037,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
+    "checked": "2026-11-17T04:12:06.121141+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-17T19:52:36.810336+00:00",
+    "expires": "2026-11-18T04:12:06.121141+00:00",
     "endKnown": false
    }
   },
@@ -6317,12 +5822,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
+    "checked": "2026-11-17T04:12:06.121141+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-17T19:52:36.810336+00:00",
+    "expires": "2026-11-18T04:12:06.121141+00:00",
     "endKnown": true
    }
   },
