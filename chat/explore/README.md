@@ -471,7 +471,7 @@ with short backoffs. RSS, branch JSON and event metadata are validated before
 acceptance. Socrata retries keep the original URL; RSS/detail retries refresh
 their cache query. Partial library failures publish usable data, record the
 source error and then fail the importer so the problem is visible.
-The library has a six-minute request budget so a widespread detail-page outage
+The library has an eight-minute request budget so a widespread detail-page outage
 cannot consume the entire workflow and prevent other feeds from publishing.
 An unexpectedly empty verified library import is treated as a source failure.
 Duplicate title/start/location records are merged. Failed sources or

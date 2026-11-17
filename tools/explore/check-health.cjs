@@ -21,7 +21,7 @@ function inspectFeed(name, feed, now = Date.now()) {
   const sources = feed.sources.map(source => {
     const count = active.filter(f => f.properties.source === source.name).length;
     const failed = source.ok !== true || Number(source.failures || 0) > 0;
-    if (failed) issues.push(`${source.name}: ${source.error || 'source update unavailable'} (${count} active retained listings)`);
+    if (failed) issues.push(`${source.name}: ${source.error || 'source update unavailable'} (${count} active listings)`);
     return { name: source.name, active: count, ok: !failed };
   });
   const horizon = Math.max(...active.map(f => Date.parse(f.properties.expires)), 0);

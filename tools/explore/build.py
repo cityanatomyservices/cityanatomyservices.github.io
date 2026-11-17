@@ -163,7 +163,7 @@ def library_event(item, branches, now, skipped=None, deadline=None):
 def library(now, previous):
     # Leave time in the 15-minute workflow for movies, other calendars and
     # publication even if hundreds of detail pages become unavailable.
-    deadline = time.monotonic() + 6 * 60
+    deadline = time.monotonic() + 8 * 60
     def locations(body):
         data = json.loads(body)
         if not isinstance(data, list) or not data or not all('name' in b and 'address' in b for b in data):
