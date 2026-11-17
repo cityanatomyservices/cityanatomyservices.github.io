@@ -9,6 +9,12 @@ pin’s saved latitude and longitude. Shared venues show a separate title per
 pick. The sidebar titles still open the corresponding pick on the map.
 Export existing lists again to produce updated HTML. Asset version `20261117c`.
 
+Release `e47442dd` is live. Pages and dashboard CI passed. Live desktop and
+phone-width browser checks opened the downloaded HTML, checked two source
+links at a shared venue and verified that source and directions clicks opened
+the intended URLs in new tabs. The external destinations were intercepted
+in the browser checks. Native mobile app handoff was not device-tested.
+
 ## 2026-11-17 - Clear all Curate picks
 
 The Clear button beside the Curate pick count empties the current list,
