@@ -34,6 +34,11 @@ box removes the current matches. A dash indicates partial selection. Bulk
 selection keeps existing picks and their order. If the full selection exceeds
 250 picks, the desk reports the available space and asks for narrower filters.
 
+**Clear** beside the pick count in **02 / CURATE** empties the active list and
+saves its title and introduction. Discover keeps its current checkmarks while
+you work on that list. Uncheck and recheck a listing to add it back. Each pick
+also has its own **Remove** button.
+
 **Export map** downloads an interactive MapLibre HTML file with the list title,
 pick titles, and coordinates. Open the file in a browser with internet access
 for MapLibre and the OpenFreeMap basemap. Click a title to locate a pick. Picks

@@ -1,5 +1,18 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-17 - Clear all Curate picks
+
+The Clear button beside the Curate pick count empties the current list,
+including picks outside the Discover filters. It preserves the title and
+introduction. Discover keeps the previous checkmarks during the current list
+session so the owner can uncheck and recheck a listing to add it back. Individual
+Remove controls still work. Cleared picks are autosaved through the existing
+revision-checked list save. Asset version `20261117b`.
+
+Desktop and phone browser checks cover clearing 37 picks with one visible
+search match, saving the empty list, disabling exports, adding a pick back,
+and removing it individually. These checks use disposable local fixtures.
+
 ## 2026-11-17 - Content desk selection and map export
 
 The owner requested a checkbox beside the Discover listing count and a separate

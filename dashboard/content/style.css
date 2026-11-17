@@ -12,3 +12,4 @@
 #location-fields input,#location-dialog button {padding:9px;font:inherit;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:6px}
 #location-dialog button {cursor:pointer}
 #location-dialog #finish-map {background:#18624b;color:white}
+.selection-actions {display:flex;align-items:center;gap:8px}

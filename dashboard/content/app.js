@@ -6,6 +6,7 @@
   let owner=null,authorized=false,epoch=0,controller=new AbortController(),catalog=[],doc=null,id=null,revision=0,serial=0,saved=0,saving=null,timer=null,limit=30,exportDoc=null,transitioning=false;
   let feeds={},failures={},loading=new Set(),matches=[],filterTimer;
   let mapDraft=null;
+  const clearedInCurate=new Set();
   const state={when:'tomorrow',date:M.day(),categories:layers.map(l=>l.id),query:'',price:'20',kind:'all',movieType:'all'};
   function current(run){return run===epoch&&owner===identity()&&authorized;}
   async function rpc(name,args={},run=epoch){
@@ -15,6 +16,7 @@
     return result.data;
   }
   function clear(){
+    clearedInCurate.clear();
     mapDraft=null;$('location-dialog').close();$('location-fields').replaceChildren();$('map-status').textContent='';$('pick-status').textContent='';
     epoch++;controller.abort();controller=new AbortController();clearTimeout(timer);clearTimeout(filterTimer);authorized=false;owner=identity();catalog=[];doc=null;id=null;revision=0;serial=saved=0;saving=null;feeds={};failures={};loading=new Set();matches=[];exportDoc=null;
     $('desk-content').hidden=true;$('access-gate').hidden=false;for(const key of ['results','selected-items','saved-lists','export-preview'])$(key).replaceChildren();
@@ -36,7 +38,7 @@
   }
   function blank(copy){id=crypto.randomUUID();revision=0;doc=copy?structuredClone(copy):{title:'Tomorrow in Austin · '+M.format(M.day(Date.now(),1)+'T12:00:00-06:00',false),intro:'',items:[]};serial=saved=0;renderDocument();$('save-status').textContent='Select a few things to start this list.';}
   async function openList(next){const run=epoch,value=await rpc('content_desk_get',{p_id:next},run);if(!current(run))return;id=value.id;doc=value.document;revision=value.revision;serial=saved=0;renderDocument();$('save-status').textContent='Saved privately to your account.';}
-  function renderDocument(){library();$('list-title').value=doc.title;$('list-intro').value=doc.intro;$('map-status').textContent='';selected();results();}
+  function renderDocument(){clearedInCurate.clear();library();$('list-title').value=doc.title;$('list-intro').value=doc.intro;$('map-status').textContent='';selected();results();}
   function saveStatus(message,error=false){$('save-status').textContent=message;$('save-status').classList.toggle('error',error);$('save-retry').hidden=!error;$('save-copy').hidden=!error;}
   function changed(){serial++;saveStatus('Saving…');clearTimeout(timer);timer=setTimeout(flush,600);}
   async function flush(){
@@ -53,9 +55,20 @@
   async function transition(task){if(transitioning||!authorized)return;const run=epoch;transitioning=true;document.querySelector('.workspace').inert=true;for(const key of ['saved-lists','new-list','duplicate-list','delete-list'])$(key).disabled=true;try{await task();}catch(e){if(current(run))saveStatus(e.message,true);}finally{transitioning=false;document.querySelector('.workspace').inert=false;for(const key of ['saved-lists','new-list','duplicate-list'])$(key).disabled=false;$('delete-list').disabled=!revision;}}
   async function newList(copy=false){if(!await flush())return;const before=copy?structuredClone(doc):null;if(before)before.title=(before.title+' — copy').slice(0,160);blank(before);changed();await flush();$('list-title').focus();$('list-title').select();}
   function add(item){if(!doc)return;if(doc.items.some(v=>v.id===item.id))return;if(doc.items.length>=250){results();$('pick-status').textContent='This list has 250 picks. Create a new list to keep curating.';return;}doc.items.push(structuredClone(item));changed();selected();results();}
-  function remove(itemId){doc.items=doc.items.filter(v=>v.id!==itemId);changed();selected();results();}
+  function remove(itemId){
+    if(clearedInCurate.delete(itemId)){selected();results();return;}
+    doc.items=doc.items.filter(v=>v.id!==itemId);changed();selected();results();
+  }
+  function clearPicks(){
+    if(!doc?.items.length)return;
+    for(const item of doc.items)clearedInCurate.add(item.id);
+    doc.items=[];
+    $('map-status').textContent='';
+    changed();selected();results();
+  }
   function toggleMatches(){
     if(!authorized||!doc||!matches.length)return;
+    const previousCount=doc.items.length;
     if($('select-matches').checked){
       const picked=new Set(doc.items.map(item=>item.id));
       const additions=matches.filter(item=>!picked.has(item.id));
@@ -66,16 +79,23 @@
         return;
       }
       doc.items.push(...structuredClone(additions));
+      for(const item of additions)clearedInCurate.delete(item.id);
     }else{
       const visibleIds=new Set(matches.map(item=>item.id));
+      for(const itemId of visibleIds)clearedInCurate.delete(itemId);
       doc.items=doc.items.filter(item=>!visibleIds.has(item.id));
     }
-    changed();selected();results();
+    if(doc.items.length!==previousCount)changed();
+    selected();results();
   }
   function selected(){
+    $('clear-picks').disabled=!doc?.items.length;
     $('export-map').disabled=!doc?.items.length;
     if(!doc)return;const count=doc.items.length;$('selection-count').textContent=count+' '+(count===1?'pick':'picks');$('mobile-count').textContent=count;$('export-list').disabled=!count;$('selected-items').replaceChildren();
-    if(!count){$('selected-items').append(node('p','Your next post starts here. Check any listing to add it to this list.','empty'));return;}
+    if(!count){
+      const message=clearedInCurate.size?'List cleared. To add a checked listing again, uncheck it and recheck it in Discover.':'Your next post starts here. Check any listing to add it to this list.';
+      $('selected-items').append(node('p',message,'empty'));return;
+    }
     doc.items.forEach((item,index)=>{const article=node('article',undefined,'pick'),top=node('div',undefined,'pick-top');top.append(node('span',String(index+1).padStart(2,'0'),'pick-number'),node('h3',item.title));article.append(top,node('p',[item.when,item.venue,item.price].filter(Boolean).join(' · '),'hint'));
       if(item.expires&&Date.parse(item.expires)<=Date.now())article.append(node('p','Saved research: recheck the source before posting.','hint'));
       const actions=node('div',undefined,'pick-tools');for(const [label,delta] of [['↑',-1],['↓',1]]){const b=node('button',label);b.setAttribute('aria-label',(delta<0?'Move up: ':'Move down: ')+item.title);b.disabled=index+delta<0||index+delta>=count;b.onclick=()=>{[doc.items[index],doc.items[index+delta]]=[doc.items[index+delta],doc.items[index]];changed();selected();};actions.append(b);}
@@ -127,6 +147,7 @@
     $('source-status').textContent=[pending.length?'Updating '+pending.length+' categories…':'',errors.length?'Could not refresh: '+errors.map(k=>[...layers,...extra].find(v=>v.id===k.split(':')[0])?.title||k).join(', ')+'. Use Refresh to retry.':'',old.length||partial.length?'Some source updates are delayed. Expired event listings are hidden.':''].filter(Boolean).join(' ');$('source-status').classList.toggle('error',errors.length>0);
     $('results-note').textContent=state.categories.some(c=>['special-events','pro-apps','businesses'].includes(c))?'App maps and neighborhood businesses are directories; date filters apply to dated listings.':state.categories.includes('city-hall')?'City Hall uses meeting/hearing dates or the date a notice was posted.':'';
     const selectedIds=new Set(doc.items.map(v=>v.id));
+    for(const itemId of clearedInCurate)selectedIds.add(itemId);
     const picked=matches.filter(item=>selectedIds.has(item.id)).length;
     const toggle=$('select-matches');
     toggle.checked=matches.length>0&&picked===matches.length;
@@ -199,7 +220,7 @@
     const run=epoch,list=structuredClone(doc);
     $('map-status').textContent='Preparing map…';
     try{
-      const request=await fetch('./map-export.html?v=20261117a',{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(20000)])});
+      const request=await fetch('./map-export.html?v=20261117b',{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(20000)])});
       if(!request.ok)throw Error();
       const template=await request.text();
       if(!template.includes('<!--LIST_ITEMS-->'))throw Error();
@@ -233,6 +254,7 @@
   $('cancel-map').onclick=()=>$('location-dialog').close();
   $('location-dialog').onclose=()=>{mapDraft=null;$('location-fields').replaceChildren();};
   $('select-matches').onchange=toggleMatches;
+  $('clear-picks').onclick=clearPicks;
   $('export-map').onclick=()=>transition(startMap);
   for(const category of [...layers,...extra]){const label=node('label'),input=node('input');input.type='checkbox';input.value=category.id;input.dataset.category=category.id;input.checked=state.categories.includes(category.id);input.onchange=()=>loadResults();label.append(input,document.createTextNode(category.title));$('categories').append(label);}
   for(let i=1;i<=10;i++)$('district').add(new Option('District '+i+' + citywide',String(i)));
