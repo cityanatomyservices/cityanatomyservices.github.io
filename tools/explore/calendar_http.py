@@ -6,6 +6,10 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
+class CalendarAccessError(ValueError):
+    """An upstream access challenge requires action by the calendar host."""
+
+
 def read_calendar(url, parse, fetch, *, refresh_query=True, deadline=None):
     """Validate the response before accepting it; never treat an error as zero events.
 
@@ -30,11 +34,17 @@ def read_calendar(url, parse, fetch, *, refresh_query=True, deadline=None):
         body = None
         try:
             body = fetch(request_url)
+            probe = body.decode('utf-8', errors='replace') if isinstance(body, bytes) else body
+            if '/.well-known/sgcaptcha/' in probe:
+                raise CalendarAccessError(f'{url}: calendar host requires a CAPTCHA for this runner; '
+                                          'an approved feed or host access change is needed')
             result = parse(body)
             if attempt:
                 print(f'{url}: recovered on attempt {attempt + 1}', flush=True)
             return result
         except (ValueError, URLError, TimeoutError, OSError) as error:
+            if isinstance(error, CalendarAccessError):
+                raise
             # Do not retry permanent client errors, including access denials.
             if isinstance(error, HTTPError) and 400 <= error.code < 500 and error.code not in (408, 429):
                 raise
@@ -53,12 +63,7 @@ def read_calendar(url, parse, fetch, *, refresh_query=True, deadline=None):
                     if visible:
                         detail += ': ' + visible
                     else:
-                        # Script/meta-only responses have no visible text.
-                        # Include only the short public markup, with token-like
-                        # query values redacted, to identify redirects/challenges.
-                        markup = re.sub(r'([?&](?:token|key|nonce|signature|__cf[^=]*)=)[^&\s"\'<>]+',
-                                        r'\1[redacted]', text, flags=re.I)
-                        detail += ': markup ' + re.sub(r'\s+', ' ', markup).strip()[:400]
+                        detail += ': script/meta-only response'
             if attempt == 2:
                 raise ValueError(f'{url}: unavailable after 3 attempts: {detail}') from error
             print(f'{url}: attempt {attempt + 1} failed: {detail}; retrying', flush=True)

@@ -6,7 +6,7 @@ from unittest.mock import Mock, patch
 from urllib.error import HTTPError
 from urllib.parse import parse_qs, urlsplit
 
-from calendar_http import read_calendar
+from calendar_http import read_calendar, CalendarAccessError
 import culture_sources as c
 import music_sources as m
 
@@ -62,6 +62,14 @@ class CalendarHTTP(unittest.TestCase):
             with self.assertRaisesRegex(TimeoutError, 'budget exhausted'):
                 read_calendar('https://calendar.example/', json.loads, get, deadline=9)
         self.assertEqual(get.call_count, 1)
+
+    def test_captcha_is_reported_without_retrying_or_exposing_challenge_details(self):
+        get = Mock(return_value=b'<html><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?y=private-challenge"></html>')
+        with self.assertRaises(CalendarAccessError) as caught:
+            read_calendar('https://calendar.example/', json.loads, get)
+        self.assertIn('requires a CAPTCHA', str(caught.exception))
+        self.assertNotIn('private-challenge', str(caught.exception))
+        get.assert_called_once()
 
     def test_timeout_recovers_but_access_denial_is_not_retried(self):
         get = Mock(side_effect=[TimeoutError('timed out'), b'[]'])

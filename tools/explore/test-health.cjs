@@ -23,6 +23,12 @@ test('detects partial failures even if a source was labelled OK', () => {
   assert.equal(r.active, 1);
   assert.equal(r.issues.length, 1);
 });
+test('existing CAPTCHA errors are summarized without challenge details', () => {
+  const r = inspectFeed('live-comedy', feed([item()], { sources: [{ name: 'Library', ok: false,
+    error: 'markup <meta content="/.well-known/sgcaptcha/?y=private-challenge">' }] }), now);
+  assert.match(r.issues[0], /requires a CAPTCHA/);
+  assert.ok(!r.issues[0].includes('private-challenge'));
+});
 test('counts upcoming movie screenings and catches stale snapshots', () => {
   const movie = item({ kind: 'movie', price: null, showtimes: [{ start: iso(-1), url: 'https://example.org/ticket' }] });
   assert.equal(inspectFeed('movies', feed([movie]), now).active, 0);

@@ -546,6 +546,17 @@ the named source; do not extend old listings' expiry to hide an outage.
 For the intermittent Fallout/Saxon responses, enable **probe_sources** when
 manually running the health workflow. It makes one read-only request per venue
 from GitHub's runner and logs the status, type, size and any short error page.
+On November 17, diagnostics confirmed that some runners receive an HTTP 200
+meta redirect to the venues' SiteGround CAPTCHA instead of a calendar. These
+access challenges are now reported explicitly, without retrying or following
+the CAPTCHA. Other runners and the owner's laptop can receive normal calendars.
+Existing unexpired records remain available, but their timestamps are never
+renewed on a blocked request. A lasting solution requires the venue/host to
+permit the automation or supply an approved public feed. Until then, the
+affected Music/Comedy source can legitimately keep the health run red even
+while Free & cheap and other categories are healthy.
+[SiteGround's guidance for legitimate services](https://www.siteground.com/kb/seeing-captcha-website)
+is to contact its support team so the affected host can review the automation.
 Enable GitHub Actions failure notifications under account notification settings
 if desired. GitHub sends scheduled-run notifications to the schedule's owner;
 see [GitHub's notification rules](https://docs.github.com/en/actions/concepts/workflows-and-actions/notifications-for-workflow-runs).

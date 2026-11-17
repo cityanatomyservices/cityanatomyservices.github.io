@@ -5,7 +5,8 @@
 The library importer timed out and its retained listings expired. Fallout and
 Saxon failures also made the Explore run fail, suppressing its success-only
 Pages trigger. Library RSS, branch JSON and detail metadata now have three
-validated attempts with 45-second timeouts and short backoffs. Partial failures
+validated attempts with 45-second timeouts, short backoffs and an eight-minute
+library request budget within the 15-minute workflow. Partial failures
 publish usable data but fail the import and retain a source error. Old entries
 keep their original expiry. Both-live-source failure still preserves the file.
 
@@ -24,9 +25,32 @@ Nature Center and Blanton hours/free admission were rechecked against official
 visitor information; their review deadline is November 25, before Thanksgiving.
 Do not extrapolate Nature Center's older holiday notice into this year's dates.
 
-71 Python importer tests, five new health-check tests and the existing browser
-filter/model checks pass. The three changed workflows pass actionlint. Live
-refresh, deployment and desktop/phone verification are pending below.
+74 Python importer tests, six health-check tests and the existing filter/model
+checks pass. Changed workflows pass actionlint. Live desktop/phone checks at
+1280px and 390px selected Free & cheap, showed 213 listings and 24 venue pins,
+opened a real library popup and preserved the empty plan without browser errors.
+List/popup screenshots were reviewed. Later scheduled expiry/source changes
+reduced the final live total to 212 (197 library, five UT, ten activities).
+
+Hosted refresh `44189112062` completed library and movie imports successfully,
+including zero library detail failures. Data commit `7dd3bd2f` deployed through
+successful Pages run `44189477190`; live JSON and the shared filtering model
+confirm Free & cheap, Movies, Markets and Events healthy. The overall refresh
+and health check remain red for a confirmed external limitation: Fallout and
+Saxon sometimes return HTTP 200 redirects to `/.well-known/sgcaptcha/` for
+GitHub runner traffic. Separate runner probes and local imports can succeed.
+The two sources retain 24/41 previously verified listings only until original
+expiry. Their host must approve the automation or supply an approved feed for
+reliable coverage. Do not bypass the challenge or renew cached timestamps.
+
+CAPTCHA responses are now identified explicitly and are not retried; diagnostic
+and health output omit challenge details. Fallout health belongs only to Comedy.
+The health workflow has an optional manual `probe_sources` input using the same
+Python runtime as the importer. It is read-only and helps distinguish access
+challenges from parsing failures. Failed-run emails during verification are
+expected GitHub notifications; inspect the newest Summary, not an old run.
+An older verification run was cancelled while adding the request budget, and a
+dispatch that raced a ticker push was cancelled before the corrected retry.
 See chat/explore/README.md for the monitoring and recovery procedure.
 
 ## 2026-11-17 - Source and directions links in exported map popups

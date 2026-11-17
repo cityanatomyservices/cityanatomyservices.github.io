@@ -22,8 +22,11 @@ for url in urls:
             result = dict(url=url, status=response.status, contentType=response.headers.get('Content-Type'), bytes=len(body))
         if len(body) < 1500:
             text = body.decode('utf-8', errors='replace')
-            result['shortResponse'] = re.sub(r'([?&](?:token|key|nonce|signature|__cf[^=]*)=)[^&\s"\'<>]+',
-                                            r'\1[redacted]', text, flags=re.I)
+            if '/.well-known/sgcaptcha/' in text:
+                result['access'] = 'Calendar host requires a CAPTCHA for this runner'
+            else:
+                result['shortResponse'] = re.sub(r'([?&](?:token|key|nonce|signature|__cf[^=]*)=)[^&\s"\'<>]+',
+                                                r'\1[redacted]', text, flags=re.I)
         print(json.dumps(result, ensure_ascii=True), flush=True)
     except Exception as error:
         print(json.dumps(dict(url=url, error=str(error))), flush=True)
