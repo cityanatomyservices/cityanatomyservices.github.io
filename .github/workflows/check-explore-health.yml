@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '17 * * * *'
   workflow_dispatch:
+    inputs:
+      probe_sources:
+        description: Diagnose Fallout and Saxon responses from the GitHub runner
+        type: boolean
+        default: false
   workflow_run:
     workflows: ['Publish Austin.chat']
     types: [completed]
@@ -23,3 +28,6 @@ jobs:
           ref: main
       - name: Check the feeds visitors receive
         run: node tools/explore/check-health.cjs https://austin.chat
+      - name: Diagnose public calendar responses
+        if: always() && inputs.probe_sources
+        run: python tools/explore/diagnose-sources.py

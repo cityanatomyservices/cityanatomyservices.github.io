@@ -541,6 +541,9 @@ node tools/explore/check-health.cjs https://austin.chat
 Omit the URL to check local generated files. Exit code 1 means investigation is
 needed. Repeated timeouts, access denials or schema errors require inspecting
 the named source; do not extend old listings' expiry to hide an outage.
+For the intermittent Fallout/Saxon responses, enable **probe_sources** when
+manually running the health workflow. It makes one read-only request per venue
+from GitHub's runner and logs the status, type, size and any short error page.
 Enable GitHub Actions failure notifications under account notification settings
 if desired. GitHub sends scheduled-run notifications to the schedule's owner;
 see [GitHub's notification rules](https://docs.github.com/en/actions/concepts/workflows-and-actions/notifications-for-workflow-runs).
