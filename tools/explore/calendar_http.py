@@ -6,7 +6,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
-def read_calendar(url, parse, fetch, *, refresh_query=True):
+def read_calendar(url, parse, fetch, *, refresh_query=True, deadline=None):
     """Validate the response before accepting it; never treat an error as zero events.
 
     Used only for public calendar pages that intermittently return empty
@@ -14,9 +14,13 @@ def read_calendar(url, parse, fetch, *, refresh_query=True):
     they do not bypass authentication or change the requested date range.
     """
     for attempt in range(3):
+        if deadline is not None and time.monotonic() >= deadline:
+            raise TimeoutError(f'{url}: calendar request budget exhausted')
         request_url = url
         if attempt:
             time.sleep(2 * attempt)
+            if deadline is not None and time.monotonic() >= deadline:
+                raise TimeoutError(f'{url}: calendar request budget exhausted')
             if refresh_query:
                 parts = urlsplit(url)
                 query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)

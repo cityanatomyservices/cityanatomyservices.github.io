@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import time
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
@@ -49,10 +50,13 @@ def fetch(url, timeout=20):
     return body
 
 
-def library_read(url, parse, *, refresh_query=True):
+def library_read(url, parse, *, refresh_query=True, deadline=None):
     # RSS/detail responses occasionally take longer than the old 20s limit.
     # Validate each attempt, and keep retries bounded to three requests.
-    return read_calendar(url, parse, lambda u: fetch(u, timeout=45), refresh_query=refresh_query)
+    def request(u):
+        timeout = 45 if deadline is None else max(1, min(45, deadline - time.monotonic()))
+        return fetch(u, timeout=timeout)
+    return read_calendar(url, parse, request, refresh_query=refresh_query, deadline=deadline)
 
 
 def web_url(url):
@@ -109,7 +113,7 @@ def ld_events(page):
             continue
 
 
-def library_event(item, branches, now, skipped=None):
+def library_event(item, branches, now, skipped=None, deadline=None):
     def skip(reason):
         if skipped is not None:
             skipped[reason] += 1
@@ -128,7 +132,7 @@ def library_event(item, branches, now, skipped=None):
         if not events:
             raise ValueError('Missing event metadata')
         return page, events[0]
-    page, event = library_read(url, metadata)
+    page, event = library_read(url, metadata, deadline=deadline)
     if event.get('eventStatus', '').endswith(('EventCancelled', 'EventPostponed')):
         return skip('cancelled or postponed')
     if not event.get('eventAttendanceMode', '').endswith('OfflineEventAttendanceMode'):
@@ -157,13 +161,16 @@ def library_event(item, branches, now, skipped=None):
 
 
 def library(now, previous):
+    # Leave time in the 15-minute workflow for movies, other calendars and
+    # publication even if hundreds of detail pages become unavailable.
+    deadline = time.monotonic() + 6 * 60
     def locations(body):
         data = json.loads(body)
         if not isinstance(data, list) or not data or not all('name' in b and 'address' in b for b in data):
             raise ValueError('Library locations missing or invalid')
         return {b['name']: b for b in data}
     # Socrata accepts documented query fields only, so retry this URL unchanged.
-    branches = library_read(BRANCHES, locations, refresh_query=False)
+    branches = library_read(BRANCHES, locations, refresh_query=False, deadline=deadline)
     if 'John Gillum Branch (North Village)' in branches:
         branches['John Gillum Branch'] = branches['John Gillum Branch (North Village)']
     # Some CDN locations retain the unversioned RSS response for weeks. A
@@ -179,7 +186,7 @@ def library(now, previous):
                                for i in items):
             raise ValueError('Library RSS has no current event records')
         return items
-    items = library_read(feed_url, rss)
+    items = library_read(feed_url, rss, deadline=deadline)
     candidates = [i for i in items if date(i.findtext('pubDate'))
                   and now - timedelta(days=1) <= date(i.findtext('pubDate')) <= now + timedelta(days=MAX_DAYS)]
     print(f'Library: {len(branches)} venues, {len(items)} RSS records, {len(candidates)} candidates; first feed dates: {[i.findtext("pubDate") for i in items[:3]]}', flush=True)
@@ -188,7 +195,7 @@ def library(now, previous):
     skipped = Counter()
     def one(item):
         try:
-            return library_event(item, branches, now, skipped)
+            return library_event(item, branches, now, skipped, deadline=deadline)
         except Exception as error:
             url = item.findtext('link', '').replace('http://', 'https://', 1)
             failed.append(url)

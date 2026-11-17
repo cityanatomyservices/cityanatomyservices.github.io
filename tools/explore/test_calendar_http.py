@@ -52,6 +52,17 @@ class CalendarHTTP(unittest.TestCase):
             read_calendar('https://calendar.example/', json.loads, get)
         self.assertEqual(get.call_count, 3)
 
+    def test_source_budget_stops_new_requests_and_retries(self):
+        get = Mock(side_effect=TimeoutError('timed out'))
+        with patch('calendar_http.time.monotonic', return_value=10):
+            with self.assertRaisesRegex(TimeoutError, 'budget exhausted'):
+                read_calendar('https://calendar.example/', json.loads, get, deadline=9)
+        get.assert_not_called()
+        with patch('calendar_http.time.monotonic', side_effect=[0, 10]):
+            with self.assertRaisesRegex(TimeoutError, 'budget exhausted'):
+                read_calendar('https://calendar.example/', json.loads, get, deadline=9)
+        self.assertEqual(get.call_count, 1)
+
     def test_timeout_recovers_but_access_denial_is_not_retried(self):
         get = Mock(side_effect=[TimeoutError('timed out'), b'[]'])
         self.assertEqual(read_calendar('https://calendar.example/', json.loads, get), [])
