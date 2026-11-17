@@ -2,10 +2,13 @@
 from datetime import datetime, timedelta, timezone
 import json
 import re
+import ssl
+import sys
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 now = datetime.now(timezone.utc).date()
+print(json.dumps(dict(python=sys.version, tls=ssl.OPENSSL_VERSION)), flush=True)
 urls = [
     'https://falloutcomedy.com/comedy-shows/',
     'https://thesaxonpub.com/wp-json/tribe/events/v1/events?' + urlencode(dict(

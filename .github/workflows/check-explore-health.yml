@@ -28,6 +28,11 @@ jobs:
           ref: main
       - name: Check the feeds visitors receive
         run: node tools/explore/check-health.cjs https://austin.chat
+      - name: Match the importer Python version
+        if: always() && inputs.probe_sources
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
       - name: Diagnose public calendar responses
         if: always() && inputs.probe_sources
         run: python tools/explore/diagnose-sources.py
