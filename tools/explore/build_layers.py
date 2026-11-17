@@ -16,7 +16,7 @@ from community_sources import SOURCES as COMMUNITY_SOURCES
 
 EVENT_SOURCES = MUSEUM_SOURCES + COMMUNITY_SOURCES
 SOURCES = CULTURE_SOURCES + COMEDY_SOURCES + MUSIC_SOURCES + MARKET_SOURCES + EVENT_SOURCES
-COMEDY_NAMES = {name for name, _, _ in COMEDY_SOURCES}
+COMEDY_NAMES = {name for name, _, _ in COMEDY_SOURCES} | {'Fallout Theater'}
 MUSIC_NAMES = {name for name, _, _ in MUSIC_SOURCES}
 MARKET_NAMES = {name for name, _, _ in MARKET_SOURCES}
 EVENT_NAMES = {name for name, _, _ in EVENT_SOURCES}

@@ -63,6 +63,16 @@ class Layers(unittest.TestCase):
                 with self.assertRaises(RuntimeError): b.events(NOW+timedelta(hours=1))
             self.assertEqual((Path(temp)/'live-music.geojson').read_bytes(),before)
 
+    def test_fallout_failure_is_only_reported_for_comedy(self):
+        with TemporaryDirectory() as temp, patch.object(b, 'OUT', Path(temp)):
+            def fail(_): raise ValueError('invalid calendar')
+            with patch.object(b, 'SOURCES', [('Fallout Theater', 'https://falloutcomedy.com/', fail),
+                                           ('Healthy', 'https://example.org/', lambda _: [])]):
+                with self.assertRaises(RuntimeError): b.events(NOW)
+            for name in (*b.THEMES, 'events-festivals'):
+                names = [s['name'] for s in b.load_old(name)['sources']]
+                self.assertEqual('Fallout Theater' in names, name == 'live-comedy')
+
     def test_park_geometry_holes_and_inventory_status(self):
         outer=[[-97.8,30.2],[-97.6,30.2],[-97.6,30.4],[-97.8,30.4],[-97.8,30.2]]
         hole=[[-97.75,30.25],[-97.65,30.25],[-97.65,30.35],[-97.75,30.35],[-97.75,30.25]]

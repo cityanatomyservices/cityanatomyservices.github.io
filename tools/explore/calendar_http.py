@@ -41,13 +41,20 @@ def read_calendar(url, parse, fetch, *, refresh_query=True):
                 detail += f' ({len(body)} bytes, {kind} response)'
                 # Tiny error pages can return HTTP 200. Their public visible
                 # text distinguishes an outage from a schema or access error.
-                # Never dump full source pages or script contents into logs.
+                # Never dump full source pages into logs.
                 if kind == 'HTML' and len(body) < 1500:
                     visible = re.sub(r'<(script|style)\b[^>]*>.*?</\1>', '', text, flags=re.I | re.S)
                     visible = unescape(re.sub(r'<[^>]*>', ' ', visible))
                     visible = re.sub(r'\s+', ' ', visible).strip()[:250]
                     if visible:
                         detail += ': ' + visible
+                    else:
+                        # Script/meta-only responses have no visible text.
+                        # Include only the short public markup, with token-like
+                        # query values redacted, to identify redirects/challenges.
+                        markup = re.sub(r'([?&](?:token|key|nonce|signature|__cf[^=]*)=)[^&\s"\'<>]+',
+                                        r'\1[redacted]', text, flags=re.I)
+                        detail += ': markup ' + re.sub(r'\s+', ' ', markup).strip()[:400]
             if attempt == 2:
                 raise ValueError(f'{url}: unavailable after 3 attempts: {detail}') from error
             print(f'{url}: attempt {attempt + 1} failed: {detail}; retrying', flush=True)
