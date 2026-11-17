@@ -11,7 +11,9 @@ revision-checked list save. Asset version `20261117b`.
 
 Desktop and phone browser checks cover clearing 37 picks with one visible
 search match, saving the empty list, disabling exports, adding a pick back,
-and removing it individually. These checks use disposable local fixtures.
+and removing it individually. Release `f019f522` is live. Pages and dashboard
+CI passed. The deployed browser checks passed at 1280px and 390px using
+isolated fixtures.
 
 ## 2026-11-17 - Content desk selection and map export
 
