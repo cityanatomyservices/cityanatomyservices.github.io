@@ -13,7 +13,10 @@ same Preview & export control. Asset version `20261117a`.
 Seven model tests and local desktop/phone browser checks passed, including
 pagination, mixed selection, the 250-pick limit, older saved lists, manual
 locations and opening the actual HTML download with live map tiles. Test lists
-and accounts were fixtures. See dashboard/content/README.md.
+and accounts were fixtures. Release `ca836996` is live. Pages run
+`44153468380` succeeded and the unversioned page advertised the new assets.
+The full browser flow passed against austin.chat at 1280px and 390px, including
+opening and interacting with the downloaded map. See dashboard/content/README.md.
 
 ## 2026-11-15 - Newsletter formatting for Substack
 
