@@ -9,7 +9,7 @@
   function event(f,category){
     const p=f.properties,shows=p.kind==='movie'?p.showtimes||[]:[];
     const times=shows.length?shows.map(s=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'}).format(new Date(s.start))+(s.format?' ('+s.format+')':'')).join(', '):'';
-    return {id:'event:'+p.id,title:p.title,category,when:shows.length?format(p.start,false)+' · '+times:format(p.start,!p.allDay)+(p.allDay?' · All day':p.endKnown?' – '+new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'}).format(new Date(p.end)):''),venue:p.venue||'',address:p.address||'',price:p.priceLabel|| (p.price===0?'Free':Number.isFinite(p.price)?'$'+p.price:'Check admission'),url:url(p.url),description:p.description||'',conditions:p.conditions||'',checked:p.checked||'',expires:p.expires||'',start:p.start,note:''};
+    return {id:'event:'+p.id,title:p.title,category,coordinates:f.geometry.coordinates.slice(),when:shows.length?format(p.start,false)+' · '+times:format(p.start,!p.allDay)+(p.allDay?' · All day':p.endKnown?' – '+new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'}).format(new Date(p.end)):''),venue:p.venue||'',address:p.address||'',price:p.priceLabel|| (p.price===0?'Free':Number.isFinite(p.price)?'$'+p.price:'Check admission'),url:url(p.url),description:p.description||'',conditions:p.conditions||'',checked:p.checked||'',expires:p.expires||'',start:p.start,note:''};
   }
   function events(feeds,layers,state,now=Date.now()){
     const records=new Map(),opts=options(state,now);
@@ -33,5 +33,22 @@
     }).join('')+'<hr><p><em>Curated with <a href="https://austin.chat/">Austin.chat</a></em></p>';
   }
   function newsletterText(doc){return [doc.intro,...doc.items.map((item,i)=>`${i+1}. ${item.title}\n${lines(item,true).join('\n')}`),'Curated with Austin.chat'].filter(Boolean).join('\n\n');}
-  return {clean,url,esc,day,format,options,event,events,matches,plain,html,file,newsletter,newsletterText};
+  function validPoint(point){
+    return Array.isArray(point)&&point.length===2&&point.every(Number.isFinite)&&Math.abs(point[0])<=180&&Math.abs(point[1])<=90;
+  }
+  function enteredPoint(text){
+    const parts=text.trim().split(',').map(s=>s.trim());
+    if(parts.length!==2||!parts.every(s=>/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(s)))return null;
+    const point=[Number(parts[1]),Number(parts[0])];
+    return validPoint(point)?point:null;
+  }
+  function mapFile(template,doc){
+    const rows=doc.items.map(item=>{
+      if(!validPoint(item.coordinates))throw Error('A pick is missing its map location.');
+      const [lng,lat]=item.coordinates;
+      return `<li><button data-lng="${lng}" data-lat="${lat}">${esc(item.title)}</button></li>`;
+    });
+    return template.replace(/<!--LIST_(TITLE|ITEMS)-->/g,(_,key)=>key==='TITLE'?esc(doc.title.trim()||'Untitled list'):rows.join('\n'));
+  }
+  return {clean,url,esc,day,format,options,event,events,matches,plain,html,file,newsletter,newsletterText,validPoint,enteredPoint,mapFile};
 });

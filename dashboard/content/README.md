@@ -28,6 +28,21 @@ There is no arbitrary list-count limit; each short list supports up to 250 picks
 and 1 MB. Drafts are not copied to localStorage, GitHub, Google Drive or social
 accounts. Sign-out/account change clears research, draft and export DOM/memory.
 
+In **01 / DISCOVER**, the checkbox beside the listing count adds every filtered
+match to **02 / CURATE**, including rows behind Show more. Clearing a checked
+box removes the current matches. A dash indicates partial selection. Bulk
+selection keeps existing picks and their order. If the full selection exceeds
+250 picks, the desk reports the available space and asks for narrower filters.
+
+**Export map** downloads an interactive MapLibre HTML file with the list title,
+pick titles, and coordinates. Open the file in a browser with internet access
+for MapLibre and the OpenFreeMap basemap. Click a title to locate a pick. Picks
+at the same coordinates share a marker that opens all their titles. New event
+and neighborhood picks keep their source coordinates. For older lists, the desk
+checks the original feed by item ID. For any missing points, enter latitude,
+longitude in decimal degrees to complete the map. The coordinates save with the
+private list and can be used for subsequent exports.
+
 Preview & export shows the selected items in order. **Copy formatted** provides
 HTML and plain text together; the destination decides which it can paste.
 **Copy plain text** is suitable for social captions. HTML and UTF-8 text downloads
@@ -62,4 +77,5 @@ Maintenance:
   hosted API access boundaries and CRUD with disposable confirmed test accounts;
   all fixtures removed, no messages or billing actions.
 
-Version the three page assets together and obey the root deployment/cache rules.
+Version the page CSS, scripts, and downloadable map template together and follow
+the root deployment/cache rules.

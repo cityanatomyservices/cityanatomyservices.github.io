@@ -6,7 +6,7 @@
   <title>Content desk · Austin.Chat</title>
   <link rel="icon" href="/favicon.ico?v=20261031f">
   <link rel="stylesheet" href="/style.css?v=20261029v"><link rel="stylesheet" href="/appearance.css?v=20261028h">
-  <link rel="stylesheet" href="./style.css?v=20261115d">
+  <link rel="stylesheet" href="./style.css?v=20261117a">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
   <script src="/shared/visit.js?v=20261109g"></script><script src="/shared/session.js?v=20261031a"></script>
   <script src="/shared/member.js?v=20261030c"></script><script src="/shared/preferences.js?v=20261104a"></script><script src="/shared/favorite-button.js?v=20261030c"></script>
@@ -28,7 +28,8 @@
         <div id="ad-filters" class="extra-filters" hidden><label>Classifieds category<select id="ad-category"></select></label><p class="hint">Dates refer to when ads were posted. Choose All available dates to see current ads.</p></div>
         <div id="business-filters" class="extra-filters" hidden><label>Neighborhood<select id="neighborhood"><option value="">Choose a neighborhood</option></select></label><label>Business category<select id="business-category"><option value="">All categories</option></select></label></div>
         <p id="results-note" class="hint"></p><p id="source-status" class="hint" role="status"></p>
-        <div class="result-bar"><strong id="result-count">Finding tomorrow’s possibilities…</strong><span class="hint">All times Austin</span></div>
+        <div class="result-bar"><label class="select-matches"><input id="select-matches" type="checkbox" disabled aria-label="Select all matching listings" aria-describedby="result-count"><strong id="result-count">Finding tomorrow’s possibilities…</strong></label><span class="hint">All times Austin</span></div>
+        <p id="pick-status" class="hint" role="status"></p>
         <div id="results" class="results"></div><button id="show-more" class="more" hidden>Show more</button>
       </section>
       <section class="selection desk-card" aria-labelledby="selection-heading">
@@ -36,11 +37,18 @@
         <label>List title<input id="list-title" maxlength="160" placeholder="Tomorrow in Austin"></label>
         <label>Introduction <span class="optional">optional</span><textarea id="list-intro" rows="2" maxlength="4000" placeholder="A few things that caught my eye…"></textarea></label>
         <div id="selected-items" class="selected-items"></div>
-        <div class="export-footer"><p class="hint">Reorder your picks and add your own words. Each list keeps its own selections.</p><button class="primary export-button" id="export-list" disabled>Preview & export <span>↗</span></button></div>
+        <div class="export-footer"><p class="hint">Reorder your picks and add your own words. Each list keeps its own selections.</p><button class="primary export-button" id="export-list" disabled>Preview & export <span>↗</span></button><button class="export-button" id="export-map" disabled>Export map <span aria-hidden="true">↓</span></button><p id="map-status" class="hint" role="status"></p></div>
       </section>
     </div>
   </div>
 </main>
+<dialog id="location-dialog" aria-labelledby="location-heading">
+  <form id="location-form"><h2 id="location-heading">Add map locations</h2>
+    <p>Enter latitude, longitude for each missing location. These coordinates will be saved with your picks.</p>
+    <div id="location-fields"></div>
+    <div class="export-actions"><button type="button" id="cancel-map">Cancel</button><button type="submit" id="finish-map">Download map</button></div>
+  </form>
+</dialog>
 <dialog id="export-dialog" aria-labelledby="export-heading"><div class="export-head"><div><p class="eyebrow">READY TO MAKE YOUR OWN</p><h2 id="export-heading">Your shareable list</h2></div><button id="close-export" aria-label="Close export">✕</button></div><div class="export-actions"><button id="copy-rich" class="primary">Copy formatted</button><button id="copy-substack">Copy for Substack</button><button id="copy-text">Copy plain text</button><button id="download-html">Download HTML</button><button id="download-text">Download text</button></div><p class="hint">For Substack posts, use Copy for Substack and paste normally into the post body. Put the list title in its Title field. Headings, bold labels and dividers use your publication’s styling; the card’s colors and borders stay in the HTML download.</p><p id="export-status" role="status" aria-live="polite"></p><div id="export-preview"></div><details id="text-fallback"><summary>Select and copy the text yourself</summary><textarea id="export-text" readonly rows="12" aria-label="Exported list text"></textarea></details></dialog>
-<script src="/shell.js?v=20261113a"></script><script src="/chat/explore/config.js?v=20261028e"></script><script src="/chat/explore/model.js?v=20261104a"></script><script src="/chat/city-hall/model.js?v=20261104a"></script><script src="/classifieds/model.js?v=20261104a"></script><script src="./model.js?v=20261115d"></script><script src="./app.js?v=20261115d"></script>
+<script src="/shell.js?v=20261113a"></script><script src="/chat/explore/config.js?v=20261028e"></script><script src="/chat/explore/model.js?v=20261104a"></script><script src="/chat/city-hall/model.js?v=20261104a"></script><script src="/classifieds/model.js?v=20261104a"></script><script src="./model.js?v=20261117a"></script><script src="./app.js?v=20261117a"></script>
 </body></html>

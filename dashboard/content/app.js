@@ -5,6 +5,7 @@
   const identity=()=>S.registered?S.user.id:null,node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
   let owner=null,authorized=false,epoch=0,controller=new AbortController(),catalog=[],doc=null,id=null,revision=0,serial=0,saved=0,saving=null,timer=null,limit=30,exportDoc=null,transitioning=false;
   let feeds={},failures={},loading=new Set(),matches=[],filterTimer;
+  let mapDraft=null;
   const state={when:'tomorrow',date:M.day(),categories:layers.map(l=>l.id),query:'',price:'20',kind:'all',movieType:'all'};
   function current(run){return run===epoch&&owner===identity()&&authorized;}
   async function rpc(name,args={},run=epoch){
@@ -14,6 +15,7 @@
     return result.data;
   }
   function clear(){
+    mapDraft=null;$('location-dialog').close();$('location-fields').replaceChildren();$('map-status').textContent='';$('pick-status').textContent='';
     epoch++;controller.abort();controller=new AbortController();clearTimeout(timer);clearTimeout(filterTimer);authorized=false;owner=identity();catalog=[];doc=null;id=null;revision=0;serial=saved=0;saving=null;feeds={};failures={};loading=new Set();matches=[];exportDoc=null;
     $('desk-content').hidden=true;$('access-gate').hidden=false;for(const key of ['results','selected-items','saved-lists','export-preview'])$(key).replaceChildren();
     for(const key of ['list-title','list-intro','export-text'])$(key).value='';$('export-dialog').close();$('save-status').textContent='';$('source-status').textContent='';$('save-retry').hidden=true;$('save-copy').hidden=true;
@@ -34,7 +36,7 @@
   }
   function blank(copy){id=crypto.randomUUID();revision=0;doc=copy?structuredClone(copy):{title:'Tomorrow in Austin · '+M.format(M.day(Date.now(),1)+'T12:00:00-06:00',false),intro:'',items:[]};serial=saved=0;renderDocument();$('save-status').textContent='Select a few things to start this list.';}
   async function openList(next){const run=epoch,value=await rpc('content_desk_get',{p_id:next},run);if(!current(run))return;id=value.id;doc=value.document;revision=value.revision;serial=saved=0;renderDocument();$('save-status').textContent='Saved privately to your account.';}
-  function renderDocument(){library();$('list-title').value=doc.title;$('list-intro').value=doc.intro;selected();results();}
+  function renderDocument(){library();$('list-title').value=doc.title;$('list-intro').value=doc.intro;$('map-status').textContent='';selected();results();}
   function saveStatus(message,error=false){$('save-status').textContent=message;$('save-status').classList.toggle('error',error);$('save-retry').hidden=!error;$('save-copy').hidden=!error;}
   function changed(){serial++;saveStatus('Saving…');clearTimeout(timer);timer=setTimeout(flush,600);}
   async function flush(){
@@ -50,9 +52,28 @@
   async function switchList(next){const previous=id;if(await flush()){try{await openList(next);}catch(e){saveStatus(e.message,true);$('saved-lists').value=previous;}}else $('saved-lists').value=previous;}
   async function transition(task){if(transitioning||!authorized)return;const run=epoch;transitioning=true;document.querySelector('.workspace').inert=true;for(const key of ['saved-lists','new-list','duplicate-list','delete-list'])$(key).disabled=true;try{await task();}catch(e){if(current(run))saveStatus(e.message,true);}finally{transitioning=false;document.querySelector('.workspace').inert=false;for(const key of ['saved-lists','new-list','duplicate-list'])$(key).disabled=false;$('delete-list').disabled=!revision;}}
   async function newList(copy=false){if(!await flush())return;const before=copy?structuredClone(doc):null;if(before)before.title=(before.title+' — copy').slice(0,160);blank(before);changed();await flush();$('list-title').focus();$('list-title').select();}
-  function add(item){if(!doc)return;if(doc.items.some(v=>v.id===item.id))return;if(doc.items.length>=250){saveStatus('This list has 250 picks. Create a new list to keep curating.',true);return;}doc.items.push(structuredClone(item));changed();selected();results();}
+  function add(item){if(!doc)return;if(doc.items.some(v=>v.id===item.id))return;if(doc.items.length>=250){results();$('pick-status').textContent='This list has 250 picks. Create a new list to keep curating.';return;}doc.items.push(structuredClone(item));changed();selected();results();}
   function remove(itemId){doc.items=doc.items.filter(v=>v.id!==itemId);changed();selected();results();}
+  function toggleMatches(){
+    if(!authorized||!doc||!matches.length)return;
+    if($('select-matches').checked){
+      const picked=new Set(doc.items.map(item=>item.id));
+      const additions=matches.filter(item=>!picked.has(item.id));
+      const remaining=250-doc.items.length;
+      if(additions.length>remaining){
+        results();
+        $('pick-status').textContent='Your list has room for '+remaining+' more. Narrow the filters or select individual listings.';
+        return;
+      }
+      doc.items.push(...structuredClone(additions));
+    }else{
+      const visibleIds=new Set(matches.map(item=>item.id));
+      doc.items=doc.items.filter(item=>!visibleIds.has(item.id));
+    }
+    changed();selected();results();
+  }
   function selected(){
+    $('export-map').disabled=!doc?.items.length;
     if(!doc)return;const count=doc.items.length;$('selection-count').textContent=count+' '+(count===1?'pick':'picks');$('mobile-count').textContent=count;$('export-list').disabled=!count;$('selected-items').replaceChildren();
     if(!count){$('selected-items').append(node('p','Your next post starts here. Check any listing to add it to this list.','empty'));return;}
     doc.items.forEach((item,index)=>{const article=node('article',undefined,'pick'),top=node('div',undefined,'pick-top');top.append(node('span',String(index+1).padStart(2,'0'),'pick-number'),node('h3',item.title));article.append(top,node('p',[item.when,item.venue,item.price].filter(Boolean).join(' · '),'hint'));
@@ -96,7 +117,7 @@
       const keep=category==='special-events'?cards.filter(c=>c.category==='Special Events'&&(!c.expiresAt||Date.parse(c.expiresAt)>now)):cards.filter(c=>(c.kind||'apps')!=='maps'||home.categories.includes(c.category));
       for(const c of [...keep,...reports.map(r=>({...r,slug:r.id,kind:home.reportsKind||'apps'}))])out.push({id:'catalog:'+(c.kind||'apps')+':'+c.slug,title:c.title,category:category==='special-events'?'Special Events':'Pro Tier Apps',when:'',venue:'',address:'',price:c.requiredPlan==='pro'?'Pro membership required':'',url:M.url('/'+(c.kind||'apps')+'/'+c.slug+'/'),description:c.blurb||'',conditions:'',expires:c.expiresAt||'',note:''});
     }
-    if(state.categories.includes('businesses')){const feed=feeds[keyFor('businesses')];if(feed)for(const g of feed.groups)for(const c of g.categories)if(!$('business-category').value||c.name===$('business-category').value)for(const p of c.places)out.push({id:'place:'+p.id,title:p.name,category:c.name,when:'',venue:feed.name,address:p.address||'',price:'',url:M.url(p.website)||'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name+' '+(p.address||'Austin TX')),description:p.opening_hours?'Published hours: '+p.opening_hours:'',conditions:'',checked:feed.fetched,note:''});}
+    if(state.categories.includes('businesses')){const feed=feeds[keyFor('businesses')];if(feed)for(const g of feed.groups)for(const c of g.categories)if(!$('business-category').value||c.name===$('business-category').value)for(const p of c.places)out.push({id:'place:'+p.id,title:p.name,category:c.name,coordinates:[p.lng,p.lat],when:'',venue:feed.name,address:p.address||'',price:'',url:M.url(p.website)||'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name+' '+(p.address||'Austin TX')),description:p.opening_hours?'Published hours: '+p.opening_hours:'',conditions:'',checked:feed.fetched,note:''});}
     return [...new Map(out.filter(v=>M.matches(v,state.query)).map(v=>[v.id,v])).values()];
   }
   function results(){
@@ -105,7 +126,14 @@
     const old=state.categories.filter(k=>feeds[k]?.generated&&Date.now()-Date.parse(feeds[k].generated)>6*3600000),partial=state.categories.filter(k=>feeds[k]?.sources?.some(s=>s.ok===false||s.failures));
     $('source-status').textContent=[pending.length?'Updating '+pending.length+' categories…':'',errors.length?'Could not refresh: '+errors.map(k=>[...layers,...extra].find(v=>v.id===k.split(':')[0])?.title||k).join(', ')+'. Use Refresh to retry.':'',old.length||partial.length?'Some source updates are delayed. Expired event listings are hidden.':''].filter(Boolean).join(' ');$('source-status').classList.toggle('error',errors.length>0);
     $('results-note').textContent=state.categories.some(c=>['special-events','pro-apps','businesses'].includes(c))?'App maps and neighborhood businesses are directories; date filters apply to dated listings.':state.categories.includes('city-hall')?'City Hall uses meeting/hearing dates or the date a notice was posted.':'';
-    const selectedIds=new Set(doc.items.map(v=>v.id));for(const [index,item] of matches.slice(0,limit).entries()){
+    const selectedIds=new Set(doc.items.map(v=>v.id));
+    const picked=matches.filter(item=>selectedIds.has(item.id)).length;
+    const toggle=$('select-matches');
+    toggle.checked=matches.length>0&&picked===matches.length;
+    toggle.indeterminate=picked>0&&picked<matches.length;
+    toggle.disabled=!matches.length||pending.length>0;
+    $('pick-status').textContent='';
+    for(const [index,item] of matches.slice(0,limit).entries()){
       const article=node('article',undefined,'result'),checkbox=node('input');checkbox.type='checkbox';checkbox.id='pick-'+index;checkbox.checked=selectedIds.has(item.id);checkbox.onchange=()=>checkbox.checked?add(item):remove(item.id);article.append(checkbox);
       const body=node('div'),heading=node('h3'),label=node('label',item.title);label.htmlFor=checkbox.id;heading.append(label);body.append(node('span',item.category,'category'),heading);
       if(item.when)body.append(node('p',item.when));if(item.venue||item.address)body.append(node('p',[item.venue,item.address].filter(Boolean).join(' · ')));if(item.price)body.append(node('p',item.price));
@@ -129,7 +157,83 @@
       $('export-status').textContent=newsletter&&richSupported?'Substack body copied. Paste into the post body with Ctrl+V (Mac: Command+V). Put your list title in Substack’s Title field.':richSupported?'Copied. Paste into your editor; formatting depends on the destination.':rich?'Copied as plain text: this browser does not support formatted clipboard copying.':'Plain text copied. Ready to paste into a caption.';
     }catch{$('text-fallback').open=true;$('export-text').focus();$('export-text').select();$('export-status').textContent='Clipboard access is unavailable. The text below is selected for you to copy.';}
   }
-  async function download(html){if(!exportDoc||!await canExport())return;const blob=new Blob([html?M.file(exportDoc):M.plain(exportDoc)],{type:html?'text/html;charset=utf-8':'text/plain;charset=utf-8'}),href=URL.createObjectURL(blob),a=node('a');a.href=href;a.download=(exportDoc.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,90)||'austin-list')+(html?'.html':'.txt');a.click();setTimeout(()=>URL.revokeObjectURL(href),1000);$('export-status').textContent='Downloaded this list.';}
+  function saveFile(title,content,type,suffix){
+    const href=URL.createObjectURL(new Blob([content],{type:type+';charset=utf-8'})),a=node('a');
+    a.href=href;a.download=(title.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,90)||'austin-list')+suffix;
+    a.click();setTimeout(()=>URL.revokeObjectURL(href),1000);
+  }
+  async function download(html){if(!exportDoc||!await canExport())return;saveFile(exportDoc.title,html?M.file(exportDoc):M.plain(exportDoc),html?'text/html':'text/plain',html?'.html':'.txt');$('export-status').textContent='Downloaded this list.';}
+
+  // Older saved lists predate coordinates. Recover exact source IDs where possible.
+  async function recoverLocations(items){
+    const missing=items.filter(item=>!M.validPoint(item.coordinates));
+    const points=new Map();
+    const sources=layers.filter(layer=>missing.some(item=>item.id.startsWith('event:')&&item.category===layer.title));
+    const tasks=sources.map(async layer=>{
+      const feed=feeds[layer.id]||await json(layer.url);
+      for(const f of feed.features)if(f.geometry?.type==='Point')points.set('event:'+f.properties.id,f.geometry.coordinates);
+    });
+    const neighborhoods=new Set(missing.filter(item=>item.id.startsWith('place:')).map(item=>item.venue));
+    if(neighborhoods.size)tasks.push((async()=>{
+      const index=await json('/chat/data/geofences.geojson');
+      await Promise.allSettled(index.features.filter(f=>neighborhoods.has(f.properties.name)).map(async f=>{
+        const key=f.properties.id,feed=feeds['businesses:'+key]||await json('/chat/data/places/'+encodeURIComponent(key)+'.json');
+        for(const group of feed.groups)for(const category of group.categories)for(const p of category.places)points.set('place:'+p.id,[p.lng,p.lat]);
+      }));
+    })());
+    await Promise.allSettled(tasks);
+    for(const item of missing)if(M.validPoint(points.get(item.id)))item.coordinates=points.get(item.id);
+  }
+  function downloadMap(draft){
+    const markup=M.mapFile(draft.template,draft.list);
+    let updated=false;
+    doc.items.forEach((item,i)=>{
+      if(!M.validPoint(item.coordinates)){item.coordinates=draft.list.items[i].coordinates;updated=true;}
+    });
+    if(updated)changed();
+    saveFile(draft.list.title,markup,'text/html','-map.html');
+    $('map-status').textContent='Downloaded a map with all '+doc.items.length+' '+(doc.items.length===1?'pick.':'picks.');
+  }
+  async function startMap(){
+    if(!await canExport())return;
+    const run=epoch,list=structuredClone(doc);
+    $('map-status').textContent='Preparing map…';
+    try{
+      const request=await fetch('./map-export.html?v=20261117a',{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(20000)])});
+      if(!request.ok)throw Error();
+      const template=await request.text();
+      if(!template.includes('<!--LIST_ITEMS-->'))throw Error();
+      await recoverLocations(list.items);
+      if(!current(run))return;
+      const draft={template,list};
+      const fields=$('location-fields');fields.replaceChildren();
+      list.items.forEach((item,i)=>{
+        if(M.validPoint(item.coordinates))return;
+        const label=node('label',(i+1)+'. '+item.title),input=node('input');
+        const place=[item.venue,item.address].filter(Boolean).join(' · ');
+        if(place)label.append(node('small',place));
+        input.required=true;input.placeholder='30.2672, -97.7431';input.dataset.index=i;
+        input.oninput=()=>input.setCustomValidity('');
+        label.append(input);fields.append(label);
+      });
+      if(!fields.childElementCount){downloadMap(draft);return;}
+      mapDraft=draft;$('map-status').textContent='';$('location-dialog').showModal();
+    }catch{if(current(run))$('map-status').textContent='The map export could not load. Try Export map again.';}
+  }
+  $('location-form').onsubmit=async e=>{
+    e.preventDefault();const draft=mapDraft;
+    if(!draft)return;
+    for(const input of $('location-fields').querySelectorAll('input')){
+      const point=M.enteredPoint(input.value);
+      if(!point){input.setCustomValidity('Enter latitude (−90 to 90), then longitude (−180 to 180), separated by a comma.');input.reportValidity();return;}
+      draft.list.items[Number(input.dataset.index)].coordinates=point;
+    }
+    if(await canExport()&&mapDraft===draft&&$('location-dialog').open){downloadMap(draft);$('location-dialog').close();}
+  };
+  $('cancel-map').onclick=()=>$('location-dialog').close();
+  $('location-dialog').onclose=()=>{mapDraft=null;$('location-fields').replaceChildren();};
+  $('select-matches').onchange=toggleMatches;
+  $('export-map').onclick=()=>transition(startMap);
   for(const category of [...layers,...extra]){const label=node('label'),input=node('input');input.type='checkbox';input.value=category.id;input.dataset.category=category.id;input.checked=state.categories.includes(category.id);input.onchange=()=>loadResults();label.append(input,document.createTextNode(category.title));$('categories').append(label);}
   for(let i=1;i<=10;i++)$('district').add(new Option('District '+i+' + citywide',String(i)));
   for(const c of window.ClassifiedsModel.categories)$('ad-category').add(new Option(c.title,c.id));

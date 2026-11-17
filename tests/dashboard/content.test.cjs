@@ -9,3 +9,19 @@ test('Results reuse Browse filtering, deduplicate across categories and preserve
 test('Movie export keeps only matching showtimes and never treats its filtering boundary as a runtime',()=>{const movie=event('film',{kind:'movie',price:null,showtimes:[{start:'2026-11-01T14:00:00-06:00',url:'https://example.com/1'},{start:'2026-11-02T14:00:00-06:00',url:'https://example.com/2'}],end:'2026-11-02T14:00:01-06:00'});const items=M.events({movies:{features:[movie]}},layers,{...state,categories:['movies']},now);assert.equal(items.length,1);assert.match(items[0].when,/2:00 PM/);assert.doesNotMatch(items[0].when,/Nov 2|14:00:01/);assert.equal(items[0].price,'Check admission');});
 test('Formatted and text exports preserve the exact selected order, notes and safe source links',()=>{const doc={title:'A & B <img src=x onerror=alert(1)>',intro:'My own introduction',items:[{id:'b',title:'Second chosen first',category:'Music',when:'Tue, Nov 17, 7:00 PM',venue:'A room',price:'Check admission',url:'javascript:alert(1)',note:'My note <script>bad()</script>'},{id:'a',title:'Another pick',category:'Art',url:'https://example.com/?a=1&b=2',note:''}]};const html=M.html(doc),plain=M.plain(doc);assert.ok(plain.indexOf('1. Second chosen first')<plain.indexOf('2. Another pick'));assert.match(plain,/My own introduction/);assert.doesNotMatch(html,/<script|<img|javascript:/);assert.match(html,/&lt;script&gt;/);assert.match(html,/href="https:\/\/example.com\/\?a=1&amp;b=2"/);assert.equal(M.url(undefined),'');assert.equal(M.url(''),'');assert.doesNotMatch(M.file(doc),/<script/);});
 test('Newsletter body preserves hierarchy without CSS, escapes content, and keeps the separate post title out',()=>{const doc={title:'Put me in the Title field',intro:'An introduction\nwith a line break.',items:[{title:'Music & art',when:'Tomorrow at 7 PM',venue:'The venue',price:'Free',note:'One paragraph.\n\nAnother paragraph.',url:'https://example.com/'},{title:'<img src=x onerror=alert(1)>',note:'<script>unsafe</script>',url:'javascript:alert(1)'}]};const html=M.newsletter(doc);assert.equal((html.match(/<h2>/g)||[]).length,2);assert.equal((html.match(/<hr>/g)||[]).length,2);assert.match(html,/<strong>When:<\/strong>/);assert.match(html,/<strong>Where:<\/strong>/);assert.match(html,/<strong>Admission:<\/strong>/);assert.match(html,/<p>One paragraph\.<\/p><p>Another paragraph\.<\/p>/);assert.doesNotMatch(html,/style=|<article|<section|<script|<img|javascript:|Put me in the Title field/);assert.match(html,/&lt;img/);assert.doesNotMatch(M.newsletterText(doc),/Put me in the Title field/);assert.match(M.newsletterText(doc),/1\. Music & art/);});
+test('Map HTML contains every titled pick in list order, with coordinates and escaped titles',()=>{
+  const template=fs.readFileSync('dashboard/content/map-export.html','utf8');
+  const doc={title:'A & B',items:[
+    {title:'Shared venue </script>',coordinates:[-97.742,30.26],note:'private detail'},
+    {title:'Another show <!--LIST_TITLE-->',coordinates:[-97.742,30.26]}
+  ]};
+  const html=M.mapFile(template,doc);
+  assert.match(html,/<title>A &amp; B<\/title>/);
+  assert.match(html,/data-lng="-97.742" data-lat="30.26">Shared venue &lt;\/script&gt;/);
+  assert.match(html,/Another show &lt;!--LIST_TITLE--&gt;/);
+  assert.doesNotMatch(html,/private detail/);
+  assert.deepEqual(M.event(event('geo'),'Music').coordinates,[-97.74,30.27]);
+  assert.deepEqual(M.enteredPoint(' 30.267 , -97.743 '),[-97.743,30.267]);
+  for(const bad of ['','30,','91,0','30,181',',','30,20,1','hello,20'])assert.equal(M.enteredPoint(bad),null);
+  assert.throws(()=>M.mapFile(template,{title:'Old list',items:[{title:'Missing location'}]}),/missing/);
+});

@@ -1,5 +1,20 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-17 - Content desk selection and map export
+
+The owner requested a checkbox beside the Discover listing count and a separate
+Export map button in Curate. The checkbox acts on the whole filtered result set
+and preserves other picks. The downloadable MapLibre HTML includes every pick
+with its title, groups shared locations and opens directly in a browser with
+internet access. The desk recovers older coordinates by source ID or asks for
+missing locations before download. Existing text and newsletter exports use the
+same Preview & export control. Asset version `20261117a`.
+
+Seven model tests and local desktop/phone browser checks passed, including
+pagination, mixed selection, the 250-pick limit, older saved lists, manual
+locations and opening the actual HTML download with live map tiles. Test lists
+and accounts were fixtures. See dashboard/content/README.md.
+
 ## 2026-11-15 - Newsletter formatting for Substack
 
 The owner reported that the styled export pasted into Substack looking mostly

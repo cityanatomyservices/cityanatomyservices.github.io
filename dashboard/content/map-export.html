@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title><!--LIST_TITLE--></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+  <style>
+    * {box-sizing:border-box}
+    body {margin:0;color:#153d32;background:#fff;font:16px/1.45 system-ui,sans-serif}
+    main {display:grid;grid-template-columns:minmax(14rem,22rem) 1fr;height:100vh;height:100dvh}
+    aside {overflow:auto;padding:1.25rem}
+    h1 {font-size:1.5rem;line-height:1.2;margin:0 0 1rem;overflow-wrap:anywhere}
+    ol {padding-left:2rem}
+    li {margin:.25rem 0}
+    button {font:inherit;cursor:pointer}
+    li button {border:0;background:none;color:#145f49;text-align:left;padding:.35rem;overflow-wrap:anywhere}
+    li button:hover,li button:focus-visible {text-decoration:underline}
+    #map {min-height:0;background:#e9eee9}
+    #status {font-size:.85rem;color:#4c6058}
+    .pin {color:white;background:#15553f;border:2px solid white;border-radius:12px;padding:2px 8px;max-width:12rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;box-shadow:0 1px 4px #0005;font-size:12px}
+    .pin:focus-visible {z-index:2;outline:3px solid #0869ac}
+    .maplibregl-popup-content {max-height:30vh;overflow:auto;padding:12px 24px 12px 14px;color:#153d32}
+    .maplibregl-popup-content p {margin:.25rem 0;overflow-wrap:anywhere}
+    @media(max-width:650px){main{display:flex;flex-direction:column-reverse}#map{flex:1}aside{max-height:40%;padding:1rem}h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <main>
+    <aside><h1><!--LIST_TITLE--></h1><p id="status" role="status">Loading map…</p><ol><!--LIST_ITEMS--></ol></aside>
+    <div id="map" aria-label="Map of the selected listings"></div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
+  <script>
+    (() => {
+      const status = document.getElementById('status');
+      const entries = [...document.querySelectorAll('li button')];
+      if (!entries.length) return;
+      try {
+        const groups = new Map();
+        entries.forEach((button, index) => {
+          const point = [Number(button.dataset.lng), Number(button.dataset.lat)];
+          const key = point.join(',');
+          if (!groups.has(key)) groups.set(key, {point, picks: []});
+          groups.get(key).picks.push({button, number: index + 1});
+        });
+        const venues = [...groups.values()];
+        const map = new maplibregl.Map({
+          container: 'map', style: 'https://tiles.openfreemap.org/styles/positron',
+          center: venues[0].point, zoom: 14, renderWorldCopies: false
+        });
+        map.addControl(new maplibregl.NavigationControl(), 'top-right');
+        const bounds = new maplibregl.LngLatBounds();
+        const popup = new maplibregl.Popup({offset: 15, maxWidth: '300px'});
+        for (const {point, picks} of venues) {
+          bounds.extend(point);
+          const pin = document.createElement('button');
+          pin.className = 'pin';
+          const first = picks[0];
+          pin.textContent = first.number + '. ' + first.button.textContent + (picks.length > 1 ? ' (+' + (picks.length - 1) + ')' : '');
+          pin.title = picks.map(p => p.button.textContent).join('\n');
+          function show(items) {
+            const box = document.createElement('div');
+            for (const {button, number} of items) {
+              const line = document.createElement('p');
+              line.textContent = number + '. ' + button.textContent;
+              box.append(line);
+            }
+            popup.setLngLat(point).setDOMContent(box).addTo(map);
+          }
+          pin.onclick = e => { e.stopPropagation(); show(picks); };
+          new maplibregl.Marker({element: pin}).setLngLat(point).addTo(map);
+          for (const pick of picks) pick.button.onclick = () => {
+            map.jumpTo({center: point, zoom: Math.max(map.getZoom(), 14)});
+            show([pick]);
+          };
+        }
+        if (venues.length > 1) map.fitBounds(bounds, {padding: 64, maxZoom: 15, duration: 0});
+        map.on('error', () => {status.textContent = 'Some map tiles could not load. Check your internet connection.';});
+        map.once('load', () => {status.textContent = '';});
+      } catch {
+        status.textContent = 'The map needs an internet connection and a browser with WebGL enabled.';
+      }
+    })();
+  </script>
+</body>
+</html>
