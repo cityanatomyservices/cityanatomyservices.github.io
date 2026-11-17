@@ -1,13 +1,13 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-17T04:12:06.121141+00:00",
+ "generated": "2026-11-17T16:29:57.192713+00:00",
  "sources": [
   {
    "name": "Austin Public Library",
    "url": "https://library.austintexas.gov/events-feed.xml",
    "ok": false,
    "failures": 1,
-   "count": 199
+   "count": 197
   },
   {
    "name": "UT Austin",
@@ -25,35 +25,6 @@
   }
  ],
  "features": [
-  {
-   "type": "Feature",
-   "id": "53434a398cf41fa38ba6",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.742100981,
-     30.186620001
-    ]
-   },
-   "properties": {
-    "id": "53434a398cf41fa38ba6",
-    "title": "Toddler Free Play",
-    "url": "https://library.austintexas.gov/event/youth-programs-workshops/toddler-free-play-7788863",
-    "venue": "Southeast Branch",
-    "address": "5803 Nuckols Crossing Rd",
-    "start": "2026-11-17T09:15:00-06:00",
-    "end": "2026-11-17T10:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "Enjoy toys and books, and meet other families with toddlers.",
-    "conditions": "Toddlers (ages 1-3) Youth Programs & Workshops",
-    "expires": "2026-11-17T10:00:00-06:00"
-   }
-  },
   {
    "type": "Feature",
    "id": "0e08bfd124f0335755be",
@@ -110,35 +81,6 @@
     "description": "Come learn English as a second language. No registration required.",
     "conditions": "Adults (ages 18+) Language Practice English Classes · Check the organizer for registration or capacity limits.",
     "expires": "2026-11-17T11:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "90dcb9b7b07f9fed08f2",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.690238039,
-     30.31166601
-    ]
-   },
-   "properties": {
-    "id": "90dcb9b7b07f9fed08f2",
-    "title": "Toddler Storytime",
-    "url": "https://library.austintexas.gov/event/toddler-storytime/toddler-storytime-7786391",
-    "venue": "Windsor Park Branch",
-    "address": "5833 Westminster Dr",
-    "start": "2026-11-17T09:30:00-06:00",
-    "end": "2026-11-17T09:50:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Austin Public Library",
-    "checked": "2026-11-16T19:52:36.810336+00:00",
-    "kind": "event",
-    "allDay": false,
-    "description": "A storytime program designed for toddlers aged 1 to 3 years and their parents, featuring stories, songs, fingerplays, and games. Program length can vary.Un programa de cuentacuentos diseñado para niños pequeños de 1 a 3 ",
-    "conditions": "Toddlers (ages 1-3) Toddler Storytime",
-    "expires": "2026-11-17T09:50:00-06:00"
    }
   },
   {
@@ -626,7 +568,7 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T04:12:06.121141+00:00",
+    "checked": "2026-11-17T16:29:57.192713+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
@@ -1033,7 +975,7 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T04:12:06.121141+00:00",
+    "checked": "2026-11-17T16:29:57.192713+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
@@ -2194,12 +2136,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T04:12:06.121141+00:00",
+    "checked": "2026-11-17T16:29:57.192713+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-18T04:12:06.121141+00:00",
+    "expires": "2026-11-18T16:29:57.192713+00:00",
     "endKnown": false
    }
   },
@@ -2224,12 +2166,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T04:12:06.121141+00:00",
+    "checked": "2026-11-17T16:29:57.192713+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-18T04:12:06.121141+00:00",
+    "expires": "2026-11-18T16:29:57.192713+00:00",
     "endKnown": false
    }
   },
@@ -3037,12 +2979,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T04:12:06.121141+00:00",
+    "checked": "2026-11-17T16:29:57.192713+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-18T04:12:06.121141+00:00",
+    "expires": "2026-11-18T16:29:57.192713+00:00",
     "endKnown": false
    }
   },
@@ -5822,12 +5764,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T04:12:06.121141+00:00",
+    "checked": "2026-11-17T16:29:57.192713+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-18T04:12:06.121141+00:00",
+    "expires": "2026-11-18T16:29:57.192713+00:00",
     "endKnown": true
    }
   },
