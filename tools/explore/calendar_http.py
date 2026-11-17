@@ -1,5 +1,7 @@
 """Bounded retries for public calendars that sometimes return incomplete pages."""
 import time
+import re
+from html import unescape
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
@@ -37,6 +39,15 @@ def read_calendar(url, parse, fetch, *, refresh_query=True):
                 text = body.decode('utf-8', errors='replace') if isinstance(body, bytes) else body
                 kind = 'empty' if not text.strip() else 'HTML' if text.lstrip().startswith('<') else 'text/JSON'
                 detail += f' ({len(body)} bytes, {kind} response)'
+                # Tiny error pages can return HTTP 200. Their public visible
+                # text distinguishes an outage from a schema or access error.
+                # Never dump full source pages or script contents into logs.
+                if kind == 'HTML' and len(body) < 1500:
+                    visible = re.sub(r'<(script|style)\b[^>]*>.*?</\1>', '', text, flags=re.I | re.S)
+                    visible = unescape(re.sub(r'<[^>]*>', ' ', visible))
+                    visible = re.sub(r'\s+', ' ', visible).strip()[:250]
+                    if visible:
+                        detail += ': ' + visible
             if attempt == 2:
                 raise ValueError(f'{url}: unavailable after 3 attempts: {detail}') from error
             print(f'{url}: attempt {attempt + 1} failed: {detail}; retrying', flush=True)
