@@ -1,14 +1,14 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-17T22:21:03.571713+00:00",
+ "generated": "2026-11-18T01:19:56.377699+00:00",
  "sources": [
   {
    "name": "Austin Public Library",
    "url": "https://library.austintexas.gov/events-feed.xml",
-   "ok": true,
-   "failures": 0,
-   "count": 202,
-   "error": ""
+   "ok": false,
+   "failures": 1,
+   "count": 197,
+   "error": "https://library.austintexas.gov/events-feed.xml?austinchat_refresh=1794964796: unavailable after 3 attempts: HTTP Error 500: 500 Service unavailable (with message)"
   },
   {
    "name": "UT Austin",
@@ -23,69 +23,11 @@
    "url": "",
    "ok": true,
    "failures": 0,
-   "count": 10,
+   "count": 8,
    "error": ""
   }
  ],
  "features": [
-  {
-   "type": "Feature",
-   "id": "9cde37f6a1af529e48bf",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.773444,
-     30.272419
-    ]
-   },
-   "properties": {
-    "id": "9cde37f6a1af529e48bf",
-    "title": "Explore Austin Nature & Science Center",
-    "url": "https://www.austintexas.gov/parks/plan-your-visit-austin-nature-science-center",
-    "venue": "Austin Nature & Science Center",
-    "address": "2389 Stratford Drive, Austin",
-    "start": "2026-11-17T09:00:00-06:00",
-    "end": "2026-11-17T17:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free",
-    "source": "Verified activity",
-    "checked": "2026-11-17T15:53:40-06:00",
-    "kind": "activity",
-    "allDay": false,
-    "description": "Explore the exhibits and grounds on a self-guided visit.",
-    "conditions": "Free admission for individuals and families. Group programs may differ. Check the official site for weather, holiday or special-event closures.",
-    "expires": "2026-11-17T17:00:00-06:00"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "58c11a9c2a34559d1889",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7376,
-     30.2808
-    ]
-   },
-   "properties": {
-    "id": "58c11a9c2a34559d1889",
-    "title": "Free Tuesday at the Blanton",
-    "url": "https://blantonmuseum.org/visit/",
-    "venue": "Blanton Museum of Art",
-    "address": "200 E. Martin Luther King Jr. Boulevard, Austin",
-    "start": "2026-11-17T10:00:00-06:00",
-    "end": "2026-11-17T17:00:00-06:00",
-    "price": 0.0,
-    "priceLabel": "Free admission",
-    "source": "Verified activity",
-    "checked": "2026-11-17T15:53:40-06:00",
-    "kind": "activity",
-    "allDay": false,
-    "description": "Visit the museum during its weekly free-admission day.",
-    "conditions": "Tuesday museum admission is free. Parking and special ticketed programs may cost extra. Check the museum for closures and reservations.",
-    "expires": "2026-11-17T17:00:00-06:00"
-   }
-  },
   {
    "type": "Feature",
    "id": "d10ff6342d1923e02707",
@@ -310,7 +252,7 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T22:21:03.571713+00:00",
+    "checked": "2026-11-18T01:19:56.377699+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
@@ -1500,12 +1442,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T22:21:03.571713+00:00",
+    "checked": "2026-11-18T01:19:56.377699+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-18T22:21:03.571713+00:00",
+    "expires": "2026-11-18T19:00:00-06:00",
     "endKnown": false
    }
   },
@@ -1530,12 +1472,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T22:21:03.571713+00:00",
+    "checked": "2026-11-18T01:19:56.377699+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-18T22:21:03.571713+00:00",
+    "expires": "2026-11-19T01:19:56.377699+00:00",
     "endKnown": false
    }
   },
@@ -2401,12 +2343,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T22:21:03.571713+00:00",
+    "checked": "2026-11-18T01:19:56.377699+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-18T22:21:03.571713+00:00",
+    "expires": "2026-11-19T01:19:56.377699+00:00",
     "endKnown": false
    }
   },
@@ -5360,12 +5302,12 @@
     "price": 0.0,
     "priceLabel": "Free",
     "source": "UT Austin",
-    "checked": "2026-11-17T22:21:03.571713+00:00",
+    "checked": "2026-11-18T01:19:56.377699+00:00",
     "kind": "event",
     "allDay": false,
     "description": "",
     "conditions": "Check organizer for admission, registration and schedule details.",
-    "expires": "2026-11-18T22:21:03.571713+00:00",
+    "expires": "2026-11-19T01:19:56.377699+00:00",
     "endKnown": true
    }
   },
