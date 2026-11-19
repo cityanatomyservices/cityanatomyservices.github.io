@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-19T02:50:44.228841+00:00",
+ "generated": "2026-11-19T12:12:10.762999+00:00",
  "sources": [
   {
    "name": "Antone’s Nightclub",
@@ -103,9 +103,8 @@
   {
    "name": "Waterloo Greenway programs",
    "url": "https://waterloogreenway.org/events/",
-   "ok": false,
-   "failures": 1,
-   "error": "Remote end closed connection without response",
+   "ok": true,
+   "failures": 0,
    "count": 0
   }
  ],
