@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-20T20:47:00.109379+00:00",
+ "generated": "2026-11-21T02:51:31.052162+00:00",
  "sources": [
   {
    "name": "Antone’s Nightclub",
@@ -33,10 +33,9 @@
   {
    "name": "Saxon Pub",
    "url": "https://thesaxonpub.com/events/",
-   "ok": false,
-   "failures": 1,
-   "error": "https://thesaxonpub.com/wp-json/tribe/events/v1/events?start_date=2026-11-19&end_date=2026-12-04&per_page=100: calendar host requires a CAPTCHA for this runner; an approved feed or host access change is needed",
-   "count": 38
+   "ok": true,
+   "failures": 0,
+   "count": 42
   },
   {
    "name": "Continental Club & Gallery",
@@ -65,14 +64,14 @@
    "ok": false,
    "failures": 1,
    "error": "Missing calendar field: None/time/None",
-   "count": 25
+   "count": 24
   },
   {
    "name": "Mohawk",
    "url": "https://mohawkaustin.com/",
    "ok": true,
    "failures": 0,
-   "count": 5
+   "count": 4
   },
   {
    "name": "Banger’s",
@@ -86,210 +85,24 @@
    "url": "https://www.thewhitehorseaustin.com/",
    "ok": true,
    "failures": 0,
-   "count": 42
+   "count": 43
   },
   {
    "name": "The ABGB",
    "url": "https://theabgb.com/events/",
    "ok": true,
    "failures": 0,
-   "count": 7
+   "count": 8
   },
   {
    "name": "Sahara Lounge",
    "url": "https://www.saharalounge.com/shows/",
    "ok": true,
    "failures": 0,
-   "count": 14
+   "count": 15
   }
  ],
  "features": [
-  {
-   "type": "Feature",
-   "id": "414047a0f38fced78fd7",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.73853497401,
-     30.259275366081
-    ]
-   },
-   "properties": {
-    "id": "414047a0f38fced78fd7",
-    "title": "Steel Grassy",
-    "venue": "Banger’s Sausage House & Beer Garden",
-    "address": "79 Rainey St Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T14:30:00-06:00",
-    "end": "2026-11-20T17:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T17:30:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.bangersaustin.com/pages/event-calendar",
-    "source": "Banger’s",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "e49a1603be9d2bebb176",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.727001556059,
-     30.262224616791
-    ]
-   },
-   "properties": {
-    "id": "e49a1603be9d2bebb176",
-    "title": "Jonathan Terrell",
-    "venue": "The White Horse",
-    "address": "500 Comal St Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T17:30:00-06:00",
-    "end": "2026-11-20T18:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T18:30:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.thewhitehorseaustin.com/",
-    "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "48cbe3f7e799bd525b63",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.743730116133,
-     30.265418086471
-    ]
-   },
-   "properties": {
-    "id": "48cbe3f7e799bd525b63",
-    "title": "Summer Trio",
-    "venue": "Elephant Room",
-    "address": "315 Congress Ave Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T18:00:00-06:00",
-    "end": "2026-11-20T18:00:01-06:00",
-    "endKnown": false,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T18:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://elephantroom.com/event/5871478/788781731/summer-trio",
-    "source": "Elephant Room",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "02087e8452c5ba41ddd1",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "02087e8452c5ba41ddd1",
-    "title": "TG BAD",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T18:00:00-06:00",
-    "end": "2026-11-20T19:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/tg-bad/2026-11-20/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "96dbc3630b287d8ce696",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.749114144124,
-     30.250899106007
-    ]
-   },
-   "properties": {
-    "id": "96dbc3630b287d8ce696",
-    "title": "The Blues Specialists",
-    "venue": "The Continental Club",
-    "address": "1315 S Congress Ave Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T18:30:00-06:00",
-    "end": "2026-11-20T20:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T20:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://events.timely.fun/74avt53i/event/77200650/20261120183000",
-    "source": "Continental Club & Gallery",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "857191b1039bfe09215c",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.751953569625,
-     30.243599626214
-    ]
-   },
-   "properties": {
-    "id": "857191b1039bfe09215c",
-    "title": "Suzanna Choffel",
-    "venue": "C-Boy’s Heart & Soul",
-    "address": "2008 S Congress Ave Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T18:30:00-06:00",
-    "end": "2026-11-20T18:30:01-06:00",
-    "endKnown": false,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T18:30:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://events.timely.fun/r5bk3h1a/event/77920036/20261120183000",
-    "source": "C-Boy’s Heart & Soul",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
   {
    "type": "Feature",
    "id": "5d03e9398dd1cf745f0c",
@@ -311,7 +124,7 @@
     "end": "2026-11-20T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T22:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -323,126 +136,33 @@
   },
   {
    "type": "Feature",
-   "id": "02fe17a65c9116e06136",
+   "id": "59085336eaa1ce1603e8",
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.730163891198,
-     30.209126472341
+     -97.763048909335,
+     30.253652571184
     ]
    },
    "properties": {
-    "id": "02fe17a65c9116e06136",
-    "title": "Free Concert: The English Channels",
-    "venue": "Meanwhile Brewing",
-    "address": "3901 Promontory Point Dr Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T19:30:00-06:00",
-    "end": "2026-11-20T19:30:01-06:00",
-    "endKnown": false,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T19:30:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.meanwhilebeer.com/events/free-concert-the-english-channels",
-    "source": "Meanwhile Brewing",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "01f59118b8e2bd3643e2",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.736153257606,
-     30.269476210973
-    ]
-   },
-   "properties": {
-    "id": "01f59118b8e2bd3643e2",
-    "title": "Static Dress",
-    "venue": "Mohawk",
-    "address": "912 Red River St Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T19:30:00-06:00",
-    "end": "2026-11-20T19:30:01-06:00",
-    "endKnown": false,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T19:30:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.etix.com/ticket/p/51290557/static-dress-austin-resound-presents",
-    "source": "Mohawk",
-    "description": "Mohawk Outdoor",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "2b433169dfe3ed734db0",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.740654074053,
-     30.266353526351
-    ]
-   },
-   "properties": {
-    "id": "2b433169dfe3ed734db0",
-    "title": "Tank and The Bangas: The Last Balloon Tour w/ Ariel J. & ZEUS (NIGHT TWO)",
-    "venue": "Antone’s Nightclub",
-    "address": "305 E 5th St Austin TX",
+    "id": "59085336eaa1ce1603e8",
+    "title": "The Peterson Brothers",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
     "kind": "listing",
     "theme": "live-music",
     "start": "2026-11-20T20:00:00-06:00",
-    "end": "2026-11-20T20:00:01-06:00",
-    "endKnown": false,
+    "end": "2026-11-20T21:30:00-06:00",
+    "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T20:00:00-06:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-20T21:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
-    "url": "https://antonesnightclub.com/tm-event/tank-and-the-bangas-the-last-balloon-tour-2/",
-    "source": "Antone’s Nightclub",
+    "url": "https://thesaxonpub.com/event/the-peterson-brothers/",
+    "source": "Saxon Pub",
     "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "0db23af656b81610a867",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.736153257606,
-     30.269476210973
-    ]
-   },
-   "properties": {
-    "id": "0db23af656b81610a867",
-    "title": "Oso Oso",
-    "venue": "Mohawk",
-    "address": "912 Red River St Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T20:00:00-06:00",
-    "end": "2026-11-20T20:00:01-06:00",
-    "endKnown": false,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T20:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.etix.com/ticket/p/77363297/oso-oso-austin-resound-presents",
-    "source": "Mohawk",
-    "description": "Mohawk Indoor",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -466,7 +186,7 @@
     "end": "2026-11-20T21:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T21:45:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -497,7 +217,7 @@
     "end": "2026-11-20T22:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T22:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -505,99 +225,6 @@
     "source": "The ABGB",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "0d89581329cfd4214ae8",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.827379315765,
-     30.172652999157
-    ]
-   },
-   "properties": {
-    "id": "0d89581329cfd4214ae8",
-    "title": "Timmy Campbell",
-    "venue": "Sam’s Town Point",
-    "address": "2115 Allred Dr Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T20:00:00-06:00",
-    "end": "2026-11-20T20:00:01-06:00",
-    "endKnown": false,
-    "allDay": false,
-    "checked": "2026-11-20T12:14:04.373501+00:00",
-    "expires": "2026-11-20T20:00:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.samstownpointatx.com/go/events/6795893?feature_id=562219&occurrence_id=786577243",
-    "source": "Sam’s Town Point",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "59085336eaa1ce1603e8",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "59085336eaa1ce1603e8",
-    "title": "The Peterson Brothers",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T20:00:00-06:00",
-    "end": "2026-11-20T21:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/the-peterson-brothers/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "dfd19c697f189a112ecf",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.749106626349,
-     30.250919833937
-    ]
-   },
-   "properties": {
-    "id": "dfd19c697f189a112ecf",
-    "title": "Emily Gimble",
-    "venue": "Continental Gallery",
-    "address": "1313 S Congress Ave Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T20:30:00-06:00",
-    "end": "2026-11-20T20:30:01-06:00",
-    "endKnown": false,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-20T20:30:00-06:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://events.timely.fun/74avt53i/event/77960663/20261120203000",
-    "source": "Continental Club & Gallery",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
    }
   },
   {
@@ -621,7 +248,7 @@
     "end": "2026-11-20T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T21:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -652,7 +279,7 @@
     "end": "2026-11-20T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T21:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -660,6 +287,37 @@
     "source": "Sahara Lounge",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "cc0c0de59563617d1cb2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "cc0c0de59563617d1cb2",
+    "title": "Louisiana Surf Department",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-20T22:00:00-06:00",
+    "end": "2026-11-20T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-20T23:30:00-06:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/louisiana-surf-department-9/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -683,7 +341,7 @@
     "end": "2026-11-20T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T22:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -714,7 +372,7 @@
     "end": "2026-11-20T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T22:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -745,7 +403,7 @@
     "end": "2026-11-20T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T23:45:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -788,37 +446,6 @@
   },
   {
    "type": "Feature",
-   "id": "cc0c0de59563617d1cb2",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "cc0c0de59563617d1cb2",
-    "title": "Louisiana Surf Department",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-20T22:00:00-06:00",
-    "end": "2026-11-20T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/louisiana-surf-department-9/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "15f6c2c2ae9ee29d4873",
    "geometry": {
     "type": "Point",
@@ -838,7 +465,7 @@
     "end": "2026-11-20T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-20T22:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -869,7 +496,7 @@
     "end": "2026-11-21T01:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-21T01:45:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -900,8 +527,8 @@
     "end": "2026-11-21T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T15:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -931,7 +558,7 @@
     "end": "2026-11-21T14:45:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
     "expires": "2026-11-21T14:45:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -962,8 +589,8 @@
     "end": "2026-11-21T15:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T15:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/69402813/20261121153000",
@@ -993,8 +620,8 @@
     "end": "2026-11-21T17:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T17:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/denim-13/",
@@ -1024,8 +651,8 @@
     "end": "2026-11-21T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T18:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -1055,8 +682,8 @@
     "end": "2026-11-21T19:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T19:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/wilson-arms-2/",
@@ -1086,8 +713,8 @@
     "end": "2026-11-21T19:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T19:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/ticketed-show-rolling-together-revue-w-the-band-of-heathens-donavon-frankenreiter",
@@ -1117,8 +744,8 @@
     "end": "2026-11-21T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -1148,8 +775,8 @@
     "end": "2026-11-21T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T19:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77448927/20261121193000",
@@ -1179,8 +806,8 @@
     "end": "2026-11-21T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77446390/20261121193000",
@@ -1210,14 +837,45 @@
     "end": "2026-11-21T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T20:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/bobby-rush-show-revue-w-rodd-bland-the-members-only-band/",
     "source": "Antone’s Nightclub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a47f08d965be2edefdf0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "a47f08d965be2edefdf0",
+    "title": "Guy Forsyth Blues Band",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-21T20:00:00-06:00",
+    "end": "2026-11-21T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/guy-forsyth-blues-band-17/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -1241,8 +899,8 @@
     "end": "2026-11-21T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T20:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.etix.com/ticket/p/87524898/fruit-bats-austin-resound-presents",
@@ -1272,43 +930,12 @@
     "end": "2026-11-21T21:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "a47f08d965be2edefdf0",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "a47f08d965be2edefdf0",
-    "title": "Guy Forsyth Blues Band",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-21T20:00:00-06:00",
-    "end": "2026-11-21T21:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/guy-forsyth-blues-band-17/",
-    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -1334,8 +961,8 @@
     "end": "2026-11-21T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-21T20:30:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/69402834/20261121203000",
@@ -1365,8 +992,8 @@
     "end": "2026-11-21T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4178838/785280372/michael-malone-nujazzswing",
@@ -1396,8 +1023,8 @@
     "end": "2026-11-21T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-21",
@@ -1458,14 +1085,45 @@
     "end": "2026-11-21T21:45:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78499371/20261121214500",
     "source": "C-Boy’s Heart & Soul",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3a2c68506939d7f0bb42",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "3a2c68506939d7f0bb42",
+    "title": "Yahtzee Brown",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-21T22:00:00-06:00",
+    "end": "2026-11-21T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/yahtzee-brown-8/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -1489,8 +1147,8 @@
     "end": "2026-11-21T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78463863/20261121220000",
@@ -1520,43 +1178,12 @@
     "end": "2026-11-21T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "3a2c68506939d7f0bb42",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "3a2c68506939d7f0bb42",
-    "title": "Yahtzee Brown",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-21T22:00:00-06:00",
-    "end": "2026-11-21T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/yahtzee-brown-8/",
-    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -1582,8 +1209,8 @@
     "end": "2026-11-21T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/76759798/20261121223000",
@@ -1613,8 +1240,8 @@
     "end": "2026-11-21T23:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-21",
@@ -1675,8 +1302,8 @@
     "end": "2026-11-22T01:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -1706,8 +1333,8 @@
     "end": "2026-11-22T10:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/free-concert-deer-fellow",
@@ -1737,8 +1364,8 @@
     "end": "2026-11-22T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -1768,8 +1395,8 @@
     "end": "2026-11-22T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/the-purgatory-players-gospel-brunch/2026-11-22/",
@@ -1799,8 +1426,8 @@
     "end": "2026-11-22T14:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77921437/20261122143000",
@@ -1830,8 +1457,8 @@
     "end": "2026-11-22T15:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78192371/20261122153000",
@@ -1861,8 +1488,8 @@
     "end": "2026-11-22T19:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://theabgb.com/events/#3541803",
@@ -1892,8 +1519,8 @@
     "end": "2026-11-22T18:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/amy-lavere-will-sexton-4/",
@@ -1923,8 +1550,8 @@
     "end": "2026-11-22T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -1954,43 +1581,12 @@
     "end": "2026-11-22T18:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "dd904c13322f23295cb0",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.749114144124,
-     30.250899106007
-    ]
-   },
-   "properties": {
-    "id": "dd904c13322f23295cb0",
-    "title": "Heybale",
-    "venue": "The Continental Club",
-    "address": "1315 S Congress Ave Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-22T18:30:00-06:00",
-    "end": "2026-11-22T20:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://events.timely.fun/74avt53i/event/69402816/20261122183000",
-    "source": "Continental Club & Gallery",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2016,12 +1612,43 @@
     "end": "2026-11-22T20:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/the-resentments-112/",
     "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dd904c13322f23295cb0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.749114144124,
+     30.250899106007
+    ]
+   },
+   "properties": {
+    "id": "dd904c13322f23295cb0",
+    "title": "Heybale",
+    "venue": "The Continental Club",
+    "address": "1315 S Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-22T18:30:00-06:00",
+    "end": "2026-11-22T20:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://events.timely.fun/74avt53i/event/69402816/20261122183000",
+    "source": "Continental Club & Gallery",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2078,8 +1705,8 @@
     "end": "2026-11-22T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77068774/20261122193000",
@@ -2109,8 +1736,8 @@
     "end": "2026-11-22T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/north-mississippi-allstars-2/",
@@ -2140,8 +1767,8 @@
     "end": "2026-11-22T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/6341232/783598387/jerry-z-trio",
@@ -2171,8 +1798,8 @@
     "end": "2026-11-22T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -2233,8 +1860,8 @@
     "end": "2026-11-22T21:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/69402861/20261122213000",
@@ -2264,8 +1891,8 @@
     "end": "2026-11-22T22:15:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78238061/20261122221500",
@@ -2295,12 +1922,43 @@
     "end": "2026-11-22T23:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fdd73b72120f165ca78b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "fdd73b72120f165ca78b",
+    "title": "Pat Byrne",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-23T18:00:00-06:00",
+    "end": "2026-11-23T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/pat-byrne-3/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2326,45 +1984,14 @@
     "end": "2026-11-23T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4486785/788912513/jon-blondell-friends",
     "source": "Elephant Room",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "fdd73b72120f165ca78b",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "fdd73b72120f165ca78b",
-    "title": "Pat Byrne",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-23T18:00:00-06:00",
-    "end": "2026-11-23T19:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/pat-byrne-3/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -2388,8 +2015,8 @@
     "end": "2026-11-23T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77920068/20261123183000",
@@ -2419,8 +2046,8 @@
     "end": "2026-11-23T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78430174/20261123183000",
@@ -2450,8 +2077,8 @@
     "end": "2026-11-23T19:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/blue-monday-w-soul-man-sam-brad-stivers-6/",
@@ -2512,12 +2139,43 @@
     "end": "2026-11-23T21:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "50f60f397f3faa330cdc",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "50f60f397f3faa330cdc",
+    "title": "Lonelyland",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-23T20:30:00-06:00",
+    "end": "2026-11-23T22:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/lonelyland-152/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2543,45 +2201,14 @@
     "end": "2026-11-23T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77660384/20261123203000",
     "source": "Continental Club & Gallery",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "50f60f397f3faa330cdc",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "50f60f397f3faa330cdc",
-    "title": "Lonelyland",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-23T20:30:00-06:00",
-    "end": "2026-11-23T22:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/lonelyland-152/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -2605,8 +2232,8 @@
     "end": "2026-11-23T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/5124997/786317138/jazz-jam-hosted-by-freddie-mendoza",
@@ -2667,8 +2294,8 @@
     "end": "2026-11-23T21:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78518272/20261123213000",
@@ -2698,8 +2325,8 @@
     "end": "2026-11-23T22:15:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77920075/20261123221500",
@@ -2729,8 +2356,8 @@
     "end": "2026-11-23T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78232606/20261123223000",
@@ -2760,12 +2387,43 @@
     "end": "2026-11-24T00:15:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "201e427c1f87892da652",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "201e427c1f87892da652",
+    "title": "David Grissom",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-24T18:00:00-06:00",
+    "end": "2026-11-24T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/david-grissom/2026-11-24/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -2791,8 +2449,8 @@
     "end": "2026-11-24T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/5851749/789171090/mitch-watkins-trio",
@@ -2822,45 +2480,14 @@
     "end": "2026-11-24T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-24",
     "source": "Sahara Lounge",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "201e427c1f87892da652",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "201e427c1f87892da652",
-    "title": "David Grissom",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-24T18:00:00-06:00",
-    "end": "2026-11-24T19:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/david-grissom/2026-11-24/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -2884,8 +2511,8 @@
     "end": "2026-11-24T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78371207/20261124183000",
@@ -2915,8 +2542,8 @@
     "end": "2026-11-24T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77755257/20261124183000",
@@ -2977,45 +2604,14 @@
     "end": "2026-11-24T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/so-called-underground-w-greyson-turner-jeska/",
     "source": "Antone’s Nightclub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "20c543fdbaf9ad8e0d7a",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.727001556059,
-     30.262224616791
-    ]
-   },
-   "properties": {
-    "id": "20c543fdbaf9ad8e0d7a",
-    "title": "Missy Beth & The Morning Afters",
-    "venue": "The White Horse",
-    "address": "500 Comal St Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-24T20:00:00-06:00",
-    "end": "2026-11-24T21:45:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.thewhitehorseaustin.com/",
-    "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3039,12 +2635,43 @@
     "end": "2026-11-24T21:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/sister-golden-hair-22/",
     "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "20c543fdbaf9ad8e0d7a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727001556059,
+     30.262224616791
+    ]
+   },
+   "properties": {
+    "id": "20c543fdbaf9ad8e0d7a",
+    "title": "Missy Beth & The Morning Afters",
+    "venue": "The White Horse",
+    "address": "500 Comal St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-24T20:00:00-06:00",
+    "end": "2026-11-24T21:45:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thewhitehorseaustin.com/",
+    "source": "The White Horse",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -3070,8 +2697,8 @@
     "end": "2026-11-24T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/75404474/20261124203000",
@@ -3101,8 +2728,8 @@
     "end": "2026-11-24T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/6748642/781388259/matt-collins-quintet",
@@ -3163,14 +2790,45 @@
     "end": "2026-11-24T21:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77952500/20261124213000",
     "source": "C-Boy’s Heart & Soul",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "273333bd3f1b4bbceb18",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "273333bd3f1b4bbceb18",
+    "title": "Tunesmiths Tuesdays",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-24T22:00:00-06:00",
+    "end": "2026-11-24T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/tunesmiths-tuesdays-8/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3194,8 +2852,8 @@
     "end": "2026-11-24T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78249332/20261124220000",
@@ -3225,43 +2883,12 @@
     "end": "2026-11-24T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "273333bd3f1b4bbceb18",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "273333bd3f1b4bbceb18",
-    "title": "Tunesmiths Tuesdays",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-24T22:00:00-06:00",
-    "end": "2026-11-24T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/tunesmiths-tuesdays-8/",
-    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -3287,8 +2914,8 @@
     "end": "2026-11-24T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77868585/20261124223000",
@@ -3318,12 +2945,43 @@
     "end": "2026-11-25T01:55:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "98c4a772e1dcf5b147e7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "98c4a772e1dcf5b147e7",
+    "title": "The Drakes",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-25T18:00:00-06:00",
+    "end": "2026-11-25T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/the-drakes-2/2026-11-25/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -3349,45 +3007,14 @@
     "end": "2026-11-25T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4465604/788781711/violet-crown-review-featuring-liz-morphis",
     "source": "Elephant Room",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "98c4a772e1dcf5b147e7",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "98c4a772e1dcf5b147e7",
-    "title": "The Drakes",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-25T18:00:00-06:00",
-    "end": "2026-11-25T19:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/the-drakes-2/2026-11-25/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3411,8 +3038,8 @@
     "end": "2026-11-25T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77814666/20261125183000",
@@ -3442,8 +3069,8 @@
     "end": "2026-11-25T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77675054/20261125183000",
@@ -3473,8 +3100,8 @@
     "end": "2026-11-25T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://theabgb.com/events/#3703058",
@@ -3504,14 +3131,45 @@
     "end": "2026-11-25T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/quentin-moore/",
     "source": "Antone’s Nightclub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a75117bf6dbf9a1a5ddb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "a75117bf6dbf9a1a5ddb",
+    "title": "Slaid Cleaves",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-25T20:00:00-06:00",
+    "end": "2026-11-25T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/slaid-cleaves-3/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3535,8 +3193,8 @@
     "end": "2026-11-25T21:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -3566,8 +3224,8 @@
     "end": "2026-11-25T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-25",
@@ -3609,37 +3267,6 @@
   },
   {
    "type": "Feature",
-   "id": "a75117bf6dbf9a1a5ddb",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "a75117bf6dbf9a1a5ddb",
-    "title": "Slaid Cleaves",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-25T20:00:00-06:00",
-    "end": "2026-11-25T21:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/slaid-cleaves-3/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "60ddcdfdf6d5d46de0a6",
    "geometry": {
     "type": "Point",
@@ -3659,8 +3286,8 @@
     "end": "2026-11-25T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77710798/20261125203000",
@@ -3690,8 +3317,8 @@
     "end": "2026-11-25T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/5959755/784374604/spencer-foster-quartet",
@@ -3721,14 +3348,45 @@
     "end": "2026-11-25T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-25",
     "source": "Sahara Lounge",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ac22311549dd95dac912",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "ac22311549dd95dac912",
+    "title": "Conner Stephens",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-25T22:00:00-06:00",
+    "end": "2026-11-25T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/conner-stephens-14/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -3752,8 +3410,8 @@
     "end": "2026-11-25T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78503017/20261125220000",
@@ -3783,8 +3441,8 @@
     "end": "2026-11-25T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78186863/20261125220000",
@@ -3814,8 +3472,8 @@
     "end": "2026-11-25T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -3857,37 +3515,6 @@
   },
   {
    "type": "Feature",
-   "id": "ac22311549dd95dac912",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "ac22311549dd95dac912",
-    "title": "Conner Stephens",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-25T22:00:00-06:00",
-    "end": "2026-11-25T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/conner-stephens-14/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "aeac7df8133d742bbae2",
    "geometry": {
     "type": "Point",
@@ -3907,8 +3534,8 @@
     "end": "2026-11-25T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77875449/20261125223000",
@@ -3938,8 +3565,8 @@
     "end": "2026-11-25T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-25",
@@ -3969,12 +3596,43 @@
     "end": "2026-11-26T01:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "efa55606fc0ee597068f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "efa55606fc0ee597068f",
+    "title": "Patrice Pike Band Special Thanksgiving Show",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-26T20:00:00-06:00",
+    "end": "2026-11-26T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/patrice-pike-band-special-thanksgiving-show/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4000,45 +3658,14 @@
     "end": "2026-11-26T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4175241/743753200/thanksgiving-night-fireball-turkey-jazz-with-jon-blondell",
     "source": "Elephant Room",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "efa55606fc0ee597068f",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "efa55606fc0ee597068f",
-    "title": "Patrice Pike Band Special Thanksgiving Show",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-26T20:00:00-06:00",
-    "end": "2026-11-26T21:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/patrice-pike-band-special-thanksgiving-show/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -4074,6 +3701,37 @@
   },
   {
    "type": "Feature",
+   "id": "2a6569bb4107dd48a2d2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "2a6569bb4107dd48a2d2",
+    "title": "Julie Nolen Hell Raising Thanksgiving Night",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-26T22:00:00-06:00",
+    "end": "2026-11-26T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/julie-nolen-hell-raising-thanksgiving-night/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
    "id": "8170f38209f563af5420",
    "geometry": {
     "type": "Point",
@@ -4093,8 +3751,8 @@
     "end": "2026-11-26T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77006861/20261126220000",
@@ -4124,8 +3782,8 @@
     "end": "2026-11-26T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78514205/20261126220000",
@@ -4155,8 +3813,8 @@
     "end": "2026-11-26T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78478627/20261126220000",
@@ -4186,8 +3844,8 @@
     "end": "2026-11-26T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78512668/20261126220000",
@@ -4229,37 +3887,6 @@
   },
   {
    "type": "Feature",
-   "id": "2a6569bb4107dd48a2d2",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "2a6569bb4107dd48a2d2",
-    "title": "Julie Nolen Hell Raising Thanksgiving Night",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-26T22:00:00-06:00",
-    "end": "2026-11-26T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/julie-nolen-hell-raising-thanksgiving-night/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "5706451a7ae4cf52059b",
    "geometry": {
     "type": "Point",
@@ -4279,8 +3906,8 @@
     "end": "2026-11-26T23:45:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77766021/20261126234500",
@@ -4310,8 +3937,8 @@
     "end": "2026-11-27T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://theabgb.com/events/#3693813",
@@ -4341,12 +3968,43 @@
     "end": "2026-11-27T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "36a56336339cab21bb60",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "36a56336339cab21bb60",
+    "title": "TG BAD",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-27T18:00:00-06:00",
+    "end": "2026-11-27T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/tg-bad/2026-11-27/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4372,45 +4030,14 @@
     "end": "2026-11-27T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4799506/788781728/king-daddy-the-flat-five-with-alan-haynes",
     "source": "Elephant Room",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "36a56336339cab21bb60",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "36a56336339cab21bb60",
-    "title": "TG BAD",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-27T18:00:00-06:00",
-    "end": "2026-11-27T19:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/tg-bad/2026-11-27/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -4434,8 +4061,8 @@
     "end": "2026-11-27T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77200650/20261127183000",
@@ -4465,8 +4092,8 @@
     "end": "2026-11-27T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77920036/20261127183000",
@@ -4496,8 +4123,8 @@
     "end": "2026-11-27T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -4527,45 +4154,14 @@
     "end": "2026-11-27T19:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-27",
     "source": "Sahara Lounge",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "232b7a7d97b014aff934",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.727001556059,
-     30.262224616791
-    ]
-   },
-   "properties": {
-    "id": "232b7a7d97b014aff934",
-    "title": "Ramsay Midwood",
-    "venue": "The White Horse",
-    "address": "500 Comal St Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-27T20:00:00-06:00",
-    "end": "2026-11-27T21:45:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.thewhitehorseaustin.com/",
-    "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -4589,12 +4185,43 @@
     "end": "2026-11-27T21:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/andrea-magee-band/",
     "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "232b7a7d97b014aff934",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727001556059,
+     30.262224616791
+    ]
+   },
+   "properties": {
+    "id": "232b7a7d97b014aff934",
+    "title": "Ramsay Midwood",
+    "venue": "The White Horse",
+    "address": "500 Comal St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-27T20:00:00-06:00",
+    "end": "2026-11-27T21:45:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thewhitehorseaustin.com/",
+    "source": "The White Horse",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4620,8 +4247,8 @@
     "end": "2026-11-27T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77960663/20261127203000",
@@ -4651,8 +4278,8 @@
     "end": "2026-11-27T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/dumpstaphunks-5th-annual-phunksgiving/",
@@ -4682,14 +4309,45 @@
     "end": "2026-11-27T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/5135027/787357265/extreme-heat",
     "source": "Elephant Room",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "29b710bf74cfb523cdad",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "29b710bf74cfb523cdad",
+    "title": "Dave Scher",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-27T22:00:00-06:00",
+    "end": "2026-11-27T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/dave-scher-4/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -4713,8 +4371,8 @@
     "end": "2026-11-27T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/70967121/20261127220000",
@@ -4744,43 +4402,12 @@
     "end": "2026-11-27T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "29b710bf74cfb523cdad",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "29b710bf74cfb523cdad",
-    "title": "Dave Scher",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-27T22:00:00-06:00",
-    "end": "2026-11-27T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/dave-scher-4/",
-    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -4806,8 +4433,8 @@
     "end": "2026-11-27T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/76759798/20261127223000",
@@ -4837,8 +4464,8 @@
     "end": "2026-11-27T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78480412/20261127223000",
@@ -4868,8 +4495,8 @@
     "end": "2026-11-28T01:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -4899,8 +4526,8 @@
     "end": "2026-11-28T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -4930,8 +4557,8 @@
     "end": "2026-11-28T15:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/69402813/20261128153000",
@@ -4961,8 +4588,8 @@
     "end": "2026-11-28T17:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/extreme-heat-holiday-hulapalooza/",
@@ -4992,8 +4619,8 @@
     "end": "2026-11-28T18:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -5023,8 +4650,8 @@
     "end": "2026-11-28T19:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/shelley-king-3/",
@@ -5054,8 +4681,8 @@
     "end": "2026-11-28T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -5085,8 +4712,8 @@
     "end": "2026-11-28T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/69403306/20261128193000",
@@ -5116,14 +4743,45 @@
     "end": "2026-11-28T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/outlander-in-concert",
     "source": "UT Austin",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "065fb9713b3019834220",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "065fb9713b3019834220",
+    "title": "Madam Radar",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-28T20:00:00-06:00",
+    "end": "2026-11-28T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/madam-radar-14/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -5147,8 +4805,8 @@
     "end": "2026-11-28T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77958510/20261128200000",
@@ -5178,8 +4836,8 @@
     "end": "2026-11-28T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.etix.com/ticket/p/63472959/pretty-sick-austin-resound-presents",
@@ -5209,43 +4867,12 @@
     "end": "2026-11-28T21:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "065fb9713b3019834220",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "065fb9713b3019834220",
-    "title": "Madam Radar",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-28T20:00:00-06:00",
-    "end": "2026-11-28T21:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/madam-radar-14/",
-    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -5271,8 +4898,8 @@
     "end": "2026-11-28T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78117989/20261128203000",
@@ -5302,8 +4929,8 @@
     "end": "2026-11-28T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/dumpstaphunks-5th-annual-phunksgiving-2/",
@@ -5333,8 +4960,8 @@
     "end": "2026-11-28T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4163743/787097074/the-brew",
@@ -5364,8 +4991,8 @@
     "end": "2026-11-28T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-28",
@@ -5407,6 +5034,37 @@
   },
   {
    "type": "Feature",
+   "id": "7e1f2e3e0b0a09f84255",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "7e1f2e3e0b0a09f84255",
+    "title": "Rob Baird",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-28T22:00:00-06:00",
+    "end": "2026-11-28T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/rob-baird-13/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
    "id": "7809e61efec2383dab7b",
    "geometry": {
     "type": "Point",
@@ -5426,8 +5084,8 @@
     "end": "2026-11-28T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78280450/20261128220000",
@@ -5457,43 +5115,12 @@
     "end": "2026-11-28T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "7e1f2e3e0b0a09f84255",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "7e1f2e3e0b0a09f84255",
-    "title": "Rob Baird",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-28T22:00:00-06:00",
-    "end": "2026-11-28T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/rob-baird-13/",
-    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -5519,8 +5146,8 @@
     "end": "2026-11-28T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/76759798/20261128223000",
@@ -5550,8 +5177,8 @@
     "end": "2026-11-28T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78480414/20261128223000",
@@ -5581,8 +5208,8 @@
     "end": "2026-11-28T23:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-11-28",
@@ -5643,8 +5270,8 @@
     "end": "2026-11-29T01:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -5674,8 +5301,8 @@
     "end": "2026-11-29T10:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.meanwhilebeer.com/events/free-concert-eric-ching-trio",
@@ -5705,8 +5332,8 @@
     "end": "2026-11-29T14:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -5736,8 +5363,8 @@
     "end": "2026-11-29T15:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/the-purgatory-players-gospel-brunch/2026-11-29/",
@@ -5767,8 +5394,8 @@
     "end": "2026-11-29T14:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77921437/20261129143000",
@@ -5798,8 +5425,8 @@
     "end": "2026-11-29T15:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78387066/20261129153000",
@@ -5829,8 +5456,8 @@
     "end": "2026-11-29T19:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://theabgb.com/events/#3541804",
@@ -5860,8 +5487,8 @@
     "end": "2026-11-29T18:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/grouchy-like-riley-5/",
@@ -5891,8 +5518,8 @@
     "end": "2026-11-29T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -5922,43 +5549,12 @@
     "end": "2026-11-29T18:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "1f1e77a4c129effa98b7",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.749114144124,
-     30.250899106007
-    ]
-   },
-   "properties": {
-    "id": "1f1e77a4c129effa98b7",
-    "title": "Heybale",
-    "venue": "The Continental Club",
-    "address": "1315 S Congress Ave Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-29T18:30:00-06:00",
-    "end": "2026-11-29T20:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://events.timely.fun/74avt53i/event/69402816/20261129183000",
-    "source": "Continental Club & Gallery",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -5984,12 +5580,43 @@
     "end": "2026-11-29T20:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/the-resentments-113/",
     "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1f1e77a4c129effa98b7",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.749114144124,
+     30.250899106007
+    ]
+   },
+   "properties": {
+    "id": "1f1e77a4c129effa98b7",
+    "title": "Heybale",
+    "venue": "The Continental Club",
+    "address": "1315 S Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-29T18:30:00-06:00",
+    "end": "2026-11-29T20:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://events.timely.fun/74avt53i/event/69402816/20261129183000",
+    "source": "Continental Club & Gallery",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -6015,8 +5642,8 @@
     "end": "2026-11-29T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://theabgb.com/events/#3459755",
@@ -6046,8 +5673,8 @@
     "end": "2026-11-29T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://calendar.utexas.edu/event/texas-poets-meet-texas-jazz-3261",
@@ -6077,8 +5704,8 @@
     "end": "2026-11-29T19:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78510714/20261129193000",
@@ -6108,8 +5735,8 @@
     "end": "2026-11-29T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/5682821/783598389/ross-margitza-trio",
@@ -6139,8 +5766,8 @@
     "end": "2026-11-29T22:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -6201,8 +5828,8 @@
     "end": "2026-11-29T21:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/69402861/20261129213000",
@@ -6232,8 +5859,8 @@
     "end": "2026-11-29T21:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78518906/20261129213000",
@@ -6263,8 +5890,8 @@
     "end": "2026-11-29T23:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -6294,8 +5921,8 @@
     "end": "2026-11-30T19:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/pat-byrne-4/",
@@ -6325,8 +5952,8 @@
     "end": "2026-11-30T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77920068/20261130183000",
@@ -6356,8 +5983,8 @@
     "end": "2026-11-30T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78430174/20261130183000",
@@ -6387,8 +6014,8 @@
     "end": "2026-11-30T19:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4489021/786317120/austin-jazz-band",
@@ -6449,8 +6076,8 @@
     "end": "2026-11-30T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/project-pat-2/",
@@ -6480,12 +6107,43 @@
     "end": "2026-11-30T21:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2c6beef89412d9d9e9cb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "2c6beef89412d9d9e9cb",
+    "title": "Lonelyland",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-11-30T20:30:00-06:00",
+    "end": "2026-11-30T22:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/lonelyland-153/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -6511,45 +6169,14 @@
     "end": "2026-11-30T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77660384/20261130203000",
     "source": "Continental Club & Gallery",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "2c6beef89412d9d9e9cb",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "2c6beef89412d9d9e9cb",
-    "title": "Lonelyland",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-11-30T20:30:00-06:00",
-    "end": "2026-11-30T22:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/lonelyland-153/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -6573,8 +6200,8 @@
     "end": "2026-11-30T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4513476/784374635/michael-mordecai-jazz-jam",
@@ -6635,8 +6262,8 @@
     "end": "2026-11-30T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78363112/20261130220000",
@@ -6666,8 +6293,8 @@
     "end": "2026-11-30T22:15:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77920075/20261130221500",
@@ -6697,8 +6324,8 @@
     "end": "2026-11-30T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78232606/20261130223000",
@@ -6728,12 +6355,43 @@
     "end": "2026-12-01T00:15:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b889bde5102df8d446a3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "b889bde5102df8d446a3",
+    "title": "David Grissom",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-01T18:00:00-06:00",
+    "end": "2026-12-01T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/david-grissom/2026-12-01/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -6759,8 +6417,8 @@
     "end": "2026-12-01T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/5851749/789171091/mitch-watkins-trio",
@@ -6802,37 +6460,6 @@
   },
   {
    "type": "Feature",
-   "id": "b889bde5102df8d446a3",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "b889bde5102df8d446a3",
-    "title": "David Grissom",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-12-01T18:00:00-06:00",
-    "end": "2026-12-01T19:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/david-grissom/2026-12-01/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "276a7d2a56af5ce71ad5",
    "geometry": {
     "type": "Point",
@@ -6852,8 +6479,8 @@
     "end": "2026-12-01T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78371207/20261201183000",
@@ -6883,8 +6510,8 @@
     "end": "2026-12-01T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77755257/20261201183000",
@@ -6945,45 +6572,14 @@
     "end": "2026-12-01T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/the-olllam/",
     "source": "Antone’s Nightclub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "6682a1363083c5589c69",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.727001556059,
-     30.262224616791
-    ]
-   },
-   "properties": {
-    "id": "6682a1363083c5589c69",
-    "title": "Missy Beth & The Morning Afters",
-    "venue": "The White Horse",
-    "address": "500 Comal St Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-12-01T20:00:00-06:00",
-    "end": "2026-12-01T21:45:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://www.thewhitehorseaustin.com/",
-    "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -7007,12 +6603,43 @@
     "end": "2026-12-01T21:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://thesaxonpub.com/event/david-schaefer-2/",
     "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6682a1363083c5589c69",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727001556059,
+     30.262224616791
+    ]
+   },
+   "properties": {
+    "id": "6682a1363083c5589c69",
+    "title": "Missy Beth & The Morning Afters",
+    "venue": "The White Horse",
+    "address": "500 Comal St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-01T20:00:00-06:00",
+    "end": "2026-12-01T21:45:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thewhitehorseaustin.com/",
+    "source": "The White Horse",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -7038,8 +6665,8 @@
     "end": "2026-12-01T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/75404474/20261201203000",
@@ -7069,8 +6696,8 @@
     "end": "2026-12-01T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4178827/787356288/blondell",
@@ -7100,14 +6727,45 @@
     "end": "2026-12-01T21:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77952500/20261201213000",
     "source": "C-Boy’s Heart & Soul",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "689089403a04ef964a52",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "689089403a04ef964a52",
+    "title": "Tunesmiths Tuesdays",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-01T22:00:00-06:00",
+    "end": "2026-12-01T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/tunesmiths-tuesdays-14/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -7131,8 +6789,8 @@
     "end": "2026-12-01T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78519637/20261201220000",
@@ -7162,43 +6820,12 @@
     "end": "2026-12-01T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "689089403a04ef964a52",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "689089403a04ef964a52",
-    "title": "Tunesmiths Tuesdays",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-12-01T22:00:00-06:00",
-    "end": "2026-12-01T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/tunesmiths-tuesdays-14/",
-    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -7224,8 +6851,8 @@
     "end": "2026-12-01T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77868585/20261201223000",
@@ -7255,12 +6882,43 @@
     "end": "2026-12-02T01:55:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "24b0d495e3163080e241",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "24b0d495e3163080e241",
+    "title": "BMI Acoustic Lounge",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-02T18:00:00-06:00",
+    "end": "2026-12-02T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/bmi-acoustic-lounge-2/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -7286,8 +6944,8 @@
     "end": "2026-12-02T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78519648/20261202180000",
@@ -7317,45 +6975,14 @@
     "end": "2026-12-02T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/6459189/787356291/bruce-robison-mosey-piano-trio",
     "source": "Elephant Room",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "24b0d495e3163080e241",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "24b0d495e3163080e241",
-    "title": "BMI Acoustic Lounge",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-12-02T18:00:00-06:00",
-    "end": "2026-12-02T19:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/bmi-acoustic-lounge-2/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -7379,8 +7006,8 @@
     "end": "2026-12-02T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77675054/20261202183000",
@@ -7410,12 +7037,43 @@
     "end": "2026-12-02T21:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://theabgb.com/events/#3703058",
     "source": "The ABGB",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3412634aaee2821274e9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "3412634aaee2821274e9",
+    "title": "Walt Wilkins",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-02T20:00:00-06:00",
+    "end": "2026-12-02T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/walt-wilkins-65/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -7441,8 +7099,8 @@
     "end": "2026-12-02T21:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -7472,8 +7130,8 @@
     "end": "2026-12-02T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-12-02",
@@ -7515,37 +7173,6 @@
   },
   {
    "type": "Feature",
-   "id": "3412634aaee2821274e9",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "3412634aaee2821274e9",
-    "title": "Walt Wilkins",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-12-02T20:00:00-06:00",
-    "end": "2026-12-02T21:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/walt-wilkins-65/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "38f99416eddf1911be74",
    "geometry": {
     "type": "Point",
@@ -7565,8 +7192,8 @@
     "end": "2026-12-02T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77710798/20261202203000",
@@ -7596,8 +7223,8 @@
     "end": "2026-12-02T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/4184675/787356292/john-mills-times-ten",
@@ -7627,14 +7254,45 @@
     "end": "2026-12-02T21:15:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-12-02",
     "source": "Sahara Lounge",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3d1a90c1f2b19a0ba49e",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "3d1a90c1f2b19a0ba49e",
+    "title": "William Harries Graham & The Fighting Cocks",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-02T22:00:00-06:00",
+    "end": "2026-12-02T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/william-harries-graham-the-fighting-cocks-4/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -7658,8 +7316,8 @@
     "end": "2026-12-02T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78503017/20261202220000",
@@ -7689,8 +7347,8 @@
     "end": "2026-12-02T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78186863/20261202220000",
@@ -7720,8 +7378,8 @@
     "end": "2026-12-02T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -7763,37 +7421,6 @@
   },
   {
    "type": "Feature",
-   "id": "3d1a90c1f2b19a0ba49e",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.763048909335,
-     30.253652571184
-    ]
-   },
-   "properties": {
-    "id": "3d1a90c1f2b19a0ba49e",
-    "title": "William Harries Graham & The Fighting Cocks",
-    "venue": "Saxon Pub",
-    "address": "1320 S Lamar Blvd Austin TX",
-    "kind": "listing",
-    "theme": "live-music",
-    "start": "2026-12-02T22:00:00-06:00",
-    "end": "2026-12-02T23:30:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-19T21:02:51.647430+00:00",
-    "expires": "2026-11-20T21:02:51.647430+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://thesaxonpub.com/event/william-harries-graham-the-fighting-cocks-4/",
-    "source": "Saxon Pub",
-    "description": "",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "1f59af72bc720da40797",
    "geometry": {
     "type": "Point",
@@ -7813,8 +7440,8 @@
     "end": "2026-12-02T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/77875449/20261202223000",
@@ -7844,8 +7471,8 @@
     "end": "2026-12-02T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-12-02",
@@ -7875,12 +7502,43 @@
     "end": "2026-12-03T01:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
     "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a0203d9e52296d98d111",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "a0203d9e52296d98d111",
+    "title": "PAACK",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-03T18:00:00-06:00",
+    "end": "2026-12-03T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/paack-2-2/2026-12-03/",
+    "source": "Saxon Pub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
@@ -7906,8 +7564,8 @@
     "end": "2026-12-03T18:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/5135061/782039101/sarah-sharp-quintet",
@@ -7937,8 +7595,8 @@
     "end": "2026-12-03T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/69402828/20261203183000",
@@ -7968,8 +7626,8 @@
     "end": "2026-12-03T18:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77586710/20261203183000",
@@ -7999,8 +7657,8 @@
     "end": "2026-12-03T21:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
@@ -8030,8 +7688,8 @@
     "end": "2026-12-03T20:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -8061,14 +7719,45 @@
     "end": "2026-12-03T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://antonesnightclub.com/tm-event/under-the-rock-sims-w-west-texas-exiles-louisiana-surf-department-caroline-hale/",
     "source": "Antone’s Nightclub",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6a86816680f9b42e3fab",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "6a86816680f9b42e3fab",
+    "title": "Raising Cale",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-03T20:00:00-06:00",
+    "end": "2026-12-03T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/raising-cale-7/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -8092,8 +7781,8 @@
     "end": "2026-12-03T20:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.etix.com/ticket/p/31052827/danny-brown-mohawk-20th-anniversary-austin-resound-presents",
@@ -8123,8 +7812,8 @@
     "end": "2026-12-03T21:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -8154,8 +7843,8 @@
     "end": "2026-12-03T20:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/78338618/20261203203000",
@@ -8216,8 +7905,8 @@
     "end": "2026-12-03T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://elephantroom.com/event/6751857/781777984/m2-collective-matt-maldonado-matt-collins",
@@ -8247,14 +7936,45 @@
     "end": "2026-12-03T21:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-12-03",
     "source": "Sahara Lounge",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "597547a6230e25571e91",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "597547a6230e25571e91",
+    "title": "Evan MacGregor",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-03T22:00:00-06:00",
+    "end": "2026-12-03T23:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/evan-macgregor/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
    }
   },
   {
@@ -8278,8 +7998,8 @@
     "end": "2026-12-03T22:00:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/78478627/20261203220000",
@@ -8309,8 +8029,8 @@
     "end": "2026-12-03T23:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -8371,8 +8091,8 @@
     "end": "2026-12-03T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/69402945/20261203223000",
@@ -8402,8 +8122,8 @@
     "end": "2026-12-03T22:30:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/74avt53i/event/76803487/20261203223000",
@@ -8433,8 +8153,8 @@
     "end": "2026-12-03T23:45:01-06:00",
     "endKnown": false,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://events.timely.fun/r5bk3h1a/event/77766021/20261203234500",
@@ -8464,8 +8184,8 @@
     "end": "2026-12-04T01:45:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.thewhitehorseaustin.com/",
@@ -8495,14 +8215,448 @@
     "end": "2026-12-04T17:30:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-20T20:47:00.109379+00:00",
-    "expires": "2026-11-21T20:47:00.109379+00:00",
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://www.bangersaustin.com/pages/event-calendar",
     "source": "Banger’s",
     "description": "",
     "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1953818e5d28f6400118",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727001556059,
+     30.262224616791
+    ]
+   },
+   "properties": {
+    "id": "1953818e5d28f6400118",
+    "title": "Jacob Alan Jager",
+    "venue": "The White Horse",
+    "address": "500 Comal St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T17:30:00-06:00",
+    "end": "2026-12-04T18:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thewhitehorseaustin.com/",
+    "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "319278baf03aad27a434",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "319278baf03aad27a434",
+    "title": "TG BAD",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T18:00:00-06:00",
+    "end": "2026-12-04T19:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/tg-bad/2026-12-04/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c99cabd27ca24133f2bf",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.743730116133,
+     30.265418086471
+    ]
+   },
+   "properties": {
+    "id": "c99cabd27ca24133f2bf",
+    "title": "Ephraim Owens Group",
+    "venue": "Elephant Room",
+    "address": "315 Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T18:00:00-06:00",
+    "end": "2026-12-04T18:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://elephantroom.com/event/4610199/788003622/ephraim-owens-group",
+    "source": "Elephant Room",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7bcb761266289edf364f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.749114144124,
+     30.250899106007
+    ]
+   },
+   "properties": {
+    "id": "7bcb761266289edf364f",
+    "title": "The Blues Specialists",
+    "venue": "The Continental Club",
+    "address": "1315 S Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T18:30:00-06:00",
+    "end": "2026-12-04T20:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://events.timely.fun/74avt53i/event/77200650/20261204183000",
+    "source": "Continental Club & Gallery",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a5c90c9be4bc36249abb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.751953569625,
+     30.243599626214
+    ]
+   },
+   "properties": {
+    "id": "a5c90c9be4bc36249abb",
+    "title": "Matt Hubbard",
+    "venue": "C-Boy’s Heart & Soul",
+    "address": "2008 S Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T18:30:00-06:00",
+    "end": "2026-12-04T18:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://events.timely.fun/r5bk3h1a/event/78132770/20261204183000",
+    "source": "C-Boy’s Heart & Soul",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "182a7dfc05de154d7ae0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.730163891198,
+     30.209126472341
+    ]
+   },
+   "properties": {
+    "id": "182a7dfc05de154d7ae0",
+    "title": "Ticketed Show: Wild Child",
+    "venue": "Meanwhile Brewing",
+    "address": "3901 Promontory Point Dr Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T19:00:00-06:00",
+    "end": "2026-12-04T19:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.meanwhilebeer.com/events/ticketed-show-wild-child",
+    "source": "Meanwhile Brewing",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "10a32dd311bcd52a2357",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.73853497401,
+     30.259275366081
+    ]
+   },
+   "properties": {
+    "id": "10a32dd311bcd52a2357",
+    "title": "JWW and The Prospectors",
+    "venue": "Banger’s Sausage House & Beer Garden",
+    "address": "79 Rainey St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T19:00:00-06:00",
+    "end": "2026-12-04T22:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.bangersaustin.com/pages/event-calendar",
+    "source": "Banger’s",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dc0b7e95e75cf53ed44f",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.768431475355,
+     30.245359884756
+    ]
+   },
+   "properties": {
+    "id": "dc0b7e95e75cf53ed44f",
+    "title": "Latin Dukes",
+    "venue": "The ABGB",
+    "address": "1305 W Oltorf St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T19:00:00-06:00",
+    "end": "2026-12-04T21:00:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://theabgb.com/events/#3528226",
+    "source": "The ABGB",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5700837d1a48ec6ad3fb",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.740654074053,
+     30.266353526351
+    ]
+   },
+   "properties": {
+    "id": "5700837d1a48ec6ad3fb",
+    "title": "Holiday Hope ft. Bo Staloch, Britt Daniel, Mélat, Monica Vali, Ruby Stewart, Sana Sana & More",
+    "venue": "Antone’s Nightclub",
+    "address": "305 E 5th St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T20:00:00-06:00",
+    "end": "2026-12-04T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://antonesnightclub.com/tm-event/holiday-hope/",
+    "source": "Antone’s Nightclub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8b90c53257d59e8812e3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.763048909335,
+     30.253652571184
+    ]
+   },
+   "properties": {
+    "id": "8b90c53257d59e8812e3",
+    "title": "Under The Rock Presents: Lemongrass & Deer Fellow",
+    "venue": "Saxon Pub",
+    "address": "1320 S Lamar Blvd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T20:00:00-06:00",
+    "end": "2026-12-04T21:30:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://thesaxonpub.com/event/under-the-rock-presents-lemongrass-deer-fellow/",
+    "source": "Saxon Pub",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "646021cf5e3996037b32",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.736153257606,
+     30.269476210973
+    ]
+   },
+   "properties": {
+    "id": "646021cf5e3996037b32",
+    "title": "The Black Angels",
+    "venue": "Mohawk",
+    "address": "912 Red River St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T20:00:00-06:00",
+    "end": "2026-12-04T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.etix.com/ticket/p/85552566/the-black-angels-wdaiistarthor-harrisand-dj-tropicana-joe-mohawk-20th-anniversary-austin-resound-presents",
+    "source": "Mohawk",
+    "description": "Mohawk Outdoor",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e0689f1e5d613faea2bf",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.727001556059,
+     30.262224616791
+    ]
+   },
+   "properties": {
+    "id": "e0689f1e5d613faea2bf",
+    "title": "Claire Hinkle",
+    "venue": "The White Horse",
+    "address": "500 Comal St Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T20:00:00-06:00",
+    "end": "2026-12-04T21:45:00-06:00",
+    "endKnown": true,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.thewhitehorseaustin.com/",
+    "source": "The White Horse",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "431d032228158493e9c0",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.681146886337,
+     30.279741949961
+    ]
+   },
+   "properties": {
+    "id": "431d032228158493e9c0",
+    "title": "The Lower 99 Collective",
+    "venue": "Sahara Lounge",
+    "address": "1413 Webberville Rd Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T20:00:00-06:00",
+    "end": "2026-12-04T20:00:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://www.brownbearsw.com/cal/sahara?Op=ShowDay&Date=2026-12-04",
+    "source": "Sahara Lounge",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "92c784482c96314e5ae9",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.749106626349,
+     30.250919833937
+    ]
+   },
+   "properties": {
+    "id": "92c784482c96314e5ae9",
+    "title": "The Last Jimenez",
+    "venue": "Continental Gallery",
+    "address": "1313 S Congress Ave Austin TX",
+    "kind": "listing",
+    "theme": "live-music",
+    "start": "2026-12-04T20:30:00-06:00",
+    "end": "2026-12-04T20:30:01-06:00",
+    "endKnown": false,
+    "allDay": false,
+    "checked": "2026-11-21T02:51:31.052162+00:00",
+    "expires": "2026-11-22T02:51:31.052162+00:00",
+    "price": null,
+    "priceLabel": "Check admission",
+    "url": "https://events.timely.fun/74avt53i/event/70751120/20261204203000",
+    "source": "Continental Club & Gallery",
+    "description": "",
+    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes. End time not published; listing disappears at its start."
    }
   }
  ]
