@@ -763,5 +763,13 @@
     ],
     "matchedAddress": "1165 ANGELINA ST, AUSTIN, TX, 78702",
     "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1165+Angelina+St%2C+Austin%2C+TX+78702+Austin+TX&benchmark=Public_AR_Current&format=json"
+  },
+  "1700 S CONGRESS AVENUE Austin TX": {
+    "coordinates": [
+      -97.750708283962,
+      30.246986659899
+    ],
+    "matchedAddress": "1700 CONGRESS AVE S, AUSTIN, TX, 78704",
+    "source": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1700+S+CONGRESS+AVENUE+Austin+TX&benchmark=Public_AR_Current&format=json"
   }
 }
