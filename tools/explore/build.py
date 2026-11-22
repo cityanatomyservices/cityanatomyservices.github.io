@@ -6,6 +6,7 @@ from email.utils import parsedate_to_datetime
 from html import unescape
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import time
@@ -295,7 +296,7 @@ def valid_cached(f, now):
     return expires and expires > now
 
 
-def build():
+def build(*, allow_partial=False):
     now = datetime.now(timezone.utc)
     previous = json.loads(OUT.read_text()).get('features', []) if OUT.exists() else []
     result, statuses, refreshed = [], [], set()
@@ -331,9 +332,9 @@ def build():
                                   features=features), ensure_ascii=False, indent=1) + '\n')
     print(f'Published {len(features)} records to {OUT.relative_to(ROOT)}')
     failed = [s['name'] for s in statuses if not s['ok']]
-    if failed:
+    if failed and not allow_partial:
         raise RuntimeError('Some Free & cheap sources unavailable: ' + ', '.join(failed))
 
 
 if __name__ == '__main__':
-    build()
+    build(allow_partial=os.environ.get('EXPLORE_SOURCE_ALERTS') == 'warn')

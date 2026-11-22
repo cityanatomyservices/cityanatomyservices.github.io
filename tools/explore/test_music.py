@@ -65,6 +65,22 @@ class Music(unittest.TestCase):
         self.assertEqual(m.month_day('Friday, January 1', '8:00PM', now).year, 2027)
         self.assertEqual(m.month_day('Tuesday, December 29', '8:00PM', now).year, 2026)
 
+    def test_date_only_closure_does_not_hide_shows_on_the_next_page(self):
+        notice = '''<tr><td class="event-name"><a href="/holiday">CLOSED FOR THANKSGIVING</a></td>
+            <td class="date-long"><time class="from"><span class="date">Thursday, November 26</span>
+            </time></td></tr>'''
+        next_page = '<a rel="next" href="/calendar?page=2">Next</a>'
+        show = self.band_page('Friday band', 'Friday, November 27', '8:00PM', '/friday')
+        now = datetime(2026, 11, 22, 12, tzinfo=timezone.utc)
+        with patch.object(m, 'page', side_effect=[Page(notice + next_page).root, show]):
+            rows = m.sams(now)
+        self.assertEqual([(r['title'], r['start'].hour) for r in rows], [('Friday band', 20)])
+        with patch.object(m, 'page', return_value=Page(notice).root):
+            self.assertEqual(m.sams(now), [])
+        with patch.object(m, 'page', return_value=Page(notice.replace('CLOSED FOR THANKSGIVING', 'Band')).root):
+            with self.assertRaisesRegex(ValueError, 'Missing calendar field'):
+                m.sams(now)
+
     def test_mohawk_uses_show_time_and_rejects_sold_out_or_non_music(self):
         e = dict(title='Band', city='Austin', venue='Mohawk Indoor', availability='AVAILABLE', lineup=['Band'],
                  date='11/1/2026', time='8:00pm', doorsTime='7:00pm', thirdPartyLink='https://tickets.example/band')

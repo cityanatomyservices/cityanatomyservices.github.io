@@ -1,7 +1,8 @@
 name: Check Explore feed health
 on:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '17 0-13,15-23 * * *'
+    - cron: '17 14 * * *'
   workflow_dispatch:
     inputs:
       probe_sources:
@@ -15,7 +16,8 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: explore-feed-health
+  # A burst of deploys must not displace the pending daily source check.
+  group: explore-feed-health-${{ github.event.schedule == '17 14 * * *' && 'daily' || 'routine' }}
   cancel-in-progress: false
 jobs:
   health:
@@ -27,6 +29,8 @@ jobs:
         with:
           ref: main
       - name: Check the feeds visitors receive
+        env:
+          EXPLORE_SOURCE_ALERTS: ${{ (github.event.schedule == '17 14 * * *' || github.event_name == 'workflow_dispatch') && 'error' || 'warn' }}
         run: node tools/explore/check-health.cjs https://austin.chat
       - name: Match the importer Python version
         if: always() && inputs.probe_sources

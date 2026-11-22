@@ -1,5 +1,20 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-22 - Repair Sam’s calendar and group source alerts daily
+
+The Sam’s Town Point calendar included a date-only Thanksgiving closure.
+Bandzoogle now skips non-performance entries before requiring a showtime and
+continues through closure-only pages. An actual show missing its time still
+flags the source for review.
+
+The owner chose one daily alert for individual source problems. The 14:17 UTC
+health check and manual health checks report unresolved source failures.
+Routine refreshes, hourly checks and post-deploy checks record them as
+warnings. Broken feeds, failed imports that produce no usable output, and
+deployment failures still fail their workflows on detection. The daily
+recovery steps are in chat/explore/README.md. Local verification passed 75
+Python tests, eight health tests, the map model checks and actionlint.
+
 ## 2026-11-17 - Recover Free & cheap and monitor Explore feeds
 
 The library importer timed out and its retained listings expired. Fallout and

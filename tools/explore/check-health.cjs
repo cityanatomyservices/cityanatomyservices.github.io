@@ -6,10 +6,12 @@ const root = path.resolve(__dirname, '../..');
 const feeds = ['free-cheap', 'movies', 'live-music', 'live-comedy', 'pop-up-markets', 'events-festivals'];
 const options = { when: 'all', price: 20, kind: 'all', where: 'all' };
 
-function inspectFeed(name, feed, now = Date.now()) {
+function inspectFeed(name, feed, now = Date.now(), sourceAlerts = 'error') {
   const issues = [], warnings = [];
   if (feed?.type !== 'FeatureCollection' || !Array.isArray(feed.features) ||
-      !Array.isArray(feed.sources) || !feed.sources.length || !Number.isFinite(Date.parse(feed.generated))) {
+      !Array.isArray(feed.sources) || !feed.sources.length ||
+      !feed.sources.every(s => typeof s?.name === 'string' && s.name.trim() && typeof s.ok === 'boolean') ||
+      !Number.isFinite(Date.parse(feed.generated))) {
     return { name, active: 0, week: 0, issues: ['Invalid feed or missing source health'], warnings, sources: [] };
   }
   const age = (now - Date.parse(feed.generated)) / 3600000;
@@ -18,15 +20,17 @@ function inspectFeed(name, feed, now = Date.now()) {
   const active = model.filter(feed.features, options, now);
   const week = model.filter(feed.features, { ...options, when: 'week' }, now);
   if (!active.length) issues.push('No active listings');
+  const sourceMessages = sourceAlerts === 'warn' ? warnings : issues;
   const sources = feed.sources.map(source => {
     const count = active.filter(f => f.properties.source === source.name).length;
     const failed = source.ok !== true || Number(source.failures || 0) > 0;
     const error = source.error?.includes('/.well-known/sgcaptcha/')
       ? 'calendar host requires a CAPTCHA for this runner; host approval or an approved feed is needed'
       : source.error;
-    if (failed) issues.push(`${source.name}: ${error || 'source update unavailable'} (${count} active listings)`);
+    if (failed) sourceMessages.push(`${source.name}: ${error || 'source update unavailable'} (${count} active listings)`);
     return { name: source.name, active: count, ok: !failed };
   });
+  if (feed.sources.every(source => !source.ok)) issues.push('All sources failed to update');
   const horizon = Math.max(...active.map(f => Date.parse(f.properties.expires)), 0);
   if (active.length && horizon - now < 3 * 3600000) warnings.push('All active listings expire within 3 hours');
   return { name, generated: feed.generated, age, total: feed.features.length, active: active.length,
@@ -46,7 +50,10 @@ const escape = value => String(value).replace(/[\r\n|<>]/g, ' ');
 function report(results, reviews, target, now) {
   const lines = [`## Explore feed health`, '', `Checked ${new Date(now).toISOString()} against ${target}.`, '',
     '| Category | Snapshot age | Active | This week | Status |', '| --- | ---: | ---: | ---: | --- |'];
-  for (const r of results) lines.push(`| ${r.name} | ${Number.isFinite(r.age) ? r.age.toFixed(1) + 'h' : '?'} | ${r.active} | ${r.week || 0} | ${r.issues.length ? 'FAIL' : 'OK'} |`);
+  for (const r of results) {
+    const status = r.issues.length ? 'FAIL' : r.warnings.length ? 'WARN' : 'OK';
+    lines.push(`| ${r.name} | ${Number.isFinite(r.age) ? r.age.toFixed(1) + 'h' : '?'} | ${r.active} | ${r.week || 0} | ${status} |`);
+  }
   lines.push('', 'Active counts apply expiry and date validation, before visitor search/location filters.', '');
   for (const r of results) {
     for (const issue of r.issues) lines.push(`- **${r.name}:** ${escape(issue)}`);
@@ -81,17 +88,20 @@ async function main() {
   const base = process.argv[2], now = Date.now();
   if (base && !/^https?:\/\//.test(base)) throw new Error('Usage: node tools/explore/check-health.cjs [https://austin.chat]');
   const results = await Promise.all(feeds.map(async name => {
-    try { return inspectFeed(name, await loadFeed(name, base), now); }
+    try { return inspectFeed(name, await loadFeed(name, base), now, process.env.EXPLORE_SOURCE_ALERTS); }
     catch (e) { return { name, active: 0, issues: [e.message], warnings: [], sources: [] }; }
   }));
   const reviews = reviewWarnings(JSON.parse(fs.readFileSync(path.join(__dirname, 'curated.json'), 'utf8')), now);
   const text = report(results, reviews, base || 'local checkout', now);
   console.log(text);
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, text);
-  for (const r of results) for (const issue of r.issues) {
-    if (process.env.GITHUB_ACTIONS) console.log(`::error::${escape(r.name + ': ' + issue).replace(/%/g, '%25')}`);
+  if (process.env.GITHUB_ACTIONS) {
+    for (const r of results) {
+      for (const issue of r.issues) console.log(`::error::${escape(r.name + ': ' + issue).replace(/%/g, '%25')}`);
+      for (const warning of r.warnings) console.log(`::warning::${escape(r.name + ': ' + warning).replace(/%/g, '%25')}`);
+    }
+    for (const warning of reviews) console.log(`::warning::${escape(warning)}`);
   }
-  for (const warning of reviews) if (process.env.GITHUB_ACTIONS) console.log(`::warning::${escape(warning)}`);
   if (results.some(r => r.issues.length)) process.exitCode = 1;
 }
 module.exports = { inspectFeed, reviewWarnings, report };

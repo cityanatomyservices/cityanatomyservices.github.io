@@ -80,6 +80,7 @@ class BuildTests(unittest.TestCase):
             build.OUT.write_text(json.dumps({'features': [old]}))
             with self.assertRaisesRegex(RuntimeError, 'Austin Public Library'):
                 build.build()
+            build.build(allow_partial=True)
             output = json.loads(build.OUT.read_text())
             self.assertEqual(len(output['features']), 2)
             self.assertEqual(output['features'][0]['properties']['expires'], old['properties']['expires'])
@@ -88,7 +89,7 @@ class BuildTests(unittest.TestCase):
             with patch.object(build, 'university', side_effect=TimeoutError('offline')):
                 before = build.OUT.read_bytes()
                 with self.assertRaisesRegex(RuntimeError, 'Both live sources failed'):
-                    build.build()
+                    build.build(allow_partial=True)
                 self.assertEqual(build.OUT.read_bytes(), before)
 
     def test_library_metadata_retries_an_incomplete_page(self):

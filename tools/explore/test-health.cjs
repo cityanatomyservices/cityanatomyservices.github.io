@@ -23,6 +23,22 @@ test('detects partial failures even if a source was labelled OK', () => {
   assert.equal(r.active, 1);
   assert.equal(r.issues.length, 1);
 });
+test('routine checks warn for a single failed source while daily checks fail', () => {
+  const data = feed([item()], { sources: [{ name: 'Library', ok: true },
+    { name: 'Venue', ok: false, error: 'calendar unavailable' }] });
+  const routine = inspectFeed('events', data, now, 'warn');
+  assert.deepEqual(routine.issues, []);
+  assert.ok(routine.warnings.some(s => s.includes('Venue: calendar unavailable')));
+  assert.equal(routine.sources[1].ok, false);
+  assert.ok(inspectFeed('events', data, now).issues.some(s => s.includes('Venue: calendar unavailable')));
+});
+test('routine checks still fail for broken feeds even with retained listings', () => {
+  const inspect = data => inspectFeed('events', data, now, 'warn').issues;
+  assert.ok(inspect(feed([], {})).includes('No active listings'));
+  assert.ok(inspect(feed([item()], { sources: [{ name: 'Library', ok: false }] })).includes('All sources failed to update'));
+  assert.match(inspect(feed([item()], { generated: iso(-7) }))[0], /Refresh delayed/);
+  assert.match(inspect(feed([item()], { sources: [{}] }))[0], /Invalid feed/);
+});
 test('existing CAPTCHA errors are summarized without challenge details', () => {
   const r = inspectFeed('live-comedy', feed([item()], { sources: [{ name: 'Library', ok: false,
     error: 'markup <meta content="/.well-known/sgcaptcha/?y=private-challenge">' }] }), now);

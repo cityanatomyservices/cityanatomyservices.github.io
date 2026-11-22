@@ -47,7 +47,7 @@ class Layers(unittest.TestCase):
                 snapshot=b.load_old('live-music')
                 self.assertEqual(snapshot['features'],[old])
                 self.assertFalse(snapshot['sources'][0]['ok'])
-                with self.assertRaises(RuntimeError): b.events(NOW+timedelta(hours=4))
+                b.events(NOW+timedelta(hours=4), allow_partial=True)
                 self.assertEqual(b.load_old('live-music')['features'],[])
             b.write('live-music',[old],NOW,[])
             with patch.object(b,'SOURCES',[('Offline','https://example.org',lambda _:[])]):
@@ -60,7 +60,7 @@ class Layers(unittest.TestCase):
             before=(Path(temp)/'live-music.geojson').read_bytes()
             def fail(_): raise ValueError('offline')
             with patch.object(b,'SOURCES',[('Offline','https://example.org',fail)]):
-                with self.assertRaises(RuntimeError): b.events(NOW+timedelta(hours=1))
+                with self.assertRaises(RuntimeError): b.events(NOW+timedelta(hours=1), allow_partial=True)
             self.assertEqual((Path(temp)/'live-music.geojson').read_bytes(),before)
 
     def test_fallout_failure_is_only_reported_for_comedy(self):

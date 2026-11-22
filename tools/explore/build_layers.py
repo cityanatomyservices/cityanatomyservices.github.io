@@ -2,6 +2,7 @@
 from datetime import datetime, timedelta, timezone
 import hashlib
 import json
+import os
 import re
 from urllib.parse import urljoin
 from urllib.request import Request, urlopen
@@ -86,7 +87,7 @@ def retained(features, failed, now):
             and date(f['properties'].get('expires')) and date(f['properties']['expires']) > now]
 
 
-def events(now):
+def events(now, *, allow_partial=False):
     failed, unique, statuses = set(), {}, []
     # Sequential adapters also serialize address-cache writes for new markets.
     for source, url, adapter in SOURCES:
@@ -124,7 +125,7 @@ def events(now):
     sources = [dict(s, count=sum(f['properties']['source'] == s['name'] for f in features)) for s in event_statuses]
     write('events-festivals', features, now, sources)
     print(f'events-festivals: {len(features)} listings', flush=True)
-    if failed:
+    if failed and not allow_partial:
         raise RuntimeError('Some calendars unavailable: '+', '.join(sorted(failed)))
 
 
@@ -220,11 +221,11 @@ def parks(now):
     print(f'parks: {len(features)} city park locations', flush=True)
 
 
-def build():
+def build(*, allow_partial=False):
     # Parks was removed from the menu. Keep its historical snapshot and
     # importer available, but stop requesting an unused city inventory daily.
-    events(datetime.now(timezone.utc))
+    events(datetime.now(timezone.utc), allow_partial=allow_partial)
 
 
 if __name__ == '__main__':
-    build()
+    build(allow_partial=os.environ.get('EXPLORE_SOURCE_ALERTS') == 'warn')

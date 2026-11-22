@@ -514,18 +514,24 @@ Open [Check Explore feed health](https://github.com/cityanatomyservices/cityanat
 and select the newest run. Its **Summary** reports snapshot age, active and
 this-week counts for all six categories, plus active counts and failures for
 each source. It checks the deployed URLs hourly at minute 17 and after every
-successful Pages deployment. GitHub can delay scheduled runs; this is not an
-external uptime guarantee. The refresh workflow produces the same report for
+successful Pages deployment. GitHub can delay scheduled runs. The refresh workflow produces the same report for
 its local output before completion.
 
-The check fails for invalid/unavailable feeds, snapshots older than six hours,
-categories with no active listings, or any failed/partial source. It uses the
-browser's own filtering model, so a newly generated file full of expired
-listings cannot appear healthy. Curated reviews are warnings when due within
-72 hours or overdue; deadlines are never automatically renewed. A zero-count
-individual source is allowed when its successful import has no upcoming events.
+Every check fails for invalid or unavailable feeds, snapshots older than six
+hours, categories with no active listings, or a feed where all sources failed.
+The check uses the browser's filtering model to count active listings. A
+failed deployment or importer that cannot produce a usable snapshot also
+fails its workflow immediately.
 
-1. In **Refresh Explore map layers**, select **Run workflow** on `main`.
+For individual sources, routine refreshes and hourly or post-deployment checks
+show warnings. The 14:17 UTC daily check (8:17 a.m. Austin standard time,
+9:17 a.m. daylight time) fails if a source still reports a problem. Manually
+running the health workflow also performs this strict check. A successful
+source may have zero upcoming events. Curated reviews produce warnings when
+due within 72 hours or overdue.
+
+1. When the daily check flags a source, open its Summary for the source name
+   and error. In **Refresh Explore map layers**, select **Run workflow** on `main`.
 2. Read **Refresh events** for library/UT failures, **Refresh movie showtimes**
    for cinema failures, or **Refresh local calendars** for venue failures.
 3. Confirm **Publish Austin.chat** succeeds, then check the newest health report.
@@ -553,8 +559,7 @@ the CAPTCHA. Other runners and the owner's laptop can receive normal calendars.
 Existing unexpired records remain available, but their timestamps are never
 renewed on a blocked request. A lasting solution requires the venue/host to
 permit the automation or supply an approved public feed. Until then, the
-affected Music/Comedy source can legitimately keep the health run red even
-while Free & cheap and other categories are healthy.
+daily report can flag that source even while the category still has listings.
 [SiteGround's guidance for legitimate services](https://www.siteground.com/kb/seeing-captcha-website)
 is to contact its support team so the affected host can review the automation.
 Enable GitHub Actions failure notifications under account notification settings

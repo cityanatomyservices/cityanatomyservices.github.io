@@ -161,7 +161,14 @@ def bandzoogle(now, url, venue, address):
             title_node = first(card, cls='event-title') if card.find(cls='event-title') else first(card, cls='event-name')
             link = first(title_node, 'a')
             title = link.text()
-            clock = first(first(card, cls='date-long'), 'time', 'from')
+            href = urljoin(url, link.attrs['href']).replace('&popup=1', '').replace('?popup=1', '')
+            date_long = first(card, cls='date-long')
+            # Closure notices can be date-only. Keep them in the pagination
+            # signature, but only performances need a verified showtime.
+            page_ids.append((href, date_long.text()))
+            if not is_show(title):
+                continue
+            clock = first(date_long, 'time', 'from')
             start = month_day(first(clock, cls='date').text(), first(clock, cls='time').text(), now)
             # Sam's sometimes puts doors in the time field and the actual show
             # start in the event title. Honor that explicit correction.
@@ -169,16 +176,14 @@ def bandzoogle(now, url, venue, address):
             if actual:
                 start = local(start.strftime('%B %d, %Y'), actual[1])
             starts.append(start)
-            href = urljoin(url, link.attrs['href']).replace('&popup=1', '').replace('?popup=1', '')
-            page_ids.append((href, start.isoformat()))
-            if is_show(title) and upcoming(start, None, now):
+            if upcoming(start, None, now):
                 rows.append(row(title, start, None, href, venue, address))
         signature = tuple(page_ids)
         if signature in seen_pages:
             raise ValueError('Bandzoogle returned a repeated page')
         seen_pages.add(signature)
         links = root.find('a', attr=('rel', 'next'))
-        if max(starts) >= now+timedelta(days=14) or not links:
+        if not links or (starts and max(starts) >= now+timedelta(days=14)):
             return rows
         next_url = urljoin(url, links[0].attrs['href'])
         if not next_url.startswith(url.split('/calendar')[0]+'/'):
