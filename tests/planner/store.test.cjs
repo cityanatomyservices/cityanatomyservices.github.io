@@ -21,7 +21,9 @@ function fixture(options={}) {
   save:async(_c,e)=>{writes++;if(saveFn)return saveFn(e);if(remote&&remote.revision!==e.revision)throw {code:'PT409',message:'planner_revision_conflict'};remote={...structuredClone(e),revision:e.revision+1,dirty:false};return {revision:remote.revision};}
  };
  const storage=new Proxy({getItem:k=>memory.get(k)||null,setItem:(k,v)=>{if(quota)throw new Error('quota');memory.set(k,v);},removeItem:k=>memory.delete(k)},{ownKeys:()=>[...memory.keys()],getOwnPropertyDescriptor:()=>({enumerable:true,configurable:true})});
- vm.runInNewContext(code,{window:w,document:{hidden:false,addEventListener:(event,fn)=>{events[event]=fn;}},navigator:{},crypto,structuredClone,localStorage:storage,
+ const tab=options.tab||new Map(),sessionStorage={getItem:k=>tab.get(k)||null,setItem:(k,v)=>tab.set(k,v)};
+ w.AustinSession.testingGuest=!!options.testingGuest;w.AustinSession.user={id:owner};
+ vm.runInNewContext(code,{window:w,document:{hidden:false,addEventListener:(event,fn)=>{events[event]=fn;}},navigator:{},crypto,structuredClone,localStorage:storage,sessionStorage,
   setTimeout:(fn,ms)=>{const t=setTimeout(fn,ms);t.unref();timers.add(t);return t;},clearTimeout,queueMicrotask,console});
  return {store:w.PlanStore,owner,memory,visit,events,expire(){options.expired=true;callbacks.forEach(fn=>fn());},get loads(){return loads;},get writes(){return writes;},set quota(v){quota=v;},set remote(v){remote=v;},get remote(){return remote;},set save(fn){saveFn=fn;},dispose:()=>{for(const t of timers)clearTimeout(t);}};
 }
@@ -86,6 +88,17 @@ test('multiple days keep independent selections, durations, buffers and names',a
   await f.store.chooseDay('2026-11-01');assert.equal(f.store.plan.items.length,1);assert.equal(f.store.plan.items[0].schedule.duration,90);
   assert.equal(M.valid(f.store.book),true);
  }finally{f.dispose();}
+});
+test('a test guest can reload a Day Plan in its tab without sharing it with another visitor',async()=>{
+ const options={anonymous:true,testingGuest:true,owner:uuid(),tab:new Map()};
+ const first=fixture(options);
+ try{await first.store.select(place('Cafe'),true);}finally{first.dispose();}
+ const next=fixture(options),other=fixture({...options,owner:uuid()});
+ try{
+  await next.store.ready();await other.store.ready();
+  assert.equal(next.store.plan.items[0].source.title,'Cafe');
+  assert.equal(other.store.plan.items.length,0);
+ }finally{next.dispose();other.dispose();}
 });
 test('dated event selection creates its published day rather than moving the event',async()=>{
  const f=fixture({offline:true});try{

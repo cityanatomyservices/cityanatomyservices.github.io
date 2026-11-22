@@ -25,6 +25,7 @@ async function check(browser, width) {
     await page.locator('#geo-review').waitFor();
     await page.locator('#geo-confirm').check();
     assert.equal(await page.locator('#geo-pay').isEnabled(),true);
+    console.log(width+'px: geofence creation form and map preview passed.');
     await page.goto(origin+'/classifieds/',{waitUntil:'domcontentloaded'});
     await page.getByRole('button',{name:'Post your free ad'}).waitFor();
     await page.waitForFunction(()=>!document.querySelector('.classifieds-primary')?.disabled);
@@ -33,10 +34,20 @@ async function check(browser, width) {
     await page.waitForFunction(()=>document.querySelector('#account-google')?.disabled===false && document.querySelector('#account-send')?.disabled===false);
     assert.equal(await page.locator('#account-signout').isVisible(),false);
     await page.locator('.account-close').click();
+    console.log(width+'px: classifieds and both sign-in choices passed.');
     await page.goto(origin+'/apps/moontower/',{waitUntil:'domcontentloaded'});
-    await page.waitForFunction(()=>document.querySelector('#app-window')?.contentDocument?.querySelector('body')?.innerText.includes('Moontower'),null,{timeout:65000});
+    await page.frameLocator('#app-window').locator('#btn-info').waitFor({timeout:65000});
+    assert.equal(await page.frameLocator('#app-window').locator('title').textContent(),'Moontower');
     assert.equal(await page.evaluate(()=>AustinSession.user?.id),guest);
     console.log(width+'px: anonymous geofence preview and activation button, classifieds, sign-in choices, and private Moontower app passed.');
+  } catch(error) {
+    const diagnostics=await page.evaluate(()=>({
+      path:location.pathname,guest:window.AustinSession?.testingGuest,member:window.AustinSession?.registered,
+      messages:[...document.querySelectorAll('#geo-access-status,#geo-form-status,#geo-list-status,.pro-app-gate [role=status]')]
+        .filter(el=>el.offsetHeight).map(el=>el.textContent)
+    })).catch(()=>null);
+    console.error(diagnostics);
+    throw error;
   } finally { await context.close(); }
 }
 (async()=>{

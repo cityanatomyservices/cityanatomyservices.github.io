@@ -17,6 +17,14 @@ The switch has no end date. Use `--disable` to restore paid activation as well.
 Rolled-back SQL tests cover isolation, invitations, reminder verification, Pro
 access and switch-off. Browser verification uses `node tools/billing/check-visitor-browser.cjs`.
 
+Published checks at 1280 and 390 pixels reached the map review and enabled the
+free creation action, opened classifieds and a private Moontower tour, and
+found both sign-in methods available. A live guest saved and activated an
+already-ended test circle, then read its owner list and permanent page. Its
+window kept it off the map and prevented invitation delivery. The test removed
+its circle and identity. Guest Day Plans also survive a reload in the same
+testing tab. A regression test checks isolation from a second guest.
+
 ## 2026-11-22 - Repair Sam’s calendar and group source alerts daily
 
 The Sam’s Town Point calendar included a date-only Thanksgiving closure.

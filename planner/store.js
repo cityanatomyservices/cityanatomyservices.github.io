@@ -7,7 +7,8 @@
   const fresh=()=>{const plan=M.empty(crypto.randomUUID());plan.scope=C.id;
     if(C.event){plan.days=[];plan.daySettings={};for(const d of C.event.dates)M.ensureDay(plan,d);plan.date=C.event.dates.find(d=>d>=M.day())||C.event.dates[0];plan.expiresAt=C.event.expiresAt;}
     return {plan,revision:0,dirty:false,stamp:''};};
-  const temporary='Temporary plan · refresh or close clears it';
+  const temporary=()=>window.AustinSession?.testingGuest?'Guest plan · saved in this tab':'Temporary plan · refresh or close clears it';
+  const testPlanKey=()=>window.AustinSession?.testingGuest&&owner===window.AustinSession.user?.id?'austin:testing:plan:'+owner+':'+C.id:null;
   let owner=null,client=null,key=cacheKey('guest'),timer,started,conflict=false,registered=false,observedClient,authSubscription,epoch=0;
   let status='Opening your plan…',persistent=true,envelope=fresh();
   const copy=value=>structuredClone(value);
@@ -18,7 +19,12 @@
   function notify(){for(const fn of listeners)fn();}
   function persist() {
     if(C.event)envelope.plan.expiresAt=C.event.expiresAt;
-    if(!registered){V.set(guestKey,JSON.stringify(envelope));return;}
+    if(!registered){
+      const value=JSON.stringify(envelope),tabKey=testPlanKey();
+      V.set(guestKey,value);
+      if(tabKey)try{sessionStorage.setItem(tabKey,value);}catch{}
+      return;
+    }
     try{localStorage.setItem(key,JSON.stringify(envelope));persistent=true;}
     catch(_){persistent=false;status='Browser storage is unavailable. Keep this page open until saved online.';}
   }
@@ -75,7 +81,7 @@
         if(!keepGuest){V.remove(guestKey);envelope=fresh();}
         if(registered)purgeOldCaches(null);
         registered=false;owner=null;key=cacheKey('guest');persistent=true;
-        status=temporary;notify();
+        status=temporary();notify();
         // Supabase auth callbacks must not await other auth methods.
         if(event!=='SIGNED_OUT')queueMicrotask(()=>ready());
       }
@@ -95,8 +101,15 @@
       authClient=window.AustinSession.client();client=registered?authClient:null;key=cacheKey(owner);
       if(registered)migrateLegacy(owner);
       purgeOldCaches(registered?owner:null);observe(authClient);
-    }catch(_){if(run===epoch){purgeOldCaches(null);status=temporary;notify();}return;}
-    if(!registered){status=temporary;persist();notify();return;}
+    }catch(_){if(run===epoch){purgeOldCaches(null);status=temporary();notify();}return;}
+    if(!registered){
+      const tabKey=testPlanKey();
+      if(tabKey&&!V.get(guestKey))try{
+        const saved=sessionStorage.getItem(tabKey);
+        if(saved){V.set(guestKey,saved);envelope=read()||fresh();}
+      }catch{}
+      status=temporary();persist();notify();return;
+    }
     const cached=persistent?read():null;
     if(persistent)envelope=cached||fresh();
     if(envelope.pendingMerge){guest=copy(envelope);delete guest.pendingMerge;envelope=fresh();}
@@ -134,7 +147,7 @@
       C.assert();const next=copy(envelope.plan),result=fn(next);assertPlan(next);
       if(!M.valid(next))throw new Error('Check the day, times and visit lengths. You can save up to 60 days and 150 stops.');
       envelope={...envelope,plan:next,dirty:true,stamp:crypto.randomUUID()};
-      status=!registered?temporary:conflict?'A newer saved plan exists. Choose which copy to keep.':client?'Saving…':'Saved in this browser · connection unavailable';
+      status=!registered?temporary():conflict?'A newer saved plan exists. Choose which copy to keep.':client?'Saving…':'Saved in this browser · connection unavailable';
       persist();notify();if(client&&!conflict)queue();return result;
     });
   }
@@ -185,7 +198,7 @@
   window.addEventListener('storage',event=>{
     if(registered&&event.key===key&&persistent){const e=read();if(e){envelope=e;status=e.dirty?'Saving…':'Saved privately · signed-in account';notify();if(e.dirty)queue();}}
   });
-  const unsubscribe=V.subscribe(changed=>{if(!registered&&changed===guestKey){const e=read();if(e){envelope=e;status=temporary;notify();}}});
+  const unsubscribe=V.subscribe(changed=>{if(!registered&&changed===guestKey){const e=read();if(e){envelope=e;status=temporary();notify();}}});
   window.addEventListener('pagehide',()=>{clearTimeout(timer);unsubscribe();authSubscription?.unsubscribe();});
   window.addEventListener('online',()=>{if(!owner){started=null;ready();}else sync();});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden){if(!owner){started=null;ready();}else sync();}});

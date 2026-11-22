@@ -11,7 +11,7 @@ import { COPY, CREDITS } from './copy.js?v=20261031d';
 import { stopDisplayName } from './names.js';
 import { esc } from '../../webtour/text.js';
 import { evaluatePosition, metersToStop } from '../../webtour/engine.js';
-import { createStore } from '../../webtour/store.js?v=20261030c';
+import { createStore } from '../../webtour/store.js?v=20261122v';
 import { createDistanceSession, advanceDistance, resetDistanceSession, clearLastReading, formatMiles } from '../../webtour/distance.js';
 import { PERMISSION_DENIED, createWatch, createWakeLock, geolocationAvailable, getFix } from '../../webtour/geo.js';
 import { createCard } from './card.js';

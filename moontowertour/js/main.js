@@ -12,7 +12,7 @@
 import { COPY, CREDITS } from './copy.js?v=20261031d';
 import { esc } from '../../webtour/text.js';
 import { evaluatePosition, nearestPendingStop, ringCoordinates } from '../../webtour/engine.js';
-import { createStore } from '../../webtour/store.js?v=20261030c';
+import { createStore } from '../../webtour/store.js?v=20261122v';
 import { createDistanceSession, advanceDistance, resetDistanceSession, clearLastReading, formatMiles } from '../../webtour/distance.js';
 import { PERMISSION_DENIED, createWatch, createWakeLock, geolocationAvailable, getFix } from '../../webtour/geo.js';
 import { createBanner, createDrawer, createPicker, tapOrHold } from '../../webtour/controls.js';
