@@ -56,7 +56,7 @@
 
   function showMe() {
     if(el.youHandle){if(me)window.AustinMember.paintIdentity(el.youHandle,me);else el.youHandle.textContent='…';}
-    if(el.newName)el.newName.textContent=window.AustinSession.registered?'Edit profile':COPY.newName;
+    if(el.newName)el.newName.textContent=(window.AustinSession.registered||window.AustinSession.testingGuest)?'Edit profile':COPY.newName;
   }
 
   function showVisible() {
@@ -396,7 +396,7 @@
         showPeople();
       });
       if (el.newName) el.newName.addEventListener('click', async () => {
-        if(window.AustinSession.registered){const account=window.AustinAccount||window.parent.AustinAccount;await account?.open('profile');return;}
+        if(window.AustinSession.registered||window.AustinSession.testingGuest){const account=window.AustinAccount||window.parent.AustinAccount;await account?.open('profile');return;}
         me = await window.ChatIdentity.regenerate();
         showMe();
         if (room) await enter(room);          // rejoin under the new name

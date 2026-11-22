@@ -2,7 +2,7 @@
    loaded threads stay in this frame's memory; no additional realtime channel. */
 (() => {
   const S=window.AustinSession,M=window.AustinMember,threads=new WeakMap();
-  let owner=S.registered?S.user?.id:null,epoch=0;
+  let owner=(S.registered || S.testingGuest)?S.user?.id:null,epoch=0;
   const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
   const button=text=>{const el=node('button',text);el.type='button';return el;};
   const account=()=> (window.AustinAccount||window.parent.AustinAccount)?.open('profile');
@@ -20,7 +20,7 @@
     post.type='submit';cancel.hidden=true;actions.append(post,cancel);form.append(identity,label,actions);
     root.append(summary,privacy,refresh,list,more,form,signIn,status);container.append(root);
     let rows=[],loaded=false,busy=false,request=0,editing=null,threadEpoch=epoch;
-    function auth(){form.hidden=!S.registered;signIn.hidden=S.registered;const p=M.state?.profile;identity.textContent=`Posting as ${p?.emoji||'🙂'} ${p?.handle||'your Austin.chat nickname'}`;}
+    function auth(){form.hidden=!(S.registered || S.testingGuest);signIn.hidden=(S.registered || S.testingGuest);const p=M.state?.profile;identity.textContent=`Posting as ${p?.emoji||'🙂'} ${p?.handle||'your Austin.chat nickname'}`;}
     function stopEdit(){editing=null;input.value='';cancel.hidden=true;post.textContent='Post comment';}
     function render(){
       list.replaceChildren();
@@ -29,7 +29,7 @@
         const li=node('li'),who=node('span',`${row.emoji} ${row.handle}`,'comment-author'),time=node('time');
         time.dateTime=row.created_at;time.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'}).format(new Date(row.created_at))+' CT'+(row.updated_at!==row.created_at?' · edited':'');
         li.append(who,time,node('p',row.body,'comment-body'));
-        if(row.mine&&S.registered){
+        if(row.mine&&(S.registered || S.testingGuest)){
           const tools=node('div',null,'comment-actions'),edit=button('Edit'),remove=button('Delete');
           edit.onclick=()=>{editing=row.id;input.value=row.body;cancel.hidden=false;post.textContent='Save comment';input.focus();};
           remove.onclick=()=>{if(confirm('Delete your public comment?'))window.AustinVisit.track(write(()=>S.client().from('place_comments').delete().eq('id',row.id).select('id'),'Comment deleted.'));};
@@ -50,7 +50,7 @@
     }
     async function write(operation,message){
       if(busy)return;const version=epoch,author=S.user?.id;
-      if(!S.registered){account();return;}
+      if(!(S.registered || S.testingGuest)){account();return;}
       busy=true;post.disabled=true;status.textContent='Saving comment…';
       try{
         await M.profile();
@@ -68,7 +68,7 @@
       reset(){threadEpoch=epoch;request++;rows=[];list.replaceChildren();loaded=false;stopEdit();status.textContent='';auth();if(root.open)load();},
       reconnect(){if(threadEpoch!==epoch)this.reset();else auth();},
       auth,
-      draft(text){if(!S.registered){account();return;}root.open=true;input.value=text||'';input.focus();status.textContent='Review this public comment, then choose Post comment to share it.';}
+      draft(text){if(!(S.registered || S.testingGuest)){account();return;}root.open=true;input.value=text||'';input.focus();status.textContent='Review this public comment, then choose Post comment to share it.';}
     };
     threads.set(root,api);auth();
     root.addEventListener('toggle',()=>{if(root.open&&!loaded)load();});
@@ -77,7 +77,7 @@
       window.AustinVisit.track(write(()=>id?S.client().from('place_comments').update({body}).eq('id',id).select('id'):S.client().from('place_comments').insert({source_key:source.key,body}).select('id'),id?'Comment updated.':'Comment posted.'));};
     return api;
   }
-  const unsub=S.subscribe(()=>{const next=S.registered?S.user?.id:null;if(next!==owner){owner=next;epoch++;each(t=>t.reset());}});
+  const unsub=S.subscribe(()=>{const next=(S.registered || S.testingGuest)?S.user?.id:null;if(next!==owner){owner=next;epoch++;each(t=>t.reset());}});
   const unmember=M.subscribe(()=>each(t=>t.auth()));
   // MapLibre keeps closed popup DOM detached. Recheck identity when a popup
   // re-enters the document, including sign-out while that popup was closed.

@@ -12,7 +12,7 @@
       <form id="account-code-form" hidden><label>Code from your email<input id="account-code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,10}" minlength="6" maxlength="10" required></label><button type="submit" id="account-verify">Verify and sign in</button></form>
       <p class="account-help">No password needed. Signing in creates an account if you’re new. Your email stays private; chat uses a nickname.</p>
     </div>
-    <div id="account-member" hidden><p>Signed in as <strong id="account-address"></strong></p><p>Your plans save privately to your account. Signing out clears them from this browser view.</p><button type="button" id="account-signout">Sign out on this device</button><button type="button" id="account-discard" hidden>Sign out without saving these changes</button></div>
+    <div id="account-member" hidden><p class="registered-info">Signed in as <strong id="account-address"></strong></p><p class="registered-info">Your plans save privately to your account. Signing out clears them from this browser view.</p><button type="button" id="account-signout">Sign out on this device</button><button type="button" id="account-discard" hidden>Sign out without saving these changes</button></div>
     <p id="account-status" role="status" aria-live="polite"></p><button type="button" id="account-cancel-google" hidden>Cancel Google sign-in</button>`;
   document.body.append(dialog);
   const memberHost=document.createElement('div');
@@ -40,7 +40,11 @@
     const registered=session.registered;
     button.textContent=registered?'Account':'Sign In';button.disabled=false;
     $('account-title').textContent=registered?'Your account':'Sign in';
-    $('account-guest').hidden=registered;$('account-member').hidden=!registered;
+    const guest=session.testingGuest;
+    $('account-guest').hidden=registered;$('account-member').hidden=!registered&&!guest;
+    dialog.querySelectorAll('.registered-info').forEach(el=>el.hidden=!registered);
+    $('account-signout').hidden=!registered;
+    if(guest)$('account-title').textContent='Guest access and sign-in';
     $('account-address').textContent=registered?(session.user.email||'your account'):'';
     if(registered){$('account-email-form').reset();$('account-code-form').reset();$('account-code-form').hidden=true;sentTo='';}
     controls();
@@ -65,7 +69,7 @@
   }
   async function open(section){
     render();if(!dialog.open)dialog.showModal();button.setAttribute('aria-expanded','true');message('');
-    try{await session.peek();render();if(!session.registered)await options();else {await Promise.all([memberUI?.open(section),membershipUI?.open()]);if(section==='membership')membershipUI?.focus();}}catch(_){message('Could not connect to your account. Please try again.');}
+    try{await session.peek();render();await Promise.all([!session.registered&&options(),(session.registered||session.testingGuest)&&memberUI?.open(section),(session.registered||session.testingGuest)&&membershipUI?.open()]);if(section==='membership'&&(session.registered||session.testingGuest))membershipUI?.focus();}catch(_){message('Could not connect to your account. Please try again.');}
   }
   window.AustinAccount={open};
   button.addEventListener('click',()=>open());

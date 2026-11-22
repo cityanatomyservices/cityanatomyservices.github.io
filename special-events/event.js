@@ -160,7 +160,7 @@
     },true);
     $('event-search').oninput=applyFilters;
     $('event-favorites').onchange=applyFilters;
-    const savedChanged=()=>{const input=$('event-favorites');input.disabled=!window.AustinSession.registered||!window.SpecialEventSavedStore.loaded;if(input.disabled)input.checked=false;render();draw();};
+    const savedChanged=()=>{const input=$('event-favorites');input.disabled=!(window.AustinSession.registered || window.AustinSession.testingGuest)||!window.SpecialEventSavedStore.loaded;if(input.disabled)input.checked=false;render();draw();};
     window.SpecialEventSavedStore.subscribe(savedChanged);savedChanged();
     for(const id of ['event-from','event-until','event-all-day','event-unknown'])$(id).onchange=applyFilters;
     $('event-facet-groups').onchange=applyFilters;

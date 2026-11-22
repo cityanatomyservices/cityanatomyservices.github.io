@@ -3,13 +3,13 @@
 export function createStore(key) {
   const M=window.AustinMember,V=window.AustinVisit,S=window.AustinSession;
   const tour=key.includes('1885')?'1885':key.includes('visits')?'moontower-visits':'moontower';
-  const listeners=[],pending=new Map();let owner=S.registered?S.user.id:null,ids=V.get('tour:'+key)||[],saving=false;
+  const listeners=[],pending=new Map();let owner=(S.registered || S.testingGuest)?S.user.id:null,ids=V.get('tour:'+key)||[],saving=false;
   // Previous unscoped guest data cannot safely be assigned to an account.
   try{localStorage.removeItem(key);}catch(_){}
   const notify=()=>listeners.forEach(fn=>fn());
   function remember(){if(!owner)V.set('tour:'+key,ids);notify();}
   function sync(){
-    const next=S.registered?S.user.id:null;
+    const next=(S.registered || S.testingGuest)?S.user.id:null;
     if(next!==owner){const guest=owner===null?ids:[];owner=next;pending.clear();ids=[];V.remove('tour:'+key);if(next)guest.forEach(id=>pending.set(id,true));}
     if(owner&&M.state){ids=M.state.progress.filter(p=>p.tour===tour).map(p=>p.stop_id);for(const [id,on] of pending){ids=ids.filter(x=>x!==id);if(on)ids.push(id);}}
     remember();flush();

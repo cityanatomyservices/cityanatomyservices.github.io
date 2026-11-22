@@ -1,7 +1,7 @@
 /* Account-scoped, memory-only reads. Account switches cancel pending requests. */
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports={create:factory};else root.ClassifiedsClient=factory({session:root.AustinSession,track:task=>root.AustinVisit.track(task)});})(globalThis,({session,track=task=>task})=>{
   const listeners=new Set(),pending=new Set();
-  const identity=()=>session.registered?session.user?.id:null;
+  const identity=()=>(session.registered || session.testingGuest)?session.user?.id:null;
   let owner=identity(),epoch=0,writing=false;
   const changed=()=>Object.assign(new Error('Account changed. Please try again.'),{changed:true});
   function notify(event){listeners.forEach(fn=>fn(event));}

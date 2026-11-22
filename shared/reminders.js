@@ -6,7 +6,7 @@
   function createStore(){
     let owner=null,state=null,pending=null,loaded=0,run=0,epoch=0,writing=0,queue=Promise.resolve(),error='';const listeners=new Set();
     const channel=typeof BroadcastChannel==='function'?new BroadcastChannel('austin-email-reminders'):null;
-    const current=()=>S.registered?S.user.id:null;
+    const current=()=>(S.registered||S.testingGuest)?S.user.id:null;
     const emit=()=>listeners.forEach(fn=>fn());
     function reset(){owner=current();state=null;pending=null;loaded=0;run++;epoch++;error='';emit();}
     function assert(id){if(current()!==id)throw new Error('Your account changed. Please try again.');}
@@ -33,11 +33,12 @@
     }
     S.subscribe(()=>{if(owner!==current()){reset();load().catch(()=>{});}});
     channel?.addEventListener('message',event=>{if(event.data?.owner===current()){loaded=0;load(true).catch(()=>{});}});
-    window.addEventListener('focus',()=>{load().catch(()=>{});});
+    window.addEventListener('focus',()=>{load(true).catch(()=>{});});
     window.addEventListener('pagehide',()=>{channel?.close();listeners.clear();});
     return {load,get state(){return state;},get error(){return error;},get owner(){return owner;},
       subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn);},
       select:event=>write({action:'subscribe',provider:event.provider,id:event.id,start:event.start}),
+      verifyEmail:email=>write({action:'verify_guest_email',email}),
       cancel:id=>write({action:'cancel',id})};
   }
   let R;try{if(window.parent!==window&&window.parent.AustinVisit===window.AustinVisit)R=window.parent.AustinReminderStore;}catch{}
@@ -59,26 +60,27 @@
     const chosen=()=>available.find(e=>e.key===select.value)||available[0];
     function paint(){
       const event=chosen(),saved=R.state?.reminders?.find(r=>r.event_key===event.key),leads=M.leadHours(event.start);
-      check.checked=busy?desired:!!saved;check.disabled=busy||(!saved&&(!R.state?.enabled||(!leads.length&&S.registered)));select.disabled=busy;
+      check.checked=busy?desired:!!saved;check.disabled=busy||(!saved&&(!R.state?.enabled||(!leads.length&&(S.registered||S.testingGuest))));select.disabled=busy;
       check.setAttribute('aria-label','Email reminders for '+event.title+' at '+M.dateLabel(event.start));
       note.replaceChildren();
       if(localError||R.error)note.textContent=localError||R.error;
       else if(busy)note.textContent='Saving…';
       else if(!R.state)note.textContent='Checking reminders…';
       else if(!R.state.enabled)note.textContent='Email reminders are being set up.';
-      else if(!S.registered){const b=node('button','Sign in for email reminders');b.type='button';b.onclick=account;note.append(b);}
+      else if(S.testingGuest&&!R.state.email){const b=node('button','Verify email for reminders');b.type='button';b.onclick=account;note.append(b);}
+      else if(!S.registered&&!S.testingGuest){const b=node('button','Sign in for email reminders');b.type='button';b.onclick=account;note.append(b);}
       else if(saved){
         const jobs=saved.event_reminder_jobs||[];
         note.textContent=jobs.some(j=>['failed','skipped'].includes(j.state))?'A reminder could not be sent. Check Account → Reminders.':
           'Selected · '+(jobs.filter(j=>['pending','processing'].includes(j.state)).map(j=>j.lead_hours+' hours before').join(' and ')||'Reminders sent');
       }
       else if(!leads.length)note.textContent='Too late for a reminder: starts within two hours.';
-      else note.textContent=(leads.length===2?'24 hours and 2 hours before.':'2 hours before only.')+' Sent to your account email.';
+      else note.textContent=(leads.length===2?'24 hours and 2 hours before.':'2 hours before only.')+' Sent to your verified email.';
     }
     select.onchange=()=>{localError='';paint();};
     check.onchange=async()=>{
       const event=chosen(),saved=R.state?.reminders?.find(r=>r.event_key===event.key);
-      if(!S.registered){check.checked=false;await account();return;}
+      if(!S.registered&&(!S.testingGuest||!R.state?.email)){check.checked=false;await account();return;}
       desired=check.checked;busy=true;localError='';paint();
       try{await(saved?R.cancel(saved.id):R.select(event));}catch(e){localError=e.message;}finally{busy=false;paint();}
     };
@@ -87,13 +89,22 @@
   window.addEventListener('austin:planner-target',e=>{if(e.detail.provider==='explore')mount(e.detail.container,'explore',e.detail.data);});
   window.addEventListener('austin:reminder-target',e=>mount(e.detail.container,e.detail.provider,e.detail.data));
   function mountAccount(host){
-    const intro=node('p','Choose Email reminders beside a timed Explore event or City Hall meeting. We email your signed-in address 24 hours and 2 hours before the start. When less than 24 hours remain, only the 2-hour reminder is available.');
+    const intro=node('p','Choose Email reminders beside a timed Explore event or City Hall meeting. We email your verified address 24 hours and 2 hours before the start. When less than 24 hours remain, only the 2-hour reminder is available.');
     const status=node('p'),list=node('div'),stop=node('button','Cancel all reminders'),retry=node('button','Refresh reminders');
     status.setAttribute('role','status');stop.type=retry.type='button';host.append(intro,status,list,stop,retry);let busy=false,notice='';
+    const verify=node('form'),address=node('input'),send=node('button','Send verification email');
+    address.type='email';address.required=true;address.maxLength=254;address.autocomplete='email';
+    const label=node('label','Reminder email address');label.append(address);verify.append(label,send);intro.after(verify);
+    verify.onsubmit=async event=>{
+      event.preventDefault();busy=true;notice='Sending verification emailâ€¦';paint();
+      try{await R.verifyEmail(address.value.trim());notice='Check your email and confirm the link. Then select your event reminders.';}
+      catch(e){notice=e.message;}finally{busy=false;paint();}
+    };
     async function cancel(id){busy=true;notice='';paint();try{await R.cancel(id);notice='Reminders cancelled.';}catch(e){notice=e.message;}finally{busy=false;paint();}}
     function paint(){
-      if(!S.registered){status.textContent='Sign in to manage your email reminders.';list.replaceChildren();stop.hidden=true;return;}
-      status.textContent=notice||R.error||(!R.state?'Loading reminders…':!R.state.enabled?'Email reminders are being set up.':`Email reminders go to ${R.state.email}. Times are in Austin time.`);
+      verify.hidden=!S.testingGuest||!R.state?.enabled||!!R.state.email;send.disabled=busy;
+      if(!S.registered&&!S.testingGuest){status.textContent='Sign in to manage your email reminders.';list.replaceChildren();stop.hidden=true;return;}
+      status.textContent=notice||R.error||(!R.state?'Loading reminders…':!R.state.enabled?'Email reminders are being set up.':!R.state.email?'Verify an email address to receive reminders.':`Email reminders go to ${R.state.email}. Times are in Austin time.`);
       list.replaceChildren();const rows=R.state?.reminders||[];stop.hidden=!rows.length;stop.disabled=busy;
       if(R.state&&!rows.length)list.append(node('p','No upcoming email reminders selected.'));
       for(const row of rows){

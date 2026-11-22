@@ -1,5 +1,4 @@
-/* Shared identity only. Guest credentials live in the current page visit;
-   only a registered account may persist a session across visits. */
+/* Registered sessions persist across visits. Visitor testing can retain an anonymous session in this tab. */
 (() => {
   const visit=window.AustinVisit;
   // One SDK client owns a visit, even while its map iframe changes.
@@ -16,6 +15,15 @@
   function member() {
     try {const value=localStorage.getItem(permanentKey);return registered(JSON.parse(value))?value:null;}catch(_){canPersist=false;return null;}
   }
+  const guestKey='austin:testing:guest';
+  let visitorTesting=false;
+  const testingReady=fetch(config.url+'/rest/v1/rpc/visitor_testing_enabled',{
+    method:'POST',headers:{apikey:config.key,'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(8000)
+  }).then(async response=>{
+    if(!response.ok)return;
+    visitorTesting=(await response.json())===true;
+    if(!visitorTesting)try{sessionStorage.removeItem(guestKey);}catch{}
+  }).catch(()=>{});
   let saved;
   try {
     saved=JSON.parse(localStorage.getItem(permanentKey));
@@ -29,10 +37,15 @@
   // Never broadcast guest sessions to another tab, including after sign-out.
   const storageKey='austin-guest-'+visit.id;
   const storage={
-    getItem(key) {
+    async getItem(key) {
       if(key===storageKey) {
         const value=member();if(value)return value;
+        await testingReady;
         const previous=visit.get('auth:'+key);
+        if(!previous&&visitorTesting)try{
+          const stored=sessionStorage.getItem(guestKey);
+          if(JSON.parse(stored)?.user?.is_anonymous===true)return stored;
+        }catch{}
         try {if(canPersist&&registered(JSON.parse(previous)))return null;}catch(_){}
       }
       return visit.get('auth:'+key);
@@ -42,6 +55,10 @@
       if(key===storageKey) {
         try {
           const data=JSON.parse(value),before=JSON.parse(member());
+          try{
+            if(visitorTesting&&data?.user?.is_anonymous===true)sessionStorage.setItem(guestKey,value);
+            else if(registered(data))sessionStorage.removeItem(guestKey);
+          }catch{}
           // An old tab's in-flight refresh must not undo another tab's logout
           // or replace a newer account. Explicit guest-to-member login is allowed.
           const previous=current||saved;
@@ -56,6 +73,7 @@
     },
     removeItem(key) {
       visit.remove('auth:'+key);
+      if(key===storageKey)try{sessionStorage.removeItem(guestKey);}catch{}
       if(key===storageKey)try{
         const stored=JSON.parse(member()),previous=current||saved;
         if(!stored||stored.user.id===previous?.user?.id)localStorage.removeItem(permanentKey);
@@ -95,7 +113,7 @@
   }
   window.addEventListener('pagehide',()=>client?.auth.stopAutoRefresh());
   // Registered logins/refreshes/sign-out follow the browser's other tabs.
-  // Guest sessions never enter this channel or browser storage.
+  // Test guests stay scoped to one tab.
   window.addEventListener('storage',event=>{
     if(event.key!==permanentKey)return;
     adopting=adopting.catch(()=>{}).then(async()=>{
@@ -111,10 +129,16 @@
   });
   window.AustinSession={
     client:getClient,
+    get testingGuest(){return visitorTesting&&current?.user?.is_anonymous===true;},
     get registered(){return registered(current);},
     get user(){return current?.user||null;},
     subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn);},
-    async peek(){const {data,error}=await getClient().auth.getSession();if(error)throw error;current=data.session;return current;},
+    async peek(){
+      await testingReady;
+      const {data,error}=await getClient().auth.getSession();if(error)throw error;
+      if(!data.session&&visitorTesting&&!visit.closed)return this.ready();
+      current=data.session;return current;
+    },
     async settings(){
       const response=await fetch(config.url+'/auth/v1/settings',{headers:{apikey:config.key},signal:AbortSignal.timeout(10000)});
       if(!response.ok)throw new Error('Sign-in options could not be loaded. Try again.');
@@ -130,7 +154,8 @@
         const local=await auth.signOut({scope:'local'});if(local.error)throw local.error;
       }
     },
-    ready() {
+    async ready() {
+      await testingReady;
       if(!pending)pending=(navigator.locks ? navigator.locks.request('austin-session-start:'+visit.id,session) : session()).finally(()=>{pending=null;});
       return pending;
     }

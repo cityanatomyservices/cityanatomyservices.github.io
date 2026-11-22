@@ -14,7 +14,9 @@ export function handler(api){return async req=>{
   const allowed={list:['action'],save:['action','id','fields','invitations'],schedule:['action','id','starts_at','ends_at'],notifications:['action','id','enabled','email'],geocode:['action','address'],suggest:['action','address'],checkout:['action','id'],status:['action','id'],portal:['action','id']}[body.action];
   if(Object.keys(body).some(k=>!allowed.includes(k)))throw problem(400,'Unexpected field.');
   const user=await api.user(req);
-  const freeTesting=api.mode==='live'&&['list','checkout','status'].includes(body.action)&&(await api.rpc('access_testing_status',{})).geofencesEnabled===true;
+  const guest=user.is_anonymous===true;
+  const freeTesting=api.mode==='live'&&(guest||['list','checkout','status'].includes(body.action))&&(await api.rpc('access_testing_status',{})).geofencesEnabled===true;
+  if(guest&&(!freeTesting||body.action==='portal'||await api.rpc('visitor_testing_enabled',{})!==true))throw problem(403,'Sign in to manage geofences outside visitor testing.');
   if(body.action==='list')return json({spaces:await api.rpc('geofence_owner_list',{p_owner:user.id,p_mode:api.mode}),notifications:await api.rpc('geofence_email_list',{p_owner:user.id}),invitations:await api.rpc('geofence_invitation_list',{p_owner:user.id}),emailReady:api.emailReady?.()===true,checkoutEnabled:api.enabled||freeTesting,freeTesting});
   if(['geocode','suggest'].includes(body.action)){
    if(typeof body.address!=='string'||body.address.trim().length<4||body.address.length>240)throw problem(422,'Enter a street address in the Austin metro area.');

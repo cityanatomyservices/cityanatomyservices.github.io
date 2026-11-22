@@ -17,15 +17,16 @@ export function handler(api) {
             await update(job.id,{state:'skipped',result:'Event removed, expired, cancelled or rescheduled'});skipped++;continue;
           }
           const u=await api.request('/auth/v1/admin/users/'+row.owner_id);
-          if(!u?.email_confirmed_at || !u.email || u.is_anonymous || u.deleted_at || (u.banned_until&&Date.parse(u.banned_until)>Date.now())){
+          const destination=u?.is_anonymous?await api.rpc('visitor_reminder_address',{p_owner:row.owner_id}):u?.email_confirmed_at&&u.email;
+          if(!destination || u.deleted_at || (u.banned_until&&Date.parse(u.banned_until)>Date.now())){
             await update(job.id,{state:'skipped',result:'Confirmed account email unavailable'});skipped++;continue;
           }
           // Persist the exact request before sending; retries reuse its idempotency
           // key and body even if a feed or account changes between attempts.
           const unsubscribe=api.base+'/functions/v1/reminders?unsubscribe='+row.unsubscribe_token;
-          const payload=job.payload || {from:api.env('REMINDER_FROM'),to:[u.email],...message(current,job.lead_hours,'https://austin.chat/reminders/#'+row.unsubscribe_token),
+          const payload=job.payload || {from:api.env('REMINDER_FROM'),to:[destination],...message(current,job.lead_hours,'https://austin.chat/reminders/#'+row.unsubscribe_token),
             headers:{'List-Unsubscribe':`<${unsubscribe}>`,'List-Unsubscribe-Post':'List-Unsubscribe=One-Click'}};
-          if(payload.to[0]!==u.email){await update(job.id,{state:'skipped',result:'Account email changed'});skipped++;continue;}
+          if(payload.to[0]!==destination){await update(job.id,{state:'skipped',result:'Account email changed'});skipped++;continue;}
           if(!job.payload)await update(job.id,{payload});
           const [check]=await api.request('/rest/v1/event_reminder_jobs?id=eq.'+job.id+'&select=state');
           if(check?.state!=='processing'){skipped++;continue;}

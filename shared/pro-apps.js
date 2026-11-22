@@ -3,9 +3,9 @@
   const S=window.AustinSession,M=window.AustinMembership,frames=new WeakMap();let worker;
   if(!S||!M)return;
   async function authorization(target){
-    await S.peek();const id=S.registered?S.user.id:null;
+    await S.peek();const id=(S.registered || S.testingGuest)?S.user.id:null;
     const {data}=id?await S.client().auth.getSession():{data:null};
-    const token=S.registered&&S.user.id===id&&data?.session?.user?.id===id?data.session.access_token:null;
+    const token=(S.registered || S.testingGuest)&&S.user.id===id&&data?.session?.user?.id===id?data.session.access_token:null;
     if(!target)return;
     await new Promise((resolve,reject)=>{
       const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();reject(new Error('App connection timed out. Please reload.'));},5000);
@@ -40,7 +40,7 @@
     button.onclick=()=>window.AustinAccount?.open('membership');
     function hide(){if(frame.getAttribute('src'))frame.src='about:blank';frame.hidden=true;gate.hidden=false;loadedOwner=null;}
     async function render(){
-      const run=++generation,id=S.registered?S.user.id:null,state=M.state;
+      const run=++generation,id=(S.registered || S.testingGuest)?S.user.id:null,state=M.state;
       if(!id){hide();message.textContent='Sign in, then choose Pro to open this app.';button.textContent='Sign in';button.disabled=false;return;}
       if(!state){hide();message.textContent='Checking membership…';button.disabled=true;return;}
       if(state.plan!=='pro'||!(state.temporaryAccess===true||Date.parse(state.paidThrough)>Date.now())){hide();message.textContent=state.freeTesting?'Activate Pro for free while testing to open this app.':'This app is included with Pro for $5 per month.';button.textContent='View membership';button.disabled=false;return;}
@@ -48,11 +48,11 @@
       message.textContent='Opening your Pro app…';button.disabled=true;
       try{
         const active=await ready();await authorization(active);
-        if(run!==generation||!S.registered||S.user.id!==id)return;
+        if(run!==generation||!(S.registered || S.testingGuest)||S.user.id!==id)return;
         loadedOwner=id;gate.hidden=true;frame.hidden=false;frame.src=target.href;
       }catch(error){if(run===generation){hide();message.textContent=error.message;button.textContent='Try again';button.disabled=false;button.onclick=()=>{button.onclick=()=>window.AustinAccount?.open('membership');render();};}}
     }
-    S.subscribe(()=>{render();if(S.registered)M.load().catch(()=>{});});M.subscribe(render);
+    S.subscribe(()=>{render();if((S.registered || S.testingGuest))M.load().catch(()=>{});});M.subscribe(render);
     render();S.peek().then(()=>M.load()).catch(()=>{hide();message.textContent='Membership could not connect. Open Account and try again.';button.disabled=false;});
   }
   navigator.serviceWorker?.addEventListener('message',event=>{

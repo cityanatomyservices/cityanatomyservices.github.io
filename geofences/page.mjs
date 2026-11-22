@@ -21,12 +21,12 @@ async function refreshAvailability(){
 const status=text=>{$('geo-gps-status').textContent=text;};
 async function rpc(args){const {data,error}=await S.client().rpc('geofence_chat_v2',{p_id:id,...identityArgs,...args});if(error)throw error;return data;}
 function clearChat(){ $('geo-chat-content').hidden=true;$('geo-people').textContent='Open Chat and allow location to join and see who is here.';$('geo-messages').replaceChildren();$('geo-message').value='';lastMessage=0;conversation=null;transcript=[];exportTrimmed=false;$('geo-export').disabled=true;}
-function identityControls(){$('geo-identity').disabled=wanted;$('geo-use-profile').disabled=!profileName||!S.registered;$('geo-anon-label').hidden=$('geo-use-profile').checked;$('geo-anon-name').disabled=$('geo-use-profile').checked;}
+function identityControls(){$('geo-identity').disabled=wanted;$('geo-use-profile').disabled=!profileName||!(S.registered || S.testingGuest);$('geo-anon-label').hidden=$('geo-use-profile').checked;$('geo-anon-name').disabled=$('geo-use-profile').checked;}
 $('geo-anon-name').value=window.AustinMember?.generate().handle||'Visitor '+crypto.randomUUID().slice(0,6);
 document.querySelectorAll('[name=identity]').forEach(input=>input.onchange=identityControls);
-async function identity(){const who=S.registered?S.user.id:null;profileName='';if(who){try{const data=await window.AustinMember.ready();if(S.registered&&S.user.id===who)profileName=data?.profile?.handle||'';}catch{}}
+async function identity(){const who=(S.registered || S.testingGuest)?S.user.id:null;profileName='';if(who){try{const data=await window.AustinMember.ready();if((S.registered || S.testingGuest)&&S.user.id===who)profileName=data?.profile?.handle||'';}catch{}}
  if(!profileName){$('geo-use-profile').checked=false;document.querySelector('[name=identity][value=anonymous]').checked=true;}
- $('geo-profile-label').textContent=profileName?'Use my profile name: '+profileName:'Use my profile name';$('geo-profile-note').textContent=profileName?'Your chosen name is visible to the people in this chat.':S.registered?'Add a profile name through Account, or use an anonymous name.':'You can use an anonymous name without signing in. Sign in to use your profile name.';identityControls();
+ $('geo-profile-label').textContent=profileName?'Use my profile name: '+profileName:'Use my profile name';$('geo-profile-note').textContent=profileName?'Your chosen name is visible to the people in this chat.':(S.registered || S.testingGuest)?'Add a profile name through Account, or use an anonymous name.':'You can use an anonymous name without signing in. Sign in to use your profile name.';identityControls();
 }
 S.subscribe(identity);window.AustinMember?.subscribe(identity);S.peek().then(identity).catch(()=>{});
 async function leave(){attempt++;wanted=false;fix=null;clearInterval(timer);clearInterval(refresh);if(watch!==null)navigator.geolocation.clearWatch(watch);watch=null;timer=refresh=null;clearChat();identityControls();$('geo-join').hidden=false;$('geo-leave').hidden=true;status('You left the chat.');try{await rpc({p_leave:true});}catch{}}
@@ -45,7 +45,7 @@ async function join(){if(wanted||$('geo-join').disabled)return;if(!navigator.geo
  const options={enableHighAccuracy:true,maximumAge:0,timeout:15000};watch=navigator.geolocation.watchPosition(success,failure,options);refresh=setInterval(()=>navigator.geolocation.getCurrentPosition(success,failure,options),20000);timer=setInterval(()=>poll(),3000);
 }
 $('geo-chat-toggle').onclick=()=>{const open=$('geo-chat-panel').hidden;$('geo-chat-panel').hidden=!open;$('geo-chat-toggle').setAttribute('aria-expanded',String(open));if(open){$('geo-chat-panel').scrollIntoView({behavior:'smooth',block:'start'});$('geo-join').focus({preventScroll:true});}else if(wanted)leave();};
-async function ownership(){const who=S.registered?S.user.id:null;$('geo-manage').hidden=true;if(!who||!validId(id))return;try{const {data,error}=await S.client().rpc('geofence_is_owner',{p_id:id});if(!error&&S.registered&&S.user.id===who)$('geo-manage').hidden=data!==true;}catch{}}
+async function ownership(){const who=(S.registered || S.testingGuest)?S.user.id:null;$('geo-manage').hidden=true;if(!who||!validId(id))return;try{const {data,error}=await S.client().rpc('geofence_is_owner',{p_id:id});if(!error&&(S.registered || S.testingGuest)&&S.user.id===who)$('geo-manage').hidden=data!==true;}catch{}}
 S.subscribe(ownership);S.peek().then(ownership).catch(()=>{});
 $('geo-join').onclick=join;$('geo-leave').onclick=leave;
 $('geo-export').onclick=()=>{if(transcript.length)downloadChat(id,fence.name,transcript);};

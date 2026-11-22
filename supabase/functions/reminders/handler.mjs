@@ -26,13 +26,31 @@ export function handler(api) {
       let body;try{body=JSON.parse(raw);}catch{return json({error:'Invalid request.'},400);}
       if(!body||typeof body!=='object'||Array.isArray(body))return json({error:'Invalid request.'},400);
       if(body.action==='availability')return json({enabled:api.ready()});
+      if(body.action==='confirm_guest_email'){
+        if(!uuid(body.token))return json({error:'Invalid verification link.'},400);
+        const verified=await api.rpc('visitor_reminder_confirm',{p_token:body.token});
+        return json({verified},verified?200:410);
+      }
       const u=await api.user(req);
+      if(body.action==='verify_guest_email'){
+        if(!u.is_anonymous||u.email||!api.ready())return json({error:'Verification is unavailable.'},409);
+        const email=typeof body.email==='string'?body.email.trim().toLowerCase():'';
+        if(email.length>254||!/^\S+@[^\s@<>]+\.[^\s@<>]+$/.test(email)||/[\s<>]/.test(email)||email.split('@').length!==2)return json({error:'Enter a valid email address.'},422);
+        const token=await api.rpc('visitor_reminder_request',{p_owner:u.id,p_email:email});
+        const response=await api.fetcher('https://api.resend.com/emails',{method:'POST',
+          headers:{Authorization:'Bearer '+api.env('RESEND_API_KEY'),'Content-Type':'application/json','Idempotency-Key':'visitor-reminder/'+token},
+          body:JSON.stringify({from:api.env('REMINDER_FROM'),to:[email],subject:'Confirm your email for Austin.chat reminders',
+            text:'To enable event reminders for this guest visit, confirm your email here: https://austin.chat/reminders/#verify/'+token+'\nIf you did not request reminders, ignore this email.'}),signal:AbortSignal.timeout(15000)});
+        if(!response.ok)return json({error:'The verification email could not be sent. Try again in a minute.'},503);
+        return json(await status(u));
+      }
       if(body.action==='status')return json(await status(u));
       if(body.action==='cancel') {
         if(body.id!==null && !uuid(body.id))return json({error:'Invalid reminder.'},400);
         await api.rpc('reminder_cancel',{p_owner:u.id,p_id:body.id});return json(await status(u));
       }
       if(body.action!=='subscribe')return json({error:'Unknown action.'},400);
+      if(u.is_anonymous&&!u.email)return json({error:'Verify your reminder email first.'},422);
       if(!api.ready())return json({error:'Email reminders are not available yet. Please check back soon.'},503);
       if(!['explore','city-hall'].includes(body.provider)||typeof body.id!=='string'||body.id.length>200||!instant(body.start))return json({error:'Choose a timed event.'},400);
       const events=await api.events(body.provider),event=events.get(eventKey(body.provider,body.id,body.start));
@@ -43,6 +61,6 @@ export function handler(api) {
       // No browser-provided recipient or card text is stored or sent.
       await api.rpc('reminder_enroll',{p_owner:u.id,p_event:event});
       return json(await status(u));
-    }catch(error){return json({error:error.status===401||error.status===403?error.message:'Reminders could not update. Please try again later.'},error.status===401||error.status===403?error.status:503);}
+    }catch(error){if(error.status===429)return json({error:'Wait a minute before requesting another email.'},429);return json({error:error.status===401||error.status===403?error.message:'Reminders could not update. Please try again later.'},error.status===401||error.status===403?error.status:503);}
   };
 }

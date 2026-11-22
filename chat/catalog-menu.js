@@ -10,7 +10,7 @@
     if (!home) home = read('/home.json?v=20261109f').catch(error => { home = null; throw error; });
     return home;
   }
-  const registered=()=>window.AustinSession?.registered===true;
+  const registered=()=>(window.AustinSession?.registered || window.AustinSession?.testingGuest)===true;
   const pro=()=>registered()&&window.AustinMembership?.state?.plan==='pro'&&(window.AustinMembership.state.temporaryAccess===true||Date.parse(window.AustinMembership.state.paidThrough)>Date.now());
   function access() {
     const button=document.getElementById('ctrlApps');

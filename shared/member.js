@@ -10,7 +10,7 @@
   const nouns=['Otter','Robin','Comet','Peach','Maple','Pebble','Lantern','Moth','Biscuit','Thistle','Fern','Waffle','Sparrow','Cactus','Cloud','Pine','River','Marble','Daisy','Fox','Gecko'];
   const pick=a=>a[Math.floor(Math.random()*a.length)];
   const generate=()=>({handle:pick(adjectives)+pick(nouns)+Math.floor(Math.random()*90+10),emoji:pick(emojis)});
-  const currentOwner=()=>S.registered?S.user.id:null;
+  const currentOwner=()=>(S.registered || S.testingGuest)?S.user.id:null;
   const client=()=>S.client();
   let owner=null,data=null,pending=null,generation=0,queue=Promise.resolve(),lastError='';
   const channel=typeof BroadcastChannel==='function'?new BroadcastChannel('austin-member-updates'):null;

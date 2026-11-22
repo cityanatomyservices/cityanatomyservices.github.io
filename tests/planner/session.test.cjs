@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const vm=require('node:vm'),fs=require('node:fs');
 const code=fs.readFileSync(require.resolve('../../shared/session.js'),'utf8');
 const key='sb-aqbyxpiwugcvoephsvpm-auth-token';
-function fixture({local=new Map(),visit,parent}={}) {
+function fixture({local=new Map(),tab=new Map(),testing=false,visit,parent}={}) {
  const values=new Map();visit||={id:crypto.randomUUID(),get:k=>values.get(k)||null,set:(k,v)=>values.set(k,v),remove:k=>values.delete(k)};
  let signups=0,authOptions,callbacks=[];const events={};
  const storage=new Proxy({getItem:k=>local.get(k)||null,setItem:(k,v)=>local.set(k,v),removeItem:k=>local.delete(k)}, {ownKeys:()=>[...local.keys()],getOwnPropertyDescriptor:()=>({enumerable:true,configurable:true})});
@@ -11,13 +11,15 @@ function fixture({local=new Map(),visit,parent}={}) {
   authOptions=auth;
   return {auth:{
    onAuthStateChange(fn){callbacks.push(fn);return {data:{subscription:{unsubscribe(){}}}};},stopAutoRefresh(){},
-   async getSession(){return {data:{session:JSON.parse(auth.storage.getItem(auth.storageKey))}};},
+   async getSession(){return {data:{session:JSON.parse(await auth.storage.getItem(auth.storageKey))}};},
    async setSession(){const session=JSON.parse(local.get(key));auth.storage.setItem(auth.storageKey,JSON.stringify(session));callbacks.forEach(fn=>fn('SIGNED_IN',session));return {data:{session}};},
    async signOut(){auth.storage.removeItem(auth.storageKey);callbacks.forEach(fn=>fn('SIGNED_OUT',null));return {error:null};},
    async signInAnonymously(){signups++;const session={user:{id:crypto.randomUUID(),is_anonymous:true},access_token:'test-only',refresh_token:'test-only'};auth.storage.setItem(auth.storageKey,JSON.stringify(session));callbacks.forEach(fn=>fn('SIGNED_IN',session));return {data:{session}};}
   }};
  }}};
- vm.runInNewContext(code,{window,localStorage:storage,navigator:{},crypto,console,queueMicrotask});
+ const sessionStorage={getItem:k=>tab.get(k)||null,setItem:(k,v)=>tab.set(k,v),removeItem:k=>tab.delete(k)};
+ vm.runInNewContext(code,{window,localStorage:storage,sessionStorage,navigator:{},crypto,console,queueMicrotask,AbortSignal,
+   fetch:async()=>({ok:true,json:async()=>testing})});
  return {api:window.AustinSession,local,visit,window,events,get authOptions(){return authOptions;},get signups(){return signups;},
   signIn(session){authOptions.storage.setItem(authOptions.storageKey,JSON.stringify(session));callbacks.forEach(fn=>fn('SIGNED_IN',session));}};
 }
@@ -66,4 +68,14 @@ test('a late refresh from an old tab cannot undo logout or replace another accou
  f.local.set(key,JSON.stringify({user:{id:'second',is_anonymous:false},access_token:'second-access',refresh_token:'second-refresh'}));
  f.authOptions.storage.setItem(f.authOptions.storageKey,JSON.stringify({...first,access_token:'late-refresh'}));assert.equal(JSON.parse(f.local.get(key)).user.id,'second');
  f.authOptions.storage.removeItem(f.authOptions.storageKey);assert.equal(JSON.parse(f.local.get(key)).user.id,'second');
+});
+
+test('visitor testing restores only this tab and still offers registration',async()=>{
+ const tab=new Map(),a=fixture({tab,testing:true});
+ const first=await a.api.peek();
+ assert.equal(a.api.testingGuest,true);assert.equal(a.api.registered,false);
+ const same=fixture({tab,testing:true}),other=fixture({testing:true});
+ assert.equal((await same.api.peek()).user.id,first.user.id);
+ assert.notEqual((await other.api.peek()).user.id,first.user.id);
+ const off=fixture({tab});assert.equal(await off.api.peek(),null);assert.equal(tab.size,0);
 });

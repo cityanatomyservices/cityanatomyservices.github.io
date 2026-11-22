@@ -6,7 +6,7 @@
     }
   }catch(_){}
   const S=window.AustinSession,listeners=new Set();
-  const identity=()=>S?.registered?S.user.id:null;
+  const identity=()=>(S?.registered||S?.testingGuest)?S.user.id:null;
   let owner=identity(),generation=0,pending=null,state=null;
   const emit=()=>listeners.forEach(fn=>fn(state));
   function reset(){owner=identity();generation++;pending=null;state=null;emit();}
@@ -31,7 +31,7 @@
     const id=owner,run=generation;
     const task=(async()=>{
       let billing,unavailable=false;
-      try{billing=await request('status',id);}catch(error){
+      try{if(S.registered)billing=await request('status',id);}catch(error){
         if(identity()!==id)throw error;
         if(error.status!==403&&error.status!==503)throw error;
         unavailable=true;
@@ -48,7 +48,7 @@
     try{return await task;}finally{if(pending===task)pending=null;}
   }
   async function openBilling(action) {
-    await S?.peek();const id=identity();if(!id)throw new Error('Sign in to manage your membership.');
+    await S?.peek();const id=identity();if(!id||!S.registered)throw new Error('Sign in to manage your membership.');
     const value=await request(action,id);
     if(action==='checkout'&&value.activated===true){await load();return;}
     const url=new URL(value.url);

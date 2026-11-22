@@ -5,6 +5,12 @@ annual plan, trial, signup fee or other paid membership level.
 Custom chat geofences are a separate $10/month-per-circle product; see
 [geofences](../geofences/README.md).
 
+## Visitor testing
+
+Run `python tools/billing/testing-mode.py --enable-visitors` to open visitor features, Pro apps and free geofence creation. Each visitor uses a separate Supabase anonymous session scoped to their browser tab. Signing in opens the registered account. Existing guest circles keep their public link while testing is enabled. Email reminders and optional activity alerts require a verified destination.
+
+Run `python tools/billing/testing-mode.py --disable-visitors` to restore the sign-in gates while keeping free testing for members. Run `python tools/billing/testing-mode.py --disable` to restore both sign-in gates and normal pricing. Neither operation starts a subscription. The switch has no scheduled end. Dashboard and Content desk access still use the owner allowlist.
+
 ## Temporary free testing (November 13, 2026)
 
 Confirmed signed-in users can activate Pro and geofences without payment or a

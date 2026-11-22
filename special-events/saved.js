@@ -13,7 +13,7 @@
     let busy=false,message='',seenOwner=owner,conflict=false;
     function paint(){
       if(seenOwner!==owner){seenOwner=owner;busy=false;message='';conflict=false;note.value='';}
-      const signed=S.registered&&!C.expired,enabled=signed&&T.loaded&&!busy,saved=T.row(id),draft=drafts.get(id);
+      const signed=(S.registered || S.testingGuest)&&!C.expired,enabled=signed&&T.loaded&&!busy,saved=T.row(id),draft=drafts.get(id);
       favorite.disabled=note.disabled=save.disabled=!enabled;reload.disabled=!signed||busy;
       favorite.textContent=signed&&saved.favorite?'★ Favorited':'☆ Favorite';favorite.setAttribute('aria-pressed',String(signed&&saved.favorite));
       favorite.setAttribute('aria-label',`${saved.favorite?'Remove':'Save'} ${source.title} ${saved.favorite?'from':'to'} event Favorites`);

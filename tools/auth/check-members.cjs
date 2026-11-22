@@ -81,7 +81,7 @@ const rpc=(member,name,body)=>json(api+'/rest/v1/rpc/'+name,body,headers(member.
   snapshot=await rpc(a,'member_load',{});assert.equal(snapshot.favorites.length,1);assert.equal(snapshot.preferences.theme,'dark');assert.equal(snapshot.preferences.navigation,'apple');
   const privateFavorites=await json(api+'/rest/v1/member_favorites?owner_id=eq.'+a.id,undefined,headers(b.session.access_token));assert.deepEqual(privateFavorites,[]);
   await page.locator('.account-close').click();
-  await frame.evaluate(async()=>{const {createStore}=await import('/webtour/store.js?v=20261030c');window.qaTour=createStore('cityanatomy:1885murdertour:tour-v1');qaTour.markDone('qa-stop');});await page.evaluate(()=>AustinVisit.settled());
+  await frame.evaluate(async()=>{const {createStore}=await import('/webtour/store.js?v=20261122v');window.qaTour=createStore('cityanatomy:1885murdertour:tour-v1');qaTour.markDone('qa-stop');});await page.evaluate(()=>AustinVisit.settled());
   assert.ok((await rpc(a,'member_load',{})).progress.some(p=>p.tour==='1885'&&p.stop_id==='qa-stop'));
   const fresh=await contextFor(a),restored=await fresh.newPage();await restored.goto(base+'/dayplan/');const rf=await ready(restored);
   assert.equal(await restored.evaluate(()=>AustinMember.state.favorites.length),1);assert.equal(await restored.evaluate(()=>localStorage.getItem('theme')),'dark');assert.equal(await rf.evaluate(()=>PlanStore.plan.items.length),1);
@@ -99,10 +99,10 @@ const rpc=(member,name,body)=>json(api+'/rest/v1/rpc/'+name,body,headers(member.
   await page.getByRole('button',{name:'Account',exact:true}).click();await page.locator('#account-signout').click();await page.waitForFunction(()=>!AustinSession.registered&&AustinMember.state===null);await page.locator('.account-close').click();
   assert.equal(await page.evaluate(()=>AustinMember.has('place:qa-coffee')),false);
   assert.equal(await page.locator('#member-preview').textContent(),'','Sign-out clears even the closed profile preview');
-  await frame.evaluate(async()=>{const {createStore}=await import('/webtour/store.js?v=20261030c');window.qaGuestTour=createStore('cityanatomy:1885murdertour:tour-v1');qaGuestTour.markDone('guest-only');});
+  await frame.evaluate(async()=>{const {createStore}=await import('/webtour/store.js?v=20261122v');window.qaGuestTour=createStore('cityanatomy:1885murdertour:tour-v1');qaGuestTour.markDone('guest-only');});
   assert.equal(await frame.evaluate(()=>localStorage.getItem('cityanatomy:1885murdertour:tour-v1')),null);
   await page.reload();frame=await ready(page);assert.equal(await page.evaluate(()=>AustinSession.registered),false);
-  assert.deepEqual(await frame.evaluate(async()=>{const {createStore}=await import('/webtour/store.js?v=20261030c');return createStore('cityanatomy:1885murdertour:tour-v1').doneIds;}),[]);
+  assert.deepEqual(await frame.evaluate(async()=>{const {createStore}=await import('/webtour/store.js?v=20261122v');return createStore('cityanatomy:1885murdertour:tour-v1').doneIds;}),[]);
   const guestToken=await page.evaluate(async()=>(await AustinSession.ready()).access_token);
   const guestWrite=await fetch(api+'/rest/v1/member_favorites',{method:'POST',headers:headers(guestToken),body:JSON.stringify({owner_id:await page.evaluate(()=>AustinSession.user.id),source_key:'guest',source:{key:'guest',title:'Guest'}})});assert.ok(!guestWrite.ok);
   const rows=Array.from({length:200},(_,i)=>({owner_id:b.id,source_key:'qa-'+i,source:{key:'qa-'+i,title:'Cap test '+i}}));await json(api+'/rest/v1/member_favorites',rows,{...headers(b.session.access_token),Prefer:'return=representation'});

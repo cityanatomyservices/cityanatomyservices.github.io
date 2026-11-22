@@ -13,6 +13,9 @@ export function runtime(env, fetcher=fetch) {
     const token=req.headers.get('Authorization')?.match(/^Bearer (.+)$/i)?.[1];
     if(!token)throw Object.assign(new Error('Sign in to select email reminders.'),{status:401});
     let u;try{u=await request('/auth/v1/user',{token});}catch{throw Object.assign(new Error('Please sign in again.'),{status:401});}
+    if(u.is_anonymous===true&&await rpc('visitor_testing_enabled',{})===true){
+      return {...u,email:await rpc('visitor_reminder_address',{p_owner:u.id})};
+    }
     if(u.is_anonymous || !u.email || !u.email_confirmed_at)throw Object.assign(new Error('Sign in with a confirmed email to select reminders.'),{status:403});
     return u;
   }

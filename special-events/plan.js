@@ -3,7 +3,7 @@
   const P=window.EventPlanPrint,S=window.PlanStore,$=id=>document.getElementById(id);
   const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
   let map,entries=[],leaders,frame,job=0,exportMap,exportHost,pdfURL,snapshot='',lastTrigger,abortPrint;
-  const account=()=>window.AustinSession.registered?window.AustinSession.user.id:null;
+  const account=()=>(window.AustinSession.registered || window.AustinSession.testingGuest)?window.AustinSession.user.id:null;
   const stopNote=item=>window.SpecialEventSavedStore?.row(item.source.sourceId).note||'';
   const signature=()=>JSON.stringify([S.plan,account(),account()?S.plan.items.map(i=>[i.source.sourceId,stopNote(i)]):[]]);
   const button=node('button','Print map');button.type='button';button.id='event-print-map';button.disabled=true;$('planner-map-toolbar').append(button);

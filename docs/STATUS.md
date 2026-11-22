@@ -1,5 +1,22 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-22 - Open visitor features during testing
+
+The owner requested site-wide guest testing with optional account creation.
+Migration 0026 and the geofences, reminders and reminder-send functions support
+individual anonymous visitors. Guest ownership follows the browser tab through
+reloads and navigation. Guest geofences have free activation, invitations, QR
+codes and verified activity alerts. Pro apps open directly for guests and
+members. Classifieds, profiles, Favorites, comments, tour progress and event
+stop notes accept guest ownership. Guest event reminders verify a destination.
+Google and email sign-in remain available for cross-device account ownership.
+
+The visitor, Pro and geofence testing switches are enabled. To restore the
+previous member-only gates, run `python tools/billing/testing-mode.py --disable-visitors`.
+The switch has no end date. Use `--disable` to restore paid activation as well.
+Rolled-back SQL tests cover isolation, invitations, reminder verification, Pro
+access and switch-off. Browser verification uses `node tools/billing/check-visitor-browser.cjs`.
+
 ## 2026-11-22 - Repair Sam’s calendar and group source alerts daily
 
 The Sam’s Town Point calendar included a date-only Thanksgiving closure.

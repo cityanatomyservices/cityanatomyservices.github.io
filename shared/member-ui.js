@@ -66,7 +66,7 @@
     }
     async function load(){
       const run=++viewRun;$('member-profile-fields').disabled=true;$('member-retry').hidden=true;
-      try{await M.profile();if(run!==viewRun||!window.AustinSession.registered)return;profile(true);favorites();settings();$('member-profile-fields').disabled=false;}
+      try{await M.profile();if(run!==viewRun||!(window.AustinSession.registered || window.AustinSession.testingGuest))return;profile(true);favorites();settings();$('member-profile-fields').disabled=false;}
       catch(_){if(run===viewRun){status('profile','Your profile could not load. Your saved plans are unchanged.');$('member-retry').hidden=false;}}
     }
     async function operation(fn,success){if(busy)return;busy=true;$('member-profile-fields').disabled=true;status('profile','Saving…');try{await fn();status('profile',success);profile(false);}catch(e){status('profile',e.message||'Could not save. Please try again.');}finally{busy=false;$('member-profile-fields').disabled=false;}}

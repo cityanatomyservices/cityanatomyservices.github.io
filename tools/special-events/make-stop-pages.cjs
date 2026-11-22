@@ -12,9 +12,9 @@ const head=(title,url)=>`<!doctype html>
 <link rel="icon" href="/favicon.ico?v=20261031f"><link rel="stylesheet" href="/style.css?v=20261029v"><link rel="stylesheet" href="/appearance.css?v=20261028h">
 <link rel="stylesheet" href="/special-events/stop-page.css?v=${version}">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
-<script src="/shared/visit.js?v=20261109g"></script><script src="/shared/session.js?v=20261031a"></script>
-<script src="/shared/member.js?v=20261030c"></script><script src="/shared/preferences.js?v=20261104a"></script><script src="/shared/favorite-button.js?v=20261030c"></script>`;
-const foot=`<script src="/shell.js?v=20261113a"></script></body></html>\n`;
+<script src="/shared/visit.js?v=20261109g"></script><script src="/shared/session.js?v=20261122v"></script>
+<script src="/shared/member.js?v=20261122v"></script><script src="/shared/preferences.js?v=20261104a"></script><script src="/shared/favorite-button.js?v=20261122v"></script>`;
+const foot=`<script src="/shell.js?v=20261122v"></script></body></html>\n`;
 const csv=value=>'"'+String(value??'').replace(/"/g,'""')+'"';
 async function generate(){
   const registry=JSON.parse(fs.readFileSync(path.join(root,'special-events/registry.json'),'utf8'));
@@ -56,8 +56,8 @@ async function generate(){
 <section id="stop-expired" hidden><h2>This Studio Tour has ended</h2><p>The temporary studio chat is now closed.</p><a href="/">Explore Austin.Chat</a></section>
 <noscript><p>Enable JavaScript to use the map and live chat.</p></noscript></article></main>
 <script id="stop-data" type="application/json">${json(one)}</script>
-<script src="/chat/copy.js?v=20261028i"></script><script src="/chat/config.js?v=20261029a"></script><script src="/chat/auth.js?v=20261030c"></script>
-<script src="/chat/locate.js?v=20261108b"></script><script src="/chat/chat.js?v=20261109a"></script><script src="/chat/panel.js?v=20261109a"></script><script src="/chat/room.js?v=20261112a"></script>
+<script src="/chat/copy.js?v=20261028i"></script><script src="/chat/config.js?v=20261029a"></script><script src="/chat/auth.js?v=20261122v"></script>
+<script src="/chat/locate.js?v=20261108b"></script><script src="/chat/chat.js?v=20261109a"></script><script src="/chat/panel.js?v=20261109a"></script><script src="/chat/room.js?v=20261122v"></script>
 <script src="/special-events/model.js?v=20261109c"></script><script src="/special-events/stop-page.js?v=${version}"></script>
 `+foot;
     const dir=(base+n+'/').slice(1);out.set(dir+'index.html',Buffer.from(html));

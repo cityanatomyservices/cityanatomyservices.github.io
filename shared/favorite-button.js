@@ -15,7 +15,7 @@
       event.preventDefault();event.stopPropagation();button.disabled=true;
       try{
         await window.AustinSession.peek();
-        if(!window.AustinSession.registered){const account=window.AustinAccount||window.parent.AustinAccount;await account?.open('favorites');return;}
+        if(!(window.AustinSession.registered || window.AustinSession.testingGuest)){const account=window.AustinAccount||window.parent.AustinAccount;await account?.open('favorites');return;}
         await M.ready();await M.favorite(source,!M.has(source.key));button.title='';warning?.remove();warning=null;
       }catch(error){button.title=error.message||'Could not save. Please try again.';if(!warning){warning=document.createElement('p');warning.className='favorite-error';warning.setAttribute('role','alert');container.append(warning);}warning.textContent=button.title;}
       finally{button.disabled=false;refresh();}

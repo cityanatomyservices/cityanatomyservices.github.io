@@ -16,19 +16,21 @@
   // and shared files. Add here if another such folder appears.
   const SKIP = { apps: ['reports', 'shared'], maps: [] };
 
+  let note;
   function access(){
     if(kind!=='apps')return;
-    const registered=window.AustinSession?.registered,member=window.AustinMembership?.state;
+    const registered=(window.AustinSession?.registered || window.AustinSession?.testingGuest),member=window.AustinMembership?.state;
+    if(note)note.hidden=!!window.AustinSession?.testingGuest||member?.temporaryAccess===true;
     for(const link of list.querySelectorAll('[data-app-href]')){
       const enabled=registered&&(link.dataset.requiredPlan!=='pro'||member?.plan==='pro'&&(member.temporaryAccess===true||Date.parse(member.paidThrough)>Date.now()));
       if(enabled){link.href=link.dataset.appHref;link.removeAttribute('tabindex');}else{link.removeAttribute('href');link.tabIndex=-1;}
       link.setAttribute('aria-disabled',String(!enabled));link.style.opacity=enabled?'':'0.5';
     }
   }
-  function bind(){window.AustinMembership?.subscribe(access);window.AustinSession?.subscribe(()=>{access();if(window.AustinSession.registered)window.AustinMembership?.load().catch(access);});window.AustinMembership?.load().then(access).catch(access);}
+  function bind(){window.AustinMembership?.subscribe(access);window.AustinSession?.subscribe(()=>{access();if((window.AustinSession.registered || window.AustinSession.testingGuest))window.AustinMembership?.load().catch(access);});window.AustinMembership?.load().then(access).catch(access);}
   window.addEventListener('austin-membership-ready',bind);if(window.AustinMembership)bind();
   if(kind==='apps'){
-    const note=document.createElement('p');note.innerHTML='Sign in to use Apps. Pro apps require Pro. <a href="/?account=membership">View membership</a>.';list.before(note);
+    note=document.createElement('p');note.innerHTML='Sign in to use Apps. Pro apps require Pro. <a href="/?account=membership">View membership</a>.';list.before(note);
   }
   function addRow(title, blurb, href, requiredPlan) {
     const li = document.createElement('li');

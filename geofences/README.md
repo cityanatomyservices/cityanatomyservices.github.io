@@ -21,7 +21,7 @@ Migration 0021 expands the database constraint; the default remains 50 meters.
 The 500-meter circle has a 250-meter radius, and GPS accuracy remains capped
 at 50 meters.
 
-**Free testing is temporarily enabled.** Confirmed signed-in owners can create
+**Free testing is temporarily enabled.** While visitor testing is on, a guest can create and manage their own circles in the same browser tab. Sign in before creation for cross-device ownership. Invitations use the same delivery queue. A guest can verify an email for activity alerts and can copy or download the share link and QR code. Confirmed signed-in owners can create
 or activate circles without a card or charge. The button says "Create geofence
 & send invitations". These grants are separate from paid records; activated circles keep
 their center/size fixed and work with the same public page, QR and chat gates.

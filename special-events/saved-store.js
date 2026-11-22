@@ -3,7 +3,7 @@
   const S=window.AustinSession,C=window.PlanContext,listeners=new Set();
   let owner=null,rows=null,loading=null,epoch=0,loadRun=0,queue=Promise.resolve(),error='';
   const channel=typeof BroadcastChannel==='function'?new BroadcastChannel('austin-event-saved-stops'):null;
-  const identity=()=>S.registered?S.user.id:null;
+  const identity=()=>(S.registered || S.testingGuest)?S.user.id:null;
   const emit=()=>listeners.forEach(fn=>fn());
   function reset(){owner=identity();rows=null;loading=null;error='';epoch++;loadRun++;emit();}
   function assert(id,run){C.assert();if(!id||identity()!==id||owner!==id||epoch!==run)throw Error('Your account changed. Please try again.');}
