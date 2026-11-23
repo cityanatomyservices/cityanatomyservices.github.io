@@ -1,5 +1,25 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-23 - Restore feed refreshes and repair GitHub Actions
+
+Supabase Cron checks the latest GitHub run for Explore and sports using
+`tools/refresh-schedule.sql`. The jobs share the Vault entry
+`github_refresh_dispatch`, a fine-grained token requiring Actions write on
+this repository. Rotate the value in Vault to keep both jobs connected.
+GitHub schedules remain available. The Explore production health check can
+also request a refresh once a snapshot reaches 4.5 hours. The six-hour
+failure threshold and daily individual-source alerts still apply.
+
+Pages separates building and publishing, waits for the exact upload, and
+passes its per-attempt artifact name to the deployment job. City Hall requests
+deployment after pushing a snapshot, including partial imports. Pages run
+`45181804143` and City Hall run `45181856799` passed.
+
+Billing CI applies the application migrations in a fresh database and tests
+visitor isolation and switch-off (`45181804118`). The promo workflow published
+all six configured MP4s (`45181804102`) and the single bike-shop selection
+(`45182118035`). The sports workflow also published successfully (`45182123708`).
+
 ## 2026-11-22 - Open visitor features during testing
 
 The owner requested site-wide guest testing with optional account creation.

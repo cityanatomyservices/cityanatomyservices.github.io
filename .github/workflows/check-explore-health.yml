@@ -24,11 +24,14 @@ jobs:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-24.04
     timeout-minutes: 5
+    outputs:
+      refresh_due: ${{ steps.feeds.outputs.refresh_due }}
     steps:
       - uses: actions/checkout@v7.0.1
         with:
           ref: main
       - name: Check the feeds visitors receive
+        id: feeds
         env:
           EXPLORE_SOURCE_ALERTS: ${{ (github.event.schedule == '17 14 * * *' || github.event_name == 'workflow_dispatch') && 'error' || 'warn' }}
         run: node tools/explore/check-health.cjs https://austin.chat
@@ -40,3 +43,23 @@ jobs:
       - name: Diagnose public calendar responses
         if: always() && inputs.probe_sources
         run: python tools/explore/diagnose-sources.py
+  recover:
+    needs: health
+    if: ${{ !cancelled() && needs.health.outputs.refresh_due == 'true' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    permissions:
+      actions: write
+    concurrency:
+      group: explore-refresh-recovery
+    steps:
+      - name: Request a refresh before snapshots exceed the six-hour limit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          latest=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow build-explore.yml --branch main --limit 1 --json createdAt,status)
+          if jq -e 'any(.[]; .status != "completed" or (now - (.createdAt | fromdateiso8601) < 3600))' <<< "$latest" >/dev/null; then
+            echo 'A refresh is active or started within the past hour.'
+            exit 0
+          fi
+          gh workflow run build-explore.yml --repo "$GITHUB_REPOSITORY" --ref main

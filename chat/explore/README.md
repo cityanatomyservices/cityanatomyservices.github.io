@@ -517,6 +517,11 @@ each source. It checks the deployed URLs hourly at minute 17 and after every
 successful Pages deployment. GitHub can delay scheduled runs. The refresh workflow produces the same report for
 its local output before completion.
 
+Supabase Cron also checks GitHub every 15 minutes and requests an Explore
+refresh when the last run is about three hours old. A production health check
+that sees a snapshot at least 4.5 hours old can request recovery. It skips
+recovery when a refresh is active or started within the past hour.
+
 Every check fails for invalid or unavailable feeds, snapshots older than six
 hours, categories with no active listings, or a feed where all sources failed.
 The check uses the browser's filtering model to count active listings. A

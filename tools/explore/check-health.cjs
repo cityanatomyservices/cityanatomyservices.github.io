@@ -94,6 +94,10 @@ async function main() {
   const reviews = reviewWarnings(JSON.parse(fs.readFileSync(path.join(__dirname, 'curated.json'), 'utf8')), now);
   const text = report(results, reviews, base || 'local checkout', now);
   console.log(text);
+  if (base && process.env.GITHUB_OUTPUT) {
+    const refreshDue = results.some(result => result.age >= 4.5);
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `refresh_due=${refreshDue}\n`);
+  }
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, text);
   if (process.env.GITHUB_ACTIONS) {
     for (const r of results) {

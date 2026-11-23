@@ -107,7 +107,9 @@ when data is unavailable.
 
 Sports attempt direct ESPN updates every minute while visible, and on return to
 the tab. Browser access can be blocked by ESPN, so `build-sports.mjs` also writes
-`scores.json` on a 15-minute Actions schedule. The client reads the newest deployed
+`scores.json` on a 15-minute Actions schedule. Supabase Cron checks every five
+minutes and requests a run when the latest score refresh is at least 14 minutes
+old and no refresh is active. The client reads the newest deployed
 or raw-main snapshot and overlays direct results when available. Snapshot scores
 say "In progress as of [time]", never LIVE, and expire after 30 minutes. GitHub
 can delay these scheduled runs; this is not a guaranteed real-time feed. Yesterday's boards refresh every 15 minutes (every minute for a game still
