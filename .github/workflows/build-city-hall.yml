@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: city-hall
   cancel-in-progress: false
@@ -26,6 +27,7 @@ jobs:
         continue-on-error: true
         run: python tools/city-hall/build.py
       - name: Publish city data
+        id: publish_data
         run: |
           git config user.name 'austin-city-hall bot'
           git config user.email 'cityanatomyservices@users.noreply.github.com'
@@ -33,6 +35,12 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Refresh City Hall data'
           bash tools/publish-data.sh
+          echo 'pushed=true' >> "$GITHUB_OUTPUT"
+      - name: Deploy updated city data
+        if: steps.publish_data.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run publish-site.yml --ref main
       - name: Report failed imports
         if: steps.city.outcome == 'failure'
         run: exit 1

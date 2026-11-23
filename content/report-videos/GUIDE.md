@@ -19,7 +19,7 @@ template/promo-template.html  ←  you edit this (design, animations)
 apps/reports/{slug}/promo.mp4
 ```
 
-Pushing any file inside `content/report-videos/` auto-triggers a re-render of all 9 videos via GitHub Actions (~20–30 min). To render just one report, go to **Actions → Render Report Promo Videos → Run workflow → pick a slug**.
+Changes to the template, report configurations, builder or npm dependencies render all configured reports. To render one, open **Actions → Render Report Promo Videos → Run workflow** and select its slug.
 
 ---
 

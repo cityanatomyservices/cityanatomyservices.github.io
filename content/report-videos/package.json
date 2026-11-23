@@ -4,16 +4,17 @@
   "description": "City Anatomy — report promo videos (Hyperframes + GSAP)",
   "scripts": {
     "build": "node build.js",
-    "render:bike-shops":       "node build.js austin-bike-shops --render",
-    "render:golf-courses":     "node build.js austin-golf-courses --render",
+    "render:bike-shops": "node build.js austin-bike-shops --render",
+    "render:golf-courses": "node build.js austin-golf-courses --render",
     "render:horseback-riding": "node build.js austin-horseback-riding --render",
-    "render:toy-stores":       "node build.js austin-toy-stores --render",
-    "render:vintage-guitar":   "node build.js austin-vintage-guitar --render",
-    "render:pool-openings":    "node build.js pool-openings --render",
-    "render:all":              "node build.js --render"
+    "render:toy-stores": "node build.js austin-toy-stores --render",
+    "render:vintage-guitar": "node build.js austin-vintage-guitar --render",
+    "render:pool-openings": "node build.js pool-openings --render",
+    "render:all": "node build.js --render"
   },
   "devDependencies": {
     "gsap": "^3.12.0",
+    "hyperframes": "0.8.185",
     "qrcode": "^1.5.4"
   }
 }

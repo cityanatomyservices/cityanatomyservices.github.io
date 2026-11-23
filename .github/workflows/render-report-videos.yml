@@ -8,33 +8,37 @@ on:
       - "content/report-videos/reports/**"
       - "content/report-videos/build.js"
       - "content/report-videos/package.json"
+      - "content/report-videos/package-lock.json"
   workflow_dispatch:
     inputs:
       report:
-        description: "Report slug to render (leave blank to render all)"
+        description: "Report to render"
         required: false
-        default: ""
+        default: all
         type: choice
         options:
-          - ""
+          - all
           - austin-bike-shops
-          - austin-chambers
           - austin-golf-courses
           - austin-horseback-riding
-          - austin-neighborhoods
-          - austin-ps5-bundles
           - austin-toy-stores
           - austin-vintage-guitar
           - pool-openings
 
 jobs:
   render:
+    if: github.ref == 'refs/heads/main'
+    concurrency:
+      group: report-video-render
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
@@ -45,28 +49,29 @@ jobs:
 
       - name: Install dependencies
         working-directory: content/report-videos
-        run: npm install
+        run: npm ci --no-audit --no-fund
 
       - name: Render videos
         working-directory: content/report-videos
         run: |
-          REPORT="${{ github.event.inputs.report }}"
-          if [ -n "$REPORT" ]; then
-            echo "Rendering single report: $REPORT"
-            npm run render:$REPORT
+          if [[ -n "$REPORT" && "$REPORT" != 'all' ]]; then
+            [[ "$REPORT" =~ ^[a-z0-9-]+$ && -f "reports/$REPORT.json" ]]
+            node build.js "$REPORT" --render
           else
             echo "Rendering all reports"
             npm run render:all
           fi
+        env:
+          REPORT: ${{ inputs.report }}
 
       - name: Commit rendered videos to repo
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add apps/reports/*/storymap/promo.mp4 apps/reports/PoolOpenings/storymap/promo.mp4
+          git add -- apps/reports/*/promo.mp4
           if git diff --cached --quiet; then
             echo "No video changes to commit."
           else
             git commit -m "chore: render report promo videos [skip ci]"
-            git push origin main
+            bash tools/publish-data.sh
           fi

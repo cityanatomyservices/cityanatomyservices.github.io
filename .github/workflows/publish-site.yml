@@ -4,36 +4,63 @@ on:
     branches: [main]
   workflow_dispatch:
   workflow_run:
-    # Explore explicitly dispatches this workflow after committing usable data,
-    # including partial refreshes, then reports any source failures separately.
-    workflows: ['Refresh City Hall', 'Build news map feed', 'Refresh Austin neighborhood businesses', 'Refresh Austin parking', 'Refresh Texas sports scores', 'Refresh Austin ticker', 'Render Report Promo Videos', 'Render City Intro Video', 'Export Explore for Substack']
+    # Explore and City Hall dispatch after pushing usable data, even on partial imports.
+    workflows: ['Build news map feed', 'Refresh Austin neighborhood businesses', 'Refresh Austin parking', 'Refresh Texas sports scores', 'Refresh Austin ticker', 'Render Report Promo Videos']
     types: [completed]
     branches: [main]
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
   group: pages
   cancel-in-progress: false
 jobs:
-  publish:
+  build:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      artifact_name: ${{ steps.artifact-name.outputs.name }}
+      artifact_id: ${{ steps.upload.outputs.artifact_id }}
     steps:
       - uses: actions/checkout@v7.0.1
         with:
           ref: main
       - name: Build public site without private Pro resources
         run: python3 tools/billing/build-site.py _site
-      - uses: actions/configure-pages@v6.0.0
+      - id: artifact-name
+        run: echo "name=github-pages-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-pages-artifact@v5.0.0
+        id: upload
         with:
+          name: ${{ steps.artifact-name.outputs.name }}
           path: _site
+  publish:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Wait for the uploaded artifact to be visible
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: ${{ needs.build.outputs.artifact_name }}
+          ARTIFACT_ID: ${{ needs.build.outputs.artifact_id }}
+        run: |
+          for delay in 1 2 4 8 16 32; do
+            found=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=$ARTIFACT_NAME" --jq '.artifacts[] | select(.expired == false) | .id') || found=''
+            if [[ -n "$ARTIFACT_ID" && "$found" == "$ARTIFACT_ID" ]]; then exit 0; fi
+            sleep "$delay"
+          done
+          echo "::error::Upload $ARTIFACT_ID ($ARTIFACT_NAME) is unavailable for deployment"
+          exit 1
       - name: Publish
         id: deployment
         uses: actions/deploy-pages@v5.0.1
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}

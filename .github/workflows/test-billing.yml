@@ -2,11 +2,28 @@ name: Check membership billing
 on:
   push:
     branches: [main]
-    paths: ['billing/**', 'geofences/**', 'shared/membership*', 'shared/pro-apps*', 'shared/account.js', 'pro-worker.js', 'supabase/functions/**', 'supabase/migrations/*billing.sql', 'supabase/migrations/*geofence*.sql', 'supabase/migrations/*pro_app_storage.sql', 'tests/billing/**', 'tests/geofences/**', 'tools/billing/**', 'tools/geofences/**', '.github/workflows/test-billing.yml']
+    paths: ['billing/**', 'geofences/**', 'shared/membership*', 'shared/pro-apps*', 'shared/account.js', 'pro-worker.js', 'supabase/functions/**', 'supabase/migrations/*.sql', 'tests/billing/**', 'tests/geofences/**', 'tests/classifieds/bootstrap.sql', 'tools/billing/**', 'tools/geofences/**', '.github/workflows/test-billing.yml']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
+  visitor-database:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Prepare an isolated PostgreSQL database with routing extensions
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends postgresql-16-postgis-3 postgresql-16-pgrouting
+          sudo systemctl start postgresql@16-main
+          sudo -u postgres createdb --cluster 16/main visitor_ci
+      - name: Apply the migrations and verify visitor access, isolation and switch-off
+        run: |
+          for sql in tests/classifieds/bootstrap.sql tests/geofences/visitor-bootstrap.sql supabase/migrations/*.sql tests/geofences/visitor-testing.sql; do
+            echo "Applying $sql"
+            sudo -u postgres psql --cluster 16/main -X -v ON_ERROR_STOP=1 -d visitor_ci < "$sql"
+          done
   test:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
