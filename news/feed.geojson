@@ -1,9 +1,369 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-25T20:18:08.977Z",
- "placed": 52,
- "total": 129,
+ "generated": "2026-11-26T14:34:29.665Z",
+ "placed": 51,
+ "total": 125,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Love steak but hate the price? An Austin butcher has a few suggestions",
+    "link": "https://www.kxan.com/news/local/austin/love-steak-but-hate-the-price-an-austin-butcher-has-a-few-suggestions/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-26T13:00:00.000Z",
+    "summary": "As Americans grapple with higher meat prices this holiday season, the owner of one of Austin's oldest businesses shares his recommendations for saving money at the meat counter.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Does Texas law keep pace with Austin's self-driving taxi boom? Experts weigh in",
+    "link": "https://www.kxan.com/traffic/transportation/does-texas-law-keep-pace-with-austins-self-driving-taxi-boom-experts-weigh-in/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-26T13:00:00.000Z",
+    "summary": "As self-driving taxis expand across the city, some safety advocates and researchers say Texas law may need to evolve just as quickly as the technology itself.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Read 20 business updates from around New Braunfels",
+    "link": "https://communityimpact.com/new-braunfels/business/read-about-20-business-updates-around-new-braunfels/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-26T12:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Chilly Thanksgiving morning, sunny skies",
+    "link": "https://www.kxan.com/weather/forecast/chilly-thanksgiving-morning-warm-afternoon/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-26T11:55:00.000Z",
+    "summary": "Temperatures are above-freezing in the Austin area this morning, but still much cooler-than-normal. Light freeze was recorded in parts of the Hill Country. — Meteorologist Tommy House",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.735,
+     30.27
+    ]
+   },
+   "properties": {
+    "title": "Austin's $25M lakefront boardwalk plans advance as part of I-35 expansion mitigation",
+    "link": "https://communityimpact.com/central-austin/government/austin-s-25m-lakefront-boardwalk-plans-advance-as-part-of-i-35-expansion-mitigation/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-25T22:45:38.000Z",
+    "summary": "",
+    "place": "I-35",
+    "placeKind": "road"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.3153,
+     30.1105
+    ]
+   },
+   "properties": {
+    "title": "Bastrop approves pilot grant program for downtown live music",
+    "link": "https://www.kxan.com/news/local/bastrop/bastrop-approves-pilot-grant-program-for-downtown-live-music/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-25T22:41:05.000Z",
+    "summary": "Through the program, the city would reimburse a business 30% of the musician fees the business paid to host a live performance, with a maximum of $400 per performance.",
+    "place": "Bastrop",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8203,
+     30.5052
+    ]
+   },
+   "properties": {
+    "title": "Check out 3 recent public safety updates in Cedar Park to know",
+    "link": "https://communityimpact.com/cedar-park/government/check-out-3-recent-public-safety-updates-in-cedar-park-to-know/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-25T22:24:11.000Z",
+    "summary": "",
+    "place": "Cedar Park",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Changes to Medicare in 2027; open enrollment ends Dec. 7",
+    "link": "https://www.kxan.com/news/simplehealth/changes-to-medicare-in-2027-open-enrollment-ends-december-7th/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-25T22:16:01.000Z",
+    "summary": "Medicare open enrollment is wrapping up, the last day to sign up for healthcare coverage in 2027 is Dec. 7.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8203,
+     30.5052
+    ]
+   },
+   "properties": {
+    "title": "Cedar Park to undertake $4M Fire Station No. 4 renovation",
+    "link": "https://communityimpact.com/cedar-park/government/cedar-park-to-undertake-4m-fire-station-no-4-renovation/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-25T22:03:17.000Z",
+    "summary": "",
+    "place": "Cedar Park",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8203,
+     30.5052
+    ]
+   },
+   "properties": {
+    "title": "Stay in the know: Top 5 Cedar Park stories you may have missed",
+    "link": "https://communityimpact.com/cedar-park/government/stay-in-the-know-top-5-cedar-park-stories-you-may-have-missed/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-25T21:52:22.000Z",
+    "summary": "",
+    "place": "Cedar Park",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Thanksgiving is here, and so are the flu, COVID-19 and RSV",
+    "link": "https://www.kxan.com/news/local/thanksgiving-is-here-and-so-is-the-flu-covid-19-and-rsv/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-25T21:42:37.000Z",
+    "summary": "As friends and families gather for Thanksgiving, they could be sharing more than just holiday dishes.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.8531,
+     30.5788
+    ]
+   },
+   "properties": {
+    "title": "234-unit senior living facility planned for Northline development in Leander",
+    "link": "https://communityimpact.com/leander-liberty-hill/development/234-unit-senior-living-facility-planned-for-northline-development-in-leander/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-11-25T21:42:00.000Z",
+    "summary": "",
+    "place": "Leander",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Helpful tips for your mental health ahead of Thanksgiving",
+    "link": "https://www.kxan.com/news/local/austin/helpful-tips-for-your-mental-health-ahead-of-thanksgiving/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-25T21:25:21.000Z",
+    "summary": "Vaughn Hancock, LPCS, Integral Care Practice Manager, joins KXAN+ Anchor Chelsea Moreno for an interview.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.9797,
+     30.363
+    ]
+   },
+   "properties": {
+    "title": "Lakeway enters new growth chapter as buildout nears",
+    "link": "https://communityimpact.com/lake-travis-westlake/development/lakeway-enters-new-growth-chapter-as-buildout-nears/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-11-25T21:08:00.000Z",
+    "summary": "",
+    "place": "Lakeway",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -98.0867,
+     30.1902
+    ]
+   },
+   "properties": {
+    "title": "Serenova to bring all-inclusive senior community to Dripping Springs",
+    "link": "https://communityimpact.com/southwest-austin-dripping-springs/development/serenova-to-bring-all-inclusive-senior-community-to-dripping-springs/",
+    "outlet": "Community Impact",
+    "group": "planning",
+    "color": "#5fc4b6",
+    "published": "2026-11-25T21:00:00.000Z",
+    "summary": "",
+    "place": "Dripping Springs",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin homeless navigation center costs rise by $2M to fund renovations",
+    "link": "https://communityimpact.com/east-austin/government/austin-homeless-navigation-center-costs-rise-by-2m-to-fund-renovations/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-25T21:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Hutto explores options for potential community center space",
+    "link": "https://communityimpact.com/pflugerville-hutto/government/hutto-explores-options-for-potential-community-center-space/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-25T21:00:00.000Z",
+    "summary": "",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6789,
+     30.5083
+    ]
+   },
+   "properties": {
+    "title": "Recycling center, food vendor permitting: Check out 2 Round Rock City Council updates",
+    "link": "https://communityimpact.com/round-rock/government/recycling-center-food-vendor-permitting-check-out-2-round-rock-city-council-updates/",
+    "outlet": "Community Impact",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-25T21:00:00.000Z",
+    "summary": "",
+    "place": "Round Rock",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.3153,
+     30.1105
+    ]
+   },
+   "properties": {
+    "title": "Bastrop cobbler carries on 85-year legacy",
+    "link": "https://communityimpact.com/bastrop-cedar-creek/business/bastrop-cobbler-carries-on-85-year-legacy/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-25T21:00:00.000Z",
+    "summary": "The Cervantes family has served generations in Bastrop since 1941",
+    "place": "Bastrop",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Austin council to discuss creation of 'Healthy Food Worker Program'",
+    "link": "https://www.kxan.com/news/local/austin/austin-council-to-discuss-creation-of-healthy-food-worker-program/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-25T20:42:54.000Z",
+    "summary": "Austin could soon create a program that would incentivize locally owned restaurants to pay livable wages and provide benefits to employees.",
+    "place": null,
+    "placeKind": null
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
@@ -74,51 +434,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "AUS Data Hub: Passenger totals, busiest months and new flights in 2026 and 2027",
-    "link": "https://www.kxan.com/news/local/austin/austin-airport/2026-aus-passenger-stats/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T17:58:12.000Z",
-    "summary": "We're keeping track of all the numbers in what is set to be another busy year at AUS. Follow along with our interactive charts.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Freeze Warning has been issued for the Austin area",
-    "link": "https://www.kxan.com/weather/forecast/near-widespread-freeze-to-start-thanksgiving-day/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T17:39:38.000Z",
-    "summary": "A cooler stretch of weather continues into the holidays, with near-freezing low temperatures at night. — Meteorologist Tommy House",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Jester King property listed for sale at $2.4 million",
-    "link": "https://www.kxan.com/news/local/austin/jester-king-property-listed-for-sale-at-2-4-million/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T17:36:45.000Z",
-    "summary": "After 16 years, the co-owners of Jester King announced in late October that they intended to sell their business to ensure it could have \"a stronger financial foundation.\"",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Work continues on Rollingwood Park improvements",
     "link": "https://communityimpact.com/lake-travis-westlake/development/work-continues-on-rollingwood-park-improvements/",
     "outlet": "Community Impact",
@@ -126,42 +441,6 @@
     "color": "#5fc4b6",
     "published": "2026-11-25T17:10:00.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "Austin cold weather shelters opening Wednesday evening",
-    "link": "https://www.kxan.com/news/local/austin/austin-cold-weather-shelters-opening-wednesday-evening/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T17:05:15.000Z",
-    "summary": "The city of Austin is opening its overnight cold weather shelters for Wednesday night, as a Freeze Warning was issued for Travis County for Thursday morning.",
-    "place": "Travis County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "How many freezes will Austin get this winter? Here's what the First Warning Weather team predicts",
-    "link": "https://www.kxan.com/weather/freeze-predictions-2026-27/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T16:53:08.000Z",
-    "summary": "We asked the KXAN First Warning Weather team to predict how many times Austin will see freezing temperatures this winter.",
     "place": null,
     "placeKind": null
    }
@@ -186,27 +465,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.6699,
-     30.1975
-    ]
-   },
-   "properties": {
-    "title": "Austin airport: Economy parking lot full amid Thanksgiving travel rush",
-    "link": "https://www.kxan.com/news/local/austin/austin-airport/austin-airport-economy-parking-lot-full-amid-thanksgiving-travel-rush/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T16:27:31.000Z",
-    "summary": "Austin-Bergstrom International Airport (AUS) says its economy parking lot is full and closed amid the Thanksgiving travel rush.",
-    "place": "Austin-Bergstrom International Airport",
-    "placeKind": "airport"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.62,
      30.439
     ]
@@ -221,36 +479,6 @@
     "summary": "",
     "place": "Pflugerville",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "5.7 million Texans expected to travel during Thanksgiving rush",
-    "link": "https://www.kxan.com/traffic/transportation/5-7-million-texans-expected-to-travel-during-thanksgiving-rush/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T13:14:42.000Z",
-    "summary": "The American Automobile Association projects roughly 93% of holiday travelers will travel by car, while another 320,000 are projected to fly.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "'Shop local': Downtown Austin gears up for holiday shopping",
-    "link": "https://www.kxan.com/news/local/austin/shop-local-downtown-austin-gears-up-for-holiday-shopping/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T12:38:20.000Z",
-    "summary": "In a world where online shopping has become the norm for many, downtown Austin retailers want to share their passion to encourage folks to shop local this Black Friday and Small Business Saturday.",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -420,6 +648,27 @@
   },
   {
    "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.78,
+     30.33
+    ]
+   },
+   "properties": {
+    "title": "Austin Public Health, Partners to Host World AIDS Day HIV Testing Event",
+    "link": "https://www.austintexas.gov/health/news/austin-public-health-partners-host-world-aids-day-hiv-testing-event",
+    "outlet": "City of Austin",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-25T00:00:00.000Z",
+    "summary": "<p lang=\"EN-US\" data-ogsc=\"rgb(34, 34, 34)\"><strong data-ogsc data-olk-copy-source=\"MessageBody\">AUSTIN, Texas —&nbsp;</strong>Austin Public Health, in partnership with community organizations across Travis County, will host an HIV Coalition World AIDS Day testing event on Dec. 1 to increase awareness, promote testing and connect the community with prevention and treatment resources.&nbsp;</p><p d",
+    "place": "Travis County",
+    "placeKind": "county"
+   }
+  },
+  {
+   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "6 Austin holiday pop-up bars offering cocktails and cheer this season",
@@ -483,27 +732,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "Nearly $9M federal award to preserve Central Texas farms; Austin/Travis County food plan advances",
-    "link": "https://communityimpact.com/east-austin/government/nearly-9m-federal-award-to-preserve-central-texas-farms-austin-travis-county-food-plan-advances/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-24T21:15:00.000Z",
-    "summary": "",
-    "place": "Travis County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.7394,
      30.285
     ]
@@ -524,21 +752,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Austin leaders advance nonprofit contracting, lobbying reforms",
-    "link": "https://communityimpact.com/central-austin/government/austin-leaders-advance-nonprofit-contracting-lobbying-reforms/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-24T21:07:14.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Fire station renovation, Fifth Third Bank: Check out 5 major Austin-area permits filed this week",
     "link": "https://communityimpact.com/bastrop-cedar-creek/development/fire-station-renovation-fifth-third-bank-check-out-5-major-austin-area-permits-filed-this-week/",
     "outlet": "Community Impact",
@@ -548,42 +761,6 @@
     "summary": "",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "New Braunfels considers additional $100K for humane society",
-    "link": "https://communityimpact.com/new-braunfels/government/new-braunfels-considers-additional-100k-for-humane-society/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-24T21:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.78,
-     30.33
-    ]
-   },
-   "properties": {
-    "title": "Southwest Stallion Station to become Travis County park",
-    "link": "https://communityimpact.com/bastrop-cedar-creek/government/former-horse-farm-to-become-far-east-travis-county-park/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-24T20:11:00.000Z",
-    "summary": "Land deal protects 1,240 acres across Travis and Bastrop counties",
-    "place": "Travis County",
-    "placeKind": "county"
    }
   },
   {
@@ -692,21 +869,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "New Braunfels City Council appoints new city attorney",
-    "link": "https://communityimpact.com/new-braunfels/government/new-braunfels-city-council-appoints-new-city-attorney/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-24T02:52:13.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Lingering questions about Brackenridge",
     "link": "https://www.austinpolitics.net/lingering-questions-about-brackenridge/",
     "outlet": "Austin Politics",
@@ -716,27 +878,6 @@
     "summary": "How high can UT go?",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Qvevri Georgian & European Market offers cultural bridge, food, gifts in Round Rock",
-    "link": "https://communityimpact.com/round-rock/business/qvevri-georgian-european-market-offers-cultural-bridge-food-gifts-in-round-rock/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-24T00:15:29.000Z",
-    "summary": "",
-    "place": "Round Rock",
-    "placeKind": "city"
    }
   },
   {
@@ -788,69 +929,6 @@
     "summary": "<p paraeid=\"{0b2787bb-ce4f-42fa-96ff-fa94ab320249}{243}\" paraid=\"198579086\">City of Austin administrative offices and other municipal facilities will be closed Thursday, Nov. 26 and Friday, Nov. 27, in observance of Thanksgiving. This includes the Municipal and Community courts, Austin Animal Shelter, libraries, museums, and cultural, recreation and senior centers. Normal business hours will resum",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.72,
-     30.38
-    ]
-   },
-   "properties": {
-    "title": "Local jewelry store Eliza Page to relocate to North Austin next year",
-    "link": "https://communityimpact.com/central-austin/business/local-jewelry-store-eliza-page-to-relocate-to-north-austin-next-year/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-23T23:34:33.000Z",
-    "summary": "",
-    "place": "North Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -98.03,
-     30.06
-    ]
-   },
-   "properties": {
-    "title": "Hays County calls on community support for Brown Santa program",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/government/hays-county-calls-on-community-support-for-brown-santa-program/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-23T23:15:27.000Z",
-    "summary": "",
-    "place": "Hays County",
-    "placeKind": "county"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.9414,
-     29.8833
-    ]
-   },
-   "properties": {
-    "title": "San Marcos denies water to utility district with data center plans, delays Kyle sale pending conservation measures",
-    "link": "https://communityimpact.com/san-marcos-buda-kyle/government/san-marcos-denies-water-to-utility-district-with-data-center-plans-delays-kyle-sale-pening-conservation-measures/",
-    "outlet": "Community Impact",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-23T23:10:00.000Z",
-    "summary": "",
-    "place": "San Marcos",
-    "placeKind": "city"
    }
   },
   {
@@ -1229,21 +1307,6 @@
     "summary": "<p>Austin, TX - <a href=\"https://www.austintexas.gov/animal-services\">Austin Animal Services</a> is teaming up with six local and regional rescue partners to host a Mega Adoption Event from 10 a.m. to 2 p.m. Saturday, Nov. 7, at PetSmart in Sunset Valley, 5207 Brodie Lane. Animal Services' adoptions are FREE.</p><p dir=\"ltr\">Visitors can meet dogs, chihuahuas, chow chows and guinea pigs who are lo",
     "place": "Brodie Lane",
     "placeKind": "neighborhood"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "APD Detectives Seek Public’s Help Identifying Suspect in Bodily-Injury Collision",
-    "link": "https://www.austintexas.gov/police/news/apd-detectives-seek-publics-help-identifying-suspect-bodily-injury-collision",
-    "outlet": "City of Austin",
-    "group": "government",
-    "color": "#f0c27a",
-    "published": "2026-11-20T00:00:00.000Z",
-    "summary": "<p><span data-olk-copy-source=\"MessageBody\"><strong>Case:</strong></span><span> 26-780778</span><br><br><span><strong>Date:</strong> Thursday, March 19, 2026</span><br><br><span><strong>Time:</strong> 2:56 p.m.</span><br><br><span><strong>Location:</strong> 12300 N. IH 35 SB</span><br><br><span><strong>Suspect: </strong>Unidentified Black Female</span><br><br><span>On Thursday, March 19, 2026, at ",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1782,27 +1845,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.9467,
-     30.3083
-    ]
-   },
-   "properties": {
-    "title": "Two new commercial developments under construction along Hwy. 71 in Bee Cave",
-    "link": "https://communityimpact.com/lake-travis-westlake/development/two-new-commercial-developments-under-construction-along-hwy-71-in-bee-cave/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-11-16T19:10:00.000Z",
-    "summary": "",
-    "place": "Bee Cave",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Taylor Morrison to Start Work on 161-Unit Austin BTR Community",
@@ -1844,27 +1886,6 @@
     "summary": "Jay Paul Company was able to finance an existing construction loan on a sprawling Austin office complex with a $227.5 million C-PACE financing. Nuveen Green Capital (NGC) provided the loan. The loan on the 881,427-square-foot Class A office campus marks the largest C-PACE transaction in Texas to date. C-PACE will recapitalize Springdale Green’s previously completed ... The post Owner of 880K-SF Au",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Georgetown rejects Sun City request to change development standards",
-    "link": "https://communityimpact.com/georgetown/development/georgetown-rejects-sun-city-request-to-change-development-standards/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-11-16T17:00:00.000Z",
-    "summary": "",
-    "place": "Georgetown",
-    "placeKind": "city"
    }
   },
   {
@@ -2148,27 +2169,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -97.7,
-     30.21
-    ]
-   },
-   "properties": {
-    "title": "Yardly Easton Park to bring 161-home rental community to Southeast Austin",
-    "link": "https://communityimpact.com/east-austin/development/yardly-easton-park-to-bring-161-home-rental-community-to-southeast-austin/",
-    "outlet": "Community Impact",
-    "group": "planning",
-    "color": "#5fc4b6",
-    "published": "2026-11-12T21:13:50.000Z",
-    "summary": "",
-    "place": "Southeast Austin",
-    "placeKind": "district"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -97.6789,
      30.5083
     ]
@@ -2183,72 +2183,6 @@
     "summary": "October was another slow month for home sales and declining prices in the Austin area, according to the latest Central Texas Housing Report by Unlock MLS. A little more than 2,100 residential homes were sold across the Austin-Round Rock-San Marcos metropolitan statistical area (MSA) last month, the report found. That's 11.4 percent fewer than the total home sales recorded last year, in October 202",
     "place": "Round Rock",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "CDC eliminates $29 million for HIV prevention in Texas",
-    "link": "https://www.texastribune.org/2026/11/12/texas-hiv-prevention-public-health-funding-cut/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-11-12T11:00:00.000Z",
-    "summary": "The program, which helped organizations pay for HIV testing and outreach services, is the latest casualty in a series of public health funding cuts by the federal government. The post CDC eliminates $29 million for HIV prevention in Texas appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Lawmakers propose banning Flock camera grants by Texas agency",
-    "link": "https://www.texastribune.org/2026/11/12/texas-flock-cameras-funding-bill-2027-legislature/",
-    "outlet": "Texas Tribune",
-    "group": "government",
-    "color": "#d9a95a",
-    "published": "2026-11-12T11:00:00.000Z",
-    "summary": "The grants, funded by a fee on Texans’ auto insurance policies, helped install more than 3,200 of the surveillance cameras. The post Lawmakers propose banning Flock camera grants by Texas agency appeared first on The Texas Tribune .",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "A new housing blueprint",
-    "link": "https://www.austinpolitics.net/a-new-housing-blueprint/",
-    "outlet": "Austin Politics",
-    "group": "government",
-    "color": "#e8b35e",
-    "published": "2026-11-11T23:03:28.000Z",
-    "summary": "The old one was always flawed.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7431,
-     30.269
-    ]
-   },
-   "properties": {
-    "title": "Proposed Austin skyscraper could be the new tallest tower in Texas",
-    "link": "https://austin.culturemap.com/news/city-life/tallest-building-project-bolo-proposal/",
-    "outlet": "CultureMap",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-11-11T22:53:19.000Z",
-    "summary": "A new proposed skyscraper could soon change the look of Downtown Austin's skyline, with plans calling for a building that could potentially surpass the tallest tower in Texas. The proposed development, known as Project Bolo, would transform an existing parking lot at the corner of Congress Avenue and Fourth Street into a high-rise building, directly across from Frost Bank Tower. Project Bolo has s",
-    "place": "Congress Avenue",
-    "placeKind": "street"
    }
   }
  ]
