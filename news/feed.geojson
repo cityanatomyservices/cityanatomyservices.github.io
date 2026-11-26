@@ -1,9 +1,87 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-26T14:34:29.665Z",
- "placed": 51,
- "total": 125,
+ "generated": "2026-11-26T19:55:15.358Z",
+ "placed": 44,
+ "total": 109,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Macy's Thanksgiving Day Parade postponement sends Legacy Ranch cheer team in limbo",
+    "link": "https://www.kxan.com/news/macys-thanksgiving-day-parade-postponement-sends-legacy-ranch-cheer-team-in-limbo/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-26T19:22:53.000Z",
+    "summary": "The coach says it'll take thousands of dollars to stay in the Big Apple.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6772,
+     30.6333
+    ]
+   },
+   "properties": {
+    "title": "Advanced manufacturing sector sees surge in Georgetown",
+    "link": "https://communityimpact.com/georgetown/business/advanced-manufacturing-sector-sees-surge-in-georgetown/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-26T18:00:00.000Z",
+    "summary": "",
+    "place": "Georgetown",
+    "placeKind": "city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.751,
+     30.26
+    ]
+   },
+   "properties": {
+    "title": "Austin gathers for annual ThunderCloud Subs Turkey Trot",
+    "link": "https://www.kxan.com/news/local/austin/austin-gathers-for-annual-thundercloud-subs-turkey-trot/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-26T15:01:47.000Z",
+    "summary": "Thousands of runners and walkers gathered at the Long Center in downtown Austin for the annual ThunderCloud Subs Turkey Trot.",
+    "place": "Long Center",
+    "placeKind": "venue"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.6789,
+     30.5083
+    ]
+   },
+   "properties": {
+    "title": "Holiday events, Santa meet and greets: 14 December and January events in Round Rock area",
+    "link": "https://communityimpact.com/round-rock/business/holiday-events-santa-meet-and-greets-14-december-and-january-events-in-round-rock-area/",
+    "outlet": "Community Impact",
+    "group": "realestate",
+    "color": "#f08aa8",
+    "published": "2026-11-26T15:00:00.000Z",
+    "summary": "",
+    "place": "Round Rock",
+    "placeKind": "city"
+   }
+  },
   {
    "type": "Feature",
    "geometry": null,
@@ -368,57 +446,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Where to find free meals on Thanksgiving Day in the Austin area",
-    "link": "https://www.kxan.com/news/local/austin/where-to-find-free-meals-on-thanksgiving-day-in-the-austin-area/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T19:59:46.000Z",
-    "summary": "Several Austin-area churches, organizations and businesses are offering free meals on Thanksgiving Day for anyone that needs one.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Foster youth nonprofit moves closer to $15.3 million campus in Round Rock",
-    "link": "https://www.kxan.com/news/local/austin/foster-youth-nonprofit-moves-closer-to-15-3-million-campus-in-round-rock/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-25T19:46:52.000Z",
-    "summary": "Central Texas Table of Grace is moving closer to building a $15.3 million campus in Round Rock to support foster children and young adults who are aging out of the system.",
-    "place": "Round Rock",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "TSMC eyes 3K-acre Aggieland site for $22.6B chip plant",
-    "link": "https://therealdeal.com/texas/2026/11/25/tsmc-eyes-3000-acre-aggieland-site-for-22-6b-chip-plant/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-25T19:29:01.000Z",
-    "summary": "Taiwan-based TSMC is sizing up a slice of land in Aggieland to build a $23 billion chipmaking plant. TSMC tipped their hand through a Texas Jobs, Energy, Technology and Innovation program application that revealed some details for the proposed campus. TSMC estimates that the proposed semiconductor manufacturing plant in College Station will generate $64 billion over a four decade operating period,",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Freeze warning issued for the Austin area on Thanksgiving morning",
     "link": "https://www.kut.org/austin/2026-11-25/austin-tx-weather-forecast-temperature-thanksgiving-freeze-warning",
     "outlet": "KUT",
@@ -441,21 +468,6 @@
     "color": "#5fc4b6",
     "published": "2026-11-25T17:10:00.000Z",
     "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Houston restauranteur’s $7M mansion topped Austin luxury contracts last week after a series of price cuts",
-    "link": "https://therealdeal.com/texas/2026/11/25/barton-creek-mansion-tops-weekly-luxury-contracts/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-25T16:30:00.000Z",
-    "summary": "A Houston restauranteur’s $6.5 million contemporary home topped Austin’s luxury trades last week, following massive price cuts and a $21 million lawsuit against the seller’s steakhouse chain. The 7,660-square-foot home at 4416 Amarra Drive was Austin’s most expensive public listing to go under contract last week, according to the Reisor Team Luxury Report. Compiled by the Compass-affiliated Reisor",
     "place": null,
     "placeKind": null
    }
@@ -797,21 +809,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "The Church of the Path to celebrate 40-year anniversary",
-    "link": "https://communityimpact.com/lake-travis-westlake/business/the-church-of-the-path-to-celebrate-40-year-anniversary/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-24T19:00:00.000Z",
-    "summary": "",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Austin teacher studied Shakespeare and Watergate to win nearly $100K on 'Jeopardy!'",
     "link": "https://www.kut.org/education/2026-11-24/austin-tx-crockett-high-school-teacher-will-goree-jeopardy-winner",
     "outlet": "KUT",
@@ -821,48 +818,6 @@
     "summary": "Crockett High School teacher Will Goree, who grew up watching the show, won four days in a row.",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.62,
-     30.439
-    ]
-   },
-   "properties": {
-    "title": "Pickleball Kingdom to close Pflugerville location Nov. 30",
-    "link": "https://communityimpact.com/pflugerville-hutto/business/pickleball-kingdom-to-close-pflugerville-location-nov-30/",
-    "outlet": "Community Impact",
-    "group": "realestate",
-    "color": "#f08aa8",
-    "published": "2026-11-24T18:00:00.000Z",
-    "summary": "",
-    "place": "Pflugerville",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.79,
-     30.4
-    ]
-   },
-   "properties": {
-    "title": "Northwest Austin office park secures 100K sf in leases as mixed-use plans advance",
-    "link": "https://therealdeal.com/texas/2026/11/24/northwest-austin-office-park-secures-100k-sf-in-leases/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-24T17:35:34.000Z",
-    "summary": "A major Northwest Austin office campus just outside of The Domain signed four new leases, while its owner, Accesso Partners, plans to redevelop the property’s concrete sea of parking lots into multilevel parking and a mixed-use development. The four newcomers to 7700 Parmer signed leases that represent a total of 103,000 square feet, according to the Austin Business Journal. The talent solutions a",
-    "place": "Northwest Austin",
-    "placeKind": "district"
    }
   },
   {
@@ -927,42 +882,6 @@
     "color": "#f0c27a",
     "published": "2026-11-24T00:00:00.000Z",
     "summary": "<p paraeid=\"{0b2787bb-ce4f-42fa-96ff-fa94ab320249}{243}\" paraid=\"198579086\">City of Austin administrative offices and other municipal facilities will be closed Thursday, Nov. 26 and Friday, Nov. 27, in observance of Thanksgiving. This includes the Municipal and Community courts, Austin Animal Shelter, libraries, museums, and cultural, recreation and senior centers. Normal business hours will resum",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.773,
-     30.321
-    ]
-   },
-   "properties": {
-    "title": "Gatsby-style estate asking $22M is Austin’s priciest public listing",
-    "link": "https://therealdeal.com/texas/2026/11/23/inside-a-gatsby-style-22m-west-austin-estate/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-23T21:45:47.000Z",
-    "summary": "A newly built West Austin estate promises prospective buyers a chance to play out their wildest Jay Gatsby dreams right here in the Texas capital — for a whopping $22 million. The 15,000-square-foot home at 3808 Balcones Drive sits just north of Tarrytown at the edge of the Colorado Foothills near Mount Bonnell, a popular lookout point that oversees some of Lake Austin’s most expensive waterfront ",
-    "place": "Mount Bonnell",
-    "placeKind": "park"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "DFW is winning Texas’ HQ race. Where are the offices landing?",
-    "link": "https://therealdeal.com/texas/2026/11/23/dfw-is-winning-texas-hq-race-in-its-major-markets/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-23T20:31:10.000Z",
-    "summary": "The Dallas-Fort Worth Metroplex is firmly in first place among cities in the Texas Triangle in terms of the sheer number of corporate relocations into the region. Since 2005, DFW has captured 49 percent of Texas headquarters relocations, 195 of a 399 total, according to the Dallas Business Journal, who cited Austin-based YTexas’ Relo tracker. The data isn’t holistic, as it tracks corporate HQs mov",
     "place": null,
     "placeKind": null
    }
@@ -1142,27 +1061,6 @@
     "summary": "Vela was first elected to represent Austin's District 4 in 2022. He plans to run for the Texas Senate seat being vacated by Sarah Eckhardt, who was elected to the Texas comptroller office earlier this month.",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.72,
-     30.38
-    ]
-   },
-   "properties": {
-    "title": "Jackson Square Spins Off 280-Unit Pflugerville Rental Property",
-    "link": "https://www.connectcre.com/stories/jackson-square-spins-off-280-unit-pflugerville-rental-property/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-11-20T16:43:41.000Z",
-    "summary": "Newmark arranged the sale and acquisition financing of Villas at Grand Avenue, a 280-unit value-add multifamily property located at 1720 Grand Avenue Parkway in Pflugerville, Texas, within North Austin’s growing Silicon Hills technology corridor. Newmark’s Patton Jones and Andrew Dickson represented the seller, Jackson Square Properties, in the sale transaction. Matt Greer and Andrew Wilson ... Th",
-    "place": "North Austin",
-    "placeKind": "district"
    }
   },
   {
@@ -1538,36 +1436,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Following price cut, $5M West Austin Estate tops weekly luxury contracts",
-    "link": "https://therealdeal.com/texas/2026/11/18/5m-west-austin-estate-tops-weekly-luxury-contracts/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-18T19:12:48.000Z",
-    "summary": "A $5.2 million West Austin home, recently constructed and located in the top-rated Eanes Independent School District, was the most expensive publicly listed home to go under contract last week, according to the Reisor Team Luxury Report. The report, compiled by the Compass-affiliated Reisor Team, counts homes in Austin and West Lake Hills listed on the MLS for $2 million or more that went under co",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Texas resumes data center environmental reviews as regulatory fight continues",
-    "link": "https://therealdeal.com/texas/2026/11/18/texas-resumes-data-center-environmental-reviews/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-18T17:45:00.000Z",
-    "summary": "Texas is restarting a key part of the data center development pipeline before the state debuted the full findings of its review of the industry’s effect on local communities. Previously, Gov. Greg Abbott directed the Texas Commission on Environmental Quality to stop approving environmental permits until the Electric Reliability Council of Texas could complete an audit of community impacts. ERCOT g",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Austin City Council considers fate of Muny golf course, surrounding property",
     "link": "https://austincurrent.org/2026/11/18/austin-city-council-considers-fate-of-muny-golf-course-surrounding-property/",
     "outlet": "Austin Current",
@@ -1619,21 +1487,6 @@
     "summary": "Austin has leased the land from the University of Texas for decades. The city could soon own the more than 100-acre golf course.",
     "place": "University of Texas",
     "placeKind": "campus"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Bain Capital lands $136M refi on Central Texas built-to-rents",
-    "link": "https://therealdeal.com/texas/2026/11/17/bain-capital-nabs-136m-refi-on-central-texas-built-to-rents/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-17T22:06:01.000Z",
-    "summary": "Bain Capital scored a $136.1 million refinance loan for a pair of rental home communities in Central Texas. The investment giant worked on behalf of built-to-rent developer Urban Moment Development, the Austin-based firm behind the two projects, according to Traded. Orix USA and Knighthead Capital Management financed the deal, and Newmark served as the broker. Urban Moment completed the first comm",
-    "place": null,
-    "placeKind": null
    }
   },
   {
@@ -1706,48 +1559,6 @@
     "summary": "",
     "place": "Pflugerville",
     "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7431,
-     30.269
-    ]
-   },
-   "properties": {
-    "title": "Nearly 1,000-Foot Tower Under Review in Austin",
-    "link": "https://www.connectcre.com/stories/nearly-1000-foot-tower-under-review-in-austin/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-11-17T18:56:04.000Z",
-    "summary": "Nebraska-based developer Lanoha is proposing to build a nearly 1,000-foot-tall tower in Austin. Dubbed The Austin Lineage, the project would consist of both a hotel and condos. Lanoha has targeted the corner of Congress Avenue and West Fourth Street for what would, if completed, be the second-tallest tower in Austin. The Austin Business Journal reports ... The post Nearly 1,000-Foot Tower Under Re",
-    "place": "Congress Avenue",
-    "placeKind": "street"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.718,
-     30.265
-    ]
-   },
-   "properties": {
-    "title": "Jay Paul lands $228M green refinancing for Austin office campus",
-    "link": "https://therealdeal.com/texas/2026/11/17/jay-paul-lands-228m-green-refi-for-austin-office-campus/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-17T17:30:00.000Z",
-    "summary": "Jay Paul Company locked in $228 million in green financing to refinance Springdale Green, an 881,000-square-foot office campus in East Austin, just north of Boggy Creek and the Colorado River. Nuveen Green Capital closed the financing for the property, according to Bisnow. The deal is the largest commercial property assessed clean energy transaction in Texas, according to the outlet. C-PACE transa",
-    "place": "East Austin",
-    "placeKind": "district"
    }
   },
   {
@@ -1847,21 +1658,6 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
-    "title": "Taylor Morrison to Start Work on 161-Unit Austin BTR Community",
-    "link": "https://www.connectcre.com/stories/taylor-morrison-to-start-work-on-161-unit-austin-btr-community/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-11-16T17:59:07.000Z",
-    "summary": "Taylor Morrison’s BTR concept, Yardly, will soon be breaking ground on a 161-unit development in the Easton Park planned community in Austin. Community Impact reports that construction teams are slated to begin work on the neighborhood later this month, with leasing set to begin in late 2027. Three- and four-bedroom floor plans will be available, ... The post Taylor Morrison to Start Work on 161-U",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
     "title": "Muny is saved. What about the Brackenridge Tract?",
     "link": "https://www.austinpolitics.net/muny-is-saved-what-about-the-brackenridge-tract/",
     "outlet": "Austin Politics",
@@ -1869,21 +1665,6 @@
     "color": "#e8b35e",
     "published": "2026-11-16T17:25:45.000Z",
     "summary": "Mayor Kirk Watson's deal is getting hit from both sides.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Owner of 880K-SF Austin Office Complex Scores Record C-PACE Loan",
-    "link": "https://www.connectcre.com/stories/880k-sf-austin-office-owner-scores-record-c-pace-loan/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-11-16T17:00:25.000Z",
-    "summary": "Jay Paul Company was able to finance an existing construction loan on a sprawling Austin office complex with a $227.5 million C-PACE financing. Nuveen Green Capital (NGC) provided the loan. The loan on the 881,427-square-foot Class A office campus marks the largest C-PACE transaction in Texas to date. C-PACE will recapitalize Springdale Green’s previously completed ... The post Owner of 880K-SF Au",
     "place": null,
     "placeKind": null
    }
@@ -1986,27 +1767,6 @@
   },
   {
    "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "JV Pursuing $1B Georgetown Data Center",
-    "link": "https://www.connectcre.com/stories/jv-pursuing-1b-georgetown-data-center/",
-    "outlet": "Connect CRE",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-11-13T16:29:17.000Z",
-    "summary": "Oakwell Capital Partners and Cawley Partners are proposing to build a 68-megawatt, 145,000-square-foot data center building in Georgetown. The town’s planning commission will hear the item next week. The zoning change would allow developers to build a building of up to 290,000 square feet to accommodate future growth. The Austin Business Journal reports that the ... The post JV Pursuing $1B George",
-    "place": "Georgetown",
-    "placeKind": "city"
-   }
-  },
-  {
-   "type": "Feature",
    "geometry": null,
    "properties": {
     "title": "Home sales decrease year over year in New Braunfels",
@@ -2018,27 +1778,6 @@
     "summary": "",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6772,
-     30.6333
-    ]
-   },
-   "properties": {
-    "title": "Aalo Atomics rides Austin’s new tech wave, leasing 200K sf of industrial space in Central Texas",
-    "link": "https://therealdeal.com/texas/2026/11/13/aalo-atomics-leases-200k-sf-in-central-texas/",
-    "outlet": "The Real Deal",
-    "group": "realestate",
-    "color": "#d06a8a",
-    "published": "2026-11-13T15:00:00.000Z",
-    "summary": "Aalo Atomics is the latest player in the new wave of Austin tech companies to take space in the Texas capital. The nuclear power startup has inked a deal to occupy a 205,000-square-foot building at CrossPoint Business District in Georgetown, the Austin Business Journal reported. Aalo will use the space to manufacture nuclear reactors and power generation parts. Dallas-based Jackson Shaw is the dev",
-    "place": "Georgetown",
-    "placeKind": "city"
    }
   },
   {
@@ -2162,27 +1901,6 @@
     "summary": "Some neighborhoods have become ‘cookie-cutter and generic.’ Austin wants more local businesses to thrive in those prime locations. A new initiative may help them get there. The post Austin wants to save the local businesses that give the city its soul. Here’s its plan. appeared first on Austin Current .",
     "place": null,
     "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.6789,
-     30.5083
-    ]
-   },
-   "properties": {
-    "title": "Central Texas home prices fell in October after stable period, report says",
-    "link": "https://austin.culturemap.com/news/real-estate/october-2026-real-estate-report/",
-    "outlet": "CultureMap",
-    "group": "realestate",
-    "color": "#e07a99",
-    "published": "2026-11-12T15:01:03.000Z",
-    "summary": "October was another slow month for home sales and declining prices in the Austin area, according to the latest Central Texas Housing Report by Unlock MLS. A little more than 2,100 residential homes were sold across the Austin-Round Rock-San Marcos metropolitan statistical area (MSA) last month, the report found. That's 11.4 percent fewer than the total home sales recorded last year, in October 202",
-    "place": "Round Rock",
-    "placeKind": "city"
    }
   }
  ]
