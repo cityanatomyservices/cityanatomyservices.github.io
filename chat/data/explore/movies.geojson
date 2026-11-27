@@ -1,21 +1,21 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-27T16:04:52.121279+00:00",
+ "generated": "2026-11-27T19:04:53.322914+00:00",
  "sources": [
   {
    "name": "Alamo Drafthouse",
    "url": "https://drafthouse.com/austin",
-   "ok": true,
-   "failures": 0,
-   "count": 376,
-   "error": ""
+   "ok": false,
+   "failures": 1,
+   "count": 371,
+   "error": "'NoneType' object is not subscriptable"
   },
   {
    "name": "Bullock Museum IMAX",
    "url": "https://www.thestoryoftexas.com/calendar/",
    "ok": true,
    "failures": 0,
-   "count": 66,
+   "count": 63,
    "error": ""
   },
   {
@@ -23,7 +23,7 @@
    "url": "https://austin.violetcrown.com/cinema/",
    "ok": true,
    "failures": 0,
-   "count": 15,
+   "count": 14,
    "error": ""
   }
  ],
@@ -67,45 +67,6 @@
      {
       "start": "2026-11-27T23:00:00-06:00",
       "url": "https://drafthouse.com/austin/show/wild-horse-nine",
-      "format": "Digital"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-6b8670669662ba1f4cc7",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8048,
-     30.4801
-    ]
-   },
-   "properties": {
-    "id": "movie-6b8670669662ba1f4cc7",
-    "title": "YOU CAN SEE EVERYTHING",
-    "venue": "Alamo Drafthouse Lakeline",
-    "address": "14028 N US Highway 183, Austin, TX 78717",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T10:15:00-06:00",
-    "end": "2026-11-27T10:15:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T10:15:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://drafthouse.com/austin/show/you-can-see-everything",
-    "source": "Alamo Drafthouse",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "R · 190 min · Dine-in food and drinks cost extra. Check age policies and ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T10:15:00-06:00",
-      "url": "https://drafthouse.com/austin/show/you-can-see-everything",
       "format": "Digital"
      }
     ]
@@ -552,45 +513,6 @@
   },
   {
    "type": "Feature",
-   "id": "movie-319cd7f1a2f9b7c825dd",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7634,
-     30.2559
-    ]
-   },
-   "properties": {
-    "id": "movie-319cd7f1a2f9b7c825dd",
-    "title": "HDR By Barco: FOCKER IN-LAW (2026)",
-    "venue": "Alamo Drafthouse South Lamar",
-    "address": "1120 South Lamar Blvd, Austin, TX",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T11:00:00-06:00",
-    "end": "2026-11-27T11:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T11:00:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://drafthouse.com/austin/show/hdr-focker-in-law",
-    "source": "Alamo Drafthouse",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "PG13 · 120 min · Dine-in food and drinks cost extra. Check age policies and ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T11:00:00-06:00",
-      "url": "https://drafthouse.com/austin/show/hdr-focker-in-law",
-      "format": "HDR"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
    "id": "movie-902a9187679549d389c0",
    "geometry": {
     "type": "Point",
@@ -659,45 +581,6 @@
       "start": "2026-11-27T21:30:00-06:00",
       "url": "https://drafthouse.com/austin/show/hexed",
       "format": "Digital"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-a1be7937021d7e9c1951",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7390687,
-     30.280337
-    ]
-   },
-   "properties": {
-    "id": "movie-a1be7937021d7e9c1951",
-    "title": "Horse Power",
-    "venue": "Bullock Museum IMAX",
-    "address": "1800 Congress Ave., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T11:00:00-06:00",
-    "end": "2026-11-27T11:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T11:00:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
-    "source": "Bullock Museum IMAX",
-    "tags": [
-     "imax"
-    ],
-    "conditions": "Tickets sold separately from museum admission. Check the museum for availability and age guidance.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T11:00:00-06:00",
-      "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
-      "format": "IMAX 3D"
      }
     ]
    }
@@ -950,45 +833,6 @@
   },
   {
    "type": "Feature",
-   "id": "movie-5dc2999b9c8eb318dc39",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-5dc2999b9c8eb318dc39",
-    "title": "Wild Horse Nine",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T11:50:00-06:00",
-    "end": "2026-11-27T11:50:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T11:50:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://austin.violetcrown.com/movie/wild-horse-nine/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T11:50:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/wild-horse-nine/4383445/",
-      "format": ""
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
    "id": "movie-c6aea6b0ff0be07f6d35",
    "geometry": {
     "type": "Point",
@@ -1043,45 +887,6 @@
   },
   {
    "type": "Feature",
-   "id": "movie-dfdf6faa89387f1f1e87",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8048,
-     30.4801
-    ]
-   },
-   "properties": {
-    "id": "movie-dfdf6faa89387f1f1e87",
-    "title": "HDR By Barco: HEXED",
-    "venue": "Alamo Drafthouse Lakeline",
-    "address": "14028 N US Highway 183, Austin, TX 78717",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T12:00:00-06:00",
-    "end": "2026-11-27T12:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T12:00:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://drafthouse.com/austin/show/hdr-hexed",
-    "source": "Alamo Drafthouse",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "PG · 120 min · Dine-in food and drinks cost extra. Check age policies and ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T12:00:00-06:00",
-      "url": "https://drafthouse.com/austin/show/hdr-hexed",
-      "format": "HDR"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
    "id": "movie-2d40a78c5c9789b09169",
    "geometry": {
     "type": "Point",
@@ -1130,192 +935,6 @@
       "start": "2026-11-27T21:00:00-06:00",
       "url": "https://drafthouse.com/austin/show/hexed",
       "format": "Digital"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-36a2d24533c2438d5d8a",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7390687,
-     30.280337
-    ]
-   },
-   "properties": {
-    "id": "movie-36a2d24533c2438d5d8a",
-    "title": "Superhuman Body",
-    "venue": "Bullock Museum IMAX",
-    "address": "1800 Congress Ave., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T12:00:00-06:00",
-    "end": "2026-11-27T12:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T12:00:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
-    "source": "Bullock Museum IMAX",
-    "tags": [
-     "imax"
-    ],
-    "conditions": "Tickets sold separately from museum admission. Check the museum for availability and age guidance.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T12:00:00-06:00",
-      "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
-      "format": "IMAX 3D"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-cfcf745c5ac61025c55a",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-cfcf745c5ac61025c55a",
-    "title": "The Hunger Games: Sunrise On The Reaping",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T12:05:00-06:00",
-    "end": "2026-11-27T21:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T21:00:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://austin.violetcrown.com/movie/the-hunger-games-sunrise-on-the-reaping/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "PG-13 · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T12:05:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/the-hunger-games-sunrise-on-the-reaping/4368559/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T15:25:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/the-hunger-games-sunrise-on-the-reaping/4368560/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T18:50:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/the-hunger-games-sunrise-on-the-reaping/4368558/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T21:00:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/the-hunger-games-sunrise-on-the-reaping/4368557/",
-      "format": ""
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-90cfca0541bbf5fd9cab",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7047,
-     30.2983
-    ]
-   },
-   "properties": {
-    "id": "movie-90cfca0541bbf5fd9cab",
-    "title": "HDR By Barco: FOCKER IN-LAW (2026)",
-    "venue": "Alamo Drafthouse Mueller",
-    "address": "1911 Aldrich St, Mueller",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T12:20:00-06:00",
-    "end": "2026-11-27T12:20:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T12:20:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://drafthouse.com/austin/show/hdr-focker-in-law",
-    "source": "Alamo Drafthouse",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "PG13 · 120 min · Dine-in food and drinks cost extra. Check age policies and ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T12:20:00-06:00",
-      "url": "https://drafthouse.com/austin/show/hdr-focker-in-law",
-      "format": "HDR"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-c15c9a5e547bc41e7de6",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-c15c9a5e547bc41e7de6",
-    "title": "I Play Rocky",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T12:20:00-06:00",
-    "end": "2026-11-27T21:55:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T21:55:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://austin.violetcrown.com/movie/i-play-rocky/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "PG-13 · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T12:20:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/i-play-rocky/4368561/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T15:10:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/i-play-rocky/4368565/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T18:00:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/i-play-rocky/4368564/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T21:55:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/i-play-rocky/4368563/",
-      "format": ""
      }
     ]
    }
@@ -1582,99 +1201,6 @@
   },
   {
    "type": "Feature",
-   "id": "movie-26722d5dd291e36a8449",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7481387,
-     30.2657646
-    ]
-   },
-   "properties": {
-    "id": "movie-26722d5dd291e36a8449",
-    "title": "Club Kid",
-    "venue": "Violet Crown Austin",
-    "address": "434 West 2nd St., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T12:50:00-06:00",
-    "end": "2026-11-27T22:15:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://austin.violetcrown.com/movie/club-kid/",
-    "source": "Violet Crown Austin",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T12:50:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/club-kid/4367384/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T15:40:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/club-kid/4367385/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T18:30:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/club-kid/4367386/",
-      "format": ""
-     },
-     {
-      "start": "2026-11-27T22:15:00-06:00",
-      "url": "https://austin.violetcrown.com/checkout/showing/club-kid/4367387/",
-      "format": ""
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-a2d598d4ddb70920ae6f",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.7390687,
-     30.280337
-    ]
-   },
-   "properties": {
-    "id": "movie-a2d598d4ddb70920ae6f",
-    "title": "Deep in the Heart: A Texas Wildlife Story",
-    "venue": "Bullock Museum IMAX",
-    "address": "1800 Congress Ave., Austin, TX 78701",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T13:00:00-06:00",
-    "end": "2026-11-27T13:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T13:00:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
-    "source": "Bullock Museum IMAX",
-    "tags": [
-     "imax"
-    ],
-    "conditions": "Tickets sold separately from museum admission. Check the museum for availability and age guidance.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T13:00:00-06:00",
-      "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
-      "format": "IMAX"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
    "id": "movie-56d4de0281a7216e4b6f",
    "geometry": {
     "type": "Point",
@@ -1717,45 +1243,6 @@
      {
       "start": "2026-11-27T22:00:00-06:00",
       "url": "https://drafthouse.com/austin/show/focker-in-law",
-      "format": "Digital"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "movie-25358dcf78c4f410a077",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.8048,
-     30.4801
-    ]
-   },
-   "properties": {
-    "id": "movie-25358dcf78c4f410a077",
-    "title": "Movie Party: FOCKER IN-LAW (2026)",
-    "venue": "Alamo Drafthouse Lakeline",
-    "address": "14028 N US Highway 183, Austin, TX 78717",
-    "kind": "movie",
-    "price": null,
-    "priceLabel": "Check ticket price",
-    "start": "2026-11-27T13:00:00-06:00",
-    "end": "2026-11-27T13:00:01-06:00",
-    "endKnown": false,
-    "day": "2026-11-27",
-    "expires": "2026-11-27T13:00:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
-    "url": "https://drafthouse.com/austin/show/movie-party-focker-in-law",
-    "source": "Alamo Drafthouse",
-    "tags": [
-     "dine-in"
-    ],
-    "conditions": "PG13 · 125 min · Dine-in food and drinks cost extra. Check age policies and ticket availability.",
-    "showtimes": [
-     {
-      "start": "2026-11-27T13:00:00-06:00",
-      "url": "https://drafthouse.com/austin/show/movie-party-focker-in-law",
       "format": "Digital"
      }
     ]
@@ -1936,7 +1423,7 @@
     "endKnown": false,
     "day": "2026-11-27",
     "expires": "2026-11-27T14:00:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -2014,7 +1501,7 @@
     "endKnown": false,
     "day": "2026-11-27",
     "expires": "2026-11-27T21:15:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2130,6 +1617,55 @@
   },
   {
    "type": "Feature",
+   "id": "movie-c15c9a5e547bc41e7de6",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-c15c9a5e547bc41e7de6",
+    "title": "I Play Rocky",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-27T15:10:00-06:00",
+    "end": "2026-11-27T21:55:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-27",
+    "expires": "2026-11-27T21:55:00-06:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
+    "url": "https://austin.violetcrown.com/movie/i-play-rocky/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "PG-13 · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-27T15:10:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/i-play-rocky/4368565/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-27T18:00:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/i-play-rocky/4368564/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-27T21:55:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/i-play-rocky/4368563/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
    "id": "movie-b14fcf9728ffe4d92e0a",
    "geometry": {
     "type": "Point",
@@ -2208,6 +1744,55 @@
   },
   {
    "type": "Feature",
+   "id": "movie-cfcf745c5ac61025c55a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-cfcf745c5ac61025c55a",
+    "title": "The Hunger Games: Sunrise On The Reaping",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-27T15:25:00-06:00",
+    "end": "2026-11-27T21:00:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-27",
+    "expires": "2026-11-27T21:00:00-06:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
+    "url": "https://austin.violetcrown.com/movie/the-hunger-games-sunrise-on-the-reaping/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "PG-13 · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-27T15:25:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/the-hunger-games-sunrise-on-the-reaping/4368560/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-27T18:50:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/the-hunger-games-sunrise-on-the-reaping/4368558/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-27T21:00:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/the-hunger-games-sunrise-on-the-reaping/4368557/",
+      "format": ""
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
    "id": "movie-40753f131564f9c03bd6",
    "geometry": {
     "type": "Point",
@@ -2229,7 +1814,7 @@
     "endKnown": false,
     "day": "2026-11-27",
     "expires": "2026-11-27T19:30:00-06:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -2246,6 +1831,55 @@
       "start": "2026-11-27T19:30:00-06:00",
       "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
       "format": "IMAX"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "movie-26722d5dd291e36a8449",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7481387,
+     30.2657646
+    ]
+   },
+   "properties": {
+    "id": "movie-26722d5dd291e36a8449",
+    "title": "Club Kid",
+    "venue": "Violet Crown Austin",
+    "address": "434 West 2nd St., Austin, TX 78701",
+    "kind": "movie",
+    "price": null,
+    "priceLabel": "Check ticket price",
+    "start": "2026-11-27T15:40:00-06:00",
+    "end": "2026-11-27T22:15:01-06:00",
+    "endKnown": false,
+    "day": "2026-11-27",
+    "expires": "2026-11-27T22:15:00-06:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
+    "url": "https://austin.violetcrown.com/movie/club-kid/",
+    "source": "Violet Crown Austin",
+    "tags": [
+     "dine-in"
+    ],
+    "conditions": "R · Dining and drinks available; charged separately. Check ticket availability.",
+    "showtimes": [
+     {
+      "start": "2026-11-27T15:40:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/club-kid/4367385/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-27T18:30:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/club-kid/4367386/",
+      "format": ""
+     },
+     {
+      "start": "2026-11-27T22:15:00-06:00",
+      "url": "https://austin.violetcrown.com/checkout/showing/club-kid/4367387/",
+      "format": ""
      }
     ]
    }
@@ -2775,8 +2409,8 @@
     "end": "2026-11-28T11:50:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/wild-horse-nine/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -2858,8 +2492,8 @@
     "end": "2026-11-28T21:55:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/i-play-rocky/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -3055,8 +2689,8 @@
     "end": "2026-11-28T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/club-kid/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -3158,8 +2792,8 @@
     "end": "2026-11-28T21:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/the-hunger-games-sunrise-on-the-reaping/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -3940,8 +3574,8 @@
     "end": "2026-11-28T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4318,8 +3952,8 @@
     "end": "2026-11-28T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4548,8 +4182,8 @@
     "end": "2026-11-28T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4695,8 +4329,8 @@
     "end": "2026-11-28T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -4851,8 +4485,8 @@
     "end": "2026-11-28T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -4978,8 +4612,8 @@
     "end": "2026-11-28T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-28",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -5711,8 +5345,8 @@
     "end": "2026-11-29T21:45:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/the-hunger-games-sunrise-on-the-reaping/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -5770,8 +5404,8 @@
     "end": "2026-11-29T22:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/i-play-rocky/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -6213,8 +5847,8 @@
     "end": "2026-11-29T22:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/club-kid/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -6719,8 +6353,8 @@
     "end": "2026-11-29T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7205,8 +6839,8 @@
     "end": "2026-11-29T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7366,8 +7000,8 @@
     "end": "2026-11-29T21:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/you-can-see-everything/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -7415,8 +7049,8 @@
     "end": "2026-11-29T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7640,8 +7274,8 @@
     "end": "2026-11-29T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -7835,8 +7469,8 @@
     "end": "2026-11-29T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -8011,8 +7645,8 @@
     "end": "2026-11-29T16:15:01-06:00",
     "endKnown": false,
     "day": "2026-11-29",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://austin.violetcrown.com/movie/wild-horse-nine/",
     "source": "Violet Crown Austin",
     "tags": [
@@ -8616,8 +8250,8 @@
     "end": "2026-11-30T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-30",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -9633,8 +9267,8 @@
     "end": "2026-11-30T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-30",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -9907,8 +9541,8 @@
     "end": "2026-11-30T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-30",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -10255,8 +9889,8 @@
     "end": "2026-11-30T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-30",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -10538,8 +10172,8 @@
     "end": "2026-11-30T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-11-30",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -11564,8 +11198,8 @@
     "end": "2026-12-01T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-01",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -12355,8 +11989,8 @@
     "end": "2026-12-01T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-01",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -12669,8 +12303,8 @@
     "end": "2026-12-01T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-01",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -12963,8 +12597,8 @@
     "end": "2026-12-01T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-01",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13163,8 +12797,8 @@
     "end": "2026-12-01T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-01",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -13993,8 +13627,8 @@
     "end": "2026-12-02T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-02",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -14985,8 +14619,8 @@
     "end": "2026-12-02T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-02",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15274,8 +14908,8 @@
     "end": "2026-12-02T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-02",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15553,8 +15187,8 @@
     "end": "2026-12-02T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-02",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -15753,8 +15387,8 @@
     "end": "2026-12-02T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-12-02",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16685,8 +16319,8 @@
     "end": "2026-12-03T11:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-03",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16724,8 +16358,8 @@
     "end": "2026-12-03T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-03",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16763,8 +16397,8 @@
     "end": "2026-12-03T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-03",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16802,8 +16436,8 @@
     "end": "2026-12-03T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-03",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -16890,8 +16524,8 @@
     "end": "2026-12-03T19:30:01-06:00",
     "endKnown": false,
     "day": "2026-12-03",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/hunger-games-sunrise-on-the-reaping-202611/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -17266,8 +16900,8 @@
     "end": "2026-12-04T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-04",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -17310,8 +16944,8 @@
     "end": "2026-12-04T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-04",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -17403,8 +17037,8 @@
     "end": "2026-12-04T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-04",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -17447,8 +17081,8 @@
     "end": "2026-12-04T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-04",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -17964,8 +17598,8 @@
     "end": "2026-12-05T16:30:01-06:00",
     "endKnown": false,
     "day": "2026-12-05",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/polar-express-202612/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18140,8 +17774,8 @@
     "end": "2026-12-05T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-05",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18218,8 +17852,8 @@
     "end": "2026-12-05T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-05",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18257,8 +17891,8 @@
     "end": "2026-12-05T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-05",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18579,8 +18213,8 @@
     "end": "2026-12-06T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-06",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18662,8 +18296,8 @@
     "end": "2026-12-06T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-06",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18799,8 +18433,8 @@
     "end": "2026-12-06T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-06",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -18877,8 +18511,8 @@
     "end": "2026-12-06T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-06",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19238,8 +18872,8 @@
     "end": "2026-12-07T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-07",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19282,8 +18916,8 @@
     "end": "2026-12-07T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-07",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19375,8 +19009,8 @@
     "end": "2026-12-07T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-07",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19414,8 +19048,8 @@
     "end": "2026-12-07T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-07",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19492,8 +19126,8 @@
     "end": "2026-12-07T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-07",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19848,8 +19482,8 @@
     "end": "2026-12-08T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-08",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19892,8 +19526,8 @@
     "end": "2026-12-08T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-08",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -19985,8 +19619,8 @@
     "end": "2026-12-08T13:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-08",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20024,8 +19658,8 @@
     "end": "2026-12-08T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-08",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20063,8 +19697,8 @@
     "end": "2026-12-08T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-08",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/train-time-202609/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20380,8 +20014,8 @@
     "end": "2026-12-09T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-09",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20424,8 +20058,8 @@
     "end": "2026-12-09T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-09",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20517,8 +20151,8 @@
     "end": "2026-12-09T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-09",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20561,8 +20195,8 @@
     "end": "2026-12-09T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-09",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20800,8 +20434,8 @@
     "end": "2026-12-09T19:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-09",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/george-michael-faith-tour-20261209/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -20956,8 +20590,8 @@
     "end": "2026-12-10T15:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-10",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/horse-power-202606/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -21000,8 +20634,8 @@
     "end": "2026-12-10T12:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-10",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/superhuman-body/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -21039,8 +20673,8 @@
     "end": "2026-12-10T16:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-10",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/deep-in-the-heart-2026/",
     "source": "Bullock Museum IMAX",
     "tags": [
@@ -21083,8 +20717,8 @@
     "end": "2026-12-10T14:00:01-06:00",
     "endKnown": false,
     "day": "2026-12-10",
-    "expires": "2026-11-28T04:04:52.121279+00:00",
-    "checked": "2026-11-27T16:04:52.121279+00:00",
+    "expires": "2026-11-28T07:04:53.322914+00:00",
+    "checked": "2026-11-27T19:04:53.322914+00:00",
     "url": "https://www.thestoryoftexas.com/films/lost-wolves-of-yellowstone/",
     "source": "Bullock Museum IMAX",
     "tags": [
