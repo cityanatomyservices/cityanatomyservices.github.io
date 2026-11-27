@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-27T08:24:18.170073+00:00",
+  "generated": "2026-11-27T18:56:18.688018+00:00",
   "sources": [
     {
       "name": "KUT",
       "publisher": "kut",
       "url": "https://www.kut.org/austin.rss",
       "ok": true,
-      "count": 6
+      "count": 4
     },
     {
       "name": "KXAN",
@@ -19,7 +19,7 @@
       "name": "Austin Chronicle news",
       "publisher": "chronicle",
       "url": "https://www.austinchronicle.com/category/news/feed/",
-      "ok": true,
+      "ok": false,
       "count": 8
     },
     {
@@ -55,7 +55,7 @@
       "publisher": "monthly",
       "url": "https://www.austinmonthly.com/feed/",
       "ok": true,
-      "count": 5
+      "count": 2
     },
     {
       "name": "The Daily Texan",
@@ -131,22 +131,58 @@
       "publisher": "kut"
     },
     {
-      "title": "Austin City Council Member Chito Vela announces bid for Texas Senate",
-      "url": "https://www.kut.org/austin/2026-11-20/austin-tx-city-council-chito-vela-texas-senate-bid-sarah-eckhardt",
-      "source": "KUT",
+      "title": "State Theatre to host free Texas vs. Texas A&M rivalry watch party",
+      "url": "https://www.kxan.com/things-to-do/state-theatre-to-host-free-texas-vs-texas-am-rivalry-watch-party/",
+      "source": "KXAN",
       "category": "headlines",
-      "published": "2026-11-20T17:00:45+00:00",
-      "expires": "2026-11-27T17:00:45+00:00",
-      "publisher": "kut"
+      "published": "2026-11-27T16:47:01+00:00",
+      "expires": "2026-12-04T16:47:01+00:00",
+      "publisher": "kxan"
     },
     {
-      "title": "'In Living Memory’ exhibit expands how Austin tells its story",
-      "url": "https://www.kut.org/life-arts/2026-11-20/east-austin-tx-in-living-memory-artist-exhibition-carver-museum",
-      "source": "KUT",
+      "title": "Hays CISD offering below-market housing for employees",
+      "url": "https://www.kxan.com/news/local/hays/hays-cisd-offering-below-market-housing-for-employees/",
+      "source": "KXAN",
       "category": "headlines",
-      "published": "2026-11-20T11:01:00+00:00",
-      "expires": "2026-11-27T11:01:00+00:00",
-      "publisher": "kut"
+      "published": "2026-11-27T13:00:00+00:00",
+      "expires": "2026-12-04T13:00:00+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Sarkisian proud of offensive line ahead of tough challenge against Texas A&M defense",
+      "url": "https://www.kxan.com/sports-general/horns-report/sarkisian-proud-of-offensive-line-ahead-of-tough-challenge-against-texas-am-defense/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-11-27T13:00:00+00:00",
+      "expires": "2026-12-04T13:00:00+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Scammers use AI to mimic real retail sites on Black Friday",
+      "url": "https://www.kxan.com/news/local/austin/scammers-use-ai-to-mimic-real-retail-sites-on-black-friday/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-11-27T12:49:41+00:00",
+      "expires": "2026-12-04T12:49:41+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Austin ISD asks for donations to help support student meal accounts in need",
+      "url": "https://www.kxan.com/news/local/austin/austin-isd-asks-for-donations-to-help-support-student-meal-accounts-in-need/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-11-27T12:20:09+00:00",
+      "expires": "2026-12-04T12:20:09+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Mild afternoon temperatures, lots of sunshine",
+      "url": "https://www.kxan.com/weather/forecast/cooler-morning-pleasant-afternoon-temperatures/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-11-27T11:33:05+00:00",
+      "expires": "2026-12-04T11:33:05+00:00",
+      "publisher": "kxan"
     },
     {
       "title": "Delays, few canceled flights at Austin airport amid coastal storms",
@@ -164,60 +200,6 @@
       "category": "headlines",
       "published": "2026-11-27T01:40:23+00:00",
       "expires": "2026-12-04T01:40:23+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Friends Bar serves Thanksgiving meals to community on Sixth Street",
-      "url": "https://www.kxan.com/news/local/austin/friends-bar-serves-thanksgiving-meals-to-community-on-sixth-street/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-26T22:30:56+00:00",
-      "expires": "2026-12-03T22:30:56+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Gov.-elect Gina Hinojosa joins Meals on Wheels for Thanksgiving deliveries",
-      "url": "https://www.kxan.com/news/local/austin/gov-elect-gina-hinojosa-joins-meals-on-wheels-for-thanksgiving-deliveries/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-26T20:55:38+00:00",
-      "expires": "2026-12-03T20:55:38+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Macy's Thanksgiving Day Parade postponement puts Legacy Ranch cheer team in limbo",
-      "url": "https://www.kxan.com/news/macys-thanksgiving-day-parade-postponement-sends-legacy-ranch-cheer-team-in-limbo/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-26T19:22:53+00:00",
-      "expires": "2026-12-03T19:22:53+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Austin gathers for annual ThunderCloud Subs Turkey Trot",
-      "url": "https://www.kxan.com/news/local/austin/austin-gathers-for-annual-thundercloud-subs-turkey-trot/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-26T15:01:47+00:00",
-      "expires": "2026-12-03T15:01:47+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Love steak but hate the price? An Austin butcher has a few suggestions",
-      "url": "https://www.kxan.com/news/local/austin/love-steak-but-hate-the-price-an-austin-butcher-has-a-few-suggestions/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-26T13:00:00+00:00",
-      "expires": "2026-12-03T13:00:00+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Does Texas law keep pace with Austin's self-driving taxi boom? Experts weigh in",
-      "url": "https://www.kxan.com/traffic/transportation/does-texas-law-keep-pace-with-austins-self-driving-taxi-boom-experts-weigh-in/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-26T13:00:00+00:00",
-      "expires": "2026-12-03T13:00:00+00:00",
       "publisher": "kxan"
     },
     {
@@ -392,76 +374,103 @@
       "publisher": "current"
     },
     {
-      "title": "Advanced manufacturing sector sees surge in Georgetown",
-      "url": "https://communityimpact.com/georgetown/business/advanced-manufacturing-sector-sees-surge-in-georgetown/",
+      "title": "El Pollo Rico to open next year in Hutto",
+      "url": "https://communityimpact.com/pflugerville-hutto/dining/el-pollo-rico-to-open-next-year-in-hutto/",
       "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-26T18:00:00+00:00",
-      "expires": "2026-12-03T18:00:00+00:00",
+      "published": "2026-11-27T17:30:00+00:00",
+      "expires": "2026-12-04T17:30:00+00:00",
       "publisher": "community-impact"
     },
     {
-      "title": "Holiday events, Santa meet and greets: 14 December and January events in Round Rock area",
-      "url": "https://communityimpact.com/round-rock/business/holiday-events-santa-meet-and-greets-14-december-and-january-events-in-round-rock-area/",
+      "title": "Explore 6 historic Bastrop properties this holiday season",
+      "url": "https://communityimpact.com/bastrop-cedar-creek/events/bastrop-historic-homes-tour-returns-dec-12/",
       "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-26T15:00:00+00:00",
-      "expires": "2026-12-03T15:00:00+00:00",
+      "published": "2026-11-27T17:11:00+00:00",
+      "expires": "2026-12-04T17:11:00+00:00",
       "publisher": "community-impact"
     },
     {
-      "title": "Here are 19 data center bills filed by Texas lawmakers ahead of 2027",
-      "url": "https://communityimpact.com/central-austin/texas-legislature/here-are-19-data-center-bills-filed-by-texas-lawmakers-ahead-of-2027/",
+      "title": "7 transportation updates affecting the Georgetown area",
+      "url": "https://communityimpact.com/georgetown/transportation/7-transportation-updates-affecting-the-georgetown-area/",
       "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-26T12:00:00+00:00",
-      "expires": "2026-12-03T12:00:00+00:00",
+      "published": "2026-11-27T17:00:00+00:00",
+      "expires": "2026-12-04T17:00:00+00:00",
       "publisher": "community-impact"
     },
     {
-      "title": "Read 20 business updates from around New Braunfels",
-      "url": "https://communityimpact.com/new-braunfels/business/read-about-20-business-updates-around-new-braunfels/",
+      "title": "New restaurants and retail: Check out these 21 Round Rock business updates",
+      "url": "https://communityimpact.com/round-rock/dining/new-restaurants-and-retail-check-out-these-21-round-rock-business-updates/",
       "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-26T12:00:00+00:00",
-      "expires": "2026-12-03T12:00:00+00:00",
+      "published": "2026-11-27T16:00:00+00:00",
+      "expires": "2026-12-04T16:00:00+00:00",
       "publisher": "community-impact"
     },
     {
-      "title": "Check out over 20 volunteer opportunities in the Georgetown area",
-      "url": "https://communityimpact.com/georgetown/nonprofit/check-out-over-20-volunteer-opportunities-in-the-georgetown-area/",
+      "title": "Experience one-of-a-kind dining at Wilhelm & Werner in downtown New Braunfels",
+      "url": "https://communityimpact.com/new-braunfels/dining/experience-one-of-a-kind-dining-at-wilhelm-werner-in-downtown-new-braunfels/",
       "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-26T12:00:00+00:00",
-      "expires": "2026-12-03T12:00:00+00:00",
+      "published": "2026-11-27T15:00:00+00:00",
+      "expires": "2026-12-04T15:00:00+00:00",
       "publisher": "community-impact"
     },
     {
-      "title": "Austin's $25M lakefront boardwalk plans advance as part of I-35 expansion mitigation",
-      "url": "https://communityimpact.com/central-austin/government/austin-s-25m-lakefront-boardwalk-plans-advance-as-part-of-i-35-expansion-mitigation/",
+      "title": "Amie D’s Cake Pops offers sweet treats in Leander",
+      "url": "https://communityimpact.com/leander-liberty-hill/dining/amie-d-s-cake-pops-offers-sweet-treats-in-leander/",
       "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-25T22:45:38+00:00",
-      "expires": "2026-12-02T22:45:38+00:00",
+      "published": "2026-11-27T13:31:36+00:00",
+      "expires": "2026-12-04T13:31:36+00:00",
       "publisher": "community-impact"
     },
     {
-      "title": "Check out 3 recent public safety updates in Cedar Park to know",
-      "url": "https://communityimpact.com/cedar-park/government/check-out-3-recent-public-safety-updates-in-cedar-park-to-know/",
+      "title": "Art studio opens in New Braunfels",
+      "url": "https://communityimpact.com/new-braunfels/business/art-studio-opens-in-new-braunfels/",
       "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-25T22:24:11+00:00",
-      "expires": "2026-12-02T22:24:11+00:00",
+      "published": "2026-11-27T12:00:00+00:00",
+      "expires": "2026-12-04T12:00:00+00:00",
       "publisher": "community-impact"
     },
     {
-      "title": "$1.6M contract OK’d for intersection improvements at 183A Toll and Scottsdale Drive",
-      "url": "https://communityimpact.com/cedar-park/transportation/1-6m-contract-ok-d-for-intersection-improvements-at-183a-toll-and-scottsdale-drive/",
+      "title": "Kyle Park takes shape: $280M development aims to expand dining and retail",
+      "url": "https://communityimpact.com/san-marcos-buda-kyle/development/kyle-park-takes-shape-280m-development-aims-to-expand-dining-and-retail/",
       "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-25T22:17:45+00:00",
-      "expires": "2026-12-02T22:17:45+00:00",
+      "published": "2026-11-27T12:00:00+00:00",
+      "expires": "2026-12-04T12:00:00+00:00",
       "publisher": "community-impact"
+    },
+    {
+      "title": "Forecast: Black Friday starts chilly, but warmer weather is ahead for Central Texas",
+      "url": "https://www.kvue.com/article/weather/forecast/austin-weather-central-texas-forecast/269-43840919",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-27T15:29:09+00:00",
+      "expires": "2026-12-04T15:29:09+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "A truck driver and his mystery passenger died in 1991. Now, 35 years later, there's a breakthrough",
+      "url": "https://www.kvue.com/article/news/local/texas-missing/mary-ellen-mccullough-identified-othram-dna/285-52f55b59-ece1-4dc9-a153-b976d47432e2",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-27T13:30:38+00:00",
+      "expires": "2026-12-04T13:30:38+00:00",
+      "publisher": "kvue"
+    },
+    {
+      "title": "North Texas dance teams face unexpected costs after Macy’s Thanksgiving Day Parade postponement",
+      "url": "https://www.kvue.com/article/news/local/north-texas-dance-teams-face-unexpected-costs-after-macys-thanksgiving-day-parade-postponement/287-cd7fdec1-f027-473f-847d-0e6a6bf05f1d",
+      "source": "KVUE",
+      "category": "headlines",
+      "published": "2026-11-27T10:46:57+00:00",
+      "expires": "2026-12-04T10:46:57+00:00",
+      "publisher": "kvue"
     },
     {
       "title": "Legacy Ranch cheer team raises enough money to stay in New York despite Macy's Thanksgiving Day Parade being postponed",
@@ -491,15 +500,6 @@
       "publisher": "kvue"
     },
     {
-      "title": "Forecast: Warmer afternoons in store ahead of next cold front this weekend",
-      "url": "https://www.kvue.com/article/weather/forecast/austin-weather-central-texas-forecast/269-43840919",
-      "source": "KVUE",
-      "category": "headlines",
-      "published": "2026-11-26T23:26:00+00:00",
-      "expires": "2026-12-03T23:26:00+00:00",
-      "publisher": "kvue"
-    },
-    {
       "title": "Residents in Lago Vista asked to reduce water usage as city remains under Stage 5 restriction",
       "url": "https://www.kvue.com/article/news/local/lago-vista-residents-stage-5-water-restriction/269-3577d458-c0b2-45c6-8922-32271b9f107f",
       "source": "KVUE",
@@ -518,24 +518,6 @@
       "publisher": "kvue"
     },
     {
-      "title": "Pearland HS band raises $350,000 to stay in NYC for rescheduled Macy’s Thanksgiving Day Parade",
-      "url": "https://www.kvue.com/article/news/local/pearland-band-macys-parade-rescheduled-nyc-fundraiser/285-e9fdcad0-604e-4cc0-9509-bc6569348016",
-      "source": "KVUE",
-      "category": "headlines",
-      "published": "2026-11-26T10:55:10+00:00",
-      "expires": "2026-12-03T10:55:10+00:00",
-      "publisher": "kvue"
-    },
-    {
-      "title": "Man arrested following suspected road rage shooting at Georgetown shopping center",
-      "url": "https://www.kvue.com/article/news/crime/georgetown-texas-road-rage-shooting-wolf-ranch-town-center/269-65897dbe-20c7-4223-aee3-79623dc475ae",
-      "source": "KVUE",
-      "category": "headlines",
-      "published": "2026-11-26T04:09:36+00:00",
-      "expires": "2026-12-03T04:09:36+00:00",
-      "publisher": "kvue"
-    },
-    {
       "title": "7 Fun Things to Do This Thanksgiving Weekend in Austin",
       "url": "https://www.austinmonthly.com/7-fun-things-to-do-this-thanksgiving-weekend-nov-26-29/",
       "source": "Austin Monthly",
@@ -551,33 +533,6 @@
       "category": "culture",
       "published": "2026-11-20T21:20:24+00:00",
       "expires": "2026-11-27T21:20:24+00:00",
-      "publisher": "monthly"
-    },
-    {
-      "title": "Austin Classic Shady Grove Lives Again",
-      "url": "https://www.austinmonthly.com/a-little-shady/",
-      "source": "Austin Monthly",
-      "category": "culture",
-      "published": "2026-11-20T18:51:38+00:00",
-      "expires": "2026-11-27T18:51:38+00:00",
-      "publisher": "monthly"
-    },
-    {
-      "title": "Remembering the Legendary Food Fight at UT’s Jester Dorm",
-      "url": "https://www.austinmonthly.com/war-and-peas/",
-      "source": "Austin Monthly",
-      "category": "culture",
-      "published": "2026-11-20T18:50:08+00:00",
-      "expires": "2026-11-27T18:50:08+00:00",
-      "publisher": "monthly"
-    },
-    {
-      "title": "A Swanky New Sports-Centric Restaurant is Changing the Game",
-      "url": "https://www.austinmonthly.com/austin-sports-club/",
-      "source": "Austin Monthly",
-      "category": "culture",
-      "published": "2026-11-20T17:42:39+00:00",
-      "expires": "2026-11-27T17:42:39+00:00",
       "publisher": "monthly"
     },
     {
