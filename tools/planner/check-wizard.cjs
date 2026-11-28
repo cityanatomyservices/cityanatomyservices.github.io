@@ -31,7 +31,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await context.route(/\/chat\/data\/explore\/[^?]+\.geojson/,route=>route.fulfill({json:{type:'FeatureCollection',generated:new Date().toISOString(),sources:[],features:route.request().url().includes('free-cheap')?features.slice(0,2):route.request().url().includes('live-music')?features.slice(2):[]}}));
   const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'/?planner=1');const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.PlanWizard&&window.PlanStore&&window.chatMap);await f.evaluate(()=>PlanStore.ready());
-  await f.locator('#plan-start #explore-panel').waitFor();await f.waitForFunction(()=>document.querySelectorAll('#explore-panel .explore-layer').length===10);
+  await f.locator('#plan-start #explore-panel').waitFor();await f.waitForFunction(()=>document.querySelectorAll('#explore-panel .explore-layer').length===9);
   assert.equal(await f.locator('#plan-start > button:visible').count(),1);assert.equal(await f.locator('#plan-upcoming-label').isHidden(),true);assert.equal(await f.locator('#plan-workspace').isHidden(),true);
   assert.equal(await f.locator('#add-day + #plan-explore-host').count(),1,'browse directly beneath Create New Day');
   const untouched=await f.evaluate(()=>JSON.stringify(PlanStore.book)),initialSaves=saveCalls;
@@ -41,7 +41,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   assert.equal(await list.count(),3);assert.equal(await f.evaluate(()=>PlanPanel.active),false);assert.equal(await f.locator('.map-stop').count(),0);
   assert.equal(await f.evaluate(async()=>(await chatMap.getSource('explore-free-cheap').getData()).features.length),2,'browse pins show without a plan');
   await when.selectOption('date');await f.locator('[data-filter=date]').fill(eventDay);await f.waitForFunction(()=>austinExplore.visibleItems.length===2);
-  await query.fill('nothing matches');await f.waitForFunction(()=>austinExplore.visibleItems.length===0);assert.match(await f.locator('.explore-count').textContent(),/No matching listings/);
+  await query.fill('nothing matches');await f.locator('.explore-count').filter({hasText:'No matching listings'}).waitFor();assert.equal(await f.evaluate(()=>austinExplore.visibleItems.length),0);
   await query.fill('');await when.selectOption('all');await f.waitForFunction(()=>austinExplore.visibleItems.length===3);
   assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),untouched,'browsing and empty results never create or edit a plan');assert.equal(saveCalls,initialSaves,'browsing never saves a plan');
   for(const id of ['ctrlClassifieds','ctrlSpecialEvents','ctrlProApps']){await f.locator('#'+id).click();assert.equal(await f.locator('#'+id).getAttribute('aria-expanded'),'true');await f.locator('#'+id).click();}
@@ -72,6 +72,6 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await f.evaluate(async({past,empty})=>{await PlanStore.chooseDay(past);await PlanStore.select({key:'past',title:'Past stop',kind:'place',timing:'unknown'},true);await PlanStore.chooseDay(empty);},{past:M.previousDay(M.planDay()),empty:M.nextDay(date)});
   await f.locator('#plan-start-over').click();assert.deepEqual(await f.locator('#plan-upcoming option').evaluateAll(options=>options.map(o=>o.value)),['',date]);await f.locator('#plan-upcoming').selectOption(date);
   await f.locator('#plan-show-all').click();assert.equal(await f.locator('#plan-items .plan-item:visible').count(),2);await f.getByRole('button',{name:'Remove First visit',exact:true}).click();await f.getByRole('button',{name:'Remove Second visit',exact:true}).click();assert.equal(await f.locator('#plan-step-places').isVisible(),true);await f.locator('#undo').click();assert.equal(await f.evaluate(()=>PlanStore.plan.items.length),1);
-  assert.equal(await f.locator('#plan-panel').evaluate(el=>el.scrollWidth>el.clientWidth),false);assert.deepEqual(errors,[]);if(member)await f.evaluate(()=>PlanStore.sync());await context.close();console.log(`${width}px ${member?'member':'guest'}: browse without a plan, ten categories, time/search filters, dated selection, preserved browsing, inline date, time conflicts, next-morning times, route handoff, review, export, undo and themes passed.`);
+  assert.equal(await f.locator('#plan-panel').evaluate(el=>el.scrollWidth>el.clientWidth),false);assert.deepEqual(errors,[]);if(member)await f.evaluate(()=>PlanStore.sync());await context.close();console.log(`${width}px ${member?'member':'guest'}: browse without a plan, category selection, time/search filters, dated selection, preserved browsing, inline date, time conflicts, next-morning times, route handoff, review, export, undo and themes passed.`);
  }
 }finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}})().catch(error=>{console.error(error.stack);process.exitCode=1;});

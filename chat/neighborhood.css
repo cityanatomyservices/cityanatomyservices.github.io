@@ -1,4 +1,6 @@
 /* Main map: businesses in Explore, people and conversation in Chat. */
+.stack { pointer-events: none; }
+.stack > .round { pointer-events: auto; }
 .stack .parcel-control, .stack .geofence-control {
   box-sizing: border-box; align-content: center; gap: 0;
   font-size: 10px; line-height: 12px; text-decoration: none;
@@ -35,6 +37,7 @@
 #chat-map-status:empty,#chat-circles-status:empty{display:none}
 .chat-circle-popup{max-width:min(300px,calc(100vw - 28px))!important}
 .chat-circle-popup .maplibregl-popup-content{padding:14px;border-radius:10px;background:var(--surface);color:var(--text)}
-.chat-circle-popup strong{font-size:15px;overflow-wrap:anywhere}
+.chat-circle-popup .maplibregl-popup-close-button{width:40px;height:40px;top:2px;right:3px;font-size:20px}
+.chat-circle-popup strong{display:block;padding-right:30px;font-size:15px;overflow-wrap:anywhere}
 .chat-circle-popup p{font-size:12px;line-height:1.5;margin:10px 0;overflow-wrap:anywhere}
 .chat-circle-popup a{color:var(--accent);font-size:13px;font-weight:650}

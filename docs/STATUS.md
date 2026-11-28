@@ -31,6 +31,10 @@ filters request up to 1,000 rows and prompt visitors to zoom in at that limit.
 The billing tests exercise separate subscription and portal actions for returning
 customers. Guest testing continues with checkout disabled.
 
+On the home map, button-column gaps pass taps through to map popups. The chat
+circle popup has a larger close button. The event-map generator omits both
+home-only links when it copies the home map controls.
+
 ## 2026-11-28 - Farmers’ market consolidation and morning feed checks
 
 SFC confirmed that November 28 is the final Downtown market. Its Saturday

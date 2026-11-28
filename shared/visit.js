@@ -55,7 +55,7 @@
         if(parcels){
           frame.title='What can I build here?';document.title=frame.title+' · Austin.Chat';
           document.querySelector('link[rel=canonical]')?.setAttribute('href',url.origin+url.pathname);
-          frame.contentWindow.location.replace('/what-can-i-build-here/workspace.html?v=20261128b');return;
+          frame.contentWindow.location.replace('/what-can-i-build-here/workspace.html?v=20261128c');return;
         }
         if(event){
           document.title=event.title+' · Austin.Chat';frame.title=event.title;
@@ -70,7 +70,7 @@
             frame.contentWindow.PlanPanel?.setView(on);return;
           }
         }catch(_){}
-        frame.contentWindow.location.replace('/chat/?v=20261128b');
+        frame.contentWindow.location.replace('/chat/?v=20261128c');
       });
       return true;
     };
