@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-27T18:56:18.688018+00:00",
+  "generated": "2026-11-28T01:57:10.842928+00:00",
   "sources": [
     {
       "name": "KUT",
       "publisher": "kut",
       "url": "https://www.kut.org/austin.rss",
       "ok": true,
-      "count": 4
+      "count": 3
     },
     {
       "name": "KXAN",
@@ -19,7 +19,7 @@
       "name": "Austin Chronicle news",
       "publisher": "chronicle",
       "url": "https://www.austinchronicle.com/category/news/feed/",
-      "ok": false,
+      "ok": true,
       "count": 8
     },
     {
@@ -34,7 +34,7 @@
       "publisher": "current",
       "url": "https://austincurrent.org/feed/",
       "ok": true,
-      "count": 6
+      "count": 5
     },
     {
       "name": "Community Impact · Austin area",
@@ -55,7 +55,7 @@
       "publisher": "monthly",
       "url": "https://www.austinmonthly.com/feed/",
       "ok": true,
-      "count": 2
+      "count": 1
     },
     {
       "name": "The Daily Texan",
@@ -122,13 +122,40 @@
       "publisher": "kut"
     },
     {
-      "title": "Austin Empty Bowl Project gets ready to unload around 3,000 bowls to help fight hunger",
-      "url": "https://www.kut.org/life-arts/2026-11-20/austin-empty-bowl-project-tx-local-ceramic-artists-food-bank",
-      "source": "KUT",
+      "title": "Live updates: No. 3 Texas vs. Texas A&M",
+      "url": "https://www.kxan.com/sports-general/horns-report/live-updates-no-3-texas-vs-texas-am/",
+      "source": "KXAN",
       "category": "headlines",
-      "published": "2026-11-20T22:24:06+00:00",
-      "expires": "2026-11-27T22:24:06+00:00",
-      "publisher": "kut"
+      "published": "2026-11-28T00:30:00+00:00",
+      "expires": "2026-12-05T00:30:00+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "First look at Austin thrill ride's safety measures after deadly Florida accident",
+      "url": "https://www.kxan.com/investigations/first-look-at-austin-thrill-rides-safety-measures-after-deadly-florida-accident/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-11-27T23:33:21+00:00",
+      "expires": "2026-12-04T23:33:21+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Thanksgiving travelers face delays at Austin airport",
+      "url": "https://www.kxan.com/news/local/austin/thanksgiving-travelers-face-delays-at-austin-airport/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-11-27T22:21:04+00:00",
+      "expires": "2026-12-04T22:21:04+00:00",
+      "publisher": "kxan"
+    },
+    {
+      "title": "Audit on Austin's city-issued credit cards sparks policy updates",
+      "url": "https://www.kxan.com/news/local/austin/audit-on-austins-city-issued-credit-cards-sparks-policy-updates/",
+      "source": "KXAN",
+      "category": "headlines",
+      "published": "2026-11-27T21:37:25+00:00",
+      "expires": "2026-12-04T21:37:25+00:00",
+      "publisher": "kxan"
     },
     {
       "title": "State Theatre to host free Texas vs. Texas A&M rivalry watch party",
@@ -164,42 +191,6 @@
       "category": "headlines",
       "published": "2026-11-27T12:49:41+00:00",
       "expires": "2026-12-04T12:49:41+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Austin ISD asks for donations to help support student meal accounts in need",
-      "url": "https://www.kxan.com/news/local/austin/austin-isd-asks-for-donations-to-help-support-student-meal-accounts-in-need/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-27T12:20:09+00:00",
-      "expires": "2026-12-04T12:20:09+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Mild afternoon temperatures, lots of sunshine",
-      "url": "https://www.kxan.com/weather/forecast/cooler-morning-pleasant-afternoon-temperatures/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-27T11:33:05+00:00",
-      "expires": "2026-12-04T11:33:05+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Delays, few canceled flights at Austin airport amid coastal storms",
-      "url": "https://www.kxan.com/news/local/austin/delays-few-canceled-flights-at-austin-airport-amid-coastal-storms/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-27T02:56:41+00:00",
-      "expires": "2026-12-04T02:56:41+00:00",
-      "publisher": "kxan"
-    },
-    {
-      "title": "Texas football grateful ahead of Texas A&M game",
-      "url": "https://www.kxan.com/sports-general/texas-football-grateful-ahead-of-texas-am-game/",
-      "source": "KXAN",
-      "category": "headlines",
-      "published": "2026-11-27T01:40:23+00:00",
-      "expires": "2026-12-04T01:40:23+00:00",
       "publisher": "kxan"
     },
     {
@@ -365,13 +356,22 @@
       "publisher": "current"
     },
     {
-      "title": "Austin City Council Member Chito Vela announces bid for Texas Senate",
-      "url": "https://austincurrent.org/2026/11/20/austin-city-council-member-chito-vela-announces-bid-for-texas-senate/",
-      "source": "Austin Current",
+      "title": "Traffic and taxes: 5 trending Bastrop stories",
+      "url": "https://communityimpact.com/bastrop-cedar-creek/business/traffic-and-taxes-5-trending-bastrop-stories/",
+      "source": "Community Impact · Austin area",
       "category": "headlines",
-      "published": "2026-11-20T20:00:03+00:00",
-      "expires": "2026-11-27T20:00:03+00:00",
-      "publisher": "current"
+      "published": "2026-11-27T23:21:00+00:00",
+      "expires": "2026-12-04T23:21:00+00:00",
+      "publisher": "community-impact"
+    },
+    {
+      "title": "Elections, business updates, local development: Check out most-read Round Rock stories from October",
+      "url": "https://communityimpact.com/round-rock/business/elections-business-updates-local-development-check-out-most-read-round-rock-stories-from-october/",
+      "source": "Community Impact · Austin area",
+      "category": "headlines",
+      "published": "2026-11-27T21:00:00+00:00",
+      "expires": "2026-12-04T21:00:00+00:00",
+      "publisher": "community-impact"
     },
     {
       "title": "El Pollo Rico to open next year in Hutto",
@@ -428,30 +428,12 @@
       "publisher": "community-impact"
     },
     {
-      "title": "Art studio opens in New Braunfels",
-      "url": "https://communityimpact.com/new-braunfels/business/art-studio-opens-in-new-braunfels/",
-      "source": "Community Impact · Austin area",
-      "category": "headlines",
-      "published": "2026-11-27T12:00:00+00:00",
-      "expires": "2026-12-04T12:00:00+00:00",
-      "publisher": "community-impact"
-    },
-    {
-      "title": "Kyle Park takes shape: $280M development aims to expand dining and retail",
-      "url": "https://communityimpact.com/san-marcos-buda-kyle/development/kyle-park-takes-shape-280m-development-aims-to-expand-dining-and-retail/",
-      "source": "Community Impact · Austin area",
-      "category": "headlines",
-      "published": "2026-11-27T12:00:00+00:00",
-      "expires": "2026-12-04T12:00:00+00:00",
-      "publisher": "community-impact"
-    },
-    {
-      "title": "Forecast: Black Friday starts chilly, but warmer weather is ahead for Central Texas",
+      "title": "Forecast: Milder and breezy to start the weekend",
       "url": "https://www.kvue.com/article/weather/forecast/austin-weather-central-texas-forecast/269-43840919",
       "source": "KVUE",
       "category": "headlines",
-      "published": "2026-11-27T15:29:09+00:00",
-      "expires": "2026-12-04T15:29:09+00:00",
+      "published": "2026-11-27T22:46:45+00:00",
+      "expires": "2026-12-04T22:46:45+00:00",
       "publisher": "kvue"
     },
     {
@@ -524,15 +506,6 @@
       "category": "culture",
       "published": "2026-11-25T17:39:09+00:00",
       "expires": "2026-12-02T17:39:09+00:00",
-      "publisher": "monthly"
-    },
-    {
-      "title": "Buddy’s Place Buzzes With New Life and Old-School Charm",
-      "url": "https://www.austinmonthly.com/buddys-place/",
-      "source": "Austin Monthly",
-      "category": "culture",
-      "published": "2026-11-20T21:20:24+00:00",
-      "expires": "2026-11-27T21:20:24+00:00",
       "publisher": "monthly"
     },
     {
