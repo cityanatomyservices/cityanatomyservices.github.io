@@ -6,9 +6,6 @@
 // app.js turns that into a search_parcels query and de-emphasises
 // non-matching parcels on the map, reporting back via `parcelfilterresult`.
 //
-// The "Building permits" control is a disabled stub — permit-activity
-// filtering is deferred until the permits dataset is loaded.
-//
 // No-ops gracefully when #filter-panel is absent (e.g. /parcels/embed.html).
 
 (function () {
@@ -69,9 +66,12 @@
 
   elToggle.addEventListener('click', () => {
     const collapsed = panel.classList.toggle('is-collapsed');
+    panel.querySelector('.filter-inner').inert = collapsed;
     elToggle.setAttribute('aria-expanded', String(!collapsed));
     elToggle.setAttribute('aria-label', collapsed ? 'Show filters' : 'Hide filters');
   });
+
+  if (matchMedia('(max-width: 600px)').matches) elToggle.click();
 
   // Result badge — driven by app.js after each search.
   document.addEventListener('parcelfilterresult', (e) => {

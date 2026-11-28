@@ -31,16 +31,19 @@ function periodEnd(subscription,price) {
   return Math.max(...subscription.items.data.filter(i=>includesPrice(price,objectId(i.price))).map(i=>i.current_period_end||0));
 }
 
-export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.now,uuid=()=>crypto.randomUUID()}) {
+export function service({stripe,db,mode,portal,checkoutEnabled=false,product=null,now=Date.now,uuid=()=>crypto.randomUUID()}) {
   if(!['test','live'].includes(mode))throw new Error('Billing mode is required');
-  const price=PRICES[mode];
+  const price=product ? product.price : PRICES[mode];
+  const prices=product ? [price] : [price,LEGACY_PRICES[mode]];
+  const accountScope=product ? product.id+'-'+mode : mode;
+  const returnURL=ORIGIN+(product?.path || '/');
   let configuration;
   async function configured() {
     if(configuration)return configuration;
     const task=(async()=>{
       const actual=await stripe.prices.retrieve(price);
-      if(!actual.active||actual.livemode!==(mode==='live')||actual.currency!=='usd'||actual.unit_amount!==500||
-        actual.recurring?.interval!=='month'||actual.recurring?.interval_count!==1)throw new Error('Unexpected Pro price');
+      if((product && (!price || actual.metadata?.austin_product!==product.id))||!actual.active||actual.livemode!==(mode==='live')||actual.currency!=='usd'||actual.unit_amount!==(product?.amount || 500)||
+        actual.recurring?.interval!=='month'||actual.recurring?.interval_count!==1)throw new Error('Unexpected subscription price');
       if(!portal)throw problem(503,'Billing management is being set up.');
       const settings=await stripe.billingPortal.configurations.retrieve(portal);
       if(!settings.active||settings.livemode!==(mode==='live')||!settings.features?.subscription_cancel?.enabled||
@@ -61,24 +64,24 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
   }
   async function synchronize(row,save) {
     const subs=row.customer_id?await subscriptions(row.customer_id):[];
-    await save(entitlement(subs,[price,LEGACY_PRICES[mode]],now()));return subs;
+    await save(entitlement(subs,prices,now()));return subs;
   }
   async function portalURL(customer) {
     if(!portal)throw problem(503,'Billing management is being set up.');
-    const result=await stripe.billingPortal.sessions.create({customer,configuration:portal,return_url:ORIGIN+'/?billing=return'});
+    const result=await stripe.billingPortal.sessions.create({customer,configuration:portal,return_url:returnURL+'?billing=return'});
     return {url:result.url};
   }
   async function checkout(user) {
-    if(mode==='live'&&(await db.testing()).proEnabled)return db.grantTesting(user.id);
-    if(!checkoutEnabled)throw problem(503,'Pro membership is being set up.');
-    if(mode==='live'&&await db.substack(user.id))throw problem(409,'Your paid Substack membership already includes Pro. Manage that subscription on Substack.');
+    if(!product&&mode==='live'&&(await db.testing()).proEnabled)return db.grantTesting(user.id);
+    if(!checkoutEnabled)throw problem(503,'Subscriptions are being set up.');
+    if(!product&&mode==='live'&&await db.substack(user.id))throw problem(409,'Your paid Substack membership already includes Pro. Manage that subscription on Substack.');
     return locked(user.id,async(get,save)=>{
       await configured();
       if(!get().customer_id) {
         // Dedicated Austin.chat customer; never reuse a Substack customer by email.
         // Keep request parameters stable when recovering a failed database write.
         const customer=await stripe.customers.create({metadata:{site:'austin.chat',supabase_user_id:user.id}},
-          {idempotencyKey:`austin-customer-${mode}-${user.id}`});
+          {idempotencyKey:`austin-customer-${accountScope}-${user.id}`});
         await save({customer_id:customer.id});
       }
       const subs=await synchronize(get(),save);
@@ -95,14 +98,14 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,now=Date.no
         client_reference_id:user.id,line_items:[{price,quantity:1}],
         metadata:{site:'austin.chat',supabase_user_id:user.id},
         subscription_data:{metadata:{site:'austin.chat',supabase_user_id:user.id}},
-        integration_identifier:'austin_chat_pro_kqmwzrdp',
-        success_url:ORIGIN+'/?billing=success',cancel_url:ORIGIN+'/?billing=cancel'},
-        {idempotencyKey:`austin-checkout-${mode}-${row.checkout_nonce}`});
+        ...(product ? {} : {integration_identifier:'austin_chat_pro_kqmwzrdp'}),
+        success_url:returnURL+'?billing=success',cancel_url:returnURL+'?billing=cancel'},
+        {idempotencyKey:`austin-checkout-${accountScope}-${row.checkout_nonce}`});
       await save({checkout_id:session.id});return {url:session.url};
     });
   }
   async function status(user) {
-    if(mode==='live'&&(await db.testing()).proEnabled)return {...membership(await db.load(mode,user.id,null),now()),checkoutEnabled:true,freeTesting:true,mode};
+    if(!product&&mode==='live'&&(await db.testing()).proEnabled)return {...membership(await db.load(mode,user.id,null),now()),checkoutEnabled:true,freeTesting:true,mode};
     await configured();
     const row=await db.load(mode,user.id,null);
     if(!row?.customer_id)return {...membership(row,now()),checkoutEnabled,mode};

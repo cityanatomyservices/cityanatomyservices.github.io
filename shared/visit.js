@@ -41,7 +41,8 @@
       if(url.origin!==location.origin||!frame)return false;
       if(aliases.includes(url.pathname)){url.pathname='/';url.searchParams.set('planner','1');}
       const event=(visit.get('special-events:pages')||[]).find(e=>e.page===url.pathname);
-      if(url.pathname!=='/'&&!event)return false;
+      const parcels = url.pathname === '/what-can-i-build-here/';
+      if(url.pathname!=='/'&&!event&&!parcels)return false;
       const request=++transition;
       visit.settled().then(async()=>{
         if(visit.closed||request!==transition)return;
@@ -51,6 +52,11 @@
         if(visit.closed||request!==transition)return;
         if(push&&url.href!==location.href)history.pushState(null,'',url.pathname+url.search+url.hash);
         else if(!push&&url.href!==location.href)history.replaceState(null,'',url.pathname+url.search+url.hash);
+        if(parcels){
+          frame.title='What can I build here?';document.title=frame.title+' · Austin.Chat';
+          document.querySelector('link[rel=canonical]')?.setAttribute('href',url.origin+url.pathname);
+          frame.contentWindow.location.replace('/what-can-i-build-here/workspace.html?v=20261128a');return;
+        }
         if(event){
           document.title=event.title+' · Austin.Chat';frame.title=event.title;
           document.querySelector('link[rel=canonical]')?.setAttribute('href',url.origin+event.page);
@@ -64,7 +70,7 @@
             frame.contentWindow.PlanPanel?.setView(on);return;
           }
         }catch(_){}
-        frame.contentWindow.location.replace('/chat/?v=20261109g');
+        frame.contentWindow.location.replace('/chat/?v=20261128a');
       });
       return true;
     };

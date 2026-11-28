@@ -1,0 +1,64 @@
+:root { --header-height: 74px; --line: var(--border); --ink: #243341; }
+.parcel-header {
+  position: fixed; inset: 0 0 auto; height: var(--header-height); z-index: 120;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px clamp(12px, 3vw, 32px); border-bottom: 1px solid var(--border);
+  background: var(--surface); color: var(--text);
+}
+.parcel-header h1 { font-size: clamp(19px, 3.6vw, 27px); margin: 0; letter-spacing: -.035em; line-height: 1.15; }
+.parcel-header p, .parcel-instructions, .parcel-actions p { font-size: 13px; line-height: 1.4; color: var(--muted); }
+.parcel-header p { margin: 4px 0 0; }
+.parcel-header button, .parcel-actions button, .hall-toolbar button {
+  font: inherit; font-size: 14px; font-weight: 650; min-height: 40px;
+  padding: 6px 14px; border-radius: 8px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+}
+.parcel-header button { background: #234d45; color: #fff; border-color: #234d45; white-space: nowrap; }
+#map { top: var(--header-height); height: auto; }
+.filter-panel { top: calc(var(--header-height) + 12px); max-height: calc(100% - var(--header-height) - 52px); }
+.filter-panel.is-collapsed { transform: translateX(calc(-100% - 12px)); }
+.filter-inner { min-height: 0; }
+.parcel-instructions { margin: 0 0 14px; }
+.zoom-hint { top: calc(var(--header-height) + 12px); }
+.drawer, #city-hall-panel { top: var(--header-height); bottom: 0; height: auto; }
+.drawer[aria-hidden="true"] { visibility: hidden; }
+.parcel-actions { padding: 0 16px 12px; border-bottom: 1px solid var(--border); }
+.parcel-actions p { margin: 4px 0 10px; }
+#city-hall-panel {
+  position: fixed; right: 0; width: min(440px, 100%); z-index: 110; padding: 0 18px 20px;
+  overflow-y: auto; overscroll-behavior: contain; background: var(--surface);
+  border-left: 1px solid var(--border); box-shadow: -6px 0 26px var(--shadow);
+}
+.hall-toolbar { position: sticky; z-index: 1; top: 0; display: flex; align-items: center; justify-content: space-between; padding: 10px 0; background: var(--surface); }
+.hall-toolbar a { color: var(--accent); font-size: 13px; }
+#city-hall-heading { font-size: 21px; margin: 5px 0; }
+.city-hall-content { font-size: 14px; }
+.city-hall-content .explore-note { font-size: 13px; line-height: 1.45; color: var(--muted); }
+.city-hall-content .explore-filters select, .city-hall-content .explore-filters input { min-height: 36px; }
+.city-hall-content .explore-sources, .city-hall-content .explore-more { color: var(--text); }
+.city-hall-content .explore-more { background: var(--surface); }
+@media (max-width: 600px) {
+  :root { --header-height: 68px; }
+  .parcel-header p { font-size: 11px; }
+  #city-hall-panel { border-left: 0; }
+}
+
+
+.access-card { max-width: 480px; margin: 12vh auto; padding: 20px; }
+.access-card button { padding: 10px 16px; cursor: pointer; font: inherit; }
+.header-actions { display: flex; gap: 8px; }
+:root[data-theme=dark] { --background:#111827; --surface:#1f2937; --text:#f9fafb; --muted:#c0c7d2; --accent:#87c7ff; --border:#414d5e; --shadow:#0005; }
+:root[data-theme=light] { --background:#f5f5f5; --surface:#fff; --text:#1a1a1a; --muted:#606a77; --accent:#235b98; --border:#dce2e7; --shadow:#0001; }
+
+.address-search { margin: 12px 0 6px; }
+.address-search label { display: block; font-size: 13px; font-weight: 650; margin-bottom: 4px; }
+.address-search div { display: flex; gap: 4px; }
+.address-search input, .address-search button, #address-matches button { border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 6px; padding: 8px; }
+.address-search input { flex: 1; min-width: 0; }
+.address-search button, #address-matches button { cursor: pointer; }
+#address-matches { list-style: none; margin: 0; padding: 0; }
+#address-matches button { text-align: left; margin-bottom: 6px; width: 100%; }
+.filter-caption { display: none; }
+.is-collapsed .filter-toggle { width: 43px; right: -43px; min-height: 44px; }
+.is-collapsed .filter-toggle-chevron { display: none; }
+.is-collapsed .filter-caption { display: inline; font-weight: 650; }

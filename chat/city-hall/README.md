@@ -1,19 +1,16 @@
-# City Hall — main map only
+# City Hall on the parcel page
 
-The **City Hall** card lives inside Explore on the home map. Its category dropdown
-selects Public Meetings, Public Announcements, Permits report or Development.
-Search, council-district and meeting-board filters remain. Shared Explore time
-frames, All dates and On date filter the selected category; Sort by date supports
-ascending/descending order. This week uses the next seven days for meetings and
-the past seven for published records. Zoning notices use their hearing date.
-Source windows below still bound what is available. Escape/Close closes Explore
-and returns focus to its main control. Choices live only in page
-memory. Public Meetings includes the same **Day Planner** checkbox as Explore.
-Checking it adds a saved snapshot to that meeting's plan day, creating the day
-if needed or joining its existing stops. Unchecking removes only that meeting.
-Guest plans stay in visit memory; registered plans save privately through the
-existing planner. No City Hall pins or GPS requests are added.
-The other maps keep their controls until the owner requests an extension.
+The home map’s **What can I build here?** button opens the parcel map. **City Hall**
+starts with all Austin meetings. Selecting a parcel switches to permits at its recorded
+street address. Site plans use the same address match. Meetings and announcements
+use the published council district or citywide scope. The district comes from the parcel
+centroid and the city’s district boundaries. The clicked point is a fallback for missing
+centroids. A meeting venue does not establish a parcel connection.
+
+Visitors can switch back to All Austin, filter by date, board or district, search the
+four categories, and open official sources. Closing City Hall returns to the parcel report
+or map. Guests can add meetings to the Day Planner and return within their site visit.
+Registered plans and email reminders use the existing account features.
 
 Meeting snapshots use `PlanSources.meeting` and `PlanSelection.mount`. Their
 stable key is the official occurrence URL, so changing an import ID or source

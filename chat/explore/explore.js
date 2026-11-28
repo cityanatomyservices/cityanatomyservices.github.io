@@ -417,7 +417,7 @@ window.AustinExplore = {
     window.addEventListener('pagehide', () => unsubscribe?.(), { once: true });
     showMarkers=mapMarkers&&!window.PlanPanel?.active&&!window.AustinChatMap?.active;
     window.AustinExplore.setMapMarkers=on=>{showMarkers=mapMarkers&&!!on&&!window.AustinChatMap?.active;closePopup();signatures.clear();update();};
-    if (main) { window.AustinCityHall.init(); window.AustinClassifieds.init(); window.AustinSpecialEvents?.init(); window.AustinProApps?.init(); }
+    if (main) { window.AustinClassifieds.init(); window.AustinSpecialEvents?.init(); window.AustinProApps?.init(); }
     update(); layers.filter(l => state.enabled.has(l.id)).forEach(load);
     setInterval(update, 60000);
     setInterval(() => { if (!document.hidden) layers.filter(l => state.enabled.has(l.id)).forEach(load); }, 5 * 60000);

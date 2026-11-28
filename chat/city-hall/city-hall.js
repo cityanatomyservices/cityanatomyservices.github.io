@@ -1,11 +1,6 @@
-/* Loaded only by the home map. Meeting selections use the shared day planner. */
+/* City government listings for the parcel workspace. */
 window.AustinCityHall = {
-  init() {
-    if (!window.AustinExplore.addSection) return;
-    Object.assign(window.AustinCityHall, window.AustinExplore.addSection({
-      id: 'city-hall', buttonId: 'ctrlCityHall', title: 'City Hall',
-      icon: '<path d="m2 8 10-6 10 6Z M4 10v9 M9 10v9 M15 10v9 M20 10v9 M2 21h20"/>',
-      mount(panel, { time, active }) {
+  mount(panel, active) {
     const M = window.CityHallModel;
     const categories = [
       { id: 'meetings', title: 'Public Meetings', note: 'Next 7 days · Soonest first', icon: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6 M17 2v6 M3 11h18 M7 15h3 M14 15h3"/>' },
@@ -14,11 +9,17 @@ window.AustinCityHall = {
       { id: 'development', title: 'Development', note: 'Site-plan applications filed in the last 30 days · Newest first', icon: '<path d="M3 21V9h8v12 M11 21V3h10v18 M1 21h22 M6 12h2 M6 16h2 M14 7h4 M14 11h4 M14 15h4"/>' }
     ];
     let feed = null, pending = null, fetched = 0, error = false, limit = 30;
-    const state = { category: 'meetings', district: '', board: '', query: '', sort: 'default', ...time() };
+    let parcel = null;
+    const state = { scope: 'all', when: 'all', date: '', category: 'meetings', district: '', board: '', query: '', sort: 'default' };
     panel.classList.add('city-hall-content');
     panel.setAttribute('aria-labelledby', 'city-hall-heading');
     panel.innerHTML = `<h3 id="city-hall-heading">City Hall</h3>
-      <p class="explore-note city-hall-intro">What’s happening in Austin city government.</p>
+      <p class="explore-note city-hall-intro">Browse Austin records or select a parcel on the map.</p>
+      <fieldset class="explore-filters"><legend class="explore-sr">Scope and dates</legend>
+        <label>Show records for<select data-filter="scope"><option value="all">All Austin</option><option value="parcel" disabled>Selected parcel</option></select></label>
+        <label>Time period<select data-filter="when"><option value="all">All available dates</option><option value="now">Now</option><option value="today">Today</option><option value="weekend">This weekend</option><option value="week">This week</option><option value="date">Specific date</option></select></label>
+        <label class="date-field" hidden>Date in Austin<input type="date" data-filter="date"></label>
+      </fieldset>
       <div class="city-hall-filters"><fieldset class="explore-filters"><legend class="explore-sr">City Hall category and date order</legend>
         <label>City Hall category<select data-filter="category">${categories.map(c => `<option value="${c.id}">${c.title}</option>`).join('')}</select></label>
         <label>Sort by date<select data-filter="sort"><option value="default">Recommended</option><option value="asc">Oldest / soonest first</option><option value="desc">Newest / latest first</option></select></label>
@@ -42,13 +43,24 @@ window.AustinCityHall = {
     panel.querySelectorAll('[data-filter]').forEach(el => el.addEventListener(el.type === 'search' ? 'input' : 'change', () => {
       state[el.dataset.filter] = el.value;
       if (el.dataset.filter === 'category') { state.board = ''; $('[data-filter=board]').value = ''; }
+      if (el.dataset.filter === 'when') {
+        state.date = state.when === 'date' ? M.day(Date.now()) : '';
+        $('[data-filter=date]').value = state.date;
+      }
+      if (el.dataset.filter === 'date' && !state.date) {
+        state.when = 'all'; $('[data-filter=when]').value = 'all';
+      }
       limit = 30; update();
     }));
     $('.city-hall-more').addEventListener('click', () => { limit += 30; update(); });
     $('.city-hall-retry').addEventListener('click', () => load(true));
     function update() {
       const now = Date.now(), records = feed?.records || [], current = records.filter(r => M.current(r, now));
-      const matches = M.filter(records, state, now), selected = categories.find(c => c.id === state.category);
+      const local = state.scope === 'parcel' && parcel;
+      const filtered = local ? records.filter(r => M.forParcel(r, parcel)) : records;
+      $('[data-filter=district]').closest('label').hidden = !!local;
+      $('.date-field').hidden = state.when !== 'date';
+      const matches = M.filter(filtered, local ? { ...state, district: '' } : state, now), selected = categories.find(c => c.id === state.category);
       $('.city-hall-filters').hidden = !selected;
       $('.city-hall-board').hidden = state.category !== 'meetings';
       const boards = [...new Set(current.filter(r => r.category === 'meetings').map(r => r.board).filter(Boolean))].sort();
@@ -58,14 +70,21 @@ window.AustinCityHall = {
         boardSelect.replaceChildren(new Option('All boards', ''), ...boards.map(b => new Option(b, b)));
         boardSelect.value = state.board; boardSelect.dataset.options = JSON.stringify(boards);
       }
-      $('.city-hall-district-note').textContent = state.category === 'meetings'
+      const sites = state.category === 'permits' || state.category === 'development';
+      $('.city-hall-intro').textContent = local
+        ? 'Parcel ' + parcel.id + (parcel.address ? ' · ' + parcel.address : '') + (parcel.district ? ' · Council District ' + parcel.district : '')
+        : 'Browse city government records across Austin.';
+      $('.city-hall-district-note').textContent = local ? (sites
+        ? (parcel.address ? 'Showing records with the same published street address.' : parcel.loading ? 'Looking up the parcel address…' : 'A street address is unavailable for this parcel. Choose All Austin to search records.')
+        : 'Showing citywide records' + (parcel.district ? ' and records published for District ' + parcel.district : '') + '. Check the official agenda for mention of this parcel.')
+        : state.category === 'meetings'
         ? 'Citywide meetings appear in every district. Meeting location does not define its district.'
         : state.district ? 'Includes citywide items. Records without a published district are shown under All districts.' : '';
       const period = state.when === 'week' ? (state.category === 'meetings' ? 'Next 7 days.' : 'Posted in the past 7 days; zoning notices use their hearing date.') : state.when === 'now' ? (state.category === 'meetings' ? 'Starting within two hours.' : 'Posted in the past two hours; zoning notices use their hearing date.') : state.when === 'all' ? 'All available dates.' : state.when === 'date' ? 'On ' + state.date + '.' : 'Using the time frame above.';
       $('.city-hall-window').textContent = period + ' Available records: ' + selected.note.split(' · ')[0] + '. Records without a published time match their Austin calendar day.';
       const relevantSources = (feed?.sources || []).filter(s => !selected || s.category === state.category);
       const failed = relevantSources.filter(s => !s.ok || !s.checked || now - Date.parse(s.checked) >= (s.category === 'meetings' ? 12 : 72) * 3600000);
-      $('.city-hall-status').textContent = pending && !feed ? 'Loading city updates…' : !feed && error ? 'City updates are unavailable. Try again.' : !selected ? 'Choose a category to see city updates.' : `${matches.length} ${state.category === 'meetings' ? 'upcoming meetings' : 'matching listings'}${matches.length ? '' : ' · No current listings match these filters.'}`;
+      $('.city-hall-status').textContent = pending && !feed ? 'Loading city updates…' : !feed && error ? 'City updates are unavailable. Try again.' : !selected ? 'Choose a category to see city updates.' : `${matches.length} ${state.category === 'meetings' ? (matches.length === 1 ? 'upcoming meeting' : 'upcoming meetings') : (matches.length === 1 ? 'matching listing' : 'matching listings')}${matches.length ? '' : ' · No current listings match these filters.'}`;
       if (feed && (error || failed.length)) $('.city-hall-status').textContent += ' Some sources could not refresh. See Sources & freshness.';
       $('.city-hall-retry').hidden = !error; $('.city-hall-retry').disabled = !!pending;
       const list = $('.city-hall-results'); list.replaceChildren();
@@ -113,8 +132,22 @@ window.AustinCityHall = {
     const timer = setInterval(() => { if (active()) { update(); if (Date.now() - fetched > 900000) load(); } }, 60000);
     window.addEventListener('pagehide', () => clearInterval(timer), { once: true });
     update();
-    return { refresh: () => { Object.assign(state, time()); load(); }, setTime: value => { Object.assign(state, value); limit = 30; if (active()) update(); } };
+    return {
+      refresh: () => load(),
+      setParcel(value, selected = false) {
+        parcel = value;
+        $('[data-filter=scope] option[value=parcel]').disabled = !value;
+        if (selected) {
+          state.scope = 'parcel';
+          state.category = 'permits';
+          state.board = ''; state.query = ''; state.district = '';
+          for (const key of ['scope', 'category', 'board', 'query', 'district']) {
+            $('[data-filter=' + key + ']').value = state[key];
+          }
+          limit = 30;
+        }
+        update();
       }
-    }));
+    };
   }
 };

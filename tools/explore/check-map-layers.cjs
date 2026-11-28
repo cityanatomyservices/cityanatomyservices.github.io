@@ -26,7 +26,7 @@ async function layersOpen(f){if(await f.locator('#plan-panel').isVisible())await
   assert.deepEqual(await f.locator('#stack > .round').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence']);
   assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlLocate').count(),1);
   assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlMapLayers').count(),1);
-  assert.equal(await f.locator('#explore-panel #ctrlCityHall,#explore-panel #ctrlClassifieds').count(),2);
+  assert.equal(await f.locator('#explore-panel #ctrlClassifieds').count(),1);
   assert.equal(await f.locator('#ctrlMedia,#media-panel').count(),0);assert.equal(await f.locator('#map-layers-panel').isHidden(),true);
   assert.equal(boundaryRequests.length,0,'boundaries are not downloaded by default');
   assert.equal(await f.locator('#ctrlTilt').getAttribute('aria-pressed'),'true');assert.equal(await f.evaluate(()=>chatMap.getLayoutProperty('satellite','visibility')),'none');

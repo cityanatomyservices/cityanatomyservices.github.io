@@ -31,12 +31,11 @@
   <link rel="stylesheet" href="../topicmap/style.css?v=20260914k" />
   <link rel="stylesheet" href="./panel.css?v=20261023e" />
   <link rel="stylesheet" href="./style.css?v=20261109g" />
-  <link rel="stylesheet" href="./neighborhood.css?v=20261114e" />
+  <link rel="stylesheet" href="./neighborhood.css?v=20261128a" />
   <link rel="stylesheet" href="./explore/explore.css?v=20261104a" />
   <link rel="stylesheet" href="../appearance.css?v=20261028h" />
   <link rel="stylesheet" href="./map-layers.css?v=20261104a" />
   <link rel="stylesheet" href="./parking.css?v=20261115b" />
-  <link rel="stylesheet" href="./city-hall/city-hall.css?v=20261104a" />
   <link rel="stylesheet" href="/special-events/style.css?v=20261109f" />
   <script src="./theme.js?v=20261028g"></script>
   <link rel="stylesheet" href="/planner/select.css?v=20261029v">
@@ -89,6 +88,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3Z M8 8h8 M8 12h5"/></svg><span>Chat</span>
       </button>
       <a class="round geofence-control" id="ctrlGeoFence" href="https://austin.chat/geofences/manage/" target="_top" aria-label="Geo Fence" title="Geo Fence"><span>Geo</span><span>Fence</span></a>
+      <a class="round parcel-control" id="ctrlParcels" href="/what-can-i-build-here/" target="_top" aria-label="What can I build here?" title="What can I build here?"><span>What can</span><span>I build</span><span>here?</span></a>
     </div>
 
     <!-- Moved into a native MapLibre control group when the map starts. -->
@@ -158,7 +158,7 @@
           <button type="button" data-plan-restore class="text-button">Restore downloaded day plans</button>
         </section>
         <section id="plan-step-places" class="plan-step" hidden>
-          <h2 tabindex="-1">Where would you like to go?</h2><p>Choose categories below to find places, events or City Hall meetings. Check <strong>Day Planner</strong> beside each stop, then set your times.</p>
+          <h2 tabindex="-1">Where would you like to go?</h2><p>Choose categories below to find places and events. Check <strong>Day Planner</strong> beside each stop, then set your times.</p>
           <div id="plan-empty" hidden><p>Your day is ready for its first stop.</p></div>
           <details id="plan-chosen"><summary id="plan-chosen-summary">Selected stops</summary><ul id="plan-chosen-stops" aria-label="Places in this day"></ul></details>
           <div class="plan-next"><button type="button" data-plan-restore class="text-button">Restore a plan</button><button type="button" data-plan-go="times" class="primary">Set stop times →</button></div>
@@ -230,7 +230,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
   <script src="./copy.js?v=20261028i"></script>
   <script src="./config.js?v=20261029a"></script>
-  <script src="/shared/visit.js?v=20261109g"></script>
+  <script src="/shared/visit.js?v=20261128a"></script>
   <script src="/shared/session.js?v=20261122v"></script>
   <script src="/shared/membership.js?v=20261122v"></script>
   <script src="/shared/member.js?v=20261122v"></script>
@@ -246,7 +246,7 @@
   <script src="./explore/config.js?v=20261028e"></script>
   <script src="./explore/model.js?v=20261104a"></script>
   <script src="/special-events/catalog.js?v=20261109f"></script>
-  <script src="./explore/explore.js?v=20261114e"></script>
+  <script src="./explore/explore.js?v=20261128a"></script>
   <script src="/planner/context.js?v=20261109d"></script>
   <script src="/planner/model.js?v=20261109c"></script>
   <script src="/planner/sources.js?v=20261102b"></script>
@@ -261,10 +261,8 @@
   <script src="/planner/export.js?v=20261109c"></script>
   <script src="/planner/export-ui.js?v=20261109c"></script>
   <script src="/planner/select.js?v=20261102g"></script>
-  <script src="./catalog-menu.js?v=20261122v"></script>
+  <script src="./catalog-menu.js?v=20261128a"></script>
   <script src="./map-layers.js?v=20261114e"></script>
-  <script src="./city-hall/model.js?v=20261104a"></script>
-  <script src="./city-hall/city-hall.js?v=20261104a"></script>
   <script src="/classifieds/model.js?v=20261104a"></script>
   <script src="/classifieds/client.js?v=20261122v"></script>
   <script src="/classifieds/ui.js?v=20261104a"></script>

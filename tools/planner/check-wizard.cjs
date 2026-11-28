@@ -44,7 +44,7 @@ function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/
   await query.fill('nothing matches');await f.waitForFunction(()=>austinExplore.visibleItems.length===0);assert.match(await f.locator('.explore-count').textContent(),/No matching listings/);
   await query.fill('');await when.selectOption('all');await f.waitForFunction(()=>austinExplore.visibleItems.length===3);
   assert.equal(await f.evaluate(()=>JSON.stringify(PlanStore.book)),untouched,'browsing and empty results never create or edit a plan');assert.equal(saveCalls,initialSaves,'browsing never saves a plan');
-  for(const id of ['ctrlCityHall','ctrlClassifieds','ctrlSpecialEvents','ctrlProApps']){await f.locator('#'+id).click();assert.equal(await f.locator('#'+id).getAttribute('aria-expanded'),'true');await f.locator('#'+id).click();}
+  for(const id of ['ctrlClassifieds','ctrlSpecialEvents','ctrlProApps']){await f.locator('#'+id).click();assert.equal(await f.locator('#'+id).getAttribute('aria-expanded'),'true');await f.locator('#'+id).click();}
   for(const title of ['Browse first event','Browse later event'])await f.getByRole('checkbox',{name:`Add ${title} to Day Planner`,exact:true}).check();
   assert.deepEqual(await f.evaluate(()=>PlanStore.book.items.map(i=>({title:i.source.title,day:i.day}))),[{title:'Browse first event',day:eventDay},{title:'Browse later event',day:laterDay}]);
   assert.equal(await f.evaluate(()=>PlanWizard.stage),'start','adding a listing lets the visitor keep browsing');assert.equal(await f.locator('#plan-upcoming option').count(),3);

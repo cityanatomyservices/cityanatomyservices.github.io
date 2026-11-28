@@ -22,7 +22,7 @@
   async function getParcel(parcelId) {
     const { data, error } = await requireSb()
       .from('parcels_public')
-      .select('parcel_id,zoning_base,zoning_ztype,metadata')
+      .select('parcel_id,zoning_base,zoning_ztype,metadata,centroid')
       .eq('parcel_id', String(parcelId))
       .maybeSingle();
     if (error) throw error;
@@ -31,6 +31,7 @@
       ? data.zoning_ztype : null;
     return {
       parcel_id:      data.parcel_id,
+      centroid:       data.centroid?.coordinates,
       zoning:         data.zoning_base,
       zoning_overlay: overlay,
       metadata:       data.metadata
@@ -80,6 +81,16 @@
     init(sb) { _sb = sb; },
     getParcel,
     getConstraints,
+    async findAddress(query) {
+      const address = window.CityHallModel.streetAddress(query);
+      if (!address || !/^[A-Z0-9 #/'-]+$/.test(address)) throw Error('Enter a street number and street name.');
+      const {data,error} = await requireSb().from('parcels_public')
+        .select('parcel_id,metadata,centroid').like('metadata->>situs_address', address + '%')
+        .limit(11);
+      if (error) throw Error('Address search is unavailable. Try again or select a parcel on the map.');
+      return (data || []).filter(row => row.centroid?.coordinates?.length === 2)
+        .sort((a,b) => a.metadata.situs_address.localeCompare(b.metadata.situs_address, 'en', {numeric:true}));
+    },
     searchParcels,
     getCases,
     ask

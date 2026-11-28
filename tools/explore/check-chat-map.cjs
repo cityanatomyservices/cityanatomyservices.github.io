@@ -31,7 +31,7 @@ async function count(f,source,n){for(let i=0;i<150;i++){const got=await f.evalua
   const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.chatMap&&window.austinExplore&&window.PlanWizard);await f.evaluate(()=>PlanStore.ready());
   assert.deepEqual(await f.locator('#stack>.round').evaluateAll(es=>es.map(e=>e.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence']);assert.equal(await f.locator('#ctrlExplore').count(),0);
   await f.locator('#ctrlDayPlan').click();await f.locator('#plan-start #explore-panel').waitFor();
-  assert.equal(await f.locator('#plan-explore-host #ctrlCityHall,#plan-explore-host #ctrlClassifieds,#plan-explore-host #ctrlSpecialEvents,#plan-explore-host #ctrlProApps').count(),4);
+  assert.equal(await f.locator('#plan-explore-host #ctrlClassifieds,#plan-explore-host #ctrlSpecialEvents,#plan-explore-host #ctrlProApps').count(),3);
   const choice=f.locator('[data-layer=free-cheap]');if(!await choice.isChecked())await choice.check();await f.locator('[data-filter=when]').selectOption('all');await count(f,'explore-free-cheap',1);
   await f.getByRole('checkbox',{name:'Add Day plan listing to Day Planner',exact:true}).check();assert.equal(await f.evaluate(()=>PlanStore.plan.items.length),1);
   await page.screenshot({path:path.resolve('..','.tmp',`day-planner-categories-${width}.png`)});

@@ -11,10 +11,10 @@ async function serve(){
 function session(member){const id=crypto.randomUUID(),exp=Math.floor(Date.now()/1000)+3600,enc=x=>Buffer.from(JSON.stringify(x)).toString('base64url');return {access_token:enc({alg:'HS256',typ:'JWT'})+'.'+enc({sub:id,exp,role:'authenticated',is_anonymous:!member})+'.fixture',refresh_token:crypto.randomUUID(),expires_in:3600,expires_at:exp,token_type:'bearer',user:{id,is_anonymous:!member,aud:'authenticated',role:'authenticated',app_metadata:{},user_metadata:{}}};}
 async function frame(page,planner=false){const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(planner?()=>window.chatMap&&window.austinExplore&&window.PlanStore:()=>window.chatMap&&window.austinExplore&&window.PlanStore,{}, {timeout:45000});await f.evaluate(()=>PlanStore.ready());return f;}
 async function control(f,id,width){
- if(id==='ctrlExplore'||id==='ctrlCityHall'){
+ if(id==='ctrlExplore'||id==='ctrlClassifieds'){
   await f.evaluate(()=>PlanPanel.browse());
-  if(id==='ctrlCityHall')await f.locator('#ctrlCityHall').click();
-  else for(const card of ['ctrlCityHall','ctrlClassifieds'])if(await f.locator('#'+card).getAttribute('aria-expanded')==='true')await f.locator('#'+card).click();
+  if(id==='ctrlClassifieds')await f.locator('#ctrlClassifieds').click();
+  else if(await f.locator('#ctrlClassifieds').getAttribute('aria-expanded')==='true')await f.locator('#ctrlClassifieds').click();
   return;
  }
  if(await f.locator('#plan-panel-close').isVisible())await f.locator('#plan-panel-close').click();
@@ -102,7 +102,7 @@ async function routeCount(f,count){
   await f.evaluate(()=>{PlanPanel.open();PlanMap.pick(PlanStore.plan.items[0],point=>window.pickedEntrance=point);});
   await f.evaluate(()=>chatMap.fire('click',{originalEvent:{target:chatMap.getCanvas()},lngLat:new maplibregl.LngLat(-97.741,30.269),point:chatMap.project([-97.741,30.269])}));
   assert.deepEqual(await f.evaluate(()=>pickedEntrance),[-97.741,30.269]);assert.equal(await f.evaluate(()=>PlanPanel.isOpen),true);await ownMap(f,2);
-  await control(f,'ctrlCityHall',width);assert.equal(await f.evaluate(()=>PlanPanel.active),false);assert.equal(await f.locator('.map-stop').count(),0);await routeCount(f,0);
+  await control(f,'ctrlClassifieds',width);assert.equal(await f.evaluate(()=>PlanPanel.active),false);assert.equal(await f.locator('.map-stop').count(),0);await routeCount(f,0);
   await control(f,'ctrlDayPlan',width);await ownMap(f,2);await routeCount(f,1);
   await page.goBack();await f.waitForFunction(()=>!PlanPanel.active);await routeCount(f,0);
   await page.goForward();await f.waitForFunction(()=>PlanPanel.active);await ownMap(f,2);await routeCount(f,1);

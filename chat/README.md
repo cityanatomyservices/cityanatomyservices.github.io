@@ -22,19 +22,14 @@ The main map's left-hand **P** button independently toggles City street parking
 and zones plus OpenStreetMap lots/garages. Parking starts off and has no Day
 Planner selections or edits. See [parking sources and refresh](../tools/parking/README.md).
 
-The main map's right column has **Day Plan, Chat and Geo Fence**, in that
+The main map's right column has **Day Plan, Chat, Geo Fence and What can I build here?**, in that
 order. Geo Fence is a matching round link with “Geo” above “Fence”; it opens
 `https://austin.chat/geofences/manage/` in the full page. GPS and Map are small square MapLibre controls under the zoom/compass on
 the left. Day Plan → Create New Day → Places contains the former Explore
-categories, filters and listings, including [City Hall](city-hall/README.md) and
-[Free classifieds](../classifieds/README.md) cards, followed by **Special Events**
-and **Pro Tier Apps** beside each other. Pro Tier Apps shows the previous app
-catalog with its categories and favorites. Visitors can browse it; paid app
-links require an active Pro membership. The City Hall and Classifieds dropdowns,
-date sorting and listings stay inside Explore; the shared time-frame buttons,
-All dates and exact-date input apply to the selected card. City Hall retains its
-four categories, district/board/search filters, meeting planner selections and
-reminders. Classifieds retains the sign-in requirement, ad editing and category
+categories, filters and listings, including Free classifieds, Special Events and Pro Tier Apps.
+The parcel button beside Geo Fence opens **What can I build here?** with the parcel map and
+[City Hall](city-hall/README.md). The Pro Tier Apps catalog retains its categories and favorites.
+Classifieds retains the sign-in requirement, ad editing and category
 page links. Other map layouts retain their existing control columns.
 The Places step also has a **Neighborhood Businesses** dropdown below the cards.
 It starts closed, as do its business groups and categories. Its businesses

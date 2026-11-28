@@ -165,3 +165,33 @@ test('HTTP endpoint authenticates, blocks foreign origins and hides internal err
   const internal=handler({user:async()=>{throw new Error('secret must never appear');}});
   const response=await internal(req('https://austin.chat'));assert.equal(response.status,503);assert.doesNotMatch(await response.text(),/secret/);
 });
+
+const parcelProduct={id:'parcels',path:'/what-can-i-build-here/',amount:1000,price:'price_parcels_test'};
+function parcelFixture(subscriptions=[]) {
+  const f=fixture({subscriptions,rows:[{owner_id:'alice',customer_id:'cus_parcels',checkout_nonce:'one'}]});
+  const base=f.stripe.prices.retrieve;
+  f.stripe.prices.retrieve=async id=>({...await base(id),unit_amount:1000,metadata:{austin_product:'parcels'}});
+  f.parcels=service({stripe:f.stripe,db:f.db,mode:'test',portal:'bpc_parcels',product:parcelProduct,checkoutEnabled:true,now:()=>NOW});
+  return f;
+}
+test('Monthly parcel access requires its own paid price and invoice',async()=>{
+  const f=parcelFixture([paid()]);
+  assert.equal((await f.parcels.status({id:'alice'})).plan,'free');
+  f.subscriptions.push(paid({items:{data:[{price:parcelProduct.price,current_period_end:end}]}}));
+  assert.equal((await f.parcels.status({id:'alice'})).plan,'pro');
+  f.subscriptions[1].latest_invoice.status='open';
+  assert.equal((await f.parcels.status({id:'alice'})).plan,'free');
+});
+test('Parcel checkout uses its monthly price, separate return page and idempotency scope',async()=>{
+  const f=parcelFixture();await f.parcels.checkout({id:'alice'});
+  const call=f.calls.find(([name])=>name==='checkout');
+  assert.equal(call[1].line_items[0].price,parcelProduct.price);
+  assert.equal(call[1].mode,'subscription');
+  assert.equal(new URL(call[1].success_url).pathname,parcelProduct.path);
+  assert.match(call[2].idempotencyKey,/parcels-test/);
+});
+test('Parcel checkout rejects a misconfigured price before charging',async()=>{
+  const f=parcelFixture();f.stripe.prices.retrieve=async()=>({unit_amount:500});
+  await assert.rejects(f.parcels.checkout({id:'alice'}),/Unexpected subscription price/);
+  assert.equal(f.creates(),0);
+});

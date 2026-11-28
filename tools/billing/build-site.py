@@ -27,6 +27,7 @@ def main():
     private=set(manifest['files'])
     tracked=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
     for name in filter(None,tracked):
+        if name.startswith('supabase/functions/parcel-page/'):continue
         if retention.excluded(name,event_paths):continue
         path=ROOT/name
         if '/'+name in private:

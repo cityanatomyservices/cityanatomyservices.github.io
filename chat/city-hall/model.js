@@ -35,10 +35,30 @@
     const value = Date.parse(record.date);
     return value >= first && value < last;
   }
+  const streetWords = {
+    NORTH:'N', SOUTH:'S', EAST:'E', WEST:'W', STREET:'ST', ROAD:'RD', AVENUE:'AVE',
+    BOULEVARD:'BLVD', DRIVE:'DR', LANE:'LN', COURT:'CT', CIRCLE:'CIR', TRAIL:'TRL',
+    PARKWAY:'PKWY', HIGHWAY:'HWY', TERRACE:'TER', PLACE:'PL'
+  };
+  function streetAddress(value) {
+    const street = String(value || '').toUpperCase().trim()
+      .replace(/(?:,?\s+AUSTIN(?:,?\s+(?:TX|TEXAS))?(?:\s+\d{5}(?:-\d{4})?)?)$/, '')
+      .replace(/\s+(?:78\d{3}|00000)(?:-\d{4})?$/, '')
+      .replace(/\./g, '').replace(/\b(\d+)(?:ST|ND|RD|TH)\b(?=\s+(?:STREET|ST|AVENUE|AVE)\b)/g, '$1').trim();
+    if (!/^\d+[A-Z]?(?:-\d+)?\s+\S/.test(street)) return '';
+    return street.split(/\s+/).map(word => streetWords[word] || word).join(' ');
+  }
+  function forParcel(record, parcel) {
+    if (record.category === 'permits' || record.category === 'development') {
+      const address = streetAddress(parcel.address);
+      return !!address && streetAddress(record.location) === address;
+    }
+    return record.scope === 'citywide' || (!!parcel.district && record.districts.includes(parcel.district));
+  }
   function safeURL(value) {
     try { const u = new URL(value); return u.protocol === 'https:' && (u.hostname === 'austintexas.gov' || u.hostname.endsWith('.austintexas.gov')) ? u.href : null; } catch (_) { return null; }
   }
-  const model = { day, shift, current, filter, matchesDate, safeURL };
+  const model = { day, shift, current, filter, matchesDate, safeURL, streetAddress, forParcel };
   if (typeof module !== 'undefined') module.exports = model;
   else window.CityHallModel = model;
 })();

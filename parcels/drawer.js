@@ -68,6 +68,7 @@
   function open() {
     if (!mounted) return;
     document.body.classList.add('drawer-open');
+    elDrawer.inert = false;
     elDrawer.setAttribute('aria-hidden', 'false');
     elDrawer.classList.add('is-open');
   }
@@ -76,6 +77,7 @@
     if (!mounted) return;
     document.body.classList.remove('drawer-open');
     elDrawer.classList.remove('is-open');
+    elDrawer.inert = true;
     elDrawer.setAttribute('aria-hidden', 'true');
     elDrawer.style.transform = '';
   }
@@ -167,6 +169,7 @@
     const body    = $('.panel-body', panel);
 
     if (cache.constraints.has(parcelId)) {
+      loading.hidden = true;
       renderConstraintsPanel(panel, cache.constraints.get(parcelId));
       return;
     }
@@ -181,10 +184,11 @@
       // Only render if the user hasn't switched parcels in the meantime.
       if (parcelId === currentParcelId) renderConstraintsPanel(panel, data);
     } catch (e) {
+      if (parcelId !== currentParcelId) return;
       err.textContent = (e && e.message) ? e.message : 'Lookup failed';
       err.hidden = false;
     } finally {
-      loading.hidden = true;
+      if (parcelId === currentParcelId) loading.hidden = true;
     }
   }
 

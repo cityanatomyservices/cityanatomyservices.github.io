@@ -16,3 +16,16 @@ assert.equal(M.current(row('notice','2026-09-01',{category:'announcements',heari
 for (const url of ['javascript:alert(1)','https://austintexas.gov.evil.test','https://evil.test']) assert.equal(M.safeURL(url),null);
 assert.ok(M.safeURL('https://services.austintexas.gov/edims/document.cfm?id=123'));
 console.log('City Hall model: dates, DST, expiration, sorting, cancellation, district, board, search and source URLs passed.');
+
+const site = {address:'608 Blanco St 78703', district:'9'};
+const permit = {category:'permits', location:'608 BLANCO STREET, AUSTIN, TX 78703', districts:['9']};
+assert.ok(M.forParcel(permit,site));
+assert.ok(M.forParcel({...permit, location:'300 W 6TH ST'},{address:'300 W 6 ST 78701'}));
+for(const location of ['1608 Blanco St','608 E Blanco St','608 Blanco St Unit B','Blanco St','']) {
+  assert.equal(M.forParcel({...permit,location},site),false);
+}
+assert.equal(M.forParcel(permit,{address:'',district:'9'}),false);
+assert.ok(M.forParcel({...permit,category:'development'},site));
+assert.ok(M.forParcel({category:'meetings',districts:[],scope:'citywide'},site));
+assert.ok(M.forParcel({category:'meetings',districts:['9']},site));
+assert.equal(M.forParcel({...permit,category:'meetings',districts:['8']},site),false);

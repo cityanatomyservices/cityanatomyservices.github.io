@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico?v=20261031f" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261031f" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261031f" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261031f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What can I build here? · Austin.Chat</title>
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+  <link href="/parcels/style.css?v=20261128a" rel="stylesheet" />
+  <link rel="stylesheet" href="/chat/explore/explore.css?v=20261104a">
+  <link rel="stylesheet" href="/chat/city-hall/city-hall.css?v=20261104a">
+  <link rel="stylesheet" href="/planner/select.css?v=20261029v">
+  <link rel="stylesheet" href="./page.css?v=20261128a">
+  <script>if (window === window.top) location.replace('./' + location.search + location.hash);</script>
+</head>
+<body>
+
+  <main id="parcel-workspace" hidden>
+  <header class="parcel-header">
+    <div><h1>What can I build here?</h1><p id="parcel-pricing"></p></div>
+    <div class="header-actions"><button id="manage-payment" type="button" hidden>Manage billing</button>
+    <button id="ctrlCityHall" type="button" aria-expanded="false" aria-controls="city-hall-panel">City Hall</button></div>
+  </header>
+  <div id="map" aria-label="Austin parcel map"></div>
+
+  <div id="zoom-hint" class="zoom-hint" hidden>Zoom in to view parcels</div>
+
+
+
+  <aside id="filter-panel" class="filter-panel" aria-label="Parcel search filters">
+    <button id="filter-toggle" class="filter-toggle" type="button"
+            aria-label="Hide filters" aria-expanded="true">
+      <span class="filter-toggle-chevron" aria-hidden="true">&lsaquo;</span><span class="filter-caption" aria-hidden="true">Find</span>
+    </button>
+    <div class="filter-inner">
+      <div class="filter-header">
+        <h2 class="filter-title">Find parcels</h2>
+        <button id="filter-clear" class="filter-clear" type="button">Clear</button>
+      </div>
+
+      <form id="address-search" class="address-search">
+        <label for="site-address">Street address</label>
+        <div><input id="site-address" type="search" placeholder="Street number and name" maxlength="100" required><button type="submit">Find</button></div>
+      </form>
+      <p id="address-status" class="parcel-instructions" role="status">Search by address or select a parcel on the map.</p>
+      <ul id="address-matches"></ul>
+
+      <div class="filter-group">
+        <span class="filter-label">Zoning category</span>
+        <div class="chip-row" id="filter-categories">
+          <label class="chip"><input type="checkbox" value="residential"><span>Residential</span></label>
+          <label class="chip"><input type="checkbox" value="multifamily"><span>Multifamily</span></label>
+          <label class="chip"><input type="checkbox" value="commercial"><span>Commercial</span></label>
+          <label class="chip"><input type="checkbox" value="office"><span>Office</span></label>
+          <label class="chip"><input type="checkbox" value="industrial"><span>Industrial</span></label>
+          <label class="chip"><input type="checkbox" value="mixed_use"><span>Mixed Use</span></label>
+          <label class="chip"><input type="checkbox" value="public"><span>Public</span></label>
+          <label class="chip"><input type="checkbox" value="rural"><span>Rural</span></label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Floor-area ratio (FAR)</span>
+        <div class="range-row">
+          <input type="number" id="far-min" class="filter-num" placeholder="min"
+                 min="0" step="0.1" inputmode="decimal" aria-label="Minimum FAR" />
+          <span class="range-sep">to</span>
+          <input type="number" id="far-max" class="filter-num" placeholder="max"
+                 min="0" step="0.1" inputmode="decimal" aria-label="Maximum FAR" />
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Max height (ft)</span>
+        <div class="range-row">
+          <input type="number" id="height-min" class="filter-num" placeholder="min"
+                 min="0" step="5" inputmode="numeric" aria-label="Minimum height" />
+          <span class="range-sep">to</span>
+          <input type="number" id="height-max" class="filter-num" placeholder="max"
+                 min="0" step="5" inputmode="numeric" aria-label="Maximum height" />
+        </div>
+      </div>
+
+      <button id="filter-search" class="filter-search" type="button">Search this area</button>
+
+      <p class="filter-result" id="filter-result" data-state="idle" aria-live="polite">
+        Set filters and press Search
+      </p>
+    </div>
+  </aside>
+
+  <aside id="drawer" class="drawer" aria-hidden="true" inert>
+    <div class="drawer-handle" aria-hidden="true">
+      <span class="drawer-handle-grip"></span>
+    </div>
+
+    <header class="drawer-header">
+      <div class="drawer-title">
+        <span class="drawer-eyebrow">Parcel</span>
+        <h2 id="drawer-parcel-id">—</h2>
+      </div>
+      <button id="drawer-close" class="drawer-close" type="button" aria-label="Close report">&times;</button>
+    </header>
+
+    <div class="parcel-actions"><p id="parcel-address" aria-live="polite"></p>
+      <button id="parcel-city" type="button">View permits and meetings</button></div>
+
+    <div class="tab-panels">
+      <section class="tab-panel is-active" aria-label="Zoning constraints" data-panel="constraints">
+        <div class="panel-loading" hidden>Loading…</div>
+        <div class="panel-error"   hidden></div>
+        <div class="panel-body"></div>
+      </section>
+    </div>
+  </aside>
+
+  <aside id="city-hall-panel" aria-label="City Hall" hidden>
+    <div class="hall-toolbar"><a href="/?planner=1" target="_top">Open Day Planner</a><button id="hall-close" type="button" aria-label="Close City Hall">Close</button></div>
+    <div id="city-content"></div>
+  </aside>
+  </main>
+  <section id="parcel-access" class="access-card">
+    <h1>What can I build here?</h1>
+    <p id="access-status" role="status">Opening the parcel map…</p>
+    <button id="access-action" type="button" hidden></button>
+  </section>
+  <script src="/chat/theme.js?v=20261028g"></script>
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/pmtiles@3/dist/pmtiles.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
+  <script src="/chat/config.js?v=20261029a"></script>
+  <script src="/shared/visit.js?v=20261128a"></script>
+  <script src="/shared/session.js?v=20261122v"></script>
+  <script src="/shared/member.js?v=20261122v"></script>
+  <script src="/shared/reminders.js?v=20261122v"></script>
+  <script src="/chat/locate.js?v=20261108b"></script>
+  <script src="/chat/explore/model.js?v=20261104a"></script>
+  <script src="/planner/context.js?v=20261109d"></script>
+  <script src="/planner/model.js?v=20261109c"></script>
+  <script src="/planner/sources.js?v=20261102b"></script>
+  <script src="/planner/repository.js?v=20261109d"></script>
+  <script src="/planner/store.js?v=20261122w"></script>
+  <script src="/planner/select.js?v=20261102g"></script>
+  <script src="/chat/city-hall/model.js?v=20261128a"></script>
+  <script src="/chat/city-hall/city-hall.js?v=20261128a"></script>
+  <script src="/parcels/config.js?v=20261128a"></script>
+  <script src="/parcels/api.js?v=20261128a"></script>
+  <script src="/parcels/drawer.js?v=20261128a"></script>
+  <script src="/parcels/filter.js?v=20261128a"></script>
+  <script src="./access.js?v=20261128a"></script>
+</body>
+</html>

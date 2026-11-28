@@ -1,16 +1,5 @@
-// app.js — Parcelizer viewer.
-//
-// Data flow:
-//   PMTiles vector tileset (Supabase Storage, public bucket)
-//     -> MapLibre vector source -> fill+line layers
-//   Click a parcel -> read parcel_id from the MVT feature
-//     -> if the report drawer is mounted: open it (Constraints tab loads)
-//     -> else (embed page): show the legacy popup with parcel_id + zoning
-//
-// The split: app.js only owns the map and click routing; the drawer owns
-// per-tab data loading via ParcelAPI.
-
-(function () {
+// Parcel vector map, report selection and viewport search.
+export function mountMap() {
   const CFG = window.PARCELS_CONFIG;
   if (!CFG) {
     console.error('PARCELS_CONFIG missing; did config.js load?');
@@ -24,12 +13,11 @@
   // --- Supabase client + API wiring ----------------------------------------
   const { createClient } = window.supabase;
   const sb = createClient(CFG.supabase.url, CFG.supabase.anonKey, {
-    auth: { persistSession: false }
+    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storageKey: 'austin-parcel-public-reads' }
   });
   if (window.ParcelAPI) window.ParcelAPI.init(sb);
 
-  // Mount the drawer (no-op on /parcels/embed.html where #drawer is absent).
-  const drawerMounted = !!(window.ParcelDrawer && window.ParcelDrawer.mount());
+  window.ParcelDrawer.mount();
 
   // --- Map ------------------------------------------------------------------
   const map = new maplibregl.Map({
@@ -89,7 +77,8 @@
 
   map.addControl(new maplibregl.ScaleControl({ maxWidth: 120, unit: 'imperial' }), 'bottom-left');
 
-  window.AustinMapUI?.mount(map);
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  window.austinMap = map;
   // --- Zoom-hint banner -----------------------------------------------------
   const zoomHint = document.getElementById('zoom-hint');
   function updateZoomHint() {
@@ -139,65 +128,50 @@
     map.setFeatureState({ ...SRC, id }, { selected: true });
   }
 
-  // --- Legacy popup (used only when the drawer is not mounted, i.e. embed) -
-  function escapeHtml(s) {
-    if (s == null) return '';
-    return String(s)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-  }
-
-  function renderEmbedPopup(data) {
-    const rows = [['Parcel ID', data.parcel_id], ['Zoning', data.zoning || '—']];
-    if (data.metadata && typeof data.metadata === 'object') {
-      for (const [k, v] of Object.entries(data.metadata)) {
-        if (v == null || v === '') continue;
-        rows.push([k, typeof v === 'object' ? JSON.stringify(v) : String(v)]);
-      }
-    }
-    const dl = rows.map(([k, v]) =>
-      `<dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd>`
-    ).join('');
-    return `<div class="parcel-popup"><dl>${dl}</dl></div>`;
-  }
-
-  async function showEmbedPopup(id, lngLat) {
-    const popup = new maplibregl.Popup({ maxWidth: '320px', offset: 8 })
-      .setLngLat(lngLat)
-      .setHTML(`<div class="parcel-popup"><em>Loading parcel ${escapeHtml(id)}…</em></div>`)
-      .addTo(map);
-    popup.on('close', clearSelection);
-    try {
-      const data = await window.ParcelAPI.getParcel(id);
-      if (!data) {
-        popup.setHTML(
-          `<div class="parcel-popup"><strong>Parcel ${escapeHtml(id)}</strong>` +
-          `<p class="err">No attribute row found in Supabase.</p></div>`
-        );
-        return;
-      }
-      popup.setHTML(renderEmbedPopup(data));
-    } catch (err) {
-      popup.setHTML(
-        `<div class="parcel-popup"><strong>Parcel ${escapeHtml(id)}</strong>` +
-        `<p class="err">${escapeHtml(err.message || String(err))}</p></div>`
-      );
-    }
-  }
-
   // --- Click handler --------------------------------------------------------
   map.on('click', 'parcels-fill', (e) => {
     if (!e.features || e.features.length === 0) return;
     const f  = e.features[0];
     const id = f.id != null ? f.id : f.properties && f.properties.parcel_id;
     if (id == null) return;
+    openParcel(id, e.lngLat.toArray());
+  });
+  function openParcel(id, point) {
     selectFeature(id);
+    window.ParcelDrawer.openForParcel(id);
+    document.dispatchEvent(new CustomEvent('parcel-selected', {detail:{id, point}}));
+  }
 
-    if (drawerMounted) {
-      window.ParcelDrawer.openForParcel(id);
-    } else {
-      showEmbedPopup(id, e.lngLat);
-    }
+  const form = document.getElementById('address-search');
+  const matches = document.getElementById('address-matches');
+  const status = document.getElementById('address-status');
+  let lookup = 0;
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    const attempt = ++lookup;
+    matches.replaceChildren();
+    status.textContent = 'Searching parcel addresses…';
+    try {
+      const rows = await window.ParcelAPI.findAddress(document.getElementById('site-address').value);
+      if (attempt !== lookup) return;
+      status.textContent = rows.length > 10 ? 'First 10 matches. Add more of the address to narrow the results.'
+        : rows.length ? 'Select an address to open its parcel report.' : 'No matching address. Try a shorter street name or select the parcel on the map.';
+      for (const row of rows.slice(0, 10)) {
+        const item = document.createElement('li'), button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = row.metadata.situs_address + ' · Parcel ' + row.parcel_id;
+        button.onclick = () => {
+          const point = row.centroid.coordinates;
+          map.jumpTo({center:point,zoom:17});
+          if (matchMedia('(max-width: 600px)').matches && !document.getElementById('filter-panel').classList.contains('is-collapsed')) document.getElementById('filter-toggle').click();
+          openParcel(row.parcel_id, point);
+        };
+        item.append(button); matches.append(item);
+      }
+    } catch (error) { if (attempt === lookup) status.textContent = error.message; }
+  });
+  form.addEventListener('input', () => {
+    ++lookup; matches.replaceChildren(); status.textContent = 'Search by address or select a parcel on the map.';
   });
 
   // --- Filter integration ---------------------------------------------------
@@ -258,6 +232,7 @@
     if (activeFilter) {
       runParcelFilter();
     } else {
+      ++filterSeq;
       clearParcelHighlight();
       document.dispatchEvent(new CustomEvent('parcelfilterresult',
         { detail: { count: null } }));
@@ -271,4 +246,4 @@
   map.on('error', (e) => {
     console.warn('[parcels] map error', e && e.error ? e.error : e);
   });
-}());
+}

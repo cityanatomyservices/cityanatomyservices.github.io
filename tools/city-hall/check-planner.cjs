@@ -15,7 +15,7 @@ async function serve() {
 }
 async function frame(page,home=false){
   const f=await(await page.locator('#app-window').elementHandle()).contentFrame();
-  await f.waitForFunction(home?()=>window.AustinCityHall?.close&&window.austinExplore&&window.PlanSelection:()=>window.PlanStore&&window.PlanPanel,{}, {timeout:45000});
+  await f.waitForFunction(home?()=>window.austinExplore&&window.PlanSelection:()=>window.PlanStore&&window.PlanPanel,{}, {timeout:45000});
   await f.evaluate(()=>PlanStore.ready());return f;
 }
 (async()=>{try{
@@ -28,6 +28,8 @@ async function frame(page,home=false){
     const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});
     await context.route('https://*.supabase.co/**',route=>route.fulfill({status:400,json:{message:'No production account requests in this check'}}));
     await context.route('**/chat/data/city-hall.json',route=>route.fulfill({json:snapshot}));
+    const {bundle} = await import('../../supabase/functions/parcel-page/bundle.mjs');
+    await context.route('**/functions/v1/parcel-page', route => route.fulfill({json:{access:'testing',script:bundle()}}));
     const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base);let f=await frame(page,true);
     await f.evaluate(async today=>{
@@ -36,7 +38,7 @@ async function frame(page,home=false){
       await PlanStore.edit(p=>{p.items[0].schedule.note='Keep my current day';p.items[0].schedule.duration=25;});
     },today);
     const original=await f.evaluate(()=>PlanStore.plan.items);
-    await f.locator('#ctrlExplore').click();if(await f.locator('#ctrlCityHall').getAttribute('aria-expanded')!=='true')await f.locator('#ctrlCityHall').click();await f.locator('#city-hall-panel [data-filter=category]').selectOption('meetings');
+    await f.locator('#ctrlParcels').click();await f.locator('#ctrlCityHall').click();await f.locator('#city-hall-panel [data-filter=category]').selectOption('meetings');
     const first=()=>f.getByRole('checkbox',{name:'Add Future council meeting to Day Planner',exact:true});
     const second=()=>f.getByRole('checkbox',{name:'Add Future board meeting to Day Planner',exact:true});
     const tba=()=>f.getByRole('checkbox',{name:'Add Meeting awaiting a time to Day Planner',exact:true});
@@ -45,7 +47,7 @@ async function frame(page,home=false){
     await second().check();await tba().check();
     await f.waitForFunction(()=>PlanStore.plan.items.length===3);
     assert.equal(await f.locator('#city-hall-panel .plan-select').count(),3);
-    await f.locator('#explore-panel .explore-close').click();await f.locator('#ctrlDayPlan').click();
+    await f.getByRole('link',{name:'Open Day Planner'}).click();await f.locator('#plan-upcoming').selectOption(future);
     assert.deepEqual(await f.locator('#plan-day option').evaluateAll(options=>options.map(o=>o.value).filter(Boolean)),[today,future]);
     await f.locator('#plan-day').selectOption(today);
     await f.waitForFunction(day=>PlanStore.plan.date===day,today);
@@ -55,6 +57,7 @@ async function frame(page,home=false){
     await f.waitForFunction(()=>document.querySelectorAll('#plan-items .plan-item').length===3);
     assert.equal(await f.locator('#plan-day').inputValue(),future);
     assert.equal(await f.evaluate(()=>PlanModel.check(PlanStore.plan).conflicts),3);
+    await f.locator('[data-plan-step=times]').click();await f.locator('#plan-show-all').click();await f.locator('.plan-auto summary').click();
     await f.locator('#build-day').click();
     await f.waitForFunction(()=>PlanStore.plan.items.find(i=>i.source.title==='Meeting awaiting a time').schedule.start===null);
     assert.match(await f.locator('#plan-items').innerText(),/check the agenda/i);
@@ -70,9 +73,9 @@ async function frame(page,home=false){
     assert.deepEqual(await f.evaluate(()=>PlanStore.plan.items),original);
     await f.locator('#plan-day').selectOption(future);await f.waitForFunction(day=>PlanStore.plan.date===day,future);
     assert.deepEqual(await f.evaluate(()=>PlanStore.plan.items),saved);
-    await page.screenshot({path:`/tmp/city-hall-planner-${width}.png`});
+    await page.screenshot({path:path.join(os.tmpdir(),`city-hall-planner-${width}.png`)});
     await page.locator('.brand').click();await page.waitForURL(base+'/');assert.equal(await f.evaluate(()=>PlanPanel.active),false);
-    await f.locator('#ctrlExplore').click();if(await f.locator('#ctrlCityHall').getAttribute('aria-expanded')!=='true')await f.locator('#ctrlCityHall').click();await f.locator('#city-hall-panel [data-filter=category]').selectOption('meetings');
+    await f.locator('#ctrlParcels').click();await f.locator('#ctrlCityHall').click();await f.locator('#city-hall-panel [data-filter=category]').selectOption('meetings');
     await first().waitFor();assert.equal(await first().isChecked(),true);assert.equal(await second().isChecked(),true);
     // Re-rendering a filtered list must preserve selection and avoid duplicates.
     await f.locator('#city-hall-panel [data-filter=query]').fill('council');assert.equal(await first().isChecked(),true);
@@ -80,8 +83,8 @@ async function frame(page,home=false){
     await second().uncheck();await f.waitForFunction(()=>PlanStore.plan.items.length===2);
     assert.equal(await first().isChecked(),true);assert.equal(await tba().isChecked(),true);
     assert.deepEqual(await f.evaluate(today=>PlanStore.book.items.filter(i=>i.day===today),today),original);
-    await page.screenshot({path:`/tmp/city-hall-checkboxes-${width}.png`});
-    await page.reload();f=await frame(page,true);assert.equal(await f.evaluate(()=>PlanStore.book.items.length),0,'guest visit reset remains intact');
+    await page.screenshot({path:path.join(os.tmpdir(),`city-hall-checkboxes-${width}.png`)});
+    await page.goto(base+'/');f=await frame(page,true);assert.equal(await f.evaluate(()=>PlanStore.book.items.length),0,'guest visit reset remains intact');
     assert.deepEqual(errors,[]);await context.close();
     console.log(`${width}px: meeting checkboxes, automatic new/same-day plans, dropdown navigation, existing-day preservation, timing review, conflict resolution, removal, selection restore and guest reset passed.`);
   }

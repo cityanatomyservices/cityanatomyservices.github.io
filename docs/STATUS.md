@@ -1,4 +1,26 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
+## 2026-11-28 – What can I build here?
+
+The home map button beside Geo Fence opens `/what-can-i-build-here/`. The page
+combines the parcel database, address lookup, zoning report and City Hall. The
+Apps catalog and Day Planner’s Explore menu no longer list these tools. Existing
+parcel bookmarks redirect. The shared site visit preserves meeting selections
+when a guest returns to the Day Planner.
+
+The deployed `parcel-page` Edge Function grants guest access with
+`PARCEL_PAGE_ACCESS=testing`. It rejects payment and portal requests in that mode.
+Migration 0027 isolates parcel subscriptions from Pro. For the eventual $10/month
+launch, configure a dedicated recurring USD price with Stripe price metadata
+`austin_product=parcels` and a cancellation portal. The function reads
+`PARCEL_STRIPE_LIVE_PRICE` and `PARCEL_STRIPE_LIVE_PORTAL` in live billing mode.
+Test the corresponding TEST settings with a sandbox account before switching the
+parcel access setting to `paid`. Access is reconciled against current paid invoices
+when the page opens. Map startup and parcel context are served by the function and
+excluded from the Pages artifact. Re-deploy the function for changes to those modules.
+
+Parcel 106509 (608 Blanco St) provided a real address match in the November 28
+permit feed. Meetings show published district or citywide scope. The desktop and
+mobile browser checks cover City Hall filtering and guest planner round trips.
 
 ## 2026-11-28 - Farmers’ market consolidation and morning feed checks
 

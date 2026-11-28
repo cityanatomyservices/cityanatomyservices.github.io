@@ -14,7 +14,7 @@
 
   // Folders under /apps/ that are not framed pages: the reports' own code
   // and shared files. Add here if another such folder appears.
-  const SKIP = { apps: ['reports', 'shared'], maps: [] };
+  const SKIP = { apps: ['reports', 'shared', 'parcels'], maps: [] };
 
   let note;
   function access(){
@@ -48,7 +48,7 @@
   }
 
   Promise.all([
-    fetch('/home.json?v=20261109d').then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    fetch('/home.json?v=20261128a').then((r) => (r.ok ? r.json() : null)).catch(() => null),
     fetch('/apps/reports/reports.json?v=20261104e').then((r) => (r.ok ? r.json() : [])).catch(() => []),
     window.siteFolder(kind).catch(() => [])
   ]).then(([data, reports, folder]) => {
