@@ -1,5 +1,18 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-28 - Farmers’ market consolidation and morning feed checks
+
+SFC confirmed that November 28 is the final Downtown market. Its Saturday
+market continues at the Toney Burger Center from December 5.
+The Explore importer caps the Downtown recurrence on its final Austin date.
+The schedule and address checks still apply to each active location.
+[Organizer announcement](https://sustainablefoodcenter.org/sustainable-food-center-sfc-consolidates-farmers-markets-in-austin-into-one-larger-saturday-market/)
+
+The morning production check detected the SFC source warning. Local checks
+against the organizer returned both November 28 locations and only Sunset
+Valley for December 5. The delayed City Hall, ticker and news refreshes
+completed in Actions runs `46144817671`, `46144820098` and `46144822239`.
+
 ## 2026-11-23 - Restore feed refreshes and repair GitHub Actions
 
 Supabase Cron checks the latest GitHub run for Explore and sports using

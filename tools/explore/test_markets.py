@@ -45,6 +45,20 @@ class Markets(unittest.TestCase):
         self.assertTrue(all(r['start'].weekday()==5 and r['start'].hour==9 and r['end'].hour==13 for r in rows))
         self.assertEqual({r['start'].utcoffset() for r in rows},{timedelta(hours=-5),timedelta(hours=-6)})
 
+    def test_sfc_consolidation_retires_only_downtown_after_its_final_saturday(self):
+        final_day = datetime(2026, 11, 28, 12, tzinfo=timezone.utc)
+        with patch.object(m, 'fetch', return_value=self.sfc_page().encode()):
+            rows = m.sfc(final_day)
+        self.assertEqual([r['start'].day for r in rows if r['venue'] == 'Republic Square'], [28])
+        self.assertEqual([r['start'].day for r in rows if r['venue'] == 'Toney Burger Center'], [28, 5])
+
+        page = self.sfc_page()
+        sunset_only = page[page.index('SFC Farmers’ Market at Sunset Valley'):]
+        with patch.object(m, 'fetch', return_value=sunset_only.encode()):
+            rows = m.sfc(final_day + timedelta(days=7))
+        self.assertEqual([(r['venue'], r['start'].day) for r in rows],
+                         [('Toney Burger Center', 5), ('Toney Burger Center', 12)])
+
     def test_sfc_still_rejects_changed_schedule_and_honors_cancellation(self):
         with patch.object(m,'fetch',return_value=self.sfc_page().replace('Saturdays','Sundays').encode()) as get, patch('calendar_http.time.sleep'):
             with self.assertRaisesRegex(ValueError,'after 3 attempts'):

@@ -3,7 +3,7 @@
 Regular schedules are checked on every refresh, only expanded 14 days ahead,
 labelled as regular schedules, and subject to the same 24-hour expiry as events.
 """
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 import json
 import re
 from urllib.parse import quote, urljoin
@@ -162,19 +162,24 @@ def mueller(now):
 
 def sfc(now):
     url = 'https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/'
+    # SFC's November 10 consolidation notice supersedes its recurring Downtown calendar.
+    last_downtown_market = date(2026, 11, 28)
     sections = [(r'SFC Farmers[’\'] Market Downtown Situated (.*?) SFC Farmers',
-                 'SFC Farmers’ Market Downtown', 'Republic Square', '422 Guadalupe St Austin TX 78701', r'422 Guadalupe St, Austin'),
+                 'SFC Farmers’ Market Downtown', 'Republic Square', '422 Guadalupe St Austin TX 78701', r'422 Guadalupe St, Austin', last_downtown_market),
                 (r'SFC Farmers[’\'] Market at Sunset Valley Located (.*?) Park for Free',
-                 'SFC Farmers’ Market at Sunset Valley', 'Toney Burger Center', '3200 Jones Rd Austin TX 78745', r'3200 Jones Rd, Austin')]
+                 'SFC Farmers’ Market at Sunset Valley', 'Toney Burger Center', '3200 Jones Rd Austin TX 78745', r'3200 Jones Rd, Austin', None)]
     def calendar(body):
         text = Page(body.decode('utf-8')).root.text()
         rows = []
-        for pattern, title, venue, address, address_pattern in sections:
+        for pattern, title, venue, address, address_pattern, last_market in sections:
+            if last_market and now.astimezone(ZONE).date() > last_market:
+                continue
             section = require(text, pattern)[1]
             require(section, address_pattern)
             match = require(section, r'Hours: Saturdays, (\d+\s*AM\s*[–-]\s*\d+\s*PM)')
             if not CANCELLED.search(section):
-                rows.extend(regular(now,title,url,venue,address,[(5,None,match[1],False)]))
+                dates = regular(now, title, url, venue, address, [(5,None,match[1],False)])
+                rows.extend(row for row in dates if last_market is None or row['start'].date() <= last_market)
         return rows
     return read_calendar(url, calendar, fetch)
 
