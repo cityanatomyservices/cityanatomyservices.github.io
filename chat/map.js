@@ -55,16 +55,23 @@
   // the bounding box of a polygon, or of every polygon: what the map opens
   // on, refits to, and eases to when you join a room
   function boundsOf(features) {
-    const b = [[Infinity, Infinity], [-Infinity, -Infinity]];
-    const walk = (c) => {
-      if (typeof c[0] === 'number') {
-        b[0][0] = Math.min(b[0][0], c[0]); b[0][1] = Math.min(b[0][1], c[1]);
-        b[1][0] = Math.max(b[1][0], c[0]); b[1][1] = Math.max(b[1][1], c[1]);
-      } else c.forEach(walk);
-    };
-    features.forEach((f) => walk(f.geometry.coordinates));
-    return b;
+    const bounds = [[Infinity, Infinity], [-Infinity, -Infinity]];
+    function extend(coords) {
+      if (typeof coords[0] !== 'number') { coords.forEach(extend); return; }
+      for (let axis = 0; axis < 2; axis++) {
+        bounds[0][axis] = Math.min(bounds[0][axis], coords[axis]);
+        bounds[1][axis] = Math.max(bounds[1][axis], coords[axis]);
+      }
+    }
+    features.forEach(feature => extend(feature.geometry.coordinates));
+    return bounds;
   }
+
+  function overlaps(a, b) {
+    return a[0][0] <= b[1][0] && b[0][0] <= a[1][0] && a[0][1] <= b[1][1] && b[0][1] <= a[1][1];
+  }
+
+  window.AustinMapGeometry = {boundsOf, overlaps};
   const centreOf = (feature) => { const b = boundsOf([feature]); return [(b[0][0] + b[1][0]) / 2, (b[0][1] + b[1][1]) / 2]; };
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const fill = (text, vars) => text.replace(/\{(\w+)\}/g, (m, k) => vars[k] ?? m);
@@ -74,9 +81,8 @@
   // overlap, close enough for a map of planning areas)
   function colourise(features) {
     const boxes = features.map((f) => boundsOf([f]));
-    const touches = (a, b) => !(a[1][0] < b[0][0] || b[1][0] < a[0][0] || a[1][1] < b[0][1] || b[1][1] < a[0][1]);
     features.forEach((f, i) => {
-      const taken = new Set(features.filter((g, j) => j < i && touches(boxes[i], boxes[j])).map((g) => g.properties.color));
+      const taken = new Set(features.filter((g, j) => j < i && overlaps(boxes[i], boxes[j])).map((g) => g.properties.color));
       f.properties.color = CFG.palette.find((c) => !taken.has(c)) || CFG.palette[i % CFG.palette.length];
     });
   }
@@ -98,9 +104,9 @@
     // The limits keep the chat neighborhoods on screen. Selected Explore
     // layers can also contain nearby cities, so include their actual locations
     // while they are enabled. The extents button still returns to Austin.
-    let exploreBox = null, planBox = null, planning=!!window.PlanPanel?.active;
+    let exploreBox = null, planBox = null, aroundBox = null, planning=!!window.PlanPanel?.active;
     const coverageBox = () => {
-      const areas=[box,exploreBox,planBox].filter(Boolean);
+      const areas=[box,exploreBox,planBox,aroundBox].filter(Boolean);
       return [[Math.min(...areas.map(b=>b[0][0])),Math.min(...areas.map(b=>b[0][1]))],[Math.max(...areas.map(b=>b[1][0])),Math.max(...areas.map(b=>b[1][1]))]];
     };
     // the limits (owner 2026-10-22): no zooming out past the covered area, and
@@ -126,6 +132,11 @@
       limitZoom(); keepInView();
     });
     map.on('plannerbounds', e=>{planBox=e.bounds;limitZoom();keepInView();});
+    map.on('aroundbounds', e=>{
+      aroundBox=e.bounds;
+      if(aroundBox) { map.stop(); setTilt(false); }
+      limitZoom();keepInView();
+    });
     map.on('zoomend', keepInView);
     map.on('resize', () => { limitZoom(); keepInView(); });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: COPY.attribution }));
@@ -241,7 +252,7 @@
       if (event) {
         for (const id of ['geofence-fill','geofence-line','geofence-label']) map.setLayoutProperty(id,'visibility','none');
       }
-      if(!planning&&!window.AustinChatMap?.active)neighborhoodView(CFG.openTiltMs);
+      if(!planning&&!window.AustinChatMap?.active&&!window.AustinAroundMe?.active)neighborhoodView(CFG.openTiltMs);
 
       // hover: tint the polygon under the pointer
       let hovered = null;
@@ -289,7 +300,7 @@
           if (before) map.setFeatureState({ source: 'geofences', id: before.properties.id }, { room: false });
           if (!feature) return;
           map.setFeatureState({ source: 'geofences', id: feature.properties.id }, { room: true });
-          if(!planning&&!window.AustinChatMap?.active)flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
+          if(!planning&&!window.AustinChatMap?.active&&!window.AustinAroundMe?.active)flyTo(boundsOf([feature]), 60, V.neighborhood.zoom);
         },
         // the business you picked: the map goes there at street level (flat)
         // and a popup names it with Google Maps,
@@ -385,6 +396,7 @@
 
       // the map object, so it can be poked at from the browser console
       window.chatMap = map;
+      window.AustinAroundMe?.attach(map);
       window.AustinChatMap?.init(map);
       window.AustinMapLayers.init(map);
       window.AustinParking?.init(map);

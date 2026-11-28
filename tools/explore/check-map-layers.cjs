@@ -23,7 +23,7 @@ async function layersOpen(f){if(await f.locator('#plan-panel').isVisible())await
   const page=await context.newPage(),errors=[],boundaryRequests=[];page.setDefaultTimeout(45000);page.on('pageerror',e=>errors.push(e.message));
   page.on('request',r=>{if(/\/(zipcodes|council_districts)\.geojson/.test(r.url()))boundaryRequests.push(r.url());});
   await page.goto(base);let f=await ready(page);
-  assert.deepEqual(await f.locator('#stack > .round').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence','ctrlParcels']);
+  assert.deepEqual(await f.locator('#stack > .round').evaluateAll(buttons=>buttons.map(b=>b.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence','ctrlParcels','ctrlAroundMe']);
   assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlLocate').count(),1);
   assert.equal(await f.locator('.maplibregl-ctrl-top-left #ctrlMapLayers').count(),1);
   assert.equal(await f.locator('#explore-panel #ctrlClassifieds').count(),1);

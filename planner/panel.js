@@ -21,7 +21,7 @@
   }
   function open({history=true,focus=true,start=false}={}){
     const entering=!active;
-    for(const name of ['AustinEvent','AustinClassifieds','AustinExplore','AustinCityHall','AustinChatCard','AustinApps','AustinMedia','AustinMapLayers'])window[name]?.close?.();
+    for(const name of ['AustinEvent','AustinClassifieds','AustinExplore','AustinCityHall','AustinChatCard','AustinApps','AustinMedia','AustinMapLayers','AustinAroundMe'])window[name]?.close?.();
     if(start)window.PlanWizard?.start();
     window.AustinChatMap?.leave();
     mode(true,history);drawer(true,focus);

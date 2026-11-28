@@ -1,4 +1,4 @@
-/* Three-button navigation, embedded discovery and isolated Chat map. No production writes. */
+/* Main map navigation, embedded discovery and isolated Chat map. No production writes. */
 const {chromium}=require('../video/node_modules/playwright-core');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'../..');let browser,server;
@@ -29,7 +29,7 @@ async function count(f,source,n){for(let i=0;i<150;i++){const got=await f.evalua
   await context.route(/\/chat\/data\/explore\/[^?]+\.geojson/,r=>r.fulfill({json:feed}));
   const page=await context.newPage(),errors=[];page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));await page.goto(base);
   const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.chatMap&&window.austinExplore&&window.PlanWizard);await f.evaluate(()=>PlanStore.ready());
-  assert.deepEqual(await f.locator('#stack>.round').evaluateAll(es=>es.map(e=>e.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence','ctrlParcels']);assert.equal(await f.locator('#ctrlExplore').count(),0);
+  assert.deepEqual(await f.locator('#stack>.round').evaluateAll(es=>es.map(e=>e.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence','ctrlParcels','ctrlAroundMe']);assert.equal(await f.locator('#ctrlExplore').count(),0);
   await f.locator('#ctrlDayPlan').click();await f.locator('#plan-start #explore-panel').waitFor();
   assert.equal(await f.locator('#plan-explore-host #ctrlClassifieds,#plan-explore-host #ctrlSpecialEvents,#plan-explore-host #ctrlProApps').count(),3);
   const choice=f.locator('[data-layer=free-cheap]');if(!await choice.isChecked())await choice.check();await f.locator('[data-filter=when]').selectOption('all');await count(f,'explore-free-cheap',1);
@@ -52,6 +52,6 @@ async function count(f,source,n){for(let i=0;i<150;i++){const got=await f.evalua
   await f.evaluate(()=>PlanPanel.browse());const before=await f.evaluate(()=>chatMap.getCenter().toArray());await f.evaluate(()=>window.completeGPS());release();release=null;await page.waitForTimeout(500);await count(f,'chat-circles',0);assert.deepEqual(await f.evaluate(()=>chatMap.getCenter().toArray()),before);
   await f.locator('#plan-panel-close').click();await f.evaluate(()=>window.gpsMode='denied');await f.locator('#ctrlChat').click();await f.locator('#chat-map-status').filter({hasText:'Allow device location'}).waitFor();await count(f,'chat-circles',0);
   assert.equal(await f.evaluate(async()=>(await chatMap.getSource('chat-location').getData()).features.length),0);assert.equal(rpc.some(p=>p.endsWith('/geofence_chat_v2')),false,'Viewing circles never joins their chats');assert.deepEqual(errors,[]);
-  assert.equal(await f.locator('#plan-panel').evaluate(el=>el.scrollWidth>el.clientWidth),false);await context.close();console.log(`${width}px: four controls, embedded categories/selection, isolated Chat map, GPS, active circles, expiration, restored choices and late-response guards passed.`);
+  assert.equal(await f.locator('#plan-panel').evaluate(el=>el.scrollWidth>el.clientWidth),false);await context.close();console.log(`${width}px: five controls, embedded categories/selection, isolated Chat map, GPS, active circles, expiration, restored choices and late-response guards passed.`);
  }
 }finally{if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}}})().catch(e=>{console.error(e.stack);process.exitCode=1;});

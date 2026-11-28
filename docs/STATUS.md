@@ -1,5 +1,18 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
 
+## 2026-11-28 – What is around me
+
+The fifth round button on the home map opens a nearby-business dialog. Choosing
+a 0.25-, 0.5- or 1-mile radius requests the device location and draws a temporary
+circle, a location dot and the matching businesses. Results link to the original
+OSM records and show distance and available street addresses by category.
+The search includes overlapping neighborhoods, uses the existing weekly directory,
+and belongs to the current map visit. No geofence account or activation is required.
+
+Run `node tools/places/check-around-me.cjs <site-origin>` against a site serving
+the same directory snapshot as the checkout. The check compares each radius with
+every neighborhood file and verifies the map features on desktop and mobile.
+
 ## 2026-11-28 – What can I build here?
 
 The home map button beside Geo Fence opens `/what-can-i-build-here/`. The page

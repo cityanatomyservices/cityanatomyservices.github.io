@@ -258,14 +258,8 @@
     await loadPlaces(feature);
   }
 
-  async function loadPlaces(feature) {
-    directoryRoom = feature;
-    directoryData = null;
-    const request = ++directoryRequest;
-    if (!el.placeList) return;                         // the tour apps: no list, no fetch
-    showPlaces(null);
-    if (!feature) return;
-    const file = feature.properties.id + '.json';
+  async function directory(id) {
+    const file = id + '.json';
     const urls = [CFG.places + file];
     if (CFG.placesLive) urls.push(CFG.placesLive + file);
     // Scheduled bot commits do not trigger GitHub Pages. Read the current
@@ -274,11 +268,21 @@
       const response = await fetch(url, { cache: 'no-cache', signal: AbortSignal.timeout(8000) });
       if (!response.ok) throw new Error('Directory unavailable');
       const value = await response.json();
-      if (value.id !== feature.properties.id || !Array.isArray(value.groups)) throw new Error('Invalid directory');
+      if (value.id !== id || !Array.isArray(value.groups)) throw new Error('Invalid directory');
       return value;
     }));
-    const data = results.filter((r) => r.status === 'fulfilled').map((r) => r.value)
+    return results.filter((r) => r.status === 'fulfilled').map((r) => r.value)
       .sort((a, b) => String(b.fetched).localeCompare(String(a.fetched)))[0] || null;
+  }
+
+  async function loadPlaces(feature) {
+    directoryRoom = feature;
+    directoryData = null;
+    const request = ++directoryRequest;
+    if (!el.placeList) return;
+    showPlaces(null);
+    if (!feature) return;
+    const data = await directory(feature.properties.id);
     if (request !== directoryRequest) return;          // you moved on while it loaded
     directoryData = data;
     if (el.directoryStatus) el.directoryStatus.textContent = data
@@ -334,8 +338,14 @@
   }
 
   window.ChatRoom = {
+    directory,
     // the geofences, for a page that does not load them itself
-    load() { return fetch(CFG.geofences).then((r) => r.json()); },
+    async load() {
+      if (geofences) return geofences;
+      const response = await fetch(CFG.geofences, {signal: AbortSignal.timeout(10000)});
+      if (!response.ok) throw Error('Neighborhood boundaries unavailable');
+      return response.json();
+    },
 
     // options: { ids: { visibleBtn, chatBtn, ... },
     //            hooks: { onRoom(feature, before), onPeople(list, room), onPlaces(data), onPlace(place) } }

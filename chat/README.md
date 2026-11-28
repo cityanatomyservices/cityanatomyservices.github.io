@@ -22,7 +22,7 @@ The main map's left-hand **P** button independently toggles City street parking
 and zones plus OpenStreetMap lots/garages. Parking starts off and has no Day
 Planner selections or edits. See [parking sources and refresh](../tools/parking/README.md).
 
-The main map's right column has **Day Plan, Chat, Geo Fence and What can I build here?**, in that
+The main map's right column has **Day Plan**, **Chat**, **Geo Fence**, **What can I build here?** and **What is around me**, in that
 order. Geo Fence is a matching round link with “Geo” above “Fence”; it opens
 `https://austin.chat/geofences/manage/` in the full page. GPS and Map are small square MapLibre controls under the zoom/compass on
 the left. Day Plan → Create New Day → Places contains the former Explore
@@ -31,6 +31,12 @@ The parcel button beside Geo Fence opens **What can I build here?** with the par
 [City Hall](city-hall/README.md). The Pro Tier Apps catalog retains its categories and favorites.
 Classifieds retains the sign-in requirement, ad editing and category
 page links. Other map layouts retain their existing control columns.
+The home map’s **What is around me** dialog uses a one-time location fix to
+search 0.25, 0.5 or 1 mile. It draws a temporary circle and lists OSM-backed
+businesses from all overlapping neighborhood directories, grouped by category
+and ordered by distance within each category. Closing the dialog keeps the
+circle on the map. Clear search, Chat or Day Plan removes it.
+
 The Places step also has a **Neighborhood Businesses** dropdown below the cards.
 It starts closed, as do its business groups and categories. Its businesses
 follow the visitor's GPS neighborhood and retain presence counts, Favorites,
