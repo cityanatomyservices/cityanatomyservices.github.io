@@ -1,9 +1,51 @@
 {
  "type": "FeatureCollection",
- "generated": "2026-11-28T12:28:49.829Z",
- "placed": 46,
- "total": 103,
+ "generated": "2026-11-28T18:34:53.738Z",
+ "placed": 50,
+ "total": 110,
  "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.735,
+     30.27
+    ]
+   },
+   "properties": {
+    "title": "Austin Police: 1 dead in I-35 crash near Slaughter Lane",
+    "link": "https://www.kxan.com/traffic/serious-injuries-reported-in-i-35-crash-near-slaughter-lane/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-28T17:21:58.000Z",
+    "summary": "Austin Police said officers were on S Interstate 35 late Saturday morning responding to a fatal crash in the northbound lanes of the highway.",
+    "place": "Interstate 35",
+    "placeKind": "road"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.7394,
+     30.285
+    ]
+   },
+   "properties": {
+    "title": "Over 80% of participants in city homelessness diversion pilot exited to stable housing, UT study finds",
+    "link": "https://www.kxan.com/news/local/austin/over-80-of-participants-in-city-homelessness-diversion-pilot-exited-to-stable-housing-ut-study-finds/",
+    "outlet": "KXAN",
+    "group": "news",
+    "color": "#a394e0",
+    "published": "2026-11-28T13:00:00.000Z",
+    "summary": "A University of Texas at Austin School of Nursing study finalized last month reports strong metrics for a city of Austin pilot program aimed at keeping people out of homelessness.",
+    "place": "University of Texas",
+    "placeKind": "campus"
+   }
+  },
   {
    "type": "Feature",
    "geometry": {
@@ -15,7 +57,7 @@
    },
    "properties": {
     "title": "Driver arrested after deadly crash involving bicyclist in north Austin",
-    "link": "https://www.kxan.com/news/driver-arrested-after-deadly-crash-involving-bicyclist-in-north-austin/",
+    "link": "https://www.kxan.com/news/local/austin/driver-arrested-after-deadly-crash-involving-bicyclist-in-north-austin/",
     "outlet": "KXAN",
     "group": "news",
     "color": "#a394e0",
@@ -201,36 +243,6 @@
     "color": "#e07a99",
     "published": "2026-11-27T18:13:01.000Z",
     "summary": "The Lone Star State has unlocked the highest rate of new apartment construction in the nation in 2026, a new RentCafe housing report has confirmed. In addition to the statewide building boom, Austin leads as the No. 2 U.S. city with the most new apartments expected to be complete by the end of the year. Though Texas tops the statewide list for the most new apartments, construction rates are starti",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "State Theatre to host free Texas vs. Texas A&M rivalry watch party",
-    "link": "https://www.kxan.com/things-to-do/state-theatre-to-host-free-texas-vs-texas-am-rivalry-watch-party/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-27T16:47:01.000Z",
-    "summary": "The State Theatre in Austin is set to host a free Texas vs. Texas A&M rivalry watch party on Black Friday. Doors will open at 5:30 p.m. ahead of the 6:30 p.m. kickoff, according to event organizers.",
-    "place": null,
-    "placeKind": null
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": null,
-   "properties": {
-    "title": "Hays CISD offering below-market housing for employees",
-    "link": "https://www.kxan.com/news/local/hays/hays-cisd-offering-below-market-housing-for-employees/",
-    "outlet": "KXAN",
-    "group": "news",
-    "color": "#a394e0",
-    "published": "2026-11-27T13:00:00.000Z",
-    "summary": "Hays Consolidated Independent School District is putting an emphasis on keeping talent in the district through a new development.",
     "place": null,
     "placeKind": null
    }
@@ -878,6 +890,21 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
+    "title": "City of Austin Council Message Board • Using Carryover Funds to Support Austin Youth",
+    "link": "https://austincouncilforum.org/viewtopic.php?p=5003#p5003",
+    "outlet": "Council Message Board",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-24T19:00:10.000Z",
+    "summary": "Council Members: I am submitting a resolution for the December 3rd agenda to transfer $60,000 from my office’s operating budget to two departments to support youth programs. I’d like to invite the Council to co-sponsor this item. The funds will be split equally. Austin Climate Action and Resilience will receive $30,000 to award an additional 10 Bright Green Future Grants for the FY26-27 cycle. The",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
     "title": "Austin teacher studied Shakespeare and Watergate to win nearly $100K on 'Jeopardy!'",
     "link": "https://www.kut.org/education/2026-11-24/austin-tx-crockett-high-school-teacher-will-goree-jeopardy-winner",
     "outlet": "KUT",
@@ -1194,6 +1221,42 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     -97.72,
+     30.38
+    ]
+   },
+   "properties": {
+    "title": "Jackson Square Spins Off 280-Unit Pflugerville Rental Property",
+    "link": "https://www.connectcre.com/stories/jackson-square-spins-off-280-unit-pflugerville-rental-property/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-20T16:43:41.000Z",
+    "summary": "Newmark arranged the sale and acquisition financing of Villas at Grand Avenue, a 280-unit value-add multifamily property located at 1720 Grand Avenue Parkway in Pflugerville, Texas, within North Austin’s growing Silicon Hills technology corridor. Newmark’s Patton Jones and Andrew Dickson represented the seller, Jackson Square Properties, in the sale transaction. Matt Greer and Andrew Wilson ... Th",
+    "place": "North Austin",
+    "placeKind": "district"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "City of Austin Council Message Board • District 4 Vacancy and Special Election",
+    "link": "https://austincouncilforum.org/viewtopic.php?p=5002#p5002",
+    "outlet": "Council Message Board",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-20T15:50:40.000Z",
+    "summary": "Colleagues: Mayor Pro Tem Vela informed me that he is resigning from his District 4 seat in order to run for a state office. Under the City Charter, he may serve until a special election is held to fill his Council seat and his successor is sworn in. With his action today, there will need to be a special election. State law requires the special election to be held within 120 days of the vacancy. C",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      -97.8531,
      30.5788
     ]
@@ -1478,8 +1541,8 @@
     "group": "news",
     "color": "#b9a8f0",
     "published": "2026-11-19T14:12:30.000Z",
-    "summary": "Austin Bergstrom International Airport opened in 1999. It's named for Captain John Bergstrom, a local banker and war hero.",
-    "place": "Bergstrom",
+    "summary": "Austin-Bergstrom International Airport opened in 1999. It's named for Captain John Bergstrom, a local banker and war hero.",
+    "place": "Austin-Bergstrom International Airport",
     "placeKind": "airport"
    }
   },
@@ -1722,6 +1785,27 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     -97.7431,
+     30.269
+    ]
+   },
+   "properties": {
+    "title": "Nearly 1,000-Foot Tower Under Review in Austin",
+    "link": "https://www.connectcre.com/stories/nearly-1000-foot-tower-under-review-in-austin/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-17T18:56:04.000Z",
+    "summary": "Nebraska-based developer Lanoha is proposing to build a nearly 1,000-foot-tall tower in Austin. Dubbed The Austin Lineage, the project would consist of both a hotel and condos. Lanoha has targeted the corner of Congress Avenue and West Fourth Street for what would, if completed, be the second-tallest tower in Austin. The Austin Business Journal reports ... The post Nearly 1,000-Foot Tower Under Re",
+    "place": "Congress Avenue",
+    "placeKind": "street"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      -97.718,
      30.265
     ]
@@ -1799,6 +1883,36 @@
    "type": "Feature",
    "geometry": null,
    "properties": {
+    "title": "City of Austin Council Message Board • Re: The Future of Muny",
+    "link": "https://austincouncilforum.org/viewtopic.php?p=5001#p5001",
+    "outlet": "Council Message Board",
+    "group": "government",
+    "color": "#f0c27a",
+    "published": "2026-11-16T20:01:13.000Z",
+    "summary": "Colleagues, I appreciate the level of interest the council has shown in saving MUNY. There are a few things I’d like to add to the conversation as we head into the work session on Tuesday. First, I think it’s important to acknowledge that this is a rare – maybe unique – deal that represents accord between virtually all the key stakeholders: the UT leadership and regents, city staff, the proximate ",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Taylor Morrison to Start Work on 161-Unit Austin BTR Community",
+    "link": "https://www.connectcre.com/stories/taylor-morrison-to-start-work-on-161-unit-austin-btr-community/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-16T17:59:07.000Z",
+    "summary": "Taylor Morrison’s BTR concept, Yardly, will soon be breaking ground on a 161-unit development in the Easton Park planned community in Austin. Community Impact reports that construction teams are slated to begin work on the neighborhood later this month, with leasing set to begin in late 2027. Three- and four-bedroom floor plans will be available, ... The post Taylor Morrison to Start Work on 161-U",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
     "title": "Muny is saved. What about the Brackenridge Tract?",
     "link": "https://www.austinpolitics.net/muny-is-saved-what-about-the-brackenridge-tract/",
     "outlet": "Austin Politics",
@@ -1806,6 +1920,21 @@
     "color": "#e8b35e",
     "published": "2026-11-16T17:25:45.000Z",
     "summary": "Mayor Kirk Watson's deal is getting hit from both sides.",
+    "place": null,
+    "placeKind": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "title": "Owner of 880K-SF Austin Office Complex Scores Record C-PACE Loan",
+    "link": "https://www.connectcre.com/stories/880k-sf-austin-office-owner-scores-record-c-pace-loan/",
+    "outlet": "Connect CRE",
+    "group": "realestate",
+    "color": "#e07a99",
+    "published": "2026-11-16T17:00:25.000Z",
+    "summary": "Jay Paul Company was able to finance an existing construction loan on a sprawling Austin office complex with a $227.5 million C-PACE financing. Nuveen Green Capital (NGC) provided the loan. The loan on the 881,427-square-foot Class A office campus marks the largest C-PACE transaction in Texas to date. C-PACE will recapitalize Springdale Green’s previously completed ... The post Owner of 880K-SF Au",
     "place": null,
     "placeKind": null
    }
