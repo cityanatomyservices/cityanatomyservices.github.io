@@ -18,7 +18,7 @@
   let elPanels  = [];
   let elParcelId = null;
   let activeTab = 'constraints';
-  let currentParcelId = null;
+  let currentParcelId = null, opener = null;
   // Cache last response per parcel so re-opening the same parcel feels instant.
   const cache = { constraints: new Map() };
 
@@ -75,6 +75,8 @@
 
   function close() {
     if (!mounted) return;
+    const target = opener?.isConnected && !opener.closest('[inert]') ? opener : document.getElementById('filter-toggle');
+    target?.focus({preventScroll:true});
     document.body.classList.remove('drawer-open');
     elDrawer.classList.remove('is-open');
     elDrawer.inert = true;
@@ -105,7 +107,7 @@
             data.rules && data.rules.display_name
               ? ` <span class="muted">— ${escapeHtml(data.rules.display_name)}</span>` : ''
          }</dd>
-         <dt>Lot area</dt><dd>${fmtNumber(data.lot_area_sqft)} sq ft <span class="muted">(${lotAcres} ac)</span></dd>`
+         <dt>Lot area</dt><dd>${data.lot_area_sqft != null ? fmtNumber(data.lot_area_sqft) + ' sq ft' : 'Unavailable'} ${data.lot_area_acres != null ? '<span class="muted">(' + lotAcres + ' ac)</span>' : ''}</dd>`
        + (data.zoning_overlay ? `<dt>Overlay</dt><dd>${escapeHtml(data.zoning_overlay)}</dd>` : '')
        + `</dl>`
     );
@@ -116,7 +118,7 @@
         `<h3 class="panel-section-title">Computed envelope</h3>
          <dl class="constraints-grid">
            ${c.max_floor_area_sqft != null
-              ? `<dt>Max floor area</dt><dd>${fmtNumber(c.max_floor_area_sqft)} sq ft <span class="muted">(FAR ${r.far})</span></dd>` : ''}
+              ? `<dt>Max floor area</dt><dd>${fmtNumber(c.max_floor_area_sqft)} sq ft <span class="muted">(FAR ${fmtNumber(r.far)})</span></dd>` : ''}
            ${c.max_impervious_sqft != null
               ? `<dt>Max impervious</dt><dd>${fmtNumber(c.max_impervious_sqft)} sq ft <span class="muted">(${fmtPct(r.impervious_pct)})</span></dd>` : ''}
            ${c.max_building_sqft != null
@@ -124,7 +126,7 @@
            ${c.max_height_ft != null
               ? `<dt>Max height</dt><dd>${fmtFt(c.max_height_ft)}</dd>` : ''}
            ${c.max_units != null
-              ? `<dt>Max dwelling units</dt><dd>${fmtNumber(c.max_units)} <span class="muted">(${r.max_units_per_acre}/ac)</span></dd>` : ''}
+              ? `<dt>Max dwelling units</dt><dd>${fmtNumber(c.max_units)} <span class="muted">(${fmtNumber(r.max_units_per_acre)}/ac)</span></dd>` : ''}
          </dl>`
       );
 
@@ -143,7 +145,7 @@
       }
       parts.push(`<p class="panel-source">Source: ${escapeHtml(r.source_citation)}.</p>`);
     } else if (data.zoning) {
-      parts.push(`<p class="panel-warning">No development-standards row for zoning code <code>${escapeHtml(data.zoning)}</code> in the LDC seed table. Add a row to <code>austin_zoning_rules</code> to surface FAR/setbacks here.</p>`);
+      parts.push(`<p class="panel-warning">Development standards are unavailable for zoning code <code>${escapeHtml(data.zoning)}</code> in the parcel database.</p>`);
     } else {
       parts.push(`<p class="panel-warning">Zoning is unknown for this parcel — typically because the centroid lands in a right-of-way or annexation gap.</p>`);
     }
@@ -194,11 +196,13 @@
 
   // ----- public API -------------------------------------------------------
 
-  function openForParcel(parcelId) {
+  function openForParcel(parcelId, trigger) {
     if (!mounted) return false;
+    opener = trigger;
     currentParcelId = String(parcelId);
     elParcelId.textContent = currentParcelId;
     open();
+    elClose.focus({preventScroll:true});
     setActiveTab(activeTab || 'constraints');
     if (activeTab === 'constraints') loadConstraints(currentParcelId);
     return true;

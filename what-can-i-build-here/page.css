@@ -1,3 +1,4 @@
+#parcel-workspace [hidden], #parcel-access [hidden] { display: none !important; }
 :root { --header-height: 74px; --line: var(--border); --ink: #243341; }
 .parcel-header {
   position: fixed; inset: 0 0 auto; height: var(--header-height); z-index: 120;

@@ -35,7 +35,10 @@ window.AustinCityHall = {
       <p class="explore-note">Times are in Austin time. Meetings come from the city’s calendars and agenda pages; permits, site plans and zoning notices come from Austin Open Data. Check the official agenda for participation, changes or cancellations. Refreshes run every three hours; the city publishes datasets on its own schedule.</p></details>`;
     const $ = selector => panel.querySelector(selector);
     const node = (tag, text, className) => { const el = document.createElement(tag); if (text != null) el.textContent = text; if (className) el.className = className; return el; };
-    const format = (value, dateOnly = false) => new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', month: 'short', day: 'numeric', ...(dateOnly ? {} : { hour: 'numeric', minute: '2-digit' }) }).format(new Date(value));
+    const dateOptions = {timeZone:'America/Chicago', month:'short', day:'numeric'};
+    const dateFormat = new Intl.DateTimeFormat('en-US', dateOptions);
+    const timeFormat = new Intl.DateTimeFormat('en-US', {...dateOptions, hour:'numeric', minute:'2-digit'});
+    const format = (value, dateOnly = false) => (dateOnly ? dateFormat : timeFormat).format(new Date(value));
     function sourceLink(label, url) {
       const a = node('a', label); a.href = M.safeURL(url); a.target = '_blank'; a.rel = 'noopener noreferrer'; return a;
     }
@@ -55,7 +58,8 @@ window.AustinCityHall = {
     $('.city-hall-more').addEventListener('click', () => { limit += 30; update(); });
     $('.city-hall-retry').addEventListener('click', () => load(true));
     function update() {
-      const now = Date.now(), records = feed?.records || [], current = records.filter(r => M.current(r, now));
+      if (!active()) return;
+      const now = Date.now(), records = feed?.records || [];
       const local = state.scope === 'parcel' && parcel;
       const filtered = local ? records.filter(r => M.forParcel(r, parcel)) : records;
       $('[data-filter=district]').closest('label').hidden = !!local;
@@ -63,7 +67,7 @@ window.AustinCityHall = {
       const matches = M.filter(filtered, local ? { ...state, district: '' } : state, now), selected = categories.find(c => c.id === state.category);
       $('.city-hall-filters').hidden = !selected;
       $('.city-hall-board').hidden = state.category !== 'meetings';
-      const boards = [...new Set(current.filter(r => r.category === 'meetings').map(r => r.board).filter(Boolean))].sort();
+      const boards = [...new Set(records.filter(r => r.category === 'meetings' && M.current(r, now)).map(r => r.board).filter(Boolean))].sort();
       if (state.board && !boards.includes(state.board)) boards.push(state.board);
       const boardSelect = $('[data-filter=board]');
       if (boardSelect.dataset.options !== JSON.stringify(boards)) {
@@ -75,16 +79,17 @@ window.AustinCityHall = {
         ? 'Parcel ' + parcel.id + (parcel.address ? ' · ' + parcel.address : '') + (parcel.district ? ' · Council District ' + parcel.district : '')
         : 'Browse city government records across Austin.';
       $('.city-hall-district-note').textContent = local ? (sites
-        ? (parcel.address ? 'Showing records with the same published street address.' : parcel.loading ? 'Looking up the parcel address…' : 'A street address is unavailable for this parcel. Choose All Austin to search records.')
-        : 'Showing citywide records' + (parcel.district ? ' and records published for District ' + parcel.district : '') + '. Check the official agenda for mention of this parcel.')
+        ? (parcel.address ? 'Showing records with the same published street address.' : parcel.loading ? 'Looking up the parcel address…' : parcel.addressError ? 'Address lookup failed. Select the parcel again or choose All Austin.' : 'A street address is unavailable for this parcel. Choose All Austin to search records.')
+        : 'Showing citywide records' + (parcel.district ? ' and records published for District ' + parcel.district : '') + '.' + (parcel.districtError ? ' District boundaries could not load.' : '') + ' Check the official agenda for mention of this parcel.')
         : state.category === 'meetings'
         ? 'Citywide meetings appear in every district. Meeting location does not define its district.'
         : state.district ? 'Includes citywide items. Records without a published district are shown under All districts.' : '';
+      const waitingForAddress = local && sites && (parcel.loading || parcel.addressError);
       const period = state.when === 'week' ? (state.category === 'meetings' ? 'Next 7 days.' : 'Posted in the past 7 days; zoning notices use their hearing date.') : state.when === 'now' ? (state.category === 'meetings' ? 'Starting within two hours.' : 'Posted in the past two hours; zoning notices use their hearing date.') : state.when === 'all' ? 'All available dates.' : state.when === 'date' ? 'On ' + state.date + '.' : 'Using the time frame above.';
       $('.city-hall-window').textContent = period + ' Available records: ' + selected.note.split(' · ')[0] + '. Records without a published time match their Austin calendar day.';
       const relevantSources = (feed?.sources || []).filter(s => !selected || s.category === state.category);
       const failed = relevantSources.filter(s => !s.ok || !s.checked || now - Date.parse(s.checked) >= (s.category === 'meetings' ? 12 : 72) * 3600000);
-      $('.city-hall-status').textContent = pending && !feed ? 'Loading city updates…' : !feed && error ? 'City updates are unavailable. Try again.' : !selected ? 'Choose a category to see city updates.' : `${matches.length} ${state.category === 'meetings' ? (matches.length === 1 ? 'upcoming meeting' : 'upcoming meetings') : (matches.length === 1 ? 'matching listing' : 'matching listings')}${matches.length ? '' : ' · No current listings match these filters.'}`;
+      $('.city-hall-status').textContent = pending && !feed ? 'Loading city updates…' : !feed && error ? 'City updates are unavailable. Try again.' : waitingForAddress ? (parcel.loading ? 'Waiting for the parcel address…' : 'Address matches are unavailable.') : !selected ? 'Choose a category to see city updates.' : `${matches.length} ${state.category === 'meetings' ? (matches.length === 1 ? 'upcoming meeting' : 'upcoming meetings') : (matches.length === 1 ? 'matching listing' : 'matching listings')}${matches.length ? '' : ' · No current listings match these filters.'}`;
       if (feed && (error || failed.length)) $('.city-hall-status').textContent += ' Some sources could not refresh. See Sources & freshness.';
       $('.city-hall-retry').hidden = !error; $('.city-hall-retry').disabled = !!pending;
       const list = $('.city-hall-results'); list.replaceChildren();

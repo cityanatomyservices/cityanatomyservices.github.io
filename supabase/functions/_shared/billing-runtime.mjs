@@ -1,6 +1,6 @@
 import {service,problem,API_VERSION} from './billing.mjs';
 export function runtime(env,Stripe,fetcher=fetch,product=null) {
-  const mode=env('BILLING_MODE')||'test',prefix='AUSTIN_STRIPE_'+mode.toUpperCase()+'_';
+  const mode=product?.mode ?? (env('BILLING_MODE')||'test'),prefix='AUSTIN_STRIPE_'+mode.toUpperCase()+'_';
   const key=env(prefix+'KEY')||env('AUSTIN_STRIPE_KEY'),signing=env(prefix+'WEBHOOK_SECRET')||env('AUSTIN_STRIPE_WEBHOOK_SECRET');
   const portal=product ? product.portal : env(prefix+'PORTAL')||env('AUSTIN_STRIPE_PORTAL');
   const base=env('SUPABASE_URL'),admin=env('SUPABASE_SERVICE_ROLE_KEY');

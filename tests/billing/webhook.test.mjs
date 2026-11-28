@@ -37,6 +37,12 @@ test('Sandbox is restricted to explicitly listed account IDs',()=>{
   assert.equal(runtime(k=>settings[k],Stripe).allowed({id:'alice'}),true);
   assert.equal(runtime(k=>settings[k],Stripe).allowed({id:'mallory'}),false);
 });
+
+test('The parcel sandbox stays separate when the site uses live billing',()=>{
+  const settings={...env,BILLING_MODE:'live',AUSTIN_STRIPE_TEST_KEY:env.AUSTIN_STRIPE_KEY,BILLING_TEST_USERS:'alice'};
+  const api=runtime(key=>settings[key],Stripe,fetch,{id:'parcels',mode:'test'});
+  assert.equal(api.ready(),true);assert.equal(api.allowed({id:'alice'}),true);assert.equal(api.allowed({id:'other'}),false);
+});
 test('Live credentials can be staged without replacing the working test configuration',()=>{
   const staged={...env,AUSTIN_STRIPE_LIVE_KEY:'rk_live_'+randomBytes(24).toString('hex'),
     AUSTIN_STRIPE_LIVE_WEBHOOK_SECRET:'whsec_'+randomBytes(24).toString('hex'),AUSTIN_STRIPE_LIVE_PORTAL:'bpc_live_fixture'};

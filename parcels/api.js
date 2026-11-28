@@ -24,7 +24,7 @@
       .from('parcels_public')
       .select('parcel_id,zoning_base,zoning_ztype,metadata,centroid')
       .eq('parcel_id', String(parcelId))
-      .maybeSingle();
+      .abortSignal(AbortSignal.timeout(15000)).maybeSingle();
     if (error) throw error;
     if (!data) return data;
     const overlay = data.zoning_ztype && data.zoning_ztype !== data.zoning_base
@@ -41,7 +41,7 @@
   async function getConstraints(parcelId) {
     // PostgREST exposes SQL functions at /rpc/<name>. supabase-js wraps it.
     const { data, error } = await requireSb()
-      .rpc('get_parcel_constraints', { p_parcel_id: String(parcelId) });
+      .rpc('get_parcel_constraints', { p_parcel_id: String(parcelId) }).abortSignal(AbortSignal.timeout(20000));
     if (error) throw error;
     return data;
   }
@@ -49,6 +49,7 @@
   // Search/filter — multi-parcel counterpart to getConstraints. Returns the
   // parcel_ids matching the given criteria within a viewport bbox. Backed by
   // the search_parcels RPC (see scripts/sql/search_parcels.sql).
+  const searchLimit = 1000;
   async function searchParcels(params) {
     const p = params || {};
     const cats = Array.isArray(p.categories) && p.categories.length
@@ -63,7 +64,7 @@
       p_south: p.south != null ? p.south : null,
       p_east:  p.east  != null ? p.east  : null,
       p_north: p.north != null ? p.north : null
-    });
+    }).limit(searchLimit).abortSignal(AbortSignal.timeout(20000));
     if (error) throw error;
     return (data || []).map(row => row.parcel_id);
   }
@@ -86,11 +87,12 @@
       if (!address || !/^[A-Z0-9 #/'-]+$/.test(address)) throw Error('Enter a street number and street name.');
       const {data,error} = await requireSb().from('parcels_public')
         .select('parcel_id,metadata,centroid').like('metadata->>situs_address', address + '%')
-        .limit(11);
+        .limit(11).abortSignal(AbortSignal.timeout(15000));
       if (error) throw Error('Address search is unavailable. Try again or select a parcel on the map.');
-      return (data || []).filter(row => row.centroid?.coordinates?.length === 2)
+      return (data || []).filter(row => row.parcel_id != null && typeof row.metadata?.situs_address === 'string')
         .sort((a,b) => a.metadata.situs_address.localeCompare(b.metadata.situs_address, 'en', {numeric:true}));
     },
+    searchLimit,
     searchParcels,
     getCases,
     ask

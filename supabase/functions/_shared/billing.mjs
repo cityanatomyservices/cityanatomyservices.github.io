@@ -41,8 +41,11 @@ export function service({stripe,db,mode,portal,checkoutEnabled=false,product=nul
   async function configured() {
     if(configuration)return configuration;
     const task=(async()=>{
+      if (!price) throw problem(503,'Subscriptions are being set up.');
       const actual=await stripe.prices.retrieve(price);
-      if((product && (!price || actual.metadata?.austin_product!==product.id))||!actual.active||actual.livemode!==(mode==='live')||actual.currency!=='usd'||actual.unit_amount!==(product?.amount || 500)||
+      if (product && (actual.metadata?.austin_product !== product.id || actual.billing_scheme !== 'per_unit' ||
+          actual.recurring?.usage_type !== 'licensed' || actual.transform_quantity)) throw new Error('Unexpected subscription price');
+      if(!actual.active||actual.livemode!==(mode==='live')||actual.currency!=='usd'||actual.unit_amount!==(product?.amount || 500)||
         actual.recurring?.interval!=='month'||actual.recurring?.interval_count!==1)throw new Error('Unexpected subscription price');
       if(!portal)throw problem(503,'Billing management is being set up.');
       const settings=await stripe.billingPortal.configurations.retrieve(portal);

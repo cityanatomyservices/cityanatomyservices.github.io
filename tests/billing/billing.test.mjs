@@ -170,7 +170,10 @@ const parcelProduct={id:'parcels',path:'/what-can-i-build-here/',amount:1000,pri
 function parcelFixture(subscriptions=[]) {
   const f=fixture({subscriptions,rows:[{owner_id:'alice',customer_id:'cus_parcels',checkout_nonce:'one'}]});
   const base=f.stripe.prices.retrieve;
-  f.stripe.prices.retrieve=async id=>({...await base(id),unit_amount:1000,metadata:{austin_product:'parcels'}});
+  f.stripe.prices.retrieve=async id=>{
+    const price=await base(id);
+    return {...price,unit_amount:1000,billing_scheme:'per_unit',recurring:{...price.recurring,usage_type:'licensed'},metadata:{austin_product:'parcels'}};
+  };
   f.parcels=service({stripe:f.stripe,db:f.db,mode:'test',portal:'bpc_parcels',product:parcelProduct,checkoutEnabled:true,now:()=>NOW});
   return f;
 }
@@ -192,6 +195,14 @@ test('Parcel checkout uses its monthly price, separate return page and idempoten
 });
 test('Parcel checkout rejects a misconfigured price before charging',async()=>{
   const f=parcelFixture();f.stripe.prices.retrieve=async()=>({unit_amount:500});
+  await assert.rejects(f.parcels.checkout({id:'alice'}),/Unexpected subscription price/);
+  assert.equal(f.creates(),0);
+});
+test('A metered price cannot start a parcel subscription',async()=>{
+  const f=parcelFixture(),original=f.stripe.prices.retrieve;
+  f.stripe.prices.retrieve=async id=>{
+    const price=await original(id);return {...price,recurring:{...price.recurring,usage_type:'metered'}};
+  };
   await assert.rejects(f.parcels.checkout({id:'alice'}),/Unexpected subscription price/);
   assert.equal(f.creates(),0);
 });

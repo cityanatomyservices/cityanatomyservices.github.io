@@ -4,12 +4,14 @@
   const status = document.getElementById('access-status');
   const action = document.getElementById('access-action');
   const manage = document.getElementById('manage-payment');
+  const gateManage = document.getElementById('access-manage');
   const session = window.AustinSession;
   const endpoint = window.PARCELS_CONFIG.supabase.url + '/functions/v1/parcel-page';
   let paid = false, owner = null;
 
   async function request(operation, authenticated = false) {
     const credentials = authenticated ? await session.peek() : null;
+    if (authenticated && (!owner || credentials?.user?.id !== owner)) throw Error('Your account changed. Reopen the parcel page.');
     const headers = {'Content-Type':'application/json'};
     if (credentials?.user?.is_anonymous === false) headers.Authorization = 'Bearer ' + credentials.access_token;
     const response = await fetch(endpoint, {method:'POST', headers, body:JSON.stringify({action:operation}),
@@ -24,18 +26,20 @@
     status.textContent = message;
     action.hidden = false;
     action.disabled = false;
+    gateManage.hidden = true;
     action.textContent = label;
     action.onclick = fn;
   }
   async function billing(operation) {
-    action.disabled = manage.disabled = true;
+    action.disabled = manage.disabled = gateManage.disabled = true;
     try {
       const {url} = await request(operation, true);
       const target = new URL(url);
       if (target.protocol !== 'https:' || !['checkout.stripe.com','billing.stripe.com'].includes(target.hostname)) throw Error('Billing link unavailable.');
+      if (session.user?.id !== owner) throw Error('Your account changed. Reopen the parcel page.');
       window.top.location.href = target.href;
     } catch (error) { offer(error.message, 'Return to parcel access', () => location.reload()); }
-    finally { action.disabled = manage.disabled = false; }
+    finally { action.disabled = manage.disabled = gateManage.disabled = false; }
   }
   async function open() {
     action.hidden = true;
@@ -54,7 +58,9 @@
       }
       if (result.access === 'subscribe') {
         offer('Monthly access to the parcel map and City Hall is $10. It renews monthly until canceled.',
-          result.hasBilling ? 'Review subscription' : 'Subscribe for $10/month', () => billing('checkout'));
+          'Subscribe for $10/month', () => billing('checkout'));
+        gateManage.hidden = !result.hasBilling;
+        gateManage.onclick = () => billing('manage');
         return;
       }
       if (!['testing','paid'].includes(result.access) || typeof result.script !== 'string' || !result.script) throw Error('The parcel map could not load.');

@@ -6,7 +6,7 @@ const assert=require('node:assert/strict'),path=require('node:path');
   const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500,permissions:['geolocation'],geolocation:{latitude:circle.latitude,longitude:circle.longitude,accuracy:5}});
   await context.addInitScript(s=>{if(location.origin==='https://austin.chat')localStorage.setItem('sb-aqbyxpiwugcvoephsvpm-auth-token',JSON.stringify(s));},session);
   const page=await context.newPage();page.setDefaultTimeout(45000);await page.goto('https://austin.chat/');const f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.waitForFunction(()=>window.chatMap&&window.AustinChatMap);
-  assert.deepEqual(await f.locator('#stack>.round').evaluateAll(es=>es.map(e=>e.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence']);await f.locator('#ctrlChat').click();
+  assert.deepEqual(await f.locator('#stack>.round').evaluateAll(es=>es.map(e=>e.id)),['ctrlDayPlan','ctrlChat','ctrlGeoFence','ctrlParcels']);await f.locator('#ctrlChat').click();
   let found=false;for(let i=0;i<150;i++){found=await f.evaluate(async id=>(await chatMap.getSource('chat-circles')?.getData())?.features?.some(f=>f.properties.id===id),circle.id);if(found)break;await page.waitForTimeout(200);}assert.ok(found,'Real active circle appears on Chat map');
   await f.waitForFunction(()=>chatMap.getZoom()===16);await f.locator('#ctrlChat').click();await page.screenshot({path:path.resolve('..','.tmp','chat-map-live-'+width+'.png')});
   await page.goto('https://austin.chat/geofences/?id='+circle.id);await page.locator('#geo-room').waitFor();assert.equal(await page.locator('#geo-join').isEnabled(),true);assert.match(await page.locator('#geo-public-status').textContent(),/Austin time/);

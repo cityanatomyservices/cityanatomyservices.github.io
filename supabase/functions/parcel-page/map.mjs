@@ -1,23 +1,10 @@
 // Parcel vector map, report selection and viewport search.
-export function mountMap() {
+export function mountMap(onPick) {
   const CFG = window.PARCELS_CONFIG;
-  if (!CFG) {
-    console.error('PARCELS_CONFIG missing; did config.js load?');
-    return;
-  }
 
   // --- PMTiles protocol registration ---------------------------------------
   const pmProtocol = new pmtiles.Protocol();
   maplibregl.addProtocol('pmtiles', pmProtocol.tile);
-
-  // --- Supabase client + API wiring ----------------------------------------
-  const { createClient } = window.supabase;
-  const sb = createClient(CFG.supabase.url, CFG.supabase.anonKey, {
-    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storageKey: 'austin-parcel-public-reads' }
-  });
-  if (window.ParcelAPI) window.ParcelAPI.init(sb);
-
-  window.ParcelDrawer.mount();
 
   // --- Map ------------------------------------------------------------------
   const map = new maplibregl.Map({
@@ -112,15 +99,12 @@ export function mountMap() {
     map.getCanvas().style.cursor = '';
   });
 
-  // --- Selection feature-state (cleared by drawer close or click elsewhere)
   let selectedId = null;
-  function clearSelection() {
-    if (selectedId !== null) {
-      map.setFeatureState({ ...SRC, id: selectedId }, { selected: false });
-      selectedId = null;
-    }
-  }
+  map.once('load', () => {
+    if (selectedId !== null) map.setFeatureState({...SRC, id:selectedId}, {selected:true});
+  });
   function selectFeature(id) {
+    if (!map.getLayer('parcels-fill')) { selectedId = id; return; }
     if (selectedId !== null && selectedId !== id) {
       map.setFeatureState({ ...SRC, id: selectedId }, { selected: false });
     }
@@ -134,44 +118,8 @@ export function mountMap() {
     const f  = e.features[0];
     const id = f.id != null ? f.id : f.properties && f.properties.parcel_id;
     if (id == null) return;
-    openParcel(id, e.lngLat.toArray());
-  });
-  function openParcel(id, point) {
     selectFeature(id);
-    window.ParcelDrawer.openForParcel(id);
-    document.dispatchEvent(new CustomEvent('parcel-selected', {detail:{id, point}}));
-  }
-
-  const form = document.getElementById('address-search');
-  const matches = document.getElementById('address-matches');
-  const status = document.getElementById('address-status');
-  let lookup = 0;
-  form.addEventListener('submit', async event => {
-    event.preventDefault();
-    const attempt = ++lookup;
-    matches.replaceChildren();
-    status.textContent = 'Searching parcel addresses…';
-    try {
-      const rows = await window.ParcelAPI.findAddress(document.getElementById('site-address').value);
-      if (attempt !== lookup) return;
-      status.textContent = rows.length > 10 ? 'First 10 matches. Add more of the address to narrow the results.'
-        : rows.length ? 'Select an address to open its parcel report.' : 'No matching address. Try a shorter street name or select the parcel on the map.';
-      for (const row of rows.slice(0, 10)) {
-        const item = document.createElement('li'), button = document.createElement('button');
-        button.type = 'button';
-        button.textContent = row.metadata.situs_address + ' · Parcel ' + row.parcel_id;
-        button.onclick = () => {
-          const point = row.centroid.coordinates;
-          map.jumpTo({center:point,zoom:17});
-          if (matchMedia('(max-width: 600px)').matches && !document.getElementById('filter-panel').classList.contains('is-collapsed')) document.getElementById('filter-toggle').click();
-          openParcel(row.parcel_id, point);
-        };
-        item.append(button); matches.append(item);
-      }
-    } catch (error) { if (attempt === lookup) status.textContent = error.message; }
-  });
-  form.addEventListener('input', () => {
-    ++lookup; matches.replaceChildren(); status.textContent = 'Search by address or select a parcel on the map.';
+    onPick(id, e.lngLat.toArray(), null, map.getCanvas());
   });
 
   // --- Filter integration ---------------------------------------------------
@@ -216,11 +164,14 @@ export function mountMap() {
         east: b.getEast(),  north: b.getNorth()
       });
       if (seq !== filterSeq) return;          // a newer request superseded us
-      applyParcelHighlight(ids);
+      const limited = ids.length >= (window.ParcelAPI.searchLimit || 1000);
+      if (limited) clearParcelHighlight();
+      else applyParcelHighlight(ids);
       document.dispatchEvent(new CustomEvent('parcelfilterresult',
-        { detail: { count: ids.length } }));
+        { detail: { count: ids.length, limited } }));
     } catch (err) {
       if (seq !== filterSeq) return;
+      clearParcelHighlight();
       console.warn('[parcels] search failed', err);
       document.dispatchEvent(new CustomEvent('parcelfilterresult',
         { detail: { error: (err && err.message) || 'Search failed' } }));
@@ -239,6 +190,7 @@ export function mountMap() {
     }
   });
 
+  map.once('load', () => { if (activeFilter) runParcelFilter(); });
   // Re-scope the search to the viewport whenever the user pans or zooms.
   map.on('moveend', () => { if (activeFilter) runParcelFilter(); });
 
@@ -246,4 +198,8 @@ export function mountMap() {
   map.on('error', (e) => {
     console.warn('[parcels] map error', e && e.error ? e.error : e);
   });
+  return (id, point) => {
+    map.jumpTo({center:point, zoom:17});
+    selectFeature(id);
+  };
 }

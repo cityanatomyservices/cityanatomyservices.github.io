@@ -34,13 +34,28 @@ async function openCity(f){await f.locator('#ctrlCityHall').click();}
   browser=await chromium.launch({executablePath:require('../browser.cjs').executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   for(const width of [1280,390]){
     const context=await browser.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500});
+    // Exercise the same mobile journey when the graphics context cannot start.
+    if(width===390)await context.addInitScript(()=>{
+      if(!location.pathname.endsWith('/workspace.html'))return;
+      const getContext=HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext=function(kind,...args){return kind.includes('webgl')?null:getContext.call(this,kind,...args);};
+    });
     await context.route('https://*.supabase.co/**',r=>r.fulfill({status:400,json:{message:'Fixture: no production account access'}}));
     const parcel={parcel_id:'106509',metadata:{situs_address:'608 BLANCO ST 78703'},centroid:{type:'Point',coordinates:[-97.75703,30.2734]}};
+    let detailCalls=0, releaseDistrict;
+    const districtReady=new Promise(resolve=>{releaseDistrict=resolve;});
+    await context.route('**/budget/data/council_districts.geojson',async route=>{
+      await districtReady;
+      await route.fulfill({json:JSON.parse(fs.readFileSync(path.join(root,'budget/data/council_districts.geojson'),'utf8'))});
+    });
     await context.route('**/rest/v1/parcels_public?**', route => {
       const lookup=new URL(route.request().url()).searchParams;
+      if(lookup.has('parcel_id'))detailCalls++;
       return route.fulfill({json:lookup.has('parcel_id') ? parcel : [parcel]});
     });
     await context.route('**/rest/v1/rpc/get_parcel_constraints',route=>route.fulfill({json:{zoning:'LR',lot_area_sqft:8970}}));
+    let filterCount=1000;
+    await context.route('**/rest/v1/rpc/search_parcels**',route=>route.fulfill({json:Array.from({length:filterCount},(_,i)=>({parcel_id:String(i+1)}))}));
     let fail=true,expired=false,requests=0;
     await context.route('**/chat/data/city-hall.json',r=>{requests++;if(fail){fail=false;return r.fulfill({status:503,body:'Unavailable'});}return r.fulfill({json:expired?{...snapshot,records:records.map(r=>({...r,expires:'2000-01-01T00:00:00Z'}))}:snapshot});});
     const {bundle} = await import('../../supabase/functions/parcel-page/bundle.mjs');
@@ -70,15 +85,37 @@ async function openCity(f){await f.locator('#ctrlCityHall').click();}
     const bounds=await f.locator('#city-hall-panel').boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width&&bounds.height<900);
     await f.locator('#hall-close').press('Escape');assert.equal(await f.locator('#city-hall-panel').isHidden(),true);
     assert.equal(await f.locator('#ctrlCityHall').evaluate(el=>el===document.activeElement),true);
-    if(await f.locator('#filter-toggle').getAttribute('aria-expanded')==='false')await f.locator('#filter-toggle').click();
+    if(await f.locator('#filter-toggle').isVisible()&&await f.locator('#filter-toggle').getAttribute('aria-expanded')==='false')await f.locator('#filter-toggle').click();
+    if(width===390) {
+      assert.equal(await f.locator('#map').isHidden(),true);
+      assert.match(await f.locator('#address-status').innerText(),/map is unavailable/i);
+      assert.equal(await f.locator('#filter-search').isHidden(),true);
+    } else {
+      await f.locator('#far-min').fill('3');await f.locator('#far-max').fill('1');await f.locator('#filter-search').click();
+      assert.equal(await f.locator('#far-max').evaluate(el=>el.validity.customError),true);
+      await f.locator('#far-max').fill('4');await f.locator('#filter-search').click();
+      await f.locator('#filter-result').filter({hasText:'At least 1,000'}).waitFor();
+      assert.equal(await f.evaluate(()=>austinMap.getPaintProperty('parcels-fill','fill-opacity')),0.55);
+      filterCount=2;await f.locator('#filter-search').click();
+      await f.locator('#filter-result').filter({hasText:'2 parcels match'}).waitFor();
+      assert.ok(Array.isArray(await f.evaluate(()=>austinMap.getPaintProperty('parcels-fill','fill-opacity'))));
+      await f.locator('#filter-clear').click();
+    }
     await f.locator('#site-address').fill('608 Blanco Street');await f.locator('#address-search button').click();
     await f.locator('#address-matches button').filter({hasText:'106509'}).click();
-    await f.locator('#parcel-address').filter({hasText:'District 9'}).waitFor();
+    await f.locator('#parcel-address').filter({hasText:'608 BLANCO ST'}).waitFor();
+    assert.equal(await f.locator('#drawer-close').evaluate(el=>document.activeElement===el),true);
     await f.locator('#parcel-city').click();
     assert.equal(await f.locator('[data-filter=scope]').inputValue(),'parcel');
     assert.equal(await f.locator('.city-hall-result').count(),1);
     assert.match(await f.locator('.city-hall-result').innerText(),/608 BLANCO STREET/);
+    assert.equal(detailCalls,0,'Selecting an address reuses the parcel row');
+    releaseDistrict();
+    await f.locator('.city-hall-intro').filter({hasText:'Council District 9'}).waitFor();
     await f.locator('[data-filter=category]').selectOption('meetings');assert.equal(await f.locator('.city-hall-result').count(),3);
+    await f.locator('#hall-close').click();await f.locator('#drawer-close').click();
+    assert.equal(await f.locator('#address-matches button').first().evaluate(el=>document.activeElement===el),true);
+    await f.locator('#address-matches button').first().click();
     expired=true;await page.reload();f=await(await page.locator('#app-window').elementHandle()).contentFrame();await f.locator('#ctrlCityHall').waitFor();assert.equal(await f.locator('#city-hall-panel').isHidden(),true);await openCity(f);await f.locator('.city-hall-status').filter({hasText:'0 upcoming meetings'}).waitFor();assert.equal(await f.locator('.city-hall-result').count(),0);
     assert.deepEqual(errors,[]);await context.close();console.log(width+'px: City Hall in the parcel workspace, dropdowns, date windows/sort, retries, pagination, safe links, focus, matching parcel permit, district meetings, expired data and layout passed.');
   }

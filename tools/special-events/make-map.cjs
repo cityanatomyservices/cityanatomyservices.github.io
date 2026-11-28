@@ -4,8 +4,8 @@ let html=fs.readFileSync(path.join(root,'chat/index.html'),'utf8').replace(/\r\n
 // Main Day Planner uses an inline wizard with embedded discovery; events keep their existing editor.
 html=html.replace(/    <section id="plan-panel"[\s\S]*?(?=    <p class="map-caption")/,fs.readFileSync(path.join(__dirname,'planner.html'),'utf8').replace(/\r\n/g,'\n'));
 html=html.replace(/^.*(?:planner\/wizard\.(?:js|css)|chat-map\.js)\?v=.*\n/gm,'').replace(/<p id="chat-(?:map|circles)-status" role="status"><\/p>/g,'');
-// Geo Fence is a main-page navigation link, not an event-map control.
-html=html.replace(/      <a[^>]*id="ctrlGeoFence"[^>]*>[\s\S]*?<\/a>\n/,'');
+// Geo Fence and the parcel workspace open from the home map.
+html=html.replace(/      <a[^>]*id="(?:ctrlGeoFence|ctrlParcels)"[^>]*>[\s\S]*?<\/a>\n/g,'');
 // The main map puts businesses in Explore. Event maps have Stops instead,
 // so retain their combined directory/chat card and separate conversation.
 const conversation=html.match(/          <!-- The conversation[^\n]*\n(          <section class="chatwin"[\s\S]*?          <\/section>)\n/);

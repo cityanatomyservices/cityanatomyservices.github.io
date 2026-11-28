@@ -1,18 +1,20 @@
 /* Dates and filtering are independent of the visitor's computer time zone. */
 (() => {
   const dates = typeof module !== 'undefined' ? require('../explore/model.js') : window.ExploreModel;
-  const day = value => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value));
+  const calendar = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' });
+  const day = value => calendar.format(new Date(value));
   const shift = (value, days) => new Date(Date.parse(value + 'T12:00:00Z') + days * 86400000).toISOString().slice(0, 10);
-  function current(record, now = Date.now()) {
+  function current(record, now = Date.now(), today = day(now)) {
     if (!Number.isFinite(Date.parse(record.date)) || !(Date.parse(record.expires) > now) || record.cancelled) return false;
-    const today = day(now), when = day(record.date);
+    const when = day(record.date);
     if (record.category === 'meetings') return when >= today && when < shift(today, 7) && (record.dateOnly || Date.parse(record.date) >= now);
     if (record.hearingDate) return record.hearingDate >= today;
     return when <= today && when >= shift(today, record.category === 'permits' ? -6 : -29);
   }
   function filter(records, state, now = Date.now()) {
     const query = (state.query || '').trim().toLowerCase();
-    return records.filter(r => current(r, now) && r.category === state.category &&
+    const today = day(now);
+    return records.filter(r => r.category === state.category && current(r, now, today) &&
       matchesDate(r, state, now) &&
       (!state.district || r.scope === 'citywide' || r.districts?.includes(state.district)) &&
       (!state.board || state.category !== 'meetings' || r.board === state.board) &&

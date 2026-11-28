@@ -40,6 +40,10 @@
 
   // Run the search with whatever is currently in the form.
   function runSearch() {
+    for (const [min, max] of [[elFarMin, elFarMax], [elHeightMin, elHeightMax]]) {
+      max.setCustomValidity(min.value && max.value && min.valueAsNumber > max.valueAsNumber ? 'Maximum must be at least the minimum.' : '');
+      if (!min.reportValidity() || !max.reportValidity()) return;
+    }
     const s = collect();
     const active =
       s.categories.length > 0 ||
@@ -92,7 +96,9 @@
       return;
     }
     elResult.dataset.state = 'done';
-    if (d.count === 0) {
+    if (d.limited) {
+      elResult.textContent = 'At least ' + d.count.toLocaleString('en-US') + ' parcels match. Zoom in to highlight matches.';
+    } else if (d.count === 0) {
       elResult.textContent = 'No parcels match in this view';
     } else if (d.count === 1) {
       elResult.textContent = '1 parcel matches in this view';

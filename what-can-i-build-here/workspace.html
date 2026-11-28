@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/chat/explore/explore.css?v=20261104a">
   <link rel="stylesheet" href="/chat/city-hall/city-hall.css?v=20261104a">
   <link rel="stylesheet" href="/planner/select.css?v=20261029v">
-  <link rel="stylesheet" href="./page.css?v=20261128a">
+  <link rel="stylesheet" href="./page.css?v=20261128b">
   <script>if (window === window.top) location.replace('./' + location.search + location.hash);</script>
 </head>
 <body>
@@ -27,8 +27,6 @@
   <div id="map" aria-label="Austin parcel map"></div>
 
   <div id="zoom-hint" class="zoom-hint" hidden>Zoom in to view parcels</div>
-
-
 
   <aside id="filter-panel" class="filter-panel" aria-label="Parcel search filters">
     <button id="filter-toggle" class="filter-toggle" type="button"
@@ -126,13 +124,14 @@
     <h1>What can I build here?</h1>
     <p id="access-status" role="status">Opening the parcel map…</p>
     <button id="access-action" type="button" hidden></button>
+    <button id="access-manage" type="button" hidden>Manage billing</button>
   </section>
   <script src="/chat/theme.js?v=20261028g"></script>
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/pmtiles@3/dist/pmtiles.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"></script>
   <script src="/chat/config.js?v=20261029a"></script>
-  <script src="/shared/visit.js?v=20261128a"></script>
+  <script src="/shared/visit.js?v=20261128b"></script>
   <script src="/shared/session.js?v=20261122v"></script>
   <script src="/shared/member.js?v=20261122v"></script>
   <script src="/shared/reminders.js?v=20261122v"></script>
@@ -144,12 +143,12 @@
   <script src="/planner/repository.js?v=20261109d"></script>
   <script src="/planner/store.js?v=20261122w"></script>
   <script src="/planner/select.js?v=20261102g"></script>
-  <script src="/chat/city-hall/model.js?v=20261128a"></script>
-  <script src="/chat/city-hall/city-hall.js?v=20261128a"></script>
+  <script src="/chat/city-hall/model.js?v=20261128b"></script>
+  <script src="/chat/city-hall/city-hall.js?v=20261128b"></script>
   <script src="/parcels/config.js?v=20261128a"></script>
-  <script src="/parcels/api.js?v=20261128a"></script>
-  <script src="/parcels/drawer.js?v=20261128a"></script>
-  <script src="/parcels/filter.js?v=20261128a"></script>
-  <script src="./access.js?v=20261128a"></script>
+  <script src="/parcels/api.js?v=20261128b"></script>
+  <script src="/parcels/drawer.js?v=20261128b"></script>
+  <script src="/parcels/filter.js?v=20261128b"></script>
+  <script src="./access.js?v=20261128b"></script>
 </body>
 </html>

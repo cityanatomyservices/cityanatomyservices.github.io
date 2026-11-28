@@ -1,4 +1,5 @@
 # STATUS — cityanatomyservices.github.io (austin.chat)
+
 ## 2026-11-28 – What can I build here?
 
 The home map button beside Geo Fence opens `/what-can-i-build-here/`. The page
@@ -10,17 +11,25 @@ when a guest returns to the Day Planner.
 The deployed `parcel-page` Edge Function grants guest access with
 `PARCEL_PAGE_ACCESS=testing`. It rejects payment and portal requests in that mode.
 Migration 0027 isolates parcel subscriptions from Pro. For the eventual $10/month
-launch, configure a dedicated recurring USD price with Stripe price metadata
+launch, configure a dedicated flat-rate recurring USD price with Stripe price metadata
 `austin_product=parcels` and a cancellation portal. The function reads
-`PARCEL_STRIPE_LIVE_PRICE` and `PARCEL_STRIPE_LIVE_PORTAL` in live billing mode.
-Test the corresponding TEST settings with a sandbox account before switching the
-parcel access setting to `paid`. Access is reconciled against current paid invoices
+`PARCEL_STRIPE_LIVE_PRICE` and `PARCEL_STRIPE_LIVE_PORTAL` when its independent
+`PARCEL_STRIPE_MODE` is `live`. It defaults to `test`. Verify the corresponding TEST
+settings with a sandbox account before activating paid access for visitors.
+Access is reconciled against current paid invoices
 when the page opens. Map startup and parcel context are served by the function and
 excluded from the Pages artifact. Re-deploy the function for changes to those modules.
 
 Parcel 106509 (608 Blanco St) provided a real address match in the November 28
 permit feed. Meetings show published district or citywide scope. The desktop and
 mobile browser checks cover City Hall filtering and guest planner round trips.
+
+The follow-up review added address search, reports and City Hall coverage for
+devices that cannot initialize WebGL. Selecting an address reuses its parcel row.
+Permit matches can appear while district boundaries are still loading. Area
+filters request up to 1,000 rows and prompt visitors to zoom in at that limit.
+The billing tests exercise separate subscription and portal actions for returning
+customers. Guest testing continues with checkout disabled.
 
 ## 2026-11-28 - Farmers’ market consolidation and morning feed checks
 
