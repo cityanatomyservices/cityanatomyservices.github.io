@@ -68,10 +68,9 @@
   {
    "name": "SFC Farmers’ Markets",
    "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",
-   "ok": false,
-   "failures": 1,
-   "error": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/: unavailable after 3 attempts: Published market schedule or address changed; review required (7452 bytes, HTML response)",
-   "count": 4
+   "ok": true,
+   "failures": 0,
+   "count": 3
   },
   {
    "name": "Farmer George",
@@ -186,7 +185,7 @@
     "end": "2026-11-28T13:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-28T08:31:33.959967+00:00",
+    "checked": "2026-11-28T12:33:22.912733+00:00",
     "expires": "2026-11-28T13:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -217,7 +216,7 @@
     "end": "2026-11-28T13:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-28T08:31:33.959967+00:00",
+    "checked": "2026-11-28T12:33:22.912733+00:00",
     "expires": "2026-11-28T13:00:00-06:00",
     "price": null,
     "priceLabel": "Check admission",
@@ -632,37 +631,6 @@
   },
   {
    "type": "Feature",
-   "id": "3010325372486ba4cfab",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -97.746940539285,
-     30.2674352781
-    ]
-   },
-   "properties": {
-    "id": "3010325372486ba4cfab",
-    "title": "SFC Farmers’ Market Downtown",
-    "venue": "Republic Square",
-    "address": "422 Guadalupe St Austin TX 78701",
-    "kind": "listing",
-    "theme": "pop-up-markets",
-    "start": "2026-12-05T09:00:00-06:00",
-    "end": "2026-12-05T13:00:00-06:00",
-    "endKnown": true,
-    "allDay": false,
-    "checked": "2026-11-28T08:31:33.959967+00:00",
-    "expires": "2026-11-29T08:31:33.959967+00:00",
-    "price": null,
-    "priceLabel": "Check admission",
-    "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",
-    "source": "SFC Farmers’ Markets",
-    "description": "Regular published schedule; check the organizer for weather and holiday changes.",
-    "conditions": "Check the organizer for tickets, age limits, admission conditions and schedule changes."
-   }
-  },
-  {
-   "type": "Feature",
    "id": "8c84a2e17d6be0243fe8",
    "geometry": {
     "type": "Point",
@@ -682,8 +650,8 @@
     "end": "2026-12-05T13:00:00-06:00",
     "endKnown": true,
     "allDay": false,
-    "checked": "2026-11-28T08:31:33.959967+00:00",
-    "expires": "2026-11-29T08:31:33.959967+00:00",
+    "checked": "2026-11-28T12:33:22.912733+00:00",
+    "expires": "2026-11-29T12:33:22.912733+00:00",
     "price": null,
     "priceLabel": "Check admission",
     "url": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/",

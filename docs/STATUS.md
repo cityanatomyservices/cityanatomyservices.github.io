@@ -12,6 +12,10 @@ The morning production check detected the SFC source warning. Local checks
 against the organizer returned both November 28 locations and only Sunset
 Valley for December 5. The delayed City Hall, ticker and news refreshes
 completed in Actions runs `46144817671`, `46144820098` and `46144822239`.
+Explore run `46144975322` passed with a warning after three unsuccessful SFC
+reads from GitHub. A direct import from the organizer refreshed the three
+verified occurrences and removed the obsolete December 5 Downtown listing.
+All other market data retained its original verification times.
 
 ## 2026-11-23 - Restore feed refreshes and repair GitHub Actions
 
